@@ -1,0 +1,163 @@
+--- rtptools-1.18\rtpdump.c	2002-09-10 12:30:54.000000000 +0200
++++ rtptools\rtpdump.c	2008-07-03 17:13:00.729618100 +0200
+@@ -54,7 +54,7 @@
+ static char rcsid[] = "$Id: rtpdump.c,v 1.6 2002/09/10 10:30:54 at541 Exp $";
+ 
+ typedef enum {F_invalid, F_dump, F_header, F_hex, F_rtcp, F_short,
+-   F_payload, F_ascii} t_format;
++   F_payload, F_ascii, F_itut} t_format;
+ 
+ /*
+ * Payload type map.
+@@ -68,7 +68,7 @@
+ static void usage(char *argv0)
+ {
+   fprintf(stderr, 
+-"Usage: %s [-F [hex|ascii|rtcp|short|payload|dump|header] [-t minutes]\
++"Usage: %s [-F [hex|ascii|rtcp|short|payload|dump|header|itut] [-t minutes]\
+  [-o outputfile] [-f inputfile] [-x bytes] [multicast]/port > file\n", 
+   argv0);
+ }
+@@ -100,6 +100,120 @@
+   }
+ } /* hex */
+ 
++#define BIT_0     (	short)0x007f	/* definition of zero-bit in bit-stream      */
++#define BIT_1		(short)0x0081	/* definition of one-bit in bit-stream       */
++#define SYNC_WORD	(short)0x6b21	/* definition of frame erasure flag          */
++#define RATE_8000	80				/* number of speech bits                     */
++#define RATE_0		0				/* 0 bit/s rate                  */
++#define RATE_SID_OCTET    16		/* number of bits in Octet Transmission mode */
++
++typedef  short int   Word16   ;
++
++/*----------------------------------------------------------------------------
++ * ntoitut convert network packet to itut format
++ *----------------------------------------------------------------------------
++ */
++static void ntoitut(char *input, int no_of_bits, Word16 *bitstream)
++{
++	Word16 iii, bit, mask_bit;
++
++	for (iii = 0 ; iii < no_of_bits ; iii++) {
++		mask_bit = iii % 8;
++		if ((iii > 0) && (mask_bit == 0)) {
++			input++;
++		}
++		bit = *input & (1 << (7 - mask_bit));      /* get bit */
++		if (bit == 0) {
++			*bitstream++ = BIT_0;
++		}
++		else {
++			*bitstream++ = BIT_1;
++		}
++   }
++}
++
++/*
++ * Print buffer 'data' of length 'len' bytes in itut format to file 'out'.
++ * The 'header' with length 'hlen' is needed.
++ * Doesn't support G729D and G729E
++ * Return 0 if failed, 1 otherwise.
++ */
++static int itut(FILE *out, char *header, int hlen, char *data, int len)
++{
++	int iii;
++	int bits = 0;
++	long missing;
++	Word16 wordBuffer[RATE_8000+2];
++	rtp_hdr_t *r = (rtp_hdr_t *)header;
++	unsigned long ts = ntohl(r->ts);
++	static unsigned int oldLen = 0;
++	static unsigned long oldTs = 0;
++	static char first = 1;
++	int ptr = 0;
++
++	if (strcmp(pt_map[r->pt].enc, "G729") != 0) {
++		return 0;
++	}
++	if (pt_map[r->pt].ch != 1) {
++		return 0;
++	}
++	if (pt_map[r->pt].rate != 8000) {
++		return 0;
++	}
++
++	if (first) {
++		oldLen = len;
++		oldTs = ts;
++		first = 0;
++	}
++
++	// Count packets lost or silent
++	if (ts >= oldTs) {
++		missing = ((ts - oldTs) / 80) - (oldLen / 10);
++	}
++	else {
++		missing = ((ts - (0xFFFFFFFF - oldTs) + 1) / 80) - (oldLen / 10);
++	}
++	// We don't need to insert empty packet if we have a SID frame
++	if ((oldLen % 10) == 2) {
++		missing--;
++	}
++
++	// Replace non existing or silent packets with empty packet in the output bitstream
++	for (iii = 0 ; iii < missing ; iii++) {
++		wordBuffer[0] = SYNC_WORD;			// sync
++		wordBuffer[1] = RATE_0;				// length = 0
++		fwrite(wordBuffer, sizeof(Word16), RATE_0 + 2, out);
++	}
++
++	oldLen = len;
++	oldTs = ts;
++
++	// Speech packets
++	while (len >= 10) {
++		wordBuffer[0] = SYNC_WORD;			// sync
++		wordBuffer[1] = RATE_8000;			// length
++		ntoitut(&data[ptr], RATE_8000, &wordBuffer[2]);
++		fwrite(wordBuffer, sizeof(Word16), RATE_8000 + 2, out);
++
++		ptr += 10;
++		len -= 10;
++	}
++
++	// SID frames
++	while (len >= 2) {
++		wordBuffer[0] = SYNC_WORD;			// sync
++		wordBuffer[1] = RATE_SID_OCTET;		// length
++		ntoitut(&data[ptr], RATE_SID_OCTET, &wordBuffer[2]);
++		fwrite(wordBuffer, sizeof(Word16), RATE_SID_OCTET + 2, out);
++
++		ptr += 2;
++		len -= 2;
++	}
++
++	return 1;
++} /* itut */
++
+ 
+ /*
+ * Open network sockets.
+@@ -562,6 +676,13 @@
+       }
+       break;
+ 
++    case F_itut:
++      if (ctrl == 0) {
++        hlen = parse_header(packet->p.data);
++        itut(out, packet->p.data, hlen, packet->p.data + hlen, trunc < len ? trunc : len - hlen);
++      }
++      break;
++
+     case F_short:
+       if (ctrl == 0) parse_short(out, now, packet->p.data, len);
+       break;
+@@ -609,6 +730,7 @@
+     {"short",   F_short},
+     {"payload", F_payload},
+     {"ascii",   F_ascii},
++    {"itut",    F_itut},
+     {0,0} 
+   };
+   t_format format = F_ascii;

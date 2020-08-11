@@ -1,0 +1,105 @@
+Debug {
+    Filename "mate_debug.txt";
+    Level 1;
+    Pdu Level 6;
+};
+
+Transform mmseHttpMsg {
+    Match (method="GET") Insert (mmse_msg="retrieve", user_mms, retrieval);
+    Match (mmse_msg=128) Replace (send_req, send);
+    Match (mmse_msg=129) Replace (send_conf);
+    Match (mmse_msg=130) Replace (notify);
+    Match (mmse_msg=131) Replace (notif_resp, acking);
+    Match (mmse_msg=132) Replace (retrieve_conf);
+    Match (mmse_msg=133) Replace (ack);
+    Match (mmse_msg=134) Replace (delivery);
+};
+
+Transform mmseHttpProblem {
+    Match (response=401) Replace (http_not_authorized, problem);
+    Match (response=404) Replace (http_not_found, problem);
+    Match (response^4) Replace (http_client_error, problem);
+    Match (response^5) Replace (http_server_error, problem);
+
+    Match (response_status=128) Replace (mmse_ok);
+    Match (response_status=130, resp_txt^"2504:") Replace (no_funds, .minor_problem);
+    Match (response_status=130) Replace (service_denied, problem);
+    Match (response_status=131) Replace (corrupt, minor_problem);
+    Match (response_status=132) Replace (irressolvable, minor_problem);
+    Match (response_status) Replace (other_sending_error, problem);
+
+    Match (response=200) Replace (http_ok);
+};
+
+Transform http_mark {
+    Match (method);
+    Match Every (client) Insert (not_request);
+};
+
+Transform http_clean {
+    Match (not_request, client) Replace ();
+};
+
+Pdu mmseHttpPdu Proto http Transport tcp/ip {
+    Payload mmse;
+    
+    Extract addr From ip.addr;
+    Extract port From tcp.port;
+    Extract response From http.response.code;
+    Extract method From http.request.method;
+    Extract host From http.host;
+    Extract client From ip.src;
+    Extract uri From http.request.uri;
+    Extract trx From mmse.transaction_id;
+    Extract mmse_msg From mmse.message_type; 
+    Extract response_status From mmse.response_status;
+    Extract resp_txt From mmse.response_text;
+    
+    Transform http_mark, http_clean, mmseHttpMsg, mmseHttpProblem;
+};
+
+Transform mmseHttpState {
+    Match (mmse_ok, send) Replace (sending);
+    Match (mmse_ok, sending) Replace (not_sent);
+    Match (minor_problem, sending) Insert (not_sent);
+
+    Match (mmse_ok, retrieve_conf, retrieving) Replace (retrieved);
+    Match (http_ok, acking) Replace (acknowledged);
+
+    Match (notif_resp) Replace (acking);
+    Match (acking, http_ok) Replace (acked);
+    Match (acking) Replace (not_acked);
+};
+
+Gop mmseHttp On mmseHttpPdu Match (addr, addr, port, port) {
+    Start (method);
+    Stop (response);
+    Extra (host,client, trx, uri, sending, retrieving, problem, http_problem, problem, mmse_problem, minor_problem, http_not_authorized, http_not_found, http_client_error, http_server_error, no_funds, service_denied, corrupt, irressolvable, other_sending_error, http_ok, user_mms, campaign_mms, send, retrieval, acking);
+    Transform mmseHttpState;
+};
+
+Transform mmseWspMsg{
+    Insert (notify);
+};
+
+Pdu mmseWspPdu Proto wsp Transport ip {
+    Payload mmse;
+    Extract trx From mmse.transaction_id;
+    Extract client From ip.dst;
+    Extract uri From mmse.content_location; 
+    Transform mmseWspMsg;
+};
+
+Gop mmseWsp On mmseWspPdu Match (trx) {
+    Start (trx); 
+    Stop (never);
+    Extra (client, notify, trx, uri);
+};
+
+Gog mms {
+    Member mmseHttp (client, trx);
+    Member mmseHttp (client, uri);
+    Member mmseWsp (client, uri);
+    Extra (client, notify, host, trx, uri, sending, retrieving, problem, http_problem, mmse_problem, minor_problem, retrieved);
+    Expiration 300.0;
+};

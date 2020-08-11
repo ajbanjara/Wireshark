@@ -1,0 +1,452 @@
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:35
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  16:44:29 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       39   
+             HC/MT=H'01           IAM                                    
+                 H'14087601 1820010A 00020B09 83109024 05519412 0F0A0703 
+                 H'13493269 23210801 801D0380 90A33902 3DC000            
+00:00:012 M:SEIZURE CA                   GP-A                       39   
+                 H'00007600 70000002 02000000 000000                     
+00:00:020 O: JC1=H'21 JC2=H'2A SENT      GP-A                       39   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C 6816000C 02000282 81                
+00:00:208 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       39   
+             HC/MT=H'10           RLC                                    
+                 H'14087610 00                                           
+00:00:212 M:RELEASE C                    GP-A                       39   
+                 UNALLOCATED NUMBER                                      
+                 H'70000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0D000000 00942501 549210           
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   84                              
+OPMODE                                                  
+CIC                  0-24                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     40 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  16:44:31 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       40   
+             HC/MT=H'01           IAM                                    
+                 H'14087801 1820010A 00020A08 03109024 851090F4 0A070313 
+                 H'49227463 97080102 1A040919 27A41D03 8090A339 023DC000 
+00:00:012 M:SEIZURE CA                   GP-A                       40   
+                 H'00007800 7F000002 02000000 000000                     
+00:00:024 O: JC1=H'21 JC2=H'2A SENT      GP-A                       40   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C 8818000C 02000282 81                
+00:00:164 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       40   
+             HC/MT=H'10           RLC                                    
+                 H'14087810 00                                           
+00:00:168 M:RELEASE C                    GP-A                       40   
+                 UNALLOCATED NUMBER                                      
+                 H'7F000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0C000000 00942580 1094             
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   86                              
+OPMODE                                                  
+CIC                  0-26                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     41 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  16:45:20 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       41   
+             HC/MT=H'01           IAM                                    
+                 H'14087A01 1820010A 00020B09 83109024 05519412 0F0A0703 
+                 H'13493269 23210801 801D0380 90A33902 3DC000            
+00:00:012 M:SEIZURE CA                   GP-A                       41   
+                 H'00007A00 7E000002 02000000 000000                     
+00:00:020 O: JC1=H'21 JC2=H'2A SENT      GP-A                       41   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C A81A000C 02000282 81                
+00:00:164 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       41   
+             HC/MT=H'10           RLC                                    
+                 H'14087A10 00                                           
+00:00:168 M:RELEASE C                    GP-A                       41   
+                 UNALLOCATED NUMBER                                      
+                 H'7E000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0D000000 00942501 549210           
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   88                              
+OPMODE                                                  
+CIC                  0-28                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     42 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  16:45:52 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       42   
+             HC/MT=H'01           IAM                                    
+                 H'14087C01 1820010A 00020A08 03109024 055194F2 0A070313 
+                 H'49326923 21080180 1D038090 A339023D C000              
+00:00:012 M:SEIZURE CA                   GP-A                       42   
+                 H'00007C00 7D000002 02000000 000000                     
+00:00:020 O: JC1=H'21 JC2=H'2A SENT      GP-A                       42   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C C81C000C 02000282 81                
+00:00:164 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       42   
+             HC/MT=H'10           RLC                                    
+                 H'14087C10 00                                           
+00:00:168 M:RELEASE C                    GP-A                       42   
+                 UNALLOCATED NUMBER                                      
+                 H'7D000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0C000000 00942501 5492             
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:36
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   90                              
+OPMODE                                                  
+CIC                  0-30                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     43 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:37
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  16:46:05 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       43   
+             HC/MT=H'01           IAM                                    
+                 H'14087E01 1820010A 00020A08 03109024 055194F2 0A070313 
+                 H'49326923 21080180 1D038090 A339023D C000              
+00:00:012 M:SEIZURE CA                   GP-A                       43   
+                 H'00007E00 7C000002 02000000 000000                     
+00:00:020 O: JC1=H'21 JC2=H'2A SENT      GP-A                       43   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C E81E000C 02000282 81                
+00:00:200 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       43   
+             HC/MT=H'10           RLC                                    
+                 H'14087E10 00                                           
+00:00:204 M:RELEASE C                    GP-A                       43   
+                 UNALLOCATED NUMBER                                      
+                 H'7C000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0C000000 00942501 5492             
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:37
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   83                              
+OPMODE                                                  
+CIC                  0-23                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     44 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:37
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  16:47:36 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       44   
+             HC/MT=H'01           IAM                                    
+                 H'14087701 1820010A 00020A08 03109024 054129F2 0A070313 
+                 H'49326953 55080102 1A040919 27A41D03 8090A339 023DC000 
+00:00:012 M:SEIZURE CA                   GP-A                       44   
+                 H'00007700 7B000002 02000000 000000                     
+00:00:020 O: JC1=H'21 JC2=H'2A SENT      GP-A                       44   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C 7817000C 02000282 81                
+00:00:216 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       44   
+             HC/MT=H'10           RLC                                    
+                 H'14087710 00                                           
+00:00:220 M:RELEASE C                    GP-A                       44   
+                 UNALLOCATED NUMBER                                      
+                 H'7B000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0C000000 00942501 4922             
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:37
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   63                              
+OPMODE                                                  
+CIC                  0- 3                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     45 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:37
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  17:02:48 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       45   
+             HC/MT=H'01           IAM                                    
+                 H'14086301 1820010A 00020A08 03109024 054413F2 0A070313 
+                 H'49028035 191D0380 90A33902 3DC000                     
+00:00:012 M:SEIZURE CA                   GP-A                       45   
+                 H'00006300 7A000002 02000000 000000                     
+00:00:020 O: JC1=H'21 JC2=H'2A SENT      GP-A                       45   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C 3803000C 02000282 81                
+00:00:160 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       45   
+             HC/MT=H'10           RLC                                    
+                 H'14086310 00                                           
+00:00:164 M:RELEASE C                    GP-A                       45   
+                 UNALLOCATED NUMBER                                      
+                 H'7A000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0C000000 00942504 4312             
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:37
+8258  NetM         AMD001             3091/08194 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+                               
+START OF CALL RELATED TRACE 
+ 
+                   A-SIDE INFORMATION           B-SIDE INFORMATION 
+        SELECTION: BY TRACER ACTIVATION                              
+------------------+----------------------------+------------------------ 
+LAC                                                    
+DN                                                           
+EQN/LTG LC                                                    
+TGNO/PA            BNSTMG                              
+LNO                   81                              
+OPMODE                                                  
+CIC                  0-21                              
+CIRCUIT   TYPE     DIUSIG07                              
+SIGNALING TYPE     CCS7 ISUP                                           
+SIGNALING VARIANT   1                              
+CODE RECEIVER                                                 
+LIST-ID(S) 
+                     46 LTG 2-4                                       
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:38
+8258  NetM         AMD001             3091/08099 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                   
+
+TIME OF FIRST TRACED EVENT = 10-03-08  17:04:22 
+ 
+RELATIVE 
+TIMESTAMP                                                           LIST 
+ M  S  MS     TRACE EVENT                TRACED IN  EVENT DIRECTION  ID 
+---------+------------------------------+----------+---------------+---- 
+00:00:000 O: JC1=H'1A JC2=H'85 RECEIVED  GP-A                       46   
+             HC/MT=H'01           IAM                                    
+                 H'14087501 1820010A 00020A08 03109024 054421F7 0A070313 
+                 H'49028035 191D0380 90A33902 3DC000                     
+00:00:012 M:SEIZURE CA                   GP-A                       46   
+                 H'00007500 79000002 02000000 000000                     
+00:00:024 O: JC1=H'21 JC2=H'2A SENT      GP-A                       46   
+             HC/MT=H'0C           REL                                    
+                 H'09080300 853E292C 5815000C 02000282 81                
+00:00:176 O: JC1=H'1A JC2=H'A5 RECEIVED  GP-A                       46   
+             HC/MT=H'10           RLC                                    
+                 H'14087510 00                                           
+00:00:180 M:RELEASE C                    GP-A                       46   
+                 UNALLOCATED NUMBER                                      
+                 H'79000000 0A000000 00000004 01000000 00000000 00000000 
+                 H'00000000 00000000 0C000000 00942504 4127             
+END TEXT 8258
+
+
+
+NGPTX/A39336T1195/INDCPK1V16314804/106                10-03-08  17:10:38
+8258  NetM         AMD001             3091/00007 
+
+DMPSIGNTRAC:DISPLAY=NORMAL;                                       EXEC'D 
+
+
+END JOB 8258
+

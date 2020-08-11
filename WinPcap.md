@@ -1,0 +1,57 @@
+# Windows Packet Capture
+
+[Npcap](https://nmap.org/npcap/) and [WinPcap](http://www.winpcap.org) are Windows versions of the [libpcap](http://www.tcpdump.org/) library. One of them must be installed in order to capture live network traffic on Windows.
+
+The Wireshark installer from 3.0 onwards includes [Npcap](https://nmap.org/npcap/), where versions before include WinPcap. Even with the older Wireshark versions Npcap might work better for you, especially if you run Windows 10.
+
+See [CaptureSetup/CapturePrivileges](/CaptureSetup/CapturePrivileges) for information about using Npcap and WinPcap with Wireshark.
+
+The libpcap/WinPcap file format description can be found at: [Development/LibpcapFileFormat](/Development/LibpcapFileFormat)
+
+## Npcap Versions
+
+:warning: **Since Npcap is just getting its first widespread exposure to the world unexpected issues may arise. Please use an updated version when possible.**
+
+See the "Add or Remove Programs" list of the "Control Panel" for the installed version.
+
+## WinPcap Versions
+
+:warning: **We strongly recommend that you use version 4.1.3 or 3.1. Some annoying bugs are fixed in these versions\!**
+
+See the "Add or Remove Programs" list of the "Control Panel" for the installed version.
+
+### Latest Stable Release: 4.1.3
+
+The current and last WinPcap release version is 4.1.3. The 4.1.x versions contain the following improvements:
+
+  - Support for Windows XP, Vista, 2008, Windows 7, 2008R2 64 bit, Windows 8 and Server 2012
+  - Allows remote capture to work with Wireshark
+  - Based on libpcap 1.0
+
+WinPcap 4.x does not support Windows 3.1, 95, 98, or ME.
+
+### Previous Stable Release: 3.1
+
+This version contains substantial bug fixes and extensions above the 3.0 release:
+
+  - based on libpcap 0.9.3, with many fixes and extensions above the older version
+  - dial-up connections (e.g. PPP) can be captured on Windows 2000, Windows XP, and Windows Server 2003, as well as Windows 95, Windows 98, and Windows Me, which were supported by previous releases
+  - "can't get a list of interfaces" error fixed
+
+See [the change log for WinPcap](http://www.winpcap.org/misc/changelog.htm) for a more complete list (although some of those bugs might be bugs in older 3.1 betas rather than in 3.0).
+
+## Installation
+
+The Wireshark installer will copy the WinPcap installer and call it, so you get installation done "all in one place". This is the same WinPcap installer that you can get from WinPcap's [download](http://www.winpcap.org/install/default.htm) page.
+
+However, you might need to install WinPcap by the standalone installer, if you want to try the latest alpha/beta, or there might even be a new WinPcap release version available.
+
+The User's Guide [Installing Wireshark under Windows](http://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallWinInstall.html) page will also describe how to install WinPcap.
+
+## Windows Versions
+
+You'll find complete information about this topic at [WinPcap FAQ \#14](http://www.winpcap.org/misc/faq.htm#Q-14).
+
+---
+
+Imported from https://wiki.wireshark.org/WinPcap on 2020-08-11 23:27:29 UTC

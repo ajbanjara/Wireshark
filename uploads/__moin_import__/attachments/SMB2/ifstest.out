@@ -1,0 +1,267 @@
++++Microsoft (R) Installable File System Test for Windows NT/2000+++
++++Test SW Build 0007 Init Tuesday November 8, 2005 09:38:57+++
+
+Parameters
+  DeviceObject         =
+  RootVolumeObject     =\??\W:
+  VolumeObject         =\??\W:
+  SecondVolumeObject   =
+  MaxComponentLength   =255
+  AllocationSize       =4096
+  PageSize             =4096
+  ReadOnly             =FALSE
+  UnicodeOnDisk        =TRUE
+  CaseSensitive        =TRUE
+  PreserveCase         =TRUE
+  PageFile             =FALSE
+  Compression          =TRUE
+  FatCompatible        =FALSE
+  MountedDirty         =FALSE
+  DASDExtend           =FALSE
+  RemovableMedia       =FALSE
+  NtlogDefault         =35b4
+  Windows2000          =FALSE
+  SupportEAs           =TRUE
+  WaitForIOTime        =1000
+SystemInformation
+  MachineName          =VISTA1
+  Disable8dot3         =FALSE
+  Win31FileSystem      =FALSE
+  Win95TruncExt        =TRUE
+  OSVersion            =6.0
+  BuildNumber          =5231
+  ServiceVersion       =
+  ProcessorCount       =1
+  BiosDate             =04/21/04
+  BiosVersion          =PTLTD  - 6040000
+  ProcessorIdentifier  =x86 Family 6 Model 13 Stepping 8
+  ProcessorType        =x86
+VolumeInformation
+  VolCreationTime      =01C5E2C3C57EB926
+  VolSerialNumber      =C4C638BC
+  VolLabelLength       =0
+  SupportsObjects      =TRUE
+  VolLabel             =
+  TotalAllocSize       =2620415
+  SectorsPerAllocUnit  =8
+  BytesPerSector       =512
+  DevType              =7
+  Characteristics      =00000010
+  FileSystemAttributes =002700FF
+  FileSystemNameLength =8
+  FileSystemName       =NTFS
+
+Test         :OpenCreateGeneral
+Group        :OpenCreateGeneral
+File         :g:\ifstest\code\opcreatg\util.c
+Line         :517
+Status       :87 (IFSTEST_SETUP_NTAPI_CREATE_DIR_FAILURE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A required directory \??\W:\opcreatg, could not be created. Check
+to make sure the directory does not already exist and is
+not being accessed. Be sure the directory path is valid. 
+
+OpenFileTest
+OpenFileDirTest
+Test         :CreateFileTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\crfile.c
+Line         :150
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the file (\elifrc.dat)
+in the directory (\??\W:\opcreatp).  Check the last
+NT status returned.  
+
+Test         :CreateFileDirTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\crfiled.c
+Line         :151
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the directory
+(\delifrc) in the directory (\??\W:\opcreatp).  Check the last
+NT status returned.  
+
+Test         :OpenAlwaysFileTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\opalfile.c
+Line         :157
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the file (\eliflapo.dat)
+in the directory (\??\W:\opcreatp) with the open
+if parameter set.  Check the last NT status returned.  
+
+Test         :OpenAlwaysFileDirTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\opalfild.c
+Line         :157
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the directory
+(\rdiflapo) in the directory (\??\W:\opcreatp) with the open
+if parameter set.  Check the last NT status returned.  
+
+Test         :OverwriteFileTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\ovwrfile.c
+Line         :158
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :C0000034 STATUS_OBJECT_NAME_NOT_FOUND
+Description  :
+A failure was encountered when trying to overwrite the nonexisting
+file (\elifrwvo.dat) in the directory (\??\W:\opcreatp).
+ The file should not currently exist so the expected return
+is object name not found.  Check the last NT status returned.
+ 
+
+Test         :OverwriteFileAllocTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\ovwraloc.c
+Line         :160
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+An attempt was made to overwrite the file (\ovwraloc.dat) in
+the directory (\??\W:\opcreatp) with the file disposition file
+overwrite if, and allocation size set.  This should of overwritten
+the current allocation  size with a new inclusive
+allocation size.  Check the last NT status returned.  
+
+Test         :OverwriteFileAttrTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\ovwrattr.c
+Line         :299
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+An attempt was made to overwrite the file (\ovwrat.dat) in the
+directory (\??\W:\opcreatp) with the file disposition file
+overwrite if and the attributes hidden and system set.  This
+file was created with both hidden and system attribute set,
+so this overwrite should of succeeded.  Check the last NT
+status returned.  
+
+OverwriteAlwaysFileTest
+Test         :OverwriteAlwaysAllocTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\ovalal.c
+Line         :156
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the file (\lalavo.dat)
+in the directory (\??\W:\opcreatp).  This create was
+called with a disposition of OverWriteIf.  This should create
+the file if it does not exist.  Check the last NT status
+returned.  
+
+Test         :OverwriteAlwaysAttrTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\ovalattr.c
+Line         :185
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the file (\rttalavo.dat)
+in the directory (\??\W:\opcreatp).  This create
+was called with a disposition of OverWriteIf.  This should
+create the file if it does not exist.  Check the last NT status
+returned.  
+
+Test         :SupersedeFileTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\suprfile.c
+Line         :154
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+A failure was encountered when trying to create the file (\elifrpus.dat)
+in the directory (\??\W:\opcreatp).  This create
+was called with a disposition of file supersede.  Check the
+last NT status returned.  
+
+Test         :SupersedeFileAllocTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\supraloc.c
+Line         :164
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+An attempt was made to open the file (\supraloc.dat) in the directory
+(\??\W:\opcreatp) with the file disposition file supersed.
+ Check the last NT status returned.  
+
+Test         :SupersedeFileAttrTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\suprattr.c
+Line         :290
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+An attempt was made to open the file (\suprattr.dat) in the directory
+(\??\W:\opcreatp) with the file disposition file supersede
+and both of the attributes set: hidden and system. 
+This file was created with both attributes set, so to open it
+both have to be specified.  A status success was expected.
+ Check the last NT status returned.  
+
+Test         :FileAllocationSizeTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\filealoc.c
+Line         :226
+Status       :14 (IFSTEST_TEST_ALLOCATION_SIZE_ERROR)
+ExpectedGeneralValue :00007D00
+Description  :
+The queried allocation size of the file (\colaelif.dat) in the
+directory (\??\W:\opcreatp) was not larger than the requested
+allocation size.
+
+Test         :ExecuteAccessTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\execacc.c
+Line         :557
+Status       :23 (IFSTEST_TEST_FILE_EXECUTE_ERROR)
+Description  :
+The last access time of the file (\execacc.dat) in the directory
+(\??\W:\opcreatp) did not change.  The file was opened with
+the attribute file execute set, this open should of updated
+the last access time 
+
+ReadOnlyAttributeTest
+HiddenAttributeTest
+SystemAttributeTest
+Test         :ArchiveAttributeTest
+Group        :OpenCreateParameters
+File         :g:\ifstest\code\opcreatp\archattr.c
+Line         :165
+Status       :24 (IFSTEST_TEST_NTAPI_FAILURE_CODE)
+LastNtStatus     :C0000022 STATUS_ACCESS_DENIED
+ExpectedNtStatus :00000000 STATUS_SUCCESS
+Description  :
+An attempt was made to create the file (\archattr\rttahcra.dat)
+in the directory (\??\W:\opcreatp) with the attribute flag
+set to (
+
+NormalAttributeTest
+DirectoryAttributeTest
++++Test Completed Tuesday November 8, 2005 09:39:00+++

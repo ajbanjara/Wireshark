@@ -1,0 +1,155 @@
+# SMB2/Ioctl/Function
+
+This is a 4 byte field in the [SMB2/Ioctl](/SMB2/Ioctl) command that describes what kind of ioctl or fsctl is being used.
+
+## Structure
+
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    |            Device             | A :       Function        : M |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+## Device
+
+  - 0x0001 FILE\_DEVICE\_BEEP
+
+  - 0x0002 FILE\_DEVICE\_CD\_ROM
+
+  - 0x0003 FILE\_DEVICE\_CD\_ROM\_FILE\_SYSTEM
+
+  - 0x0004 FILE\_DEVICE\_CONTROLLER
+
+  - 0x0005 FILE\_DEVICE\_DATALINK
+
+  - 0x0006 FILE\_DEVICE\_DFS
+
+  - 0x0007 FILE\_DEVICE\_DISK
+
+  - 0x0008 FILE\_DEVICE\_DISK\_FILE\_SYSTEM
+
+  - 0x0009 [FILE\_DEVICE\_FILE\_SYSTEM](/SMB2/Ioctl/Function/FILE_DEVICE_FILE_SYSTEM)
+
+  - 0x000a FILE\_DEVICE\_INPORT\_PORT
+
+  - 0x000b FILE\_DEVICE\_KEYBOARD
+
+  - 0x000c FILE\_DEVICE\_MAILSLOT
+
+  - 0x000d FILE\_DEVICE\_MIDI\_IN
+
+  - 0x000e FILE\_DEVICE\_MIDI\_OUT
+
+  - 0x000f FILE\_DEVICE\_MOUSE
+
+  - 0x0010 FILE\_DEVICE\_MULTI\_UNC\_PROVIDER
+
+  - 0x0011 [FILE\_DEVICE\_NAMED\_PIPE](/SMB2/Ioctl/Function/FILE_DEVICE_NAMED_PIPE)
+
+  - 0x0012 FILE\_DEVICE\_NETWORK
+
+  - 0x0013 FILE\_DEVICE\_NETWORK\_BROWSER
+
+  - 0x0014 [FILE\_DEVICE\_NETWORK\_FILE\_SYSTEM](/SMB2/Ioctl/Function/FILE_DEVICE_NETWORK_FILE_SYSTEM)
+
+  - 0x0015 FILE\_DEVICE\_NULL
+
+  - 0x0016 FILE\_DEVICE\_PARALLEL\_PORT
+
+  - 0x0017 FILE\_DEVICE\_PHYSICAL\_NETCARD
+
+  - 0x0018 FILE\_DEVICE\_PRINTER
+
+  - 0x0019 FILE\_DEVICE\_SCANNER
+
+  - 0x001a FILE\_DEVICE\_SERIAL\_MOUSE\_PORT
+
+  - 0x001b FILE\_DEVICE\_SERIAL\_PORT
+
+  - 0x001c FILE\_DEVICE\_SCREEN
+
+  - 0x001d FILE\_DEVICE\_SOUND
+
+  - 0x001e FILE\_DEVICE\_STREAMS
+
+  - 0x001f FILE\_DEVICE\_TAPE
+
+  - 0x0020 FILE\_DEVICE\_TAPE\_FILE\_SYSTEM
+
+  - 0x0021 FILE\_DEVICE\_TRANSPORT
+
+  - 0x0022 FILE\_DEVICE\_UNKNOWN
+
+  - 0x0023 FILE\_DEVICE\_VIDEO
+
+  - 0x0024 FILE\_DEVICE\_VIRTUAL\_DISK
+
+  - 0x0025 FILE\_DEVICE\_WAVE\_IN
+
+  - 0x0026 FILE\_DEVICE\_WAVE\_OUT
+
+  - 0x0027 FILE\_DEVICE\_8042\_PORT
+
+  - 0x0028 FILE\_DEVICE\_NETWORK\_REDIRECTOR
+
+  - 0x0029 FILE\_DEVICE\_BATTERY
+
+  - 0x002a FILE\_DEVICE\_BUS\_EXTENDER
+
+  - 0x002b FILE\_DEVICE\_MODEM
+
+  - 0x002c FILE\_DEVICE\_VDM
+
+  - 0x002d FILE\_DEVICE\_MASS\_STORAGE
+
+  - 0x002e FILE\_DEVICE\_SMB
+
+  - 0x002f FILE\_DEVICE\_KS
+
+  - 0x0030 FILE\_DEVICE\_CHANGER
+
+  - 0x0031 FILE\_DEVICE\_SMARTCARD
+
+  - 0x0032 FILE\_DEVICE\_ACPI
+
+  - 0x0033 FILE\_DEVICE\_DVD
+
+  - 0x0034 FILE\_DEVICE\_FULLSCREEN\_VIDEO
+
+  - 0x0035 FILE\_DEVICE\_DFS\_FILE\_SYSTEM
+
+  - 0x0036 FILE\_DEVICE\_DFS\_VOLUME
+
+  - 0x0037 FILE\_DEVICE\_SERENUM
+
+  - 0x0038 FILE\_DEVICE\_TERMSRV
+
+  - 0x0039 FILE\_DEVICE\_KSEC
+
+## A
+
+``` 
+ 0x00  FILE_ANY_ACCESS
+ 0x01  FILE_READ_ACCESS
+ 0x02  FILE_WRITE_ACCESS
+ 0x03  FILE_READ_WRITE_ACCESS
+```
+
+## Method
+
+``` 
+ 0x00  METHOD_BUFFERED
+ 0x01  METHOD_IN_DIRECT
+ 0x02  METHOD_OUT_DIRECT
+ 0x03  METHOD_NEITHER
+```
+
+## Function
+
+Function depends on the device used.
+
+# Discussion
+
+<http://www.osronline.com/article.cfm?article=229> contains an online conversion tool.
+
+---
+
+Imported from https://wiki.wireshark.org/SMB2/Ioctl/Function on 2020-08-11 23:25:03 UTC

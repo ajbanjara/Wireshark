@@ -1,0 +1,23 @@
+1.)How to lookat the running Config?
+	
+	DES-1316 doesn't have serial port and there is no CLI interface.It only has WEB interface and the default IP is 192.168.0.1
+
+2.)How to save the Config?
+
+	To save any changes,we  have to click Apply button on the screen
+
+
+3.) Modes of Configurations?
+
+	1 mode - GUI mode
+
+4.) Create VLAN
+
+	On VLAN Settings tab Select the VID group that you want to set and press "Add new VID to creat a VLAN.
+
+5.) Adding Ports to VLAN
+
+	Toadd port to a particular VLAN select the port and fill in each port’s PVID value.
+
+
+

@@ -1,0 +1,335 @@
+===================================================================================================================
+Message Summary : 
+Num.             = 1
+Bearer           = P5.1 (DNA03-SHT-E1 or Gr)
+Timestamp        = 14:33:04.487230
+Event Type       = Rx
+Ciphering Status = 
+VPI              = 
+VCI              = 
+CID              = 
+L2 Prot          = MTP2
+L3 Prot          = MTP3
+OPC              = 2122
+DPC              = 4828
+L3 Msg           = SCCP
+L4 Prot          = SCCP
+L4 Msg           = UDT
+L5 Msg           = Send Authent. Info  (Invoke)
+L6 Msg           = 
+L7 Msg           = 
+L8 Msg           = 
+L9 Msg           = 
+L10 Msg          = 
+IMSI             = 653102000028633
+TMSI             = 
+Cause Value      = 
+Called Party     = 268602000028633
+Calling Party    = 85290184015
+___________________________________________________________________________________________________________________
+	Octet	Binary		Hex	Description
+					Message 1 of 2 on TS21 (P5.1 (DNA03-SHT-E1 or Gr)) at Tuesday, October 23, 2007 14:33:04.487230; Size 102 Octets
+
+MTP2					Title: ITU-T White book MTP2, Spec: Q.703, Rev: Q.703(1993)
+	1	-1001011	4b	BSN= 75
+		0-------		BIB= 0
+	2	-0100010	22	FSN= 34
+		0-------		FIB= 0
+	3	00------	3f	Spare=0
+		--111111		LI=  MSU
+					
+
+MTP3					Title: ITU-T White book MTP3, Spec: Q.704, Rev: Q.704(1993)
+	4	----0011	83	SI=SCCP
+		--00----		  Spare=0
+		10------		Network Indicators=National Network
+	5	11011100	dc	DPC= 4828
+	6	--010010	92	
+		10------		OPC= 2122
+	7	00010010	12	
+	8	----0010	f2	
+		1111----		SLS= 15
+					
+
+SCCP					Title: ITU White Book SCCP, Spec: Q.713, Rev: Q.713(Mar.2001)
+	9	00001001	09	MT=Unitdata
+	10	----0000	80	  Protocol Class=Class 0
+		1000----		  Message Handling=Return message on error
+	11	00000011	03	  Pointer to Called Address Information= 3
+	12	00010000	10	  Pointer to Calling Address Information= 16
+	13	00011011	1b	  Pointer to Data= 27
+	14	00001101	0d	  Called Address Information Length= 13 octet(s)
+	15	-------0	12	  Point Code Indicator=Point Code Not present
+		------1-		  SSN Indicator=SSN Present
+		--0100--		  Global title indicator=Translation type, numbering plan, encoding scheme and nature of address indicator
+		-0------		  Routing Indicator=Route on GT
+		0-------		  Reserved for national use=0
+	16	00000110	06	  Called SSN=HLR (SSN=6)
+	17	00000000	00	  Translation Type=Unknown
+	18	----0001	71	  Encoding Scheme=BCD, odd num of digits
+		0111----		  Numbering Plan=ISDN/Mobile
+	19	-0000100	04	  Nature of Address Ind=International number
+		0-------		  Spare=0
+	20	01100010	62	  Called Address Information=268602000028633
+	21	01101000	68	
+	22	00100000	20	
+	23	00000000	00	
+	24	00000000	00	
+	25	10000010	82	
+	26	00110110	36	
+	27	----0011	03	
+		0000----		  Address Filler
+	28	00001011	0b	  Calling Address Information Length= 11 octet(s)
+	29	-------0	12	  Point Code Indicator=Point Code Not present
+		------1-		  SSN Indicator=SSN Present
+		--0100--		  Global title indicator=Translation type, numbering plan, encoding scheme and nature of address indicator
+		-0------		  Routing Indicator=Route on GT
+		0-------		  Reserved for national use=0
+	30	00000111	07	Calling SSN=VLR (SSN=7)
+	31	00000000	00	  Translation Type=Unknown
+	32	----0001	11	  Encoding Scheme=BCD, odd num of digits
+		0001----		  Numbering Plan=ISDN/Telephony
+	33	-0000100	04	  Nature of Address Ind=International number
+		0-------		  Spare=0
+	34	01011000	58	  Calling Address Information=85290184015
+	35	10010010	92	
+	36	00010000	10	
+	37	01001000	48	
+	38	00010000	10	
+	39	----0101	05	
+		0000----		  Address Filler
+	40	00111110	3e	  Data Length  =  62 octet(s)
+	41	01100010	62	
+					
+
+MAP					Title: 3GPP R6 12-2005 MAP, Spec: 3GPP TS 29.002 (v6.12.1), Rev: Release 6 v6.12.1 (2005-12) [backward compatible with Rel5]
+		01100010		MT=Begin
+	42	00111100	3c	Length=60 octet(s)
+	43	01001000	48	Originating Trans Id Tag=48
+	44	00000100	04	  Length=4 octet(s)
+	45	10010011	93	  Originating Transaction Id=930003c0
+	46	00000000	00	
+	47	00000011	03	
+	48	11000000	c0	
+	49	01101011	6b	Dialogue Portion Tag=6b
+	50	00011110	1e	Length=30 octet(s)
+	51	00101000	28	External Tag=28
+	52	00011100	1c	Length=28 octet(s)
+	53	00000110	06	Object Identifier Tag=6
+	54	00000111	07	  Length=7 octet(s)
+	55	00000000	00	  ccitt recommendation=0
+	56	00010001	11	  q=11
+	57	10000110	86	  773=86
+	58	00000101	05	  Space character=5
+	59	00000001	01	  as(1)=1
+	60	00000001	01	  dialoguePDU=1
+	61	00000001	01	  version1(1)=1
+	62	10-00000	a0	 Single ASN.1 Type Tag=40
+	63	00010001	11	Length=17 octet(s)
+	64	01100000	60	  Dialogue PDU=Dialogue Request
+	65	00001111	0f	Length=15 octet(s)
+	66	10000000	80	Protocol Version Tag=80
+	67	00000010	02	  Length=2 octet(s)
+	68	00000111	07	    Protocol Version=780
+	69	10000000	80	
+	70	10100001	a1	Application Context Name Tag=a1
+	71	00001001	09	Length=9 octet(s)
+	72	00000110	06	Object Identifier Tag=6
+	73	00000111	07	  Length=7 octet(s)
+	74	00000100	04	  ccitt recommendation=4
+	75	00000000	00	  etsi=0
+	76	00000000	00	  mobile domain=0
+	77	00000001	01	  gsm Network=1
+	78	00000000	00	  ac_id=0
+	79	00001110	0e	  dialoguePDU=infoRetrieval
+	80	00000010	02	  version=2
+	81	01101100	6c	Component Portion Tag=6c
+	82	10000000	80	Length=Indefinite Length
+	83	10100001	a1	Invoke=a1
+	84	00010000	10	Length=16 octet(s)
+	85	00000010	02	Invoke Id Tag=2
+	86	00000001	01	  Length=1 octet(s)
+	87	00000001	01	  Invoke Id=1
+	88	00000010	02	Operation Code Tag=Local Operation Code
+	89	00000001	01	  Length=1 octet(s)
+	90	00111000	38	Operation Code (Invoke)=Send Authent. Info 
+	91	00000100	04	IMSI Tag=4
+	92	00001000	08	  Length=8 octet(s)
+	93	01010110	56	  IMSI Digits=653102000028633
+	94	00010011	13	
+	95	00100000	20	
+	96	00000000	00	
+	97	00000000	00	
+	98	10000010	82	
+	99	00110110	36	
+	100	----0011	f3	
+		1111----		  Filler
+	101	00000000	00	  End of Contents=0
+	102	00000000	00	
+
+===================================================================================================================
+Message Summary : 
+Num.             = 2
+Bearer           = P4.2 (DNA03-SHT-E1 or Gr)
+Timestamp        = 14:33:05.173004
+Event Type       = Rx
+Ciphering Status = 
+VPI              = 
+VCI              = 
+CID              = 
+L2 Prot          = MTP2
+L3 Prot          = MTP3
+OPC              = 4827
+DPC              = 2132
+L3 Msg           = SCCP
+L4 Prot          = SCCP
+L4 Msg           = UDT
+L5 Msg           = Unknown Subscriber  (Error Code)
+L6 Msg           = 
+L7 Msg           = 
+L8 Msg           = 
+L9 Msg           = 
+L10 Msg          = 
+IMSI             = 
+TMSI             = 
+Cause Value      = 
+Called Party     = 85290184015
+Calling Party    = 2686011001
+___________________________________________________________________________________________________________________
+	Octet	Binary		Hex	Description
+					Message 2 of 2 on TS6 (P4.2 (DNA03-SHT-E1 or Gr)) at Tuesday, October 23, 2007 14:33:05.173004; Size 101 Octets
+
+MTP2					Title: ITU-T White book MTP2, Spec: Q.703, Rev: Q.703(1993)
+	1	-0110001	b1	BSN= 49
+		1-------		BIB= 1
+	2	-1011111	5f	FSN= 95
+		0-------		FIB= 0
+	3	00------	3f	Spare=0
+		--111111		LI=  MSU
+					
+
+MTP3					Title: ITU-T White book MTP3, Spec: Q.704, Rev: Q.704(1993)
+	4	----0011	83	SI=SCCP
+		--00----		  Spare=0
+		10------		Network Indicators=National Network
+	5	01010100	54	DPC= 2132
+	6	--001000	c8	
+		11------		OPC= 4827
+	7	10110110	b6	
+	8	----0100	34	
+		0011----		SLS= 3
+					
+
+SCCP					Title: ITU White Book SCCP, Spec: Q.713, Rev: Q.713(Mar.2001)
+	9	00001001	09	MT=Unitdata
+	10	----0000	80	  Protocol Class=Class 0
+		1000----		  Message Handling=Return message on error
+	11	00000011	03	  Pointer to Called Address Information= 3
+	12	00001110	0e	  Pointer to Calling Address Information= 14
+	13	00011000	18	  Pointer to Data= 24
+	14	00001011	0b	  Called Address Information Length= 11 octet(s)
+	15	-------0	12	  Point Code Indicator=Point Code Not present
+		------1-		  SSN Indicator=SSN Present
+		--0100--		  Global title indicator=Translation type, numbering plan, encoding scheme and nature of address indicator
+		-0------		  Routing Indicator=Route on GT
+		0-------		  Reserved for national use=0
+	16	00000111	07	  Called SSN=VLR (SSN=7)
+	17	00000000	00	  Translation Type=Unknown
+	18	----0001	11	  Encoding Scheme=BCD, odd num of digits
+		0001----		  Numbering Plan=ISDN/Telephony
+	19	-0000100	04	  Nature of Address Ind=International number
+		0-------		  Spare=0
+	20	01011000	58	  Called Address Information=85290184015
+	21	10010010	92	
+	22	00010000	10	
+	23	01001000	48	
+	24	00010000	10	
+	25	----0101	05	
+		0000----		  Address Filler
+	26	00001010	0a	  Calling Address Information Length= 10 octet(s)
+	27	-------0	12	  Point Code Indicator=Point Code Not present
+		------1-		  SSN Indicator=SSN Present
+		--0100--		  Global title indicator=Translation type, numbering plan, encoding scheme and nature of address indicator
+		-0------		  Routing Indicator=Route on GT
+		0-------		  Reserved for national use=0
+	28	00000110	06	Calling SSN=HLR (SSN=6)
+	29	00000000	00	  Translation Type=Unknown
+	30	----0010	12	  Encoding Scheme=BCD, even num of digits
+		0001----		  Numbering Plan=ISDN/Telephony
+	31	-0000100	04	  Nature of Address Ind=International number
+		0-------		  Spare=0
+	32	01100010	62	  Calling Address Information=2686011001
+	33	01101000	68	
+	34	00010000	10	
+	35	00000001	01	
+	36	00010000	10	
+	37	01000000	40	  Data Length  =  64 octet(s)
+	38	01100100	64	
+					
+
+MAP					Title: 3GPP R6 12-2005 MAP, Spec: 3GPP TS 29.002 (v6.12.1), Rev: Release 6 v6.12.1 (2005-12) [backward compatible with Rel5]
+		01100100		MT=End
+	39	00111110	3e	Length=62 octet(s)
+	40	01001001	49	Destination Trans Id Tag=49
+	41	00000100	04	  Length=4 octet(s)
+	42	10010011	93	  Destination Transaction Id=930003c0
+	43	00000000	00	
+	44	00000011	03	
+	45	11000000	c0	
+	46	01101011	6b	Dialogue Portion Tag=6b
+	47	00101010	2a	Length=42 octet(s)
+	48	00101000	28	External Tag=28
+	49	00101000	28	Length=40 octet(s)
+	50	00000110	06	Object Identifier Tag=6
+	51	00000111	07	  Length=7 octet(s)
+	52	00000000	00	  ccitt recommendation=0
+	53	00010001	11	  q=11
+	54	10000110	86	  773=86
+	55	00000101	05	  Space character=5
+	56	00000001	01	  as(1)=1
+	57	00000001	01	  dialoguePDU=1
+	58	00000001	01	  version1(1)=1
+	59	10-00000	a0	 Single ASN.1 Type Tag=40
+	60	00011101	1d	Length=29 octet(s)
+	61	01100001	61	  Dialogue PDU=Dialogue Response
+	62	00011011	1b	Length=27 octet(s)
+	63	10000000	80	Protocol Version Tag=80
+	64	00000010	02	  Length=2 octet(s)
+	65	00000111	07	    Protocol Version=780
+	66	10000000	80	
+	67	10100001	a1	Application Context Name Tag=a1
+	68	00001001	09	Length=9 octet(s)
+	69	00000110	06	Object Identifier Tag=6
+	70	00000111	07	  Length=7 octet(s)
+	71	00000100	04	  ccitt recommendation=4
+	72	00000000	00	  etsi=0
+	73	00000000	00	  mobile domain=0
+	74	00000001	01	  gsm Network=1
+	75	00000000	00	  ac_id=0
+	76	00001110	0e	  dialoguePDU=infoRetrieval
+	77	00000010	02	  version=2
+	78	10100010	a2	Result Tag=a2
+	79	00000011	03	Length=3 octet(s)
+	80	00000010	02	Integer Tag=2
+	81	00000001	01	  Length=1 octet(s)
+	82	00000000	00	  Result=Accepted
+	83	10100011	a3	Result Source Diagnostic Tag=a3
+	84	00000101	05	Length=5 octet(s)
+	85	10100001	a1	Service User Tag=a1
+	86	00000011	03	Length=3 octet(s)
+	87	00000010	02	Integer Tag=2
+	88	00000001	01	  Length=1 octet(s)
+	89	00000000	00	  Service User Value=Null
+	90	01101100	6c	Component Portion Tag=6c
+	91	10000000	80	Length=Indefinite Length
+	92	10100011	a3	Return Error=a3
+	93	00000110	06	Length=6 octet(s)
+	94	00000010	02	Invoke Id Tag=2
+	95	00000001	01	  Length=1 octet(s)
+	96	00000001	01	  Invoke Id=1
+	97	00000010	02	Error Code Tag=Local Error Code
+	98	00000001	01	  Length=1 octet(s)
+	99	00000001	01	Error Code=Unknown Subscriber 
+	100	00000000	00	  End of Contents=0
+	101	00000000	00	
+

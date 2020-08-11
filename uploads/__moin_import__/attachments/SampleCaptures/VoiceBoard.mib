@@ -1,0 +1,94 @@
+VB-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		enterprises
+			FROM RFC1155-SMI
+ 
+		OBJECT-TYPE
+			FROM RFC-1212
+
+  		TRAP-TYPE 
+			FROM RFC-1215;
+
+	 
+-- VB Proprietary MIB definition
+--	Version 1.2
+--	September 17, 2009
+
+vb		OBJECT IDENTIFIER ::= {enterprises 33638}
+vbCustomers	OBJECT IDENTIFIER ::= {vb 1 }
+verizon		OBJECT IDENTIFIER ::= {vbCustomers 1}
+
+--
+-- Link State Trap
+--
+
+stateUp		OBJECT IDENTIFIER ::= {verizon 1}
+stateDown	OBJECT IDENTIFIER ::= {verizon 2}
+
+
+	linkStateUp TRAP-TYPE
+		ENTERPRISE stateUp
+		DESCRIPTION
+		"Link State Trap:  LinkUp"
+		::= 1
+	linkStateDown TRAP-TYPE
+		ENTERPRISE stateDown
+		DESCRIPTION
+		"Link State Trap:  LinkDown"
+		::= 1
+		
+--
+-- Link Status Trap
+--
+
+status		OBJECT IDENTIFIER ::= {verizon 3}
+
+
+	linkStatus TRAP-TYPE
+		ENTERPRISE status
+		DESCRIPTION
+		"Link Status Trap:
+			OutOfAlignment          (0) 
+			NormalAlignment         (1) 
+			EmergencyAlignment      (2) 
+			OutOfService            (3)
+			ProcessorOutage         (4) 
+			Busy                    (5)
+		"
+		::= 2
+	
+--
+-- Span Alarm Traps
+--
+
+alarmCleared	OBJECT IDENTIFIER ::= {verizon 4}
+alarmDetected	OBJECT IDENTIFIER ::= {verizon 5}
+
+
+-- SPAN 1
+
+	spanAlarmCleared TRAP-TYPE
+		ENTERPRISE alarmCleared
+		DESCRIPTION
+		"Span Alarm Cleared:
+			LOF
+			LOS
+			RRA
+			AIS
+			YEL
+		"
+		::= 3
+	
+	spanAlarmDetected TRAP-TYPE
+		ENTERPRISE alarmDetected
+		DESCRIPTION
+		"Span Alarm Detected:
+			LOF
+			LOS
+			RRA
+			AIS
+			YEL
+		"
+		::= 3
+ 	
+	END

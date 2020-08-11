@@ -1,0 +1,9 @@
+telnet marelay 25
+helo me
+mail from:ldellechiaie@epsilon.com
+rcpt to:leigh_d1971@yahoo.com
+data
+subject: test wireshark
+test
+.
+quit

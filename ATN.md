@@ -1,0 +1,191 @@
+# Aeronautical Telecommunication Networks
+
+The ATN protocol family (along with VDL-Mode2) was designed as a successor for the Aircraft Communications Addressing and Reporting System (ACARS). It implements a reliable air ground datalink based on OSI protocols (which were considered "state of the art" when the standardisation began) and VDL-Mode2.
+
+The system is currently deployed along with VDL-Mode2 in Europe in the scope of the LINK2000 plus program.
+
+At present only CMv1 and CPDLCv1 (PO and PM) applications are suported by Wireshark; the dissector is based on ICAO doc 9705 Ed2 including ammendements for Protected Mode CPDLC.
+
+A simplified overview of the core ATN protocols looks like this:
+
+<div>
+
+<table>
+
+<tbody>
+
+<tr>
+
+<td>
+
+7
+
+</div>
+
+</td>
+
+<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
+
+Application layer (**ULCS/ACSE**,**CM**,**CPDLC**, ...)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+6
+
+</td>
+
+<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
+
+**ULCS/Presentation**,**ULCS/PDV**
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+5
+
+</td>
+
+<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
+
+**ULCS/Session**
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+4
+
+</td>
+
+<td>
+
+**COTP** (TP4 connections)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+3
+
+</td>
+
+<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
+
+Internet (**CLNP**, **ES-IS**,**IS-IS**,**IDRP**)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+2
+
+</td>
+
+<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
+
+Link layer (**LLC**,**IP**,**X.25**, ...)
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+## Wireshark
+
+ATN reuses CLNP and COTP dissectors and stacks the "atn-ulcs" dissector on top of COTP. Technically "atn-ulcs" implements the "ATN upper layers" containing the SES, PRES and ACSE protocols (ASN.1 Packed Encoding Rules).
+
+The "atn-ulcs" dissector then calls application-level dissecctors like CM("atn-cm") and CPDLC("atn-cpdlc").
+
+## Enable ATN support in wireshark
+
+The dissector should be compiled in by default (developper version) and can be enabled by tuning the Wireshark protocol Preferences/Settings.
+
+The following settings are required to decode ATN traffic: CLNP dissector:
+
+  - "Always try to decode NSDU as Transport PDU's" -\> Enabled
+
+  - "Decode ATN security label" -\> Enabled
+
+COTP dissector:
+
+  - "Decode ATN TPDU's" -\> Enabled
+
+T.125 dissector
+
+  - the T.125 dissector should be disabled, for some CM/CPDLC PDU may be incorrectly decoded as "T.125" (Main Menu: "Analyze"-\>"Enabled Protocols" disable checkbox on "T.125 Multipoint-communication" entry).
+
+No settings tabs are available for "atn-ulcs", "atn-cm" and "atn-cpdlc" dissectors.
+
+## Bugs
+
+plenty ;-). IMHO the dissector is far from beeing usable in production systems (it is better than nothing though, as network monitors for OSI are expensive/inappropriate when compared to tools in the TCP/IP world).
+
+Layers up to OSI Layer 6 (ATN-ULCS/ACSE) are working in most cases; decoding of CM and CPDLC is flawed.
+
+The main problem is that there is no working "conversation" function for the TP4 layer which is needed do differentiate between PER encoded CM and CPDLC PDU's; this function would allow to decode all PDU's of a transport connection an CM or CPDLC, for some PDU's share the same bit encoding.
+
+Known bugs:
+
+  - atn-ulcs (ACSE): AARE incorrectly decoded; probably related to the incorrect handling of "[CpdlcStart](/CpdlcStart) confirmation"
+
+  - atn-cpdlc (CPDLC): the dissector incorrectly decodes "[CpdlcStart](/CpdlcStart) confirmation" as "Cpdlc message"
+
+  - some PDU's of CM and CPDLC have the same PER encoding, which may lead to a wrong encoding.
+
+## External Links
+
+### Background:
+
+  - ACARS \[<http://en.wikipedia.org/wiki/ACARS>\]
+
+  - VDL-Mode2 \[<http://en.wikipedia.org/wiki/VHF_Data_Link>\]
+
+  - Controller Pilot Data Link Communications \[<http://en.wikipedia.org/wiki/CPDLC>\]
+
+  - A short introduction to air/ground datalink \[<http://members.optusnet.com.au/~cjr/introduction.htm>\]
+
+### Standards
+
+  - ICAO standards \[<http://legacy.icao.int/anb/panels/acp/repository.cfm>\]
+
+  - OSI standards \[<http://standards.iso.org/ittf/PubliclyAvailableStandards/index.html>\]
+
+### Protocol Traces
+
+  - ATN over ethernet SNDCF \[<https://bugs.wireshark.org/bugzilla/attachment.cgi?id=5808>\]
+
+  - ATN over IP SNDCF \[<https://bugs.wireshark.org/bugzilla/attachment.cgi?id=5809>\]
+
+  - ATN over IP SNDCF, Airbus A350 avionics evaluation \[<https://bugs.wireshark.org/bugzilla/attachment.cgi?id=9925>\]
+
+---
+
+Imported from https://wiki.wireshark.org/ATN on 2020-08-11 23:11:26 UTC

@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd"[]>
+<?rfc symrefs='yes' ?>
+<?rfc toc='yes' ?>
+<?rfc compact='yes' ?>
+<?rfc subcompact='no' ?>
+<?rfc inline='yes' ?>
+<?rfc sortrefs='no' ?>
+<?rfc strict='yes' ?>
+
+<rfc category='info'
+     ipr='trust200902'
+     docName="draft-tuexen-opsawg-pcapng">
+
+  <front>
+
+    <title abbrev="pcapng">PCAP Next Generation Support for Text Data</title>
+
+    <author initials='P.' surname='Offord' fullname='Paul Offord'>
+      <organization abbrev='Advance7'>
+                    Advance Seven Limited</organization>
+      <address>
+        <postal>
+          <street>Endeavour House</street>
+          <code>CM24 1SJ</code>
+          <city>Stansted</city>
+          <country>UK</country>
+        </postal>
+        <email>paul.offord@advance7.com</email>
+      </address>
+    </author>
+
+    <date month="February" year="2018" />
+
+    <abstract>
+      <t>This document describes two new block types to support the
+      recording of text-based data (such as machine data) into a
+      pcapng file. This allows for the coexistence of text and binary
+      diagnostic data in a single pcapng file.</t>
+      
+      <t>THIS DOCUMENT IS STILL BEING DEVELOPED</t>
+    </abstract>
+
+  </front>
+
+
+<!--===========================================================================
+
+    MAIN BODY - still within the <rfc> tag
+
+============================================================================-->
+
+  <middle>
+
+    <section title="Introduction">
+
+      <t>Packet trace analysis has been proven to be a powerful way to analyse network
+      	and application problems. Recent developments, however, have made analysis more
+      	challenging, namely:
+      
+        <list style='hanging'>
+
+          <t hangText='Encryption:'>
+          An increasing number of network flows are becoming encrypted, and this
+          is likely to include the encryption of TCP headers as IPv6 becomes more
+          common.</t>
+
+          <t hangText='Visibility:'>
+          With the wider use of public cloud, virtualisation technologies and
+          containerisation, it's becoming more difficult to capture packet traces.</t>
+
+        </list>
+			</t>
+
+      <t>Supplementing and enriching packet trace data with other related data types is
+      	attractive.  Imagine having a pcapng file that contains network packets, related
+      	firewall log entries and application log data.  Such files could be explored and
+      	manipulated with a whole range of commercial products and open source tools
+      	such as Wireshark.</t>
+
+			<t>Before reading this document, you should be familiar with the content of 
+				the RFC draft document "PCAP Next Generation (pcapng) Capture File Format".</t>
+
+    </section>
+
+    <section title='Terminology'>
+
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in <xref
+      target='RFC2119'/>.</t>
+
+      <section title="Acronyms">
+
+        <t>The following acronyms are used throughout this document:
+
+          <list style='hanging'>
+            <t hangText='SHB:'>Section Header Block</t>
+            <t hangText='IDB:'>Interface Description Block</t>
+            <t hangText='ISB:'>Interface Statistics Block</t>
+            <t hangText='EPB:'>Enhanced Packet Block</t>
+            <t hangText='SPB:'>Simple Packet Block</t>
+            <t hangText='NRB:'>Name Resolution Block</t>
+            <t hangText='TDB:'>Text Description Block</t>
+            <t hangText='TRB:'>Text Record Block</t>
+            <t hangText='CB:'>Custom Block</t>
+          </list>
+
+        </t>
+
+      </section>
+
+    </section>
+
+    <section title="Design Criteria">
+
+      <section anchor="section_block" title="General Block Structure">
+
+        <t>A capture file is organized in blocks, that are appended one to
+        another to form the file. All the blocks share a common format, which
+        is shown in <xref target="formatblock"/>.</t>
+
+      </section>
+
+      <section title="Block Types">
+
+        <t>This pcapng extension introduces two new block types
+        <xref target="block-types"/>:</t>
+        
+        <t>TRB (Text Record Block) is a block that carries text data and
+        	represents an event. There is one TRB for every event.</t>
+        	
+        <t>TDB (Text Description Block) is a block that carries
+        	a data descriptors for the TRBs. A pcapng file may contain
+        	text data with many data schemes and there is one TDB for 
+        	each schema.</t>
+
+      </section>
+
+      <section title="Logical Block Hierarchy">
+
+        <t>The blocks build a logical hierarchy as they refer to each other.
+        <xref target="block-hierarchy"/> shows the logical hierarchy of the
+        currently defined blocks in the form of a "tree view":</t>
+
+        <figure anchor="block-hierarchy" title="Logical Block Hierarchy of a pcapng File">
+          <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+Section Header
+|
++- Interface Description
+|  +- Simple Packet
+|  +- Enhanced Packet
+|  +- Interface Statistics
+|
++- Text Description
+|  +- Text Record
+|
++- Name Resolution
+</artwork>
+        </figure>
+
+        <t>For example: each text record refers to a specific Text Description.</t>
+
+      </section>
+
+
+      <section title="Physical File Layout">
+
+        <t><xref target="fssample-minimum"/>
+        shows a file shows the minimum content for a pcapng file that contains text data.</t>
+
+        <figure anchor="fssample-minimum" title="File structure example: a pcapng file similar to a classical libpcap file">
+          <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB | IDB | TDB | TRB | TRB |   ...   | TRB |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+					</artwork>
+        </figure>
+
+        <t><xref target="textrecord-multiple"/>
+        shows a file with records of differing schemes.</t>
+
+        <figure anchor="textrecord-multiple" title="File structure example: a pcapng file showing text records with two schemes">
+          <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB | IDB | TDB | TDB | TRB | TRB |   ...   | TRB |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+					</artwork>
+        </figure>
+
+        <t><xref target="textrecord-mixed"/>
+        shows a file with records of differing schemes.</t>
+
+        <figure anchor="textrecord-mixed" title="File structure example: a pcapng file containing network packet and text data.">
+          <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB | IDB | IDB | TDB | EPB | TRB |   ...   | EPB | TRB | TRB |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+					</artwork>
+        </figure>
+
+      </section>
+
+
+    <section title="Block Definition">
+
+      <t>This section details the format of the new blocks to support text data.</t>
+
+      <section anchor="section_TDB" title="Text Description Block">
+
+        <t>An Text Description Block (TDB) is the container that
+        describes the format and attributes of the TRB data.  The format is described by
+        Field Descriptors.</t>
+        
+        <t>The format of the Field Descriptors is identified by the Format value
+        	in the TDB header. Currently, one format is supported; Type-Length-Value (TLV).</t>
+
+        <t>Tools that write / read the capture file associate an incrementing
+        32-bit number (starting from '0') to each Text Description Block,
+        called the Scheme ID for the data format of associated TRBs. This number is
+        unique within each Section and identifies the scheme to which the
+        TDB refers. This unique identifier is referenced by TRBs
+        to indicate the layout of the data.</t>
+
+        <t>There must be a Text Description Block for each
+        scheme to which another block refers.</t>
+
+        <t>An Text Description Block is valid only inside the section
+        to which it belongs. The structure of a Text Description Block is
+        shown in <xref target="format_TDB"/>.</t>
+
+        <figure anchor="format_TDB" title="Text Description Block Format">
+          <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000010                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |            Version            |            Format             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |          Scheme Index         |           Reserved            |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                             GUID1                             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+24 |                             GUID2                             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+32 |                             GUID3                             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+40 |                             GUID4                             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+44 |                           FD Length                           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+48 /                                                               /
+   /                       Field Descriptors                       /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </artwork>
+        </figure>
+
+        <t>The meaning of the fields is:
+          <list style="symbols">
+
+            <t>Block Type: The block type of the Text Description Block
+            is 16.  During development the type 0x80000010 was used.</t>
+
+            <t>Block Total Length: total size of this block, as described in
+            <xref target="section_block"/>.</t>
+
+            <t>Version: allows for the handling of revisions of the TDB format.
+            	Currently set to 3.</t>
+
+            <t>Format: The format of the Field Descriptors.</t>
+
+            <t>Reserved: not used - MUST be filled with 0, and ignored by
+            pcapng file readers.</t>
+
+            <t>FD Length: The total length of the Field Descriptors.</t>
+
+            <t>Options: optionally, a list of options (formatted according to
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
+
+          </list>
+        </t>
+
+        <t>In addition to the options defined in <xref target="section_opt"/>,
+        the following options are valid within this block:</t>
+
+        <texttable anchor="optionsTDB" title="Text Description Block Options">
+
+          <ttcol align="left">Name</ttcol>
+          <ttcol align="left">Code</ttcol>
+          <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
+
+          <c>missing_value</c>
+          <c>2</c>
+          <c>1</c>
+          <c>no</c>
+
+          <c>summary</c>
+          <c>3</c>
+          <c>Variable</c>
+          <c>no</c>
+
+        </texttable>
+
+        <t>
+          <list hangIndent="8" style="hanging">
+
+            <t hangText="missing_value:"><vspace blankLines="0"/>If a field value in
+            	a TRB has zero length, this value SHOULD be substituted.  If this option
+            	is not specified, the program reading the pcapng file MAY handle the
+            	missing value in any appropriate manner.</t>
+
+            <t>Examples: -</t>
+
+            <t hangText="summary:"><vspace blankLines="0"/>The
+            summary option defines a format for a summary value that is generated for
+            each TRB.  If the program reading the file generates a summary vale for each
+            TRB it SHOULD use this format. Field values can be used in the summary value
+            and are represented by Field Index.</t>
+
+            <t>Examples: "Query: %4 - Rsp Code: %5" to generate "Query: GET / - Rsp Code: 401"</t>
+
+          </list>
+        </t>
+      </section>
+
+
+      <section anchor="section_trb" title="Text Record Block">
+
+        <t>An Text Record Block (TRB) carries text data records that represent events.  The
+        	<xref format of the TRB target="format_trb"/> is shown below.</t>
+
+        <figure anchor="format_trb" title="Text Record Block Format">
+          <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x80000011                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |            Version            |            Format             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |          Scheme Index         |           Reserved            |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                        Timestamp (High)                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+20 |                        Timestamp (Low)                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+24 |                       Text Data Length                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+28 /                                                               /
+   /                           Text Data                           /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+</artwork>
+        </figure>
+
+        <t>The Text Record Block has the following fields:
+          <list style="symbols">
+
+            <t>Block Type: The block type of the Text Record Block is 17. During
+            	development the value 0x80000011 was used.</t>
+
+            <t>Block Total Length: total size of this block, as described in
+            <xref target="section_block"/>.</t>
+
+            <t>Version: allows for the handling of revisions of the TDB format.
+            	Currently set to 3.</t>
+
+            <t>Format: The format of the Field Descriptors.</t>
+
+            <t>Scheme ID: it specifies the schema that is applicable to this record;
+            the correct schema will be the one whose Text Source
+            Description Block (within the current Section of the file) is
+            identified by the same number (see <xref target="section_TDB"/>)
+            of this field. The Scheme ID MUST be valid, which means that a
+            matching Text Description block MUST exist.</t>
+
+            <t>Reserved: not used - MUST be filled with 0, and ignored by
+            pcapng file readers.</t>
+
+            <t>Timestamp (High) and Timestamp (Low): upper 32 bits and
+            lower 32 bits of a 64-bit timestamp. The timestamp is a
+            single 64-bit unsigned integer that represents the number of
+            units of time that have elapsed since 1970-01-01 00:00:00 UTC.
+            The length of a unit of time is specified by the 'if_tsresol'
+            option (see <xref target="format_idb"/>) of the Interface
+            Description block referenced by this packet. Note that,
+            unlike timestamps in the libpcap file format, timestamps in
+            Enhanced Packet Blocks are not saved as two 32-bit values
+            that represent the seconds and microseconds that have
+            elapsed since 1970-01-01 00:00:00 UTC. Timestamps in Enhanced
+            Packet Blocks are saved as two 32-bit words that represent
+            the upper and lower 32 bits of a single 64-bit quantity.</t>
+
+						<td>Text Data Length: the total length of the data in the
+							Text Data field.</td>
+
+            <t>Text Data: the data coming from the text source.
+            link-layer headers. The actual length of this field is
+            Captured Packet Length plus the padding to a 32-bit
+            boundary. The format of the link-layer headers depends on
+            the LinkType field specified in the Interface Description
+            Block (see <xref target="section_idb"/>) and it is specified
+            in the entry for that format in the <eref
+            target="http://www.tcpdump.org/linktypes.html">the
+            tcpdump.org link-layer header types registry</eref>.</t>
+
+            <t>Options: optionally, a list of options (formatted according to
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
+
+          </list>
+        </t>
+
+        <t>In addition to the options defined in <xref target="section_opt"/>,
+        the following options are valid within this block:</t>
+
+        <texttable anchor="options_trb" title="Text Record Block Options">
+          <ttcol align="left">Name</ttcol>
+          <ttcol align="left">Code</ttcol>
+          <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
+
+          <c></c>
+          <c></c>
+          <c></c>
+          <c></c>
+        </texttable>
+
+      </section>
+
+    </section>
+
+
+    <section title='Contributors'>
+
+      <t>Loris Degioanni and Gianluca Varenni were coauthoring this document
+      before it was submitted to the IETF.</t>
+
+    </section>
+
+
+    <section title="Acknowledgments">
+
+      <t>The author wishes to thank
+      Guy Harris for the original suggested format of the blocks.</t>
+
+    </section>
+
+  </middle>
+
+
+<!--===========================================================================
+
+    Back End - still within the <rfc> tag
+
+============================================================================-->
+
+
+  <back>
+    <references title='Normative References'>
+      <?rfc include='reference.RFC.2119'?>
+    </references>
+
+    <!--
+    <references title='Informational References'>
+    </references>
+    -->
+
+  </back>
+</rfc>

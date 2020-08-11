@@ -1,0 +1,52 @@
+MASTAN-MIB DEFINITIONS ::= BEGIN
+
+
+mastan MODULE-IDENTITY
+    LAST-UPDATED "9609190000Z"     -- Thu Sep 26 16:34:47 PDT 1996
+    ORGANIZATION "IETF OSPF Working Group"
+    CONTACT-INFO
+     "        Fred Baker
+      Postal: Cisco Systems
+              519 Lado Drive
+              Santa Barbara, California 93111
+
+      Phone:  +1 805 681 0115
+      Email:  fred@cisco.com
+      "
+    DESCRIPTION
+            "The MIB module for the display of CIDR multipath IP Routes."
+    REVISION      "9609190000Z"
+    DESCRIPTION
+            "Revisions made by the OSPF WG."
+    ::= { enterprise 24262626 }
+
+firstvar OBJECT-TYPE
+    SYNTAX   Gauge32
+    MAX-ACCESS read-write
+    STATUS   current
+    DESCRIPTION
+       "My first variable"
+    ::= { mastan 1 }
+
+
+
+secondvar OBJECT-TYPE
+    SYNTAX   GAUGE32
+    MAX-ACCESS read-write
+    STATUS   current
+    DESCRIPTION
+       "My second variable"
+    ::= { mastan 2 }
+
+
+firstinnervar OBJECT-TYPE
+    SYNTAX   IpAddress
+    MAX-ACCESS read-write
+    STATUS   current
+    DESCRIPTION
+        "My inner variable of firstvar."
+    ::= { firstvar 2 }
+
+
+
+END

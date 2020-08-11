@@ -1,0 +1,169 @@
+#!/bin/bash
+# This script crawls through Wireshark profiles, replacing strings as specified
+# I use it when I copy my profile collection to a new workstation and want to 
+# update filters which look like this:
+#   gui.filter_expressions.label: Me
+#   gui.filter_expressions.enabled: TRUE
+#   gui.filter_expressions.expr: eth.addr==11:22:33:44:55:66
+# where '11:22:33:44:55:66' might be the MAC address of my original PC ... and 
+# thus not the MAC address of this new workstation
+#
+# 
+# V      Who       When        What
+# ---------------------------------------------------------------------------
+# 1.3.0  skendric  2015-01-14  Perform each preferences edit seperately
+# 1.2.0  skendric  2015-01-14  Replace recursion with simple directory walk
+# 1.1.0  skendric  2015-01-13  Handle missing preferences files
+# 1.0.0  skendric  2015-01-12  First Version
+#
+
+
+# Set up basic defaults
+debug=0
+program=update-ws-profiles
+version=1.3.0
+
+
+# Locate files and directories
+profileDir=~/.wireshark/profiles
+prefFile=preferences
+
+
+# Explain usage
+usage="Program $program
+Version = $version
+
+This script walks through your Wireshark 'profiles' directory, changing 
+every occurrence of the specified 'old' string into the specified 'new' string.
+
+The intent is to automate changing MAC or IP addresses employed in 
+Display Filters
+
+Usage:
+
+$program
+		-o {old string}
+		-n {new string}
+"
+
+
+# Grab arguments
+options='d:hn:o:'
+while getopts $options option
+  do
+    case $option in
+      h  ) echo "$usage"; exit 1;;
+      n  ) newStr=$OPTARG;;
+      o  ) oldStr=$OPTARG;;
+      d  ) debug=$OPTARG;;
+      \? ) if (( (err & ERROPTS) != ERROPTS )); then
+             error $NOEXIT $ERROPTS "Unknown option"
+           fi;;
+    esac
+done
+
+
+# Debug output
+if [ $debug = 1 ]; then
+  echo Debug:  Parameters defined as follows:
+  echo "     oldStr     = $oldStr"
+  echo "     newStr     = $newStr"
+  echo "     debug      = $debug"
+fi
+
+
+# Sanity-check
+if [ -z ${oldStr+x} ] && [ -z ${newStr+x} ]; then
+  echo "$usage"
+  exit 1
+fi
+if [ -z ${oldStr+x} ]; then
+  echo Error:  -o {old string} is required
+  exit 1
+fi
+if [ -z ${newStr+x} ]; then
+  echo Error:  -n {new string} is required
+  exit 1
+fi
+hash cd    2>/dev/null || { echo >&2 "Error:  Cannot find cd";     exit 1; }
+hash find  2>/dev/null || { echo >&2 "Error:  Cannot find find";   exit 1; }
+hash mv    2>/dev/null || { echo >&2 "Error:  Cannot find mv";     exit 1; }
+hash rm    2>/dev/null || { echo >&2 "Error:  Cannot find rm";     exit 1; }
+hash sed   2>/dev/null || { echo >&2 "Error:  Cannot find sed";    exit 1; }
+hash xargs 2>/dev/null || { echo >&2 "Error:  Cannot find xargs";  exit 1; }
+if [ ! -d $profileDir ]; then
+  echo "Error: $profileDir does not exist"
+  exit 1
+fi
+
+
+# Tell the operator what we are about to do
+echo
+echo
+echo I will change every occurrence of $oldStr to $newStr 
+echo in each file named \'$prefFile\' located beneath the following directory: 
+echo "    $profileDir"
+echo I will save your old \'$prefFile\' to \'$prefFile.bak\'
+echo
+read -p "Press [Enter] key to continue or Ctrl-C to abort..."
+echo
+echo
+
+
+# Handle spaces in file names
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+cd ${profileDir}
+
+# Backup preferences file
+cd ${profileDir}
+echo Creating $prefFile.bak
+for dir in $(find . -type d | sort)
+do
+  if [ $dir = '.' ]; then continue; fi
+  cd ${dir}
+  if [ -e $prefFile ]; then
+    if [ $debug = 1 ]; then echo "  Debug:  Considering $dir/$prefFile"; fi
+    cp $prefFile $prefFile.bak
+  fi
+  cd ..
+done
+
+
+# Change oldStr to newStr
+cd ${profileDir}
+echo Changing $oldStr to $newStr
+for dir in $(find . -type d)
+do
+  if [ $dir = '.' ]; then continue; fi
+  cd ${dir}
+  echo "  Editing Profile $dir"
+  if [ -e $prefFile ]; then
+    if [ $debug = 1 ]; then echo "  Debug:  Considering $dir/$prefFile"; fi
+    sed "s/$oldStr/$newStr/ig" $prefFile > $prefFile.new
+    mv $prefFile.new $prefFile
+  fi
+  cd ..
+done
+
+
+# Replace CRLF with LF
+cd ${profileDir}
+echo Replacing CRLF with LF
+for dir in $(find . -type d)
+do
+  if [ $dir = '.' ]; then continue; fi
+  cd ${dir}
+  if [ -e $prefFile ]; then
+    if [ $debug = 1 ]; then echo "  Debug:  Considering $dir/$prefFile"; fi
+    sed "s///" $prefFile > $prefFile.new
+    mv $prefFile.new $prefFile
+  fi
+  cd ..
+done
+
+
+# Clean-up
+echo
+echo Done replacing $oldStr with $newStr 
+echo in $profileDir

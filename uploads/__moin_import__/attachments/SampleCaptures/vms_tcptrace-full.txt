@@ -1,0 +1,956 @@
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 1 at 11-MAR-2003 17:50:45.11
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 78 = ^x004E 
+   IP Identifier  = ^xAC1B,  Flags (0=0,DF=0,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 126 = ^x7E,  Protocol = 1 = ^x01,  Header Checksum = ^x027C 
+   IP Source Address      = 10.2.0.20 
+   IP Destination Address = 129.0.3.2 
+
+   ICMP Type = 8 ECHO,   Code = 0 ,   Checksum = ^xAE2E 
+   ICMP Identifier ^x0100,   Sequence Number = 28071 = ^x6DA7 
+ 
+   1400020A   7C02017E   00001BAC   4E000045    0000    E..N....~..|....
+   33323130 | A76D0001   2EAE0008 | 02030081    0010    ..........m.0123
+   6A696867   66656463   62613938   37363534    0020    456789abcdefghij
+   7A797877   76757473   7271706F   6E6D6C6B    0030    klmnopqrstuvwxyz
+       3130   3D5F2928   2A265E25   24234021    0040    !@#$%^&*()_=01  
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 2 at 11-MAR-2003 17:50:45.11
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 78 = ^x004E 
+   IP Identifier  = ^x8EE4,  Flags (0=0,DF=0,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 64 = ^x40,  Protocol = 1 = ^x01,  Header Checksum = ^x5DB3 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 10.2.0.20 
+
+   ICMP Type = 0 ECHO_REPLY,   Code = 0 ,   Checksum = ^xB62E 
+   ICMP Identifier ^x0100,   Sequence Number = 28071 = ^x6DA7 
+ 
+   02030081   B35D0140   0000E48E   4E000045    0000    E..N....@.].....
+   33323130 | A76D0001   2EB60000 | 1400020A    0010    ..........m.0123
+   6A696867   66656463   62613938   37363534    0020    456789abcdefghij
+   7A797877   76757473   7271706F   6E6D6C6B    0030    klmnopqrstuvwxyz
+       3130   3D5F2928   2A265E25   24234021    0040    !@#$%^&*()_=01  
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 10 at 11-MAR-2003 17:50:47.38
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 212 = ^x00D4 
+   IP Identifier  = ^x57F3,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAFF 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822586853 = ^x3107ADE5 
+   TCP Acknowledge Number   = 346577088 = ^x14A858C0 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^x4135,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   FFAA063A   0040F357   D4000045    0000    E...W.@.:.......
+   C058A814   E5AD0731   0108C703 | 02030081    0010    ........1.....X.
+   0E276D81   A8000080 | 00003541   52801850    0020    P..RA5.......m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+   65646966   07000000   A1764355   00000001    00C0    ....UCv.....fide
+                                    00617373    00D0    ssa.            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 11 at 11-MAR-2003 17:50:47.41
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EE5,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7219 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577088 = ^x14A858C0 
+   TCP Acknowledge Number   = 822587025 = ^x3107AE91 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^xFFEE,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   1972063C   0040E58E   C8000045    0000    E.....@.<.r.....
+   91AE0731   C058A814   C7030108 | 1A0D15AC    0010    ..........X.1...
+   0E276D81   9C000080 | 0000EEFF   00F01850    0020    P............m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1754355   00000001   000C0000    0060    ........UCu.....
+   BD020000   02000000   E9010000   02000000    0070    ................
+   00000000   00020000   00000000   BD020000    0080    ................
+   00000000   2C810000   00000000   00080000    0090    ...........,....
+   F7216E3E   0C000000   00000000   2C810400    00A0    ...,........>n!.
+   F7216E3E   4080C218   F7216E3E   4080C218    00B0    ...@>n!....@>n!.
+                         00000000   4080C218    00C0    ...@....        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 12 at 11-MAR-2003 17:50:47.41
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 208 = ^x00D0 
+   IP Identifier  = ^x57F4,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAB02 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822587025 = ^x3107AE91 
+   TCP Acknowledge Number   = 346577248 = ^x14A85960 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xFBC0,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   02AB063A   0040F457   D0000045    0000    E...W.@.:.......
+   6059A814   91AE0731   0108C703 | 02030081    0010    ........1.....Y`
+   0F276D81   A4000080 | 0000C0FB   52801850    0020    P..R.........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000C0000   00040004   01290020   20202020    00B0         .).........
+   0074756F   03000000   A1754355   00000001    00C0    ....UCu.....out.
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 13 at 11-MAR-2003 17:50:47.44
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EE6,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7218 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577248 = ^x14A85960 
+   TCP Acknowledge Number   = 822587193 = ^x3107AF39 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x9CC6,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   1872063C   0040E68E   C8000045    0000    E.....@.<.r.....
+   39AF0731   6059A814   C7030108 | 1A0D15AC    0010    ..........Y`1..9
+   0F276D81   9C000080 | 0000C69C   00F01850    0020    P............m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1734355   00000001   000E0000    0060    ........UCs.....
+   BD020000   02000000   E9010000   02000000    0070    ................
+   00000000   000C0000   00000000   BD020000    0080    ................
+   00000000   2C810000   00000000   00100000    0090    ...........,....
+   F7216E3E   0E000000   00000000   2C810400    00A0    ...,........>n!.
+   F7216E3E   C0438C1A   F7216E3E   C0438C1A    00B0    ..C.>n!...C.>n!.
+                         00000000   C0438C1A    00C0    ..C.....        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 14 at 11-MAR-2003 17:50:47.50
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x57F5,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAB09 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822587193 = ^x3107AF39 
+   TCP Acknowledge Number   = 346577408 = ^x14A85A00 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xDE02,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   09AB063A   0040F557   C8000045    0000    E...W.@.:.......
+   005AA814   39AF0731   0108C703 | 02030081    0010    ........1..9..Z.
+   10276D81   9C000080 | 000002DE   52801850    0020    P..R.........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   01000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+                         A1764355   00000001    00C0    ....UCv.        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 15 at 11-MAR-2003 17:50:47.51
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 156 = ^x009C 
+   IP Identifier  = ^x8EE7,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7243 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577408 = ^x14A85A00 
+   TCP Acknowledge Number   = 822587353 = ^x3107AFD9 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x48FD,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   4372063C   0040E78E   9C000045    0000    E.....@.<.rC....
+   D9AF0731   005AA814   C7030108 | 1A0D15AC    0010    ..........Z.1...
+   10276D81   70000080 | 0000FD48   00F01850    0020    P...H......p.m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   E9010000   02000000   00000000   00000000    0040    ................
+   00000000   BD020000   BD020000   02000000    0050    ................
+   00000000   00080000   00000000   00020000    0060    ................
+   00000000   2C810400   00000000   2C810000    0070    ...,.......,....
+   F7216E3E   4061B81E   F7216E3E   0B000000    0080    ....>n!...a@>n!.
+              4061B81E   F7216E3E   4061B81E    0090    ..a@>n!...a@    
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 16 at 11-MAR-2003 17:50:47.55
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 204 = ^x00CC 
+   IP Identifier  = ^x57F6,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAB04 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822587353 = ^x3107AFD9 
+   TCP Acknowledge Number   = 346577524 = ^x14A85A74 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xDCE0,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   04AB063A   0040F657   CC000045    0000    E...W.@.:.......
+   745AA814   D9AF0731   0108C703 | 02030081    0010    ........1.....Zt
+   11276D81   A0000080 | 0000E0DC   52801850    0020    P..R.........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   04000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+              02000000   A1764355   00000001    00C0    ....UCv.....    
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 17 at 11-MAR-2003 17:50:47.57
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 164 = ^x00A4 
+   IP Identifier  = ^x8EE8,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x723A 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577524 = ^x14A85A74 
+   TCP Acknowledge Number   = 822587517 = ^x3107B07D 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^xA816,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   3A72063C   0040E88E   A4000045    0000    E.....@.<.r:....
+   7DB00731   745AA814   C7030108 | 1A0D15AC    0010    ..........Zt1..}
+   11276D81   78000080 | 000016A8   00F01850    0020    P..........x.m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   02000000   01000000   00000000   00000000    0040    ................
+   BD020000   BD020000   02000000   E9010000    0050    ................
+   00080000   00000000   00020000   00000000    0060    ................
+   2C810400   00000000   2C810000   00000000    0070    .......,.......,
+   40E84B22   F7216E3E   0B000000   00000000    0080    ........>n!."K.@
+   40E84B22   F7216E3E   40E84B22   F7216E3E    0090    >n!."K.@>n!."K.@
+                                    02000000    00A0    ....            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 18 at 11-MAR-2003 17:50:47.57
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 212 = ^x00D4 
+   IP Identifier  = ^x57F7,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAFB 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822587517 = ^x3107B07D 
+   TCP Acknowledge Number   = 346577648 = ^x14A85AF0 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^x3C69,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   FBAA063A   0040F757   D4000045    0000    E...W.@.:.......
+   F05AA814   7DB00731   0108C703 | 02030081    0010    ........1..}..Z.
+   12276D81   A8000080 | 0000693C   52801850    0020    P..R<i.......m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+   65646966   07000000   A1764355   00000001    00C0    ....UCv.....fide
+                                    00617373    00D0    ssa.            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 19 at 11-MAR-2003 17:50:47.60
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EE9,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7215 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577648 = ^x14A85AF0 
+   TCP Acknowledge Number   = 822587689 = ^x3107B129 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x56A9,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   1572063C   0040E98E   C8000045    0000    E.....@.<.r.....
+   29B10731   F05AA814   C7030108 | 1A0D15AC    0010    ..........Z.1..)
+   12276D81   9C000080 | 0000A956   00F01850    0020    P...V........m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1754355   00000001   000C0000    0060    ........UCu.....
+   BD020000   02000000   E9010000   02000000    0070    ................
+   00000000   00020000   00000000   BD020000    0080    ................
+   00000000   2C810000   00000000   00080000    0090    ...........,....
+   F7216E3E   0C000000   00000000   2C810400    00A0    ...,........>n!.
+   F7216E3E   C0AB1524   F7216E3E   C0AB1524    00B0    $...>n!.$...>n!.
+                         00000000   C0AB1524    00C0    $.......        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 20 at 11-MAR-2003 17:50:47.64
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 208 = ^x00D0 
+   IP Identifier  = ^x57F8,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAFE 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822587689 = ^x3107B129 
+   TCP Acknowledge Number   = 346577808 = ^x14A85B90 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xF6F4,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   FEAA063A   0040F857   D0000045    0000    E...W.@.:.......
+   905BA814   29B10731   0108C703 | 02030081    0010    ........1..)..[.
+   13276D81   A4000080 | 0000F4F6   52801850    0020    P..R.........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000C0000   00040004   01290020   20202020    00B0         .).........
+   0074756F   03000000   A1754355   00000001    00C0    ....UCu.....out.
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 21 at 11-MAR-2003 17:50:47.67
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EEA,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7214 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577808 = ^x14A85B90 
+   TCP Acknowledge Number   = 822587857 = ^x3107B1D1 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^xA3A3,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   1472063C   0040EA8E   C8000045    0000    E.....@.<.r.....
+   D1B10731   905BA814   C7030108 | 1A0D15AC    0010    ..........[.1...
+   13276D81   9C000080 | 0000A3A3   00F01850    0020    P............m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1734355   00000001   000E0000    0060    ........UCs.....
+   BD020000   02000000   E9010000   02000000    0070    ................
+   00000000   000C0000   00000000   BD020000    0080    ................
+   00000000   2C810000   00000000   00100000    0090    ...........,....
+   F7216E3E   0E000000   00000000   2C810400    00A0    ...,........>n!.
+   F7216E3E   C032A927   F7216E3E   C032A927    00B0    '.2.>n!.'.2.>n!.
+                         00000000   C032A927    00C0    '.2.....        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 24 at 11-MAR-2003 17:50:47.70
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 232 = ^x00E8 
+   IP Identifier  = ^x57F9,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAE5 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822587857 = ^x3107B1D1 
+   TCP Acknowledge Number   = 346577968 = ^x14A85C30 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xC87D,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   E5AA063A   0040F957   E8000045    0000    E...W.@.:.......
+   305CA814   D1B10731   0108C703 | 02030081    0010    ........1.....\0
+   14276D81   BC000080 | 00007DC8   52801850    0020    P..R.}.......m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000E0000   00040004   01290020   20202020    00B0         .).........
+   5F4C5F50   1A000000   A1734355   00000001    00C0    ....UCs.....P_L_
+   30323330   33303330   30324345   524E4946    00D0    FINREC2003030320
+                         00004C43   492E3033    00E0    30.ICL..        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 27 at 11-MAR-2003 17:50:47.72
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EEC,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7212 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346577968 = ^x14A85C30 
+   TCP Acknowledge Number   = 822588049 = ^x3107B291 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x427D,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   1272063C   0040EC8E   C8000045    0000    E.....@.<.r.....
+   91B20731   305CA814   C7030108 | 1A0D15AC    0010    ..........\01...
+   14276D81   9C000080 | 00007D42   00F01850    0020    P...B}.......m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1124355   00000004   006C0000    0060    ..l.....UC......
+   00000000   01000000   A0010000   01000000    0070    ................
+   00000000   3B7C2400   00000000   00000000    0080    .........$|;....
+   00000000   2C810000   00000000   00802400    0090    .$.........,....
+   05216E3E   6C000000   00000000   2C810400    00A0    ...,.......l>n!.
+   89216E3E   683CB735   8B216E3E   40FAFB19    00B0    ...@>n!.5.<h>n!.
+                         00000000   D0DA8434    00C0    4.......        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 28 at 11-MAR-2003 17:50:47.73
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 212 = ^x00D4 
+   IP Identifier  = ^x57FA,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAF8 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822588049 = ^x3107B291 
+   TCP Acknowledge Number   = 346578128 = ^x14A85CD0 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^x5785,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   F8AA063A   0040FA57   D4000045    0000    E...W.@.:.......
+   D05CA814   91B20731   0108C703 | 02030081    0010    ........1.....\.
+   15276D81   A8000080 | 00008557   52801850    0020    P..RW........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   15000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   006C0000   00040004   01290020   20202020    00B0         .).......l.
+   00000000   00000000   A1124355   00000004    00C0    ....UC..........
+                                    00802400    00D0    .$..            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 29 at 11-MAR-2003 17:50:47.75
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 196 = ^x00C4 
+   IP Identifier  = ^x8EED,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7215 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346578128 = ^x14A85CD0 
+   TCP Acknowledge Number   = 822588221 = ^x3107B33D 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x4AB9,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   1572063C   0040ED8E   C4000045    0000    E.....@.<.r.....
+   3DB30731   D05CA814   C7030108 | 1A0D15AC    0010    ..........\.1..=
+   15276D81   98000080 | 0000B94A   00F01850    0020    P...J........m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   00000000   01000000   00000000   00000000    0040    ................
+   89216E3E   683CB735   8B216E3E   3B7C2400    0050    .$|;>n!.5.<h>n!.
+   A0010000   01000000   01000000   D0DA8434    0060    4...............
+   00000000   00000000   00000000   01000000    0070    ................
+   00000000   00802400   00000000   3B7C2400    0080    .$|;.....$......
+   00000000   2C810400   00000000   2C810000    0090    ...,.......,....
+   F7216E3E   40FAFB19   05216E3E   6C000000    00A0    ...l>n!....@>n!.
+   00A1CB7A   C863D52B   F7216E3E   C863D52B    00B0    +.c.>n!.+.c.z...
+                                    D0C49BB9    00C0    ....            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 30 at 11-MAR-2003 17:50:47.76
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x57FB,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAB03 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822588221 = ^x3107B33D 
+   TCP Acknowledge Number   = 346578284 = ^x14A85D6C 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xD68C,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   03AB063A   0040FB57   C8000045    0000    E...W.@.:.......
+   6C5DA814   3DB30731   0108C703 | 02030081    0010    ........1..=..]l
+   16276D81   9C000080 | 00008CD6   52801850    0020    P..R.........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   01000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+                         A1764355   00000001    00C0    ....UCv.        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 31 at 11-MAR-2003 17:50:47.77
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 156 = ^x009C 
+   IP Identifier  = ^x8EEE,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x723C 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346578284 = ^x14A85D6C 
+   TCP Acknowledge Number   = 822588381 = ^x3107B3DD 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^xDA48,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   3C72063C   0040EE8E   9C000045    0000    E.....@.<.r<....
+   DDB30731   6C5DA814   C7030108 | 1A0D15AC    0010    ..........]l1...
+   16276D81   70000080 | 000048DA   00F01850    0020    P....H.....p.m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   E9010000   02000000   00000000   00000000    0040    ................
+   00000000   BD020000   BD020000   02000000    0050    ................
+   00000000   00080000   00000000   00020000    0060    ................
+   00000000   2C810400   00000000   2C810000    0070    ...,.......,....
+   F7216E3E   80C9372E   F7216E3E   0B000000    0080    ....>n!..7..>n!.
+              80C9372E   F7216E3E   80C9372E    0090    .7..>n!..7..    
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 32 at 11-MAR-2003 17:50:47.82
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 204 = ^x00CC 
+   IP Identifier  = ^x57FC,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAFE 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822588381 = ^x3107B3DD 
+   TCP Acknowledge Number   = 346578400 = ^x14A85DE0 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xD56A,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   FEAA063A   0040FC57   CC000045    0000    E...W.@.:.......
+   E05DA814   DDB30731   0108C703 | 02030081    0010    ........1.....].
+   17276D81   A0000080 | 00006AD5   52801850    0020    P..R.j.......m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   04000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+              02000000   A1764355   00000001    00C0    ....UCv.....    
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 33 at 11-MAR-2003 17:50:47.83
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 164 = ^x00A4 
+   IP Identifier  = ^x8EEF,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x7233 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346578400 = ^x14A85DE0 
+   TCP Acknowledge Number   = 822588545 = ^x3107B481 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^xFEC9,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   3372063C   0040EF8E   A4000045    0000    E.....@.<.r3....
+   81B40731   E05DA814   C7030108 | 1A0D15AC    0010    ..........].1...
+   17276D81   78000080 | 0000C9FE   00F01850    0020    P..........x.m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   02000000   01000000   00000000   00000000    0040    ................
+   BD020000   BD020000   02000000   E9010000    0050    ................
+   00080000   00000000   00020000   00000000    0060    ................
+   2C810400   00000000   2C810000   00000000    0070    .......,.......,
+   0864CB31   F7216E3E   0B000000   00000000    0080    ........>n!.1.d.
+   0864CB31   F7216E3E   0864CB31   F7216E3E    0090    >n!.1.d.>n!.1.d.
+                                    02000000    00A0    ....            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 34 at 11-MAR-2003 17:50:47.84
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 212 = ^x00D4 
+   IP Identifier  = ^x57FD,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAF5 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822588545 = ^x3107B481 
+   TCP Acknowledge Number   = 346578524 = ^x14A85E5C 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^x34F3,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   F5AA063A   0040FD57   D4000045    0000    E...W.@.:.......
+   5C5EA814   81B40731   0108C703 | 02030081    0010    ........1.....^\
+   18276D81   A8000080 | 0000F334   52801850    0020    P..R4........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000B0000   00040004   01290020   20202020    00B0         .).........
+   65646966   07000000   A1764355   00000001    00C0    ....UCv.....fide
+                                    00617373    00D0    ssa.            
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 35 at 11-MAR-2003 17:50:47.86
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EF0,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x720E 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346578524 = ^x14A85E5C 
+   TCP Acknowledge Number   = 822588717 = ^x3107B52D 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x95EC,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   0E72063C   0040F08E   C8000045    0000    E.....@.<.r.....
+   2DB50731   5C5EA814   C7030108 | 1A0D15AC    0010    ..........^\1..-
+   18276D81   9C000080 | 0000EC95   00F01850    0020    P............m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1754355   00000001   000C0000    0060    ........UCu.....
+   BD020000   02000000   E9010000   02000000    0070    ................
+   00000000   00020000   00000000   BD020000    0080    ................
+   00000000   2C810000   00000000   00080000    0090    ...........,....
+   F7216E3E   0C000000   00000000   2C810400    00A0    ...,........>n!.
+   F7216E3E   582F9533   F7216E3E   582F9533    00B0    3./X>n!.3./X>n!.
+                         00000000   582F9533    00C0    3./X....        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 36 at 11-MAR-2003 17:50:47.90
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 208 = ^x00D0 
+   IP Identifier  = ^x57FE,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAAF8 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822588717 = ^x3107B52D 
+   TCP Acknowledge Number   = 346578684 = ^x14A85EFC 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xEF7E,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   F8AA063A   0040FE57   D0000045    0000    E...W.@.:.......
+   FC5EA814   2DB50731   0108C703 | 02030081    0010    ........1..-..^.
+   19276D81   A4000080 | 00007EEF   52801850    0020    P..R.~.......m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000C0000   00040004   01290020   20202020    00B0         .).........
+   0074756F   03000000   A1754355   00000001    00C0    ....UCu.....out.
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 37 at 11-MAR-2003 17:50:47.93
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EF1,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x720D 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346578684 = ^x14A85EFC 
+   TCP Acknowledge Number   = 822588885 = ^x3107B5D5 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^xD74C,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   0D72063C   0040F18E   C8000045    0000    E.....@.<.r.....
+   D5B50731   FC5EA814   C7030108 | 1A0D15AC    0010    ..........^.1...
+   19276D81   9C000080 | 00004CD7   00F01850    0020    P....L.......m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1734355   00000001   000E0000    0060    ........UCs.....
+   BD020000   02000000   E9010000   02000000    0070    ................
+   00000000   000C0000   00000000   BD020000    0080    ................
+   00000000   2C810000   00000000   00100000    0090    ...........,....
+   F7216E3E   0E000000   00000000   2C810400    00A0    ...,........>n!.
+   F7216E3E   4864C137   F7216E3E   4864C137    00B0    7.dH>n!.7.dH>n!.
+                         00000000   4864C137    00C0    7.dH....        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display RCV packet 38 at 11-MAR-2003 17:50:47.97
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 232 = ^x00E8 
+   IP Identifier  = ^x57FF,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 58 = ^x3A,  Protocol = 6 = ^x06,  Header Checksum = ^xAADF 
+   IP Source Address      = 172.21.13.26 
+   IP Destination Address = 129.0.3.2 
+
+   TCP Source Port = 967,  TCP Destination Port = 2049 
+   TCP Sequence Number      = 822588885 = ^x3107B5D5 
+   TCP Acknowledge Number   = 346578844 = ^x14A85F9C 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 32850 = ^x8052 
+   TCP Checksum = ^xC107,   Urgent Pointer = 0 = ^x0000 
+
+   1A0D15AC   DFAA063A   0040FF57   E8000045    0000    E...W.@.:.......
+   9C5FA814   D5B50731   0108C703 | 02030081    0010    ........1....._.
+   1A276D81   BC000080 | 000007C1   52801850    0020    P..R.........m'.
+   03000000   A3860100   02000000   00000000    0030    ................
+   F7216E3E   50000000   01000000   03000000    0040    ...........P>n!.
+   00003130   70646966   6D303278   0A000000    0050    ....x20mfidp01..
+   00000000   0C000000   00000000   00000000    0060    ................
+   05000000   04000000   03000000   02000000    0070    ................
+   09000000   08000000   07000000   06000000    0080    ................
+   00000000   EC030000   75000000   0C000000    0090    .......u........
+   20202020   53544602   20000000   00000000    00A0    ....... .FTS    
+   000E0000   00040004   01290020   20202020    00B0         .).........
+   5F4C5F50   1A000000   A1734355   00000001    00C0    ....UCs.....P_L_
+   30323330   33303330   30324345   524E4946    00D0    FINREC2003030320
+                         00004C43   492E3033    00E0    30.ICL..        
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+ 
+   TCPtrace full display XMT packet 39 at 11-MAR-2003 17:50:47.99
+ 
+   IP Version = 4,  IHL = 5,  TOS = 00,   Total Length = 200 = ^x00C8 
+   IP Identifier  = ^x8EF2,  Flags (0=0,DF=1,MF=0),  
+         Fragment Offset = 0 = ^x0000,   Calculated Offset = 0 = ^x0000 
+   IP TTL = 60 = ^x3C,  Protocol = 6 = ^x06,  Header Checksum = ^x720C 
+   IP Source Address      = 129.0.3.2 
+   IP Destination Address = 172.21.13.26 
+
+   TCP Source Port = 2049,  TCP Destination Port = 967 
+   TCP Sequence Number      = 346578844 = ^x14A85F9C 
+   TCP Acknowledge Number   = 822589077 = ^x3107B695 
+       Flags (URG=0,ACK=1,PSH=1,RST=0,SYN=0,FIN=0), 
+                                           Window = 61440 = ^xF000 
+   TCP Checksum = ^x9C66,   Urgent Pointer = 0 = ^x0000 
+
+   02030081   0C72063C   0040F28E   C8000045    0000    E.....@.<.r.....
+   95B60731   9C5FA814   C7030108 | 1A0D15AC    0010    .........._.1...
+   1A276D81   9C000080 | 0000669C   00F01850    0020    P....f.......m'.
+   00000000   00000000   00000000   01000000    0030    ................
+   53544602   20000000   00000000   00000000    0040    ........... .FTS
+   00040004   01290020   20202020   20202020    0050             .).....
+   01000000   A1124355   00000004   006C0000    0060    ..l.....UC......
+   00000000   01000000   A0010000   01000000    0070    ................
+   00000000   3B7C2400   00000000   00000000    0080    .........$|;....
+   00000000   2C810000   00000000   00802400    0090    .$.........,....
+   05216E3E   6C000000   00000000   2C810400    00A0    ...,.......l>n!.
+   F7216E3E   C863D52B   F7216E3E   40FAFB19    00B0    ...@>n!.+.c.>n!.
+                         00000000   C863D52B    00C0    +.c.....        
+ 
+ 

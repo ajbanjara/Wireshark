@@ -1,0 +1,115 @@
+Connected to devapps.uth.tmc.edu:443
+--> [
+(102 bytes of 97)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 16 03 00 00  61                                   |....a
+   type    = 22 (handshake)
+   version = { 3,0 }
+   length  = 97 (0x61)
+   handshake {
+   0: 01 00 00 5d                                      |...]
+      type = 1 (client_hello)
+      length = 93 (0x00005d)
+         ClientHelloV3 {
+            client_version = {3, 0}
+            random = {...}
+   0: 49 e8 c8 bf  01 20 78 05  34 38 23 9a  bb c9 5b 1f  | I.... x.48#...[.
+  10: 1d 12 c3 5d  4d ce 57 86  46 f4 7f b6  47 62 e6 cc  | ...]M.W.F..Gb..
+            session ID = {
+                length = 32
+                contents = {..}
+   0: 09 9c 1a 94  a6 f8 b3 d7  cd c1 2d 93  3e 72 ad 8f  | ..........-.>r..
+  10: 2a b9 9a 77  57 46 9a 59  02 63 cf 6b  d6 5f a8 7e  | *..wWF.Y.c.k._.~
+            }
+            cipher_suites[11] = { 
+                (0x0004) SSL3/RSA/RC4-128/MD5
+                (0x0005) SSL3/RSA/RC4-128/SHA
+                (0x000a) SSL3/RSA/3DES192EDE-CBC/SHA
+                (0x0009) SSL3/RSA/DES56-CBC/SHA
+                (0x0064) TLS/RSA-EXPORT1024/RC4-56/SHA
+                (0x0062) TLS/RSA-EXPORT1024/DES56-CBC/SHA
+                (0x0003) SSL3/RSA/RC4-40/MD5
+                (0x0006) SSL3/RSA/RC2CBC40/MD5
+                (0x0013) SSL3/DHE-DSS/DES192EDE3CBC/SHA
+                (0x0012) SSL3/DHE-DSS/DES56-CBC/SHA
+                (0x0063) TLS/DHE-DSS_EXPORT1024/DES56-CBC/SHA
+            }
+            compression[1] = { 00 }
+         }
+   }
+}
+]
+<-- [
+(146 bytes of 74, with 67 left over)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 16 03 00 00  4a                                   |....J
+   type    = 22 (handshake)
+   version = { 3,0 }
+   length  = 74 (0x4a)
+   handshake {
+   0: 02 00 00 46                                      |...F
+      type = 2 (server_hello)
+      length = 70 (0x000046)
+         ServerHello {
+            server_version = {3, 0}
+            random = {...}
+   0: 00 2e 6a 97  03 90 1f 58  00 fb ad de  be ac 40 ea  | ..j....X......@.
+  10: 7e c9 b1 cd  5b b0 3a 78  d6 05 87 b9  37 99 8e ec  | ~...[.:x....7...
+            session ID = {
+                length = 32
+                contents = {..}
+   0: 09 9c 1a 94  a6 f8 b3 d7  cd c1 2d 93  3e 72 ad 8f  | ..........-.>r..
+  10: 2a b9 9a 77  57 46 9a 59  02 63 cf 6b  d6 5f a8 7e  | *..wWF.Y.c.k._.~
+            }
+            cipher_suite = (0x0004) SSL3/RSA/RC4-128/MD5
+            compression method = 00
+         }
+   }
+}
+(146 bytes of 1, with 61 left over)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 14 03 00 00  01                                   |.....
+   type    = 20 (change_cipher_spec)
+   version = { 3,0 }
+   length  = 1 (0x1)
+   0: 01                                               |.
+}
+(146 bytes of 56)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 16 03 00 00  38                                   |....8
+   type    = 22 (handshake)
+   version = { 3,0 }
+   length  = 56 (0x38)
+            < encrypted >
+}
+]
+--> [
+(67 bytes of 1, with 61 left over)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 14 03 00 00  01                                   |.....
+   type    = 20 (change_cipher_spec)
+   version = { 3,0 }
+   length  = 1 (0x1)
+   0: 01                                               |.
+}
+(67 bytes of 56)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 16 03 00 00  38                                   |....8
+   type    = 22 (handshake)
+   version = { 3,0 }
+   length  = 56 (0x38)
+            < encrypted >
+}
+]
+Read EOF on Client socket. [Fri Apr 17 13:21:51 2009]
+<-- [
+(23 bytes of 18)
+SSLRecord { [Fri Apr 17 13:21:51 2009]
+   0: 15 03 00 00  12                                   |.....
+   type    = 21 (alert)
+   version = { 3,0 }
+   length  = 18 (0x12)
+            < encrypted >
+}
+]
+Read EOF on Server socket. [Fri Apr 17 13:21:51 2009]
