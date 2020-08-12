@@ -82,10 +82,6 @@ Things not (yet) part of the [Wireshark User's Guide](http://www.wireshark.org/d
 
   - [SiteNavigation](/SiteNavigation): get an overview over this site and what it contains
 
-  - [FindPage](/FindPage): search or browse the database in various ways
-
-  - [TitleIndex](/TitleIndex): look at the index of all available wiki page titles
-
 ---
 
 Imported from https://wiki.wireshark.org/ on 2020-08-11 23:10:57 UTC
