@@ -1,8 +1,17 @@
 # How To Edit the Wireshark wiki
 
-You can edit any page by pressing the **Edit** link at the top of the page, or the **EditText** link at the bottom of the page. Capitalized words joined together form a [WikiName](/WikiName), which hyperlinks to another page. The highlighted title searches for all pages that link to the current page. Pages which do not yet exist are linked with a question mark: just follow the link and you can add a definition. There are some templates defined for typical new pages, like a [ProtocolTemplate](/ProtocolTemplate) page.
+In order to become a wiki editor you must do the following:
 
-To learn more about what a [WikiWikiWeb](/WikiWikiWeb) is, read about [WhyWikiWorks](http://moinmoin.wikiwikiweb.de/WhyWikiWorks "MoinMoin") and the [WikiNature](http://moinmoin.wikiwikiweb.de/WikiNature "MoinMoin"). Also, consult the [WikiWikiWebFaq](http://moinmoin.wikiwikiweb.de/WikiWikiWebFaq "MoinMoin").
+. Create a GitLab account if you don't already have one.
+
+. Send an email to wireshark-dev@wireshark.org with the following format (or something similar):
+```
+Subject: Wiki editor permission request
+
+Hi,
+
+I would like permission to edit the Wireshark wiki. My GitLab username is <your username>.
+```
 
 ## Copyright Information
 
