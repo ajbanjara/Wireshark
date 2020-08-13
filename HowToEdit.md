@@ -2,9 +2,9 @@
 
 In order to become a wiki editor you must do the following:
 
-. Create a GitLab account if you don't already have one.
+1. Create a GitLab account if you don't already have one.
 
-. Send an email to wireshark-dev@wireshark.org with the following format (or something similar):
+2. Send an email to wireshark-dev@wireshark.org with the following format (or something similar):
 ```
 Subject: Wiki editor permission request
 
