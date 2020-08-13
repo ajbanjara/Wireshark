@@ -4,34 +4,11 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 ## Planning
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Release</strong></p></td>
-<td><p><strong>Expected Date</strong></p></td>
-<td><p><strong>Notes</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>3.2.6</p></td>
-<td><p>August 12, 2020</p></td>
-<td><p>Next maintenance release of the 3.2 branch</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.0.13</p></td>
-<td><p>August 12, 2020</p></td>
-<td><p>Next maintenance release of the 3.0 branch</p></td>
-</tr>
-<tr class="even">
-<td><p>2.6.19</p></td>
-<td><p>August 12, 2020</p></td>
-<td><p>Next maintenance release of the 2.6 branch</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| **Release** | **Expected Date** | **Notes** |
+| ---         |  ---              | ---       |
+| 3.2.6       | September 23, 2020   | Next maintenance release of the 3.2 branch |
+| 3.0.14      | September 23, 2020   | Next maintenance release of the 3.0 branch |
+| 2.6.20      | September 23, 2020   | Next maintenance release of the 2.6 branch |
 
 ## Backporting Changes
 
