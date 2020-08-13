@@ -21,8 +21,6 @@ Before posting, please read the [License](/License) page. **If you don't agree w
 
   - [HelpForBeginners](/HelpForBeginners): help to get you started
 
-  - [WikiSandBox](/WikiSandBox): feel free to change this page and experiment with editing
-
   - [SyntaxReference](/SyntaxReference): a short reference about wiki markup
 
 ## Navigation
