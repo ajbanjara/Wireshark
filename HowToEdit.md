@@ -13,23 +13,13 @@ Hi,
 I would like permission to edit the Wireshark wiki. My GitLab username is <your username>.
 ```
 
-## Copyright Information
+## Contributing
 
-Before posting, please read the [License](/License) page. **If you don't agree with the license, then don't post here.**
+In order to edit this wiki you should be familiar with Markdown, specifically [GitLab Flavored Markdown](https://gitlab.com/help/user/markdown).
 
-## Wiki editing
+Before contributing, please read the [License](/License) page. **If you don't agree with the license, then don't contribute.**
 
-  - [SyntaxReference](/SyntaxReference): a short reference about wiki markup
-
-## Navigation
-
-  - [RecentChanges](/RecentChanges): see where people are currently working
-
-  - [TitleIndex](/TitleIndex): Index of all pages
-
-  - [SiteNavigation](/SiteNavigation): get an overview over this site and what it contains
-
-## How To Add a Protocol
+## Adding Protocol Documentation
 
 It's often the case, that a protocol is known under different names or abbreviations, e.g. HTTP or [HyperTextTransferProtocol](/HyperTextTransferProtocol), or ...
 
@@ -43,27 +33,17 @@ The redirection page(s) can then simply be created using the Redirect Template p
 
 So to create a new protocol page:
 
-  - add the protocol name to the [ProtocolReference](/ProtocolReference) page (by editing this page and using [WikiName](/WikiName)'s) and save your changes
+- add the protocol name to the [ProtocolReference](/ProtocolReference) page (by editing this page and using [WikiName](/WikiName)'s) and save your changes
 
-  - a "broken link" of your protocol will appear at the [ProtocolReference](/ProtocolReference) page where you added it, click on it
+- a "broken link" of your protocol will appear at the [ProtocolReference](/ProtocolReference) page where you added it, click on it
 
-  - you will be requested to add a new page, use the protocol or redirect template as described above
+- you will be requested to add a new page, use the protocol or redirect template as described above
 
 ## Attachments
 
 If you have an example capture file for a specific protocol, it is appreciated to put it into the [SampleCaptures](/SampleCaptures) page and add a link to that file in the protocols page.
 
-If you want to add a screenshot, it's a good idea to use the *.png* or *.gif* file format. The *.jpg* format isn't the best choice here, as it's producing larger sized files with lower image quality.
-
-## Wiki Names
-
-For several reasons it is **not** recommended to fill in spaces for the page names, as this makes it hard to find the right spelling while typing in the content of another page. So "[HyperTextTransferProtocol](/HyperTextTransferProtocol)" should be used instead of "[HyperTextTransfer](/HyperTextTransfer) Protocol" or "[HyperText](/HyperText) Transfer Protocol".
-
-If you want to see spaces between the words of the page name, use the corresponding setting in your wiki preferences.
-
------
-
-## Discussion
+Please save screen captures as PNG or GIF. JPEG can introduce artifacts that make text fuzzy or otherwise difficult to read.
 
 ---
 
