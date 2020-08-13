@@ -19,8 +19,6 @@ Before posting, please read the [License](/License) page. **If you don't agree w
 
 ## Wiki editing
 
-  - [HelpForBeginners](/HelpForBeginners): help to get you started
-
   - [SyntaxReference](/SyntaxReference): a short reference about wiki markup
 
 ## Navigation
