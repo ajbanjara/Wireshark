@@ -839,64 +839,12 @@ Note: [This site](http://rpms.famillecollet.com/rpmphp/) allows you to enter a p
 
 Latest versions are listed, earlier versions are between parentheses.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distribution</strong></p></td>
-<td><p><strong>Initial Release</strong></p></td>
-<td><p><strong>End of Normal Support</strong></p></td>
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Qt4 version</strong></p></td>
-<td><p><strong>Qt5 version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Red Hat EL/CentOS 5</p></td>
-<td><p>2007/3</p></td>
-<td><p>2017/3</p></td>
-<td><p>2.12.3</p></td>
-<td><p>2.10.4</p></td>
-<td><p>(none)</p></td>
-<td><p>4.2.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Red Hat EL/CentOS 6</p></td>
-<td><p>2010/11</p></td>
-<td><p>2020/11</p></td>
-<td><p>2.28.8 (2.26.1, 2.22.5)</p></td>
-<td><p>2.24.23 (2.20.1, 2.18.9)</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.2</p></td>
-<td><p>base:(none) EPEL:5.6.1</p></td>
-</tr>
-<tr class="even">
-<td><p>Red Hat EL/CentOS 7</p></td>
-<td><p>2014/6</p></td>
-<td><p>2024/6</p></td>
-<td><p>2.50.3 (2.40.0, 2.36.3)</p></td>
-<td><p>2.24.22</p></td>
-<td><p>3.22.26 (3.8.4)</p></td>
-<td><p>4.8.7 (4.8.5)</p></td>
-<td><p>5.9.7 (5.6.2)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Red Hat EL/CentOS 8</p></td>
-<td><p>2019/5</p></td>
-<td><p>2029/5</p></td>
-<td><p>2.56.4</p></td>
-<td><p>2.24.32</p></td>
-<td><p>3.22.30</p></td>
-<td><p>(none)</p></td>
-<td><p>5.12.15 (5.6.2)</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Distribution        | Initial Release | End of Normal Support | GLIB version            | Gtk2 version             | Gtk3 version    | Qt4 version   | Qt5 version            |
+|---------------------|-----------------|-----------------------|-------------------------|--------------------------|-----------------|---------------|------------------------|
+| Red Hat EL/CentOS 5 | 2007/3          | 2017/3                | 2.12.3                  | 2.10.4                   | (none)          | 4.2.1         | (none)                 |
+| Red Hat EL/CentOS 6 | 2010/11         | 2020/11               | 2.28.8 (2.26.1, 2.22.5) | 2.24.23 (2.20.1, 2.18.9) | (none)          | 4.6.2         | base:(none) EPEL:5.6.1 |
+| Red Hat EL/CentOS 7 | 2014/6          | 2024/6                | 2.50.3 (2.40.0, 2.36.3) | 2.24.22                  | 3.22.26 (3.8.4) | 4.8.7 (4.8.5) | 5.9.7 (5.6.2)          |
+| Red Hat EL/CentOS 8 | 2019/5          | 2029/5                | 2.56.4                  | 2.24.32                  | 3.22.30         | (none)        | 5.12.15 (5.6.2)        |
 
 Note: [EPEL](https://fedoraproject.org/wiki/EPEL) is an optional repository for extra packages.
 
