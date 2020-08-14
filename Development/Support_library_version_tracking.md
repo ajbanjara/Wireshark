@@ -1214,142 +1214,23 @@ Version numbering changed over time: ..., 13.2, Leap 42.1, ..., Leap 42.3, Leap 
 
 Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distribution</strong></p></td>
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Qt4 version</strong></p></td>
-<td><p><strong>Qt5 version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 10.0</p></td>
-<td><p>2.8.1</p></td>
-<td><p>2.8.3</p></td>
-<td><p>(none)</p></td>
-<td><p>4.0.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE 10.2</p></td>
-<td><p>2.12.4</p></td>
-<td><p>2.10.6</p></td>
-<td><p>(none)</p></td>
-<td><p>4.2.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 10.3</p></td>
-<td><p>2.14.1</p></td>
-<td><p>2.12.0</p></td>
-<td><p>(none)</p></td>
-<td><p>4.3.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE 11.0</p></td>
-<td><p>2.16.3</p></td>
-<td><p>2.12.9</p></td>
-<td><p>(none)</p></td>
-<td><p>4.4.0</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 11.1</p></td>
-<td><p>2.18.2</p></td>
-<td><p>2.14.4</p></td>
-<td><p>(none)</p></td>
-<td><p>4.4.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE 11.2</p></td>
-<td><p>2.22.4</p></td>
-<td><p>2.18.6</p></td>
-<td><p>(none)</p></td>
-<td><p>4.5.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 11.3</p></td>
-<td><p>2.24.1</p></td>
-<td><p>2.20.1</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE 11.4</p></td>
-<td><p>2.28.0</p></td>
-<td><p>2.22.1</p></td>
-<td><p>3.0.0</p></td>
-<td><p>4.7.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 12.1</p></td>
-<td><p>2.30.1</p></td>
-<td><p>2.24.7</p></td>
-<td><p>3.2.1</p></td>
-<td><p>4.7.4</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE 12.2</p></td>
-<td><p>2.32.4</p></td>
-<td><p>2.24.10</p></td>
-<td><p>3.4.4</p></td>
-<td><p>4.8.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 12.3</p></td>
-<td><p>2.34.3</p></td>
-<td><p>2.24.18</p></td>
-<td><p>3.6.5</p></td>
-<td><p>4.8.4</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE 13.1</p></td>
-<td><p>2.38.2</p></td>
-<td><p>2.24.23</p></td>
-<td><p>3.10.9</p></td>
-<td><p>4.8.5</p></td>
-<td><p>5.1.1</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE 13.2</p></td>
-<td><p>2.42.2</p></td>
-<td><p>2.24.28</p></td>
-<td><p>3.14.13</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.4.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>openSUSE Leap 42.3</p></td>
-<td><p>2.48.2</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.6.2</p></td>
-</tr>
-<tr class="even">
-<td><p>openSUSE Leap 15.0</p></td>
-<td><p>2.54.3</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.9.4</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
+|--------------------|--------------|--------------|--------------|-------------|-------------|
+| openSUSE 10.0      | 2.8.1        | 2.8.3        | (none)       | 4.0.1       | (none)      |
+| openSUSE 10.2      | 2.12.4       | 2.10.6       | (none)       | 4.2.1       | (none)      |
+| openSUSE 10.3      | 2.14.1       | 2.12.0       | (none)       | 4.3.1       | (none)      |
+| openSUSE 11.0      | 2.16.3       | 2.12.9       | (none)       | 4.4.0       | (none)      |
+| openSUSE 11.1      | 2.18.2       | 2.14.4       | (none)       | 4.4.3       | (none)      |
+| openSUSE 11.2      | 2.22.4       | 2.18.6       | (none)       | 4.5.3       | (none)      |
+| openSUSE 11.3      | 2.24.1       | 2.20.1       | (none)       | 4.6.3       | (none)      |
+| openSUSE 11.4      | 2.28.0       | 2.22.1       | 3.0.0        | 4.7.1       | (none)      |
+| openSUSE 12.1      | 2.30.1       | 2.24.7       | 3.2.1        | 4.7.4       | (none)      |
+| openSUSE 12.2      | 2.32.4       | 2.24.10      | 3.4.4        | 4.8.1       | (none)      |
+| openSUSE 12.3      | 2.34.3       | 2.24.18      | 3.6.5        | 4.8.4       | (none)      |
+| openSUSE 13.1      | 2.38.2       | 2.24.23      | 3.10.9       | 4.8.5       | 5.1.1       |
+| openSUSE 13.2      | 2.42.2       | 2.24.28      | 3.14.13      | 4.8.6       | 5.4.1       |
+| openSUSE Leap 42.3 | 2.48.2       | x            | x            | 4.8.7       | 5.6.2       |
+| openSUSE Leap 15.0 | 2.54.3       | x            | x            | 4.8.7       | 5.9.4       |
 
 ## Debian
 
