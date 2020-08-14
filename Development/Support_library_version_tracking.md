@@ -665,108 +665,27 @@ Ubuntu 16.04 (cmake3 in Ubuntu 14.04), SLES12 SP2 (*1). In RHEL 6 and 7 install 
 
 Python 3.4 or newer has become required since v2.9.0rc0-2460-ge9f7bb5127. The test suite currently does not depend on pytest, but can be used with it.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distro</strong></p></td>
-<td><p><strong>package version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>RHEL/CentOS 7</p></td>
-<td><p>(unavailable, EPEL python34-pytest 2.8.5 is too old</p></td>
-</tr>
-<tr class="odd">
-<td><p>Debian Stretch</p></td>
-<td><p>python3-pytest 3.0.6</p></td>
-</tr>
-<tr class="even">
-<td><p>Ubuntu 17.10</p></td>
-<td><p>python3-pytest 3.1.3</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
+| Distro         | package version                                     |
+|----------------|-----------------------------------------------------|
+| RHEL/CentOS 7  | (unavailable, EPEL python34-pytest 2.8.5 is too old |
+| Debian Stretch | python3-pytest 3.0.6                                |
+| Ubuntu 17.10   | python3-pytest 3.1.3                                |
 On older systems, you can install it via: `pip3 install pytest pytest-xdist`
 
 ## Lua
 
 Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is not supported due to the bitop library ([Bug 10881](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=10881)). LuaJIT was being considered for 3.1 ([Bug 15745](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15745)) and is API/ABI compatible with Lua 5.1 and supports many new 5.2 library functions since LuaJIT 2.0.0-beta11 (2012-10-16). However since LuaJIT upstream appeared inactive in 2019, it was decided not to merge the [LuaJIT patch](https://code.wireshark.org/review/33047).
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Platform</strong></p></td>
-<td><p><strong>LuaJIT</strong></p></td>
-<td><p><strong>Lua 5.1</strong></p></td>
-<td><p><strong>Lua 5.2</strong></p></td>
-<td><p><strong>Lua 5.3</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>SLES 11</p></td>
-<td><p>no</p></td>
-<td><p>5.1.4</p></td>
-<td><p>no</p></td>
-<td><p>no</p></td>
-</tr>
-<tr class="odd">
-<td><p>RHEL/CentOS 6/7</p></td>
-<td><p>2.0.4 (EPEL)</p></td>
-<td><p>5.1.4</p></td>
-<td><p>no</p></td>
-<td><p>no</p></td>
-</tr>
-<tr class="even">
-<td><p>RHEL/CentOS 8</p></td>
-<td><p>no</p></td>
-<td><p>no</p></td>
-<td><p>no</p></td>
-<td><p>5.3.4</p></td>
-</tr>
-<tr class="odd">
-<td><p>SLES 12</p></td>
-<td><p>no</p></td>
-<td><p>5.1.5</p></td>
-<td><p>5.2.2</p></td>
-<td><p>no</p></td>
-</tr>
-<tr class="even">
-<td><p>Debian Jessie</p></td>
-<td><p>2.0.3</p></td>
-<td><p>5.1.5</p></td>
-<td><p>5.2.3</p></td>
-<td><p>no</p></td>
-</tr>
-<tr class="odd">
-<td><p>Ubuntu 16.04</p></td>
-<td><p>2.0.4</p></td>
-<td><p>5.1.5</p></td>
-<td><p>5.2.4</p></td>
-<td><p>5.3.1</p></td>
-</tr>
-<tr class="even">
-<td><p>macOS (homebrew)</p></td>
-<td><p>2.0.5</p></td>
-<td><p>5.1.5</p></td>
-<td><p>no</p></td>
-<td><p>5.3.5</p></td>
-</tr>
-<tr class="odd">
-<td><p>Ubuntu &gt;= 18.04 / Debian &gt;= stretch-backports</p></td>
-<td><p>2.1.0~beta3</p></td>
-<td><p>5.1.5</p></td>
-<td><p>5.2.4</p></td>
-<td><p>5.3.3</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Platform                                      | LuaJIT       | Lua 5.1 | Lua 5.2 | Lua 5.3 |
+|-----------------------------------------------|--------------|---------|---------|---------|
+| SLES 11                                       | no           | 5.1.4   | no      | no      |
+| RHEL/CentOS 6/7                               | 2.0.4 (EPEL) | 5.1.4   | no      | no      |
+| RHEL/CentOS 8                                 | no           | no      | no      | 5.3.4   |
+| SLES 12                                       | no           | 5.1.5   | 5.2.2   | no      |
+| Debian Jessie                                 | 2.0.3        | 5.1.5   | 5.2.3   | no      |
+| Ubuntu 16.04                                  | 2.0.4        | 5.1.5   | 5.2.4   | 5.3.1   |
+| macOS (homebrew)                              | 2.0.5        | 5.1.5   | no      | 5.3.5   |
+| Ubuntu >= 18.04 / Debian >= stretch-backports | 2.1.0~beta3  | 5.1.5   | 5.2.4   | 5.3.3   |
 
 ## Nghttp2
 
