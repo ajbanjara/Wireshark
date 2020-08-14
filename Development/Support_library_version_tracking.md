@@ -127,147 +127,26 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 
 Note: GTK+ support is completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc5781ba)
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Date</strong></p></td>
-<td><p><strong>Notes</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>2.12</p></td>
-<td><p>2.10</p></td>
-<td></td>
-<td><p>Jul 2006</p></td>
-<td><p>GTK+ 2.12 is min. req. since 11 July 2011</p></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>2.14</p></td>
-<td></td>
-<td><p>Aug 2007</p></td>
-<td><p>GLib 2.14 is min. req. since 11 July 2011 (old)</p></td>
-</tr>
-<tr class="even">
-<td><p>2.22</p></td>
-<td><p>2.18</p></td>
-<td></td>
-<td><p>Sep 2009</p></td>
-<td><p>GLib 2.22 is min. req. since Aug 2016 (v2.3.0rc0-201-gd21295f); SLES11 has GLib 2.22.5</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.24</p></td>
-<td><p>2.20</p></td>
-<td></td>
-<td><p>Apr 2010</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.26</p></td>
-<td><p>2.22</p></td>
-<td></td>
-<td><p>Oct 2010</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>2.26</p></td>
-<td><p>2.24</p></td>
-<td></td>
-<td><p>Dec 2010</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.28</p></td>
-<td></td>
-<td><p>3.0</p></td>
-<td><p>Feb 2011</p></td>
-<td><p>GTK+ 3.0 is the minimum supported version next to GTK+ 2).</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.30</p></td>
-<td></td>
-<td><p>3.2</p></td>
-<td><p>Sep 2011</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.32</p></td>
-<td></td>
-<td><p>3.4</p></td>
-<td><p>Feb 2012</p></td>
-<td><p>GLib 2.32 is min. req. since April 2018 (v2.9.0rc0-34-gb30e3d4267)</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.34</p></td>
-<td></td>
-<td><p>3.6</p></td>
-<td><p>Sep 2012</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.36</p></td>
-<td></td>
-<td><p>3.8</p></td>
-<td><p>Mar 2013</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>2.38</p></td>
-<td></td>
-<td><p>3.10</p></td>
-<td><p>Oct 2014</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.40</p></td>
-<td></td>
-<td><p>3.12</p></td>
-<td><p>Mar 2014</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>2.42</p></td>
-<td></td>
-<td><p>3.14</p></td>
-<td><p>Sep 2014</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.44</p></td>
-<td></td>
-<td><p>3.16</p></td>
-<td><p>Mar 2015</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>2.46</p></td>
-<td></td>
-<td><p>3.18</p></td>
-<td><p>Sep 2015</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.48</p></td>
-<td></td>
-<td><p>3.20</p></td>
-<td><p>Mar 2016</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>2.50</p></td>
-<td></td>
-<td><p>3.22</p></td>
-<td><p>Sep 2016</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| GLIB version | Gtk2 version | Gtk3 version | Date     | Notes                                                                                   |
+|--------------|--------------|--------------|----------|-----------------------------------------------------------------------------------------|
+| 2.12         | 2.10         |              | Jul 2006 | GTK+ 2.12 is min. req. since 11 July 2011                                               |
+|              | 2.14         |              | Aug 2007 | GLib 2.14 is min. req. since 11 July 2011 (old)                                         |
+| 2.22         | 2.18         |              | Sep 2009 | GLib 2.22 is min. req. since Aug 2016 (v2.3.0rc0-201-gd21295f9); SLES11 has GLib 2.22.5 |
+| 2.24         | 2.20         |              | Apr 2010 |                                                                                         |
+| 2.26         | 2.22         |              | Oct 2010 |                                                                                         |
+| 2.26         | 2.24         |              | Dec 2010 |                                                                                         |
+| 2.28         |              | 3.0          | Feb 2011 | GTK+ 3.0 is the minimum supported version next to GTK+ 2).                              |
+| 2.30         |              | 3.2          | Sep 2011 |                                                                                         |
+| 2.32         |              | 3.4          | Feb 2012 | GLib 2.32 is min. req. since April 2018 (v2.9.0rc0-34-gb30e3d42)                        |
+| 2.34         |              | 3.6          | Sep 2012 |                                                                                         |
+| 2.36         |              | 3.8          | Mar 2013 |                                                                                         |
+| 2.38         |              | 3.10         | Oct 2014 |                                                                                         |
+| 2.40         |              | 3.12         | Mar 2014 |                                                                                         |
+| 2.42         |              | 3.14         | Sep 2014 |                                                                                         |
+| 2.44         |              | 3.16         | Mar 2015 |                                                                                         |
+| 2.46         |              | 3.18         | Sep 2015 |                                                                                         |
+| 2.48         |              | 3.20         | Mar 2016 |                                                                                         |
+| 2.50         |              | 3.22         | Sep 2016 |                                                                                         |
 
 ## GnuTLS
 
