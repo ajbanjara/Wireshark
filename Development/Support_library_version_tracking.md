@@ -273,154 +273,35 @@ Note: GTK+ support is completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc578
 
 Note: odd numbers are development versions, even are stable. Exception: 3.5.x at some point became the stable branch.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Version</strong></p></td>
-<td><p><strong>Date</strong></p></td>
-<td><p><strong>Notes</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>1.2.0</p></td>
-<td><p>Jan 2005</p></td>
-<td><p>Min. req. since at least Jun 2009 (old)</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.4.1</p></td>
-<td><p>Jun 2008</p></td>
-<td><p>SLES 11 Initial release to SP4</p></td>
-</tr>
-<tr class="even">
-<td><p>2.8.0</p></td>
-<td><p>May 2009</p></td>
-<td><p>Debian Squeeze has 2.8.6</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.10.0</p></td>
-<td><p>Jun 2010</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2.12.0</p></td>
-<td><p>Mar 2011</p></td>
-<td><p>Min. req. since Oct 2015 (v2.1.0rc0-244-gfe1ab42). Last of the 2.x series. Debian Wheezy has 2.12.20. RHEL6 has 2.12.23.</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.0.0</p></td>
-<td><p>Jul 2011</p></td>
-<td><p>License changed from LGPLv2.1+ to LGPLv3 (incompatible license)</p></td>
-</tr>
-<tr class="even">
-<td><p>2.12.18</p></td>
-<td><p>Mar 2012</p></td>
-<td><p>Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.1.10</p></td>
-<td><p>Mar 2013</p></td>
-<td><p>License changed back to LGPLv2.1+ (development version)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.2.0</p></td>
-<td><p>May 2013</p></td>
-<td><p>Min. req. since Nov 2018 (v2.9.0rc0-2678-gbcd32b07e7)</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.1.22</p></td>
-<td><p>Mar 2014</p></td>
-<td><p>Windows releases from Wireshark 1.12+ (r400)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.2.11</p></td>
-<td><p>Feb 2014</p></td>
-<td><p>Ubuntu 14.04</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.2.15</p></td>
-<td><p>May 2014</p></td>
-<td><p>SLES 12; Windows releases from Wireshark 1.12.2+, 2.0+ (r409)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.3.8</p></td>
-<td><p>Sep 2014</p></td>
-<td><p>Debian Jessie</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.3.27</p></td>
-<td><p>Mar 2017</p></td>
-<td><p>SLES 12SP5</p></td>
-</tr>
-<tr class="even">
-<td><p>3.3.29</p></td>
-<td><p>Feb 2018</p></td>
-<td><p>RHEL7</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.4.0</p></td>
-<td><p>Apr 2015</p></td>
-<td><p>(gnutls_pubkey_import_privkey is working now for PKCS#11, <a href="https://gitlab.com/gnutls/gnutls/commit/4a8bcb9331d109e31f1b63f5df3ed67c0746619c" class="https">commit</a>)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.4.10</p></td>
-<td><p>Mar 2016</p></td>
-<td><p>Ubuntu 16.04</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.4.11</p></td>
-<td><p>Apr 2016</p></td>
-<td><p>Windows releases from Wireshark v2.3.0rc0-2384-g0b8a12fd51</p></td>
-</tr>
-<tr class="even">
-<td><p>3.5.8</p></td>
-<td><p>Jan 2016</p></td>
-<td><p>Debian Stretch</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.5.18</p></td>
-<td><p>Feb 2018</p></td>
-<td><p>Ubuntu 18.04</p></td>
-</tr>
-<tr class="even">
-<td><p>3.6.2</p></td>
-<td><p>Feb 2018</p></td>
-<td><p>New flag: GNUTLS_PKCS11_TOKEN_PROTECTED_AUTHENTICATION_PATH; SLES 15</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.6.3</p></td>
-<td><p>Jul 2018</p></td>
-<td><p>Addition of low-level PKCS #11 API: gnutls_pkcs11_token_get_ptr</p></td>
-</tr>
-<tr class="even">
-<td><p>3.6.4</p></td>
-<td><p>Sep 2018</p></td>
-<td><p>Ubuntu 18.10, Fedora 28, 29</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.6.5</p></td>
-<td><p>Dec 2018</p></td>
-<td><p>Replaces 3.5.x as stable releases branch (<a href="https://lists.gnupg.org/pipermail/gnutls-help/2018-December/004465.html" class="https">announcement</a>).</p></td>
-</tr>
-<tr class="even">
-<td><p>3.6.7</p></td>
-<td><p>Mar 2019</p></td>
-<td><p>Debian Buster</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.6.8</p></td>
-<td><p>May 2019</p></td>
-<td><p>RHEL8</p></td>
-</tr>
-<tr class="even">
-<td><p>3.6.13</p></td>
-<td><p>Mar 2020</p></td>
-<td><p>Ubuntu 20.04LTS</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Version | Date     | Notes                                                                                                                     |
+|---------|----------|---------------------------------------------------------------------------------------------------------------------------|
+| 1.2.0   | Jan 2005 | Min. req. since at least Jun 2009 (old)                                                                                   |
+| 2.4.1   | Jun 2008 | SLES 11 Initial release to SP4                                                                                            |
+| 2.8.0   | May 2009 | Debian Squeeze has 2.8.6                                                                                                  |
+| 2.10.0  | Jun 2010 |                                                                                                                           |
+| 2.12.0  | Mar 2011 | Min. req. since Oct 2015 (v2.1.0rc0-244-gfe1ab42f). Last of the 2.x series. Debian Wheezy has 2.12.20. RHEL6 has 2.12.23. |
+| 3.0.0   | Jul 2011 | License changed from LGPLv2.1+ to LGPLv3 (incompatible license)                                                           |
+| 2.12.18 | Mar 2012 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                                              |
+| 3.1.10  | Mar 2013 | License changed back to LGPLv2.1+ (development version)                                                                   |
+| 3.2.0   | May 2013 | Min. req. since Nov 2018 (v2.9.0rc0-2678-gbcd32b07)                                                                       |
+| 3.1.22  | Mar 2014 | Windows releases from Wireshark 1.12+ (r400)                                                                              |
+| 3.2.11  | Feb 2014 | Ubuntu 14.04                                                                                                              |
+| 3.2.15  | May 2014 | SLES 12; Windows releases from Wireshark 1.12.2+, 2.0+ (r409)                                                             |
+| 3.3.8   | Sep 2014 | Debian Jessie                                                                                                             |
+| 3.3.27  | Mar 2017 | SLES 12SP5                                                                                                                |
+| 3.3.29  | Feb 2018 | RHEL7                                                                                                                     |
+| 3.4.0   | Apr 2015 | (gnutls_pubkey_import_privkey is working now for PKCS#11, [commit](https://gitlab.com/gnutls/gnutls/commit/4a8bcb9331d109e31f1b63f5df3ed67c0746619c))                                                         |
+| 3.4.10  | Mar 2016 | Ubuntu 16.04                                                                                                              |
+| 3.4.11  | Apr 2016 | Windows releases from Wireshark v2.3.0rc0-2384-g0b8a12fd                                                                  |
+| 3.5.8   | Jan 2016 | Debian Stretch                                                                                                            |
+| 3.5.18  | Feb 2018 | Ubuntu 18.04                                                                                                              |
+| 3.6.2   | Feb 2018 | New flag: GNUTLS_PKCS11_TOKEN_PROTECTED_AUTHENTICATION_PATH; SLES 15                                                      |
+| 3.6.3   | Jul 2018 | Addition of low-level PKCS #11 API: gnutls_pkcs11_token_get_ptr                                                           |
+| 3.6.4   | Sep 2018 | Ubuntu 18.10, Fedora 28, 29                                                                                               |
+| 3.6.5   | Dec 2018 | Replaces 3.5.x as stable releases branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-help/2018-December/004465.html)).                                                                  |
+| 3.6.7   | Mar 2019 | Debian Buster                                                                                                             |
+| 3.6.8   | May 2019 | RHEL8                                                                                                                     |
+| 3.6.13  | Mar 2020 | Ubuntu 20.04LTS                                                                                                           |
 
 ## Libgcrypt
 
