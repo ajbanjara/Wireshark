@@ -906,214 +906,32 @@ Note: RHEL 6.6 and Qt5 is [supported](https://blog.qt.io/blog/2015/06/24/qt-is-c
 
 Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 months a new version is released with 13 months of support.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distribution</strong></p></td>
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Qt4 version</strong></p></td>
-<td><p><strong>Qt5 version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 7</p></td>
-<td><p>2.12</p></td>
-<td><p>2.10</p></td>
-<td><p>(none)</p></td>
-<td><p>(none)</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 8</p></td>
-<td><p>2.14</p></td>
-<td><p>2.12</p></td>
-<td><p>(none)</p></td>
-<td><p>(none)</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 9</p></td>
-<td><p>2.16</p></td>
-<td><p>2.12</p></td>
-<td><p>(none)</p></td>
-<td><p>4.5.2</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 10</p></td>
-<td><p>2.18</p></td>
-<td><p>2.14</p></td>
-<td><p>(none)</p></td>
-<td><p>4.5.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 11</p></td>
-<td><p>2.20</p></td>
-<td><p>2.16</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.2</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 12</p></td>
-<td><p>2.22</p></td>
-<td><p>2.18</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 13</p></td>
-<td><p>2.24</p></td>
-<td><p>2.20</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 14</p></td>
-<td><p>2.26</p></td>
-<td><p>2.22</p></td>
-<td><p>2.90.5</p></td>
-<td><p>4.7.4</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 15</p></td>
-<td><p>2.28</p></td>
-<td><p>2.24</p></td>
-<td><p>3.0.9</p></td>
-<td><p>4.7.4</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 16</p></td>
-<td><p>2.30</p></td>
-<td><p>2.24</p></td>
-<td><p>3.2.1</p></td>
-<td><p>4.8.4</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 17</p></td>
-<td><p>2.32</p></td>
-<td><p>2.24</p></td>
-<td><p>3.4.3</p></td>
-<td><p>4.8.5</p></td>
-<td><p>5.0.2</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 18</p></td>
-<td><p>2.34</p></td>
-<td><p>2.24</p></td>
-<td><p>3.6.2</p></td>
-<td><p>4.8.5</p></td>
-<td><p>5.2.0-rc1</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 19</p></td>
-<td><p>2.36</p></td>
-<td><p>2.24.22</p></td>
-<td><p>3.8.2</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.3.2</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 20</p></td>
-<td><p>2.38</p></td>
-<td><p>2.24.27</p></td>
-<td><p>3.10.9</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.4.1</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 21</p></td>
-<td><p>2.42</p></td>
-<td><p>2.24.28</p></td>
-<td><p>3.14.14</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.4.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 22</p></td>
-<td><p>2.44</p></td>
-<td><p>2.24.28</p></td>
-<td><p>3.16.5</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.4.2</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 23</p></td>
-<td><p>2.46</p></td>
-<td><p>2.24.28</p></td>
-<td><p>3.18.2</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.5.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 24</p></td>
-<td><p>2.48</p></td>
-<td><p>2.24.30</p></td>
-<td><p>3.20.6</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.6.0</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 25</p></td>
-<td><p>2.50.1</p></td>
-<td><p>2.24.31</p></td>
-<td><p>3.22.2</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.7.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 26</p></td>
-<td><p>?</p></td>
-<td><p>?</p></td>
-<td><p>?</p></td>
-<td><p>?</p></td>
-<td><p>?</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 27</p></td>
-<td><p>2.54.3</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.9.6</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 28</p></td>
-<td><p>2.56.4</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.11.3</p></td>
-</tr>
-<tr class="even">
-<td><p>Fedora 29</p></td>
-<td><p>2.58.3</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.11.3</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 30</p></td>
-<td><p>2.60.1</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.12.1</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
+|--------------|--------------|--------------|--------------|-------------|-------------|
+| Fedora 7     | 2.12         | 2.10         | (none)       | (none)      | (none)      |
+| Fedora 8     | 2.14         | 2.12         | (none)       | (none)      | (none)      |
+| Fedora 9     | 2.16         | 2.12         | (none)       | 4.5.2       | (none)      |
+| Fedora 10    | 2.18         | 2.14         | (none)       | 4.5.3       | (none)      |
+| Fedora 11    | 2.20         | 2.16         | (none)       | 4.6.2       | (none)      |
+| Fedora 12    | 2.22         | 2.18         | (none)       | 4.6.3       | (none)      |
+| Fedora 13    | 2.24         | 2.20         | (none)       | 4.6.3       | (none)      |
+| Fedora 14    | 2.26         | 2.22         | 2.90.5       | 4.7.4       | (none)      |
+| Fedora 15    | 2.28         | 2.24         | 3.0.9        | 4.7.4       | (none)      |
+| Fedora 16    | 2.30         | 2.24         | 3.2.1        | 4.8.4       | (none)      |
+| Fedora 17    | 2.32         | 2.24         | 3.4.3        | 4.8.5       | 5.0.2       |
+| Fedora 18    | 2.34         | 2.24         | 3.6.2        | 4.8.5       | 5.2.0-rc1   |
+| Fedora 19    | 2.36         | 2.24.22      | 3.8.2        | 4.8.6       | 5.3.2       |
+| Fedora 20    | 2.38         | 2.24.27      | 3.10.9       | 4.8.6       | 5.4.1       |
+| Fedora 21    | 2.42         | 2.24.28      | 3.14.14      | 4.8.6       | 5.4.1       |
+| Fedora 22    | 2.44         | 2.24.28      | 3.16.5       | 4.8.7       | 5.4.2       |
+| Fedora 23    | 2.46         | 2.24.28      | 3.18.2       | 4.8.7       | 5.5.0       |
+| Fedora 24    | 2.48         | 2.24.30      | 3.20.6       | 4.8.7       | 5.6.0       |
+| Fedora 25    | 2.50.1       | 2.24.31      | 3.22.2       | 4.8.7       | 5.7.0       |
+| Fedora 26    | ?            | ?            | ?            | ?           | ?           |
+| Fedora 27    | 2.54.3       | x            | x            | x           | 5.9.6       |
+| Fedora 28    | 2.56.4       | x            | x            | x           | 5.11.3      |
+| Fedora 29    | 2.58.3       | x            | x            | x           | 5.11.3      |
+| Fedora 30    | 2.60.1       | x            | x            | x           | 5.12.1      |
 
 ## SUSE Linux Enterprise Server
 
