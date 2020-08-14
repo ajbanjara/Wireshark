@@ -547,115 +547,26 @@ Note: odd numbers are development versions, even are stable. Exception: 3.5.x at
 
 See also <https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Life-Cycle-Considerations> for a longer list of distributions. See also <https://github.com/curl/curl/pull/990#issuecomment-245112823> for a history of CMake version + changes.
 
-<div>
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Version</strong></p></td>
-<td><p><strong>Date</strong></p></td>
-<td><p><strong>Notes</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>2.8.3</p></td>
-<td><p>Nov 2010</p></td>
-<td><p>Minimum required version for non-Windows (before Feb 2016)</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.8.7</p></td>
-<td><p>Dec 2011</p></td>
-<td><p>Ubuntu 12.04 Precise (EOL April 2017)</p></td>
-</tr>
-<tr class="even">
-<td><p>2.8.8</p></td>
-<td><p>Apr 2012</p></td>
-<td><p>Minimum required version for non-Windows (as of Feb 2016, v2.1.0rc0-2202-g6b54fbf)</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.8.9</p></td>
-<td><p>Aug 2012</p></td>
-<td><p>Debian Wheezy (2.8.11.1 in wheezy-backports</p></td>
-</tr>
-<tr class="even">
-<td><p>2.8.11</p></td>
-<td><p>May 2013</p></td>
-<td><p>Minimum required version for non-Windows (as of Oct 2017, v2.5.0rc0-1352-gf19a2c0b8c)</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.8.12</p></td>
-<td><p>Nov 2013</p></td>
-<td><p>Last 2.8 release (2.8.12.2 is used in Ubuntu 14.04, RHEL/CentOS 6/7 and SLES 12)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.0.2</p></td>
-<td><p>Sep 2014</p></td>
-<td><p>Debian Jessie</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.1.3</p></td>
-<td><p>Feb 2015</p></td>
-<td><p>Minimum required version for Windows (as of Apr 2015, v1.99.6rc0-369-g0d37980a0b)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.5.1</p></td>
-<td><p>Mar 2016</p></td>
-<td><p>Minimum required version for non-Windows (as of May 2018, v2.9.0rc0-547-g4c1690ac47).<br />
-Ubuntu 16.04 (cmake3 in Ubuntu 14.04), SLES12 SP2 (*1). In RHEL 6 and 7 install cmake3 from EPEL.</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.6.2</p></td>
-<td><p>Oct 2016</p></td>
-<td><p>EPEL6: available as cmake3 (3.6.1), Debian Jessie-backports 3.6.2</p></td>
-</tr>
-<tr class="even">
-<td><p>3.7.0</p></td>
-<td><p>Jan 2017</p></td>
-<td><p>Minimum required version for Windows (as of Jun 2017, v2.5.0rc0-92-g4edc611526)</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.7.2</p></td>
-<td><p>Jan 2017</p></td>
-<td><p>Debian Stretch</p></td>
-</tr>
-<tr class="even">
-<td><p>3.8.0</p></td>
-<td><p>Apr 2017</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>3.9.0</p></td>
-<td><p>Jul 2017</p></td>
-<td><p>Travis Trusty (3.9.2) (*2)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.10.0</p></td>
-<td><p>Nov 2017</p></td>
-<td><p>Ubuntu 18.04 (3.10.2)</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.12.2</p></td>
-<td><p>Sep 2018</p></td>
-<td><p>EPEL7: available as cmake3; Ubuntu 18.10 (3.12.1); Travis Xenial (3.12.4) (*2)</p></td>
-</tr>
-<tr class="even">
-<td><p>3.13.0</p></td>
-<td><p>Nov 2018</p></td>
-<td><p>Debian Stretch-backports (3.13.2); Debian Buster (3.13.4)</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.14.0</p></td>
-<td><p>Mar 2019</p></td>
-<td><p>Initial VS 2019 generator</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Version | Date     | Notes                                                                                                                                                                                 |
+|---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2.8.3   | Nov 2010 | Minimum required version for non-Windows (before Feb 2016)                                                                                                                            |
+| 2.8.7   | Dec 2011 | Ubuntu 12.04 Precise (EOL April 2017)                                                                                                                                                 |
+| 2.8.8   | Apr 2012 | Minimum required version for non-Windows (as of Feb 2016, v2.1.0rc0-2202-g6b54fbf3)                                                                                                   |
+| 2.8.9   | Aug 2012 | Debian Wheezy (2.8.11.1 in wheezy-backports                                                                                                                                           |
+| 2.8.11  | May 2013 | Minimum required version for non-Windows (as of Oct 2017, v2.5.0rc0-1352-gf19a2c0b)                                                                                                   |
+| 2.8.12  | Nov 2013 | Last 2.8 release (2.8.12.2 is used in Ubuntu 14.04, RHEL/CentOS 6/7 and SLES 12)                                                                                                      |
+| 3.0.2   | Sep 2014 | Debian Jessie                                                                                                                                                                         |
+| 3.1.3   | Feb 2015 | Minimum required version for Windows (as of Apr 2015, v1.99.6rc0-369-g0d37980a)                                                                                                       |
+| 3.5.1   | Mar 2016 | Minimum required version for non-Windows (as of May 2018, v2.9.0rc0-547-g4c1690ac). Ubuntu 16.04 (cmake3 in Ubuntu 14.04), SLES12 SP2 (*1). In RHEL 6 and 7 install cmake3 from EPEL. |
+| 3.6.2   | Oct 2016 | EPEL6: available as cmake3 (3.6.1), Debian Jessie-backports 3.6.2                                                                                                                     |
+| 3.7.0   | Jan 2017 | Minimum required version for Windows (as of Jun 2017, v2.5.0rc0-92-g4edc6115)                                                                                                         |
+| 3.7.2   | Jan 2017 | Debian Stretch                                                                                                                                                                        |
+| 3.8.0   | Apr 2017 |                                                                                                                                                                                       |
+| 3.9.0   | Jul 2017 | Travis Trusty (3.9.2) (*2)                                                                                                                                                            |
+| 3.10.0  | Nov 2017 | Ubuntu 18.04 (3.10.2)                                                                                                                                                                 |
+| 3.12.2  | Sep 2018 | EPEL7: available as cmake3; Ubuntu 18.10 (3.12.1); Travis Xenial (3.12.4) (*2)                                                                                                        |
+| 3.13.0  | Nov 2018 | Debian Stretch-backports (3.13.2); Debian Buster (3.13.4)                                                                                                                             |
+| 3.14.0  | Mar 2019 | Initial VS 2019 generator                                                                                                                                                             |
 
 (\*1) SLES12 SP2 includes CMake 3.5 according to <https://www.suse.com/media/presentation/TUT88458_suse_linux_enterprise_server_12_sp_whats_new.pdf>
 
