@@ -1424,134 +1424,22 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
 6 month release cycle, 9 month (regular), 5 years (LTS) lifetime.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distribution</strong></p></td>
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Qt4 version</strong></p></td>
-<td><p><strong>Qt5 version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>precise (12.04LTS)</p></td>
-<td><p>2.32.4</p></td>
-<td><p>2.24.10</p></td>
-<td><p>3.4.2</p></td>
-<td><p>4.8.1</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>trusty (14.04LTS)</p></td>
-<td><p>2.40.2</p></td>
-<td><p>2.24.23</p></td>
-<td><p>3.10.8</p></td>
-<td><p>4.8.5</p></td>
-<td><p>5.2.1</p></td>
-</tr>
-<tr class="even">
-<td><p>utopic (14.10)</p></td>
-<td><p>2.42.1</p></td>
-<td><p>2.24.25</p></td>
-<td><p>3.12.2</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.3.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>vivid (15.04)</p></td>
-<td><p>2.44.1</p></td>
-<td><p>2.24.27</p></td>
-<td><p>3.14.13</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.4.1</p></td>
-</tr>
-<tr class="even">
-<td><p>wily (15.10)</p></td>
-<td><p>2.46.2</p></td>
-<td><p>2.24.28</p></td>
-<td><p>3.16.7</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.4.2</p></td>
-</tr>
-<tr class="odd">
-<td><p>xenial (16.04LTS)</p></td>
-<td><p>2.48.0</p></td>
-<td><p>2.24.30</p></td>
-<td><p>3.18.9</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.5.1</p></td>
-</tr>
-<tr class="even">
-<td><p>yakkety (16.10)</p></td>
-<td><p>2.50.0</p></td>
-<td><p>2.24.30</p></td>
-<td><p>3.20.9</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.6.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>zesty (17.04)</p></td>
-<td><p>2.52.0</p></td>
-<td><p>2.24.31</p></td>
-<td><p>3.22.11</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.7.1</p></td>
-</tr>
-<tr class="even">
-<td><p>artful (17.10)</p></td>
-<td><p>2.54.1</p></td>
-<td><p>2.24.31</p></td>
-<td><p>3.22.25</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.9.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>bionic (18.04LTS)</p></td>
-<td><p>2.56.4</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.9.5</p></td>
-</tr>
-<tr class="even">
-<td><p>cosmic (18.10)</p></td>
-<td><p>2.58.1</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.11.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>disco (19.04)</p></td>
-<td><p>2.60.4</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.12.2</p></td>
-</tr>
-<tr class="even">
-<td><p>eoan (19.10)</p></td>
-<td><p>2.62.4</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.12.4</p></td>
-</tr>
-<tr class="odd">
-<td><p>focal (20.04LTS)</p></td>
-<td><p>2.64.2</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.12.8</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
+|--------------------|--------------|--------------|--------------|-------------|-------------|
+| precise (12.04LTS) | 2.32.4       | 2.24.10      | 3.4.2        | 4.8.1       | (none)      |
+| trusty (14.04LTS)  | 2.40.2       | 2.24.23      | 3.10.8       | 4.8.5       | 5.2.1       |
+| utopic (14.10)     | 2.42.1       | 2.24.25      | 3.12.2       | 4.8.6       | 5.3.0       |
+| vivid (15.04)      | 2.44.1       | 2.24.27      | 3.14.13      | 4.8.6       | 5.4.1       |
+| wily (15.10)       | 2.46.2       | 2.24.28      | 3.16.7       | 4.8.6       | 5.4.2       |
+| xenial (16.04LTS)  | 2.48.0       | 2.24.30      | 3.18.9       | 4.8.7       | 5.5.1       |
+| yakkety (16.10)    | 2.50.0       | 2.24.30      | 3.20.9       | 4.8.7       | 5.6.1       |
+| zesty (17.04)      | 2.52.0       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
+| artful (17.10)     | 2.54.1       | 2.24.31      | 3.22.25      | 4.8.7       | 5.9.1       |
+| bionic (18.04LTS)  | 2.56.4       | x            | x            | x           | 5.9.5       |
+| cosmic (18.10)     | 2.58.1       | x            | x            | x           | 5.11.1      |
+| disco (19.04)      | 2.60.4       | x            | x            | x           | 5.12.2      |
+| eoan (19.10)       | 2.62.4       | x            | x            | x           | 5.12.4      |
+| focal (20.04LTS)   | 2.64.2       | x            | x            | x           | 5.12.8      |
 
 Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
