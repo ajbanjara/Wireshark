@@ -424,124 +424,29 @@ Note: odd numbers are development versions, even are stable. Exception: 3.5.x at
 
 ## Libgcrypt
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Version</strong></p></td>
-<td><p><strong>Date</strong></p></td>
-<td><p><strong>Notes</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>1.1.92</p></td>
-<td><p>Feb 2004</p></td>
-<td><p>Min. req. since Jul 2008 (old)</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.4.0</p></td>
-<td><p>Dec 2007</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>1.4.1</p></td>
-<td><p>Apr 2008</p></td>
-<td><p>SLES 11 Initial release and SP1</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.4.2</p></td>
-<td><p>Sep 2008</p></td>
-<td><p>Min. req. since Oct 2015 (v2.1.0rc0-189-g82ec0bb)</p></td>
-</tr>
-<tr class="even">
-<td><p>1.4.5</p></td>
-<td><p>Dec 2009</p></td>
-<td><p>Debian Squeeze, RHEL6</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.4.6</p></td>
-<td><p>Jul 2010</p></td>
-<td><p>Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)</p></td>
-</tr>
-<tr class="even">
-<td><p>1.5.0</p></td>
-<td><p>Jun 2011</p></td>
-<td><p>Debian Wheezy, SLES 11 SP2-SP3. Needed for simpler PKCS#1 padding handling in SSL</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.5.3</p></td>
-<td><p>Jul 2013</p></td>
-<td><p>RHEL7</p></td>
-</tr>
-<tr class="even">
-<td><p>1.6.0</p></td>
-<td><p>Dec 2013</p></td>
-<td><p>Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM)</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.6.1</p></td>
-<td><p>Jan 2014</p></td>
-<td><p>SLES 12, Ubuntu 14.04LTS</p></td>
-</tr>
-<tr class="even">
-<td><p>1.6.2</p></td>
-<td><p>Aug 2014</p></td>
-<td><p>Windows releases from Wireshark 1.12.2, 2.0+ (r409) until 2.6</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.6.3</p></td>
-<td><p>Feb 2015</p></td>
-<td><p>Debian Jessie</p></td>
-</tr>
-<tr class="even">
-<td><p>1.6.5</p></td>
-<td><p>Feb 2016</p></td>
-<td><p>Ubuntu 16.04LTS</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.7.0</p></td>
-<td><p>Apr 2016</p></td>
-<td><p>Needed for ChaCha20-Poly1305 support (TLS 1.3 decryption)</p></td>
-</tr>
-<tr class="even">
-<td><p>1.7.2</p></td>
-<td><p>Jul 2016</p></td>
-<td><p>Ubuntu 16.10</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.7.6</p></td>
-<td><p>Jan 2017</p></td>
-<td><p>Debian Stretch, Windows releases from v2.3.0rc0-2384-g0b8a12fd51</p></td>
-</tr>
-<tr class="even">
-<td><p>1.8.0</p></td>
-<td><p>Jul 2017</p></td>
-<td><p>Needed for Blake2s support (WireGuard decryption)</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.8.1</p></td>
-<td><p>Aug 2017</p></td>
-<td><p>Ubuntu 18.04LTS</p></td>
-</tr>
-<tr class="even">
-<td><p>1.8.2</p></td>
-<td><p>Dec 2017</p></td>
-<td><p>SLES 15</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.8.3</p></td>
-<td><p>Jun 2018</p></td>
-<td><p>Windows releases from v2.9.0rc0-1361-g4d01567812, Debian Buster, RHEL8</p></td>
-</tr>
-<tr class="even">
-<td><p>1.8.5</p></td>
-<td><p>Aug 2019</p></td>
-<td><p>Ubuntu 20.04LTS</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Version | Date     | Notes                                                                                            |
+|---------|----------|--------------------------------------------------------------------------------------------------|
+| 1.1.92  | Feb 2004 | Min. req. since Jul 2008 (old)                                                                   |
+| 1.4.0   | Dec 2007 |                                                                                                  |
+| 1.4.1   | Apr 2008 | SLES 11 Initial release and SP1                                                                  |
+| 1.4.2   | Sep 2008 | Min. req. since Oct 2015 (v2.1.0rc0-189-g82ec0bb0)                                               |
+| 1.4.5   | Dec 2009 | Debian Squeeze, RHEL6                                                                            |
+| 1.4.6   | Jul 2010 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                     |
+| 1.5.0   | Jun 2011 | Debian Wheezy, SLES 11 SP2-SP3. Needed for simpler PKCS#1 padding handling in SSL                |
+| 1.5.3   | Jul 2013 | RHEL7                                                                                            |
+| 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM) |
+| 1.6.1   | Jan 2014 | SLES 12, Ubuntu 14.04LTS                                                                         |
+| 1.6.2   | Aug 2014 | Windows releases from Wireshark 1.12.2, 2.0+ (r409) until 2.6                                    |
+| 1.6.3   | Feb 2015 | Debian Jessie                                                                                    |
+| 1.6.5   | Feb 2016 | Ubuntu 16.04LTS                                                                                  |
+| 1.7.0   | Apr 2016 | Needed for ChaCha20-Poly1305 support (TLS 1.3 decryption)                                        |
+| 1.7.2   | Jul 2016 | Ubuntu 16.10                                                                                     |
+| 1.7.6   | Jan 2017 | Debian Stretch, Windows releases from v2.3.0rc0-2384-g0b8a12fd                                   |
+| 1.8.0   | Jul 2017 | Needed for Blake2s support (WireGuard decryption)                                                |
+| 1.8.1   | Aug 2017 | Ubuntu 18.04LTS                                                                                  |
+| 1.8.2   | Dec 2017 | SLES 15                                                                                          |
+| 1.8.3   | Jun 2018 | Windows releases from v2.9.0rc0-1361-g4d015678, Debian Buster, RHEL8                             |
+| 1.8.5   | Aug 2019 | Ubuntu 20.04LTS                                                                                  |
 
 ## CMake
 
