@@ -14,114 +14,27 @@ The Qt Company officially supports the following [platforms and configurations](
 
 The highlighted Wireshark versions below mark the Qt version that is shipped with the macOS and Windows installers. For supported macOS hardware and maximum macOS versions, see also <https://en.wikipedia.org/wiki/MacOS#Hardware_compatibility>
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Qt version</strong></p></td>
-<td><p><strong>Date</strong></p></td>
-<td><p><strong>Notes</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>4.6.0</p></td>
-<td><p>Dec 2009</p></td>
-<td><p>Minimum required version in initial porting effort</p></td>
-</tr>
-<tr class="odd">
-<td><p>4.7.0</p></td>
-<td><p>Sep 2010</p></td>
-<td><p>Minimum required version since v1.99.10rc0-296-gcc9de69</p></td>
-</tr>
-<tr class="even">
-<td><p>4.8.0</p></td>
-<td><p>Dec 2011</p></td>
-<td><p>Minimum required version since v2.3.0rc0-1002-g1cd2255 (Qt Long Term Support (LTS) release)</p></td>
-</tr>
-<tr class="odd">
-<td><p>5.0.0</p></td>
-<td><p>Dec 2012</p></td>
-<td><p>Minimum required version on Windows and macOS since v2.3.0rc0-1178-ge858829</p></td>
-</tr>
-<tr class="even">
-<td><p>5.1.0</p></td>
-<td><p>Jul 2013</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>5.2.0</p></td>
-<td><p>Dec 2013</p></td>
-<td><p>Minimum required version since v2.9.0rc0-27-g5d8964cd3b</p></td>
-</tr>
-<tr class="even">
-<td><p>5.3.0</p></td>
-<td><p>May 2014</p></td>
-<td><p>Last to support 10.6 Snow Leopard. <a href="https://github.com/qt/qtdoc/blob/5.3/doc/src/platforms/supported-platforms.qdoc#L113" class="https">OS X 10.6 Snow Leopard through 10.9 Mavericks</a>, <strong>Wireshark 2.6.x</strong>.</p></td>
-</tr>
-<tr class="odd">
-<td><p>5.4.0</p></td>
-<td><p>Dec 2014</p></td>
-<td><p><a href="https://web.archive.org/web/20141227001541/http://doc.qt.io:80/qt-5/osx.html" class="https">Mac OS X 10.7 Lion through 10.10 Yosemite, "limited" support for 10.6 Snow Leopard</a></p></td>
-</tr>
-<tr class="even">
-<td><p>5.5.0</p></td>
-<td><p>Jul 2015</p></td>
-<td><p><a href="https://web.archive.org/web/20160101135637/http://doc.qt.io:80/QtSupportedPlatforms/index.html" class="https">Mac OS X 10.7 Lion through 10.10 Yosemite</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>5.6.0</p></td>
-<td><p>Mar 2016</p></td>
-<td><p>Long Term Support (LTS) release, <a href="https://web.archive.org/web/20160430172052/http://doc.qt.io:80/qt-5/supported-platforms.html" class="https">OS X 10.8 Mountain Lion through 10.11 El Capitan</a></p></td>
-</tr>
-<tr class="even">
-<td><p>5.7.0</p></td>
-<td><p>Jun 2016</p></td>
-<td><p>Requires C++11, <a href="https://web.archive.org/web/20161027230721/http://doc.qt.io:80/qt-5/supported-platforms.html" class="https">OS X Mountain Lion through El Capitan</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>5.8.0</p></td>
-<td><p>Jan 2017</p></td>
-<td><p><a href="https://web.archive.org/web/20170309222635/http://doc.qt.io/qt-5/supported-platforms.html" class="https">OS X Mavericks through Sierra</a></p></td>
-</tr>
-<tr class="even">
-<td><p>5.9.0</p></td>
-<td><p>May 2017</p></td>
-<td><p>Long Term Support (LTS) release, <a href="https://web.archive.org/web/20170603192036/http://doc.qt.io/qt-5/supported-platforms.html" class="https">OS X 10.10 Yosemite through 10.12 Sierra</a>, <strong>Wireshark 3.0.0rc1</strong> (macOS only)</p></td>
-</tr>
-<tr class="odd">
-<td><p>5.10.0</p></td>
-<td><p>Dec 2017</p></td>
-<td><p><a href="https://web.archive.org/web/20171222025417/http://doc.qt.io/qt-5/supported-platforms.html" class="https">OS X El Capitan through High Sierra</a></p></td>
-</tr>
-<tr class="even">
-<td><p>5.11.0</p></td>
-<td><p>May 2018</p></td>
-<td><p><a href="https://web.archive.org/web/20180906124900/http://doc.qt.io/qt-5/supported-platforms.html" class="https">OS X 10.11 El Capitan through 10.13 High Sierra</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>5.12.0</p></td>
-<td><p>Dec 2018</p></td>
-<td><p>Long Term Support (LTS) release, <a href="https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html" class="https">macOS 10.12 Sierra through 10.14 Mojave</a>, <strong>Wireshark 3.0.x, 3.2.x</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>5.13.0</p></td>
-<td><p>Jun 2019</p></td>
-<td><p><a href="https://web.archive.org/web/20190705173826/https://doc.qt.io/qt-5/supported-platforms.html" class="https">macOS Sierra through Mojave</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>5.14.0</p></td>
-<td><p>Dec 2019</p></td>
-<td><p><a href="https://doc.qt.io/qt-5/supported-platforms.html" class="https">macOS 10.13 High Sierra through 10.15 Catalina</a></p></td>
-</tr>
-<tr class="even">
-<td><p>5.15.0</p></td>
-<td><p>May 2020</p></td>
-<td><p><a href="https://doc.qt.io/qt-5/supported-platforms.html" class="https">macOS 10.13 High Sierra through 10.15 Catalina</a></p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Qt version | Date     | Notes                                                                                                      |
+|------------|----------|------------------------------------------------------------------------------------------------------------|
+| 4.6.0      | Dec 2009 | Minimum required version in initial porting effort                                                         |
+| 4.7.0      | Sep 2010 | Minimum required version since v1.99.10rc0-296-gcc9de69b                                                   |
+| 4.8.0      | Dec 2011 | Minimum required version since v2.3.0rc0-1002-g1cd22559 (Qt Long Term Support (LTS) release)               |
+| 5.0.0      | Dec 2012 | Minimum required version on Windows and macOS since v2.3.0rc0-1178-ge8588294                               |
+| 5.1.0      | Jul 2013 |                                                                                                            |
+| 5.2.0      | Dec 2013 | Minimum required version since v2.9.0rc0-27-g5d8964cd                                                      |
+| 5.3.0      | May 2014 | Last to support 10.6 Snow Leopard. [OS X 10.6 Snow Leopard through 10.9 Mavericks](https://github.com/qt/qtdoc/blob/5.3/doc/src/platforms/supported-platforms.qdoc#L113), **Wireshark 2.6.x**.         |
+| 5.4.0      | Dec 2014 | [Mac OS X 10.7 Lion through 10.10 Yosemite, "limited" support for 10.6 Snow Leopard](https://web.archive.org/web/20141227001541/http://doc.qt.io:80/qt-5/osx.html)                         |
+| 5.5.0      | Jul 2015 | [Mac OS X 10.7 Lion through 10.10 Yosemite](https://web.archive.org/web/20160101135637/http://doc.qt.io:80/QtSupportedPlatforms/index.html)                                                                  |
+| 5.6.0      | Mar 2016 | Long Term Support (LTS) release, [OS X 10.8 Mountain Lion through 10.11 El Capitan](https://web.archive.org/web/20160430172052/http://doc.qt.io:80/qt-5/supported-platforms.html)                          |
+| 5.7.0      | Jun 2016 | Requires C++11, [OS X Mountain Lion through El Capitan](https://web.archive.org/web/20161027230721/http://doc.qt.io:80/qt-5/supported-platforms.html)                                                      |
+| 5.8.0      | Jan 2017 | [OS X Mavericks through Sierra](https://web.archive.org/web/20170309222635/http://doc.qt.io/qt-5/supported-platforms.html)                                                                              |
+| 5.9.0      | May 2017 | Long Term Support (LTS) release, [OS X 10.10 Yosemite through 10.12 Sierra](https://web.archive.org/web/20170603192036/http://doc.qt.io/qt-5/supported-platforms.html), **Wireshark 3.0.0rc1** (macOS only) |
+| 5.10.0     | Dec 2017 | [OS X El Capitan through High Sierra](https://web.archive.org/web/20171222025417/http://doc.qt.io/qt-5/supported-platforms.html)                                                                        |
+| 5.11.0     | May 2018 | [OS X 10.11 El Capitan through 10.13 High Sierra](https://web.archive.org/web/20180906124900/http://doc.qt.io/qt-5/supported-platforms.html)                                                            |
+| 5.12.0     | Dec 2018 | Long Term Support (LTS) release, [macOS 10.12 Sierra through 10.14 Mojave](https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html), **Wireshark 3.0.x, 3.2.x**           |
+| 5.13.0     | Jun 2019 | [macOS Sierra through Mojave](https://web.archive.org/web/20190705173826/https://doc.qt.io/qt-5/supported-platforms.html)                                                                                |
+| 5.14.0     | Dec 2019 | [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html)                                                             |
+| 5.15.0     | May 2020 | [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html)                                                             |
 
 ## GLib and GTK+
 
