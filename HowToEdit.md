@@ -23,7 +23,20 @@ In order to edit this wiki you should be familiar with Markdown, specifically [G
 
 Before contributing, please read the [License](/License) page. **If you don't agree with the license, then don't contribute.**
 
-## Adding Protocol Documentation
+## Tables
+
+Due to limitations with the conversion process, tables in wiki pages are now HTML.
+You can [convert simple tables to GFM](https://gitlab.com/wireshark/gitlab-migration/-/issues/5) if desired.
+
+## Attachments
+
+If you have an example capture file for a specific protocol, it is appreciated to put it into the [SampleCaptures](/SampleCaptures) page and add a link to that file in the protocols page.
+
+## Screenshots
+
+Please save screen captures as PNG or GIF. JPEG can introduce artifacts that make text fuzzy or otherwise difficult to read.
+
+## Protocol Documentation
 
 It's often the case, that a protocol is known under different names or abbreviations, e.g. HTTP or [HyperTextTransferProtocol](/HyperTextTransferProtocol), or ...
 
@@ -42,12 +55,6 @@ So to create a new protocol page:
 - a "broken link" of your protocol will appear at the [ProtocolReference](/ProtocolReference) page where you added it, click on it
 
 - you will be requested to add a new page, use the protocol or redirect template as described above
-
-## Attachments
-
-If you have an example capture file for a specific protocol, it is appreciated to put it into the [SampleCaptures](/SampleCaptures) page and add a link to that file in the protocols page.
-
-Please save screen captures as PNG or GIF. JPEG can introduce artifacts that make text fuzzy or otherwise difficult to read.
 
 ---
 
