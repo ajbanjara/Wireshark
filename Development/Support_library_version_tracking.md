@@ -1119,94 +1119,15 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 
 Version numbering skipped from 12 to 15
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distribution</strong></p></td>
-<td><p><strong>Initial release</strong></p></td>
-<td><p><strong>End of Normal Support</strong></p></td>
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Qt4 version</strong></p></td>
-<td><p><strong>Qt5 version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>SLES 11</p></td>
-<td><p>2009/03</p></td>
-<td><p>2019/3</p></td>
-<td><p>2.18.2</p></td>
-<td><p>2.14.4</p></td>
-<td><p>(none)</p></td>
-<td><p>4.4.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>SLES 11 SP1</p></td>
-<td><p>2010/06</p></td>
-<td><p>2019/3</p></td>
-<td><p>2.22.5</p></td>
-<td><p>2.18.9</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.2</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>SLES 11 SP2</p></td>
-<td><p>2012/02</p></td>
-<td><p>2019/3</p></td>
-<td><p>2.22.5</p></td>
-<td><p>2.18.9</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>SLES 11 SP3</p></td>
-<td><p>2013/07</p></td>
-<td><p>2019/3</p></td>
-<td><p>2.22.5</p></td>
-<td><p>2.18.9</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>SLES 11 SP4</p></td>
-<td><p>2015/07</p></td>
-<td><p>2019/3</p></td>
-<td><p>2.22.5</p></td>
-<td><p>2.18.9</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>SLES 12</p></td>
-<td><p>2014/10 (SP5 2019/12)</p></td>
-<td><p>2024/10</p></td>
-<td><p>2.48.2 (2.38.2)</p></td>
-<td><p>2.24.31 (2.24.24)</p></td>
-<td><p>3.20.10 (3.10.9)</p></td>
-<td><p>4.8.7 (4.8.6)</p></td>
-<td><p>5.6.2 (5.5.1, 5.3.1)</p></td>
-</tr>
-<tr class="even">
-<td><p>SLES 15</p></td>
-<td><p>2018/07</p></td>
-<td><p>2028/7</p></td>
-<td><p>2.54.3</p></td>
-<td><p>2.24.32</p></td>
-<td><p>3.22.30</p></td>
-<td><p>(none)</p></td>
-<td><p>5.9.4</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Distribution | Initial release       | End of Normal Support | GLIB version    | Gtk2 version      | Gtk3 version     | Qt4 version   | Qt5 version          |
+|--------------|-----------------------|-----------------------|-----------------|-------------------|------------------|---------------|----------------------|
+| SLES 11      | 2009/03               | 2019/3                | 2.18.2          | 2.14.4            | (none)           | 4.4.3         | (none)               |
+| SLES 11 SP1  | 2010/06               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.2         | (none)               |
+| SLES 11 SP2  | 2012/02               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
+| SLES 11 SP3  | 2013/07               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
+| SLES 11 SP4  | 2015/07               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
+| SLES 12      | 2014/10 (SP5 2019/12) | 2024/10               | 2.48.2 (2.38.2) | 2.24.31 (2.24.24) | 3.20.10 (3.10.9) | 4.8.7 (4.8.6) | 5.6.2 (5.5.1, 5.3.1) |
+| SLES 15      | 2018/07               | 2028/7                | 2.54.3          | 2.24.32           | 3.22.30          | (none)        | 5.9.4                |
 
 ## openSUSE
 
