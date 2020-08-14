@@ -1353,70 +1353,14 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 ## Debian
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Distribution</strong></p></td>
-<td><p><strong>GLIB version</strong></p></td>
-<td><p><strong>Gtk2 version</strong></p></td>
-<td><p><strong>Gtk3 version</strong></p></td>
-<td><p><strong>Qt4 version</strong></p></td>
-<td><p><strong>Qt5 version</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>squeeze</p></td>
-<td><p>2.24.2</p></td>
-<td><p>2.20.1</p></td>
-<td><p>(none)</p></td>
-<td><p>4.6.3</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="odd">
-<td><p>wheezy</p></td>
-<td><p>2.33.12</p></td>
-<td><p>2.24.10</p></td>
-<td><p>3.4.2</p></td>
-<td><p>4.8.2</p></td>
-<td><p>(none)</p></td>
-</tr>
-<tr class="even">
-<td><p>jessie</p></td>
-<td><p>2.42.1</p></td>
-<td><p>2.24.25</p></td>
-<td><p>3.14.5</p></td>
-<td><p>4.8.6</p></td>
-<td><p>5.3.2</p></td>
-</tr>
-<tr class="odd">
-<td><p>stretch</p></td>
-<td><p>2.50.3</p></td>
-<td><p>2.24.31</p></td>
-<td><p>3.22.11</p></td>
-<td><p>4.8.7</p></td>
-<td><p>5.7.1</p></td>
-</tr>
-<tr class="even">
-<td><p>buster</p></td>
-<td><p>2.58.3</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.11.3</p></td>
-</tr>
-<tr class="odd">
-<td><p>bullseye (testing)</p></td>
-<td><p>2.62.4</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>5.12.5</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
+|--------------------|--------------|--------------|--------------|-------------|-------------|
+| squeeze            | 2.24.2       | 2.20.1       | (none)       | 4.6.3       | (none)      |
+| wheezy             | 2.33.12      | 2.24.10      | 3.4.2        | 4.8.2       | (none)      |
+| jessie             | 2.42.1       | 2.24.25      | 3.14.5       | 4.8.6       | 5.3.2       |
+| stretch            | 2.50.3       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
+| buster             | 2.58.3       | x            | x            | x           | 5.11.3      |
+| bullseye (testing) | 2.62.4       | x            | x            | x           | 5.12.5      |
 
 Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
