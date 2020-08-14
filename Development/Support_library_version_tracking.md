@@ -772,58 +772,18 @@ Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is 
 
 nghttp2 is required for complete HTTP/2 support. It also powers HTTP/2 support in curl, and should be increasingly available. The package name is typically "libnghttp2".
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Platform</strong></p></td>
-<td><p>version</p></td>
-</tr>
-<tr class="even">
-<td><p>RHEL/CentOS 6 (EPEL)</p></td>
-<td><p>1.6.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>RHEL/CentOS 7 (EPEL)</p></td>
-<td><p>1.31.1</p></td>
-</tr>
-<tr class="even">
-<td><p>RHEL/CentOS 8</p></td>
-<td><p>1.33.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>Fedora 29</p></td>
-<td><p>1.39.2</p></td>
-</tr>
-<tr class="even">
-<td><p>Debian Jessie</p></td>
-<td><p>0.6.4</p></td>
-</tr>
-<tr class="odd">
-<td><p>Debian Stretch</p></td>
-<td><p>1.18.1</p></td>
-</tr>
-<tr class="even">
-<td><p>Ubuntu 16.04</p></td>
-<td><p>1.7.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>Ubuntu 18.04</p></td>
-<td><p>1.30.0</p></td>
-</tr>
-<tr class="even">
-<td><p>macOS (homebrew)</p></td>
-<td><p>1.39.2</p></td>
-</tr>
-<tr class="odd">
-<td><p>SLES 12</p></td>
-<td><p>(none)</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Platform             | version |
+|----------------------|---------|
+| RHEL/CentOS 6 (EPEL) | 1.6.0   |
+| RHEL/CentOS 7 (EPEL) | 1.31.1  |
+| RHEL/CentOS 8        | 1.33.0  |
+| Fedora 29            | 1.39.2  |
+| Debian Jessie        | 0.6.4   |
+| Debian Stretch       | 1.18.1  |
+| Ubuntu 16.04         | 1.7.1   |
+| Ubuntu 18.04         | 1.30.0  |
+| macOS (homebrew)     | 1.39.2  |
+| SLES 12              | (none)  |
 
 If the minimum version can be bumped to 1.11.0, we can remove use of a deprecated function.
 
