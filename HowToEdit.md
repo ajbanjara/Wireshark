@@ -3,6 +3,7 @@
 In order to become a wiki editor you must do the following:
 
 1. Create a GitLab account if you don't already have one.
+You can create credentials on gitlab.com itself or register using your GitHub, Google, or other credentials.
 
 2. Request access to the [Wiki Editors](https://gitlab.com/wireshark/wiki-editors) group,
 
