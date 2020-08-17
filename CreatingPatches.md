@@ -2,17 +2,7 @@
 
 Source code contributions should be sent via the [code review site](https://code.wireshark.org/review/). The page [Development/SubmittingPatches](/Development/SubmittingPatches) has complete information on the patch submission process.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>:warning: <strong>Before submitting your changes:</strong></p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+:warning: <strong>Before submitting your changes:
 
   - **Fuzz test them\!** See [FuzzTesting](/FuzzTesting) for more details.
 
