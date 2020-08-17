@@ -6,91 +6,91 @@ This is the development section of the Wireshark wiki.
 
 If you are new to Wireshark development, please set up your build environment first:
 
-  - get the source code from the [Wireshark development webpage](http://www.wireshark.org/develop.html)
+  - Get the source code from the [Wireshark development webpage](http://www.wireshark.org/develop.html)
 
-  - **Win32**: the [Developer's Guide](http://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWin32.html) is currently invaluable for setting up a Win32 development environment
+  - **Windows**: the [Developer's Guide](http://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWin32.html) is currently invaluable for setting up a development environment in Microsoft Windows
 
-  - **Unix-like**: you may find information in the README.xxx file suitable for your target platform - in the [root](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=tree) directory of the Wireshark sources
+  - **Unix-like**: you may find information in the README.xxx file suitable for your target platform - in the [root](https://gitlab.com/wireshark/wireshark/-/tree/master) directory of the Wireshark sources
 
   - **Required Libraries and Packages**: for essential and optional external dependencies on Unix and Windows, see the [Library reference in the Wireshark Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChapterLibraries.html)
 
 Now it's time to tweak the code:
 
-  - [doc/README.developer](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob;f=doc/README.developer;hb=HEAD) the best manual about Wireshark dissector development so far, you will also find that one in the [documentation](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=tree;f=doc;hb=HEAD) directory of the Wireshark sources - **please read and thoroughly understand all of the "Portability" and "Robustness" sections before writing any Wireshark code\!**
+  - [doc/README.developer](https://gitlab.com/wireshark/wireshark/-/raw/master/doc/README.developer) the best manual about Wireshark dissector development so far, you will also find that one in the [documentation](https://gitlab.com/wireshark/wireshark/-/tree/master/doc) directory of the Wireshark sources - **please read and thoroughly understand all of the "Portability" and "Robustness" sections before writing any Wireshark code\!**
 
-  - ... of course you should have a look at the [Wireshark sources](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=tree;hb=refs/heads/master) itself\!
+  - ... of course you should have a look at the [Wireshark sources](https://gitlab.com/wireshark/wireshark/-/tree/master) itself!
 
 ## General
 
   - [Wireshark documentation webpage](http://www.wireshark.org/docs/): the latest version of the *Wireshark User's Guide* and the *Wireshark Developer's Guide* in different formats (PDF, HTML, ...)
 
-  - [/LifeCycle](/Development/LifeCycle): Life Cycle information on Wireshark releases
+  - [LifeCycle](/Development/LifeCycle): Life Cycle information on Wireshark releases
 
-  - [/Roadmap](/Development/Roadmap): Roadmap for upcoming Wireshark releases
+  - [Roadmap](/Development/Roadmap): Roadmap for upcoming Wireshark releases
 
-  - [/Wishlist](/Development/Wishlist): Wish list for internal features and architectural changes (as opposed to user-visible features [WishList](/WishList))
+  - [Wishlist](/Development/Wishlist): Wish list for internal features and architectural changes (as opposed to user-visible features [WishList](/WishList))
 
   - [SendingFilesToWireshark](/SendingFilesToWireshark): Tips on sending files to the Wireshark mailing lists
 
-  - [/Translations](/Development/Translations): Why it's not a good idea to translate Wireshark into spanish/german/... language
+  - [Translations](/Development/Translations): Why it's not a good idea to translate Wireshark into spanish/german/... language
 
 ## Development
 
-  - [CreatingPatches](/CreatingPatches): Tips on creating patches before submitting them
+  - [Creating Patches](/CreatingPatches): Tips on creating patches before submitting them
 
-  - [/SubmittingPatches](/Development/SubmittingPatches): Introduction to using Git & Gerrit to submit and review patches
+  - [Submitting Patches](/Development/SubmittingPatches): Introduction to using Git & Gerrit to submit and review patches
 
-  - [/SecureProgramming](/Development/SecureProgramming) How to write more secure code, e.g. replace insecure ANSI-C calls by more secure ones
+  - [Secure Programming](/Development/SecureProgramming) How to write more secure code, e.g. replace insecure ANSI-C calls by more secure ones
 
-  - [/CommonProblems](/Development/CommonProblems): Some common problems while developing Wireshark
+  - [Common Problems](/Development/CommonProblems): Some common problems while developing Wireshark
 
-  - [/Tips](/Development/Tips): Some selected wisdom to ease development/debugging
+  - [Tips](/Development/Tips): Some selected wisdom to ease development/debugging
 
-  - [/FilenameEncoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
+  - [Filename Encoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
 
   - [Lua](/Lua): Extending Wireshark with the extensible extension language
 
-  - [/LibpcapFileFormat](/Development/LibpcapFileFormat) A libpcap file format description
+  - [Libpcap File Format](/Development/LibpcapFileFormat) A libpcap file format description
 
-  - [/Canary](/Development/Canary) Finding and fixing memory over- and under-runs with canaries
+  - [Canary](/Development/Canary) Finding and fixing memory over- and under-runs with canaries
 
   - Generic dissector (<http://wsgd.free.fr/>) : display clearly your data inside wireshark without any code
 
   - [pyreshark](https://github.com/ashdnazg/pyreshark): A Wireshark plugin providing a simple interface for writing dissectors in Python.
 
-  - [/Support\_library\_version\_tracking](/Development/Support_library_version_tracking) A page for tracking what OS distributions came with what versions of various libraries with which Wireshark is built
+  - [Support library version tracking](/Development/Support_library_version_tracking) A page for tracking what OS distributions came with what versions of various libraries with which Wireshark is built
 
-  - [/WindowsLibs](/Development/WindowsLibs) Describes how Windows libraries are built and the procedure for updating those.
+  - [Windows Libraries](/Development/WindowsLibs) Describes how Windows libraries are built and the procedure for updating those.
 
-  - [/StringHandling](/Development/StringHandling) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
+  - [String Handling](/Development/StringHandling) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
 
 ## Projects
 
 ### Design ideas
 
-  - [WiretapPcapng](/WiretapPcapng) Changes to wiretap to support pcapng
+  - [Wiretap Pcapng](/WiretapPcapng) Changes to wiretap to support pcapng
 
-  - [HighSpeedCapturing](/HighSpeedCapturing) High speed capturing improvements
+  - [High Speed Capturing](/HighSpeedCapturing) High speed capturing improvements
 
-  - [DecryptionBlock](/DecryptionBlock) Define a pcapng decryption block and use it to save decryption information in the file.
+  - [Decryption Block](/DecryptionBlock) Define a pcapng decryption block and use it to save decryption information in the file.
 
-  - [PrefBlock](/PrefBlock) Define a pcapng block to store the preference settings needed to view the file.
+  - [Preference Block](/PrefBlock) Define a pcapng block to store the preference settings needed to view the file.
 
-  - [PrivacySettings](/PrivacySettings) Add privacy settings to determine what to put in a pcapng file.
+  - [Privacy Settings](/PrivacySettings) Add privacy settings to determine what to put in a pcapng file.
 
   - [Reduce memory footprint](/Reduce-memory-footprint) Ideas on how to find the memory hogs and reduce the memory usage
 
 ### In progress
 
-  - [/CustomColumnfication](/Development/CustomColumnfication) An ongoing project concerning predefined columns -\> custom column migration
+  - [Custom Columnfication](/Development/CustomColumnfication) An ongoing project concerning predefined columns -\> custom column migration
 
-  - [/PrivilegeSeparation](/Development/PrivilegeSeparation): A proposal to add privilege separation to Wireshark
+  - [Privilege Separation](/Development/PrivilegeSeparation): A proposal to add privilege separation to Wireshark
 
   - [Mate](/Mate): Meta Analysis and Tracing Engine
 
-  - [/Security](/Development/Security): Efforts to make Wireshark more secure
+  - [Security](/Development/Security): Efforts to make Wireshark more secure
 
-  - [/ExpertInfo](/Development/ExpertInfo): a better "user display" of network misbehaviour
+  - [ExpertInfo](/Development/ExpertInfo): a better "user display" of network misbehaviour
 
   - [/PacketInput](/Development/PacketInput): how to get packet data into Wireshark in some "unusual" ways
 
