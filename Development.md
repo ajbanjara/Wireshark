@@ -92,21 +92,21 @@ Now it's time to tweak the code:
 
   - [ExpertInfo](/Development/ExpertInfo): a better "user display" of network misbehaviour
 
-  - [/PacketInput](/Development/PacketInput): how to get packet data into Wireshark in some "unusual" ways
+  - [Packet Input](/Development/PacketInput): how to get packet data into Wireshark in some "unusual" ways
 
-  - [/OptimizePacketList](/Development/OptimizePacketList): the packet list isn't optimized for the way we use it, could make a huge difference for large capture files
+  - [Optimize PacketList](/Development/OptimizePacketList): the packet list isn't optimized for the way we use it, could make a huge difference for large capture files
 
-  - [/CSVExport](/Development/CSVExport): Formats and problems with exporting into the CSV format
+  - [CSV Export](/Development/CSVExport): Formats and problems with exporting into the CSV format
 
-  - [/multithreading](/Development/multithreading): a list of what needs to be done in order to achieve it
+  - [Multithreading](/Development/multithreading): a list of what needs to be done in order to achieve it
 
-  - [/SNMP](/Development/SNMP): reworking of OID handling and SNMP dissector
+  - [SNMP](/Development/SNMP): reworking of OID handling and SNMP dissector
 
-  - [/Optimization](/Development/Optimization): A patch for a faster but maybe slightly broken wireshark
+  - [Optimization](/Development/Optimization): A patch for a faster but maybe slightly broken wireshark
 
-  - [/FastFiltering](/Development/FastFiltering): A patch for fast packet filtering interactively
+  - [Fast Filtering](/Development/FastFiltering): A patch for fast packet filtering interactively
 
-  - [/PcapNg](/Development/PcapNg): Read/Write the "PCAP Next Generation Dump File Format" or pcapng
+  - [Pcapng](/Development/PcapNg): Read/Write the "PCAP Next Generation Dump File Format" or pcapng
 
   - [Python](/Python) : Extending Wireshark with Python
 
@@ -114,29 +114,29 @@ Now it's time to tweak the code:
 
 ### Completed
 
-  - [/DropWin32GTK1](/Development/DropWin32GTK1): Thoughts about dropping GTK1 support on Win32
+  - [DropWin32GTK1](/Development/DropWin32GTK1): Thoughts about dropping GTK1 support on Win32
 
-  - [/PatchHandling](/Development/PatchHandling): Changing patch handling policy
+  - [Patch Handling](/Development/PatchHandling): Changing patch handling policy
 
-  - [/Examples](/Development/Examples): Example files, which are used by the various installers as default files
+  - [Examples](/Development/Examples): Example files, which are used by the various installers as default files
 
-  - [ReplaceDeprecatedGtkGLibFunctionUsage](/ReplaceDeprecatedGtkGLibFunctionUsage): An ongoing project to replace use of deprecated GTK and GLib functions.
+  - [Replace Deprecated Gtk and GLib Function Usage](/ReplaceDeprecatedGtkGLibFunctionUsage): An ongoing project to replace use of deprecated GTK and GLib functions.
 
-  - [GoingGTK3](/GoingGTK3): A project to prepare the Shark to migrate from GTK+ 2 to GTK+ 3
+  - [Going GTK3](/GoingGTK3): A project to prepare the Shark to migrate from GTK+ 2 to GTK+ 3
 
-  - [/QtShark](/Development/QtShark): Qt based version of Wireshark.
+  - [QtShark](/Development/QtShark): Qt based version of Wireshark.
 
-  - [/Update](/Development/Update): Check version and Update Wireshark on a frequent basis
+  - [Update](/Development/Update): Check version and Update Wireshark on a frequent basis
 
 ## Tools
 
   - [Asn2wrs](/Asn2wrs): How to create a dissector using the ASN.1 compiler
 
-  - [/WiresharkEnvCmd](/Development/WiresharkEnvCmd): A batch script to set environment variables useful for Windows development on older 1.12.x or earlier versions
+  - [WiresharkEnvCmd](/Development/WiresharkEnvCmd): A batch script to set environment variables useful for Windows development on older 1.12.x or earlier versions
 
   - [idl2wrs](/idl2wrs): [CORBA](/CORBA) IDL to Wireshark Plugin Generator [idl2wrs](http://www.wireshark.org/docs/man-pages/idl2wrs.html)
 
-  - [FuzzTesting](/FuzzTesting): tools to stress test protocol dissectors
+  - [Fuzz Testing](/FuzzTesting): tools to stress test protocol dissectors
 
   - [Pidl](/Pidl): A perl-based [DCE/RPC](/DCE/RPC) IDL compiler (and Wireshark dissector generator) developed for Samba 4
 
