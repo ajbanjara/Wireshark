@@ -1,8 +1,14 @@
 # Creating Patches
 
-Source code contributions should be sent via the [code review site](https://code.wireshark.org/review/). The page [Development/SubmittingPatches](/Development/SubmittingPatches) has complete information on the patch submission process.
+:warning: **We're migrating to GitLab on August 23rd**
 
-:warning: <strong>Before submitting your changes:
+If you're working on a code contribution, you might want to hold off on uploading it until then.
+Source code contributions prior to the August 23rd migration should be uploaded to our [Gerrit code review site](https://code.wireshark.org/review/).
+After the migration they should be uploaded to our [GitLab repository](https://gitlab.com/wireshark/wireshark/-/tree/master).
+
+The [Development/SubmittingPatches](/Development/SubmittingPatches) wiki page and [contribution section of the Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSrcContribute.html) have complete information on the patch submission process.
+
+:warning: **Before submitting your changes:**
 
   - **Fuzz test them\!** See [FuzzTesting](/FuzzTesting) for more details.
 
