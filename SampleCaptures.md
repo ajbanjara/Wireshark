@@ -36,7 +36,7 @@ If you don't find what you're looking for, you may also try:
 
   - <https://bugs.wireshark.org/bugzilla/> Added as attachments to recreate bug or test a fix.
 
-  - [Malware of the Day](https://www.activecountermeasures.com/john-strand-shared-documents/) Network traffic of malware samples in the lab.
+  - [Malware of the Day](https://www.activecountermeasures.com/category/malware-of-the-day/) Network traffic of malware samples in the lab.
 
 ## General / Unsorted
 
