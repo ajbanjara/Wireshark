@@ -93,12 +93,10 @@ As mentioned above, you can use "#" to [reference issues](https://docs.gitlab.co
 
 Putting all that together, we get the following example:
 
-    ``` 
     MIPv6: fix dissection of Service Selection Identifier
 
     APN field is not encoded as a dotted string so the first character is not a
     length. Closes #10323.
-    ```
 
 # Amending a Change
 
@@ -180,12 +178,10 @@ When that happens, it's safe to delete the changes branch in your local and pers
 
 You can delete both from the command line:
 
-    ```
     # Delete your local branch
     git branch -d my-branch-name
     # Delete your remote branch
     git push -d downstream my-branch-name
-    ```
 
 You can also delete merged branches in your personal repository in the [GitLab web UI](https://docs.gitlab.com/ee/user/project/repository/branches/#delete-merged-branches).
 
@@ -214,12 +210,10 @@ You can also delete merged branches in your personal repository in the [GitLab w
 
 If you would like to test someone else's merge request or personal repository branch you can do the following:
 
-    ```
     # Fetch their branch to a local branch named FETCH_HEAD.
     git fetch https://gitlab.com/some-other-user/wireshark.git their-branch-name
     # Create a branch from FETCH_HEAD with a more useful name.
     git checkout -b other-user-branch-name FETCH_HEAD
-    ```
 
 Each [merge request](https://gitlab.com/groups/wireshark/-/merge_requests) will have a "Check out branch" button with similar instructions.
 
@@ -285,7 +279,6 @@ If you want to keep track of the changes happening on a specific file, you can u
 
 The sample below demonstrates the workflow for a patch. Replace `mybranchname` with the name you choose for your branch:
 
-    ```
     $ # Prepare to submit a patch
     $ git clone -o upstream git@gitlab.com:wireshark/wireshark.git
     $ cd wireshark
@@ -328,7 +321,6 @@ The sample below demonstrates the workflow for a patch. Replace `mybranchname` w
     $ # Oops! Need to make more changes to the mybranchname branch
     $ git fetch upstream
     $ git checkout upstream mybranchname
-    ```
 
 # Migrating From Gerrit
 
@@ -341,10 +333,8 @@ You can leave it as-is or rename it, but it [might not be updated](https://bugs.
 
 The documentation here and in the [Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/) assumes that you have an "upstream" remote for the main repository and a "downstream" remote for your personal repository:
 
-    ```
     git remote add upstream git@gitlab.com:wireshark/wireshark.git
     git remote add downstream git@gitlab.com:myusername/wireshark.git
-    ```
 
 You can name the remotes anything you like.
 
