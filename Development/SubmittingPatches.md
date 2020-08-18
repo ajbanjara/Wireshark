@@ -351,7 +351,7 @@ You can name the remotes anything you like.
 
 If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-your-fork-up-to-date-with-its-origin/) you only need the downstream branch.
 
-**Bugs / Issues Are Linked Differently**
+**Bugs / issues are linked differently**
 
 Prior to the migration you could link to bugs using "Bug: 1234" or "Ping-Bug: 1234".
 Issue numbers in GitLab must be prefixed with a number sign (#).
