@@ -1,187 +1,179 @@
 [[_TOC_]]
 
-## Setup
+:warning: **We're migrating to GitLab on August 23rd**
 
-  - Install git. For Windows users see [this page](/Development/SubmittingPatches/GitForWindows) for help with that.
+We're migrating from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/-/tree/master).
+The instructions below are being updated for use with GitLab.
 
-  - Go to Wireshark's [Gerrit Code Review](https://code.wireshark.org/review/) site and sign in. Gerrit supports OpenID, so if you've got an account with Google, Yahoo, Launchpad, Wordpress, Blogger or any of a dozen other OpenID providers you will be able to use that account.
+If you're working on a code contribution, you might want to hold off on uploading it until the migration is complete.
 
-  - Once you've logged in, Gerrit will prompt you for your SSH public key. Add that.
+For complete instructions on contributing code, see the [contribution section of the Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSrcContribute.html).
 
-  - Now you should be able to clone the repository by running:
+# Setup
 
-`git clone ssh://USERNAME@code.wireshark.org:29418/wireshark`
+- Install git. For Windows users see [this page](/Development/SubmittingPatches/GitForWindows) for help with that.
 
-  - For convenience, install the git-review tool. This should be as easy as `pip install git-review` if you've already got python installed (which you probably do). Command options `man git-review` or [1.28.0 copy here.](/Development/SubmittingPatches/Git-Review)
+- Go to https://gitlab.com and and sign in. You can register a GitLab account directly, or sign in using your GitHub, Google, Bitbucket, and other accounts.
 
-  - Run `git review -s` in your repository to set up Git's `commit-msg` hook which is necessary for Gerrit integration.
+- Go to https://gitlab.com/profile/keys and add an SSH key.
 
-### Git Hooks
+- Go to https://gitlab.com/wireshark/wireshark/ and click the "Fork" button.
+This will create your own personal copy of the Wireshark repository.
 
-In your local repository directory, there will be a `.git/hooks/` directory, with sample git hooks for running automatic actions before and after git commands. The `git review -s` at the end of the previous section installed a `commit-msg` hook here. If you don't use `git review` you have to install the commit-msg hook from the tools directory yourself, in order to generate the `Change-ID` required by Gerrit. Copy the `commit-msg` file from the `tools` directory (`cp ./tools/commit-msg .git/hooks/`) and make sure it is executable or it will not be run. You can also optionally install other hooks that you find useful.
+- Now you should be able to clone the main repository and add your personal repository:
+    ```
+    git clone -o upstream git@gitlab.com:wireshark/wireshark.git
+    cd wireshark
+    git remote add downstream git@gitlab.com:<your.username>/wireshark.git
+    ```
 
-In particular, the `pre-commit` hook will run every time you commit a change and can be used to automatically check for various errors in your code. The sample git pre-commit hook simply detects whitespace errors such as mixed tabs and spaces; to install it, rename the existing `.git/hooks/pre-commit.sample` file to `.git/hooks/pre-commit`.
+<!-- Install one of the GitLab CLIs? -->
 
-Wireshark provides a custom pre-commit hook which does additional Wireshark-specific API and formatting checks, but it might return false positives. If you want to install it, copy the `pre-commit` file from the `tools` directory (`cp ./tools/pre-commit .git/hooks/`) and make sure it is executable or it will not be run.
+## Git Hooks
 
-If the pre-commit hook is preventing you from committing what you believe is a valid change, you can run `git commit --no-verify` to skip running the hooks. *Warning:* using `--no-verify` avoids the commit-msg hook, and thus will not automatically add the required `Change-ID` to your commit. In case you are not updating an existing patch you may generate a `Change-ID` by running `git review -i` (or `git commit --amend` if don't use git review).
+In your local repository directory, there will be a `.git/hooks/` directory, with sample git hooks for running [automatic actions before and after git commands](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks). 
 
-## Submitting a Change
+Wireshark provides a custom pre-commit hook which performs general checks along with Wireshark-specific API and formatting checks, but it might return false positives.
+If you want to install it, copy the `pre-commit` file from the `tools` directory (`cp ./tools/pre-commit .git/hooks/`) and make sure it is executable.
+Alternatively you can use Git's sample git pre-commit hook which detects whitespace errors such as mixed tabs and spaces.
+To install it, copy or rename the existing `.git/hooks/pre-commit.sample` file to `.git/hooks/pre-commit`.
+If the pre-commit hook is preventing you from committing what you believe is a valid change, you can run `git commit --no-verify` to skip running the hooks.
 
-  - Create and checkout a new branch with a name related to the type of change (e.g. the bug number you're fixing or the dissector you're working on): `git checkout -b my-branch-name`
+The Gerrit code review system required a commit-msg hook. This is no longer necessary.
+
+# Submitting A Change
+
+- Create and checkout a new branch with a name related to the type of change (e.g. the bug number you're fixing or the dissector you're working on):
+    ```
+    git checkout -b my-branch-name upstream/master
+    ```
+    This creates a branch named "my-branch-name" based on the master branch in the official repository.
+
+- Make your changes and test they work.
+
+- Use `git add FILE1 FILE2...` to stage the files you've changed or added for commit.
     
-      - This is a shortcut for the commands `git branch my-branch-name && git checkout my-branch-name`, which would create a branch named `my-branch-name` and then check it out.
-    
-      - Unless you really want to do something unusual, you should be creating these off of the local `master` branch. To see what branch you're on, do `git branch` and the one with the `*` next to it is the one you're currently on. To change to `branch-name`, do `git checkout branch-name` (so to change to `master` do `git checkout master`).
+- Alternatively, use `git commit -a`, which commits it and adds all *existing* changed files to the commit automatically (but not newly-created files).
+(You'll still need to use `git add FILE` for new files.)
 
-  - Make your changes and test they work.
+- Run `git commit` to commit your change, or `git commit -a` as noted above.
+You can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references), for example "closes #1234" to close issue 1234. 
 
-  - Use `git add FILE1 FILE2...` to stage the files you've changed for commit.
-    
-      - Alternatively, use `git commit -a`, which commits it and adds all *existing* changed files to the commit automatically (but not newly-created files).
-    
-      - If you need to add a new file to git, you should use `git add FILE`.
+- Run `git push downstream HEAD`. This pushes the current branch (my-branch-name) to your personal repository.
 
-  - Run `git commit` to commit your change, or `git commit -a` as noted above.
+- Go to https://gitlab.com/wireshark/wireshark/-/merge_requests.
+You should see a "New merge request" button for your branch.
+Press it.
 
-  - Run `git review` (or use to `git push origin HEAD:refs/for/master/BRANCH_NAME` if you don't have git review and replace BRANCH\_NAME by the name of your branch) to upload it to Gerrit. On success this will return a URL which is the location of the Gerrit review.
-
-## The review process
+# The Review Process
 
 To see the status of the review process, go to the URL returned in the previous step and see/discuss the patch and its current review status.
+When you create a merge requests, a series of tests will be run.
 
-Alternatively the gerrit command line may be used:
-
-  - Use the web interface to upload your ssh public key if not already done.
-
-  - Access gerrit by running e.g. `ssh USERNAME@code.wireshark.org -p29418 gerrit --help`
-
-Useful gerrit commands:
-
-  - Submit a change: `ssh USERNAME@code.wireshark.org -p29418 gerrit review --submit --code-review +1 NUMBER_RETURNED_ABOVE --message "'MESSAGE GOES HERE'"`
-
-<!-- end list -->
-
-  - Run Petri-Dish: `ssh USERNAME@code.wireshark.org -p29418 gerrit review --label Petri-Dish=+1 NUMBER_RETURNED_ABOVE --message "'MESSAGE GOES HERE'"`
-    
-      - Only core devs can run Petri Dish for non-draft changes
-
-Find them all [here](https://code.wireshark.org/review/Documentation/cmd-index.html).
-
-### Writing a Good Commit Message
+# Writing A Good Commit Message
 
 When running `git commit`, you will be prompted to describe the change. Here are some guidelines on how to make that message actually useful to other people (and to scripts that may try to parse it):
 
-  - Provide a very brief description (under 60 characters) of the change in the first line.
-      - If the change is specific to a single protocol, start this line with the abbreviated name of the protocol and a colon.
+- Provide a very brief description (under 60 characters) of the change in the first line.
+
+  - If the change is specific to a single protocol, start this line with the abbreviated name of the protocol and a colon.
     
-      - If the change is not complete yet prefix the line with `[WIP]` to inform this change not to be submitted yet. This can later be removed.
-  - Insert a single blank line after the first line.
-  - Provide a detailed description of the change in the following lines, breaking paragraphs where needed. Limit each line to 80 characters.
+  - If the change is not complete yet prefix the line with `[WIP]` to inform this change not to be submitted yet. This can later be removed.
 
-You can also add metadata at the bottom of the commit message which will be used by Gerrit for searching and triggering [Bugzilla](https://bugs.wireshark.org) integration. Each line of the footer is of the form `Label: value`. There can be no extra line-breaks between footer lines.
+- Insert a single blank line after the first line.
 
-Wireshark currently supports the following metadata tags:
+- Provide a detailed description of the change in the following lines, breaking paragraphs where needed. Limit each line to 80 characters.
 
-<div>
+As mentioned above, you can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references).
+"Closes #1234" is special -- it will close issue 1234 when the change is merged, while other references such as "see #4512" will simply link to the issue. 
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Tag</strong>             </p></td>
-<td><p><strong>Meaning</strong></p></td>
-</tr>
-<tr class="even">
-<td><p><code class="backtick">Change-Id</code></p></td>
-<td><p>A unique hash describing the change, which is generated automatically by the git <code class="backtick">commit-msg</code> hook which you installed during setup. This should <em>not</em> be changed, even when rebasing or amending a commit following code review. If you pass <code class="backtick">--no-verify</code> to <code class="backtick">git commit</code> you will have to add this line yourself.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code class="backtick">Bug</code></p></td>
-<td><p>Make Gerrit automatically add a comment <em>and</em> close the given bug number when the commit is merged. For use when the change does fully fix the issue.</p></td>
-</tr>
-<tr class="even">
-<td><p><code class="backtick">Ping-Bug</code></p></td>
-<td><p>Make Gerrit just add a comment to the referenced bug. For use when the change is related but does not fully fix the issue.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-:bulb: The `Bug` and `Ping-Bug` tags are particularly useful if a capture file has been provided via a [Bugzilla](https://bugs.wireshark.org) entry in parallel with the change. All non-trivial fixes to dissectors should try to do this.
+<!-- XXX Fix issue URL when the migration is complete. -->
+:bulb: If you're contributing a non-trivial fix to a dissector, you should [open an issue](https://gitlab.com/wireshark/wireshark) and attach a sample capture file.
 
 Putting all that together, we get the following example:
 
-``` 
+    ``` 
     MIPv6: fix dissection of Service Selection Identifier
 
-    APN field is not encoded as a dotted string so the first character is not a length
+    APN field is not encoded as a dotted string so the first character is not a
+    length. Closes #10323.
+    ```
 
-    Bug: 10323
-    Change-Id: Ia62137c785d505e9d0f1536a333b421a85480741
-```
+# Amending a Change
 
-## Amending a Change
+If you need to update your merge request you can do so by doing the following:
 
-If you need to upload a new version of an existing change *to the same review*.
+- Check out the existing branch:
+    ```
+    git checkout my-branch-name
+    ```
 
-  - Check out the existing branch `git checkout my-branch-name`
+- Make your changes, and `git add` them as described in [Submitting a Change](#submitting-a-change).
+Alternatively, `git commit -a --amend` will automatically add the changed tracked files.
 
-  - Make your changes, and `git add` them as in "Submitting a Change".
-    
-      - Alternatively, `git commit -a --amend` to automatically add the changed tracked files.
+- Run `git commit --amend` to update your existing commit, or `git commit -a --amend` as noted above.
 
-  - Run `git commit --amend` to update your existing commit, or `git commit -a --amend` as noted above. If using `-m`, make sure you include the same `Change-ID:` as the original on a line by itself with no leading spaces in your commit message.
+- Do **NOT** change your branch name.
+That's how GitLab associates your change with the original merge request.
 
-  - Do **NOT** modify or remove the `Change-ID:` line at the bottom of the commit message, and do not add new lines below it. It must be at the bottom of the message (ignoring comments), or else the commit-msg hook will add a brand new Change-ID, which means you'll be creating a brand new review in gerrit. Keeping the same Change-ID means you're just going to push an update to your previous gerrit review, which is the goal.
+- Do **NOT** add entries to the commit message describing the changes in a particular additional patch, the commit message should only reflect the overall intent of the change, not how it progressed, i.e. we don't need to see how sausages are made. GitLab provides the ability to diff between patches to review these anyway.
 
-  - Do **NOT** add entries to the commit message describing the changes in a particular additional patch, the commit message should only reflect the overall intent of the change, not how it progressed, i.e. we don't need to see how sausages are made. Gerrit provides the ability to diff between patches to review these anyway.
+- Run `git push downstream +HEAD`.
+The "+" is shorthand for force-pushing and will be needed if you amended your commit.
+Multiple commits are also allowed.
 
-  - Run `git review` (or use to `git push origin HEAD:refs/for/master` if you don't have `git review` to upload your amended commit.
+# Fixing Merge Errors
 
-If you've already accidentally made multiple commits, you can squash them down into one commit by running `git rebase -i master`, and changing all but the very first `pick` into `squash` in the interactive dialogue (see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) for more details). Be sure the preserve the `Change-ID` line of your *original* commit, not the most recent\!
+Sometimes a reviewer/core developer will tell you your change has merge issues.
+This just means some other changes have conflicted with your change in ways that git cannot fix automatically.
+To resolve this, you need to fix the merge errors in your local branch and push a new patch set to GitLab for the same review.
+Here are the steps:
 
-## Fixing merge errors
+- Check out your existing branch:
+    ```
+    git checkout my-branch-name
+    ```
 
-Sometimes a reviewer/core developer will tell you your change has merge issues. This just means some other changes have conflicted with your change in ways that git cannot fix automatically. To resolve this, you need to fix the merge errors in your local branch and push a new patch set to gerrit for the same review. Here are the steps:
+- Rebase against the Wireshark master:
+    ```
+    git pull --rebase upstream/master
+    ```
+    This fetches Wireshark's master branch and reapplies your changes on top of it.
 
-  - Check out your local `master`: `git checkout master`
-
-  - Pull down the latest changes to it: `git pull`
-    
-      - `git pull` does both a `git fetch` and `git merge`. So long as you made no local changes to your local `master`, this step should just work without any issues.
-
-  - Rebase your changes to the latest master: `git rebase master my-branch-name`
-
-  - At this point you will likely have merge errors - otherwise you wouldn't have been told so by the reviewer. Git will produce a message telling you this, with lines such as:
-
-<!-- end list -->
-
+- At this point you will likely have merge errors -- otherwise you wouldn't have been told so by the reviewer.
+Git will produce a message telling you this, with lines such as:
+    ```
     CONFLICT (content): Merge conflict in ui/qt/main_window.ui
     Auto-merging ui/qt/main_window.h
     Failed to merge in the changes.
+    ```
+    The `CONFLICT` line tells you the name of a file that failed to merge.
 
-  - The `CONFLICT` line tells you the name of a file that failed to merge.
+- You can also do a `git status` to see what files are not merged for the rebase - they're the ones that are in red at the bottom, under the section `Unmerged paths`.
+Those are the ones with merge errors.
 
-  - You can also do a `git status` to see what files are not merged for the rebase - they're the ones that are in red at the bottom, under the section `Unmerged paths`. Those are the ones with merge errors.
+- Open the offending file(s) in your editor, and search for the string "<<<<<<<".
+You will see "<<<<<<<" and ">>>>>>>" lines, which git put in to show the conflicting lines for what's in HEAD (which is `master`) vs. what's in your local branch you're trying to rebase.
+The unmerged lines from each branch are separated by a "=======" line.
+Some editors have conflict resolution features that make fixing this more convenient.
 
-  - Open the offending file(s) in your editor, and search for the string "\<\<\<\<\<\<\<". You will see "\<\<\<\<\<\<\<" and "\>\>\>\>\>\>\>" lines, which git put in to show the conflicting lines for what's in HEAD (which is `master`) vs. what's in your local branch you're trying to rebase. The unmerged lines from each branch are separated by a "=======" line.
+- Fix the conflicts, by deleting the "<<<<<<<" and ">>>>>>>" and "=======" lines, and correcting the code such that the final is what the code should be once the rebasing is complete.
 
-  - Fix the conflicts, by deleting the "\<\<\<\<\<\<\<" and "\>\>\>\>\>\>\>" and "=======" lines, and correcting the code such that the final is what the code should be once the rebasing is complete.
+- Save your file.
 
-  - Save your file.
+- Run `git add FILENAME` to add the just-fixed file(s) to the staging area.
 
-  - Issue a `git add FILENAME` to add the just-fixed file(s) to the staging area.
+- Run `git rebase --continue` to continue.
+You may hit more merge errors and need to repeat the above steps to resolve them.
 
-  - Issue a `git rebase --continue` to continue. You may hit more merge errors and need to repeat the above steps to resolve them.
+- Once they're all resolved, commit the changes using `git commit --amend`, save the commit message again without changing the Change-ID line in it, and `git push downstream +HEAD` to push it to your repository.
+ 
+    - Note the `--amend` option is being used, because you don't want to generate a new commit and new review; you just want to upload a new patch set for the previous review.
 
-  - Once they're all solved, commit the changes using `git commit --amend`, save the commit message again without changing the Change-ID line in it, and `git review` to push it to gerrit again.
-    
-      - Note the `--amend` option is being used, because you don't want to generate a new commit and new review; you just want to upload a ne wpatch set for the previous review.
+- You're done!
 
-  - You're done\!
-
-## Deleting your changes
+<!-- Left off here for Gerrit -> GitLab -->
+# Deleting your changes
 
 At some point (hopefully soon) your code changes will be merged into the master branch on wireshark.org. (well, technically they're cherry-picked and then committed and pushed, but close enough) When that happens, it's safe to delete your local changes branch. You could force git to delete it using the `-D` option, but this is a better/cleaner way:
 
