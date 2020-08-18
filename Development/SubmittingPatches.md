@@ -4,6 +4,7 @@
 
 We're migrating from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/-/tree/master).
 The instructions below are being updated for use with GitLab.
+See the [Migrating From Gerrit](#migrating-from-gerrit) section at the bottom for more details.
 
 If you're working on a code contribution, you might want to hold off on uploading it until the migration is complete.
 
@@ -172,10 +173,25 @@ You may hit more merge errors and need to repeat the above steps to resolve them
 
 - You're done!
 
-<!-- Left off here for Gerrit -> GitLab -->
-# Deleting your changes
+# Cleaning Up After A Merge
 
-At some point (hopefully soon) your code changes will be merged into the master branch on wireshark.org. (well, technically they're cherry-picked and then committed and pushed, but close enough) When that happens, it's safe to delete your local changes branch. You could force git to delete it using the `-D` option, but this is a better/cleaner way:
+At some point (hopefully soon) your code changes will be merged into the master branch in gitlab.com/wireshark/wireshark.
+When that happens, it's safe to delete the changes branch in your local and personal GitLab repository.
+
+You can delete both from the command line:
+
+    ```
+    # Delete your local branch
+    git branch -d my-branch-name
+    # Delete your remote branch
+    git push -d downstream my-branch-name
+    ```
+
+You can also delete merged branches in your personal repository in the [GitLab web UI](https://docs.gitlab.com/ee/user/project/repository/branches/#delete-merged-branches).
+
+<!-- XXX Gerrit-era instructions are below. Do they still apply?
+
+ You could force git to delete it using the `-D` option, but this is a better/cleaner way:
 
   - Check out your local `master`: `git checkout master`
 
@@ -192,24 +208,32 @@ At some point (hopefully soon) your code changes will be merged into the master 
   - Delete the branch by issuing `git branch -d my-branch-name`
     
       - Note the lower-case `-d` option, not the upper-case `-D` which forces a deletion.
+-->
 
-## Testing a Change from Gerrit
+## Testing Someone Else's Merge Request
 
-If somebody else has uploaded a change to gerrit you want to test locally (without submitting it to master):
+If you would like to test someone else's merge request or personal repository branch you can do the following:
 
-  - Determine the ID of the review (this is the numeric value, ie "Change 602", not the SHA).
+    ```
+    # Fetch their branch to a local branch named FETCH_HEAD.
+    git fetch https://gitlab.com/some-other-user/wireshark.git their-branch-name
+    # Create a branch from FETCH_HEAD with a more useful name.
+    git checkout -b other-user-branch-name FETCH_HEAD
+    ```
 
-  - Run `git review -d $ID`. This will download the change and create a new branch named "review/author\_name/topic" or "review/author\_name/ID" if no topic is set.
+Each [merge request](https://gitlab.com/groups/wireshark/-/merge_requests) will have a "Check out branch" button with similar instructions.
 
-## Undoing a Change
+# Undoing A Change
 
-If you haven't committed yet and want to undo changes to a file, run `git checkout $FILES` to revert to the last version. To undo changes to the whole tree, run `git checkout` with no path.
+If you haven't committed yet and want to undo changes to a file, run `git checkout -- $FILES` to revert to the last version.
+To undo changes to the whole tree, run `git checkout` with no path.
 
-If you've staged a change with `git add` but haven't committed yet, run `git reset HEAD $FILES` to unstage them (and then git checkout to actually undo the changes). Note that "HEAD" is literal text, not a variable.
+If you've staged a change with `git add` but haven't committed yet, run `git reset HEAD $FILES` to unstage them (and then git checkout to actually undo the changes).
+Note that "HEAD" is literal text, not a variable.
 
-If you're change is in master, you should revert the change in a new commit with `git revert $SHA`. This generates a new commit, which must go through the normal Gerrit review process.
+If your change is in master, you should revert the change in a new commit with `git revert $SHA`. This generates a new commit, which must go through the normal review process.
 
-## A Super-Short Overview of Git
+# A Super-Short Overview Of Git
 
 Git manages a collection of commits, each identified by its unique SHA. Each commit (except the very first) contains a pointer to one or more parent commits, thus forming a history (technically a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)).
 
@@ -257,36 +281,43 @@ A more comprehensive description of git can be found in [this book](https://git-
 
 If you want to keep track of the changes happening on a specific file, you can using gerrit. Go to your settings page: <https://code.wireshark.org/review/#/settings/projects> In the tab Watched projects, add a watch for every file you want to watch by first selecting Wireshark in the project Name and then apply a filter in the Only-if look alike: <file:path/towards/my/file>
 
-## Sample workflow commands
+# Sample Workflow Commands
 
 The sample below demonstrates the workflow for a patch. Replace `mybranchname` with the name you choose for your branch:
 
+    ```
     $ # Prepare to submit a patch
-    $ git clone ssh://USERNAME@code.wireshark.org:29418/wireshark
+    $ git clone -o upstream git@gitlab.com:wireshark/wireshark.git
     $ cd wireshark
-    $ git review -s
+    $ cp tools/pre-commit .git/hooks
+    $ chmod a+x .git/hooks/pre-commit
     $ git checkout -b mybranchname
     Switched to a new branch 'mybranchname'
     
     $ # Make some changes
     $ git commit
-    $ git review
-    remote: Resolving deltas: 100% (2/2)
-    remote: Processing changes: new: 1, refs: 1, done    
-    remote: 
-    remote: New Changes:
-    remote:   https://code.wireshark.org/review/398
-    remote: 
-    To ssh://USERNAME@code.wireshark.org:29418/wireshark
-    
-    $ # Optional: Give your code a +1 and add a message
-    $ ssh USERNAME@code.wireshark.org:29418 -p 29418 gerrit review 398,1 --submit --code-review +1 --message "'Please review and run Petri Dish'"
-    
-    $ # Add changes for a second patchset (e.g.: Added additional tests)
+    $ git push downstream HEAD
+    Enumerating objects: 14, done.
+    Counting objects: 100% (14/14), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (13/13), done.
+    Writing objects: 100% (13/13), 148.07 KiB | 21.15 MiB/s, done.
+    Total 13 (delta 6), reused 0 (delta 0), pack-reused 0
+    remote:
+    remote: To create a merge request for mybranchname, visit:
+    remote:   https://gitlab.com/myusername/wireshark/-/merge_requests/new?merge_request%5Bsource_branch%5D=mybranchname
+    remote:
+    To gitlab.com:myusername/wireshark.git
+     * [new branch]      HEAD -> mybranchname
+        
+    $ # Amend your current change (e.g.: Added additional tests)...
+    < make some changes>
     $ git commit -a --amend
-    $ git review -R
-    $ # Optional: Add a message:
-    $ ssh USERNAME@code.wireshark.org -p29418 gerrit review 398,1 --message "'Added unit tests'"
+    $ git push downstream +HEAD
+    $ # ...or add a separate commit on top of the current change
+    < make some changes>
+    $ git commit -a
+    $ git push downstream HEAD
     
     $ # Work complete! Delete the mybranchname branch
     $ git checkout master
@@ -295,7 +326,50 @@ The sample below demonstrates the workflow for a patch. Replace `mybranchname` w
     Deleted branch mybranchname (was c159b39).
     
     $ # Oops! Need to make more changes to the mybranchname branch
-    $ git review -d 398
+    $ git fetch upstream
+    $ git checkout upstream mybranchname
+    ```
+
+# Migrating From Gerrit
+
+Prior to using GitLab, Wireshark used the [Gerrit code review system](https://code.wireshark.org/review). Here are a few things to keep in mind when migrating to GitLab:
+
+**You need to update your remotes.**
+
+Your local repository might have a remote named "origin" or "gerrit" that points to "ssh://code.wireshark.org/wireshark".
+You can leave it as-is or rename it, but it [might not be updated](https://bugs.chromium.org/p/gerrit/issues/detail?id=656) after the migration.
+
+The documentation here and in the [Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/) assumes that you have an "upstream" remote for the main repository and a "downstream" remote for your personal repository:
+
+    ```
+    git remote add upstream git@gitlab.com:wireshark/wireshark.git
+    git remote add downstream git@gitlab.com:myusername/wireshark.git
+    ```
+
+You can name the remotes anything you like.
+
+If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-your-fork-up-to-date-with-its-origin/) you only need the downstream branch.
+
+**Bugs / Issues Are Linked Differently**
+
+Prior to the migration you could link to bugs using "Bug: 1234" or "Ping-Bug: 1234".
+Issue numbers in GitLab must be prefixed with a number sign (#).
+You can automatically close an issue with "closes", e.g. "closes #1234".
+
+**GitLab associates branches with merge requests**
+
+Gerrit required a unique identifier (e.g. `Change-Id: I58b2f0f5eeec85c891bd7fdbb6132eb8147baabf`) in git commit messages in order to associate a commit with a change.
+GitLab uses a branch name in your personal repository.
+When you update a merge request, be sure to push it to the same branch name as before. 
+
+**There are multiple CLI options.***
+
+Prior to the migration, we used the [git-review](https://opendev.org/opendev/git-review) tool to manage changes on the command line.
+The following tools might let us manage merge requests, but more testing needs to be done.
+
+* https://github.com/zaquestion/lab - Go. Single binary for each major platform.
+* https://invent.kde.org/sdk/git-lab - Python. Developed by the KDE team.
+* https://github.com/vishwanatharondekar/gitlab-cli - Node / NPM.
 
 ---
 
