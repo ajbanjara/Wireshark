@@ -352,7 +352,7 @@ Gerrit required a unique identifier (e.g. `Change-Id: I58b2f0f5eeec85c891bd7fdbb
 GitLab uses a branch name in your personal repository.
 When you update a merge request, be sure to push it to the same branch name as before. 
 
-**There are multiple CLI options.***
+**There are multiple CLI options.**
 
 Prior to the migration, we used the [git-review](https://opendev.org/opendev/git-review) tool to manage changes on the command line.
 The following tools might let us manage merge requests, but more testing needs to be done.
