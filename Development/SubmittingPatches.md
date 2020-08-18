@@ -326,6 +326,17 @@ The sample below demonstrates the workflow for a patch. Replace `mybranchname` w
 
 Prior to using GitLab, Wireshark used the [Gerrit code review system](https://code.wireshark.org/review). Here are a few things to keep in mind when migrating to GitLab:
 
+**GitLab associates branches with merge requests**
+
+Gerrit required a unique identifier (e.g. `Change-Id: I58b2f0f5eeec85c891bd7fdbb6132eb8147baabf`) in git commit messages in order to associate a commit with a change.
+GitLab uses a branch name in your personal repository.
+When you update a merge request, be sure to push it to the same branch name as before. 
+
+**You need to remove your `commit-msg` hook.**
+
+Gerrit enforced change IDs using a `commit-msg` hook script.
+You should remove `.git/hooks/commit-msg`.
+
 **You need to update your remotes.**
 
 Your local repository might have a remote named "origin" or "gerrit" that points to "ssh://code.wireshark.org/wireshark".
@@ -345,12 +356,6 @@ If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-y
 Prior to the migration you could link to bugs using "Bug: 1234" or "Ping-Bug: 1234".
 Issue numbers in GitLab must be prefixed with a number sign (#).
 You can automatically close an issue with "closes", e.g. "closes #1234".
-
-**GitLab associates branches with merge requests**
-
-Gerrit required a unique identifier (e.g. `Change-Id: I58b2f0f5eeec85c891bd7fdbb6132eb8147baabf`) in git commit messages in order to associate a commit with a change.
-GitLab uses a branch name in your personal repository.
-When you update a merge request, be sure to push it to the same branch name as before. 
 
 **There are multiple CLI options.**
 
