@@ -18,6 +18,10 @@ Hi,
 I would like permission to edit the Wireshark wiki. My GitLab username is <your username>.
 ```
 
+3. Go to https://gitlab.com/wireshark/editor-wiki/-/wikis/home and start making edits.
+If GitLab returns a 404 error, it's probably because you aren't logged in or you don't have edit permissions.
+The [public wiki](https://gitlab.com/wireshark/wireshark/-/wikis/home) will be synchronized each time you save your changes.
+
 ## Contributing
 
 In order to edit this wiki you should be familiar with Markdown, specifically [GitLab Flavored Markdown](https://gitlab.com/help/user/markdown).
