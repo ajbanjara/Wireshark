@@ -52,7 +52,7 @@ In addition, on some platforms, at least with some 802.11 adapters, you can get 
 
 In FreeBSD 5.2 and later, NetBSD 2.0 and later, OpenBSD 3.7 and later, and DragonFly BSD 1.2 and later, you do not have to capture in monitor mode to get 802.11 headers, except when capturing on a Cisco Aironet adapter in FreeBSD. For earlier releases of those BSDs, 802.11 headers are not supported, except perhaps when capturing on a Cisco Aironet adapter in FreeBSD.
 
-On Linux and Mac OS X, you can only get 802.11 headers in monitor mode.
+On Linux and macOS, you can only get 802.11 headers in monitor mode.
 
 To see 802.11 headers for frames, without radio information, you should:
 
@@ -129,7 +129,7 @@ Therefore, in order to capture all traffic that the adapter can receive, the ada
 
 etc..
 
-Monitor mode is not supported by [WinPcap](/WinPcap), and thus not by Wireshark or TShark, on Windows. It is supported, for at least some interfaces, on some versions of Linux, FreeBSD, NetBSD, OpenBSD, DragonFly BSD, and Mac OS X.
+Monitor mode is not supported by [WinPcap](/WinPcap), and thus not by Wireshark or TShark, on Windows. It is supported, for at least some interfaces, on some versions of Linux, FreeBSD, NetBSD, OpenBSD, DragonFly BSD, and macOS.
 
 You might have to perform operating-system-dependent and adapter-type-dependent operations to enable monitor mode, described below in the ["Turning on monitor mode"](/CaptureSetup/WLAN#Turning_on_monitor_mode) section.
 
@@ -147,13 +147,13 @@ The 802.11 hardware on the network adapter filters all packets received by the d
 
 <span id="promiscuous" class="anchor"></span> In promiscuous mode the MAC address filter mentioned above is disabled and *all* packets of the currently joined 802.11 network (with a specific SSID and channel) are captured, just as in traditional Ethernet. However, on a "protected" network, packets from or to other hosts will not be able to be decrypted by the adapter, and will not be captured, so that promiscuous mode works the same as non-promiscuous mode.
 
-This seems to work on Linux and various BSDs, including Mac OS X. On Windows, putting 802.11 adapters into promiscuous mode is usually crippled, see the [Windows section](/CaptureSetup/WLAN#windows) below.
+This seems to work on Linux and various BSDs, including macOS. On Windows, putting 802.11 adapters into promiscuous mode is usually crippled, see the [Windows section](/CaptureSetup/WLAN#windows) below.
 
 Promiscuous mode can be enabled in the Wireshark Capture Options.
 
 ## Turning on monitor mode
 
-If you are running Wireshark 1.4 or later on a \*BSD, Linux, or Mac OS X system, and it's built with libpcap 1.0 or later, for interfaces that support monitor mode, there will be a "Monitor mode" checkbox in the Capture Options window in Wireshark, and a command line `-I` to dumpcap, TShark, and Wireshark.
+If you are running Wireshark 1.4 or later on a \*BSD, Linux, or macOS system, and it's built with libpcap 1.0 or later, for interfaces that support monitor mode, there will be a "Monitor mode" checkbox in the Capture Options window in Wireshark, and a command line `-I` to dumpcap, TShark, and Wireshark.
 
 In Wireshark, if the "Monitor mode" checkbox is not grayed out, check that check box to capture in monitor mode. If it is grayed out, libpcap does not think the adapter supports monitor mode. If it is not an 802.11 adapter, it cannot support monitor mode; if it is an 802.11 adapter, either the adapter does not support monitor mode, the adapter's driver does not support monitor mode, or there's a bug in libpcap causing it not to think the adapter and driver support monitor mode.
 
@@ -333,7 +333,7 @@ For adapters whose drivers don't support the new mac80211 framework, see [Captur
 
 Note that some adapters might be supported using the [NdisWrapper](http://ndiswrapper.sourceforge.net/) mechanism. Unfortunately, if you use NdisWrapper, you have [the same limitations as Windows](/CaptureSetup/WLAN#windows) for 802.11 capture, which usually means "no monitor mode and no 802.11 headers".
 
-### Mac OS X
+### macOS ([Mac] OS X)
 
 Using Apple's own AirPort Extreme 802.11 wireless cards:
 
@@ -351,7 +351,15 @@ It's possible to capture in monitor mode on an AirPort Extreme while it's associ
 
 Then "airport -I" shows the current channel, among other things, "airport -z" disassociates from any network, and "network -c\<chan\>" sets the channel. Enter just "airport" for more details. The command can also scan and sniff.
 
-If you use a Prism II chipset PCMCIA card in a Powerbook, or use another wireless card which is supported appropriately by [the wireless sourceforge drivers](http://wirelessdriver.sourceforge.net/), you may be able to use software such as [KisMAC](http://kismac.binaervarianz.de/) to dump to file full frames captured in passive mode. Since Wireshark allows review of dumps you could then run them through the Wireshark analyzer. I don't have enough knowledge to tell how/if it is possible to point Wireshark to such a PCMCIA card, or to get it to watch a growing dump file, to allow live analysis but I think it's a plausible project. (if you manage it then remember to write it up here\!)
+Making that link is not possible in newer versions of macOS, with System Integrity Protection, unless you turn System Integrity Protection off.  If you want to be able to use the "airport" command without typing the full path, either add /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources to your $PATH, create "/usr/local/bin" if it doesn't already exist and add the symbolic link in that directory, add a private directory for executables to your $PATH and put a symbolic link in that directory to /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport, or, if your shell supports aliases, make an alias "airport" for it.
+
+Some newer machines, running macOS Mojave or later, do not support remaining associated with a Wi-Fi network while running in monitor mode.  If you try to capture in monitor mode, without disassociating from your Wi-Fi network first, the adapter won't go into monitor mode, and no traffic will be captured.  You must disassociate from your network first; this can be done with Option+click on the Wi-Fi item in the menu bar, or by running
+
+    /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -z
+
+from the command line.
+
+If you use a Prism II chipset PCMCIA card in a Powerbook, or use another wireless card which is supported appropriately by [the wireless sourceforge drivers] (http://wirelessdriver.sourceforge.net/), you may be able to use software such as [KisMAC](http://kismac.binaervarianz.de/) to dump to file full frames captured in passive mode. Since Wireshark allows review of dumps you could then run them through the Wireshark analyzer. I don't have enough knowledge to tell how/if it is possible to point Wireshark to such a PCMCIA card, or to get it to watch a growing dump file, to allow live analysis but I think it's a plausible project. (if you manage it then remember to write it up here\!)
 
 ### Windows
 
