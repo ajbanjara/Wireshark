@@ -363,7 +363,9 @@ If you use a Prism II chipset PCMCIA card in a Powerbook, or use another wireles
 
 ### Windows
 
-#### Starting from Windows Vista: Npcap
+<span id="windows" class="anchor"></span> Capturing traffic on Windows depends on [WinPcap](/WinPcap) or Npcap and on the underlying network adapters and drivers. Npcap, which supports Windows 7 and later, supports monitor mode; [WinPcap](/WinPcap) doesn't support monitor mode. On Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
+
+#### Starting from Windows 7: Npcap
 
 Npcap is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. Npcap has added many features compared to the legacy [WinPcap](/WinPcap).
 
@@ -373,11 +375,9 @@ Npcap is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF)
     4) Loopback Packets Capture and Send Support (either as fake Ethernet or Null/Loopback frames)
     5) Raw 802.11 packets Capture Support (in "monitor mode")
 
-When installed on Windows Vista or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with radiotap header can be see. Otherwise, only 802.11 data packets can be see. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with Npcap.
+When installed on Windows 7 or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with radiotap header can be see. Otherwise, only 802.11 data packets can be see. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with Npcap.
 
-When installed on Windows XP or earlier, Npcap will install the legacy [WinPcap](/WinPcap) driver and won't have any raw 802.11 support.
-
-While waiting for an official download page, the current latest installer can be found here: <https://github.com/nmap/npcap/releases>, the source code can be found here: <https://github.com/nmap/npcap>
+The current latest installer can be found on the Npcap home page at <https://npcap.org>, and the source code can be found at <https://github.com/nmap/npcap>.
 
 Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect Npcap presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
 
