@@ -18,15 +18,15 @@ Hi,
 I would like permission to edit the Wireshark wiki. My GitLab username is <your username>.
 ```
 
-3. Go to https://gitlab.com/wireshark/editor-wiki/-/wikis/home and start making edits.
+3. Go to https://gitlab.com/wireshark/editor-wiki/wikis/home and start making edits.
 If GitLab returns a 404 error, it's probably because you aren't logged in or you don't have edit permissions.
-The [public wiki](https://gitlab.com/wireshark/wireshark/-/wikis/home) will be synchronized each time you save your changes.
+The [public wiki](https://gitlab.com/wireshark/wireshark/wikis/home) will be synchronized each time you save your changes.
 
 Why do we have a separate project for editing the wiki? Because you need *really powerful* permissions to do so, and a separate project makes that safer and easier:
 
-https://gitlab.com/gitlab-org/gitlab/-/issues/25177
+https://gitlab.com/gitlab-org/gitlab/issues/25177
 
-https://gitlab.com/gitlab-org/gitlab/-/issues/27294
+https://gitlab.com/gitlab-org/gitlab/issues/27294
 
 ## Contributing
 
@@ -37,7 +37,7 @@ Before contributing, please read the [License](/License) page. **If you don't ag
 ## Tables
 
 Due to limitations with the conversion process, tables in wiki pages are now HTML.
-You can [convert simple tables to GFM](https://gitlab.com/wireshark/gitlab-migration/-/issues/5) if desired.
+You can [convert simple tables to GFM](https://gitlab.com/wireshark/gitlab-migration/issues/5) if desired.
 
 ## Attachments
 
