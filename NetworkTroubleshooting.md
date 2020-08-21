@@ -24,7 +24,7 @@ New to network troubleshooting? Read the [/Overview](/NetworkTroubleshooting/Ove
 
 ## External links
 
-Cisco's [Internetwork Troubleshooting Handbook](http://www.cisco.com/univercd/cc/td/doc/cisintwk/itg_v1/index.htm). The [Overview](http://www.cisco.com/univercd/cc/td/doc/cisintwk/itg_v1/tr1901.htm) section provides a good general problem-solving model. The [Principles of Troubleshooting](http://www.inetdaemon.com/tutorials/troubleshooting/index.shtml) at [InetDaemon.Com](http://www.inetdaemon.com) shows how to apply the scientific method to network troubleshooting.
+In Cisco's Internetwork Troubleshooting Handbook, the [Overview](https://www.cisco.com/en/US/docs/internetworking/troubleshooting/guide/tr1901.pdf) section provides a good general problem-solving model. The [Principles of Troubleshooting](http://www.inetdaemon.com/tutorials/troubleshooting/index.shtml) at [InetDaemon.Com](http://www.inetdaemon.com) shows how to apply the scientific method to network troubleshooting.
 
 ---
 
