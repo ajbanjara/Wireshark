@@ -304,6 +304,8 @@ These tools attempt to repair damaged capture files as much as can be done.
 
 These tools convert between different capture file formats.
 
+  - [etl2pcapng](https://github.com/microsoft/etl2pcapng) This tool enables you to view ndiscap packet captures with Wireshark by converting the etl file to a pcapng file. (Windows, [MIT License](https://github.com/microsoft/etl2pcapng/blob/master/LICENSE))
+
   - [PcapNG.com](http://pcapng.com/) Free online service that converts pcapng files to plain libpcap (pcap) format.
 
   - [ProConvert](https://mypeek.wildpackets.com/view_submission.php?id=97) convert capture files between different formats - some that Wireshark currently doesn't support (closed source freeware, unsupported and noted as buggy by vendor, registration and [WildPackets](/WildPackets) maintenance contract required, Win32 only)
