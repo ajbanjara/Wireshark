@@ -2,7 +2,7 @@
 
 :warning: **We're migrating to GitLab on August 23rd**
 
-We're migrating from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/-/tree/master).
+We're migrating from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/tree/master).
 The instructions below are being updated for use with GitLab.
 See the [Migrating From Gerrit](#migrating-from-gerrit) section at the bottom for more details.
 
@@ -62,7 +62,7 @@ You can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.h
 
 - Run `git push downstream HEAD`. This pushes the current branch (my-branch-name) to your personal repository.
 
-- Go to https://gitlab.com/wireshark/wireshark/-/merge_requests.
+- Go to https://gitlab.com/wireshark/wireshark/merge_requests.
 You should see a "New merge request" button for your branch.
 Press it.
 
@@ -215,7 +215,7 @@ If you would like to test someone else's merge request or personal repository br
     # Create a branch from FETCH_HEAD with a more useful name.
     git checkout -b other-user-branch-name FETCH_HEAD
 
-Each [merge request](https://gitlab.com/groups/wireshark/-/merge_requests) will have a "Check out branch" button with similar instructions.
+Each [merge request](https://gitlab.com/groups/wireshark/merge_requests) will have a "Check out branch" button with similar instructions.
 
 # Undoing A Change
 
@@ -298,7 +298,7 @@ The sample below demonstrates the workflow for a patch. Replace `mybranchname` w
     Total 13 (delta 6), reused 0 (delta 0), pack-reused 0
     remote:
     remote: To create a merge request for mybranchname, visit:
-    remote:   https://gitlab.com/myusername/wireshark/-/merge_requests/new?merge_request%5Bsource_branch%5D=mybranchname
+    remote:   https://gitlab.com/myusername/wireshark/merge_requests/new?merge_request%5Bsource_branch%5D=mybranchname
     remote:
     To gitlab.com:myusername/wireshark.git
      * [new branch]      HEAD -> mybranchname
@@ -350,6 +350,22 @@ The documentation here and in the [Developer's Guide](https://www.wireshark.org/
 You can name the remotes anything you like.
 
 If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-your-fork-up-to-date-with-its-origin/) you only need the downstream branch.
+
+**Gerrit changes weren't migrated to GitLab merge requests**
+
+Although bugs were migrated to issues, changes must be migrated individually.
+You can migrate a change by doing the following:
+
+```
+# Download the change using git-review...
+$ git review -d 12345
+...OR click on the "download" link in the change and copy+paste the checkout command.
+$ git fetch https://code.wireshark.org/review/wireshark refs/changes/72/38172/2 && git checkout -b my-change FETCH_HEAD
+# Double-check your branch name.
+$ git status
+# Push the change to GitLab.
+$ git push downstream HEAD
+```
 
 **Bugs / issues are linked differently**
 
