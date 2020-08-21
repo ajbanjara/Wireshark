@@ -71,14 +71,6 @@ Things not (yet) part of the [Wireshark User's Guide](http://www.wireshark.org/d
 
 - [PracticalJokes](/PracticalJokes): How to make Wireshark do strange things
 
-## Interesting starting points
-
-- [HowToEdit](/HowToEdit): how to edit anything in this wiki
-
-- [RecentChanges](/RecentChanges): see where people are currently working
-
-- [SiteNavigation](/SiteNavigation): get an overview over this site and what it contains
-
 ---
 
 Imported from https://wiki.wireshark.org/ on 2020-08-11 23:10:57 UTC
