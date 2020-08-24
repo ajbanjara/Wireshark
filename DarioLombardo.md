@@ -16,7 +16,7 @@ I maintain some builders that help me fix bugs in wireshark as soon as they appe
 
 | Platform | Status |
 |----------|--------|
-| Gitlab CI | `[![pipeline status](https://gitlab.com/crondaemon/wireshark/badges/master/pipeline.svg)](https://gitlab.com/crondaemon/wireshark/-/commits/master)` |
+| Gitlab CI | [![pipeline status](https://gitlab.com/crondaemon/wireshark/badges/master/pipeline.svg)](https://gitlab.com/crondaemon/wireshark/-/commits/master) |
 
 <div>
 
