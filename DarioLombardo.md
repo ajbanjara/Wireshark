@@ -3,22 +3,20 @@
 I've been a core developer since 2016. During my Wireshark development I've collected a bunch of tips and tricks that I'm putting here. Maybe others than me can find them useful.
 
   - [Nflog Traffic](/dario/nflog-traffic)
-
   - [Activate debug messages](/dario/debug-messages)
-
   - [Gerrit ninja tricks](/dario/gerrit)
-
   - [Test on a secondary X display](/dario/secondary-x-display)
-
   - [Wireshark's components graph](/dario/graphviz)
-
   - [Import hex dump of a payload](/dario/import_payload)
-
   - [OSS fuzz reproducer](/dario/oss-fuzz)
 
 # An army of monkeys
 
 I maintain some builders that help me fix bugs in wireshark as soon as they appear:
+
+| Platform | Status |
+|----------|--------|
+| Gitlab CI | `[![pipeline status](https://gitlab.com/crondaemon/wireshark/badges/master/pipeline.svg)](https://gitlab.com/crondaemon/wireshark/-/commits/master)` |
 
 <div>
 
