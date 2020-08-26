@@ -38,7 +38,7 @@ Now it's time to tweak the code:
 
   - [Creating Patches](/CreatingPatches): Tips on creating patches before submitting them
 
-  - [Submitting Patches](/Development/SubmittingPatches): Introduction to using Git & Gerrit to submit and review patches
+  - [Submitting Patches](/Development/SubmittingPatches): Introduction to using Git & GitLab to submit and review patches
 
   - [Secure Programming](/Development/SecureProgramming) How to write more secure code, e.g. replace insecure ANSI-C calls by more secure ones
 
