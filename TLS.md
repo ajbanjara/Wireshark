@@ -128,7 +128,7 @@ For Windows, an environment variable can be set globally as described in [this w
 
     @echo off
     set SSLKEYLOGFILE=%USERPROFILE%\Desktop\keylogfile.txt
-    open firefox
+    start firefox
 
 Change the `SSLKEYLOGFILE` path as needed, and replace `firefox` with `chrome` for Google Chrome. This mechanism currently (2019) does not work for Safari, Microsoft Edge, and others since their TLS libraries (Microsoft SChannel/Apple [SecureTransport](/SecureTransport)) do not support this mechanism. This mechanism works for applications other than web browsers as well, but it dependent on the TLS library used by the application.
 
