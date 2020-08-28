@@ -246,7 +246,7 @@ These tools will either generate traffic and transmit it, retransmit traffic fro
 
   - [Packet Sender](https://packetsender.com/) is an open source utility to allow sending and receiving TCP, UDP, and SSL (encrypted TCP) packets (GPL, Linux/OSX/Windows).
 
-  - [PlayCap](http://www.signal11.us/oss/playcap/) is a GUI tool for playing back pcap/Wireshark captures (GPL, Linux/Windows).
+  - [PlayCap](https://github.com/signal11/PlayCap) is a GUI tool for playing back pcap/Wireshark captures (GPL, Linux/Windows).
 
   - [Scapy](http://www.secdev.org/projects/scapy/) Scapy is a powerful interactive packet manipulation program (in Python). It is able to forge or decode packets of a wide number of protocols, send them on the wire, capture them, match requests and replies, and much more. (GPL, BSD/Linux/OSX)
 
