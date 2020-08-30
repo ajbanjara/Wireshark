@@ -1,12 +1,10 @@
 [[_TOC_]]
 
-:warning: **We're migrating to GitLab on August 23rd**
+:information_source: **We migrated from Gerrit to GitLab on August 23rd, 2020**
 
-We're migrating from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/tree/master).
+We migrated from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/tree/master).
 The instructions below are being updated for use with GitLab.
-See the [Migrating From Gerrit](#migrating-from-gerrit) section at the bottom for more details.
-
-If you're working on a code contribution, you might want to hold off on uploading it until the migration is complete.
+See the [Migrating From Gerrit](#migrating-from-gerrit) section if you have an open change there.
 
 For complete instructions on contributing code, see the [contribution section of the Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSrcContribute.html).
 
