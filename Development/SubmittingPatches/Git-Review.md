@@ -1,5 +1,7 @@
 # Documentation for git-review
 
+:warning: **We migrated from Gerrit to GitLab in August 2020, so this page isn't relevant any more.**
+
 The [OpenStack](https://docs.openstack.org/infra/git-review/) web site shows usage.
 
 For command options check local man page:
