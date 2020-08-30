@@ -1,6 +1,6 @@
 # Creating Patches
 
-:information_source: : ****We migrated from Gerrit to GitLab in August 2020****
+:information_source: ****We migrated from Gerrit to GitLab in August 2020****
 
 The [Development/SubmittingPatches](/Development/SubmittingPatches) wiki page and [contribution section of the Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSrcContribute.html) have complete information on the patch submission process.
 
