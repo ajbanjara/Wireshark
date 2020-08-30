@@ -24,38 +24,17 @@ Open a **<span class="u">cmd</span>** prompt and paste the following text in and
 
 Now open a PowerShell prompt, and paste the following line in and run it:
 
-    cinst git
+    choco install git
 
 Your PowerShell prompt should now be git enabled, there are some tools however, that make life a little easier.
 
 [posh-git](https://github.com/dahlbyk/posh-git) is *A set of PowerShell scripts which provide Git/PowerShell integration*. To install, at a PowerShell prompt, paste the following text in and run it.
 
-    cinst poshgit
+    choco install poshgit
 
 posh-git should have added itself to your PowerShell profile, check by examining your profile:
 
     cat $PROFILE
-
-For working with Gerrit, [git-review](http://www.mediawiki.org/wiki/Gerrit/git-review) is very convenient. This is a Python script that requires the Python installer pip that doesn't come with Windows Python (batteries included ??). Python is required for building Wireshark, so it is assumed that's already installed. Chocolatey can install pip:
-
-    cinst pip
-
-then inspect your path for the python executable and script directories:
-
-    ($env:path).split(";")
-
-you are looking for entries such as:
-
-    C:\Python27\
-    C:\Python27\Scripts\
-
-if not found, get PowerShell to add them (adjusting as appropriate for your path to Python):
-
-    [Environment]::SetEnvironmentVariable("Path", $Env:Path + ";C:\Python27;C:\Python27\Scripts", "User")
-
-and finally use pip to install git-review:
-
-    pip install git-review
 
 ## Configuring git and the helpers
 
@@ -79,11 +58,11 @@ Note that if the private key passphrase contains space characters, you'll need t
 
 Exit your PowerShell prompt and start another. This allows posh-git to find the new key and it will fire up ssh-agent and ask you for the key pass-phrase to add the key to the agent.
 
-Assuming you have previously set up your Gerrit account with your ssh public key, you can now check your ssh connection to Gerrit. Note that you'll need to find the path to the Git version of ssh, usually `C:\Program Files\Git\usr\bin\ssh`:
+Assuming you have previously set up your [GitLab](https://gitlab.com/wireshark/wireshark) account with your ssh public key, you can now check your ssh connection to GitLab. Note that you'll need to find the path to the Git version of ssh, usually `C:\Program Files\Git\usr\bin\ssh`:
 
-    path\to\git\ssh -p 29418 yourGerritusername@code.wireshark.org
+    path\to\git\ssh git@gitlab.com
 
-This should bring up a quick response from the Gerrit server with your real name and a message about login shells being disabled and then the connection is closed.
+This should bring up a quick "Welcome to GitLab" response from the gitlab.com server with your GitLab account name before the connection is closed.
 
 ---
 
