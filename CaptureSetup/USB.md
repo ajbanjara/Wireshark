@@ -41,7 +41,7 @@ To give regular users privileges, make the usbmonX device(s) readable:
 
 `sudo setfacl -m u:$USER:r /dev/usbmon*`
 
-On some Linux distributions (Arch Linux, Debian, Ubuntu, possibly others), the above command may not be necessary if you already belong to the `wireshark` group. See [CaptureSetup/CapturePrivileges\#Most\_UNIXes.](/CaptureSetup/CapturePrivileges#Most_UNIXes.)
+On some Linux distributions (Arch Linux, Debian, Ubuntu, possibly others), the above command may not be necessary if you already belong to the `wireshark` group. See [CaptureSetup/CapturePrivileges: Most UNIXes.](/CaptureSetup/CapturePrivileges#most-unixes)
 
 With Linux kernels prior to 2.6.23, you will also need to run this command as root:
 
