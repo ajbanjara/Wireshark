@@ -12,27 +12,6 @@ This page is half proposal, half documentation for how Wireshark's string handli
 
 If you have questions, suggestions or ideas on this topic, please send an email to the <wireshark-dev@wireshark.org> mailing list.
 
-## First Principles
-
-A character string is a sequence of code points from a character set. It's represented as a sequence of octets using a particular encoding for that character set, wherein each character is represented as a 1-or-more-octet subsequence in that sequence.
-
-In many of those encodings, not all subsequences of octets correspond to code points in the character set. For example:
-
-  - the 8-bit encoding of ASCII encodes each code point as an octet, and octets with the uppermost bit set don't correspond to ASCII code points;
-  - the 8-bit encodings of "8-bit" character sets encode each code point as an octet and, in some of those character sets, there are fewer than 256 code points, and some octet values don't correspond to code points in the character set;
-  - UTF-8 encodes each Unicode code point as 1 or more octets, and:
-      - an octet sequence that begins with an octet with the uppermost bit set and the bit below it clear is invalid and doesn't correspond to a code point in Unicode;
-      - an octet sequence that begins with an octet with the uppermost two bits set, and where the 1 bits below it indicate that the sequence is N bytes long, but that has fewer than N-1 octets-with-10-at-the-top following it (either because it's terminated by an octet that doesn't have 10 at the top or it's terminated by the end of the string), is invalid and doesn't correspond to a code point in Unicode;
-      - an octet sequence doesn't have the two problems above but that produces a value that's not a valid Unicode code point is invalid and (by definition) doesn't correspond to a code point in Unicode;
-  - UCS-2 encodes each code point in the Unicode Basic Multilingual Plane as 2 octets (big-endian or little-endian), and not all values from 0 to 65535 correspond to Unicode code points (see next item...);
-  - UTF-16 encodes each Unicode code point as 2 or 4 octets (big-endian or little-endian), with code points in the Basic Multilingual Plane encoded as 2 octets and other code points encoded as a 2-octet "leading surrogate" followed by a 2-octet "trailing surrogate" (those are values between 0 and 65535 that are \*not\* Unicode code points; see previous item), and:
-      - a leading surrogate not followed by a trailing surrogate (either because it's followed by a 2-octet Unicode code point value or because it's at the end of the string) is not a valid UTF-16 sequence and doesn't correspond to a code point in Unicode;
-      - a trailing surrogate not preceded by a leading surrogate (either because it's at the beginning of the string or because it's preceded by a 2-octet Unicode code point value) is not a valid UTF-16 sequence and doesn't correspond to a code point in Unicode;
-      - a leading surrogate followed by a trailing surrogate that gives a value that's not a valid Unicode code point is invalid and (by definition) doesn't correspond to a code point in Unicode;
-  - UCS-4 encodes each Unicode code point directly as 4 octets (big-endian or little-endian), and any value that corresponds to a surrogate or a value larger than the largest possible Unicode code point value is invalid and doesn't correspond to a code point in Unicode;
-
-etc..
-
 ## Wireshark String Use Cases
 
 Strings in Wireshark are:
