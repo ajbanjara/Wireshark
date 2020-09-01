@@ -163,7 +163,7 @@ FreeBSD 8.0 and later, newer versions of some Linux distributions, and Mac OS X 
 
 If that checkbox is not displayed, or if the `-I` command-line option isn't supported, you will have to put the interface into monitor mode yourself, if that's possible. Whether that is possible, and, if it is possible, the way that it's done is dependent on the OS you're using, and may be dependent on the adapter you're using; see the section below for your operating system.
 
-In Linux distributions, for some or all network adapters that support monitor mode, with libpcap 1.0.x and the version of libpcap 1.1.x in some versions of some of those distributions, the `-I` command-line option will cause an error to be reported, and the "Monitor mode" checkbox will be automatically un-checked, either with or without an error dialog. See the ["Linux"](/CaptureSetup/WLAN#Linux) section below for information on how to manually put the interface into monitor mode in that case.
+In Linux distributions, for some or all network adapters that support monitor mode, with libpcap 1.0.x and the version of libpcap 1.1.x in some versions of some of those distributions, the `-I` command-line option will cause an error to be reported, and the "Monitor mode" checkbox will be automatically un-checked, either with or without an error dialog. See the ["Linux"](/CaptureSetup/WLAN#linux) section below for information on how to manually put the interface into monitor mode in that case.
 
 ### \*BSD
 
