@@ -48,7 +48,7 @@ This means that if you capture on an 802.11 network, the packets will look like 
 
 On some platforms, you can request that 802.11 headers be supplied when capturing, at least with some 802.11 adapters, regardless of whether you capture in monitor mode, sometimes called "rfmon mode" (see below); on some other platforms, you will get 802.11 headers in monitor mode, and only in monitor mode.
 
-In addition, on some platforms, at least with some 802.11 adapters, you can get radio headers, supplying information such as signal strength, in addition to 802.11 headers. On some of those platforms, the radio headers are available whether you are capturing in monitor mode or not; on other platforms, they are only available in monitor mode. In Wireshark 1.4 and later, when built with libpcap 1.0 or later, there may be a "Monitor mode" check box in the "Capture Options" dialog to capture in monitor mode, and the command-line option `-I` to dumpcap, TShark, and Wireshark may be used to capture in monitor mode. However, due to problems with libpcap 1.0.x and libpcap 1.1.x, and due to the way libpcap 1.1.x is built on some Linux distributions, the check box and `-I` flag might not work on those distributions; see the ["Turning on monitor mode"](/CaptureSetup/WLAN#Turning_on_monitor_mode) section below for information on how to capture in monitor mode if the check box and `-I` flag are either not available or don't work.
+In addition, on some platforms, at least with some 802.11 adapters, you can get radio headers, supplying information such as signal strength, in addition to 802.11 headers. On some of those platforms, the radio headers are available whether you are capturing in monitor mode or not; on other platforms, they are only available in monitor mode. In Wireshark 1.4 and later, when built with libpcap 1.0 or later, there may be a "Monitor mode" check box in the "Capture Options" dialog to capture in monitor mode, and the command-line option `-I` to dumpcap, TShark, and Wireshark may be used to capture in monitor mode. However, due to problems with libpcap 1.0.x and libpcap 1.1.x, and due to the way libpcap 1.1.x is built on some Linux distributions, the check box and `-I` flag might not work on those distributions; see the ["Turning on monitor mode"](/CaptureSetup/WLAN#turning-on-monitor-mode) section below for information on how to capture in monitor mode if the check box and `-I` flag are either not available or don't work.
 
 In FreeBSD 5.2 and later, NetBSD 2.0 and later, OpenBSD 3.7 and later, and DragonFly BSD 1.2 and later, you do not have to capture in monitor mode to get 802.11 headers, except when capturing on a Cisco Aironet adapter in FreeBSD. For earlier releases of those BSDs, 802.11 headers are not supported, except perhaps when capturing on a Cisco Aironet adapter in FreeBSD.
 
@@ -131,7 +131,7 @@ etc..
 
 Monitor mode is not supported by [WinPcap](/WinPcap), and thus not by Wireshark or TShark, on Windows. It is supported, for at least some interfaces, on some versions of Linux, FreeBSD, NetBSD, OpenBSD, DragonFly BSD, and macOS.
 
-You might have to perform operating-system-dependent and adapter-type-dependent operations to enable monitor mode, described below in the ["Turning on monitor mode"](/CaptureSetup/WLAN#Turning_on_monitor_mode) section.
+You might have to perform operating-system-dependent and adapter-type-dependent operations to enable monitor mode, described below in the ["Turning on monitor mode"](/CaptureSetup/WLAN#turning-on-monitor-mode) section.
 
 ### MAC Addresses
 
