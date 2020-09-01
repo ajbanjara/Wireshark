@@ -100,7 +100,7 @@ Now it's time to tweak the code:
 
   - [Packet Input](/Development/PacketInput): how to get packet data into Wireshark in some "unusual" ways
 
-  - [String handling in dissectors](/Development/StringHandling) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
+  - [String handling in dissectors](/Development/String-handling-in-dissectors) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
 
   - [Optimize PacketList](/Development/OptimizePacketList): the packet list isn't optimized for the way we use it, could make a huge difference for large capture files
 
