@@ -46,6 +46,8 @@ Now it's time to tweak the code:
 
   - [Tips](/Development/Tips): Some selected wisdom to ease development/debugging
 
+  - [Character encodings](/Development/Character-encodings): Character encodings used in Wireshark and the systems on which Wireshark runs
+
   - [Filename Encoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
 
   - [Lua](/Lua): Extending Wireshark with the extensible extension language
