@@ -12,7 +12,8 @@ If you need a display filter for a specific protocol, have a look for it at the 
 
 ## Display filter is not a capture filter
 
-Capture filters (like `tcp port 80`) are not to be confused with display filters (like `tcp.port == 80`). See also [CaptureFilters: Capture filter is not a display filter](/CaptureFilters#capture-filter-is-not-a-display-filter).
+Capture filters (like `tcp port 80`) are not to be confused with display filters (like `tcp.port == 80`).<br>
+See also [CaptureFilters: Capture filter is not a display filter](/CaptureFilters#capture-filter-is-not-a-display-filter).
 
 ## Examples
 
