@@ -16,6 +16,22 @@ That change was originally made in order to fix [bug 16649](https://gitlab.com/w
 
 We do *not* change the "ANSI code page" to UTF-8 (code page 65001), as [that will cause `more /?` to fail on Windows 7](https://twitter.com/geraldcombs/status/876145159343292416); the UTF-8 code page is not well supported on older versions of Windows.  [Support in newer versions of Windows 10 is improved over support in earlier versions of Windows](https://docs.microsoft.com/en-us/windows/uwp/design/globalizing/use-utf8-code-page).
 
+In addition, for command-line programs, the `main()` function is passed argument strings in the current "ANSI code page", which means that, if the current "ANSI code page" isn't the UTF-8 code page:
+
+- the `argv[]` values aren't in UTF-8, and must be converted to UTF-8 for use within Wireshark;
+- not all Unicode strings can be represented in `argv[]` values, so, for example, file names that can't be represented in the current "ANSI code page" can't be provided as arguments to those programs.
+
+This is handled by:
+
+- having the source file containing the `main()` function include "cli_main.h", which redefines `main` as `real_main`, so that source file defines a function named `real_main()`, the code of which is the main function code;
+- linking the program with `cli_main.c`, which defines a `wmain()` function, which is passed argument strings in UTF-16, converts them all to UTF-8, and passes the argument count and argument list array to `real_main()`;
+
+so that the main function is passed UTF-8 argument strings.
+
+For GUI programs, we use Qt. Qt defines a [`WinMain()`](https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point) function, which is the main function for GUI programs on Windows, and which is passed a single string, in the current "ANSI code page", containing command-line arguments in the form of a single string containing a command line.  Qt's `WinMain()` calls [`GetCommandLineW()`](https://docs.microsoft.com/en-us/windows/win32/api/processenv/nf-processenv-getcommandlinew) to fetch a UTF-16 version of the command-line string, passes it to [`CommandLineToArgvW()`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) to parse it into an `argv[]`-style list of UTF-16 strings, converts those strings to the current "ANSI code page", and passes the count of arguments and the array of those strings to `main()`.  This means that the main function of GUI programs such as Wireshark would have the same problem that a `main()` function in command-line programs such as TShark would have.
+
+This is handled by having the Wireshark `main()` function call `GetCommandLineW()` to fetch the argument string, passing it to `CommandLineToArgvW()` to parse it into an `argv[]`-style list of UTF-16 strings, converting those strings to UTF-8, and using that array as the array of argument strings.
+
 ## GLib filenames
 
 Until GLib 2.6, the filenames were kept in the code page encoding. This is easy to implement, but unfortunately the char codes are ambiguous, so there's a problem if you have currently selected a japanese code page and want to read a file with a "french filename".
