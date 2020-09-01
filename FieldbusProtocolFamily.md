@@ -72,7 +72,7 @@ There are several different PROFIBUS subprotocols existing, like PROFIBUS DP, PR
 
 ## Ether-S-Bus
 
-<span id="Ether-S-Bus-1" class="anchor"></span> Ether-S-Bus is a successor of the S-Bus {: #S-Bus} protocol developed and introduced by the company Saia-Burgess Controls AG. Ether-S-Bus is used for the communication to and between PLCs (Programmable Logic Controller) manufactured by Saia-Burgess Controls Ltd. A dissector for [EtherSBus](/EtherSBus) exists. Note that there is no relation to the S-Bus common in the ISDN technology.
+<span id="Ether-S-Bus-1" class="anchor"></span> Ether-S-Bus is a successor of the S-Bus <span class="anchor" id="S-Bus"></span> protocol developed and introduced by the company Saia-Burgess Controls AG. Ether-S-Bus is used for the communication to and between PLCs (Programmable Logic Controller) manufactured by Saia-Burgess Controls Ltd. A dissector for [EtherSBus](/EtherSBus) exists. Note that there is no relation to the S-Bus common in the ISDN technology.
 
 ## Ether-S-I/O
 
