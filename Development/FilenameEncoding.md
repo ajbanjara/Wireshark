@@ -6,9 +6,13 @@ The various character encodings that are possible for filenames, command line ar
 
 In UN*X systems (Linux, macOS, the BSDs, Solaris, etc.), Wireshark currently assumes all such strings are encoded in UTF-8, and that the locale uses UTF-8 as its encoding; all Wireshark programs initialize the C-language locale to the default, early in the main routine, by calling `setlocale(LC_ALL, "")`.
 
+I currently don't know if encoding conversions are done properly on all (especially old) \*nix versions. - *[UlfLamping](/UlfLamping)*
+
 ## Windows
 
 In Windows, most system and C-language APIs have two variants, one of which accepts or supplies strings in the current "ANSI code page" and one of which accepts or supplies strings in UTF-16-encoded Unicode.  Wireshark attempts to use the UTF-16 variants when possible, with wrapper routines that translate between the UTF-8 strings used inside Wireshark and the UTF-16 strings used in the APIs, so that Unicode is fully supported.
+
+### C-language locale
 
 All Wireshark programs initialize the C-language locale to use UTF-8, early in the main routine, by calling `setlocale(LC_ALL, ".UTF-8")`.  See [the "UTF-8 Support" section](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=vs-2019#utf-8-support) of [the Microsoft documentation for Visual C's `setlocale()` routine](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=vs-2019).  This causes the "ANSI code page" versions of all routines in the C runtime support to accept and supply strings encoded in UTF-8.
 
@@ -16,12 +20,14 @@ That change was originally made in order to fix [bug 16649](https://gitlab.com/w
 
 We do *not* change the "ANSI code page" to UTF-8 (code page 65001), as [that will cause `more /?` to fail on Windows 7](https://twitter.com/geraldcombs/status/876145159343292416); the UTF-8 code page is not well supported on older versions of Windows.  [Support in newer versions of Windows 10 is improved over support in earlier versions of Windows](https://docs.microsoft.com/en-us/windows/uwp/design/globalizing/use-utf8-code-page).
 
-In addition, for command-line programs, the `main()` function is passed argument strings in the current "ANSI code page", which means that, if the current "ANSI code page" isn't the UTF-8 code page:
+### Arguments to programs
+
+For command-line programs, the `main()` function is passed argument strings in the current "ANSI code page", which means that, if the current "ANSI code page" isn't the UTF-8 code page:
 
 - the `argv[]` values aren't in UTF-8, and must be converted to UTF-8 for use within Wireshark;
 - not all Unicode strings can be represented in `argv[]` values, so, for example, file names that can't be represented in the current "ANSI code page" can't be provided as arguments to those programs.
 
-This is handled by:
+Changing the C-language locale to use UTF-8 does not change the `argv[]` values to UTF-8, so we must do so ourselves.  This is done by:
 
 - having the source file containing the `main()` function include "cli_main.h", which redefines `main` as `real_main`, so that source file defines a function named `real_main()`, the code of which is the main function code;
 - linking the program with `cli_main.c`, which defines a `wmain()` function, which is passed argument strings in UTF-16, converts them all to UTF-8, and passes the argument count and argument list array to `real_main()`;
@@ -32,37 +38,17 @@ For GUI programs, we use Qt. Qt defines a [`WinMain()`](https://docs.microsoft.c
 
 This is handled by having the Wireshark `main()` function call `GetCommandLineW()` to fetch the argument string, passing it to `CommandLineToArgvW()` to parse it into an `argv[]`-style list of UTF-16 strings, converting those strings to UTF-8, and using that array as the array of argument strings.
 
-## GLib filenames
+### Environment variables
 
-Until GLib 2.6, the filenames were kept in the code page encoding. This is easy to implement, but unfortunately the char codes are ambiguous, so there's a problem if you have currently selected a japanese code page and want to read a file with a "french filename".
+Environment variables whose values could contain non-ASCII characters should be fetched with [`g_getenv()`](https://developer.gnome.org/glib/stable/glib-Miscellaneous-Utility-Functions.html#g-getenv) rather than `getenv()`, as `g_getenv()` will, on Windows, fetch the UTF-16 value of the environment variable and convert it to UTF-8.
 
-Since GLib 2.6, the char encoding of the filenames splitted into:
+(Note: this may no longer be necessary, now that we're setting the C-library locale to use UTF-8.)
 
-  - Win32: using UTF-8 encoding everywhere, but need to use e.g. g\_open() instead of open() where filenames are handed over to GLib, see: <http://www.gtk.org/api/2.6/glib/glib-File-Utilities.html>
+### File access
 
-  - UNIX: uses UTF-8 encoding by default; for UNIX systems still using code pages, the encoding can be adjusted with the "G\_FILENAME\_ENCODING" environment variable, see: <http://www.gtk.org/api/2.6/glib/glib-Character-Set-Conversion.html>
+The C library `_open()`, `fopen()`, `_stat()`, etc. routines expect pathnames to be in the current "ANSI code page".  In order to handle UTF-8 pathnames, we have wrappers such as `ws_open()`, `ws_fopen()`, `ws_stat64()`, etc., that translate pathnames from UTF-8 to UTF-16 and call the "wide character" versions of the C library routines.
 
-This requires the following changes compared to GLib versions prior to 2.6:
-
-  - all calls to file operations with filename parameters must use the corresponding GLib functions: e.g. open() -\> g\_open()
-
-  - Win32: filenames from the "outside" must be converted to UTF-8 (e.g. environment settings, command line parameters, ...)
-
-As the GTK+ standard widgets in question (e.g. gtk\_file\_chooser) will work internally with the correct filename encoding, there's no need to change things here.
-
-## Wireshark
-
-Wireshark gets filename input from several points:
-
-  - Open/Save/... dialogs: uses the GLib filename encodings
-
-  - command line parameters: locale encoded (Win32 & GLib\>2.6: converted to UTF-8 while reading)
-
-  - environment settings: getenv() locale encoded (Win32 \>= NT & GLib\>2.6: converted from \_wgetenv() UCS-2 to UTF-8 while reading)
-
-  - Preferences/Recent files: GLib filename encodings (might contain locale encodings until next save, no conversion done)
-
-I currently don't know if encoding conversions are done properly on all (especially old) \*nix versions. - *[UlfLamping](/UlfLamping)*
+(Note: this may no longer be necessary, now that we're setting the C-library locale to use UTF-8.)
 
 ---
 
