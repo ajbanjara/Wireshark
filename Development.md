@@ -36,6 +36,8 @@ Now it's time to tweak the code:
 
 ## Development
 
+### General
+
   - [Creating Patches](/CreatingPatches): Tips on creating patches before submitting them
 
   - [Submitting Patches](/Development/SubmittingPatches): Introduction to using Git & GitLab to submit and review patches
@@ -46,17 +48,9 @@ Now it's time to tweak the code:
 
   - [Tips](/Development/Tips): Some selected wisdom to ease development/debugging
 
-  - [Character encodings](/Development/Character-encodings): Character encodings used in Wireshark and the systems on which Wireshark runs
-
-  - [Filename Encoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
-
-  - [Lua](/Lua): Extending Wireshark with the extensible extension language
-
   - [Libpcap File Format](/Development/LibpcapFileFormat) A libpcap file format description
 
   - [Canary](/Development/Canary) Finding and fixing memory over- and under-runs with canaries
-
-  - Generic dissector (<http://wsgd.free.fr/>) : display clearly your data inside wireshark without any code
 
   - [pyreshark](https://github.com/ashdnazg/pyreshark): A Wireshark plugin providing a simple interface for writing dissectors in Python.
 
@@ -64,7 +58,19 @@ Now it's time to tweak the code:
 
   - [Windows Libraries](/Development/WindowsLibs) Describes how Windows libraries are built and the procedure for updating those.
 
+### Character encodings
+
+  - [Character encodings](/Development/Character-encodings): Character encodings used in Wireshark and the systems on which Wireshark runs
+
+  - [Filename Encoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
+
   - [String Handling](/Development/StringHandling) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
+
+### Non-C dissectors
+
+  - [Lua](/Lua): Extending Wireshark with the extensible extension language
+
+  - Generic dissector (<http://wsgd.free.fr/>) : display clearly your data inside wireshark without any code
 
 ## Projects
 
