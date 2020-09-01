@@ -1,4 +1,4 @@
-# String Handling
+# String handling in dissectors
 
 (Much but not all of the content of this page is taken directly from [Guy's email](https://www.wireshark.org/lists/wireshark-dev/201401/msg00177.html) to the wireshark-dev mailing list.)
 
