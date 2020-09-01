@@ -4,11 +4,13 @@ The various character encodings that are possible for filenames, command line ar
 
 ## UN*X
 
-In UN*X systems (Linux, macOS, the BSDs, Solaris, etc.), Wireshark currently assumes all such strings are encoded in UTF-8, and that the locale uses UTF-8 as its encoding; all Wireshark programs initialize the locale to the default, early in the main routine, by calling `setlocale(LC_ALL, "")`.
+In UN*X systems (Linux, macOS, the BSDs, Solaris, etc.), Wireshark currently assumes all such strings are encoded in UTF-8, and that the locale uses UTF-8 as its encoding; all Wireshark programs initialize the C-language locale to the default, early in the main routine, by calling `setlocale(LC_ALL, "")`.
 
 ## Windows.
 
 In Windows, most system and C-language APIs have two variants, one of which accepts or supplies strings in the current "ANSI code page" and one of which accepts or supplies strings in UTF-16-encoded Unicode.  Wireshark attempts to use the UTF-16 variants when possible, with wrapper routines that translate between the UTF-8 strings used inside Wireshark and the UTF-16 strings used in the APIs, so that Unicode is fully supported.
+
+All Wireshark programs initialize the C-language locale to use UTF-8, early in the main routine, by calling `setlocale(LC_ALL, ".UTF-8")`.  See [the "UTF-8 Support" section](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=vs-2019#utf-8-support) of [the Microsoft documentation for Visual C's `setlocale()` routine](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=vs-2019).  This causes the "ANSI code page" versions of all routines in the C runtime support to accept and supply strings encoded in UTF-8.
 
 ## GLib filenames
 
