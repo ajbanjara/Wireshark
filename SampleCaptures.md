@@ -552,7 +552,7 @@ See the MPTCP section for MPTCP pcaps.
 
 [http\_redirects.pcapng](uploads/__moin_import__/attachments/SampleCaptures/http_redirects.pcapng) A sample TCP/HTTP with many 302 redirects per RFC 3986 ( <https://tools.ietf.org/html/rfc3986#section-5.4>).
 
-For captures using SSL/TLS, see [\#SSL\_with\_decryption\_keys](/SampleCaptures#SSL_with_decryption_keys).
+For captures using SSL/TLS, see [\#SSL\_with\_decryption\_keys](/SampleCaptures#ssl-with-decryption-keys).
 
 ### Telnet
 
@@ -648,7 +648,7 @@ File: **[pgsql-jdbc.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/
 
 File: **[mysql\_complete.pcap](uploads/__moin_import__/attachments/SampleCaptures/mysql_complete.pcap) (6 KB, from bug 2691)**
 
-For MySQL captures using SSL, see [\#SSL\_with\_decryption\_keys](/SampleCaptures#SSL_with_decryption_keys).
+For MySQL captures using SSL, see [\#SSL\_with\_decryption\_keys](/SampleCaptures#ssl-with-decryption-keys).
 
 ### MS SQL Server protocol - Tabular Data Stream (TDS)
 
@@ -873,7 +873,7 @@ Usb packets exchanged while unpluggin and replugging a mouse: [mouse\_replug2.pc
 
 [ldap-substring.pcap](uploads/__moin_import__/attachments/SampleCaptures/ldap-substring.pcap) Sample search filter with substring matches
 
-[ldap-ssl.pcapng](uploads/__moin_import__/attachments/SampleCaptures/ldap-ssl.pcapng) Encrypted LDAP traffic, see [\#SSL\_with\_decryption\_keys](/SampleCaptures#SSL_with_decryption_keys) for more details.
+[ldap-ssl.pcapng](uploads/__moin_import__/attachments/SampleCaptures/ldap-ssl.pcapng) Encrypted LDAP traffic, see [\#SSL\_with\_decryption\_keys](/SampleCaptures#ssl-with-decryption-keys) for more details.
 
 ### Link Layer Discovery Protocol (LLDP)
 
