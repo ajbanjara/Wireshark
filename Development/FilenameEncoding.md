@@ -12,6 +12,8 @@ In Windows, most system and C-language APIs have two variants, one of which acce
 
 All Wireshark programs initialize the C-language locale to use UTF-8, early in the main routine, by calling `setlocale(LC_ALL, ".UTF-8")`.  See [the "UTF-8 Support" section](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=vs-2019#utf-8-support) of [the Microsoft documentation for Visual C's `setlocale()` routine](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=vs-2019).  This causes the "ANSI code page" versions of all routines in the C runtime support to accept and supply strings encoded in UTF-8.
 
+That change was originally made in order to fix [bug 16649](https://gitlab.com/wireshark/wireshark/-/issues/16649).
+
 ## GLib filenames
 
 Until GLib 2.6, the filenames were kept in the code page encoding. This is easy to implement, but unfortunately the char codes are ambiguous, so there's a problem if you have currently selected a japanese code page and want to read a file with a "french filename".
