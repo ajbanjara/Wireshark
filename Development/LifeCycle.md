@@ -16,7 +16,7 @@ The Stable and Old Stable release lifetimes conform to the following guidelines:
 
 Depending on the pacing of major releases and their lifetimes we might have an "Old Old Stable" branch in addition to the Stable and Old Stable ones.
 
-See [End of Life planning](/Development/LifeCycle#End_of_Life_planning) for life cycle information specific to each release.
+See [End of Life planning](/Development/LifeCycle#end-of-life-planning) for life cycle information specific to each release.
 
 A more detailed description can be found in the [Release Policy](/Development/ReleasePolicy).
 
