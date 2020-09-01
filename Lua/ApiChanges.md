@@ -2,9 +2,9 @@
 
 # Changes to Lua
 
-  - [Changes in v1.10](/Lua/ApiChanges#Changes_in_v1.10)
+  - [Changes in v1.10](/Lua/ApiChanges#changes-in-v110)
 
-  - [Changes in v1.11](/Lua/ApiChanges#Changes_in_v1.11)
+  - [Changes in v1.11](/Lua/ApiChanges#changes-in-v111)
 
 -----
 
@@ -80,22 +80,22 @@ The following changes to Lua were made in Wireshark v1.11.3, relative to v1.10.6
 <tr class="even">
 <td><p>ByteArray:base64_decode()</p></td>
 <td><p>class method</p></td>
-<td><p>gets a base64 decoded <a href="/ByteArray" class="nonexistent">ByteArray</a></p></td>
+<td><p>gets a base64 decoded <a href="/LuaApi/ByteArray" class="nonexistent">ByteArray</a></p></td>
 </tr>
 <tr class="odd">
 <td><p>ByteArray:raw()</p></td>
 <td><p>class method</p></td>
-<td><p>gets a Lua binary string of the <a href="/ByteArray" class="nonexistent">ByteArray</a> contents</p></td>
+<td><p>gets a Lua binary string of the <a href="/LuaApi/ByteArray" class="nonexistent">ByteArray</a> contents</p></td>
 </tr>
 <tr class="even">
 <td><p>ByteArray:tohex()</p></td>
 <td><p>class method</p></td>
-<td><p>gets a Lua hex-ascii string of the <a href="/ByteArray" class="nonexistent">ByteArray</a> contents</p></td>
+<td><p>gets a Lua hex-ascii string of the <a href="/LuaApi/ByteArray" class="nonexistent">ByteArray</a> contents</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="/ByteArray" class="nonexistent">ByteArray</a>.new()</p></td>
+<td><p><a href="/LuaApi/ByteArray" class="nonexistent">ByteArray</a>.new()</p></td>
 <td><p>class function</p></td>
-<td><p>creates a new <a href="/ByteArray" class="nonexistent">ByteArray</a>, now with ability to create from a raw Lua binary string</p></td>
+<td><p>creates a new <a href="/LuaApi/ByteArray" class="nonexistent">ByteArray</a>, now with ability to create from a raw Lua binary string</p></td>
 </tr>
 <tr class="even">
 <td><p>Column:clear_fence()</p></td>
@@ -148,14 +148,14 @@ The following changes to Lua were made in Wireshark v1.11.3, relative to v1.10.6
 <td><p>gets a Lua array table of all registered Dissector names</p></td>
 </tr>
 <tr class="even">
-<td><p><a href="/DissectorTable" class="nonexistent">DissectorTable</a>.heuristic_list()</p></td>
+<td><p><a href="/LuaApi/Dissector" class="nonexistent">DissectorTable</a>.heuristic_list()</p></td>
 <td><p>class function</p></td>
 <td><p>gets a Lua array table of all heuristic list names</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="/DissectorTable" class="nonexistent">DissectorTable</a>.list()</p></td>
+<td><p><a href="/LuaApi/Dissector" class="nonexistent">DissectorTable</a>.list()</p></td>
 <td><p>class function</p></td>
-<td><p>gets a Lua array table of all <a href="/DissectorTable" class="nonexistent">DissectorTable</a> names</p></td>
+<td><p>gets a Lua array table of all <a href="/LuaApi/Dissector" class="nonexistent">DissectorTable</a> names</p></td>
 </tr>
 <tr class="even">
 <td><p>DissectorTable:remove_all()</p></td>
@@ -185,17 +185,17 @@ The following changes to Lua were made in Wireshark v1.11.3, relative to v1.10.6
 <tr class="odd">
 <td><p>Proto.experts</p></td>
 <td><p>class attribute</p></td>
-<td><p>a table of <a href="/ProtoExpert" class="nonexistent">ProtoExpert</a> objects for the protocol</p></td>
+<td><p>a table of <a href="/LuaApi/Dissector" class="nonexistent">ProtoExpert</a> objects for the protocol</p></td>
 </tr>
 <tr class="even">
-<td><p><a href="/ProtoField" class="nonexistent">ProtoField</a>.rel_oid()</p></td>
+<td><p><a href="/LuaApi/Dissector" class="nonexistent">ProtoField</a>.rel_oid()</p></td>
 <td><p>class function</p></td>
-<td><p>creates a <a href="/ProtoField" class="nonexistent">ProtoField</a> for an ASN relative OID</p></td>
+<td><p>creates a <a href="/LuaApi/Dissector" class="nonexistent">ProtoField</a> for an ASN relative OID</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="/ProtoField" class="nonexistent">ProtoField</a>.systemid()</p></td>
+<td><p><a href="/LuaApi/Dissector" class="nonexistent">ProtoField</a>.systemid()</p></td>
 <td><p>class function</p></td>
-<td><p>creates a <a href="/ProtoField" class="nonexistent">ProtoField</a> for a system ID</p></td>
+<td><p>creates a <a href="/LuaApi/Dissector" class="nonexistent">ProtoField</a> for a system ID</p></td>
 </tr>
 <tr class="even">
 <td><p>TreeItem:prepend_text()</p></td>
