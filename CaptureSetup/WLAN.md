@@ -120,7 +120,7 @@ In normal operation the user sets the SSID (Service Set Identifier) at the acces
 
 In monitor mode the SSID filter mentioned above is disabled and *all* packets of *all* SSID's from the currently selected channel are captured.
 
-Even in [promiscuous mode](/CaptureSetup/WLAN#promiscuous), an 802.11 adapter will only supply to the host packets of the SSID the adapter has joined, assuming promiscuous mode works at all; even if it "works", it might only supply to the host the same packets that would be seen in non-promiscuous mode. Although it can receive, at the radio level, packets on other SSID's, it will not forward them to the host.
+Even in [promiscuous mode](/CaptureSetup/WLAN#promiscuous-mode), an 802.11 adapter will only supply to the host packets of the SSID the adapter has joined, assuming promiscuous mode works at all; even if it "works", it might only supply to the host the same packets that would be seen in non-promiscuous mode. Although it can receive, at the radio level, packets on other SSID's, it will not forward them to the host.
 
 Therefore, in order to capture all traffic that the adapter can receive, the adapter must be put into "monitor mode", sometimes called "rfmon mode". In this mode, the driver will put the adapter in a mode where it will supply to the host packets from *all* service sets. Depending on the adapter and the driver, this might disassociate the adapter from the SSID, so that the machine will not be able to use that adapter for network traffic, or it might leave the adapter associated, so that it can still be used for network traffic. If it disassociates the adapter from the SSID, and the host doesn't have any other network adapters, it will not be able to:
 
