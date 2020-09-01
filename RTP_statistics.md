@@ -26,7 +26,7 @@ In addition, from Wireshark 0.99.4 onwards, it is possible to listen to RTP stre
 
 ### Other codec types
 
-It is possible to save in [rtpdump](/rtpdump) format for any codec (both audio and video) and use e.g. rtplay program from [rtptools](http://www.cs.columbia.edu/IRT/software/rtptools/) to replay the RTP stream towards [JMF JMstudio](http://java.sun.com/products/java-media/jmf/), Apple [QuickTime](/QuickTime) player and similar if they support the codec. But unfortunately there is no support for G.729 in those programs (maybe due to high license fees for G.729).
+It is possible to save in [rtpdump](/rtpdump) format for any codec (both audio and video) and use e.g. rtplay program from [rtptools](http://www.cs.columbia.edu/IRT/software/rtptools/) to replay the RTP stream towards [JMF JMstudio](https://www.oracle.com/java/technologies/javase/jmf-21-samplecode.html), Apple QuickTime player and similar if they support the codec. But unfortunately there is no support for G.729 in those programs (maybe due to high license fees for G.729).
 
 Here is a small example:
 
@@ -178,7 +178,7 @@ J(2) = J(1) + (|D(1,2)| - J(1))/16
 
 The BW column in RTP Streams and RTP Statistics dialogs shows the bandwidth at IP level for the given RTP stream. It is the sum of all octets, including IP and UDP headers (20+8 bytes), from all the packets of the given RTP stream over the last second.
 
-For more details, see the function *rtp\_packet\_analyse* in file [tap-rtp-common.c](http://anonsvn.wireshark.org/viewvc/trunk/tap-rtp-common.c?view=markup).
+For more details, see the function *rtp\_packet\_analyse* in file [tap-rtp-common.c](https://gitlab.com/wireshark/wireshark/-/blob/master/ui/tap-rtp-common.c).
 
 ---
 
