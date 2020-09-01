@@ -6,7 +6,7 @@ MATE Reference Manual
 
 MATE uses AVPs for almost everything: to keep the data it has extracted from the frames' trees as well as to keep the elements of the configuration.
 
-These "pairs" (actually tuples) are made of a name, a value and, in case of configuration AVPs, an operator. Names and values are strings. AVPs with operators other than '=' are used only in the configuration and are used for matching AVPs of Pdus, [GoPs](/GoPs) and [GoGs](/GoGs) in the analysis phase.
+These "pairs" (actually tuples) are made of a name, a value and, in case of configuration AVPs, an operator. Names and values are strings. AVPs with operators other than '=' are used only in the configuration and are used for matching AVPs of Pdus, [GoPs](/Mate/Manual#grouping-pdus-together-gop) and [GoGs](/Mate/Manual#grouping-gops-together-gog) in the analysis phase.
 
 ### Name
 
@@ -22,23 +22,23 @@ Currently only match operators are defined (there are plans to (re)add transform
 
 The defined match operators are:
 
-  - [Equal](/Mate/Reference#Equal) **=** test for equality, that is: either the value strings are identical or the match will fail.
+  - [Equal](/Mate/Reference#equal-avp-operator) **=** test for equality, that is: either the value strings are identical or the match will fail.
 
-  - [Not Equal](/Mate/Reference#NotEqual) **\!** will match only if the value strings aren't equal.
+  - [Not Equal](/Mate/Reference#not-equal-avp-operator) **\!** will match only if the value strings aren't equal.
 
-  - [One Of](/Mate/Reference#OneOf) **{}** will match if one of the value strings listed is equal to the data AVP's string. Individual tems of the list inside the curly braces are separated using **|** character.
+  - [One Of](/Mate/Reference#one-of-avp-operator) **{}** will match if one of the value strings listed is equal to the data AVP's string. Individual tems of the list inside the curly braces are separated using **|** character.
 
-  - [Starts With](/Mate/Reference#StartsWith) **^** will match if the configuration value string matches the first characters of the data AVP's value string
+  - [Starts With](/Mate/Reference#starts-with-avp-operator) **^** will match if the configuration value string matches the first characters of the data AVP's value string
 
-  - [Ends WIth](/Mate/Reference#EndsWith) **$** will match if the configuration value string matches the last characters of the data AVP's value string
+  - [Ends WIth](/Mate/Reference#ends-with-operator) **$** will match if the configuration value string matches the last characters of the data AVP's value string
 
-  - [Contains](/Mate/Reference#Contains) **\~** will match if the configuration value string matches a substring of the characters of the data AVP's value string
+  - [Contains](/Mate/Reference#contains-operator) **\~** will match if the configuration value string matches a substring of the characters of the data AVP's value string
 
-  - [Lower Than](/Mate/Reference#Lower) **\<** will match if the data AVP's value string is semantically lower than the configuration value string
+  - [Lower Than](/Mate/Reference#lower-than-operator) **\<** will match if the data AVP's value string is semantically lower than the configuration value string
 
-  - [Higher Than](/Mate/Reference#Higher) **\>** will match if the data AVP's value string is semantically higher than the configuration value string
+  - [Higher Than](/Mate/Reference#higher-than-operator) **\>** will match if the data AVP's value string is semantically higher than the configuration value string
 
-  - [Exists](/Mate/Reference#Exists) **?** (can be omitted) will match if the AVP name matches, regardless what the value string is
+  - [Exists](/Mate/Reference#exists-operator) **?** (can be omitted) will match if the AVP name matches, regardless what the value string is
 
 #### Equal AVP Operator
 
