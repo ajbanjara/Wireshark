@@ -130,7 +130,7 @@ Developers with time to spend could change the current implementation to also re
 
 **Example:**
 
-[http://wiki.wireshark.org/SampleCaptures\#head-6f6128a524888c86ee322aa7cbf0d7b7a8fdf353](/SampleCaptures#head-6f6128a524888c86ee322aa7cbf0d7b7a8fdf353) file: aaa.pcap, stream: SSRC = 932629361
+[SampleCaptures: SIP and RTP](/SampleCaptures#sip-and-rtp) file: [aaa.pcap](https://gitlab.com/wireshark/editor-wiki/-/wikis/uploads/__moin_import__/attachments/SampleCaptures/aaa.pcap), stream: SSRC = 932629361 (0x3796CB71)
 
 This is what we have in the packets and what we will use in the formula:
 
