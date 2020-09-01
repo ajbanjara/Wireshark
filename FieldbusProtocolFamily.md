@@ -8,25 +8,25 @@ Today, fieldbusses are migrating to software-only protocols atop the TCP/IP suit
 
 There are many fieldbus protocols, including
 
-  - LON, [LONTalk](/FieldbusProtocolFamily#LONTalk)
+  - LON, [LONTalk](/FieldbusProtocolFamily#lontalk)
 
-  - [BACnet](/FieldbusProtocolFamily#BACnet),(Lots of PHYs)
+  - [BACnet](/FieldbusProtocolFamily#bacnet),(Lots of PHYs)
 
-  - [PROFIBUS](/FieldbusProtocolFamily#PROFIBUS), [PROFINET](/FieldbusProtocolFamily#PROFINET),
+  - [PROFIBUS](/FieldbusProtocolFamily#profibus), [PROFINET](/FieldbusProtocolFamily#profinet)
 
   - Modbus/ASCII, Modbus/RTU, Modbus/TCP [www.Modbus.org](http://www.modbus.org)
 
   - CAN,
 
-  - [EtherCAT](/FieldbusProtocolFamily#EtherCAT)
+  - [EtherCAT](/FieldbusProtocolFamily#ethercat)
 
   - CIP, with Ethernet IP,
 
-  - [Ethernet Powerlink](/FieldbusProtocolFamily#EthernetPowerlink)
+  - [Ethernet Powerlink](/FieldbusProtocolFamily#ethernet-powerlink)
 
-  - [S-Bus](/FieldbusProtocolFamily#S-Bus), [Ether-S-Bus](/FieldbusProtocolFamily#Ether-S-Bus), [\#Ether-S-I/O](/FieldbusProtocolFamily#Ether-S-IO)
+  - [S-Bus](/FieldbusProtocolFamily#S-Bus), [Ether-S-Bus](/FieldbusProtocolFamily#ether-s-bus), [\#Ether-S-I/O](/FieldbusProtocolFamily#ether-s-io)
 
-  - KNX(EIB), [KNXnet/IP](/FieldbusProtocolFamily#KNXnet) (EIBnet/IP)
+  - KNX(EIB), [KNXnet/IP](/FieldbusProtocolFamily#knxnetip) (EIBnet/IP)
 
   - HART, [HART-IP page](/HART-IP), HARTWireless, [www.hartcomm.org/](http://www.hartcomm.org/)
 
@@ -72,7 +72,7 @@ There are several different PROFIBUS subprotocols existing, like PROFIBUS DP, PR
 
 ## Ether-S-Bus
 
-<span id="Ether-S-Bus-1" class="anchor"></span> Ether-S-Bus is a successor of the S-Bus <span id="S-Bus" class="anchor"></span> protocol developed and introduced by the company Saia-Burgess Controls AG. Ether-S-Bus is used for the communication to and between PLCs (Programmable Logic Controller) manufactured by Saia-Burgess Controls Ltd. A dissector for [EtherSBus](/EtherSBus) exists. Note that there is no relation to the S-Bus common in the ISDN technology.
+<span id="Ether-S-Bus-1" class="anchor"></span> Ether-S-Bus is a successor of the S-Bus {: #S-Bus} protocol developed and introduced by the company Saia-Burgess Controls AG. Ether-S-Bus is used for the communication to and between PLCs (Programmable Logic Controller) manufactured by Saia-Burgess Controls Ltd. A dissector for [EtherSBus](/EtherSBus) exists. Note that there is no relation to the S-Bus common in the ISDN technology.
 
 ## Ether-S-I/O
 
