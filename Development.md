@@ -64,8 +64,6 @@ Now it's time to tweak the code:
 
   - [Filename Encoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
 
-  - [String Handling](/Development/StringHandling) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
-
 ### Non-C dissectors
 
   - [Lua](/Lua): Extending Wireshark with the extensible extension language
@@ -101,6 +99,8 @@ Now it's time to tweak the code:
   - [ExpertInfo](/Development/ExpertInfo): a better "user display" of network misbehaviour
 
   - [Packet Input](/Development/PacketInput): how to get packet data into Wireshark in some "unusual" ways
+
+  - [String handling in dissectors](/Development/StringHandling) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
 
   - [Optimize PacketList](/Development/OptimizePacketList): the packet list isn't optimized for the way we use it, could make a huge difference for large capture files
 
