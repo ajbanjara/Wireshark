@@ -66,7 +66,7 @@ The IPv6 dissector is fully functional. (Add info of additional Wireshark featur
 
 ## Example capture file
 
-[Sample IPv6 captures](/SampleCaptures#IPv6_.28and_tunneling_mechanism.29)
+[Sample IPv6 captures](/SampleCaptures#ipv6-and-tunneling-mechanism)
 
 ## Display Filter
 
