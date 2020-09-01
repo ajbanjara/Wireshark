@@ -16,7 +16,7 @@ The [Development/SubmittingPatches](/Development/SubmittingPatches) wiki page an
 
   - If your changes are anything more than a trivial bugfix, then it would be a good idea to add a capture file for the protocol being modified so that others can test.
 
-The capture file can be added to the Wireshark ecosystem via either a [Bugzilla](https://bugs.wireshark.org) item (which can then be referenced in the commit message using [Bug: or Ping-Bug: entries](/Development/SubmittingPatches#Writing_a_Good_Commit_Message)), or as an addition to the wiki [SampleCaptures](/SampleCaptures) page. By attaching the capture file it will automatically become part of the regression suite and will be tested regularly.
+The capture file can be added to the Wireshark ecosystem via either a [Bugzilla](https://bugs.wireshark.org) item (which can then be referenced in the commit message using [Bug: or Ping-Bug: entries](/Development/SubmittingPatches#writing-a-good-commit-message)), or as an addition to the wiki [SampleCaptures](/SampleCaptures) page. By attaching the capture file it will automatically become part of the regression suite and will be tested regularly.
 
 If the changes fix a bug, the bug filed should report the problem that they fix (don't rely on the commit message to do so); if they add support for a new protocol or enhanced support for an existing protocol, the bug filed should describe the new protocol or enhancement. Don't just file a place-holder bug with a title such as "Capture file for change XXX". Also change the bug state to **IN\_PROGRESS** so its clear you are already working on it.
 
