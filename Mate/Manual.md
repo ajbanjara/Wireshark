@@ -61,23 +61,23 @@ The way two AVPs with the same name might match is described by the operator. Re
 
 Currently defined MATE's AVP match operators are:
 
-  - [Equal](/Mate/Reference#Equal) **=** will match if the string given completely matches the data AVP's value string
+  - [Equal](/Mate/Reference#equal-avp-operator) **=** will match if the string given completely matches the data AVP's value string
 
-  - [Not Equal](/Mate/Reference#NotEqual:) **\!** will match only if the given value string is not equal to the data AVP's value string
+  - [Not Equal](/Mate/Reference#not-equal-avp-operator) **\!** will match only if the given value string is not equal to the data AVP's value string
 
-  - [One Of](/Mate/Reference#OneOf) **{}** will match if one of the possible strings listed is equal to the data AVP's value string
+  - [One Of](/Mate/Reference#one-of-avp-operator) **{}** will match if one of the possible strings listed is equal to the data AVP's value string
 
-  - [Starts With](/Mate/Reference#StartsWith) **^** will match if the string given matches the first characters of the data AVP's value string
+  - [Starts With](/Mate/Reference#starts-with-avp-operator) **^** will match if the string given matches the first characters of the data AVP's value string
 
-  - [Ends With](/Mate/Reference#EndsWith) **$** will match if the string given matches the last characters of the data AVP's value string
+  - [Ends With](/Mate/Reference#ends-with-operator) **$** will match if the string given matches the last characters of the data AVP's value string
 
-  - [Contains](/Mate/Reference#Contains) **\~** will match if the string given matches any substring of the data AVP's value string
+  - [Contains](/Mate/Reference#contains-operator) **\~** will match if the string given matches any substring of the data AVP's value string
 
-  - [Lower Than](/Mate/Reference#Lower) **\<** will match if the data AVP's value string is semantically lower than the string given
+  - [Lower Than](/Mate/Reference#lower-than-operator) **\<** will match if the data AVP's value string is semantically lower than the string given
 
-  - [Higher Than](/Mate/Reference#Higher) **\>** will match if the data AVP's value string is semantically higher than the string given
+  - [Higher Than](/Mate/Reference#higher-than-operator) **\>** will match if the data AVP's value string is semantically higher than the string given
 
-  - [Exists](/Mate/Reference#Exists) **?** (the ? can be ommited) will match as far as a data AVP of the given name exists
+  - [Exists](/Mate/Reference#exists-operator) **?** (the ? can be ommited) will match as far as a data AVP of the given name exists
 
 ## AVP lists
 
@@ -101,15 +101,15 @@ In MATE there are two types of AVPLs:
 
 Data AVPLs can be operated against operation AVPLs in various ways:
 
-  - [Loose Match](/Mate/Reference#Loose): Will match if at least one of the AVPs of each AVPL match. If it matches it will return an AVPL containing all AVPs from the operand AVPL that did match the operator's AVPs.
+  - [Loose Match](/Mate/Reference#loose-match): Will match if at least one of the AVPs of each AVPL match. If it matches it will return an AVPL containing all AVPs from the operand AVPL that did match the operator's AVPs.
 
-  - ["Every" Match](/Mate/Reference#Every): Will match if none of the AVPs of the operator AVPL fails to match a present AVP in the operand AVPL, even if not all of the operator's AVPs have a match. If it matches it will return an AVPL containing all AVPs from the operand AVPL that did match one AVP in the operator AVPL.
+  - ["Every" Match](/Mate/Reference#every-match): Will match if none of the AVPs of the operator AVPL fails to match a present AVP in the operand AVPL, even if not all of the operator's AVPs have a match. If it matches it will return an AVPL containing all AVPs from the operand AVPL that did match one AVP in the operator AVPL.
 
-  - [Strict Match](/Mate/Reference#Strict): Will match if and only if every one of the operator's AVPs have at least one match in the operand AVPL. If it matches it will return an AVPL containing the AVPs from the operand that matched.
+  - [Strict Match](/Mate/Reference#strict-match): Will match if and only if every one of the operator's AVPs have at least one match in the operand AVPL. If it matches it will return an AVPL containing the AVPs from the operand that matched.
 
-  - There's also a [Merge](/Mate/Reference#Merge) operation that is to be performed between AVPLs where all the AVPs that don't exist in the operand AVPL but exist in the operand will be added to the operand AVPL.
+  - There's also a [Merge](/Mate/Reference#avpl-merge) operation that is to be performed between AVPLs where all the AVPs that don't exist in the operand AVPL but exist in the operand will be added to the operand AVPL.
 
-  - Other than that there are [Transformations](/Mate/Reference#Transform) - a combination of a match AVPL and an AVPL to merge.
+  - Other than that there are [Transformations](/Mate/Reference#transforms) - a combination of a match AVPL and an AVPL to merge.
 
 ## MATE Analysis
 
@@ -137,7 +137,7 @@ The first part of MATE's analysis is the "PDU extraction"; there are various "Ac
 
 #### PDU data extraction
 
-MATE will make a Pdu for each different proto field of `Proto` type present in the frame. MATE will fetch from the field's tree those fields that are defined in the [Mate/Reference\#Pdu](/Mate/Reference#Pdu) declaration whose initial offset in the frame is within the boundaries of the current `Proto` and those of the given `Transport` and `Payload` statements.
+MATE will make a Pdu for each different proto field of `Proto` type present in the frame. MATE will fetch from the field's tree those fields that are defined in the [Mate/Reference](/Mate/Reference#pdus-configuration-actions) declaration whose initial offset in the frame is within the boundaries of the current `Proto` and those of the given `Transport` and `Payload` statements.
 
     Pdu dns_pdu Proto dns Transport ip {
         Extract addr From ip.addr;
@@ -145,7 +145,7 @@ MATE will make a Pdu for each different proto field of `Proto` type present in t
         Extract dns_resp From dns.flags.response;
     };
 
-MATE will make a Pdu for each different proto field of `Proto` type present in the frame. MATE will fetch from the field's tree those fields that are defined in the [Pdu](/Mate/Reference#Pdu) AVPL whose initial offset in the frame is within the boundaries of the current `Proto` and those of the various assigned `Transports`.
+MATE will make a Pdu for each different proto field of `Proto` type present in the frame. MATE will fetch from the field's tree those fields that are defined in the [Pdu](/Mate/Reference#pdus-configuration-actions) AVPL whose initial offset in the frame is within the boundaries of the current `Proto` and those of the various assigned `Transports`.
 
 ![dns\_pane.png](uploads/__moin_import__/attachments/Mate/Manual/dns_pane.png "dns_pane.png")
 
