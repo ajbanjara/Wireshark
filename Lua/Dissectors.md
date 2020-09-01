@@ -6,7 +6,7 @@
 
   - They have to be registered to handle a type of payload of another protocol (or a raw wiretap type).
 
-  - To be registered, the dissector function has to be assigned to a [Proto object](/LuaAPI/Proto#Proto). (see [examples](/Lua/Dissectors#Examples) below)
+  - To be registered, the dissector function has to be assigned to a [Proto object](/LuaAPI/Proto#Proto). (see [examples](/Lua/Dissectors#examples) below)
 
   - When called by Wireshark, they are passed (1) a TVB buffer of the data (a [Tvb](/LuaAPI/Tvb#Tvb) object), (2) a packet information record ([Pinfo](/LuaAPI/Pinfo#Pinfo) object), and (3) a tree root ([TreeItem](/LuaAPI/TreeItem) object).
 
