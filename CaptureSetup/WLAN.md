@@ -189,7 +189,7 @@ When a monitor mode capture completes, turn off monitor mode with the command `i
 
 #### DragonFly BSD
 
-From a quick look at the DragonFly BSD CVS source, it appears that the wireless capture support in DragonFly BSD 1.0 and 1.1 was like FreeBSD 4.x, with support only for [Cisco/Aironet cards in the old style](/CaptureSetup/WLAN#old_cisco_freebsd), and the support in 1.2 is more like FreeBSD 5.x, with the old-style Cisco/Aironet support and with [new-style support](/CaptureSetup/WLAN#other_freebsd) for some interfaces supported by the wi driver (Prism II and Orinoco, but not Spectrum24). (XXX - is this the case? I need to look into this more; don't create CaptureSetup/WLAN/DragonFly\_BSD until I get a chance to check this. -*Guy Harris*)
+From a quick look at the DragonFly BSD CVS source, it appears that the wireless capture support in DragonFly BSD 1.0 and 1.1 was like FreeBSD 4.x, with support only for [Cisco/Aironet cards in the old style](/CaptureSetup/WLAN#old_cisco_freebsd), and the support in 1.2 is more like FreeBSD 5.x, with the old-style Cisco/Aironet support and with [new-style support](/CaptureSetup/WLAN#other_freebsd) for some interfaces supported by the wi driver (Prism II and Orinoco, but not Spectrum24). (XXX - is this the case? I need to look into this more; don't create CaptureSetup/WLAN/DragonFly\_BSD until I get a chance to check this. -*Guy Harris*)(Not sure where links were pointing on old wiki.)
 
 ### Linux
 
