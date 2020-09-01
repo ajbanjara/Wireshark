@@ -2,6 +2,8 @@
 
 (Much but not all of the content of this page is taken directly from [Guy's email](https://www.wireshark.org/lists/wireshark-dev/201401/msg00177.html) to the wireshark-dev mailing list.)
 
+Character strings can use various encodings to represent characters, such as system code pages, UTF-8, and UTF-16; see [Character encodings](/Development/Character-encodings) for details about those encodings.
+ 
 String handling in many applications is relatively straightforward. A library is used for reading/writing text in the locale-appropriate encoding, and everything is handled in Unicode (usually UTF-8) internally. Wireshark doesn't get things quite so easy.
 
 The primary problem is that Wireshark has to be able to gracefully process and handle invalid strings in all sorts of encodings. If a packet contains a malformed string in some obscure encoding, Wireshark has to be able to flag it as such and then continue processing that packet. We're not there yet.
