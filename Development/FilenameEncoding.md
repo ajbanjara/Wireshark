@@ -1,6 +1,14 @@
 # Filename Encoding
 
-The various character encodings that are possible for filenames can be quite confusing; see ["Character Encodings"](/Development/Character-encodings) for encodings that can be used in file names both as stored on a file system and as used in file access APIs used by Wireshark.
+The various character encodings that are possible for filenames, command line arguments, environment variables, and other strings provided by, or provided to, system and C-language APIs used by Wireshark can be quite confusing; see ["Character Encodings"](/Development/Character-encodings) for encodings that may be used in those strings.
+
+## UN*X
+
+In UN*X systems (Linux, macOS, the BSDs, Solaris, etc.), Wireshark currently assumes all such strings are encoded in UTF-8, and that the locale uses UTF-8 as its encoding; all Wireshark programs initialize the locale to the default, early in the main routine, by calling `setlocale(LC_ALL, "")`.
+
+## Windows.
+
+In Windows, most system and C-language APIs have two variants, one of which accepts or supplies strings in the current "ANSI code page" and one of which accepts or supplies strings in UTF-16-encoded Unicode.  Wireshark attempts to use the UTF-16 variants when possible, with wrapper routines that translate between the UTF-8 strings used inside Wireshark and the UTF-16 strings used in the APIs, so that Unicode is fully supported.
 
 ## GLib filenames
 
