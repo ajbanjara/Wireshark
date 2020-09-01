@@ -34,20 +34,6 @@ Wireshark gets filename input from several points:
 
 I currently don't know if encoding conversions are done properly on all (especially old) \*nix versions. - *[UlfLamping](/UlfLamping)*
 
-## External references
-
-[UTF-8 and Unicode FAQ](http://www.cl.cam.ac.uk/~mgk25/unicode.html)
-
-[The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses\!)](http://www.joelonsoftware.com/articles/Unicode.html)
-
-[Wikipedia article about Unicode](http://en.wikipedia.org/wiki/Unicode)
-
-[Wikipedia article about UTF-8](http://en.wikipedia.org/wiki/UTF-8)
-
-[Wikipedia article about UTF-16 and UCS-2](http://en.wikipedia.org/wiki/UTF-16/UCS-2)
-
-[Wikipedia article about UTF-32 and UCS-4](http://en.wikipedia.org/wiki/UTF-32/UCS-4)
-
 ---
 
 Imported from https://wiki.wireshark.org/Development/FilenameEncoding on 2020-08-11 23:12:48 UTC
