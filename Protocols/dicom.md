@@ -8,7 +8,7 @@ Wikipedia has a very good high level description about DICOM and the protocol sp
 
 ## History
 
-DICOM is the third version of a standard developed by American College of Radiology (ACR) and National Electrical Manufacturers Association (NEMA) and was released in 1993. Previous standards did not include network support. For more information about the history, please refer to [\[1](/Protocols/dicom#links)\] & [\[2](/Protocols/dicom#links)\]
+DICOM is the third version of a standard developed by American College of Radiology (ACR) and National Electrical Manufacturers Association (NEMA) and was released in 1993. Previous standards did not include network support. For more information about the history, please refer to [\[1](/Protocols/dicom#external-links)\] & [\[2](/Protocols/dicom#external-links)\]
 
 ## Protocol dependencies
 
@@ -26,7 +26,7 @@ The accepted or rejected presentation contexts are decoded, to quickly identify 
 
 XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here (see below). Keep this file short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
 
-  - [SampleCaptures/DICOM.pcap](uploads/__moin_import__/attachments/SampleCaptures/PROTO.pcap "SampleCaptures/DICOM.pcap")
+  - [SampleCaptures/DICOM_C-ECHO-echoscu.pcap](uploads/__moin_import__/attachments/SampleCaptures/DICOM_C-ECHO-echoscu.pcap)
 
 ## Wireshark
 
@@ -63,7 +63,7 @@ Following settings are available to influence DICOM dissection.
 
 ### Display Filter
 
-A complete list of DICOM display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/protofirstletter/proto.html)
+A complete list of DICOM display filter fields can be found in the [display filter reference](https://www.wireshark.org/docs/dfref/d/dicom.html)
 
 Show only the DICOM based traffic:
 
