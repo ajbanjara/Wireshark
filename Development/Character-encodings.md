@@ -13,7 +13,7 @@ Some possible encodings of non-ASCII characters:
 
 ## External references
 
-[UTF-8 and Unicode FAQ](http://www.cl.cam.ac.uk/~mgk25/unicode.html)
+[UTF-8 and Unicode FAQ for Unix/Linux (including macOS and the BSDs)](http://www.cl.cam.ac.uk/~mgk25/unicode.html)
 
 [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses\!)](http://www.joelonsoftware.com/articles/Unicode.html)
 
