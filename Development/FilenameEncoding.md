@@ -14,7 +14,7 @@ All Wireshark programs initialize the C-language locale to use UTF-8, early in t
 
 That change was originally made in order to fix [bug 16649](https://gitlab.com/wireshark/wireshark/-/issues/16649).
 
-We do *not* change the "ANSI code page" to UTF-8 (code page 65001), as [that will cause `more /?` to fail on Windows 7](https://twitter.com/geraldcombs/status/876145159343292416); the UTF-8 code page is not well supported on older versions of Windows.
+We do *not* change the "ANSI code page" to UTF-8 (code page 65001), as [that will cause `more /?` to fail on Windows 7](https://twitter.com/geraldcombs/status/876145159343292416); the UTF-8 code page is not well supported on older versions of Windows.  [Support in newer versions of Windows 10 is improved over support in earlier versions of Windows](https://docs.microsoft.com/en-us/windows/uwp/design/globalizing/use-utf8-code-page).
 
 ## GLib filenames
 
