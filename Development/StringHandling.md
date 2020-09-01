@@ -12,6 +12,10 @@ This page is half proposal, half documentation for how Wireshark's string handli
 
 If you have questions, suggestions or ideas on this topic, please send an email to the <wireshark-dev@wireshark.org> mailing list.
 
+## First Principles
+
+A character string is a sequence of code points from a character set. It's represented as a sequence of octets using a particular encoding for that character set, wherein each character is represented as a 1-or-more-octet subsequence in that sequence.
+
 In many of those encodings, not all subsequences of octets correspond to code points in the character set. For example:
 
   - the 8-bit encoding of ASCII encodes each code point as an octet, and octets with the uppermost bit set don't correspond to ASCII code points;
