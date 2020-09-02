@@ -1,4 +1,4 @@
-# Filename Encoding
+# Platform string encoding
 
 The various character encodings that are possible for filenames, command line arguments, environment variables, and other strings provided by, or provided to, system and C-language APIs used by Wireshark can be quite confusing; see ["Character Encodings"](/Development/Character-encodings) for encodings that may be used in those strings.
 
