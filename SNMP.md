@@ -4,7 +4,8 @@ SNMP is used to monitor and manage devices on networks.
 
 ## History
 
-For an overview on SNMP, read this <http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol>
+For an overview on SNMP, read this <http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol>  
+Next tackle [The Simple Times](https://www.simple-times.org/) newsletters which include articles from the RFC authors and Dr. SNMP.
 
 ## Protocol dependencies
 
@@ -30,7 +31,9 @@ In versions of Wireshark built with libsmi, in the the "Preferences" dialog open
 
 XXX - are all MIB files in these dirs are inspected and only the "right" files loaded?
 
-Many network-related MIBs definitions can be downloaded from <http://bytesphere.com/mibs/detail.html> or <http://www.mibdepot.com>.
+It is best to download MIB definition (ASN.1) files directly from the vendor/author of the SNMP agent.  
+Many network-related MIBs definitions can be downloaded from <http://www.mibdepot.com>.  
+Verify that the download matches the software running on the SNMP agent.
 
 ### Which MIB's do I need?
 
