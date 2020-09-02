@@ -71,7 +71,7 @@ where
 
   - Privacy Protocol can currently be one of DES, AES, AES192 or AES256.
 
-An example of encrypted SNMP PDUs can be found at the [SNMP section](/SampleCaptures#SNMP) of the example captures page.
+An example of encrypted SNMP PDUs can be found at the [SNMP section](/SampleCaptures#snmp) of the example captures page.
 
 The following example seems to be outdated (fix me, I don't want to delete it in case it offers value to someone).
 
