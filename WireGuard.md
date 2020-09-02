@@ -26,15 +26,15 @@ As of Wireshark 3.2, decryption secrets can be embedded in a pcapng file ([Bug 1
 
   - Dissect transport data (wg.dissect\_packet): Whether the IP dissector should dissect decrypted transport data.
 
-  - Key log filename (wg.keylog\_file): The path to the file which contains a list of secrets (see [Key Log Format](/WireGuard#Key_Log_Format))
+  - Key log filename (wg.keylog\_file): The path to the file which contains a list of secrets (see [Key Log Format](/WireGuard#key-log-format))
 
 ## Example capture file
 
 The test suite contains two capture samples:
 
-  - <https://github.com/wireshark/wireshark/blob/master/test/captures/wireguard-psk.pcap>
+  - <https://gitlab.com/wireshark/wireshark/-/blob/master/test/captures/wireguard-psk.pcap>
 
-  - <https://github.com/wireshark/wireshark/blob/master/test/captures/wireguard-ping-tcp.pcap>
+  - <https://gitlab.com/wireshark/wireshark/-/blob/master/test/captures/wireguard-ping-tcp.pcap>
 
 Screenshot (with decryption keys configured): <https://twitter.com/Lekensteyn/status/1027938328203669505>
 
