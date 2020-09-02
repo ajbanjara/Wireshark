@@ -110,7 +110,7 @@ The following example seems to be outdated (fix me, I don't want to delete it in
 
 [SampleCaptures/b6300a.cap](uploads/__moin_import__/attachments/SampleCaptures/b6300a.cap) A bunch of GETs and RESPONSEs
 
-[encrypted SNMP example capture](/SampleCaptures#SNMP)
+[encrypted SNMP example capture](/SampleCaptures#snmp)
 
 ## Display Filter
 
