@@ -49,7 +49,11 @@ Please save screen captures as PNG or GIF. JPEG can introduce artifacts that mak
 
 ## Protocol Documentation
 
-It's often the case, that a protocol is known under different names or abbreviations, e.g. HTTP or [HyperTextTransferProtocol](/HyperTextTransferProtocol), or ...
+:information_source: **We migrated from MoinMoin to the Gitlab built-in Wiki (based on Gollum) on August 23rd, 2020**
+
+**Note:** The instructions below have not been updated for the new Wiki. In particular, redirections do not work the same way, and [all existing redirections are broken](https://gitlab.com/wireshark/gitlab-migration/-/issues/6).
+
+It's often the case that a protocol is known under different names or abbreviations, e.g. HTTP or [HyperTextTransferProtocol](/HyperTextTransferProtocol), or ...
 
 To prevent duplicated content, redirections are used, so one master page exists with maybe one or even more redirection pages pointing to it. When the wiki user clicks on this redirected term, he/she will see the master page, with a small comment at the top of the page about the redirection.
 
