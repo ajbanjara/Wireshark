@@ -62,7 +62,7 @@ Now it's time to tweak the code:
 
   - [Character encodings](/Development/Character-encodings): Character encodings used in Wireshark and the systems on which Wireshark runs
 
-  - [Filename Encoding](/Development/FilenameEncoding): the various Unicode and code page encodings of filenames in GLib
+  - [Platform string encoding](/Development/Platform-string-encoding): Dealing with non-UTF-8 strings other than strings in packets, such as file names and environment variables
 
 ### Non-C dissectors
 
