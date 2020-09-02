@@ -1,10 +1,10 @@
 # Tinkerforge Protocol (TFP)
 
-TFP is developed by Tinkerforge for supporting so called [Bricks](http://www.tinkerforge.com/en/doc/Product_Overview.html#product-overview-bricks) and [Bricklets](http://www.tinkerforge.com/en/doc/Product_Overview.html#product-overview-bricklets). Bricks and Bricklets are small hardware modules that can be used to control different motor types (stepper, dc, servo), read out lots of sensors (temperature, humidity, ambient light, air pressure, moisture, etc) and for interaction with humans (displays, potis, leds, buttons, joysticks, etc).
+TFP is developed by Tinkerforge for supporting so called [Bricks](https://www.tinkerforge.com/en/doc/Hardware/Bricks/Bricks.html) and [Bricklets](https://www.tinkerforge.com/en/doc/Hardware/Bricklets/Bricklets.html). Bricks and Bricklets are small hardware modules that can be used to control different motor types (stepper, dc, servo), read out lots of sensors (temperature, humidity, ambient light, air pressure, moisture, etc) and for interaction with humans (displays, potis, leds, buttons, joysticks, etc).
 
 All of these modules are controlled from a PC, bindings are available for C/C++, C\#, Delphi, Java, PHP, Python, Ruby, Shell and VB.NET.
 
-The protocol was first developed in 2010. It uses both, USB and TCP/IP. The above mentioned bindings use TCP/IP to communicate with a so called Brick Daemon, which translates the TCP/IP packages to USB to talk with the Bricks and Bricklets. With so called [Master Extensions](http://www.tinkerforge.com/en/doc/Product_Overview.html#master-extensions) it is also possible to directly communicate with the Bricks/Bricklets over TCP/IP via Ethernet or [WiFi](/WiFi).
+The protocol was first developed in 2010. It uses both, USB and TCP/IP. The above mentioned bindings use TCP/IP to communicate with a so called Brick Daemon, which translates the TCP/IP packages to USB to talk with the Bricks and Bricklets. With so called [Master Extensions](https://www.tinkerforge.com/en/doc/Hardware/Master_Extensions/Master_Extensions.html) it is also possible to directly communicate with the Bricks/Bricklets over TCP/IP via Ethernet or [WiFi](/wi-fi).
 
 With the TFP dissector it is possible to debug the Brick Daemon (USB dissection) and the Bindings (TCP/IP dissection). The dissector also is very useful for developing a Binding for a new language.
 
