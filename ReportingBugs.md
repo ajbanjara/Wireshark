@@ -1,12 +1,15 @@
+This site is outdated and needs some more updates (labeling issues, templates etc).
+---
+
 # Reporting Bugs
 
 Despite our best efforts, bugs make it into Wireshark from time to time. If you find a bug, we want to know about it.
 
-First verify that this bug is not already known and/or solved. You can do this by searching the [Wireshark bug database](http://bugs.wireshark.org/). If the problem isn't listed there, please file a bug report.
+First verify that this bug is not already known and/or solved. You can do this by searching the [Wireshark Issue database](https://gitlab.com/wireshark/wireshark/issues). If the problem isn't listed there, please create a new issue.
 
 ## Where to Report Bugs
 
-The preferred way of reporting bugs is through the [Wireshark bug database](https://bugs.wireshark.org/). If that fails the [Wireshark developer mailing list](https://www.wireshark.org/mailman/listinfo/wireshark-dev) can act as an alternative.
+The preferred way of reporting bugs is through the [Wireshark Issues database](https://https://gitlab.com/wireshark/wireshark/issues). If that fails the [Wireshark developer mailing list](https://www.wireshark.org/mailman/listinfo/wireshark-dev) can act as an alternative.
 
 ## What to Report
 
@@ -20,17 +23,28 @@ Wireshark runs on a multitude of operating systems, including Windows, MacOS X, 
 
 In either case the build information should look something like this:
 
-    wireshark 1.0.0
-    
-    Compiled with GTK+ 2.12.8, with GLib 2.14.6, with WinPcap (version unknown),
-    with libz 1.2.3, without POSIX capabilities, with libpcre 7.0, with SMI 0.4.5,
-    with ADNS, with Lua 5.1, with GnuTLS 1.6.1, with Gcrypt 1.2.3, with MIT
-    Kerberos, with PortAudio V19-devel, without AirPcap.
-    
-    Running on Windows XP Service Pack 2, build 2600, with WinPcap version 4.0.2
-    (packet.dll version 4.0.0.1040), based on libpcap version 0.9.5.
-    
-    Built using Microsoft Visual C++ 6.0
+```
+Wireshark 3.3.0 (v3.3.0rc0-1948-g67d3772d1b12)
+
+Copyright 1998-2020 Gerald Combs <gerald@wireshark.org> and contributors.
+License GPLv2+: GNU GPL version 2 or later <https://www.gnu.org/licenses/gpl-2.0.html>
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Compiled (64-bit) with Qt 5.11.3, with libpcap, with POSIX capabilities (Linux),
+with libnl 3, with GLib 2.58.3, with zlib 1.2.11, with SMI 0.4.8, with c-ares
+1.14.0, with Lua 5.2.4, with GnuTLS 3.6.7 and PKCS #11 support, with Gcrypt
+1.8.4, with MIT Kerberos, with MaxMind DB resolver, with nghttp2 1.36.0, with
+brotli, with LZ4, with Zstandard, with Snappy, with libxml2 2.9.4, with
+QtMultimedia, without automatic updates, with SpeexDSP (using system library).
+
+Running on Linux 4.19.0-8-amd64, with Intel(R) Xeon(R) CPU E5-2697 v3 @ 2.60GHz
+(with SSE4.2), with 16042 MB of physical memory, with locale en_US.UTF-8, with
+libpcap version 1.8.1, with GnuTLS 3.6.7, with Gcrypt 1.8.4, with brotli 1.0.7,
+with zlib 1.2.11, binary plugins supported (0 loaded).
+
+Built using clang 4.2.1 Compatible Clang 7.0.1 (tags/RELEASE_701/final).
+```
 
 ### A Capture File
 
@@ -52,13 +66,13 @@ Sometimes it is also useful to have the output of Valgrind attached to a bug rep
 
 If your bug report contains sensitive information you can keep the information private:
 
-  - In Bugzilla you can mark the bug and/or attachment as "private". This makes the bug/attachment accessible to the reported and/or CC list only. Further restriction can be made that only the [Wireshark core developers](/Developers) have access to the bug.
+  - In Gitlab Issues you can mark the issue as "Confidentiality". This makes the issue accessible to the reported and Team members only.
 
   - Instead of sending the report to the [Wireshark development mailing list](https://www.wireshark.org/mailman/listinfo/wireshark-dev) (which is a public forum) you can send it to <security@wireshark.org>, which has limited distribution.
 
 ## Additional Information
 
-Bugs filed in the bug database are monitored by the developers and solved as time permits. It may be that additional information is required to find the cause of the problem. A comment will be added to the bug report requesting that information, and the bug's state will be set to "INCOMPLETE". These changes will be sent to the email address that you've provided when filing the bug report, so it is important to monitor that mailbox.
+Issues filed in the issue database are monitored by the developers and solved as time permits. It may be that additional information is required to find the cause of the problem. A comment will be added to the issue report requesting that information, and the issues's state will be labeled as #TBD#. These changes will be sent to the email address that you've provided when filing the bug report, so it is important to monitor that mailbox.
 
 Please respond to these requests to keep the investigation into the problem going, even if you can't provide the information yourself. Once you have provided the information, you may set the bug's state back to its previous value (either UNCONFIRMED or CONFIRMED). If the requested information isn't provided within a certain amount of time the only option is to close the bug report. This window depends on the severity of the problem, as follows:
 
