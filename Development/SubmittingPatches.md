@@ -64,7 +64,12 @@ You can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.h
 You should see a "New merge request" button for your branch.
 Press it.
 
-  - When creating the merge request, [allow commits from upstream members.](https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html) This will allow members of the Wireshark core team to rebase your commit before applying. Since Wireshark only allows fast-forward merges, without this option you yourself will have to return to your merge request to rebase it before it can be merged if any other requests have been merged during the review process.
+  - Make sure the "**Merge options** / Delete source branch when merge request is accepted" box is checked if desired.
+
+  - Make sure the "**Contribution** / [Allow commits from members who can merge to the target branch](https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html)"
+box is checked. This will allow members of the Wireshark core team to rebase your commit before applying. Since Wireshark only allows fast-forward merges, without this option you yourself will have to return to your merge request to rebase it before it can be merged if any other requests have been merged during the review process.
+
+  - Once you're satisfied with everything, press the “Submit merge request” button.
 
 # The Review Process
 
