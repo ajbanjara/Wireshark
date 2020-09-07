@@ -47,7 +47,20 @@ What's missing now is the enterprise with the id 253. [The IANA Private Enterpri
 
 Get hold of the Xerox MIBs from one of the links above and place them in the mibs directory (you need the printer-MIB as well) and change the file ending from .mib to .txt.
 
-When loading a specified MIB module failed a warning message like: *Cannot find module (IP-MIB): At line 0 in (none)* will be shown on the console at Wireshark startup. WIN32: To have a console window already open at that time, set the preference setting "Open a console window" to "Always", Save the Preferences and restart Wireshark. Otherwise the console will be open too late and you'll see nothing.
+![200907_MIB_load_fail](uploads/c2c7c371d61fe3f32042fcbe4d8c0471/200907_MIB_load_fail.png "200907_MIB_load_fail.png")
+  
+MIB definition loading (and error logging) is done in [oids.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/oids.c).
+
+Logging is enabled by setting the environment variable `WIRESHARK_DEBUG_MIBS` to a value greater than 0 - larger values = more verbose logging.  
+On linux: `$ export WIRESHARK_DEBUG_MIBS=1`  
+  
+`Failed to load: 'xerox'[17]`  
+`-:0 1 module-not-found failed to locate MIB module 'xerox'`  
+
+On Windows: See [Printing to a console](/Development/Tips#printing-to-a-console) to enable the Gui console.
+(printf to Gui console not working - come back and document steps after code working)  
+
+~~When loading a specified MIB module failed a warning message like: *Cannot find module (IP-MIB): At line 0 in (none)* will be shown on the console at Wireshark startup. WIN32: To have a console window already open at that time, set the preference setting "Open a console window" to "Always", Save the Preferences and restart Wireshark. Otherwise the console will be open too late and you'll see nothing.~~
 
 ## Preference Settings
 
