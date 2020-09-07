@@ -93,7 +93,7 @@ Example Workaround: add `port=0;` when both ports are equal and only one `port;`
 
 ## Those that have to go
 
-### The Gog Mechanism does not get propperly reinitialized
+### The Gog Mechanism does not get properly reinitialized
 
 It works OK at the first run it doesn't in the following ones.
 
