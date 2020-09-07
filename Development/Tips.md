@@ -10,9 +10,10 @@ Sometimes you just want to peek at some variables to see whats going on in your 
 
   - Open up the console (needed for Windows only):
     
-    Start Wireshark and go to Edit|Preferences..., In the dialog box go to 'Open a console window' (`gui.console_open`) and select 'Always (debugging)', Click the Save button.
+    Start Wireshark and go to Edit->Preferences...->Advanced. In the Search: box enter "console", then select  `gui.console_open` in the search results. Change Value to 'ALWAYS' and click the Ok button.
 
-  - Look for the 'logging level' (`console.log.level`) preference, and set it to 252 to include all messages. (This value is a bitwise OR of [GLogLevelFlags](https://github.com/GNOME/glib/blob/glib-2-46/glib/gmessages.h#L51)). When the log level is 0 (default) all messages are hidden.
+  - Look for the 'logging level' (`console.log.level`) preference, and set it to 252 to include all messages. (This value is a bitwise OR of [GLogLevelFlags](https://github.com/GNOME/glib/blob/glib-2-46/glib/gmessages.h#L51)). When the log level is 0 (default) all messages are hidden. The default value of 28 is set in [prefs.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/prefs.c):  
+`    prefs.console_log_level = G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL | G_LOG_LEVEL_ERROR;`
 
   - put `g_log` statements in your code (`g_debug`, `g_message`, `g_info`, `g_warning`, `g_error`, see [GLib Message Logging](https://developer.gnome.org/glib/stable/glib-Message-Logging.html)) or (in case the log level is 0) `g_print`. Also available is `proto_tree_add_debug_text(tree, format)` which will display debug message right in the place. Check proto.c for details.
 
