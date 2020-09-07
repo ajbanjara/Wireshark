@@ -6,7 +6,7 @@ Patches to pidl and the IDL files should be sent to <samba-technical@samba.org> 
 
 # Obtaining
 
-***Note: A copy of the pidl compiler and IDL files are now kept in the Wireshark source repository (SVN) and distributed as part of the Wireshark sources. See the README file in epan/dissectors/pidl***
+***Note: A copy of the pidl compiler and IDL files are now kept in the Wireshark source repository (Git) and distributed as part of the Wireshark sources. See the README file in epan/dissectors/pidl***
 
 The compiler is available using Git, FTP or rsync from:
 
@@ -26,7 +26,7 @@ rsync.samba.org::ftp/pub/unpacked/samba\_4\_0\_test/pidl
 
 The Samba4 IDL files are available using Git, FTP or rsync from:
 
-SVN:
+Git:
 
 git://git.samba.org/samba.git, librpc/idl subdirectory
 
