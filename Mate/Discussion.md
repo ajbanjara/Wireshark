@@ -99,7 +99,7 @@ It works OK at the first run it doesn't in the following ones.
 
 Workarround: Restart wireshark.
 
-:white\_check\_mark: Fix: fixed in svn rev 13318.
+:white\_check\_mark: Fix: fixed in Git commit c3440553ebacf33771d5dcbe3431bac0bfa6c60c.
 
 ### Some AVPL operations make wireshark crash when the operand avpl is empty
 
@@ -115,7 +115,7 @@ It works fine if the config is correct. But in some cases You'll get a crash rep
 
 Workarround: None Known. You got to fix that config anyway, don't you?
 
-:white\_check\_mark: Fix: fixed in svn rev 13318
+:white\_check\_mark: Fix: fixed in Git commit c3440553ebacf33771d5dcbe3431bac0bfa6c60c.
 
 ### Gops with no GopStart might be or not be created
 
