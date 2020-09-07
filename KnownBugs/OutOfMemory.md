@@ -99,14 +99,14 @@ Wireshark can be compiled as either a 32- or 64-bit application on Windows. The 
   - 32-bit application
       - 32 bit Windows:
           - 2GB RAM
-          - 3GB RAM with boot.ini /3GB switch (Wireshark version SVN19923 or up required)
+          - 3GB RAM with boot.ini /3GB switch (Wireshark Git commit 9fb143d508442a2b41f1597c9bfc377578f33d0f or later required)
       - 64 bit Windows:
           - 2GB RAM
-          - 4GB RAM (Wireshark version SVN19923 or up required)
+          - 4GB RAM (Wireshark Git commit 9fb143d508442a2b41f1597c9bfc377578f33d0f or later required)
   - 64-bit application (of course only on 64-bit Windows):
       - 8 TB RAM
 
-Traditionally, a single program on windows can use up to 2GB RAM (the rest is used for Windows internal purposes). Since Wireshark version SVN19923 (first released in 0.99.5) Wireshark/Tshark is linked with the /LARGEADDRESSAWARE switch that enables usage of up to 3GB/4GB RAM as described above.
+Traditionally, a single program on windows can use up to 2GB RAM (the rest is used for Windows internal purposes). Since Wireshark Git commit 9fb143d508442a2b41f1597c9bfc377578f33d0f (first released in 0.99.5) Wireshark/Tshark is linked with the /LARGEADDRESSAWARE switch that enables usage of up to 3GB/4GB RAM as described above.
 
 XXX - I couldn't find any information about the maximum total amount of virtual memory for ALL processes in a system.
 
