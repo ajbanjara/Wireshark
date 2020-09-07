@@ -34,7 +34,7 @@ If you get the following error while compiling:
 
 ### link: error LNK2001: unresolved external symbol xyz
 
-When compiling your plugin you may run into this error message. This means that this particular symbol is not exported by means of `libwireshark.def` in the `epan` directory. You can add it to your own version of `libwireshark.def` and recompile Wireshark, after which your plugin will link fine. Remember though that the plugin will only work with your compiled Wireshark, since that version alone exports the symbol in question for dynamic linking. Post a request to the developer mailing list to have the symbol included in the development version of `libwireshark.def` so that it is present in subsequent SVN versions and the following releases (it's even better if you send the developer list a patch to `libwireshark.def`, so that the developers don't have to add it by hand).
+When compiling your plugin you may run into this error message. This means that this particular symbol is not exported by means of `libwireshark.def` in the `epan` directory. You can add it to your own version of `libwireshark.def` and recompile Wireshark, after which your plugin will link fine. Remember though that the plugin will only work with your compiled Wireshark, since that version alone exports the symbol in question for dynamic linking. Post a request to the developer mailing list to have the symbol included in the development version of `libwireshark.def` so that it is present in subsequent Git revisions and the following releases (it's even better if you send the developer list a patch to `libwireshark.def`, so that the developers don't have to add it by hand).
 
 ### Plugins and redistributable C Runtime
 
