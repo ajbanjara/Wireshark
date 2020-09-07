@@ -49,7 +49,7 @@ Here is a screenshot of some WakeOnLAN traffic:
 
 ## Wireshark
 
-The WOL dissector is fully functional for Ethertype 0x0842 and for UDP only. It was first included with Wireshark starting with SVN revision [23371](http://anonsvn.wireshark.org/viewvc?view=revision&revision=23371) on November 6, 2007. General availability began with the [0.99.7](http://www.wireshark.org/docs/relnotes/wireshark-0.99.7.html) release of Wireshark.
+The WOL dissector is fully functional for Ethertype 0x0842 and for UDP only. It was first included with Wireshark starting with Git commit 6785ffd7965535af8f69ad2b1eea985186190795 on November 6, 2007. General availability began with the [0.99.7](http://www.wireshark.org/docs/relnotes/wireshark-0.99.7.html) release of Wireshark.
 
 ## Preference Settings
 
