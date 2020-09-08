@@ -72,104 +72,22 @@ Changes for older releases are listed in wiki pages:
 
 In order to limit the development burden, support for a (old-)stable release is eventually ended. This is the planning for abandoning old releases. A note is added why such release may still be relevant for you.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Version</p></td>
-<td><p>Stable Release Date</p></td>
-<td><p>End of Life</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="even">
-<td><p>3.4</p></td>
-<td><p>Q3 2020</p></td>
-<td><p>Release + 18 or more months</p></td>
-<td><p>Last release to support Red Hat EL 6? Support ends when 3.8.0 is released.</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.2</p></td>
-<td><p>December 18, 2019</p></td>
-<td><p>June 18, 2021 or later</p></td>
-<td><p>Last release to support Windows 7 and Windows Server 2008 R2. Support ends when 3.6.0 is released.</p></td>
-</tr>
-<tr class="even">
-<td><p>3.0</p></td>
-<td><p>February 28, 2019</p></td>
-<td><p>August 28, 2020 or later</p></td>
-<td><p>Support ends when 3.4.0 is released.</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.6</p></td>
-<td><p>April 18, 2018</p></td>
-<td><p>October 18, 2020</p></td>
-<td><p>Long term support (LTS). Last release to support GTK+ and Qt4. Last release to support Mac OS X 10.6 and 10.7 and OS X 10.8, 10.9, 10.10, and 10.11.</p></td>
-</tr>
-<tr class="even">
-<td><p>2.4</p></td>
-<td><p>July 19, 2017</p></td>
-<td><p>July 19, 2019</p></td>
-<td><p>GTK+ UI disabled by default.</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.2</p></td>
-<td><p>September 7, 2016</p></td>
-<td><p>September 7, 2018</p></td>
-<td><p>Last release to support Windows Vista and (the non-R2) Windows Server 2008.</p></td>
-</tr>
-<tr class="even">
-<td><p>2.0</p></td>
-<td><p>November 18, 2015</p></td>
-<td><p>November 18, 2017</p></td>
-<td><p>Last release to support OS X on 32-bit x86.</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.12</p></td>
-<td><p>July 31, 2014</p></td>
-<td><p>July 31, 2016</p></td>
-<td><p>Last release using the GTK+ GUI by default. Last release to support Windows Server 2003.</p></td>
-</tr>
-<tr class="even">
-<td><p>1.10</p></td>
-<td><p>June 5, 2013</p></td>
-<td><p>June 5, 2015</p></td>
-<td><p>Last release to support Windows XP and U3 packages.</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.8</p></td>
-<td><p>June 21, 2012</p></td>
-<td><p>June 21, 2014</p></td>
-<td><p>Last release to support Mac OS X on PPC.</p></td>
-</tr>
-<tr class="even">
-<td><p>1.6</p></td>
-<td><p>June 7, 2011</p></td>
-<td><p>June 7, 2013</p></td>
-<td><p>Last release that compiles on Red Hat EL 5.</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.4</p></td>
-<td><p>August 30, 2010</p></td>
-<td><p>August 30, 2012</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>1.2</p></td>
-<td><p>June 15, 2009</p></td>
-<td><p>June 30, 2011</p></td>
-<td><p>Last release to support Windows 2000.</p></td>
-</tr>
-<tr class="odd">
-<td><p>1.0</p></td>
-<td><p>March 31, 2008</p></td>
-<td><p>September 30, 2010</p></td>
-<td><p>Last release to support GTK+ 1.0.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Version | Stable Release Date | End of Life                 | Notes |
+|----|----|----|----|
+| 3.4     | Q3 2020             | Release + 18 or more months | Last release to support Red Hat EL 6? Support ends when 3.8.0 is released.                                                                           |
+| 3.2     | December 18, 2019   | June 18, 2021 or later      | Last release to support Windows 7 and Windows Server 2008 R2. Support ends when 3.6.0 is released.                                                   |
+| 3.0     | February 28, 2019   | August 28, 2020 or later    | Support ends when 3.4.0 is released.                                                                                                                 |
+| 2.6     | April 18, 2018      | October 18, 2020            | Long term support (LTS). Last release to support GTK+ and Qt4. Last release to support Mac OS X 10.6 and 10.7 and OS X 10.8, 10.9, 10.10, and 10.11. |
+| 2.4     | July 19, 2017       | July 19, 2019               | GTK+ UI disabled by default.                                                                                                                         |
+| 2.2     | September 7, 2016   | September 7, 2018           | Last release to support Windows Vista and (the non-R2) Windows Server 2008.                                                                          |
+| 2.0     | November 18, 2015   | November 18, 2017           | Last release to support OS X on 32-bit x86.                                                                                                          |
+| 1.12    | July 31, 2014       | July 31, 2016               | Last release using the GTK+ GUI by default. Last release to support Windows Server 2003.                                                             |
+| 1.10    | June 5, 2013        | June 5, 2015                | Last release to support Windows XP and U3 packages.                                                                                                  |
+| 1.8     | June 21, 2012       | June 21, 2014               | Last release to support Mac OS X on PPC.                                                                                                             |
+| 1.6     | June 7, 2011        | June 7, 2013                | Last release that compiles on Red Hat EL 5.                                                                                                          |
+| 1.4     | August 30, 2010     | August 30, 2012             |                                                                                                                                                      |
+| 1.2     | June 15, 2009       | June 30, 2011               | Last release to support Windows 2000.                                                                                                                |
+| 1.0     | March 31, 2008      | September 30, 2010          | Last release to support GTK+ 1.0.                                                                                                                    |
 
 ## Discussion
 
