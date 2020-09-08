@@ -38,19 +38,19 @@ Release Notes for each release are available on the [main site](https://www.wire
 
 The git change log provides good information about changes in each release:
 
-  - [master-3.2](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-3.2)
+  - [master-3.2](https://gitlab.com/wireshark/wireshark/commits/master-3.2)
 
-  - [master-3.0](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-3.0)
+  - [master-3.0](https://gitlab.com/wireshark/wireshark/commits/master-3.0)
 
-  - [master-2.6](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-2.6)
+  - [master-2.6](https://gitlab.com/wireshark/wireshark/commits/master-2.6)
 
-  - [master-2.4](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-2.4)
+  - [master-2.4](https://gitlab.com/wireshark/wireshark/commits/master-2.4)
 
-  - [master-2.2](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-2.2)
+  - [master-2.2](https://gitlab.com/wireshark/wireshark/commits/master-2.2)
 
-  - [master-2.0](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-2.0)
+  - [master-2.0](https://gitlab.com/wireshark/wireshark/commits/master-2.0)
 
-  - [master-1.12](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-1.12)
+  - [master-1.12](https://gitlab.com/wireshark/wireshark/commits/master-1.12)
 
 Changes for older releases are listed in wiki pages:
 
