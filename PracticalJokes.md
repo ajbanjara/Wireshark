@@ -40,3 +40,10 @@ Next time they load up Wireshark to look at the capture from the SuperDandy SIP 
 ---
 
 Imported from https://wiki.wireshark.org/PracticalJokes on 2020-08-11 23:18:17 UTC
+
+## Same thing only different
+
+Change the character set (ASCII -> EBCDIC) used to display the text section of Packet Bytes.  
+(Future: add something about "Payback is ...". And punch cards.)  
+![200909_Wiki_jokes_ASCII](uploads/0c38def342fcb6b10d6b73380b9a6fd6/200909_Wiki_jokes_ASCII.png)
+![200909_Wiki_jokes_EBCDIC](uploads/431a81d4d313991546aa2c3df819d770/200909_Wiki_jokes_EBCDIC.png)
