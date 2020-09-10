@@ -22,7 +22,7 @@ You could (in the preferred order):
 
   - write an external converter which converts external file format to libpcap (but then, why not simply adding this feature to wiretap, so Wireshark can read the file directly)
 
-It's pretty easy to add another file format to wiretap (you must know that file format, of course). Further information can be found in the README files in the [wiretap](http://anonsvn.wireshark.org/wireshark/trunk/wiretap/) directory of the Wireshark sources.
+It's pretty easy to add another file format to wiretap (you must know that file format, of course). Further information can be found in the README files in the [wiretap](https://gitlab.com/wireshark/wireshark/-/tree/master/wiretap) directory of the Wireshark sources.
 
 ## Capturing from a physical network device
 
