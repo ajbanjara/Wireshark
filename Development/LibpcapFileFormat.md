@@ -1,6 +1,6 @@
 # Libpcap File Format
 
-The [libpcap](/libpcap) file format is the main capture file format used in [TcpDump/WinDump](/TcpDump/WinDump), snort, and many other networking tools. It is fully supported by Wireshark/TShark, but they now generate [pcapng](https://github.com/pcapng/pcapng) files by default.
+The [libpcap](/libpcap) file format is the main capture file format used in [TcpDump](https://www.tcpdump.org) / [WinDump](https://www.winpcap.org/windump/default.htm), snort, and many other networking tools. It is fully supported by Wireshark/TShark, but they now generate [pcapng](https://github.com/pcapng/pcapng) files by default.
 
 [[_TOC_]]
 
@@ -14,7 +14,7 @@ Although it's sometimes assumed that this file format is suitable for [Ethernet]
 
 The proposed file extension for libpcap based files is: *.pcap*
 
-Wireshark handles all capture file I/O in the [wiretap](http://anonsvn.wireshark.org/wireshark/trunk/wiretap/) library. You'll find further details about the libpcap file format in the wiretap/libpcap.c and .h files
+Wireshark handles all capture file I/O in the [wiretap](https://gitlab.com/wireshark/wireshark/-/tree/master/wiretap) library. You'll find further details about the libpcap file format in the wiretap/libpcap.c and .h files
 
 ## File Format
 
