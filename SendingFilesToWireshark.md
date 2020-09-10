@@ -6,7 +6,7 @@ It's sometimes necessary to send files to one of the Wireshark [mailing lists](h
 
 ## Do's and Don'ts
 
-  - **Your attachments must be small**. The Wireshark mailing lists have a maximum message size of 512KB. Some of subscribers are on dialup connections. If you want to distribute a large file, either attach it to a [bug report](http://bugs.wireshark.org/) or put it on the web and send a URL instead. Screenshots are often large files, so don't send them unless it's absolutely necessary. If you want to show a mis-dissected packet, saving the dissection as text and sending that would be preferable; if there's an error message in a window, sending the text of the message, rather than a picture of it, would be preferable.
+  - **Your attachments must be small**. The Wireshark mailing lists have a maximum message size of 512KB. Some of subscribers are on dialup connections. If you want to distribute a large file, either attach it to a [bug report](/ReportingBugs) or put it on the web and send a URL instead. Screenshots are often large files, so don't send them unless it's absolutely necessary. If you want to show a mis-dissected packet, saving the dissection as text and sending that would be preferable; if there's an error message in a window, sending the text of the message, rather than a picture of it, would be preferable.
 
   - :warning: **Don't send Microsoft Office documents such as Word documents (.doc), Excel spreadsheets (.xls), PowerPoint presentations (.ppt), ...)**. In particular, don't send screenshots in Word documents or PowerPoint presentations. There exist computers that don't have Word, Excel, or PowerPoint installed. Some of them are used by the developers of Wireshark.
 
@@ -14,13 +14,13 @@ It's sometimes necessary to send files to one of the Wireshark [mailing lists](h
 
 ## Capture Files
 
-If your capture file **does not** contain sensitive information it can be attached to a [bug report](http://bugs.wireshark.org/), the [SampleCaptures](/SampleCaptures) page or sent to the wireshark-users or wireshark-dev mailing list.
+If your capture file **does not** contain sensitive information it can be attached to a [bug report](/ReportingBugs), the [SampleCaptures](/SampleCaptures) page or sent to the wireshark-users or wireshark-dev mailing list.
 
-If your capture file **does** contain sensitive information, it should be attached to a [bug report](http://bugs.wireshark.org/) and marked *private* - the [SampleCaptures](/SampleCaptures) page and the Wireshark mailing lists are public, so if you attach a capture file to the [SampleCaptures](/SampleCaptures) page, anybody who can read that page can read your capture, and if you send it to one of the Wireshark mailing lists, everybody who is on that list will get a copy of your capture.
+If your capture file **does** contain sensitive information, it should be attached to a [bug report](/ReportingBugs) and marked *private* - the [SampleCaptures](/SampleCaptures) page and the Wireshark mailing lists are public, so if you attach a capture file to the [SampleCaptures](/SampleCaptures) page, anybody who can read that page can read your capture, and if you send it to one of the Wireshark mailing lists, everybody who is on that list will get a copy of your capture.
 
 Note also that if your capture file is large, you shouldn't send it to the list, as per the first item in the "Do's and Don'ts" list above.
 
-Capture files attached to a [bug report](http://bugs.wireshark.org/) are "harvested" for used in automated Wireshark testing ("fuzz-testing"). It is preferred that such capture files be attached as individual files (rather than collected into a .zip, .tar, etc). (gzipp'ing individual files is OK).
+Capture files attached to a [bug report](/ReportingBugs) are "harvested" for used in automated Wireshark testing ("fuzz-testing"). It is preferred that such capture files be attached as individual files (rather than collected into a .zip, .tar, etc). (gzipp'ing individual files is OK).
 
 Please use filenames which are somewhat descriptive; E.G., `tcp_ack_dissect_fail.pcap` rather than `my_test.pcap`.
 
@@ -61,7 +61,8 @@ See the [Wikipedia screenshot entry](http://en.wikipedia.org/wiki/Screenshot) fo
 
 ## Source Code
 
-Source code contributions should be sent via the [code review site](https://code.wireshark.org/review/). The page [Development/SubmittingPatches](/Development/SubmittingPatches) has complete information on the patch submission process.
+For complete instructions on contributing code, see the [contribution section of the Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSrcContribute.html).  
+The page [Development/SubmittingPatches](/Development/SubmittingPatches) has complete information on the patch submission process.
 
 ---
 
