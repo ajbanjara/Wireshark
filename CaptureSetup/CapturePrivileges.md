@@ -84,7 +84,8 @@ GNU/Linux distributions usually provide package managers which handle installati
 
 ### Debian, Ubuntu and other Debian derivatives
 
-By installing Wireshark packages non-root users won't gain rights automatically to capture packets. To allow non-root users to capture packets follow the procedure described in [the Wireshark debian/README.Debian file](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=debian/README.Debian).
+By installing Wireshark packages non-root users won't gain rights automatically to capture packets. To allow non-root users to capture packets follow the procedure described in the Wireshark 
+[debian/README.Debian](https://gitlab.com/wireshark/wireshark/-/raw/master/debian/README.Debian).
 
 ## Other Linux based systems or other installation methods
 
