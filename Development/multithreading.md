@@ -31,7 +31,7 @@ So that *if* we ever want to do it we know what we are facing.
 
 #### Modify the associative arrays
 
-  - All [HashTables](/HashTables) should eventually be replaced by ep/se trees.
+  - All `HashTables` should eventually be replaced by ep/se trees.
 
   - The tree insert/lookup calls need to be protected by a "writer readers lock". This can likely be done by a single global lock since our useage pattern is primarily lookups and few inserts. This should be possible to implement without changing the call signature for these calls. (try free-lock structure googling in order to avoid adding locks)
 
