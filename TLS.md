@@ -86,7 +86,7 @@ See also [SampleCaptures\#SSL\_with\_decryption\_keys](/SampleCaptures#ssl-with-
 
   - [dump.pcapng](https://bugs.wireshark.org/bugzilla/attachment.cgi?id=11612) TLSv1.2 capture with 73 cipher suites, you need this [premaster.txt](https://bugs.wireshark.org/bugzilla/attachment.cgi?id=11616) file for decrypting the traffic. (linked from <https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9144>)
 
-  - tls12-dsb.pcapng - TLS 1.2 trace with decryption keys embedded.
+  - [tls12-dsb.pcapng](https://gitlab.com/wireshark/wireshark/-/blob/master/test/captures/tls12-dsb.pcapng) - TLS 1.2 trace with decryption keys embedded. (test capture in Wireshark source tree [added here](https://www.wireshark.org/lists/wireshark-commits/201811/msg00265.html))
 
   - <https://gitlab.com/wireshark/wireshark/-/tree/master/test/captures> - The test suite contains various TLS traces.
 
