@@ -4,7 +4,7 @@ Fuzz-testing is the process of creating random or semi-random capture files, fee
 
 # Get involved\!
 
-We need as many people fuzz-testing as possible. Everyone has their own valuable set of capture files and preferences which may expose bugs not found in the default configuration. If possible, please use a Git version of Wireshark for fuzz testing (the Git source can be checked out from [here](https://www.wireshark.org/develop.html), or pre-built versions of recent revisions can be downloaded from [here](https://www.wireshark.org/download/automated/)). Make sure to [report](http://bugs.wireshark.org/) any bug(s) you find, and please attach the fuzzed capture file to the bug report so that the bug can be easily reproduced by others.
+We need as many people fuzz-testing as possible. Everyone has their own valuable set of capture files and preferences which may expose bugs not found in the default configuration. If possible, please use a Git version of Wireshark for fuzz testing (the Git source can be checked out from [here](https://www.wireshark.org/develop.html), or pre-built versions of recent revisions can be downloaded from [here](https://www.wireshark.org/download/automated/)). Make sure to [report](/ReportingBugs) any bug(s) you find, and please attach the fuzzed capture file to the bug report so that the bug can be easily reproduced by others.
 
 # How To Fuzz-Test
 
