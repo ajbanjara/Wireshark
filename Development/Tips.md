@@ -144,7 +144,8 @@ GLib calls by applications, like Wireshark, can cause warnings. To debug these y
 
 ## Using MSVC++ for debugging
 
-Extracted from <http://www.ethereal.com/lists/ethereal-dev/200503/msg00778.html>
+Extracted from ~~<http://www.ethereal.com/lists/ethereal-dev/200503/msg00778.html>~~
+[[Ethereal-dev] How to trace Ethereal on WinXP using MSVC++?](https://www.wireshark.org/lists/ethereal-dev/200503/msg00778.html)
 
 If you are just wanting to debug Wireshark then the Win32 binaries should already include the debug symbols by default. You can look at the file config.nmake and ensure that the debug switch is enabled...
 
