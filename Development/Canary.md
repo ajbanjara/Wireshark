@@ -1,6 +1,6 @@
 ## Canary and Guard Pages in Wireshark
 
-In order to help detect memory over- and under-flows in ([se\_ and ep\_](/EMEMification)) allocated memory, Wireshark now places canary values (e.g., a gap or no-mans-land) after each allocation. When the memory is later freed, the canary values are checked to make sure that they haven't been changed. If they have, then someone has written past the memory that they allocated. See also [stackguard](http://gcc.fyxm.net/summit/2003/Stackguard.pdf).
+In order to help detect memory over- and under-flows in ([~~se\_ and ep\_~~](https://web.archive.org/web/20100712195305/wiki.wireshark.org/EMEMification)) ([emem is dead!](https://www.wireshark.org/lists/wireshark-dev/201502/msg00029.html)) ([ememify](https://www.wireshark.org/lists/ethereal-dev/200507/msg00516.html)) allocated memory, Wireshark now places canary values (e.g., a gap or no-mans-land) after each allocation. When the memory is later freed, the canary values are checked to make sure that they haven't been changed. If they have, then someone has written past the memory that they allocated. See also [stackguard](http://gcc.fyxm.net/summit/2003/Stackguard.pdf).
 
 In addition, guard pages are placed before and after each block of memory. These are entire pages of memory that are mprotect()'d against writes so that if the page is written to (because someone went **way** beyond the end of their allocated memory), Wireshark will get a memory access violation (and hopefully dump core for post-mortem analysis).
 
@@ -16,7 +16,7 @@ With the guard pages in place, memory allocations now look like:
 
 ### What should I do if Wireshark detects such a canary violation?
 
-If Wireshark exits stating "Per-packet memory corrupted." and exits (possibly leaving a core file (on \*NIX, anyway) that points to epan/emem.c around line 600), then Wireshark detected a canary violation. If you're not a developer, you're not compiling Wireshark yourself, or you don't have the time to debug the issue yourself, please [open a bug](http://bugs.wireshark.org) and attach a (preferrably small) capture file that exhibits the problem.
+If Wireshark exits stating "Per-packet memory corrupted." and exits (possibly leaving a core file (on \*NIX, anyway) that points to epan/emem.c around line 600), then Wireshark detected a canary violation. If you're not a developer, you're not compiling Wireshark yourself, or you don't have the time to debug the issue yourself, please [open a bug](/ReportingBugs) and attach a (preferrably small) capture file that exhibits the problem.
 
 If you can debug the issue yourself, the best thing to do (again, on Linux, anyway) is to:
 
