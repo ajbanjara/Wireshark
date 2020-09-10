@@ -232,6 +232,51 @@ Note that "HEAD" is literal text, not a variable.
 
 If your change is in master, you should revert the change in a new commit with `git revert $SHA`. This generates a new commit, which must go through the normal review process.
 
+# Backporting A Change To A Release Branch
+
+Some changes that fix bugs should also be applied to release branches, so that the bugs are fixed in the next regular Wireshark releases.
+
+To backport a change to a release branch:
+
+- If necessary, do a `git pull` to update your repository so that it includes the change.
+
+- Create and checkout a new branch with a name related to the type of change (e.g. the bug number you're fixing or the dissector you're working on):
+    ```
+    git checkout -b my-branch-name upstream/master-X.Y
+    ```
+    where "master-X.Y" is the release branch to which to backport the change.
+
+    This creates a branch named "my-branch-name" based on the master-*X*.*Y* branch in the official repository.
+
+- Cherry-pick the fix:
+    ```
+    git cherry-pick -x {commit}
+    ```
+    where {commit} is the commit ID of the commit to backport.
+
+- Fix any merge errors that show up as a result of the cherry-pick.
+
+- Build the code with the cherry-picked change and test the change.
+
+- Run `git commit` to commit your change. 
+
+- Run `git push downstream HEAD`. This pushes the current branch (my-branch-name) to your personal repository.
+
+- Go to https://gitlab.com/wireshark/wireshark/merge_requests.
+You should see a "New merge request" button for your branch.
+Press it.
+
+  - Select the release branch as the "**Target branch**".
+
+  - Make sure the "**Merge options** / Delete source branch when merge request is accepted" box is checked if desired.
+
+  - Make sure the "**Contribution** / [Allow commits from members who can merge to the target branch](https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html)"
+box is checked. This will allow members of the Wireshark core team to rebase your commit before applying. Since Wireshark only allows fast-forward merges, without this option you yourself will have to return to your merge request to rebase it before it can be merged if any other requests have been merged during the review process.
+
+  - Once you're satisfied with everything, press the “Submit merge request” button.
+
+The rest of the steps given above apply to this change.
+
 # A Super-Short Overview Of Git
 
 Git manages a collection of commits, each identified by its unique SHA. Each commit (except the very first) contains a pointer to one or more parent commits, thus forming a history (technically a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)).
