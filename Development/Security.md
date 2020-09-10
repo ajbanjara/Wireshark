@@ -34,7 +34,7 @@ Epan's tvbuff routines have gone a long way in preventing security holes in Wire
 
 ## Automated Testing
 
-We have an [automated build process](http://buildbot.wireshark.org) that runs tshark against randpkt output, a capture file menagerie, and the menagerie after it's been fuzzed. Many bugs have been found using this process so far. More tests could be added, such as [Valgrind](http://valgrind.org/) and [Gimpel Lint](http://www.gimpel.com/).
+We have an [~~automated build process~~](http://buildbot.wireshark.org) [GitLab CI?](https://gitlab.com/wireshark/gitlab-migration/-/wikis/Automated-Builds-And-Continuous-Integration-(Buildbot)) that runs tshark against randpkt output, a capture file menagerie, and the menagerie after it's been fuzzed. Many bugs have been found using this process so far. More tests could be added, such as [Valgrind](http://valgrind.org/) and [Gimpel Lint](http://www.gimpel.com/).
 
 It's also possible for developers to do fuzz/random testing themselves. Details can be found on the [FuzzTesting](/FuzzTesting) page.
 
