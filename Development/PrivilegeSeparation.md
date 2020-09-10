@@ -2,7 +2,8 @@
 
 One of the requirements for the 1.0 release was the addition of privilege separation. This feature minimizes the impact of any security-related bugs in Wireshark's dissector code.
 
-In a discussion on the [development mailing list](http://thread.gmane.org/gmane.network.ethereal.devel/10752), the following roles were suggested:
+In a discussion on the [development mailing list](http://thread.gmane.org/gmane.network.ethereal.devel/10752), the following roles were suggested:  
+(Correct thread? [February 07, 2005](https://www.wireshark.org/lists/ethereal-dev/200502/) : [[Ethereal-dev] Priv sep in ethereal](https://www.wireshark.org/lists/ethereal-dev/200502/msg00195.html) )
 
 <div>
 
@@ -77,11 +78,11 @@ That might be harder on Windows - I don't know how you'd send the equivalent of 
 
 2.  add a handle for the pipe to the set of event handles that the GLib or Windows main loop waits on. - *Guy Harris*
 
-No problem with stopping the capturing child on windows, I've implemented that already months ago using [TerminateProcess](/TerminateProcess) (ok, it's maybe not the best possible way, but it seems to be working quite well).
+No problem with stopping the capturing child on windows, I've implemented that already months ago using [TerminateProcess](https://gitlab.com/wireshark/wireshark/-/commit/7b7f7e7f9ad0225f7ed927098a02e402fa2f5870) (ok, it's maybe not the best possible way, but it seems to be working quite well).
 
 So how can you set the pipe into non-blocking mode (which functions to use, so I can read the docs a bit) and what exact effect will that have? Will that work on all supported unix versions as well?
 
-The second part maybe even more tricky. The usual function in windows is [WaitForMultipleObjects](/WaitForMultipleObjects) when I remember correct, but I really don't know how that interfere with GLib's event handling (it's main loop). - *Ulf Lamping*
+The second part maybe even more tricky. The usual function in windows is `WaitForMultipleObjects` when I remember correct, but I really don't know how that interfere with GLib's event handling (it's main loop). - *Ulf Lamping*
 
 `TerminateProcess()` causes the process to exit immediately - after perhaps having written part of the last packet, but not all of it, to the capture file (packets are written to a buffered stream using the "standard I/O library" routines, with the buffer being flushed when it fills, when the file is closed, or when `fflush()` is called - without offering it the chance to clean up and write out the last part of the packet to the capture file; see [the MSDN section on child processes](http://msdn.microsoft.com/en-us/library/ms686722\(VS.85\).aspx). That might cause errors when reading the capture file.
 
