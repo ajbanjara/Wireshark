@@ -236,7 +236,9 @@ If your change is in master, you should revert the change in a new commit with `
 
 Some changes that fix bugs should also be applied to release branches, so that the bugs are fixed in the next regular Wireshark releases.
 
-To backport a change to a release branch:
+Changes that backport cleanly by cherry-picking them can be backported by using the "Cherry-pick" option in the "Options" item on the page for the commit.  The "Cherry-pick" option will pop up a dialog; choose the branch to which the change should be cherry-picked, and leave "Start a '''new merge request''' with these changes" checked.  Clicking "Cherry-pick" will take you to a page for a new merge request; follow the instructions for merge requests in "Submitting A Change" above.
+
+Changes that *don't* backport cleanly by cherry-picking them will require some editing on your part in order to backport them.  To backport a change to a release branch that can't be cleanly cherry-picked:
 
 - If necessary, do a `git pull` to update your repository so that it includes the change.
 
