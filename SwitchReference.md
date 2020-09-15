@@ -58,7 +58,7 @@ Most midrange and high-end switches have port analysis or port monitoring featur
 
 [midBit Technologies, LLC](http://www.midbittech.com) has a low cost, dedicated 10/100 switch pre-configured as a tap. Available through Amazon: \[<http://www.amazon.com/gp/product/B00DY77HHK>\]
 
-[Review of Dualcomm 5-Port Pass-Through Port Mirroring Switch](http://www.lovemytool.com/blog/2010/04/review-of-dualcomm-5-port-pass-through-port-mirroring-switch-by-betty-dubois.html) (by Betty [DuBois](/DuBois)), posted on April 29, 2010
+[Review of Dualcomm 5-Port Pass-Through Port Mirroring Switch](https://web.archive.org/web/20150716001230/http://www.lovemytool.com/blog/2010/04/review-of-dualcomm-5-port-pass-through-port-mirroring-switch-by-betty-dubois.html) (by Betty DuBois), posted on April 29, 2010
 
 Do we have any information on ASUS Giga X Series (2048 and 2024) Switches?
 
