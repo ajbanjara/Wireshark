@@ -4,7 +4,7 @@ I have a project to add support for two new block types to Wireshark. This doesn
 
 [![attachment:trb\_screenshot.png](uploads/__moin_import__/attachments/Adding-Support-for-a-New-Block-Type/trb_screenshot.png "attachment:trb_screenshot.png")](uploads/__moin_import__/attachments/Adding-Support-for-a-New-Block-Type/trb_screenshot.png "{{attachment:trb_screenshot.png||width=900}}")
 
-**This is work in progress** and so the notes here are not complete. I'm developing this alongside a dissector that adds support to Wireshark for text-base log data - see [https://wiki.wireshark.org/TRB%20Protocol](/TRB-Protocol). Also, I'm using this as a notepad and I may make mistakes which I'll correct later. If you notice mistakes, please feel free to update this page.
+**This is work in progress** and so the notes here are not complete. I'm developing this alongside a dissector that adds support to Wireshark for text-base log data - see [TRB Protocol](/TRB-Protocol). Also, I'm using this as a notepad and I may make mistakes which I'll correct later. If you notice mistakes, please feel free to update this page.
 
 # Pcapng Block Basics
 
@@ -38,7 +38,8 @@ I dealt with this problem like this:
   - Use my own values for field types declared with \#define statements
   - In the Wireshark plugin write a function to convert my field types to Wireshark values
 
-The Wireshark field types values can be found in epan/ftypes/ftype.h. See Appendix A of the [TRB Protocol definition](/TRB-Protocol) for the non-enumerated values used by TRB.
+The Wireshark field types values can be found in [epan/ftypes/ftype.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/ftypes/ftypes.h).  
+See Appendix A of the [TRB Protocol definition](/TRB-Protocol#appendix-a-wireshark-native-field-types) for the non-enumerated values used by TRB.
 
 # Internal Block
 
@@ -139,8 +140,8 @@ The wtapng\_block structure and substructure fields I believe have to be complet
   - nstime\_t ts - the timestamp for the event you wish to be displayed in the packet list
   - guint32 caplen - the length of the payload in your block
   - guint32 len - the length of the original data - unless you are going to get very flash, this will be the same as the caplen
-  - int pkt\_encap - this should be set to a value from the WTAP\_ENCAP\_xxxx list of definitions in wiretap/wtap.h - WTAP\_ENCAP\_USER11 in the case of the TRB
-  - int pkt\_tsprec - this should be set to a value from the WTAP\_TSPREC\_xxxx list of definitions in wiretap/wtap.h - WTAP\_TSPREC\_USEC in the case of the TRB
+  - int pkt\_encap - this should be set to a value from the WTAP\_ENCAP\_xxxx list of definitions in [wiretap/wtap.h](https://gitlab.com/wireshark/wireshark/-/blob/master/wiretap/wtap.h) - WTAP\_ENCAP\_USER11 in the case of the TRB
+  - int pkt\_tsprec - this should be set to a value from the WTAP\_TSPREC\_xxxx list of definitions in [wiretap/wtap.h](https://gitlab.com/wireshark/wireshark/-/blob/master/wiretap/wtap.h) - WTAP\_TSPREC\_USEC in the case of the TRB
   - presence\_flags - these indicate the inclusion of certain field values in the pkt\_hdr; values are:
       - WTAP\_HAS\_TS /\*\*\< time stamp \*/
     
@@ -191,11 +192,11 @@ The relevant code looks like this:
 
 # Related information
 
-  - [https://wiki.wireshark.org/TRB%20Protocol](/TRB-Protocol)
+  - [TRB Protocol](/TRB-Protocol)
 
-  - [Wireshark Bugzilla Bug 8590](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8590)
+  - [GitLab Issue 8590](https://gitlab.com/wireshark/wireshark/-/issues/8590) - Have libwiretap handle non-packet records in capture files
 
-  - [Wireshark Bugzilla Bug 8807](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8807)
+  - [GitLab Issue 8807](https://gitlab.com/wireshark/wireshark/-/issues/8807) - Handle non-packet records returned from lib wiretap, with plugins supported
 
   - [The code change that implemented register\_pcapng\_block\_type\_handler](https://code.wireshark.org/review/1775)
 
