@@ -401,7 +401,7 @@ The documentation here and in the [Developer's Guide](https://www.wireshark.org/
 
 You can name the remotes anything you like.
 
-If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-your-fork-up-to-date-with-its-origin/) you only need the downstream branch.
+If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-your-fork-up-to-date-with-its-origin/) you only need the "downstream" remote.
 
 **Gerrit changes weren't migrated to GitLab merge requests**
 
