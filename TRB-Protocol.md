@@ -306,7 +306,7 @@ There are seven variants of string value:
 
 For full details see doc/README.dissector in the Wireshark code tree.
 
-[ToDo](/ToDo) - The first release of the TRB dissector doesn't support strings values. Define the encoding and add support for strings.
+**ToDo** - The first release of the TRB dissector doesn't support strings values. Define the encoding and add support for strings.
 
 ## Groups
 
