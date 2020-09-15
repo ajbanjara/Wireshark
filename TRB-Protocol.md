@@ -23,7 +23,7 @@ There is no proprietary content here, and the block formats are documented so th
 
 # Test pcapng Generation
 
-The Babel function of [TribeLab](/TribeLab) Workbench has been extended to convert log file data into TRBs and TDBs. Babel produces the pcapng file like this:
+The Babel function of [TribeLab Workbench](http://web.archive.org/web/20161031011910/https://community.tribelab.com/mod/page/view.php?id=490) has been extended to convert log file data into TRBs and TDBs. Babel produces the pcapng file like this:
 
 ``` 
     log_file -----------------------------------> TRBs
@@ -197,7 +197,7 @@ A TDB contains these values serialised like this:
     ||type|display|bitmask|name|abbrev_ending|strings|blurb||type|display|bitmask|name|abbrev_ending|strings|blurb|| etc
     ++-----------------------------------------------------++-----------------------------------------------------++----
 
-The treatment of the abbrev field was tricky. A concern is that if two files are merged, they may have abbrev values that clash i.e. same value, different meaning. By forming the abbrev in Wireshark from the protocol name (trb), a group name value and abbrev\_ending, there is an opportunity to adjust the group name value and hence avoid the clash. For example, let's imagine that we need to merge two logs that both have records with a first level group name value of "websphere" and a "host" field; in one log this means the client IP and in the other it means the [WebSphere](/WebSphere) instance. Wireshark could suffix the first level group name of the second log to give websphere\_2, thereby avoiding the clash. Ultimately, the use of GUIDs rather than group names is preferable, but these would have to be administered and so this is not a simple matter.
+The treatment of the abbrev field was tricky. A concern is that if two files are merged, they may have abbrev values that clash i.e. same value, different meaning. By forming the abbrev in Wireshark from the protocol name (trb), a group name value and abbrev\_ending, there is an opportunity to adjust the group name value and hence avoid the clash. For example, let's imagine that we need to merge two logs that both have records with a first level group name value of "websphere" and a "host" field; in one log this means the client IP and in the other it means the WebSphere instance. Wireshark could suffix the first level group name of the second log to give websphere\_2, thereby avoiding the clash. Ultimately, the use of GUIDs rather than group names is preferable, but these would have to be administered and so this is not a simple matter.
 
 ### type
 
@@ -824,9 +824,11 @@ The rational behind defining the display values is exactly the same as the reaso
 
   - Pcapng version of the IIS log - [u\_ex161012.pcapng](uploads/__moin_import__/attachments/TRB-Protocol/u_ex161012.pcapng)
 
+(Use Wireshark `View->Reload as File Format/Capture` to view Pcapng contents)
+
 # Appendix E - Other Information
 
-  - [TRB Dissector](/TRB_Dissector)
+  - [TRB Dissector](/TRB-Dissector)
 
 ---
 
