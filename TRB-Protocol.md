@@ -460,17 +460,17 @@ opt\_nativeformat:
 
 Native format of the log file. It's envisaged that this would be presented as information only and would not have a direct affect on rendering the data.  
 
-Example: '[LogFormat](/LogFormat) "%h %l %u %t \\"%r\\" %\>s %b" common'
+Example: `LogFormat "%h %l %u %t \"%r\" %>s %b" common`
 
 opt\_missingvalue:
 
 A character that MAY be used to represent a missing string value.  
-Example: '-'
+Example: `-`
 
 opt\_infocolumn:
 
 Defines the information in the Info column of the Wireshark Packet List. Can be constructed from a mixture of fixed text and field values. Field values are specified by the fully qualified abbrev prefixed with a percentage symbol, e.g. %trb.iis.cs-method  
-Example: 'HTTPD: %trb.httpd.request' which would produce something like this 'HTTPD: GET / HTTP/1.1'
+Example: `HTTPD: %trb.httpd.request` which would produce something like this 'HTTPD: GET / HTTP/1.1'
 
 opt\_delimiter:
 
@@ -809,7 +809,7 @@ The rational behind defining the display values is exactly the same as the reaso
               </column>
             </group>
           </columns>
-          <infofield>HTTPD: %trb.hhtpd.request</infofield>
+          <infofield>HTTPD: %trb.httpd.request</infofield>
         </record>
       </records>
     </source>
