@@ -4,21 +4,25 @@ SCSI is a protocol used principally to talk to storage devices such as hard disk
 
 ## History
 
+Standardized version of **SASI** (Shugart Associates System Interface) (Internet Archive: [IBM SCSI history](https://web.archive.org/web/20080119145921/http://www-128.ibm.com/developerworks/power/library/pa-spec8.html) )  
+
 SCSI was originally developed in the early to mid-80s as a new standardized bus and protocol to attach devices to a host. It was originally deviced to be used to attach many different types of devices such as hard-disks, tape drives, printers, scanners and even processor devices (so one could run for example IP or something similar ontop of SCSI between two hosts) but is mainly used to disk and tape access.
 
 It was used in Macintosh computers for many years as the only external drive/scanner connection available.
 
-It is still today a very popular protocol to use for high-end workstations and hosts since SCSI devices often have better reliability and performance than lower end [ATA](/ATA) devices.
+It is still today a very popular protocol to use for high-end workstations and hosts since SCSI devices often have better reliability and performance than lower end ATA devices.
 
 Originally SCSI defined the entire stack from the electrical layer all the way up to the application layer but has since been broken up into three layers: SCSI Command Sets, SCSI protocol and SCSI transport. The SCSI Architecture Model defines an abstract procedure call model. The various SCSI command sets, protocols and transport standards each define specific implementations of the layers of this architecture.
 
-Common transports for SCSI today are [FibreChannel](/FibreChannel), [iSCSI](/iSCSI), [USB](/USB), [FireWire](/FireWire) , parallel SCSI, and ATAPI over ATA.
+Common transports for SCSI today are [FibreChannel](/FibreChannel), [iSCSI](/iSCSI), [USB](/USB), FireWire, parallel SCSI, and ATAPI over ATA.
+
+Alphabet soup of connectors and standards [Seagate - SCSI Revision Levels](https://www.seagate.com/support/kb/scsi-revision-levels-196483en/)
 
 ## Protocol dependencies
 
   - [HyperSCSI](/HyperSCSI): HyperSCSI is a protocol to transport SCSI directly on top of Ethernet frames
 
-  - [NDMP](/NDMP): SCSI is sometimes transported ontop of [NDMP](/NDMP), in particular when the backup application wants to talk to a tape library attached to the other NDMP host
+  - [NDMP](/Network_Data_Management_Protocol): SCSI is sometimes transported ontop of [NDMP (Network Data Management Protocol)](/Network_Data_Management_Protocol), in particular when the backup application wants to talk to a tape library attached to the other NDMP host
 
   - [iSCSI](/iSCSI): iSCSI is a recent protocol to transport SCSI on top of TCP/IP, thus creating an IP [SAN](/SAN)
 
@@ -90,7 +94,7 @@ See [SCSI\_Preferences](/SCSI_Preferences)
 
 ## Display Filter
 
-A complete list of SCSI display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/SCSI/SCSI.html)
+A complete list of SCSI display filter fields can be found in the [display filter reference](https://www.wireshark.org/docs/dfref/s/scsi.html)
 
 Show only the traffic containing SCSI PDUs:
 
