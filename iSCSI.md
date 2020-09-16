@@ -1,6 +1,6 @@
 # Internet Small Computer Systems Interface (iSCSI)
 
-From RFC 3720: "The Small Computer Systems Interface ([SCSI](/Small_Computer_System_Interface)) is a popular family of protocols for communicating with I/O devices, especially storage devices.... The iSCSI protocol describes a means of transporting of the SCSI packets over TCP/IP, providing for an interoperable solution which can take advantage of existing Internet infrastructure, Internet management facilities and address distance limitations."
+From [RFC 3720](https://tools.ietf.org/html/rfc3720): "The Small Computer Systems Interface ([SCSI](/Small_Computer_System_Interface)) is a popular family of protocols for communicating with I/O devices, especially storage devices.... The iSCSI protocol describes a means of transporting of the SCSI packets over TCP/IP, providing for an interoperable solution which can take advantage of existing Internet infrastructure, Internet management facilities and address distance limitations."
 
 ## History
 
