@@ -4,9 +4,9 @@
 
 This page is to collect information experienced while trying to bring this feature to life. This feature will not work with [WinPcap](/WinPcap) 3.1; it has been tested with with Ethereal 0.10.13 + [WinPcap](/WinPcap) 4.0 alpha 1 using a Cisco MDS 9216 switch's fcanalyzer as the the remote capture device, and does work. It should also work with the current version of Wireshark and [WinPcap](/WinPcap) 4.x.
 
-If you really need it, you may try [analyzer](http://gd.tuwien.ac.at/.vhost/analyzer.polito.it/default.htm) to do the remote capture. This analyzer has the same origins as [WinPcap](/WinPcap) itself, so it might work better than Wireshark for this feature (for now). Then you can take the capture files and use Wireshark to analyze them ...
+If you really need it, you may try [analyzer](https://web.archive.org/web/20110504224214/http://gd.tuwien.ac.at/.vhost/analyzer.polito.it/default.htm) to do the remote capture. This analyzer has the same origins as [WinPcap](/WinPcap) itself, so it might work better than Wireshark for this feature (for now). Then you can take the capture files and use Wireshark to analyze them ...
 
-You'll find additional info at the related [WinPcap](/WinPcap) page: <http://www.winpcap.org/docs/docs_40_2/html/group__remote.html> or the link at the bottom of this page.
+You'll find additional info at the related [WinPcap](/WinPcap) page: [Remote Capture](http://www.winpcap.org/docs/docs_40_2/html/group__remote.html) or the link at the bottom of this page.
 
 The following would be the easiest setup to bring Wireshark to work remotely.
 
@@ -32,7 +32,7 @@ The client part will only work on Win32\!
 
 Inside Wireshark you would simply type something like the following into the *Interface* field of the *Capture Options* dialog box:
 
-rpcap://\[1.2.3.4\]/\\Device\\NPF\_{12345678-1234-1234-1234-1234567890AB}
+`rpcap://[1.2.3.4]/\Device\NPF_{12345678-1234-1234-1234-1234567890AB}`
 
 Where *1.2.3.4* is the IP address of the remote machine and *\\Device\\NPF\_{12345678-1234-1234-1234-1234567890AB}* is the interface to capture from (would be something like *eth0* on linux).
 
