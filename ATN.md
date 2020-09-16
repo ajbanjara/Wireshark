@@ -154,9 +154,9 @@ The main problem is that there is no working "conversation" function for the TP4
 
 Known bugs:
 
-  - atn-ulcs (ACSE): AARE incorrectly decoded; probably related to the incorrect handling of "[CpdlcStart](/CpdlcStart) confirmation"
+  - atn-ulcs (ACSE): AARE incorrectly decoded; probably related to the incorrect handling of "CpdlcStart confirmation"
 
-  - atn-cpdlc (CPDLC): the dissector incorrectly decodes "[CpdlcStart](/CpdlcStart) confirmation" as "Cpdlc message"
+  - atn-cpdlc (CPDLC): the dissector incorrectly decodes "CpdlcStart confirmation" as "Cpdlc message"
 
   - some PDU's of CM and CPDLC have the same PER encoding, which may lead to a wrong encoding.
 
@@ -174,18 +174,21 @@ Known bugs:
 
 ### Standards
 
-  - ICAO standards \[<http://legacy.icao.int/anb/panels/acp/repository.cfm>\]
+  - ICAO standards [Working Groups and Panels Library ](https://www.icao.int/safety/acp/ACPWGF/Forms/AllItems.aspx)
 
   - OSI standards \[<http://standards.iso.org/ittf/PubliclyAvailableStandards/index.html>\]
 
 ### Protocol Traces
 
-  - ATN over ethernet SNDCF \[<https://bugs.wireshark.org/bugzilla/attachment.cgi?id=5808>\]
+Attached to [GitLab Issue 5622](https://gitlab.com/wireshark/wireshark/-/issues/5622):
 
-  - ATN over IP SNDCF \[<https://bugs.wireshark.org/bugzilla/attachment.cgi?id=5809>\]
+  - [2011-01-26-lan-sndcf.pcap:](https://gitlab.com/wireshark/wireshark/uploads/211893857c93a2da3e565444cfdb573e/2011-01-26-lan-sndcf.pcap) ATN over ethernet SNDCF
 
-  - ATN over IP SNDCF, Airbus A350 avionics evaluation \[<https://bugs.wireshark.org/bugzilla/attachment.cgi?id=9925>\]
+  - [2011-01-27-dump-atn-over-ip.pcap:](/wireshark/wireshark/uploads/b3935cb6c14dcfeff2088c3ab2fd9ff8/2011-01-27-dump-atn-over-ip.pcap) ATN over IP SNDCF
 
+Attached to [GitLab Issue 8293](https://gitlab.com/wireshark/wireshark/-/issues/8293):
+
+  - [2013-01-08-dl-eduu1-38057a-a350-trials.pcap:](/wireshark/wireshark/uploads/494d74b8b8db77ff3dedec2e33552080/2013-01-08-dl-eduu1-38057a-a350-trials.pcap) ATN over IP SNDCF, Airbus A350 avionics evaluation
 ---
 
 Imported from https://wiki.wireshark.org/ATN on 2020-08-11 23:11:26 UTC
