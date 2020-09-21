@@ -12,7 +12,7 @@ New to network troubleshooting? Read the [/Overview](/NetworkTroubleshooting/Ove
 
   - Some networks might have a lot of what Wireshark identifies as "Intel ANS probe" traffic. ANS is Intel's "Advanced Networking Services," which provides load balancing, aggregation, and failover for their line of NICs:
     
-    <http://www.intel.com/support/network/adapter/ans/>
+    <https://www.intel.com/content/www/us/en/support/articles/000007536/network-and-i-o/ethernet-products.html>
 
 ## Virus behavior
 
