@@ -117,7 +117,7 @@ To solve this, make one of the following changes to your "./configure" command:
 
     ./configure --without-net-snmp --without-ucd-snmp
 
-2\. Add "--with-ssl" (Note: this is disabled by default because of potential licensing issues. See <http://www.ethereal.com/lists/ethereal-dev/200407/msg00402.html>)
+2\. Add "--with-ssl" (Note: this is disabled by default because of potential licensing issues. See <https://www.wireshark.org/lists/ethereal-dev/200407/msg00402.html>)
 
     ./configure --with-ssl
 
