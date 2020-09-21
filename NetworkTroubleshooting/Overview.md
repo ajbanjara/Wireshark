@@ -21,7 +21,7 @@ Your network is running too slow. Of course, this depends on the expectations yo
 
 Some possible causes:
 
-  - insufficient performance: the overall network performance **is** too slow for the task you want to do, e.g. you can't expect to serve a million [HTTP](/HTTP) requests per second over a 100MBit/s [Ethernet](/Ethernet) link. Wireshark can be helpful to get an idea if it's the case here, but Monitoring (mentioned below) might be a better way to detect and handle such problems.
+  - insufficient performance: the overall network performance **is** too slow for the task you want to do, e.g. you can't expect to serve a million [HTTP](/Hyper_Text_Transfer_Protocol) requests per second over a 100MBit/s [Ethernet](/Ethernet) link. Wireshark can be helpful to get an idea if it's the case here, but Monitoring (mentioned below) might be a better way to detect and handle such problems.
 
   - timeouts: a client first tries to reach a specific service. After the usual timeout it will try another one which serves the purpose. At the next request the game repeats on and on. Although searching for the cause can be tedious, Wireshark can be very helpful here.
 
@@ -37,7 +37,7 @@ So depending on the cause, Wireshark may or may not be helpful tracking down per
 
 Keep an eye on what's going on in your network. Monitoring will warn you about broken services (e.g. webserver not responding), performance problems and alike.
 
-This might range from a simple cron job pinging a remote machine once every hour, through dedicated tools like [Nagios](http://www.nagios.org/) (formerly NetSaint) and end up in commercial enterprise level tools such as [HP OpenView (tm)](http://www.openview.hp.com/).
+This might range from a simple cron job pinging a remote machine once every hour, through dedicated tools like [Nagios](http://www.nagios.org/) (formerly NetSaint) and end up in commercial enterprise level tools such as ~~HP OpenView (tm)~~ [Network Node Manager](https://www.microfocus.com/en-us/products/network-node-manager-i-network-management-software/overview).
 
 Wireshark is not well suited for (and not aimed towards) monitoring. However, if your favourite monitoring tool detected a problem you may end up in the *general troubleshooting* or *performance* section described above.
 
