@@ -359,8 +359,6 @@ Some newer machines, running macOS Mojave or later, do not support remaining ass
 
 from the command line.
 
-If you use a Prism II chipset PCMCIA card in a Powerbook, or use another wireless card which is supported appropriately by [the wireless sourceforge drivers] (http://wirelessdriver.sourceforge.net/), you may be able to use software such as [KisMAC](http://kismac.binaervarianz.de/) to dump to file full frames captured in passive mode. Since Wireshark allows review of dumps you could then run them through the Wireshark analyzer. I don't have enough knowledge to tell how/if it is possible to point Wireshark to such a PCMCIA card, or to get it to watch a growing dump file, to allow live analysis but I think it's a plausible project. (if you manage it then remember to write it up here\!)
-
 ### Windows
 
 <span id="windows" class="anchor"></span> Capturing traffic on Windows depends on [WinPcap](/WinPcap) or Npcap and on the underlying network adapters and drivers. Npcap, which supports Windows 7 and later, supports monitor mode; [WinPcap](/WinPcap) doesn't support monitor mode. On Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
