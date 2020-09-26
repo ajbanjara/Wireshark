@@ -42,7 +42,7 @@ To build Wireshark on macOS without a third-party package source such as Homebre
 
 3.  Build it (from within the source directory): `mkdir build && cd build && cmake ../ && make`
 
-4.  Run it (the Qt version) with `./run/qtshark`
+4.  Run it with `./run/wireshark`
 
 ### Building with Homebrew
 
@@ -58,7 +58,7 @@ Experimental steps for "easy" building Wireshark on macOS with the Homebrew pack
 
 5.  Build it (from within the source directory): `mkdir build && cd build && cmake ../ && make`
 
-6.  Run it (the Qt version) with `./run/qtshark`
+6.  Run it with `./run/wireshark`
 
 ## Solaris
 
