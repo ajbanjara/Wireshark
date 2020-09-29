@@ -166,7 +166,7 @@ Wireshark tries to determine if it's running remotely (e.g. via SSH or Remote De
 
   - The [pcap-filter man page](http://www.wireshark.org/docs/man-pages/pcap-filter.html) includes a comprehensive capture filter reference
 
-  - The [Mike Horn Tutorial](http://procana.asuscomm.com/) gives a good introduction to capture filters
+  - The [Mike Horn Tutorial](https://web.archive.org/web/20151215011526/http://procana.asuscomm.com/) gives a good introduction to capture filters
 
   - Capture and display filter [Cheat sheets](http://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/)
 
