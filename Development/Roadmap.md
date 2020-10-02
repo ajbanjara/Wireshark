@@ -14,13 +14,14 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 Significant bug fixes should be [backported to all applicable stable branches](/Development/Backporting) after they are checked in to the master branch. You can follow development progress using the links below.
 
-[Recent changes](https://code.wireshark.org/review/#/q/project:wireshark+AND+branch:master) in the [master (development) branch](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs/heads/master)
 
-[Recent changes](https://code.wireshark.org/review/#/q/project:wireshark+AND+branch:master-3.2) in the [3.2 branch](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs/heads/master-3.2)
+[Recent changes](https://gitlab.com/wireshark/wireshark/commits/master) in the [master (development) branch](https://gitlab.com/wireshark/wireshark/-/tree/master)
 
-[Recent changes](https://code.wireshark.org/review/#/q/project:wireshark+AND+branch:master-3.0) in the [3.0 branch](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs/heads/master-3.0)
+[Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-3.2) in the [3.2 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-3.2)
 
-[Recent changes](https://code.wireshark.org/review/#/q/project:wireshark+AND+branch:master-2.6) in the [2.6 branch](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs/heads/master-2.6)
+[Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-3.0) in the [3.0 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-3.0)
+
+[Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-2.6) in the [2.6 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-2.6)
 
 ## Proposed Changes
 
