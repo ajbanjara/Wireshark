@@ -88,7 +88,7 @@ Note: odd numbers are development versions, even are stable. Exception: 3.5.x at
 | 3.5.8   | Jan 2016 | Debian Stretch                                                                                                            |
 | 3.5.18  | Feb 2018 | Ubuntu 18.04                                                                                                              |
 | 3.6.2   | Feb 2018 | New flag: GNUTLS_PKCS11_TOKEN_PROTECTED_AUTHENTICATION_PATH; SLES 15                                                      |
-| 3.6.3   | Jul 2018 | Addition of low-level PKCS #11 API: gnutls_pkcs11_token_get_ptr                                                           |
+| 3.6.3   | Jul 2018 | Addition of low-level PKCS#11 API: gnutls_pkcs11_token_get_ptr                                                           |
 | 3.6.4   | Sep 2018 | Ubuntu 18.10, Fedora 28, 29                                                                                               |
 | 3.6.5   | Dec 2018 | Replaces 3.5.x as stable releases branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-help/2018-December/004465.html)).                                                                  |
 | 3.6.7   | Mar 2019 | Debian Buster                                                                                                             |
@@ -216,7 +216,7 @@ Latest versions are listed, earlier versions are between parentheses.
 | Red Hat EL/CentOS 5 | 2007/3          | 2017/3                | 2.12.3                  | 2.10.4                   | (none)          | 4.2.1         | (none)                 |
 | Red Hat EL/CentOS 6 | 2010/11         | 2020/11               | 2.28.8 (2.26.1, 2.22.5) | 2.24.23 (2.20.1, 2.18.9) | (none)          | 4.6.2         | base:(none) EPEL:5.6.1 |
 | Red Hat EL/CentOS 7 | 2014/6          | 2024/6                | 2.50.3 (2.40.0, 2.36.3) | 2.24.22                  | 3.22.26 (3.8.4) | 4.8.7 (4.8.5) | 5.9.7 (5.6.2)          |
-| Red Hat EL/CentOS 8 | 2019/5          | 2029/5                | 2.56.4                  | 2.24.32                  | 3.22.30         | (none)        | 5.12.15 (5.6.2)        |
+| Red Hat EL/CentOS 8 | 2019/5          | 2029/5                | 2.56.4                  | 2.24.32                  | 3.22.30         | (none)        | 5.12.15 (5.11.1)        |
 
 Note: [EPEL](https://fedoraproject.org/wiki/EPEL) is an optional repository for extra packages.
 
