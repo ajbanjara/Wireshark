@@ -195,7 +195,8 @@ nghttp2 is required for complete HTTP/2 support. It also powers HTTP/2 support i
 | Ubuntu 16.04         | 1.7.1   |
 | Ubuntu 18.04         | 1.30.0  |
 | macOS (homebrew)     | 1.39.2  |
-| SLES 12              | (none)  |
+| SLES 12 SP5          | 1.7.1   |
+| SLES 15              | 1.40.0  |
 
 If the minimum version can be bumped to 1.11.0, we can remove use of a deprecated function.
 
