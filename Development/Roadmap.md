@@ -12,7 +12,7 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 ## Backporting Changes
 
-Significant bug fixes should be [backported to all applicable stable branches](/Development/Backporting) after they are checked in to the master branch. You can follow development progress using the links below.
+Significant bug fixes should be [backported to all applicable stable branches](Development/SubmittingPatches#backporting-a-change-to-a-release-branch) after they are checked in to the master branch. You can follow development progress using the links below.
 
 
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/master) in the [master (development) branch](https://gitlab.com/wireshark/wireshark/-/tree/master)
