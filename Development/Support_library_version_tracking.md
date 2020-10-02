@@ -295,6 +295,8 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 ## Debian
 
+[Release EOL information](https://wiki.debian.org/LTS)
+
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
 | squeeze            | 2.24.2       | 2.20.1       | (none)       | 4.6.3       | (none)      |
@@ -308,7 +310,7 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
 ## Ubuntu
 
-6 month release cycle, 9 month (regular), 5 years (LTS) lifetime.
+[Releases](https://wiki.ubuntu.com/Releases) are on a 6 month release cycle, 9 month (regular), 5 years (LTS) lifetime.
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
