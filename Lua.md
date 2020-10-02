@@ -92,13 +92,13 @@ The location of the directories containing these scripts are different on differ
 
 ## Wireshark's Lua API
 
-Wireshark’s Lua API Reference Manual can be found [here](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html). Changes to the API can be found [here](/Lua/ApiChanges).
+Wireshark’s Lua API Reference Manual can be found [here](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm_modules.html). Changes to the API can be found [here](/Lua/ApiChanges).
 
 ## Examples
 
 Examples of generic Lua code can be found in [The Sample Code](http://lua-users.org/wiki/SampleCode) page of Lua-Users wiki.
 
-Examples of wireshark and tshark specific scripts can be found in [the Lua examples wiki page](/Lua/Examples), as well as on the [Contrib repository wiki page](/Contrib).
+Examples of wireshark and tshark specific scripts can be found in [the Lua examples wiki page](/Lua/Examples), as well as on the [Contrib repository wiki page](/Contrib) and the Wireshark Developer’s Guide [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html).
 
 ## External Links
 
