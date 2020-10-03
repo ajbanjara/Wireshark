@@ -1,4 +1,7 @@
-This page is still under construction and may be incomplete. Caveat lector.
+This page is still under construction and may be incomplete. Caveat lector.  
+
+**Note** - see [Win32/64: Step-by-Step Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWin32.html) in the [Wireshark Developer’s Guide](https://www.wireshark.org/docs/wsdg_html_chunked/index.html) for full setup of Windows dev environment.  
+Pack a lunch - takes a while.
 
 # Introduction
 
@@ -6,7 +9,7 @@ Git for Windows is like a fish out of water, it's not the really the place for i
 
 # git clients
 
-There are quite a few [git clients](https://git.wiki.kernel.org/index.php/InterfacesFrontendsAndTools), including the [canonical version](http://git-scm.com/download/win), [GitHub for Windows](http://windows.github.com/), [TortoiseGit](http://code.google.com/p/tortoisegit/), [git extensions](http://sourceforge.net/projects/gitextensions/) and probably many others. However, as most use on other platforms tends to be command-line git, most books and guides tend to concentrate on that so windows users may actually find it easier to start with the command line and then move to graphical clients when they are comfortable with the basics. Unless stated otherwise, all the instructions listed here are intended to be run from a PowerShell prompt. PowerShell is present on Windows Vista or later, and available for XP or W2K3 via a download - download and install the [Windows Management Framework](http://support.microsoft.com/kb/968929), which includes [PowerShell](/PowerShell) 2.0.
+There are quite a few [git clients](https://git.wiki.kernel.org/index.php/InterfacesFrontendsAndTools), including the [canonical version](http://git-scm.com/download/win), [GitHub for Windows](http://windows.github.com/), [TortoiseGit](http://code.google.com/p/tortoisegit/), [git extensions](http://sourceforge.net/projects/gitextensions/) and probably many others. However, as most use on other platforms tends to be command-line git, most books and guides tend to concentrate on that so windows users may actually find it easier to start with the command line and then move to graphical clients when they are comfortable with the basics. Unless stated otherwise, all the instructions listed here are intended to be run from a [PowerShell](https://docs.microsoft.com/en-us/powershell/) prompt.
 
 As there are a few moving parts required to make life comfortable, this guide uses the [Chocolatey](http://chocolatey.org/) package manager to acquire and install the items required.
 
@@ -28,7 +31,8 @@ Now open a PowerShell prompt, and paste the following line in and run it:
 
 Your PowerShell prompt should now be git enabled, there are some tools however, that make life a little easier.
 
-[posh-git](https://github.com/dahlbyk/posh-git) is *A set of PowerShell scripts which provide Git/PowerShell integration*. To install, at a PowerShell prompt, paste the following text in and run it.
+[posh-git](https://github.com/dahlbyk/posh-git) is *A set of PowerShell scripts which provide Git/PowerShell integration*. ([Video](https://www.youtube.com/watch?v=WBg9mlpzEYU) showing enhanced prompt in action)  
+To install, at a PowerShell prompt, paste the following text in and run it.
 
     choco install poshgit
 
