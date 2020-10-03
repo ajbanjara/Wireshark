@@ -94,7 +94,7 @@ As mentioned above, you can use "#" to [reference issues](https://docs.gitlab.co
 "Closes #1234" is special -- it will close issue 1234 when the change is merged, while other references such as "see #4512" will simply link to the issue. 
 
 <!-- XXX Fix issue URL when the migration is complete. -->
-:bulb: If you're contributing a non-trivial fix to a dissector, you should [open an issue](https://gitlab.com/wireshark/wireshark) and attach a sample capture file.
+:bulb: If you're contributing a non-trivial fix to a dissector, you should [open an issue](https://gitlab.com/wireshark/wireshark/-/issues) and attach a sample capture file.
 
 Putting all that together, we get the following example:
 
@@ -220,7 +220,7 @@ If you would like to test someone else's merge request or personal repository br
     # Create a branch from FETCH_HEAD with a more useful name.
     git checkout -b other-user-branch-name FETCH_HEAD
 
-Each [merge request](https://gitlab.com/groups/wireshark/merge_requests) will have a "Check out branch" button with similar instructions.
+Each [merge request](https://gitlab.com/wireshark/wireshark/-/merge_requests) will have a "Check out branch" button with similar instructions.
 
 # Undoing A Change
 
