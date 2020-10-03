@@ -31,13 +31,13 @@ If it isn't clear to you what the GPL is and how it works please consult your la
 
 ## Lua in Wireshark
 
-Lua can be used to write [dissectors](/Lua/Dissectors), post-dissectors and [taps](/Lua/Taps).
+Lua can be used to write [dissectors](/Lua/Dissectors), [post-dissectors](/Lua/Examples/PostDissector) and [taps](/Lua/Taps).
 
 Although it's possible to write [dissectors](/Lua/Dissectors) in Lua, Wireshark dissectors are written in C, as C is several times faster than Lua. Lua is ok for prototyping dissectors, during Reverse Engineering you can use your time for finding out how things work instead of compiling and debugging your C dissector.
 
-Post-dissectors are dissectors meant to run after every other dissector has run. They can add items the dissection tree so they can be used to create your own extensions to the filtering mechanism.
+[Post-dissectors](/Lua/Examples/PostDissector) are dissectors meant to run after every other dissector has run. They can add items the dissection tree so they can be used to create your own extensions to the filtering mechanism.
 
-[/Taps](/Lua/Taps) are used to collect information after the packet has been dissected.
+[Taps](/Lua/Taps) are used to collect information after the packet has been dissected.
 
 ## Getting Started
 
