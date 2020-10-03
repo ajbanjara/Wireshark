@@ -325,7 +325,7 @@ A more comprehensive description of git can be found in [this book](https://git-
 
 ### Watching changes
 
-If you want to keep track of the changes happening on a specific file, you can using gerrit. Go to your settings page: <https://code.wireshark.org/review/#/settings/projects> In the tab Watched projects, add a watch for every file you want to watch by first selecting Wireshark in the project Name and then apply a filter in the Only-if look alike: <file:path/towards/my/file>
+GitLab does not currently provide a way to track the changes happening on a specific file. It is a frequently requested [open issue](https://gitlab.com/gitlab-org/gitlab/-/issues/1817), so support may be added some time in the future.
 
 # Sample Workflow Commands
 
