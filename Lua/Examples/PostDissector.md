@@ -174,6 +174,9 @@ Let's suppose we want to display all IPv6 addresses, but fully expanded.
     
     register_postdissector(ipv6_post)
 
+
+# A post-dissector to allow filtering on Protocol and Info columns
+[filtcols](/Lua/Examples/filtcols) - make Protocol and Info columns filterable by copying to Dissection Tree
 ---
 
 Imported from https://wiki.wireshark.org/Lua/Examples/PostDissector on 2020-08-11 23:16:11 UTC
