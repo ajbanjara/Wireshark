@@ -56,7 +56,7 @@ The Gerrit code review system required a commit-msg hook. This is no longer nece
 (You'll still need to use `git add FILE` for new files.)
 
 - Run `git commit` to commit your change, or `git commit -a` as noted above.
-You can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references), for example "closes #1234" to close issue 1234. 
+You can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references), for example "closes \#1234" to close issue 1234. 
 
 - Run `git push downstream HEAD`. This pushes the current branch (my-branch-name) to your personal repository.
 
