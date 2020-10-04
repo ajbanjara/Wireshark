@@ -31,7 +31,7 @@ Things not (yet) part of the [Wireshark User's Guide](http://www.wireshark.org/d
 
 - [ColoringRules](/ColoringRules): A collection of coloring rules examples
 
-- [HowTo](/HowTo): How to do various things with Wireshark
+- [HowTo](/HowTo): How to do various things with Wireshark and Tshark
 
 - [Preferences](/Preferences): Preference settings controlling the behaviour of Wireshark and TShark
 
