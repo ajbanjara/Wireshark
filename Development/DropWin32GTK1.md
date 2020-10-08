@@ -1,14 +1,7 @@
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>:warning: This page is historical. After a discussion at Sharkfest'08 the development team decided to drop GTK1 support after the Wireshark 1.0 release. At the time of this writing, only the old stable release of Wireshark (1.0.x) supports GTK1 and GTK2. The 1.2 release, and all later releases, only support GTK2.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+***
+:warning:
+This page is historical. After a discussion at Sharkfest'08 the development team decided to drop GTK1 support after the Wireshark 1.0 release. At the time of this writing, only the old stable release of Wireshark (1.0.x) supports GTK1 and GTK2. The 1.2 release, and all later releases, only support GTK2.
+***
 
 # Drop Win32 Wireshark support for GTK1.x
 
