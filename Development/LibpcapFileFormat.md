@@ -18,9 +18,9 @@ Wireshark handles all capture file I/O in the [wiretap](https://gitlab.com/wires
 
 ## File Format
 
-There are some variants of the format "in the wild", the following will only describe the commonly used format in its current version 2.4. This format version hasn't changed for quite a while (at least since libpcap 0.4 in 1998), so it's not expected to change except for the PCAPng file format mentioned below.
+There are some [variants](#Variants) of the format "in the wild", the following will only describe the commonly used format in its current version 2.4. This format version hasn't changed for quite a while (at least since libpcap 0.4 in 1998), so it's not expected to change except for the PCAPng file format mentioned below.
 
-The one official variant of the file is a version that supports nanosecond-precision time stamps. Libpcap 1.5.0 and later can read files in that format; older versions of libpcap, and all current versions of [WinPcap](/WinPcap), cannot read it. Older versions of Wireshark cannot read it; current versions can read it and can show the full nanosecond-resolution time stamps.
+
 
 The file has a global header containing some global information followed by zero or more records for each captured packet, looking like this:
 
@@ -49,7 +49,7 @@ This header starts the libpcap file and will be followed by the first packet hea
     } pcap_hdr_t;
 ```
 
-  - magic\_number: used to detect the file format itself and the byte ordering. The writing application writes 0xa1b2c3d4 with it's native byte ordering format into this field. The reading application will read either 0xa1b2c3d4 (identical) or 0xd4c3b2a1 (swapped). If the reading application reads the swapped 0xd4c3b2a1 value, it knows that all the following fields will have to be swapped too. For nanosecond-resolution files, the writing application writes 0xa1b23c4d, with the two nibbles of the two lower-order bytes swapped, and the reading application will read either 0xa1b23c4d (identical) or 0x4d3cb2a1 (swapped).
+  - magic\_number: used to detect the file format itself and the byte ordering. The writing application writes 0xa1b2c3d4 with it's native byte ordering format into this field. The reading application will read either 0xa1b2c3d4 (identical) or 0xd4c3b2a1 (swapped). If the reading application reads the swapped 0xd4c3b2a1 value, it knows that all the following fields will have to be swapped too.
 
   - version\_major, version\_minor: the version number of this file format (current version is 2.4)
 
@@ -84,9 +84,76 @@ Each captured packet starts with (any byte alignment possible):
 
   - orig\_len: the length of the packet as it appeared on the network when it was captured. If *incl\_len* and *orig\_len* differ, the actually saved packet size was limited by *snaplen*.
 
+:bulb: Fun fact: Before version 2.3 of the libpcap file format, the `orig_len` and `incl_len` fields were swapped. Some implementations continued the swap even when giving 2.3 as their file format version.
+
 ### Packet Data
 
 The actual packet data will immediately follow the packet header as a data blob of *incl\_len* bytes without a specific byte alignment.
+
+## Variants
+
+Because of the [drawbacks](#Drawbacks) of the pcap file format, several developers and vendors have independently extended the format to meet their needs. Some developers were kind enough to change the magic bytes from the libpcap standard; for the others, Wireshark has had to include some heuristics.
+
+### Nanosecond pcap
+
+The one official variant of the pcap format is a version that supports nanosecond-precision time stamps. Libpcap 1.5.0 and later can read files in that format; older versions of libpcap, and all current versions of [WinPcap](/WinPcap), cannot read it. Older versions of Wireshark cannot read it; current versions can read it and can show the full nanosecond-resolution time stamps.
+
+The magic bytes for this format are 0xa1b23c4d (note the final two bytes). There are no changes to the file or record headers from standard libpcap, apart from the timestamp resolution.
+
+Authorship of this variant is credited to Ulf Lamping.
+
+### "Modified" pcap
+
+Alexey Kuznetsov created patches to libpcap to add some extra fields to the record header. (These patches were traditionally available at `http://ftp.sunet.se/pub/os/Linux/ip-routing/lbl-tools/` but are no longer available there.) Within the Wireshark source code, this format is known simply as "modified pcap."
+
+The magic bytes for this format are 0xa1b2cd34 (note the fional two bytes). The file header is otherwise the same as the standard libpcap header.
+
+The record header is extended in the following way (code taken from `wiretap/libpcap.h`):
+
+```c
+struct pcaprec_modified_hdr {
+	struct pcaprec_hdr hdr;	/* the regular header */
+	guint32 ifindex;	/* index, in *capturing* machine's list of
+				   interfaces, of the interface on which this
+				   packet came in. */
+	guint16 protocol;	/* Ethernet packet type */
+	guint8 pkt_type;	/* broadcast/multicast/etc. indication */
+	guint8 pad;		/* pad to a 4-byte boundary */
+};
+```
+
+In the ss990915 version of the patch (which shows up in SuSE Linux 6.3) the record header instead looks like this (code taken from `wiretap/libpcap.h`):
+
+```c
+/* "libpcap" record header for Alexey's patched version in its ss990915
+   incarnation; this version shows up in SuSE Linux 6.3. */
+struct pcaprec_ss990915_hdr {
+	struct pcaprec_hdr hdr;	/* the regular header */
+	guint32 ifindex;	/* index, in *capturing* machine's list of
+				   interfaces, of the interface on which this
+				   packet came in. */
+	guint16 protocol;	/* Ethernet packet type */
+	guint8 pkt_type;	/* broadcast/multicast/etc. indication */
+	guint8 cpu1, cpu2;	/* SMP debugging gunk? */
+	guint8 pad[3];		/* pad to a 4-byte boundary */
+};
+```
+
+### Nokia pcap
+
+Some Nokia boxes (firewalls?) emit a non-standard record format. It uses the standard file header, and the record headers incorporates the standard libpcap record headers, but also add 4 extra bytes of mysterious stuff. Wireshark preserves this data when saving, but otherwise ignores it.
+
+### AIX
+
+The libpcap library used on AIX wrote pcap files with stated version number 2.2, and used RFC 1573 "ifType" values in the header where all other variants use DLT_ values. It also has nanosecond-precision packet timestamps.
+
+Wireshark includes some extra checks if the file version is 2.2 to determine if the file is an AIX pcap.
+
+### IXIA
+
+IXIA's lcap file format closely resembles libpcap, but adds a length field at the end of the file header, which gives the size of all records that follow. (Wireshark ignores this number.)
+
+The magic bytes for this format are 0x1c0001ac (hardware-generated) and 0x01c0001ab (software-generated).
 
 ## Libraries
 
