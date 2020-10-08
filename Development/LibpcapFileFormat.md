@@ -24,24 +24,12 @@ The one official variant of the file is a version that supports nanosecond-preci
 
 The file has a global header containing some global information followed by zero or more records for each captured packet, looking like this:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Global Header</p></td>
-<td><p>Packet Header</p></td>
-<td><p>Packet Data</p></td>
-<td><p>Packet Header</p></td>
-<td><p>Packet Data</p></td>
-<td><p>Packet Header</p></td>
-<td><p>Packet Data</p></td>
-<td><p>...</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+* Global Header
+* Packet Header
+* Packet Data
+* Packet Header
+* Packet Data
+* ...
 
 A captured packet in a capture file does not necessarily contain all the data in the packet as it appeared on the network; the capture file might contain at most the first *N* bytes of each packet, for some value of *N*. The value of *N*, in such a capture, is called the "snapshot length" or "snaplen" of the capture. *N* might be a value larger than the largest possible packet, to ensure that no packet in the capture is "sliced" short; a value of 65535 will typically be used in this case.
 
@@ -49,6 +37,7 @@ A captured packet in a capture file does not necessarily contain all the data in
 
 This header starts the libpcap file and will be followed by the first packet header:
 
+```c
     typedef struct pcap_hdr_s {
             guint32 magic_number;   /* magic number */
             guint16 version_major;  /* major version number */
@@ -58,6 +47,7 @@ This header starts the libpcap file and will be followed by the first packet hea
             guint32 snaplen;        /* max length of captured packets, in octets */
             guint32 network;        /* data link type */
     } pcap_hdr_t;
+```
 
   - magic\_number: used to detect the file format itself and the byte ordering. The writing application writes 0xa1b2c3d4 with it's native byte ordering format into this field. The reading application will read either 0xa1b2c3d4 (identical) or 0xd4c3b2a1 (swapped). If the reading application reads the swapped 0xd4c3b2a1 value, it knows that all the following fields will have to be swapped too. For nanosecond-resolution files, the writing application writes 0xa1b23c4d, with the two nibbles of the two lower-order bytes swapped, and the reading application will read either 0xa1b23c4d (identical) or 0x4d3cb2a1 (swapped).
 
@@ -77,12 +67,14 @@ This header starts the libpcap file and will be followed by the first packet hea
 
 Each captured packet starts with (any byte alignment possible):
 
+```c
     typedef struct pcaprec_hdr_s {
             guint32 ts_sec;         /* timestamp seconds */
             guint32 ts_usec;        /* timestamp microseconds */
             guint32 incl_len;       /* number of octets of packet saved in file */
             guint32 orig_len;       /* actual length of packet */
     } pcaprec_hdr_t;
+```
 
   - ts\_sec: the date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT; this is also known as a UN\*X time\_t. You can use the ANSI C *time()* function from *time.h* to get this value, but you might use a more optimized way to get this timestamp value. If this timestamp isn't based on GMT (UTC), use *thiszone* from the global header for adjustments.
 
