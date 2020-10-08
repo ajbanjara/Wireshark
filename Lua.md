@@ -44,7 +44,7 @@ To test Lua on your system, do the following:
 
 2.  Create a simple Lua script such as:
     
-    ``` 
+    ```lua
      -- hello.lua
      -- Lua's implementation of D. Ritchie's hello world program.
         print("hello world!")
