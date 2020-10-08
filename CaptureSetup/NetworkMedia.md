@@ -4,7 +4,7 @@ The capture library [libpcap](/libpcap) / [WinPcap](/WinPcap), and the underlyin
 
 This is a table giving the network types supported on various platforms:
 
-| Interface                                        | AIX                | FreeBSD            | HP-UX              | Irix               | Linux                          | macOS              | NetBSD             | OpenBSD            | Solaris            | Tru64 UNIX         | Windows            |
+| Interface                                        | AIX                | FreeBSD            | HP‑UX              | Irix               | Linux                          | macOS              | NetBSD             | OpenBSD            | Solaris            | Tru64 UNIX         | Windows            |
 | ------------------------------------------------ | :----------------: | :----------------: | :----------------: | :----------------: | :----------------------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
 | **[ATM](/CaptureSetup/ATM)**                     | :grey_question:    | :grey_question:    | :grey_question:    | :grey_question:    | :white_check_mark:             | :x:                | :grey_question:    | :grey_question:    | :white_check_mark: | :grey_question:    | :grey_question:    |
 | **[Bluetooth](/CaptureSetup/Bluetooth)**         | :x:                | :x:                | :x:                | :x:                | :white_check_mark:<sup>1</sup> | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
