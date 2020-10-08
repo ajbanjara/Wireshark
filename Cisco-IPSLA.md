@@ -20,73 +20,26 @@ A 52 byte long control package is sent to port 1967/udp which initiates the IP S
 
 This can be dissected into following fields:
 
-<div>
+| Bit Offset | Purpose                 |
+| :--------: | ----------------------- |
+| 0-7        | Version (will be 1)     |
+| 8-23       | Sequence number         |
+| 24-55      | Total length of message |
+| 56-71      | unknown field           |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>bit offset</strong></p></td>
-<td><p><strong>Purpose</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>0-7</p></td>
-<td><p>Version (will be 1)</p></td>
-</tr>
-<tr class="odd">
-<td><p>8-23</p></td>
-<td><p>Sequence number</p></td>
-</tr>
-<tr class="even">
-<td><p>24-55</p></td>
-<td><p>Total length of message</p></td>
-</tr>
-<tr class="odd">
-<td><p>56-71</p></td>
-<td><p>unknown field</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
 After this you get some variable data. In the example packet, we receive measure request. Offsets relative to header.
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>bit offset</strong></p></td>
-<td><p><strong>Purpose</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>0-15</p></td>
-<td><p>Message type</p></td>
-</tr>
-<tr class="odd">
-<td><p>16-31</p></td>
-<td><p>Message length</p></td>
-</tr>
-<tr class="even">
-<td><p>32-39</p></td>
-<td><p>Unknown</p></td>
-</tr>
-<tr class="odd">
-<td><p>40-71</p></td>
-<td><p>Target IPv4 address</p></td>
-</tr>
-<tr class="even">
-<td><p>72-87</p></td>
-<td><p>Target port</p></td>
-</tr>
-<tr class="odd">
-<td><p>88-111</p></td>
-<td><p>Unknown data</p></td>
-</tr>
-</tbody>
-</table>
+| Bit Offset | Purpose             |
+| :--------: | ------------------- |
+| 0-15       | Message type        |
+| 16-31      | Message length      |
+| 32-39      | Unknown             |
+| 40-71      | Target IPv4 address |
+| 72-87      | Target port         |
+| 88-111     | Unknown data        |
 
-</div>
 
 At the moment it would seem that, depending on something, you send either the received message back, as is, or you send 010f00080000000000000000 back to the other station. It is unclear when to do which.
 
@@ -94,46 +47,16 @@ At the moment it would seem that, depending on something, you send either the re
 
 For message type 4, there are two kinds of measures. Either millisecond or microsecond resolution measurement. The microsecond packet is yet to be analysed, but millisecond message format is as of follows:
 
-<div>
+| Bit Offset | Purpose                                                            |
+| :--------: | ------------------------------------------------------------------ |
+| 0-15       | Message type                                                       |
+| 16-31      | Flags (we have observed values 00 02, 00 04, 00 06, 00 0d)         |
+| 32-63      | 4 byte value, milliseconds from midnight, UTC. Sender sets this    |
+| 64-95      | 4 byte value, milliseconds from midnight, UTC. Responder sets this |
+| 96-111     | Sender sequence number                                             |
+| 112-127    | Responder sequence number (copied from sender)                     |
+| 128-255    | Payload                                                            |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>bit offset</strong></p></td>
-<td><p><strong>Purpose</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>0-15</p></td>
-<td><p>Message type</p></td>
-</tr>
-<tr class="odd">
-<td><p>16-31</p></td>
-<td><p>Flags (we have observed values 00 02, 00 04, 00 06, 00 0d)</p></td>
-</tr>
-<tr class="even">
-<td><p>32-63</p></td>
-<td><p>4 byte value, milliseconds from midnight, UTC. Sender sets this</p></td>
-</tr>
-<tr class="odd">
-<td><p>64-95</p></td>
-<td><p>4 byte value, milliseconds from midnight, UTC. Responder sets this</p></td>
-</tr>
-<tr class="even">
-<td><p>96-111</p></td>
-<td><p>Sender sequence number</p></td>
-</tr>
-<tr class="odd">
-<td><p>112-127</p></td>
-<td><p>Responder sequence number (copied from sender)</p></td>
-</tr>
-<tr class="even">
-<td><p>128-255</p></td>
-<td><p>Payload</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
 Example request:
 

@@ -6,56 +6,16 @@ Software Defined Networking (SDN) Southbound API standard protocol.
 
 The OpenFlow dissector is available in the current Wireshark stable release (v1.12.x). As of 2014-11-04 it supports:
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>OpenFlow version</strong></p></td>
-<td><p><strong>Protocol version</strong></p></td>
-<td><p><strong>Status</strong></p></td>
-<td><p><strong>File</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>OpenFlow 1.0</p></td>
-<td><p>0x01</p></td>
-<td><p>aprox. 50%</p></td>
-<td><p><a href="https://code.wireshark.org/review/gitweb?p=wireshark.git;a=history;f=epan/dissectors/packet-openflow_v1.c" class="https">epan/dissectors/packet-openflow_v1.c</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>OpenFlow 1.1</p></td>
-<td><p>0x02</p></td>
-<td><p>0%</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>OpenFlow 1.2</p></td>
-<td><p>0x03</p></td>
-<td><p>0%</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>OpenFlow 1.3</p></td>
-<td><p>0x04</p></td>
-<td><p>100%</p></td>
-<td><p><a href="https://code.wireshark.org/review/gitweb?p=wireshark.git;a=history;f=epan/dissectors/packet-openflow_v4.c" class="https">epan/dissectors/packet-openflow_v4.c</a></p></td>
-</tr>
-<tr class="even">
-<td><p>OpenFlow 1.4</p></td>
-<td><p>0x05</p></td>
-<td><p>aprox. 90%</p></td>
-<td><p><a href="https://code.wireshark.org/review/gitweb?p=wireshark.git;a=history;f=epan/dissectors/packet-openflow_v5.c" class="https">epan/dissectors/packet-openflow_v5.c</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>OpenFlow 1.5</p></td>
-<td><p>0x06</p></td>
-<td><p>0%</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| OpenFlow version | Protocol version | Status     | File                                                                                                                               |
+| ---------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| OpenFlow 1.0     | 0x01             | aprox. 50% | [epan/dissectors/packet-openflow\_v1.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-openflow_v1.c) |
+| OpenFlow 1.1     | 0x02             | 0%         |                                                                                                                                    |
+| OpenFlow 1.2     | 0x03             | 0%         |                                                                                                                                    |
+| OpenFlow 1.3     | 0x04             | 100%       | [epan/dissectors/packet-openflow\_v4.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-openflow_v4.c) |
+| OpenFlow 1.4     | 0x05             | aprox. 90% | [epan/dissectors/packet-openflow\_v5.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-openflow_v5.c) |
+| OpenFlow 1.5     | 0x06             | 0%         |                                                                                                                                    |
 
-</div>
 
 ## Protocol dependencies
 

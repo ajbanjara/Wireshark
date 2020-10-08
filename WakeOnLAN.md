@@ -16,24 +16,9 @@ For a history of WakeOnLAN and Magic Packet technology, refer to either [this wi
 
 A physical WakeOnLAN (Magic Packet) will look like this:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><p><strong>Synchronization Stream</strong></p></td>
-<td style="text-align: center;"><p><strong>Target MAC</strong></p></td>
-<td style="text-align: center;"><p><strong>Password (optional)</strong></p></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><p>6</p></td>
-<td style="text-align: center;"><p>96</p></td>
-<td style="text-align: center;"><p>0, 4 or 6</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Synchronization Stream | Target MAC | Password (optional) |
+| :--------------------: | :--------: | :-----------------: |
+|           6            |     96     |      0, 4 or 6      |
 
 The Synchronization Stream is defined as 6 bytes of FFh.
 

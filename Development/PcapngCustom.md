@@ -16,34 +16,11 @@ That means we need a registry of all Block or Option Entry Type numbers we've ev
 
 ## Block Entry Types
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Number</strong></p></td>
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>0</p></td>
-<td><p>Reserved</p></td>
-<td><p>Not used.</p></td>
-</tr>
-<tr class="odd">
-<td><p>1</p></td>
-<td><p>File Preferences</p></td>
-<td><p>Contains certain preferences for the whole file (not per SHB section), as defined later.</p></td>
-</tr>
-<tr class="even">
-<td><p>2</p></td>
-<td><p>Decryption Key</p></td>
-<td><p>Contains decryption key info, to be used to decrypt packet content, as defined later.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Number | Name             | Description                                                                              |
+| ------ | ---------------- | ---------------------------------------------------------------------------------------- |
+| 0      | Reserved         | Not used.                                                                                |
+| 1      | File Preferences | Contains certain preferences for the whole file (not per SHB section), as defined later. |
+| 2      | Decryption Key   | Contains decryption key info, to be used to decrypt packet content, as defined later.    |
 
 ## Option Entry Types
 
@@ -51,74 +28,49 @@ Note that these options, even when inside one of our Custom Blocks, are still en
 
 Since we have 4 billion numbers for Option Entry Types, there's no need to have a different number space per block type - instead, we can reserve a given Option Entry Type number across all of our Block Entry Types.
 
-<div>
+### 0: Reserved
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Number</strong></p></td>
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-<td><p><strong>Example</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>0</p></td>
-<td><p>Reserved</p></td>
-<td><p>Not used.</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="odd">
-<td><p>1</p></td>
-<td><p>Display filter</p></td>
-<td><p>A UTF-8 string of the display filter to apply, in Wireshark display filter syntax. Note that this is a display filter to be applied to limit the display, but that there might be other packets in the file which do no match this filter.</p></td>
-<td><p>"http &amp;&amp; tcp.port == 8080"</p></td>
-</tr>
-<tr class="even">
-<td><p>2</p></td>
-<td><p>Save filter</p></td>
-<td><p>A UTF-8 string of the display filter that was used to limit the entries in the file, in Wireshark display filter syntax.</p></td>
-<td><p>"http &amp;&amp; tcp.port == 8080"</p></td>
-</tr>
-<tr class="odd">
-<td><p>3</p></td>
-<td><p>Color filter</p></td>
-<td><p>A UTF-8 string of a color filter rule to apply, in Wireshark color filter syntax. This option can be repeated multiple times, of course.</p></td>
-<td><p>"@sip@sip@[11384,50442,58072][65535,65535,65535]"</p></td>
-</tr>
-<tr class="even">
-<td><p>4</p></td>
-<td><p>Decode-as preference</p></td>
-<td><p>A UTF-8 string with a TBD format.</p></td>
-<td><p>TBD</p></td>
-</tr>
-<tr class="odd">
-<td><p>5</p></td>
-<td><p>Decryption Key ID</p></td>
-<td><p>This option is added to an EPB, and is a uint32 that identifies the Decryption Key Block this packet uses, in this SHB section. (i.e., similar to Interface ID for IDBs) Multiple of these options in the same EPB is possible, if one encryption occurs at a different layer than another (for example TLS over IPSEC).</p></td>
-<td><p>'0'</p></td>
-</tr>
-<tr class="even">
-<td><p>6</p></td>
-<td><p>Decryption Key Value</p></td>
-<td><p>A variably length sequence of bytes representing the actual decryption key this option is used in Decryption Key Block.</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>7</p></td>
-<td><p>Decryption Key IV</p></td>
-<td><p>A variable length sequence of bytes, representing the initialization vector, if necessary; this option is used in Decryption Key Block.</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>8</p></td>
-<td><p>MAC Key</p></td>
-<td><p>A variable length sequence of bytes, representing the message authentication key, if necessary; this option is used in Decryption Key Block.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+Not used.
 
-</div>
+### 1: Display filter
+
+A UTF-8 string of the display filter to apply, in Wireshark display filter syntax. Note that this is a display filter to be applied to limit the display, but that there might be other packets in the file which do no match this filter.
+
+Example: `"http && tcp.port == 8080"`
+
+### 2: Save filter
+
+A UTF-8 string of the display filter that was used to limit the entries in the file, in Wireshark display filter syntax.
+
+Example: `"http && tcp.port == 8080"`
+
+### 3: Color filter
+
+A UTF-8 string of a color filter rule to apply, in Wireshark color filter syntax. This option can be repeated multiple times, of course.
+
+Example: `"@sip@sip@[11384,50442,58072][65535,65535,65535]"`
+
+### 4: Decode-as preference
+
+A UTF-8 string with a TBD format.
+
+### 5: Decryption Key ID
+
+This option is added to an EPB, and is a uint32 that identifies the Decryption Key Block this packet uses, in this SHB section. (i.e., similar to Interface ID for IDBs) Multiple of these options in the same EPB is possible, if one encryption occurs at a different layer than another (for example TLS over IPSEC).
+
+Example: `'0'`
+
+### 6: Decryption Key Value
+
+A variably length sequence of bytes representing the actual decryption key this option is used in Decryption Key Block.
+
+### 7: Decryption Key IV
+
+A variable length sequence of bytes, representing the initialization vector, if necessary; this option is used in Decryption Key Block.
+
+### 8: MAC Key
+A variable length sequence of bytes, representing the message authentication key, if necessary; this option is used in Decryption Key Block.
+
 
 # File Encoding Format
 
@@ -203,63 +155,22 @@ For the "Block Entry-specific Data" portion of the Wireshark Custom Block, the D
 
 Decryption Key Type: A uint16 type number used to determine the algorithm to use for decryption and authentication. Current valid values are:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Type</strong></p></td>
-<td><p><strong>Meaning</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>1</p></td>
-<td><p>AES 128-bit, CBC-mode, SHA-1 HMAC</p></td>
-</tr>
-<tr class="odd">
-<td><p>2</p></td>
-<td><p>AES 256-bit, CBC-mode, SHA-1 HMAC</p></td>
-</tr>
-<tr class="even">
-<td><p>x</p></td>
-<td><p>... more here ...</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Type | Meaning                           |
+| ---- | --------------------------------- |
+| 1    | AES 128-bit, CBC-mode, SHA-1 HMAC |
+| 2    | AES 256-bit, CBC-mode, SHA-1 HMAC |
+| x    | ... more here ...                 |
 
 (should we split the HMAC from the encryption instead of combining them as above?)
 
 Packet Layer Type: A uint16 type number to help determine what protocol layer in the packet uses this decryption info, as well as help troubleshoot problems.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Type</strong></p></td>
-<td><p><strong>Meaning</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>1</p></td>
-<td><p>SSLv3</p></td>
-</tr>
-<tr class="odd">
-<td><p>2</p></td>
-<td><p>TLSv1</p></td>
-</tr>
-<tr class="even">
-<td><p>3</p></td>
-<td><p>TLSv1.1</p></td>
-</tr>
-<tr class="odd">
-<td><p>x</p></td>
-<td><p>... more here ...</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Type | Meaning           |
+| ---- | ----------------- |
+| 1    | SSLv3             |
+| 2    | TLSv1             |
+| 3    | TLSv1.1           |
+| x    | ... more here ... |
 
 ## Wireshark Custom Option
 

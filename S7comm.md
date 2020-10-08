@@ -6,54 +6,15 @@ It is used for PLC programming, exchanging data between PLCs, accessing PLC data
 
 The S7comm data comes as payload of COTP data packets. The first byte is always 0x32 as protocol identifier. Special communication processors for the S7-400 series (CP 443) may use this protocol without the TCP/IP layers.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td></td>
-<td><p><strong>OSI layer</strong></p></td>
-<td><p><strong>Protocol</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>7</p></td>
-<td><p>Application Layer</p></td>
-<td><p>S7 communication</p></td>
-</tr>
-<tr class="odd">
-<td><p>6</p></td>
-<td><p>Presentation Layer</p></td>
-<td><p>S7 communication</p></td>
-</tr>
-<tr class="even">
-<td><p>5</p></td>
-<td><p>Session Layer</p></td>
-<td><p>S7 communication</p></td>
-</tr>
-<tr class="odd">
-<td><p>4</p></td>
-<td><p>Transport Layer</p></td>
-<td><p>ISO-on-TCP (RFC 1006)</p></td>
-</tr>
-<tr class="even">
-<td><p>3</p></td>
-<td><p>Network Layer</p></td>
-<td><p>IP</p></td>
-</tr>
-<tr class="odd">
-<td><p>2</p></td>
-<td><p>Data Link Layer</p></td>
-<td><p>Ethernet</p></td>
-</tr>
-<tr class="even">
-<td><p>1</p></td>
-<td><p>Physical Layer</p></td>
-<td><p>Ethernet</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+|   | OSI layer          | Protocol              |
+| - | ------------------ | --------------------- |
+| 7 | Application Layer  | S7 communication      |
+| 6 | Presentation Layer | S7 communication      |
+| 5 | Session Layer      | S7 communication      |
+| 4 | Transport Layer    | ISO-on-TCP (RFC 1006) |
+| 3 | Network Layer      | IP                    |
+| 2 | Data Link Layer    | Ethernet              |
+| 1 | Physical Layer     | Ethernet              |
 
 To establish a connection to a S7 PLC there are 3 steps:
 

@@ -249,17 +249,8 @@ RDP 6.0
 
   - From Tomas Kukosa via the Wireshark-dev mailing list 2007/10/26 06:59:23 GMT:
 
-<div>
+    The X.224 is equal with the ISO International Standard 8073 which is implemented in the Wireshark. If you use Decode as TPKT on the RDP stream, it makes partially valid output.
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>The X.224 is equal with the ISO International Standard 8073 which is implemented in the Wireshark. If you use Decode as TPKT on the RDP stream, it makes partially valid output.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
   - [ISO/IEC 8073:1997](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=24077) - costs 216 Swiss francs
 

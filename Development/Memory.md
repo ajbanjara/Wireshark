@@ -6,58 +6,31 @@ This page attempt to document the memory (de)allocation flow. Hopefully this mak
 
 The wmem memory allocator uses these packet scopes (see README.wmem in links):
 
-  - packet scope: freed after dissection of a single packet (see callers of wmem\_enter\_packet\_scope).
-  - file scope: entered via wmem\_enter\_file\_scope in init\_dissection, freed via cleanup\_dissection.
-  - epan scope: freed at the end of the program (called via epan\_cleanup).
+  - packet scope: freed after dissection of a single packet (see callers of` wmem_enter_packet_scope`).
+  - file scope: entered via `wmem_enter_file_scope` in` init_dissection`, freed via` cleanup_dissection`.
+  - epan scope: freed at the end of the program (called via` epan_cleanup`).
 
 ## Callbacks
 
-This section attempts to document various entry and exit points. The **register** column points to the function that can be used to register a void (\*callback)(void). The **caller** column points to the invocation site.
+This section attempts to document various entry and exit points. The **register** column points to the function that can be used to register a `void (*callback)(void)`. The **caller** column points to the invocation site.
 
 These callbacks are defined in packet.h:
 
-<div>
+| register                              | caller                                                                     | note |
+| ------------------------------------- | -------------------------------------------------------------------------- | ---- |
+| `register_final_registration_routine` | `final_registration_all_protocols` via `epan_init`                         |      |
+| `register_postseq_cleanup_routine`    | `postseq_cleanup_all_protocols`                                            | called after fully reading a file, after calling `epan_dissect_cleanup` (`file.c#cf_read`, `file.c#cf_finish_tail`) |
+| `register_init_routine`               | via `init_dissection` (and `cleanup_dissection` up until a 1.99.X version) |      |
+| `register_cleanup_routine`            | via `cleanup_dissection` (since a 1.99.X version)                          | WIP  |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>register</strong></p></td>
-<td><p><strong>caller</strong></p></td>
-<td><p><strong>note</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>register_final_registration_routine</p></td>
-<td><p>final_registration_all_protocols via epan_init</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>register_postseq_cleanup_routine</p></td>
-<td><p>postseq_cleanup_all_protocols</p></td>
-<td><p>called after fully reading a file, after calling epan_dissect_cleanup (file.c#cf_read, file.c#cf_finish_tail)</p></td>
-</tr>
-<tr class="even">
-<td><p>register_init_routine</p></td>
-<td><p>via init_dissection (and cleanup_dissection up until a 1.99.X version)</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>register_cleanup_routine</p></td>
-<td><p>via cleanup_dissection (since a 1.99.X version)</p></td>
-<td><p>WIP</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-  - epan\_dissect\_cleanup is called via:
-      - epan\_dissect\_free (tshark.c\#load\_cap\_file)
+  - `epan_dissect_cleanup` is called via:
+      - `epan_dissect_free` (`tshark.c#load_cap_file`)
 
 I'm lost. Need call graph?
 
 ### Backtraces
 
-Breaking on spx\_cleanup\_protocol, spx\_postseq\_cleanup, spx\_init\_protocol which has this code:
+Breaking on spx_cleanup_protocol, spx_postseq_cleanup, spx_init_protocol which has this code:
 
 ``` 
         register_init_routine(&spx_init_protocol);

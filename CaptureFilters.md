@@ -122,40 +122,15 @@ Many worms try to spread by contacting other hosts on ports 135, 445, or 1433. T
 
 Wireshark tries to determine if it's running remotely (e.g. via SSH or Remote Desktop), and if so sets a default capture filter that should block out the remote session traffic. It does this by checking environment variables in the following order:
 
-<div>
+| Environment Variable | Resultant Filter                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `SSH_CONNECTION`     | not (tcp port *srcport* and *addr\_family* host *srchost* and tcp port *dstport* and *addr\_family* host *dsthost*) |
+| `SSH_CLIENT`         | not (tcp port *srcport* and *addr\_family* host *srchost* and tcp port *dstport*)                                   |
+| `REMOTEHOST`         | not *addr\_family* host *host*                                                                                      |
+| `DISPLAY`            | not *addr\_family* host *host*                                                                                      |
+| `CLIENTNAME`         | not tcp port 3389                                                                                                   |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Environment Variable</strong></p></td>
-<td><p><strong>Resultant Filter</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>SSH_CONNECTION</p></td>
-<td><p>not (tcp port <em>srcport</em> and <em>addr_family</em> host <em>srchost</em> and tcp port <em>dstport</em> and <em>addr_family</em> host <em>dsthost</em>)</p></td>
-</tr>
-<tr class="odd">
-<td><p>SSH_CLIENT</p></td>
-<td><p>not (tcp port <em>srcport</em> and <em>addr_family</em> host <em>srchost</em> and tcp port <em>dstport</em>)</p></td>
-</tr>
-<tr class="even">
-<td><p>REMOTEHOST</p></td>
-<td><p>not <em>addr_family</em> host <em>host</em></p></td>
-</tr>
-<tr class="odd">
-<td><p>DISPLAY</p></td>
-<td><p>not <em>addr_family</em> host <em>host</em></p></td>
-</tr>
-<tr class="even">
-<td><p>CLIENTNAME</p></td>
-<td><p>not tcp port 3389</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-(*addr\_family* will either be "ip" or "ip6")
+(*addr\_family* will either be `ip` or `ip6`)
 
 ## Further Information
 

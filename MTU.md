@@ -8,58 +8,18 @@ The smallest MTU between two hosts is known as the **path MTU**.
 
 ## Common MTU Values
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Value</strong></p></td>
-<td><p><strong>Link Type</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>65535</p></td>
-<td><p>PPP max, Hyperchannel</p></td>
-</tr>
-<tr class="odd">
-<td><p>17914</p></td>
-<td><p>16 Mbps Token Ring</p></td>
-</tr>
-<tr class="even">
-<td><p>4464</p></td>
-<td><p>4 Mbps Token Ring</p></td>
-</tr>
-<tr class="odd">
-<td><p>1500</p></td>
-<td><p>Ethernet, PPP default</p></td>
-</tr>
-<tr class="even">
-<td><p>1492</p></td>
-<td><p>IEEE 802.3/802.2</p></td>
-</tr>
-<tr class="odd">
-<td><p>1480</p></td>
-<td><p>PPPoE</p></td>
-</tr>
-<tr class="even">
-<td><p>1460</p></td>
-<td><p>L2TP</p></td>
-</tr>
-<tr class="odd">
-<td><p>1454</p></td>
-<td><p>Optimal PPPoE-over-DSL MTU (see <a href="http://www.mynetwatchman.com/kb/adsl/pppoemtu.htm" class="http">http://www.mynetwatchman.com/kb/adsl/pppoemtu.htm</a> for details)</p></td>
-</tr>
-<tr class="even">
-<td><p>1372</p></td>
-<td><p>PPTP (PPP/GRE/IP) default, Windows XP</p></td>
-</tr>
-<tr class="odd">
-<td><p>576</p></td>
-<td><p>X.25, default for many SLIP implementations</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Value | Link Type                                                                                        |
+| ----- | ------------------------------------------------------------------------------------------------ |
+| 65535 | PPP max, Hyperchannel                                                                            |
+| 17914 | 16 Mbps Token Ring                                                                               |
+| 4464  | 4 Mbps Token Ring                                                                                |
+| 1500  | Ethernet, PPP default                                                                            |
+| 1492  | IEEE 802.3/802.2                                                                                 |
+| 1480  | PPPoE                                                                                            |
+| 1460  | L2TP                                                                                             |
+| 1454  | Optimal PPPoE-over-DSL MTU (see <http://www.mynetwatchman.com/kb/adsl/pppoemtu.htm> for details) |
+| 1372  | PPTP (PPP/GRE/IP) default, Windows XP                                                            |
+| 576   | X.25, default for many SLIP implementations                                                      |
 
 ## Setting MTU Values
 

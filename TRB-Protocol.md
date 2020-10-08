@@ -80,116 +80,29 @@ The TDB defines the type and meaning of each field using a Field Descriptor. The
    +---------------------------------------------------------------+
 ```
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Data Type</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-<td><p><strong>Example</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Version</p></td>
-<td><p>UINT16</p></td>
-<td><p>The protocol version. This document describes TRB v3.</p></td>
-<td><p>3</p></td>
-</tr>
-<tr class="odd">
-<td><p>Format</p></td>
-<td><p>UINT16</p></td>
-<td><p>The format of the Field Descriptors</p></td>
-<td><p>101 - TDB_FD_FORMAT_WS</p></td>
-</tr>
-<tr class="even">
-<td><p>Scheme Index</p></td>
-<td><p>UINT16</p></td>
-<td><p>Used to relate TRBs with a particular record format</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="odd">
-<td><p>Reserved</p></td>
-<td><p>UINT16</p></td>
-<td><p>Not used - must be set to 0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="even">
-<td><p>GUID1-4</p></td>
-<td><p>UINT32</p></td>
-<td><p>Not used - must be set to 0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="odd">
-<td><p>FD Length</p></td>
-<td><p>UINT32</p></td>
-<td><p>The length of the Field Descriptor data</p></td>
-<td><p>420</p></td>
-</tr>
-<tr class="even">
-<td><p>Field Descriptors</p></td>
-<td><p>Variable</p></td>
-<td><p>Descriptors that describe the data type for each field - See ???</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>Options</p></td>
-<td><p>Variable</p></td>
-<td><p>TDB options - See below</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Name              | Data Type | Description                                                      | Example                   |
+| ----------------- | --------- | ---------------------------------------------------------------- | ------------------------- |
+| Version           | UINT16    | The protocol version. This document describes TRB v3.            | 3                         |
+| Format            | UINT16    | The format of the Field Descriptors                              | 101 - TDB\_FD\_FORMAT\_WS |
+| Scheme Index      | UINT16    | Used to relate TRBs with a particular record format              | 0                         |
+| Reserved          | UINT16    | Not used - must be set to 0                                      | 0                         |
+| GUID1-4           | UINT32    | Not used - must be set to 0                                      | 0                         |
+| FD Length         | UINT32    | The length of the Field Descriptor data                          | 420                       |
+| Field Descriptors | Variable  | Descriptors that describe the data type for each field - See ??? |                           |
+| Options           | Variable  | TDB options - See below                                          |                           |
 
 ## Wireshark Native Field Descriptors
 
 Wireshark Native Field Descriptors simplify Wireshark decoding of the TRB protocol. Wireshark's interpretation and rendering of each protocol field value is controlled by a header field (hf). A header field has a number of attributes:
 
-<div>
+| type           | UINT32   | The type of value this field holds. See Appendix A for values. |
+| display        | UINT32   | The display field has a couple of overloaded uses. See Appendix B for values. |
+| bitmask        | UINT64   | If the field is a bitfield, then the bitmask is the mask which will leave only the bits needed to make the field when ANDed with a value. The proto\_tree routines will calculate 'bitshift' automatically from 'bitmask', by finding the rightmost set bit in the bitmask. This shift is applied before applying string mapping functions or filtering. |
+| name           | String   | A string representing the name of the field. This is the name that will appear in the graphical protocol tree. It must be a non-empty string. |
+| abbrev\_ending | String   | This string is concatenated with "trb.*group\_name*." to form a complete Wireshark abbreviation. The group\_name value is carried in a Group Start field descriptor (see Groups below). Example: "trb" protocol plus "httpd" group name plus field name "host" will be rendered in Wireshark as "trb.httpd.host". |
+| strings        | Compound | Some integer fields, of type FT\_UINT\*, need labels to represent the true value of a field. You could think of those fields as having an enumerated data type, rather than an integral data type. |
+| blurb          | String   | This is a string giving a proper description of the field. It should be at least one grammatically complete sentence, or NULL in which case the name field is used. |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>type</p></td>
-<td><p>UINT32</p></td>
-<td><p>The type of value this field holds. See Appendix A for values.</p></td>
-</tr>
-<tr class="even">
-<td><p>display</p></td>
-<td><p>UINT32</p></td>
-<td><p>The display field has a couple of overloaded uses. See Appendix B for values.</p></td>
-</tr>
-<tr class="odd">
-<td><p>bitmask</p></td>
-<td><p>UINT64</p></td>
-<td><p>If the field is a bitfield, then the bitmask is the mask which will leave only the bits needed to make the field when ANDed with a value. The proto_tree routines will calculate 'bitshift' automatically from 'bitmask', by finding the rightmost set bit in the bitmask. This shift is applied before applying string mapping functions or filtering.</p></td>
-</tr>
-<tr class="even">
-<td><p>name</p></td>
-<td><p>String</p></td>
-<td><p>A string representing the name of the field. This is the name that will appear in the graphical protocol tree. It must be a non-empty string.</p></td>
-</tr>
-<tr class="odd">
-<td><p>abbrev_ending</p></td>
-<td><p>String</p></td>
-<td><p>This string is concatenated with "trb.<em>group_name</em>." to form a complete Wireshark abbreviation. The group_name value is carried in a Group Start field descriptor (see Groups below). Example: "trb" protocol plus "httpd" group name plus field name "host" will be rendered in Wireshark as "trb.httpd.host".</p></td>
-</tr>
-<tr class="even">
-<td><p>strings</p></td>
-<td><p>Compound</p></td>
-<td><p>Some integer fields, of type FT_UINT*, need labels to represent the true value of a field. You could think of those fields as having an enumerated data type, rather than an integral data type.</p></td>
-</tr>
-<tr class="odd">
-<td><p>blurb</p></td>
-<td><p>String</p></td>
-<td><p>This is a string giving a proper description of the field. It should be at least one grammatically complete sentence, or NULL in which case the name field is used.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
 A TDB contains these values serialised like this:
 
@@ -213,74 +126,22 @@ The types map to native Wireshark field types with three important exceptions:
 
 Field Descriptor values are encoded like this:
 
-<div>
+| `value_type`    | UINT16  | See value types below                                                      |
+| `value_length`  | UINT16  | The length of value including zero terminator for a string but not padding |
+| `value`         | Various | An element of the Field Descriptor e.g. blurb                              |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>value_type</p></td>
-<td><p>UINT16</p></td>
-<td><p>See value types below</p></td>
-</tr>
-<tr class="even">
-<td><p>value_length</p></td>
-<td><p>UINT16</p></td>
-<td><p>The length of value including zero terminator for a string but not padding</p></td>
-</tr>
-<tr class="odd">
-<td><p>value</p></td>
-<td><p>Various</p></td>
-<td><p>An element of the Field Descriptor e.g. blurb</p></td>
-</tr>
-</tbody>
-</table>
+Note that the `value_type` is the data type and not related to the variable identity (so not name, abbrev\_ending, blurb, etc.). The identity of of each value is purely defined by its position.
 
-</div>
+`value_type` are:
 
-Note that the value\_type is the data type and not related to the variable identity (so not name, abbrev\_ending, blurb, etc.). The identity of of each value is purely defined by its position.
-
-value\_types are:
-
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>1</p></td>
-<td><p>UINT8</p></td>
-</tr>
-<tr class="even">
-<td><p>2</p></td>
-<td><p>UINT16</p></td>
-</tr>
-<tr class="odd">
-<td><p>4</p></td>
-<td><p>UINT32</p></td>
-</tr>
-<tr class="even">
-<td><p>8</p></td>
-<td><p>UINT64</p></td>
-</tr>
-<tr class="odd">
-<td><p>10</p></td>
-<td><p>Zero-terminated string</p></td>
-</tr>
-<tr class="even">
-<td><p>12</p></td>
-<td><p>Compound</p></td>
-</tr>
-<tr class="odd">
-<td><p>14</p></td>
-<td><p>Group Start</p></td>
-</tr>
-<tr class="even">
-<td><p>16</p></td>
-<td><p>Group End</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| 1  | UINT8                  |
+| 2  | UINT16                 |
+| 4  | UINT32                 |
+| 8  | UINT64                 |
+| 10 | Zero-terminated string |
+| 12 | Compound               |
+| 14 | Group Start            |
+| 16 | Group End              |
 
 All FD values are padded to a 4-byte boundary.
 
@@ -326,68 +187,16 @@ In this way, Group Start should be thought of as a pseudo field descriptor; ther
 
 Each field of a TRB maps to an entry in the TDB, for example:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>TDB Field Descriptor</p></td>
-<td><p>fd_index</p></td>
-<td><p>TRB Data</p></td>
-<td><p>field_index</p></td>
-</tr>
-<tr class="even">
-<td><p>TS_FT_GRP_START - trb.iis</p></td>
-<td><p>0</p></td>
-<td><p>-</p></td>
-<td><p>-</p></td>
-</tr>
-<tr class="odd">
-<td><p>TS_FT_STRINGZ - trb.iis.date</p></td>
-<td><p>1</p></td>
-<td><p>2018-06-06</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="even">
-<td><p>TS_FT_STRINGZ - trb.iis.time</p></td>
-<td><p>2</p></td>
-<td><p>10:52:28</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="odd">
-<td><p>TS_FT_STRINGZ- trb.iis.s-sitename</p></td>
-<td><p>3</p></td>
-<td><p>W3SVC1</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="even">
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="odd">
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="even">
-<td><p>TS_FT_UINT32 - trb.iis.time-taken</p></td>
-<td><p>11</p></td>
-<td><p>31</p></td>
-<td><p>10</p></td>
-</tr>
-<tr class="odd">
-<td><p>TS_FT_GRP_END - trb.iis</p></td>
-<td><p>12</p></td>
-<td><p>-</p></td>
-<td><p>-</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| TDB Field Descriptor                | fd\_index | TRB Data   | field\_index |
+| ----------------------------------- | --------- | ---------- | ------------ |
+| TS\_FT\_GRP\_START - trb.iis        | 0         | \-         | \-           |
+| TS\_FT\_STRINGZ - trb.iis.date      | 1         | 2018-06-06 | 0            |
+| TS\_FT\_STRINGZ - trb.iis.time      | 2         | 10:52:28   | 1            |
+| TS\_FT\_STRINGZ- trb.iis.s-sitename | 3         | W3SVC1     | 2            |
+| .                                   | .         | .          | .            |
+| .                                   | .         | .          | .            |
+| TS\_FT\_UINT32 - trb.iis.time-taken | 11        | 31         | 10           |
+| TS\_FT\_GRP\_END - trb.iis          | 12        | \-         | \-           |
 
 It's expected that a pcapng reader uses a field index (field\_index) to process each field of a TRB and a field descriptor index (fd\_index) to access the correct TDB entry. When the reader encounters the first TRB field it would go to fd\_index 0 for descriptor information, and when it finds that the descriptor at this point is a Group Start, it would:
 
@@ -400,56 +209,15 @@ Processing a Group End should be the same.
 
 ## TDB Options
 
-<div>
+| Name               | Code | Length   | Multiple Allowed |
+| ------------------ | ---- | -------- | ---------------- |
+| `opt_owner`        | 3    | Variable | No               |
+| `opt_nativeformat` | 4    | Variable | No               |
+| `opt_missingvalue` | 6    | 1        | No               |
+| `opt_infocolumn`   | 7    | Variable | No               |
+| `opt_summary`      | 8    | Variable | No               |
+| `opt_delimiter`    | 9    | Variable | No               |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Code</strong></p></td>
-<td><p><strong>Length</strong></p></td>
-<td><p><strong>Multiple Allowed</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>opt_owner</p></td>
-<td><p>3</p></td>
-<td><p>Variable</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="odd">
-<td><p>opt_nativeformat</p></td>
-<td><p>4</p></td>
-<td><p>Variable</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="even">
-<td><p>opt_missingvalue</p></td>
-<td><p>6</p></td>
-<td><p>1</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="odd">
-<td><p>opt_infocolumn</p></td>
-<td><p>7</p></td>
-<td><p>Variable</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="even">
-<td><p>opt_summary</p></td>
-<td><p>8</p></td>
-<td><p>Variable</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="odd">
-<td><p>opt_delimiter</p></td>
-<td><p>9</p></td>
-<td><p>Variable</p></td>
-<td><p>No</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
 opt\_owner:
 
@@ -514,102 +282,26 @@ The structure of the Field Descriptor is based on pcapng Options. This allows th
    +---------------------------------------------------------------+
 ```
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Data Type</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-<td><p><strong>Example</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Version</p></td>
-<td><p>UINT16</p></td>
-<td><p>The protocol version. This document describes TRB v3.</p></td>
-<td><p>3</p></td>
-</tr>
-<tr class="odd">
-<td><p>Format</p></td>
-<td><p>UINT16</p></td>
-<td><p>The format of the Field Descriptors</p></td>
-<td><p>101 - TDB_FD_FORMAT_WS</p></td>
-</tr>
-<tr class="even">
-<td><p>Scheme Index</p></td>
-<td><p>UINT16</p></td>
-<td><p>Used to relate this TRB to the TDB describing this record format</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="odd">
-<td><p>Reserved</p></td>
-<td><p>UINT16</p></td>
-<td><p>Not used - must be set to 0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="even">
-<td><p>Timestamp (High)</p></td>
-<td><p>UINT32</p></td>
-<td><p>The high order 32 bits of a pcapng timestamp</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>Timestamp (Low)</p></td>
-<td><p>UINT32</p></td>
-<td><p>The low order 32 bits of a pcapng timestamp</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>Data Length</p></td>
-<td><p>UINT32</p></td>
-<td><p>The length of the field data</p></td>
-<td><p>968</p></td>
-</tr>
-<tr class="odd">
-<td><p>Field Descriptors</p></td>
-<td><p>Variable</p></td>
-<td><p>Field values</p></td>
-<td><p>E.g. encoded as per Wireshark Field Encoding below</p></td>
-</tr>
-<tr class="even">
-<td><p>Options</p></td>
-<td><p>Variable</p></td>
-<td><p>TRB options - See below</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Name              | Data Type | Description                                                      | Example                                            |
+| ----------------- | --------- | ---------------------------------------------------------------- | -------------------------------------------------- |
+| Version           | UINT16    | The protocol version. This document describes TRB v3.            | 3                                                  |
+| Format            | UINT16    | The format of the Field Descriptors                              | 101 - TDB\_FD\_FORMAT\_WS                          |
+| Scheme Index      | UINT16    | Used to relate this TRB to the TDB describing this record format | 0                                                  |
+| Reserved          | UINT16    | Not used - must be set to 0                                      | 0                                                  |
+| Timestamp (High)  | UINT32    | The high order 32 bits of a pcapng timestamp                     |                                                    |
+| Timestamp (Low)   | UINT32    | The low order 32 bits of a pcapng timestamp                      |                                                    |
+| Data Length       | UINT32    | The length of the field data                                     | 968                                                |
+| Field Descriptors | Variable  | Field values                                                     | E.g. encoded as per Wireshark Field Encoding below |
+| Options           | Variable  | TRB options - See below                                          |                                                    |
 
 ## Wireshark Field Encoding
 
 Each field values are encoded like this:
 
-<div>
+| `value_type`    | UINT32  | Values that map to native directly to Wireshark field types as shown in Appendix A |
+| `value_length`  | UINT32  | The length of value including zero terminator for a string                         |
+| `value`         | Various | An element of the Field Descriptor e.g. blurb                                      |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>value_type</p></td>
-<td><p>UINT32</p></td>
-<td><p>Values that map to native directly to Wireshark field types as shown in Appendix A</p></td>
-</tr>
-<tr class="even">
-<td><p>value_length</p></td>
-<td><p>UINT32</p></td>
-<td><p>The length of value including zero terminator for a string</p></td>
-</tr>
-<tr class="odd">
-<td><p>value</p></td>
-<td><p>Various</p></td>
-<td><p>An element of the Field Descriptor e.g. blurb</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
 The field values are not padded.
 
@@ -617,26 +309,11 @@ The field values must be defined in the same order as the order the correspondin
 
 ## TRB Options
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Code</strong></p></td>
-<td><p><strong>Length</strong></p></td>
-<td><p><strong>Multiple Allowed</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>opt_tsadjust</p></td>
-<td><p>3</p></td>
-<td><p>8</p></td>
-<td><p>No</p></td>
-</tr>
-</tbody>
-</table>
+| Name           | Code | Length | Multiple Allowed |
+| -------------- | ---- | ------ | ---------------- |
+| `opt_tsadjust` | 3    | 8      | No               |
 
-</div>
 
 opt\_tsadjust:
 

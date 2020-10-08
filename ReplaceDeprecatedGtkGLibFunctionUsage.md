@@ -8,124 +8,52 @@ This page is provides information as to work-in-progress to replace the use of t
 
 ## GtkItemFactory -\> GtkUIManager
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>File</strong></p></td>
-<td><p><strong>Status</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>conversations_table.c</p></td>
-<td><p>Completed<a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=33761" class="http">Rev 33851</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>expert_comp_table.c</p></td>
-<td><p>Completed<a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=33761" class="http">Rev 33761</a></p></td>
-</tr>
-<tr class="even">
-<td><p>hostlist_table.c</p></td>
-<td><p>Completed<a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=33761" class="http">Rev 34014</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>menus.c</p></td>
-<td><p>Note 1</p></td>
-</tr>
-<tr class="even">
-<td><p>proto_help.c</p></td>
-<td><p>Note 2</p></td>
-</tr>
-<tr class="odd">
-<td><p>proto_hier_stats.c</p></td>
-<td><p>Completed<a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=34026" class="http">Rev 34026</a></p></td>
-</tr>
-<tr class="even">
-<td><p>service_response_time_table.c</p></td>
-<td><p>Completed<a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=34002" class="http">Rev 34002</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>wlan_stat_dlg.c</p></td>
-<td><p>Completed<a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=33860" class="http">Rev 33860</a></p></td>
-</tr>
-</tbody>
-</table>
+| File                             | Status                                                                                         |
+| -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `conversations_table.c`          | Completed: [Rev 33851](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=33761) |
+| `expert_comp_table.c`            | Completed: [Rev 33761](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=33761) |
+| `hostlist_table.c`               | Completed: [Rev 34014](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=33761) |
+| `menus.c`                        | Note 1                                                                                         |
+| `proto_help.c`                   | Note 2                                                                                         |
+| `proto_hier_stats.c`             | Completed: [Rev 34026](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=34026) |
+| `service_response_time_table.c`  | Completed: [Rev 34002](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=34002) |
+| `wlan_stat_dlg.c`                | Completed: [Rev 33860](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=33860) |
 
-</div>
 
 ### Discussion
 
 #### Note 1
 
-A lot has already been done by Anders, which can be found under the compile switch MAIN\_MENU\_USE\_UIMANAGER. The question now is how to integrate the more dynamic parts, like taps, statistics, etc.
+A lot has already been done by Anders, which can be found under the compile switch `MAIN_MENU_USE_UIMANAGER`. The question now is how to integrate the more dynamic parts, like taps, statistics, etc.
 
 #### Note 2
 
-Right now the code in proto\_help has been disabled when building with MAIN\_MENU\_USE\_UIMANAGER.
+Right now the code in `proto_help` has been disabled when building with `MAIN_MENU_USE_UIMANAGER`.
 
 ## GtkCombo -\> GtkComboBoxEntry
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>File</strong></p></td>
-<td><p><strong>Status</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>capture_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=36741" class="http">Rev 36741</a></p></td>
-</tr>
-</tbody>
-</table>
+| File            | Status                                                                                         |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| `capture_dlg.c` | Completed: [Rev 36741](http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=36741) |
 
-</div>
 
 ## GtkOptionMenu -\> GtkComboBox
 
 See [Bug 4487](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4487) re dropdown widget behavior change seen when Windows Gtk was updated from Gtk 2.16 to Gtk 2.18.
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>File</strong></p></td>
-<td><p><strong>Status</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>capture_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=33497" class="http">Rev 33497</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>capture_file_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=31950" class="http">Rev 31950</a></p></td>
-</tr>
-<tr class="even">
-<td><p>firewall_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=31948" class="http">Rev 31948</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>dcerpc_stat.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=31950" class="http">Rev 33592</a></p></td>
-</tr>
-<tr class="even">
-<td><p>decode_as_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=31949" class="http">Rev 31949</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>rpc_stat.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=31972" class="http">Rev 31972</a></p></td>
-</tr>
-<tr class="even">
-<td><p>uat_gui.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=31908" class="http">Rev 31908</a></p></td>
-</tr>
-</tbody>
-</table>
+| File                 | Status                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| `capture_dlg.c`      | Completed: [Rev 33497](http://anonsvn.wireshark.org/viewvc?view=rev&revision=33497) |
+| `capture_file_dlg.c` | Completed: [Rev 31950](http://anonsvn.wireshark.org/viewvc?view=rev&revision=31950) |
+| `firewall_dlg.c`     | Completed: [Rev 31948](http://anonsvn.wireshark.org/viewvc?view=rev&revision=31948) |
+| `dcerpc_stat.c`      | Completed: [Rev 33592](http://anonsvn.wireshark.org/viewvc?view=rev&revision=31950) |
+| `decode_as_dlg.c`    | Completed: [Rev 31949](http://anonsvn.wireshark.org/viewvc?view=rev&revision=31949) |
+| `rpc_stat.c`         | Completed: [Rev 31972](http://anonsvn.wireshark.org/viewvc?view=rev&revision=31972) |
+| `uat_gui.c`          | Completed: [Rev 31908](http://anonsvn.wireshark.org/viewvc?view=rev&revision=31908) |
 
-</div>
 
 ### Discussion
 
@@ -135,38 +63,15 @@ I reverted/upgraded the Win32 and Win64 GTK+ bundles in the trunk and trunk-1.2 
 
 ## GtkClist -\> GtkTreeView
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>File</strong></p></td>
-<td><p><strong>Status</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>airpcap_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=35862" class="http">Rev 35862</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>mcast_stream_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=32376" class="http">Rev 32376</a></p></td>
-</tr>
-<tr class="even">
-<td><p>rtp_stream_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=32589" class="http">Rev 32589</a></p></td>
-</tr>
-<tr class="odd">
-<td><p>uat_gui.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=32621" class="http">Rev 32621</a></p></td>
-</tr>
-<tr class="even">
-<td><p>voip_calls_dlg.c</p></td>
-<td><p>Completed: <a href="http://anonsvn.wireshark.org/viewvc?view=rev&amp;revision=32248" class="http">Rev 32248</a></p></td>
-</tr>
-</tbody>
-</table>
+| File                 | Status                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| `airpcap_dlg.c`      | Completed: [Rev 35862](http://anonsvn.wireshark.org/viewvc?view=rev&revision=35862) |
+| `mcast_stream_dlg.c` | Completed: [Rev 32376](http://anonsvn.wireshark.org/viewvc?view=rev&revision=32376) |
+| `rtp_stream_dlg.c`   | Completed: [Rev 32589](http://anonsvn.wireshark.org/viewvc?view=rev&revision=32589) |
+| `uat_gui.c`          | Completed: [Rev 32621](http://anonsvn.wireshark.org/viewvc?view=rev&revision=32621) |
+| `voip_calls_dlg.c`   | Completed: [Rev 32248](http://anonsvn.wireshark.org/viewvc?view=rev&revision=32248) |
 
-</div>
 
 ### Discussion
 

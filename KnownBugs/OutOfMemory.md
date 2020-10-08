@@ -59,34 +59,11 @@ The following is a summary of information from the MSDN: [Large Memory Support](
 
 Slightly simplified, the maximum physical memory windows supports:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Windows Version</p></td>
-<td><p>32 bit</p></td>
-<td><p>64 bit</p></td>
-</tr>
-<tr class="even">
-<td><p>XP Pro</p></td>
-<td><p>4GB</p></td>
-<td><p>128GB</p></td>
-</tr>
-<tr class="odd">
-<td><p>Vista Business</p></td>
-<td><p>4GB</p></td>
-<td><p>128GB</p></td>
-</tr>
-<tr class="even">
-<td><p>Various Server Versions</p></td>
-<td><p>4-128GB</p></td>
-<td><p>4GB-1TB</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Windows Version         | 32 bit  | 64 bit  |
+| ----------------------- | ------- | ------- |
+| XP Pro                  | 4GB     | 128GB   |
+| Vista Business          | 4GB     | 128GB   |
+| Various Server Versions | 4-128GB | 4GB-1TB |
 
 Detailed information about the specific limits can be found at: [Memory Limits for Windows Releases](http://msdn.microsoft.com/en-us/library/windows/desktop/aa366778%28v=vs.85%29.aspx)
 

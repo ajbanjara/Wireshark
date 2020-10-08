@@ -41,77 +41,28 @@ Traffic satisfying the equation "Constant Field" & "CT Mask" = "CT Marker" is co
 
 ## Display Filter
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><em>Filter</em></p></td>
-<td><p><em>Traffic Description</em></p></td>
-</tr>
-<tr class="even">
-<td><p><code>tte </code></p></td>
-<td><p>all TTEthernet based</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>tte.macdest==3000101 </code></p></td>
-<td><p>all traffic to the Ethernet MAC address 3000101</p></td>
-</tr>
-<tr class="even">
-<td><p><code>tte.ctid==20 </code></p></td>
-<td><p>all with the Critical Traffic Identifier 20</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>tte.pcf </code></p></td>
-<td><p>all TTE Protocol Control Frame (PCF) traffic</p></td>
-</tr>
-<tr class="even">
-<td><p><code>tte.pcf.sd==1 </code></p></td>
-<td><p>all TTE PCF traffic within a certain sync domain</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Filter                  | Traffic Description                              |
+| ----------------------- | ------------------------------------------------ |
+| `tte `                  | all TTEthernet based                             |
+| `tte.macdest==3000101 ` | all traffic to the Ethernet MAC address 3000101  |
+| `tte.ctid==20 `         | all with the Critical Traffic Identifier 20      |
+| `tte.pcf `              | all TTE Protocol Control Frame (PCF) traffic     |
+| `tte.pcf.sd==1 `        | all TTE PCF traffic within a certain sync domain |
 
 ## Capture Filter
 
-<div>
+| Filter                                                         | Traffic Description                                                         |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `ether proto 0x891d `                                          | only frames with ethertype 0x891d                                           |
+| `ether src 00:08:15:00:08:15 `                                 | only frames from 00:08:15:00:08:15                                          |
+| `ether dst 00:08:15:00:08:15 and ether src 00:08:15:00:08:20 ` | only frames directed to 00:08:15:00:08:15 and coming from 00:08:15:00:08:20 |
+| `less 100 `                                                    | only frames with a size of less than or equal to 100 bytes                  |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><em>Filter</em></p></td>
-<td><p><em>Traffic Description</em></p></td>
-</tr>
-<tr class="even">
-<td><p><code>ether proto 0x891d </code></p></td>
-<td><p>only frames with ethertype 0x891d</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>ether src 00:08:15:00:08:15 </code></p></td>
-<td><p>only frames from 00:08:15:00:08:15</p></td>
-</tr>
-<tr class="even">
-<td><p><code>ether dst 00:08:15:00:08:15 and ether src 00:08:15:00:08:20 </code></p></td>
-<td><p>only frames directed to 00:08:15:00:08:15 and coming from 00:08:15:00:08:20</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>less 100 </code></p></td>
-<td><p>only frames with a size of less than or equal to 100 bytes</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-Additional examples for capture filters can be found in the tcpdump capture filter expressions at \[<http://www.tcpdump.org/tcpdump_man.html>\].
+Additional examples for capture filters can be found in the tcpdump capture filter expressions at <http://www.tcpdump.org/tcpdump_man.html>.
 
 ## External links
 
-  - The TTEthernet specification is available at
-    
-    \[<http://www.ttagroup.org/ttethernet/specification.htm>\].
+  - The TTEthernet specification is available at <http://www.ttagroup.org/ttethernet/specification.htm>.
 
 ## Discussion
 

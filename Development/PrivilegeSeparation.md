@@ -5,34 +5,11 @@ One of the requirements for the 1.0 release was the addition of privilege separa
 In a discussion on the [development mailing list](http://thread.gmane.org/gmane.network.ethereal.devel/10752), the following roles were suggested:  
 (Correct thread? [February 07, 2005](https://www.wireshark.org/lists/ethereal-dev/200502/) : [[Ethereal-dev] Priv sep in ethereal](https://www.wireshark.org/lists/ethereal-dev/200502/msg00195.html) )
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Role</strong></p></td>
-<td><p><strong>Privilege Level</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Capture</p></td>
-<td><p>OS-dependent</p></td>
-<td><p>Reads live capture data</p></td>
-</tr>
-<tr class="odd">
-<td><p>Dissection</p></td>
-<td><p>Non-privileged user, possibly chrooted</p></td>
-<td><p>Dissects packet data. The majority of Wireshark's security-related bugs have been in its dissection code.</p></td>
-</tr>
-<tr class="even">
-<td><p>Filesystem</p></td>
-<td><p>Normal user</p></td>
-<td><p>Normal file-handling, e.g. reading and writing capture files, preferences, etc.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Role       | Privilege Level                        | Description                                                                                               |
+| ---------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Capture    | OS-dependent                           | Reads live capture data                                                                                   |
+| Dissection | Non-privileged user, possibly chrooted | Dissects packet data. The majority of Wireshark's security-related bugs have been in its dissection code. |
+| Filesystem | Normal user                            | Normal file-handling, e.g. reading and writing capture files, preferences, etc.                           |
 
 At a minimum, the capture role should be separated out. Splitting off the dissection role would be *really* useful, however.
 

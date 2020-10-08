@@ -6,17 +6,8 @@ You can now install Wireshark onto a [PortableApps](http://www.portableapps.com/
 
 Portable`  `Apps provides a USB flash drive with a mechanism for launching applications directly from the drive. There is no need to run a specific installation program. When you remove the drive, not trace of the applications are left on the machine.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><p><img src="uploads/__moin_import__/attachments/WiresharkPortable/WiresharkPortable.gif" title="WiresharkPortable.gif" class="attachment" alt="WiresharkPortable.gif" /></p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+![WiresharkPortable.gif](uploads/__moin_import__/attachments/WiresharkPortable/WiresharkPortable.gif
+"WiresharkPortable.gif")
 
 As well as the Wireshark application, all of your Wireshark preferences will be stored on the USB flash drive. So that whichever machine you run Wireshark on your will always get your own preferences. This happens even when a Wireshark has been conventionally installed on the machine.
 
@@ -38,17 +29,8 @@ The [Ultimate Packer for eXecutables](http://upx.sourceforge.net/) can optionall
 
 To install the package, choose the 'Options/Install New App' option from the main Portable`  `Apps menu and select the file 'wireshark-\<version\>.paf.exe'. The will result in a short Wizard that will install the package on your USB flash device and result in a new menu item being added to the main Portable`  `Apps menu.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><p><img src="uploads/__moin_import__/attachments/WiresharkPortable/WiresharkPortableInstall.gif" title="WiresharkPortableInstall.gif" class="attachment" alt="WiresharkPortableInstall.gif" /></p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+![WiresharkPortableInstall.gif](uploads/__moin_import__/attachments/WiresharkPortable/WiresharkPortableInstall.gif
+"WiresharkPortableInstall.gif")
 
 ## Ini File Settings
 

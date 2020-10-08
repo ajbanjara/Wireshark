@@ -12,26 +12,9 @@ For example, in the calls [DatabaseDeltas](/DatabaseDeltas) (op 0x07) and [Datab
 
 The [ServerAuthenticate2](/ServerAuthenticate2) (op 0x0f) and [ServerAuthencate3](/ServerAuthencate3) (op 0x1a) functions on this [DCE/RPC](/DCE/RPC) interface have an in/out negotiate\_flags field. We know of only 3 valid flags:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>const int NETLOGON_NEG_ARCFOUR</p></td>
-<td><p>0x00000004</p></td>
-</tr>
-<tr class="even">
-<td><p>const int NETLOGON_NEG_128BIT</p></td>
-<td><p>0x00004000</p></td>
-</tr>
-<tr class="odd">
-<td><p>const int NETLOGON_NEG_SCHANNEL</p></td>
-<td><p>0x40000000</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| `const int NETLOGON_NEG_ARCFOUR`  | 0x00000004 |
+| `const int NETLOGON_NEG_128BIT`   | 0x00004000 |
+| `const int NETLOGON_NEG_SCHANNEL` | 0x40000000 |
 
 While the pattern is interesting, it is unclear if these are the only valid flags, as others are sent. The other oddity with this feild is that the server uses it to detect 'NT4' clients. Which bit Win2k client set to indicate 'not NT4' is unclear, but an overall pattern of 0x0701ff seems to be 'not NT4'.
 
@@ -45,26 +28,10 @@ The [SamLogon](/SamLogon) call is used to log users onto a client workstation, o
 
   - All the known levels include a [IdentityInfo](/IdentityInfo) structure, containing a domain name, account name, and workstation. It also contains a parameter\_control or flags field. We have a definition for only 3 of the 32 bits in this field:
     
-    <div>
     
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td><p>const int MSV1_0_CLEARTEXT_PASSWORD_ALLOWED</p></td>
-    <td><p>0x002</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>const int MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT</p></td>
-    <td><p>0x020</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>const int MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT</p></td>
-    <td><p>0x800</p></td>
-    </tr>
-    </tbody>
-    </table>
-    
-    </div>
+| `const int MSV1_0_CLEARTEXT_PASSWORD_ALLOWED`      | 0x002 |
+| `const int MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT`      | 0x020 |
+| `const int MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT` | 0x800 |
 
 ---
 

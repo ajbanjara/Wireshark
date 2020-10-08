@@ -26,19 +26,11 @@ tektronix.py \<infile\> \<outfile\> where infile is created in step 2 above.
 
 Example: tektronix.py infile.ascii outfile.pcap
 
-<div>
+***
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>:heavy_exclamation_mark: Wireshark now reads most rf5 files by itself. See <a href="/K12">K12</a> for an explanation.</p></td>
-</tr>
-</tbody>
-</table>
+:heavy_exclamation_mark: Wireshark now reads most rf5 files by itself. See [K12](/K12) for an explanation.
 
-</div>
-
------
+***
 
 Back to [Scripts](/Scripts)
 

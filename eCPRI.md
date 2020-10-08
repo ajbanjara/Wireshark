@@ -4,7 +4,6 @@ evolved Common Public Radio Interface (eCPRI) is a protocol, which will be used 
 
 ## Packet format
 
-<div>
 
 <table>
 
@@ -16,7 +15,6 @@ evolved Common Public Radio Interface (eCPRI) is a protocol, which will be used 
 
 eCPRI Common Header
 
-</div>
 
 </td>
 
@@ -106,7 +104,6 @@ eCPRI Payload Size
 
 </table>
 
-</div>
 
 ### eCPRI Header fields
 
@@ -114,22 +111,8 @@ eCPRI Payload Size
 
 Available revison values:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>0x1</p></td>
-<td><p>shall follow specification V1.0</p></td>
-</tr>
-<tr class="even">
-<td><p>0x2-0xF</p></td>
-<td><p>reserved for future; temporarily vendor specific</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| 0x1     | shall follow specification V1.0                  |
+| 0x2-0xF | reserved for future; temporarily vendor specific |
 
 #### Reserved field
 
@@ -146,58 +129,18 @@ The C field indicates a concatenation.
 
 There are 255 Message Types. 0 - 7 is specified in the Specification, 8 - 63 is reserved and 64 - 255 vendor specific.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Message Type</strong></p></td>
-<td><p><strong>Name</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>0x00</p></td>
-<td><p>IQ Data</p></td>
-</tr>
-<tr class="odd">
-<td><p>0x01</p></td>
-<td><p>Bit Sequence</p></td>
-</tr>
-<tr class="even">
-<td><p>0x02</p></td>
-<td><p>Real-Time Control Data</p></td>
-</tr>
-<tr class="odd">
-<td><p>0x03</p></td>
-<td><p>Generic Data Transfer</p></td>
-</tr>
-<tr class="even">
-<td><p>0x04</p></td>
-<td><p>Remote Memory Access</p></td>
-</tr>
-<tr class="odd">
-<td><p>0x05</p></td>
-<td><p>One-way Delay Measurement</p></td>
-</tr>
-<tr class="even">
-<td><p>0x06</p></td>
-<td><p>Remote Reset</p></td>
-</tr>
-<tr class="odd">
-<td><p>0x07</p></td>
-<td><p>Event Indication</p></td>
-</tr>
-<tr class="even">
-<td><p>0x08 - 0x3F</p></td>
-<td><p>Reserved</p></td>
-</tr>
-<tr class="odd">
-<td><p>0x40 - 0xFF</p></td>
-<td><p>Vendor Specific</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Message Type | Name                      |
+| ------------ | ------------------------- |
+| 0x00         | IQ Data                   |
+| 0x01         | Bit Sequence              |
+| 0x02         | Real-Time Control Data    |
+| 0x03         | Generic Data Transfer     |
+| 0x04         | Remote Memory Access      |
+| 0x05         | One-way Delay Measurement |
+| 0x06         | Remote Reset              |
+| 0x07         | Event Indication          |
+| 0x08 - 0x3F  | Reserved                  |
+| 0x40 - 0xFF  | Vendor Specific           |
 
 #### eCPRI Payload Size field
 

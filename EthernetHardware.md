@@ -22,159 +22,36 @@ When Ethernet hubs/switches were first available, they were quite expensive. As 
 
 The maximum cable (segment) length is depending on the cable and the transfer speed used.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Technology</strong></p></td>
-<td><p><strong>Cabling</strong></p></td>
-<td><p><strong>Max Cable Length</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>10BASE5</p></td>
-<td><p>Yellow cable</p></td>
-<td><p>500m</p></td>
-</tr>
-<tr class="odd">
-<td><p>10BASE2</p></td>
-<td><p>RG58 coax</p></td>
-<td><p>185m</p></td>
-</tr>
-<tr class="even">
-<td><p>10BASE-T</p></td>
-<td><p>EIA/TIA Category 3 UTP</p></td>
-<td><p>100m</p></td>
-</tr>
-<tr class="odd">
-<td><p>10BASE-FP</p></td>
-<td><p>62.5 or 125 micron MMF</p></td>
-<td><p>1km</p></td>
-</tr>
-<tr class="even">
-<td><p>10BASE-FB</p></td>
-<td><p>62.5 or 125 micron MMF</p></td>
-<td><p>2km</p></td>
-</tr>
-<tr class="odd">
-<td><p>10BASE-FL</p></td>
-<td><p>62.5 or 125 micron MMF</p></td>
-<td><p>2km</p></td>
-</tr>
-<tr class="even">
-<td><p>100BASE-TX</p></td>
-<td><p>EIA/TIA Category 5 unshielded twisted pair (2 pair)</p></td>
-<td><p>100m</p></td>
-</tr>
-<tr class="odd">
-<td><p>100BASE-T2</p></td>
-<td><p>Cat 3, 4, &amp; 5 UTP (2 pair)</p></td>
-<td><p>100m</p></td>
-</tr>
-<tr class="even">
-<td><p>100BASE-T4</p></td>
-<td><p>Cat 3, 4, &amp; 5 UTP (4 pair)</p></td>
-<td><p>100m</p></td>
-</tr>
-<tr class="odd">
-<td><p>100BASE-FX</p></td>
-<td><p>62.5 micron multimode fiber</p></td>
-<td><p>400m half duplex, 2km full duplex</p></td>
-</tr>
-<tr class="even">
-<td><p>100BASE-FX</p></td>
-<td><p>Single mode fiber</p></td>
-<td><p>10km</p></td>
-</tr>
-<tr class="odd">
-<td><p>1000BASE-CX</p></td>
-<td><p>Shielded twisted pair</p></td>
-<td><p>25m</p></td>
-</tr>
-<tr class="even">
-<td><p>1000BASE-T</p></td>
-<td><p>Cat 5 UTP (4 pair, 100MHz)</p></td>
-<td><p>100m</p></td>
-</tr>
-<tr class="odd">
-<td><p>1000BASE-SX</p></td>
-<td><p>62.5 micron MMF</p></td>
-<td><p>275m</p></td>
-</tr>
-<tr class="even">
-<td><p>1000BASE-SX</p></td>
-<td><p>50 micron MMF</p></td>
-<td><p>550m</p></td>
-</tr>
-<tr class="odd">
-<td><p>1000BASE-LX/LH</p></td>
-<td><p>50 or 62.5 micron MMF</p></td>
-<td><p>550m</p></td>
-</tr>
-<tr class="even">
-<td><p>1000BASE-LX/LH</p></td>
-<td><p>9 micron SMF</p></td>
-<td><p>10km</p></td>
-</tr>
-<tr class="odd">
-<td><p>1000BASE-ZX</p></td>
-<td><p>9 micron SMF</p></td>
-<td><p>70km</p></td>
-</tr>
-<tr class="even">
-<td><p>1000BASE-ZX</p></td>
-<td><p>8 micron SMF</p></td>
-<td><p>100km</p></td>
-</tr>
-<tr class="odd">
-<td><p>10GBASE-SR/SW</p></td>
-<td><p>62.5 micron MMF</p></td>
-<td><p>33m</p></td>
-</tr>
-<tr class="even">
-<td><p>10GBASE-SR/SW</p></td>
-<td><p>50 micron MMF</p></td>
-<td><p>66m or 300m (2GHZ)</p></td>
-</tr>
-<tr class="odd">
-<td><p>10GBASE-LR/LW</p></td>
-<td><p>9 micron SMF</p></td>
-<td><p>10km</p></td>
-</tr>
-<tr class="even">
-<td><p>10GBASE-ER/EW</p></td>
-<td><p>9 micron SMF</p></td>
-<td><p>40 km</p></td>
-</tr>
-<tr class="odd">
-<td><p>10GBASE-LX4/LW4</p></td>
-<td><p>50 or 62.5 micron MMF</p></td>
-<td><p>300 m</p></td>
-</tr>
-<tr class="even">
-<td><p>10GBASE-LX4/LW4</p></td>
-<td><p>9 micron SMF</p></td>
-<td><p>10 km</p></td>
-</tr>
-<tr class="odd">
-<td><p>10GBASE-CX4</p></td>
-<td><p>Special copper cable / connectors (8 pair)</p></td>
-<td><p>15 m</p></td>
-</tr>
-<tr class="even">
-<td><p>10GBASE-T</p></td>
-<td><p>CAT 6a (4 pair, 625MHz)</p></td>
-<td><p>100 m</p></td>
-</tr>
-<tr class="odd">
-<td><p>10GBASE-T</p></td>
-<td><p>CAT 6e (4 pair, 500MHz)</p></td>
-<td><p>55 m</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Technology      | Cabling                                             | Max Cable Length                  |
+| --------------- | --------------------------------------------------- | --------------------------------- |
+| 10BASE5         | Yellow cable                                        | 500m                              |
+| 10BASE2         | RG58 coax                                           | 185m                              |
+| 10BASE-T        | EIA/TIA Category 3 UTP                              | 100m                              |
+| 10BASE-FP       | 62.5 or 125 micron MMF                              | 1km                               |
+| 10BASE-FB       | 62.5 or 125 micron MMF                              | 2km                               |
+| 10BASE-FL       | 62.5 or 125 micron MMF                              | 2km                               |
+| 100BASE-TX      | EIA/TIA Category 5 unshielded twisted pair (2 pair) | 100m                              |
+| 100BASE-T2      | Cat 3, 4, & 5 UTP (2 pair)                          | 100m                              |
+| 100BASE-T4      | Cat 3, 4, & 5 UTP (4 pair)                          | 100m                              |
+| 100BASE-FX      | 62.5 micron multimode fiber                         | 400m half duplex, 2km full duplex |
+| 100BASE-FX      | Single mode fiber                                   | 10km                              |
+| 1000BASE-CX     | Shielded twisted pair                               | 25m                               |
+| 1000BASE-T      | Cat 5 UTP (4 pair, 100MHz)                          | 100m                              |
+| 1000BASE-SX     | 62.5 micron MMF                                     | 275m                              |
+| 1000BASE-SX     | 50 micron MMF                                       | 550m                              |
+| 1000BASE-LX/LH  | 50 or 62.5 micron MMF                               | 550m                              |
+| 1000BASE-LX/LH  | 9 micron SMF                                        | 10km                              |
+| 1000BASE-ZX     | 9 micron SMF                                        | 70km                              |
+| 1000BASE-ZX     | 8 micron SMF                                        | 100km                             |
+| 10GBASE-SR/SW   | 62.5 micron MMF                                     | 33m                               |
+| 10GBASE-SR/SW   | 50 micron MMF                                       | 66m or 300m (2GHZ)                |
+| 10GBASE-LR/LW   | 9 micron SMF                                        | 10km                              |
+| 10GBASE-ER/EW   | 9 micron SMF                                        | 40 km                             |
+| 10GBASE-LX4/LW4 | 50 or 62.5 micron MMF                               | 300 m                             |
+| 10GBASE-LX4/LW4 | 9 micron SMF                                        | 10 km                             |
+| 10GBASE-CX4     | Special copper cable / connectors (8 pair)          | 15 m                              |
+| 10GBASE-T       | CAT 6a (4 pair, 625MHz)                             | 100 m                             |
+| 10GBASE-T       | CAT 6e (4 pair, 500MHz)                             | 55 m                              |
 
 Using repeaters between segments can increase the maximum length.
 

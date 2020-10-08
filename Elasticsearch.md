@@ -12,34 +12,13 @@ Elasticsearch <http://www.elasticsearch.org/> is a distributed full-text search 
 
 ## Dissector status
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Protocol type</p></td>
-<td><p>Dissection</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="even">
-<td><p>HTTP</p></td>
-<td><p>Full</p></td>
-<td><p>Passed to HTTP dissector</p></td>
-</tr>
-<tr class="odd">
-<td><p>Discovery</p></td>
-<td><p>Full</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>Binary</p></td>
-<td><p>Partial</p></td>
-<td><p>Actions, request/response type, request IDs, errors and packet length decoded.</p></td>
-</tr>
-</tbody>
-</table>
+| Protocol type | Dissection | Notes                                                                          |
+| ------------- | ---------- | ------------------------------------------------------------------------------ |
+| HTTP          | Full       | Passed to HTTP dissector                                                       |
+| Discovery     | Full       |                                                                                |
+| Binary        | Partial    | Actions, request/response type, request IDs, errors and packet length decoded. |
 
-</div>
 
 ## Supported versions
 

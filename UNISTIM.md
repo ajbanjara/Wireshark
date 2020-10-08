@@ -2,74 +2,26 @@
 
 Unistim is a Nortel proprietary VOIP protocol. It is a lower level protocol than [SIP](/SIP) or most other VOIP protocols. It's important to always think of the phone as a very dumb terminal. Whereas with [SIP](/SIP), the phone has a basic understanding of a phone call,in Unistim the phone knows how to send key press events, display text, flash light, and stream audio. All intelligence is at the switch layer. Like [SIP](/SIP) Unistim does use [RTP](/RTP) as its audio transport. Nortel has broken up the commands into 6 managers each having a set of phone initiated and switch initiated commands. The managers are Basic, Broadcast, Audio, Key/Indicator, Display, Broadcast. Unistim general layout:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>RUDP Sequence ID MSB</p></td>
-</tr>
-<tr class="even">
-<td><p>...</p></td>
-</tr>
-<tr class="odd">
-<td><p>...</p></td>
-</tr>
-<tr class="even">
-<td><p>RUDP Sequence ID LSB</p></td>
-</tr>
-<tr class="odd">
-<td><p>ACK/NAK/Payload</p></td>
-</tr>
-<tr class="even">
-<td><p>Unistim/Unistim with Term id</p></td>
-</tr>
-<tr class="odd">
-<td><p>Term ID MSB (if from phone)</p></td>
-</tr>
-<tr class="even">
-<td><p>...</p></td>
-</tr>
-<tr class="odd">
-<td><p>...</p></td>
-</tr>
-<tr class="even">
-<td><p>Term ID LSB</p></td>
-</tr>
-<tr class="odd">
-<td><p>CMD1 Address (Manager) msb 1=phone 0=switch</p></td>
-</tr>
-<tr class="even">
-<td><p>CMD1 Length includes address</p></td>
-</tr>
-<tr class="odd">
-<td><p>CMD1 ID</p></td>
-</tr>
-<tr class="even">
-<td><p>if necessary additional data</p></td>
-</tr>
-<tr class="odd">
-<td><p>...</p></td>
-</tr>
-<tr class="even">
-<td><p>CMD2 Address if applicable</p></td>
-</tr>
-<tr class="odd">
-<td><p>CMD2 Length includes address</p></td>
-</tr>
-<tr class="even">
-<td><p>CMD2 ID</p></td>
-</tr>
-<tr class="odd">
-<td><p>if necessary additional data</p></td>
-</tr>
-<tr class="even">
-<td><p>...</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| RUDP Sequence ID MSB                        |
+| ...                                         |
+| ...                                         |
+| RUDP Sequence ID LSB                        |
+| ACK/NAK/Payload                             |
+| Unistim/Unistim with Term id                |
+| Term ID MSB (if from phone)                 |
+| ...                                         |
+| ...                                         |
+| Term ID LSB                                 |
+| CMD1 Address (Manager) msb 1=phone 0=switch |
+| CMD1 Length includes address                |
+| CMD1 ID                                     |
+| if necessary additional data                |
+| ...                                         |
+| CMD2 Address if applicable                  |
+| CMD2 Length includes address                |
+| CMD2 ID                                     |
+| if necessary additional data                |
+| ...                                         |
 
 #### Nortel's RUDP:
 

@@ -6,89 +6,11 @@ Specifications of all of these protocols can be found in the [RFC](/RFC) documen
 
 A simplified overview of the core TCP/IP protocols could look like this:
 
-<div>
-
-<table>
-
-<tbody>
-
-<tr>
-
-<td>
-
-5-7
-
-</div>
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align: center; &amp;quot;">
-
-Application layer (**HTTP**, **FTP**, ...)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-4
-
-</td>
-
-<td>
-
-**TCP** (connections)
-
-</td>
-
-<td>
-
-**UDP** (connectionless)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-3
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align: center; &amp;quot;">
-
-Internet (**IP**, **ICMP**)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-2
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align: center; &amp;quot;">
-
-Link layer (**ARP**, **PPP**, Ethernet, ...)
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
+| :-: | :---------------------------------------------: |
+| 5-7 | Application layer (**HTTP**, **FTP**, ...)      |
+| 4   | **TCP** (connections), **UDP** (connectionless) |
+| 3   | Internet (**IP**, **ICMP**)                     |
+| 2   | Link layer (**ARP**, **PPP**, Ethernet, ...)    |
 
 ## Protocols
 

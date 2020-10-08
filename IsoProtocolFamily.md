@@ -6,121 +6,12 @@ Specifications of all of these protocols can be found in the [ISO](/ISO) documen
 
 A simplified overview of the core ISO protocols could look like this:
 
-<div>
-
-<table>
-
-<tbody>
-
-<tr>
-
-<td>
-
-7
-
-</div>
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-Application layer (**FTAM**, ...)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-6
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-**Presentation Protocol**
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-5
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-**Session Protocol**
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-4
-
-</td>
-
-<td>
-
-**COTP** (connections)
-
-</td>
-
-<td>
-
-**CLTP** connectionless)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-3
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-Internet (**CLNP**, **ES-IS**)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-2
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-Link layer (**LLC**, ...)
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
+| 7 | Application layer (**FTAM**, ...)                   |
+| 6 | **Presentation Protocol**                           |
+| 5 | **Session Protocol**                                |
+| 4 | **COTP** (connections) or **CLTP** (connectionless) |
+| 3 | Internet (**CLNP**, **ES-IS**)                      |
+| 2 | Link layer (**LLC**, ...)                           |
 
 ## Protocols
 

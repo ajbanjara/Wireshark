@@ -36,60 +36,20 @@ A complete list of LLRP display filter fields is displayed below. For a list of 
 
 ## LLRP Display Filter Types
 
-<div>
+| Filter                  | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `llrp`                  | Matches all LLRP traffic                                                               |
+| `llrp.version`          | Matches all messages with the specified LLRP version (LLRPv1.0 is "llrp.version == 1") |
+| `llrp.type`             | Matches all messages with the specified message type                                   |
+| `llrp.length`           | Matches all messages with the specified total message length                           |
+| `llrp.id`               | Matches all messages with the specified message ID                                     |
+| `llrp.field.type`       | Matches all messages containing the specified field type                               |
+| `llrp.field.length`     | Matches all messages containing fields with the specified bitlength                    |
+| `llrp.field.value`      | Matches all messages containing fields with the specified value                        |
+| `llrp.parameter.type`   | Matches all messages containing parameters with the specified type                     |
+| `llrp.parameter.length` | Matches all messages containing parameters with the specified total length             |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Filter</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>llrp</p></td>
-<td><p>Matches all LLRP traffic</p></td>
-</tr>
-<tr class="odd">
-<td><p>llrp.version</p></td>
-<td><p>Matches all messages with the specified LLRP version (LLRPv1.0 is "llrp.version == 1")</p></td>
-</tr>
-<tr class="even">
-<td><p>llrp.type</p></td>
-<td><p>Matches all messages with the specified message type</p></td>
-</tr>
-<tr class="odd">
-<td><p>llrp.length</p></td>
-<td><p>Matches all messages with the specified total message length</p></td>
-</tr>
-<tr class="even">
-<td><p>llrp.id</p></td>
-<td><p>Matches all messages with the specified message ID</p></td>
-</tr>
-<tr class="odd">
-<td><p>llrp.field.type</p></td>
-<td><p>Matches all messages containing the specified field type</p></td>
-</tr>
-<tr class="even">
-<td><p>llrp.field.length</p></td>
-<td><p>Matches all messages containing fields with the specified bitlength</p></td>
-</tr>
-<tr class="odd">
-<td><p>llrp.field.value</p></td>
-<td><p>Matches all messages containing fields with the specified value</p></td>
-</tr>
-<tr class="even">
-<td><p>llrp.parameter.type</p></td>
-<td><p>Matches all messages containing parameters with the specified type</p></td>
-</tr>
-<tr class="odd">
-<td><p>llrp.parameter.length</p></td>
-<td><p>Matches all messages containing parameters with the specified total length</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-Example: Show only GET\_READER\_CONFIG messages:
+Example: Show only `GET_READER_CONFIG` messages:
 
 ``` 
  llrp.type == 2

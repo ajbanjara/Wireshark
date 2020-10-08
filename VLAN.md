@@ -20,28 +20,9 @@ There are several different packet formats defined; see the standard for details
 
 However, a VLAN packet on an [Ethernet](/Ethernet) will typically look like this:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Destination MAC address</p></td>
-<td><p>Source MAC address</p></td>
-<td><p>Type (VLAN: 0x8100)</p></td>
-<td><p>VLAN Tag</p></td>
-<td><p>User Data</p></td>
-</tr>
-<tr class="even">
-<td><p>6</p></td>
-<td><p>6</p></td>
-<td><p>2</p></td>
-<td><p>4</p></td>
-<td><p>46 - 1500</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Destination MAC address | Source MAC address | Type (VLAN: 0x8100) | VLAN Tag | User Data |
+| ----------------------- | ------------------ | ------------------- | -------- | --------- |
+| 6                       | 6                  | 2                   | 4        | 46 - 1500 |
 
 The green fields have the same meaning as in a usual Ethernet packet, the VLAN Ethernet Type is 0x8100.
 
@@ -51,26 +32,9 @@ Please note, that the maximum user data length is still 1500, so VLAN packets wi
 
 The VLAN tag itself will look like this (length in bits):
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Priority</p></td>
-<td><p>CFI</p></td>
-<td><p>ID</p></td>
-<td><p>Ethernet Type/Length</p></td>
-</tr>
-<tr class="even">
-<td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>12</p></td>
-<td><p>16</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Priority | CFI | ID | Ethernet Type/Length |
+| -------- | --- | -- | -------------------- |
+| 3        | 1   | 12 | 16                   |
 
   - Priority: the user's priority of this packet (ranges from 0 to 7)
   - Canonical Format Identifier (CFI):

@@ -4,54 +4,11 @@ Wireshark 1.2.0 introduced official support for 64-bit Windows. This requires ex
 
 32-bit UN\*X platforms, and 32-bit Windows, use the ILP32 data model. 64-bit UN\*X platform use the LP64 data model; however, 64-bit Windows uses the LLP64 data model. If you assume that long ints and pointers have the same number of bits, you're in trouble:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Data model</p></td>
-<td><p>char</p></td>
-<td><p>short</p></td>
-<td><p>int</p></td>
-<td><p>long</p></td>
-<td><p>long long</p></td>
-<td><p>pointers</p></td>
-<td><p>OSes</p></td>
-</tr>
-<tr class="even">
-<td><p>ILP32</p></td>
-<td><p>8</p></td>
-<td><p>16</p></td>
-<td><p>32</p></td>
-<td><p>32</p></td>
-<td><p>64?</p></td>
-<td><p>32</p></td>
-<td><p>Windows, Linux, Solaris, macOS, *BSD, AIX, HP-UX, other UN*Xes</p></td>
-</tr>
-<tr class="odd">
-<td><p>LP64</p></td>
-<td><p>8</p></td>
-<td><p>16</p></td>
-<td><p>32</p></td>
-<td><p>64</p></td>
-<td><p>64</p></td>
-<td><p>64</p></td>
-<td><p>Linux, Solaris, macOS, *BSD, AIX, HP-UX, other UN*Xes, !Windows</p></td>
-</tr>
-<tr class="even">
-<td><p>LLP64</p></td>
-<td><p>8</p></td>
-<td><p>16</p></td>
-<td><p>32</p></td>
-<td><p>32</p></td>
-<td><p>64</p></td>
-<td><p>64</p></td>
-<td><p>Windows</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Data model | char | short | int | long | long long | pointers | OSes                                                               |
+| ---------- | ---- | ----- | --- | ---- | --------- | -------- | ------------------------------------------------------------------ |
+| ILP32      | 8    | 16    | 32  | 32   | 64?       | 32       | Windows, Linux, Solaris, macOS, \*BSD, AIX, HP-UX, other UN\*Xes   |
+| LP64       | 8    | 16    | 32  | 64   | 64        | 64       | Linux, Solaris, macOS, \*BSD, AIX, HP-UX, other UN\*Xes, \!Windows |
+| LLP64      | 8    | 16    | 32  | 32   | 64        | 64       | Windows                                                            |
 
 # sizeof(size\_t) \!= sizeof(int) and sizeof(size\_t) \!= sizeof(long)
 
@@ -83,70 +40,21 @@ The Win64 build uses the [Microsoft Visual C++ 2008 SP1 Redistributable Package 
 
 Not all of the libraries we use have Win64 versions.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Library</strong></p></td>
-<td><p><strong>Win64 support?</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>GLib/GTK+</p></td>
-<td><p><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/" class="http">Yes</a></p></td>
-</tr>
-<tr class="odd">
-<td><p><a href="/WinPcap">WinPcap</a></p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="/AirPcap" class="nonexistent">AirPcap</a></p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="odd">
-<td><p>Zlib</p></td>
-<td><p>Yes? (compiled locally)</p></td>
-</tr>
-<tr class="even">
-<td><p>c-ares</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="odd">
-<td><p>GeoIP</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="even">
-<td><p>PCRE/GRegex</p></td>
-<td><p>Yes (GRegex)</p></td>
-</tr>
-<tr class="odd">
-<td><p>GNUTLS</p></td>
-<td><p><a href="http://download.opensuse.org/repositories/windows:/mingw:/win64/openSUSE_11.2/noarch/" class="http">Yes</a></p></td>
-</tr>
-<tr class="even">
-<td><p>Kerberos</p></td>
-<td><p>Yes (since Wireshark 1.99.1)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Lua</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="even">
-<td><p>Portaudio</p></td>
-<td><p>Unknown (compiled and linked locally)</p></td>
-</tr>
-<tr class="odd">
-<td><p>Gettext</p></td>
-<td><p><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/" class="http">Yes</a></p></td>
-</tr>
-<tr class="even">
-<td><p>LIBSMI</p></td>
-<td><p>Yes</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Library             | Win64 support?                                                                               |
+| ------------------- | -------------------------------------------------------------------------------------------- |
+| GLib/GTK+           | [Yes](http://ftp.gnome.org/pub/GNOME/binaries/win64/)                                        |
+| [WinPcap](/WinPcap) | Yes                                                                                          |
+| [AirPcap](/AirPcap) | Yes                                                                                          |
+| Zlib                | Yes? (compiled locally)                                                                      |
+| c-ares              | Yes                                                                                          |
+| GeoIP               | Yes                                                                                          |
+| PCRE/GRegex         | Yes (GRegex)                                                                                 |
+| GNUTLS              | [Yes](http://download.opensuse.org/repositories/windows:/mingw:/win64/openSUSE_11.2/noarch/) |
+| Kerberos            | Yes (since Wireshark 1.99.1)                                                                 |
+| Lua                 | Yes                                                                                          |
+| Portaudio           | Unknown (compiled and linked locally)                                                        |
+| Gettext             | [Yes](http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/)                           |
+| LIBSMI              | Yes                                                                                          |
 
 See the [Win64 README.txt](http://anonsvn.wireshark.org/viewvc/trunk/README.txt?root=Wireshark-win64-libs&view=log) file for the change history of when Wireshark got support for various libraries.
 

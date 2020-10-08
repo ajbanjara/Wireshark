@@ -12,8 +12,6 @@ The ERF file consists of a series of records. Each record describes one packet. 
 
 Generic ERF header
 
-<div>
-
 <table>
 
 <tbody>
@@ -23,8 +21,6 @@ Generic ERF header
 <td style="background-color: #D1C9CB">
 
 Byte 3
-
-</div>
 
 </td>
 
@@ -130,77 +126,28 @@ payload
 
 </table>
 
-</div>
-
 ### Timestamp
 
 The time of arrival of the cell, a ERF 64-bit timestamp. Single little-endian 64-bit fixed point number. The high 32-bits contain the integer number of seconds since the start of time (unix epoch time). The lower 32-bits contain the binary fraction of the second allowing an ultimate resolution of approximately 233 picoseconds.
 
 ### Type
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Bits</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>7</p></td>
-<td><p>Extension header present.</p></td>
-</tr>
-<tr class="odd">
-<td><p>6:0</p></td>
-<td><p>Extension header type.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Bits | Description               |
+| ---- | ------------------------- |
+| 7    | Extension header present. |
+| 6:0  | Extension header type.    |
 
 ### Flags
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Bits</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>7</p></td>
-<td><p>Reserved</p></td>
-</tr>
-<tr class="odd">
-<td><p>6</p></td>
-<td><p>Reserved</p></td>
-</tr>
-<tr class="even">
-<td><p>5</p></td>
-<td><p>DS error. An internal error generated inside the card annotator. Not present on the wire.</p></td>
-</tr>
-<tr class="odd">
-<td><p>4</p></td>
-<td><p>RX error. An error in the received data. Present on the wire</p></td>
-</tr>
-<tr class="even">
-<td><p>3</p></td>
-<td><p>Truncated record (depreciated)</p></td>
-</tr>
-<tr class="odd">
-<td><p>2</p></td>
-<td><p>Varying length record... just leave this on, otherwise packets should be padded</p></td>
-</tr>
-<tr class="even">
-<td><p>1:0</p></td>
-<td><p>Binary enumeration of capture interface. 11, interface 3/D 10 interface 2/C 01 interface 1/B 00 interface 0/A</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Bits | Description                                                                                                     |
+| ---- | --------------------------------------------------------------------------------------------------------------- |
+| 7    | Reserved                                                                                                        |
+| 6    | Reserved                                                                                                        |
+| 5    | DS error. An internal error generated inside the card annotator. Not present on the wire.                       |
+| 4    | RX error. An error in the received data. Present on the wire                                                    |
+| 3    | Truncated record (depreciated)                                                                                  |
+| 2    | Varying length record... just leave this on, otherwise packets should be padded                                 |
+| 1:0  | Binary enumeration of capture interface. 11:interface 3/D; 10:interface 2/C; 01:interface 1/B; 00:interface 0/A |
 
 ### rlen
 

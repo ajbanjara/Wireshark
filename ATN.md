@@ -8,115 +8,14 @@ At present only CMv1 and CPDLCv1 (PO and PM) applications are suported by Wiresh
 
 A simplified overview of the core ATN protocols looks like this:
 
-<div>
-
-<table>
-
-<tbody>
-
-<tr>
-
-<td>
-
-7
-
-</div>
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-Application layer (**ULCS/ACSE**,**CM**,**CPDLC**, ...)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-6
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-**ULCS/Presentation**,**ULCS/PDV**
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-5
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-**ULCS/Session**
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-4
-
-</td>
-
-<td>
-
-**COTP** (TP4 connections)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-3
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-Internet (**CLNP**, **ES-IS**,**IS-IS**,**IDRP**)
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-2
-
-</td>
-
-<td colspan="2" style="&amp;quot; text-align:center&amp;quot;">
-
-Link layer (**LLC**,**IP**,**X.25**, ...)
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
+| Layer | Description                                             |
+| :---: | ------------------------------------------------------- |
+|   7   | Application layer (**ULCS/ACSE**,**CM**,**CPDLC**, ...) |
+|   6   | **ULCS/Presentation**,**ULCS/PDV**                      |
+|   5   | **ULCS/Session**                                        |
+|   4   | **COTP** (TP4 connections)                              |
+|   3   | Internet (**CLNP**, **ES-IS**,**IS-IS**,**IDRP**)       |
+|   2   | Link layer (**LLC**,**IP**,**X.25**, ...)               |
 
 ## Wireshark
 

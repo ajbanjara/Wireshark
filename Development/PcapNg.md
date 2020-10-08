@@ -168,308 +168,56 @@ These options will only be displayed on the console (missing API from wiretap to
 
 Options status
 
-<div>
+| Block | Option                       | dumpcap pcapio.{c,h}                                    | Wiretap API                             | Wireshark GUI                                                           |
+| ----- | ---------------------------- | ------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |
+| All   |                              |                                                         |                                         |                                                                         |
+|       | (0) `opt_endofopt`           | OK                                                      | OK                                      | \-                                                                      |
+|       | (1) `opt_comment`            | SHB, IDB, ISB                                           | WIP: see bug #3096                      | see per block                                                           |
+| SHB   | Section Header Block         |                                                         | WIP: see bug #3096                      |                                                                         |
+|       | (1) `opt_comment`            | NULL (1.7.1 rev 41026)                                  | (1.7.1 rev 41032)                       | Menu Statistics/Summary                                                 |
+|       | (2) `shb_hardware`           | NULL (1.7.1 rev 41026)                                  | (1.7.1 rev 41032)                       | Menu Statistics/Summary                                                 |
+|       | (3) `shb_os`                 | OK (1.7.1 rev 41026)                                    | (1.7.1 rev 41032)                       | Menu Statistics/Summary                                                 |
+|       | (4) `shb_userappl`           | OK                                                      | (1.7.1 rev 41032)                       | Menu Statistics/Summary                                                 |
+| IDB   | Interface Description Block  |                                                         | WIP: see bug #3096; [rev 41082][R41082] |                                                                         |
+|       | (1) `opt_comment`            | NULL (1.7.1 [rev 41108][R41108])                        |                                         |                                                                         |
+|       | (2) `if_name`                | OK                                                      |                                         |                                                                         |
+|       | (3) `if_description`         | NULL (1.7.1 [rev 41108][R41108])                        |                                         |                                                                         |
+|       | (4) `if_IPv4addr`            |                                                         |                                         |                                                                         |
+|       | (5) `if_IPv6addr`            |                                                         |                                         |                                                                         |
+|       | (6) `if_MACaddr`             |                                                         |                                         |                                                                         |
+|       | (7) `if_EUIaddr`             |                                                         |                                         |                                                                         |
+|       | (8) `if_speed`               | 0 (1.7.1 [rev 41108][R41108])                           |                                         |                                                                         |
+|       | (9) `if_tsresol`             | 6 or 9 (1.7.1 [rev 41108][R41108], [rev 41455][R41455]) |                                         |                                                                         |
+|       | (10) `if_tzone`              |                                                         |                                         |                                                                         |
+|       | (11) `if_filter`             | OK                                                      |                                         |                                                                         |
+|       | (12) `if_os`                 | OK (1.7.1 [rev 41108][R41108])                          |                                         |                                                                         |
+|       | (13) `if_fcslen`             |                                                         |                                         |                                                                         |
+|       | (14) `if_tsoffset`           |                                                         |                                         |                                                                         |
+| EPB   | Enhanced Packet Block        |                                                         |                                         |                                                                         |
+|       | (1) `opt_comment`            | NULL                                                    |                                         | [EditMenu](/EditMenu) [ExpertInfo](/ExpertInfo) [StatusBar](/StatusBar) |
+|       | (2) `epb_flags`              |                                                         |                                         |                                                                         |
+|       | (3) `epb_hash`               |                                                         |                                         |                                                                         |
+|       | (4) `epb_dropcount`          |                                                         |                                         |                                                                         |
+| NRB   | Name Resolution Block        |                                                         |                                         |                                                                         |
+|       | (2) `ns_dnsname`             |                                                         |                                         |                                                                         |
+|       | (3) `ns_dnsIP4addr`          |                                                         |                                         |                                                                         |
+|       | (4) `ns_dnsIP6addr`          |                                                         |                                         |                                                                         |
+| ISB   | Interface Statistics Block   |                                                         | WIP (1.7.1 [rev 41137][R41137])         |                                                                         |
+|       | (1) `opt_comment`            | OK (1.7.1 revs [41136][R41136] and [41160][R41160])     | OK                                      |                                                                         |
+|       | (2) `isb_starttime`          | OK (1.7.1 revs [41136][R41136] and [41160][R41160])     | OK                                      |                                                                         |
+|       | (3) `isb_endtime`            | OK (1.7.1 revs [41136][R41136] and [41160][R41160])     | OK                                      |                                                                         |
+|       | (4) `isb_ifrecv`             | OK                                                      | OK                                      |                                                                         |
+|       | (5) `isb_ifdrop`             | OK                                                      | OK                                      | Menu Statistics/Summary                                                 |
+|       | (6) `isb_filteraccept`       |                                                         | OK                                      |                                                                         |
+|       | (7) `isb_osdrop`             |                                                         | OK                                      |                                                                         |
+|       | (8) `isb_usrdeliv`           |                                                         | OK                                      |                                                                         |
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Block</strong></p></td>
-<td><p><strong>Option</strong></p></td>
-<td><p><strong>dumpcap pcapio.{c,h}</strong></p></td>
-<td><p><strong>Wiretap API</strong></p></td>
-<td><p><strong>Wireshark GUI</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>All</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(0) opt_endofopt</p></td>
-<td><p>OK</p></td>
-<td><p>OK</p></td>
-<td><p>-</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(1) opt_comment</p></td>
-<td><p>SHB, IDB, ISB</p></td>
-<td><p>WIP: see bug <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=3096" class="https">#3096</a></p></td>
-<td><p>see per block</p></td>
-</tr>
-<tr class="odd">
-<td><p>SHB</p></td>
-<td><p>Section Header Block</p></td>
-<td></td>
-<td><p>WIP: see bug <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=3096" class="https">#3096</a></p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(1) opt_comment</p></td>
-<td><p>NULL (1.7.1 rev 41026)</p></td>
-<td><p>(1.7.1 rev 41032)</p></td>
-<td><p>Menu Statistics/Summary</p></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(2) shb_hardware</p></td>
-<td><p>NULL (1.7.1 rev 41026)</p></td>
-<td><p>(1.7.1 rev 41032)</p></td>
-<td><p>Menu Statistics/Summary</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(3) shb_os</p></td>
-<td><p>OK (1.7.1 rev 41026)</p></td>
-<td><p>(1.7.1 rev 41032)</p></td>
-<td><p>Menu Statistics/Summary</p></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(4) shb_userappl</p></td>
-<td><p>OK</p></td>
-<td><p>(1.7.1 rev 41032)</p></td>
-<td><p>Menu Statistics/Summary</p></td>
-</tr>
-<tr class="even">
-<td><p>IDB</p></td>
-<td><p>Interface Description Block</p></td>
-<td></td>
-<td><p>WIP: see bug <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=3096" class="https">#3096</a>; <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41082" class="http">rev 41082</a></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(1) opt_comment</p></td>
-<td><p>NULL (1.7.1 <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41108" class="http">rev 41108</a>)</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(2) if_name</p></td>
-<td><p>OK</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(3) if_description</p></td>
-<td><p>NULL (1.7.1 <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41108" class="http">rev 41108</a>)</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(4) if_IPv4addr</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(5) if_IPv6addr</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(6) if_MACaddr</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(7) if_EUIaddr</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(8) if_speed</p></td>
-<td><p>0 (1.7.1 <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41108" class="http">rev 41108</a>)</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(9) if_tsresol</p></td>
-<td><p>6 or 9 (1.7.1 <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41108" class="http">rev 41108</a>, <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41455" class="http">rev 41455</a>)</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(10) if_tzone</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(11) if_filter</p></td>
-<td><p>OK</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(12) if_os</p></td>
-<td><p>OK (1.7.1 <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41108" class="http">rev 41108</a>)</p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(13) if_fcslen</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(14) if_tsoffset</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p>EPB</p></td>
-<td><p>Enhanced Packet Block</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(1) opt_comment</p></td>
-<td><p>NULL</p></td>
-<td></td>
-<td><p><a href="/EditMenu" class="nonexistent">EditMenu</a> <a href="/ExpertInfo" class="nonexistent">ExpertInfo</a> <a href="/StatusBar" class="nonexistent">StatusBar</a></p></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(2) epb_flags</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(3) epb_hash</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(4) epb_dropcount</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>NRB</p></td>
-<td><p>Name Resolution Block</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(2) ns_dnsname</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(3) ns_dnsIP4addr</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(4) ns_dnsIP6addr</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>ISB</p></td>
-<td><p>Interface Statistics Block</p></td>
-<td></td>
-<td><p>WIP (1.7.1 <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41137" class="http">rev 41137</a>)</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(1) opt_comment</p></td>
-<td><p>OK (1.7.1 revs <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41136" class="http">41136</a> and <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41160" class="http">41160</a>)</p></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(2) isb_starttime</p></td>
-<td><p>OK (1.7.1 revs <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41136" class="http">41136</a> and <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41160" class="http">41160</a>)</p></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(3) isb_endtime</p></td>
-<td><p>OK (1.7.1 revs <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41136" class="http">41136</a> and <a href="http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&amp;revision=41160" class="http">41160</a>)</p></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(4) isb_ifrecv</p></td>
-<td><p>OK</p></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(5) isb_ifdrop</p></td>
-<td><p>OK</p></td>
-<td><p>OK</p></td>
-<td><p>Menu Statistics/Summary</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(6) isb_filteraccept</p></td>
-<td></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>(7) isb_osdrop</p></td>
-<td></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>(8) isb_usrdeliv</p></td>
-<td></td>
-<td><p>OK</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+[R41136]: http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=41136
+[R41160]: http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=41160
+[R41137]: http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=41137
+[R41108]: http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=41108
+[R41455]: http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=41455
+[R41082]: http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=41082
 
   - dumpcap 1.4/1.6/1.7 (rev \< 41026) only supports (writes) the following options:
     

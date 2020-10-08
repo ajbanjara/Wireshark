@@ -76,49 +76,16 @@ Issues filed in the issue database are monitored by the developers and solved as
 
 Please respond to these requests to keep the investigation into the problem going, even if you can't provide the information yourself. Once you have provided the information, you may set the bug's state back to its previous value (either UNCONFIRMED or CONFIRMED). If the requested information isn't provided within a certain amount of time the only option is to close the bug report. This window depends on the severity of the problem, as follows:
 
-<div>
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Severity</strong></p></td>
-<td><p><strong>Add. Info requests</strong></p></td>
-<td><p><strong>closed after</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Blocker</p></td>
-<td><p>N/A</p></td>
-<td><p>when solved</p></td>
-</tr>
-<tr class="odd">
-<td><p>Critical</p></td>
-<td><p>N/A</p></td>
-<td><p>when solved</p></td>
-</tr>
-<tr class="even">
-<td><p>Major</p></td>
-<td><p>Three</p></td>
-<td><p>3 months</p></td>
-</tr>
-<tr class="odd">
-<td><p>Normal</p></td>
-<td><p>Two</p></td>
-<td><p>2 months</p></td>
-</tr>
-<tr class="even">
-<td><p>Trivial</p></td>
-<td><p>One</p></td>
-<td><p>1 month</p></td>
-</tr>
-<tr class="odd">
-<td><p>Enhance</p></td>
-<td><p>One</p></td>
-<td><p>1 month</p></td>
-</tr>
-</tbody>
-</table>
+| Severity | Add. Info requests | closed after |
+| -------- | ------------------ | ------------ |
+| Blocker  | N/A                | when solved  |
+| Critical | N/A                | when solved  |
+| Major    | Three              | 3 months     |
+| Normal   | Two                | 2 months     |
+| Trivial  | One                | 1 month      |
+| Enhance  | One                | 1 month      |
 
-</div>
 
 ## Reporting Viruses
 

@@ -10,38 +10,13 @@ SMB2 was introduced with Microsoft Vista and is a redesign of the older SMB prot
 
 The following table lists the version number and the operating that brought them.
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>version</strong></p></td>
-<td><p><strong>Operating System</strong></p></td>
-</tr>
-<tr class="even">
-<td><p>2.0.2</p></td>
-<td><p>Windows Vista, Server 2008</p></td>
-</tr>
-<tr class="odd">
-<td><p>2.1.0</p></td>
-<td><p>Windows 7, Server 2008 R2</p></td>
-</tr>
-<tr class="even">
-<td><p>3.0.0</p></td>
-<td><p>Windows 8, Server 2012</p></td>
-</tr>
-<tr class="odd">
-<td><p>3.0.2</p></td>
-<td><p>Windows 8.1, Server 2012 R2</p></td>
-</tr>
-<tr class="even">
-<td><p>3.1.0</p></td>
-<td><p>Windows 10, Server 2016</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| version | Operating System            |
+| ------- | --------------------------- |
+| 2.0.2   | Windows Vista, Server 2008  |
+| 2.1.0   | Windows 7, Server 2008 R2   |
+| 3.0.0   | Windows 8, Server 2012      |
+| 3.0.2   | Windows 8.1, Server 2012 R2 |
+| 3.1.0   | Windows 10, Server 2016     |
 
 ## Protocol dependencies
 

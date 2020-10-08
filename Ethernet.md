@@ -18,30 +18,9 @@ Information how to capture on an Ethernet network can be found at the [CaptureSe
 
 A physical Ethernet packet will look like this:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p>Preamble</p></td>
-<td><p>Destination MAC address</p></td>
-<td><p>Source MAC address</p></td>
-<td><p>Type/Length</p></td>
-<td><p>User Data</p></td>
-<td><p>Frame Check Sequence (FCS)</p></td>
-</tr>
-<tr class="even">
-<td><p>8</p></td>
-<td><p>6</p></td>
-<td><p>6</p></td>
-<td><p>2</p></td>
-<td><p>46 - 1500</p></td>
-<td><p>4</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Preamble | Destination MAC address | Source MAC address | Type/Length | User Data | Frame Check Sequence (FCS) |
+| -------- | ----------------------- | ------------------ | ----------- | --------- | -------------------------- |
+| 8        | 6                       | 6                  | 2           | 46 - 1500 | 4                          |
 
 As the Ethernet hardware filters the preamble, it is not given to Wireshark or any other application. Most Ethernet interfaces also either don't supply the FCS to Wireshark or other applications, or aren't configured by their driver to do so; therefore, Wireshark will typically only be given the green fields, although on some platforms, with some interfaces, the FCS will be supplied on incoming packets.
 
@@ -152,55 +131,15 @@ A complete list of Ethernet display filter fields can be found in the [display f
 
 Some useful filters:
 
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><em>Filter</em></p></td>
-<td><p><em>Traffic Description</em></p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-<div>
-
-<table>
-<tbody>
-<tr class="odd">
-<td><p><code>eth </code></p></td>
-<td><p>all Ethernet based</p></td>
-</tr>
-<tr class="even">
-<td><p><code>eth.addr==08.00.08.15.ca.fe </code></p></td>
-<td><p>to and from Ethernet MAC address 08:00:08:15:ca:fe</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>!(eth.addr==08.00.08.15.ca.fe) </code></p></td>
-<td><p>all except to and from Ethernet MAC address 08:00:08:15:ca:fe</p></td>
-</tr>
-<tr class="even">
-<td><p><code>eth.dst==ff:ff:ff:ff:ff:ff </code></p></td>
-<td><p>Ethernet <a href="/Broadcast">Broadcast</a> only</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>eth.dst!=ff:ff:ff:ff:ff:ff </code></p></td>
-<td><p>all except Ethernet <a href="/Broadcast">Broadcast</a></p></td>
-</tr>
-<tr class="even">
-<td><p><code>(eth.dst[0] &amp; 1) </code></p></td>
-<td><p>Ethernet <a href="/Multicast">Multicast</a> only (least significant bit of first address byte set)</p></td>
-</tr>
-<tr class="odd">
-<td><p><code>!(eth.dst[0] &amp; 1) </code></p></td>
-<td><p>all except Ethernet <a href="/Multicast">Multicast</a> (least significant bit of first address byte not set)</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+| Filter                            | Traffic Description                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `eth `                            | all Ethernet based                                                                                |
+| `eth.addr==08.00.08.15.ca.fe `    | to and from Ethernet MAC address 08:00:08:15:ca:fe                                                |
+| `!(eth.addr==08.00.08.15.ca.fe) ` | all except to and from Ethernet MAC address 08:00:08:15:ca:fe                                     |
+| `eth.dst==ff:ff:ff:ff:ff:ff `     | Ethernet [Broadcast](/Broadcast) only                                                             |
+| `eth.dst!=ff:ff:ff:ff:ff:ff `     | all except Ethernet [Broadcast](/Broadcast)                                                       |
+| `(eth.dst[0] & 1) `               | Ethernet [Multicast](/Multicast) only (least significant bit of first address byte set)           |
+| `!(eth.dst[0] & 1) `              | all except Ethernet [Multicast](/Multicast) (least significant bit of first address byte not set) |
 
 Note: the Ethernet Broadcast address (ff:ff:ff:ff:ff:ff) is per definition a Multicast one (least significant bit of first address byte set). If you want to see only Multicasts, you have to filter out the Broadcasts as well ` (eth.dst[0] & 1) && eth.dst!=ff:ff:ff:ff:ff:ff `.
 
