@@ -18,7 +18,7 @@ Wireshark handles all capture file I/O in the [wiretap](https://gitlab.com/wires
 
 ## File Format
 
-There are some [variants](#Variants) of the format "in the wild", the following will only describe the commonly used format in its current version 2.4. This format version hasn't changed for quite a while (at least since libpcap 0.4 in 1998), so it's not expected to change except for the PCAPng file format mentioned below.
+There are some [variants](#variants) of the format "in the wild", the following will only describe the commonly used format in its current version 2.4. This format version hasn't changed for quite a while (at least since libpcap 0.4 in 1998), so it's not expected to change except for the PCAPng file format mentioned below.
 
 
 
@@ -92,7 +92,7 @@ The actual packet data will immediately follow the packet header as a data blob 
 
 ## Variants
 
-Because of the [drawbacks](#Drawbacks) of the pcap file format, several developers and vendors have independently extended the format to meet their needs. Some developers were kind enough to change the magic bytes from the libpcap standard; for the others, Wireshark has had to include some heuristics.
+Because of the [drawbacks](#drawbacks) of the pcap file format, several developers and vendors have independently extended the format to meet their needs. Some developers were kind enough to change the magic bytes from the libpcap standard; for the others, Wireshark has had to include some heuristics.
 
 ### Nanosecond pcap
 
