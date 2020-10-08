@@ -1,17 +1,8 @@
 # Lua
 
-<div>
+![Lua logo](uploads/__moin_import__/attachments/Lua/lua_logo.gif)
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><img src="uploads/__moin_import__/attachments/Lua/lua_logo.gif" title="lua_logo.gif" class="attachment" alt="lua_logo.gif" /></p></td>
-<td><p>Lua is a powerful light-weight programming language designed for extending applications. Lua is designed and implemented by a <a href="http://www.lua.org/authors.html" class="http">team</a> at <a href="http://www.puc-rio.br/" class="http">PUC-Rio</a>, the Pontifical Catholic University of Rio de Janeiro in Brazil. Lua was born and raised at <a href="http://www.tecgraf.puc-rio.br/" class="http">Tecgraf</a>, the Computer Graphics Technology Group of PUC-Rio, and is now housed at <a href="http://www.lua.org" class="http">Lua.org</a>. Both Tecgraf and Lua.org are laboratories of the <a href="http://www.inf.puc-rio.br/" class="http">Department of Computer Science</a>.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+Lua is a powerful light-weight programming language designed for extending applications. Lua is designed and implemented by a [team](http://www.lua.org/authors.html) at [PUC-Rio](http://www.puc-rio.br/), the Pontifical Catholic University of Rio de Janeiro in Brazil. Lua was born and raised at [Tecgraf](http://www.tecgraf.puc-rio.br/), the Computer Graphics Technology Group of PUC-Rio, and is now housed at [Lua.org](http://www.lua.org). Both Tecgraf and Lua.org are laboratories of the [Department of Computer Science](http://www.inf.puc-rio.br/).
 
 Lua's been added to Wireshark as a language for prototyping and scripting.
 
