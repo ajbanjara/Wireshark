@@ -843,6 +843,8 @@ Usb packets exchanged while unpluggin and replugging a mouse: [mouse\_replug2.pc
 
 [STM32L053-Nucleo-via-hub.7z](uploads/__moin_import__/attachments/SampleCaptures/STM32L053-Nucleo-via-hub.7z) Composite device (ST-LINK Vendor specific protocol, Mass Storage class, CDC Class) STM32L053 Nucleo (Full-Speed) connected via High-Speed USB Hub to host. Contains simultaneous captures on the HS link between Hub and Host, FS link between SB1240 and Hub and usbmon capture on the USB Host. Only the Mass Storage class interface was actively used.
 
+[USBMSC-USBLL.7z](uploads/36d216660e18783c8d2229ddc372f746/USBMSC-USBLL.7z) USB memory stick connected and mounted on Windows. Includes both link layer capture and matching USBPcap capture.
+
 ### FreeBSD usbdump format file
 
 [test.usbdump](uploads/__moin_import__/attachments/SampleCaptures/test.usbdump) Sample FreeBSD usbdump capture file.
