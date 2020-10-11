@@ -538,7 +538,7 @@ See the MPTCP section for MPTCP pcaps.
 
 ### HyperText Transport Protocol (HTTP)
 
-[http.cap](uploads/__moin_import__/attachments/SampleCaptures/http.cap) A simple HTTP request and response.
+[http.cap](uploads/27707187aeb30df68e70c8fb9d614981/http.cap) A simple HTTP request and response.
 
 [http\_gzip.cap](uploads/__moin_import__/attachments/SampleCaptures/http_gzip.cap) A simple HTTP request with a one packet gzip Content-Encoded response.
 
@@ -1224,7 +1224,7 @@ File: **[wpa-Induction.pcap](uploads/__moin_import__/attachments/SampleCaptures/
 File: **[wpa-eap-tls.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/wpa-eap-tls.pcap.gz)  
 **Description: **802.11 capture with WPA-EAP. PSK's to decode: a5001e18e0b3f792278825bc3abff72d7021d7c157b600470ef730e2490835d4 79258f6ceeecedd3482b92deaabdb675f09bcb4003ef5074f5ddb10a94ebe00a 23a9ee58c7810546ae3e7509fda9f97435778d689e53a54891c56d02f18ca162**
 
-File: **[Http.cap](uploads/__moin_import__/attachments/SampleCaptures/Http.cap)  
+File: **[http_PPI.cap](uploads/e8cebabd278b76e3bc9edbd484c4d293/http_PPI.cap)  
 **Description: **802.11n capture with PPI encapsulation containing HTTP data.**
 
 File: **[mesh.pcap](uploads/__moin_import__/attachments/SampleCaptures/mesh.pcap)  
