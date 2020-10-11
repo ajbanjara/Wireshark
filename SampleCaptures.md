@@ -326,7 +326,7 @@ If you don't find what you're looking for, you may also try:
 
 [DHCPv6.pcap](uploads/__moin_import__/attachments/SampleCaptures/DHCPv6.pcap) (dhcpv6) sample dhcpv6 client server transaction solicit(fresh lease)/advertise/request/reply/release/reply.
 
-[dhcpv6.pcap](uploads/__moin_import__/attachments/SampleCaptures/dhcpv6.pcap) (dhcpv6) sample dhcpv6 client server transaction solicit(requesting-old-lease)/advertise/request/reply/release/reply.
+[dhcpv6_1.pcap](uploads/1b328a71c8c503e5bfdeb2fe143402af/dhcpv6_1.pcap) (dhcpv6) sample dhcpv6 client server transaction solicit(requesting-old-lease)/advertise/request/reply/release/reply.
 
 [ecpri.pcap](uploads/__moin_import__/attachments/SampleCaptures/ecpri.pcap) (libpcap)[eCPRI](/eCPRI) sample file.
 
