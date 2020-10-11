@@ -73,7 +73,7 @@ There are some [HTTP\_Preferences](/HTTP_Preferences).
 
 ## Example capture file
 
-[SampleCaptures/http.cap](uploads/__moin_import__/attachments/SampleCaptures/http.cap) A simple HTTP request and response.
+[SampleCaptures/http.cap](uploads/27707187aeb30df68e70c8fb9d614981/http.cap) A simple HTTP request and response.
 
 [SampleCaptures/http\_gzip.cap](uploads/__moin_import__/attachments/SampleCaptures/http_gzip.cap). A simple HTTP request and a one packet gzip Content-Encoded response. Try this capture if you are having problems decompressing Content-Encoded packets, as this works with the default preferences.
 
