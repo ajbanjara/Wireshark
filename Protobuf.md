@@ -2,6 +2,11 @@
 
 Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data. For a description of Protobuf refer to [Protocol Buffers home page](https://developers.google.com/protocol-buffers).
 
+Change log about Wireshark supporting Protobuf:
+- Wirshark 2.6.0 - initial support.
+- Wirshark 3.2.0 - supports *.proto file.
+- Wirshark 3.3.0 - supports dissecting Protobuf fields as Wireshark fields and `'protobuf_field'` subdissector table features, fixes bugs about parsing *.proto file.
+
 ## Protocol dependencies
 
 Protobuf content is normally dissected by Wireshark from some higher layer dissectors including gRPC or other UDP/TCP based dissectors. You can add Protobuf processing support to your dissector written in C via:
