@@ -412,9 +412,9 @@ Apple [AirTunes](/AirTunes) protocol as used by [AirPort](/AirPort). See <http:/
 
 ### Spanning Tree Protocol
 
-[stp.pcap](uploads/__moin_import__/attachments/SampleCaptures/stp.pcap) (libpcap)
+[stp.pcap](uploads/8d3d0627231ab1e2fa5d3fe8be2390a7/stp.pcap) (libpcap)
 
-[STP UplinkFast.pcapng](uploads/__moin_import__/attachments/SampleCaptures/STP-UplinkFast.pcapng) (pcapng) Cisco STP [UplinkFast](/UplinkFast) proxy multicast frames sent to 0100.0ccd.cdcd. This file contains a capture of proxy (also called dummy) multicast frames sent after a root port switchover on behalf of 3 dynamic unicast MAC addresses to update the "upstream" part of the network about the new path toward them. For each of the MAC addresses (001d.e50a.d740, 0800.2774.b2c5, e4be.ede3.f013), the switch sends out 4 frames using the particular MAC address as a source, and the 0100.0ccd.cdcd as a destination, with each frame using a different type: SNAP (OUI 0x00000c, PID 0x0115), [AppleTalk](/AppleTalk) ([EtherType](/EtherType) 0x809b), IPX ([EtherType](/EtherType) 0x8137), and ARP ([EtherType](/EtherType) 0x0806). The frame payload is just a stuffing to the minimal frame length; it has no meaning.
+[STP_UplinkFast.pcapng](uploads/204b8eb1a66421c6f9324d4211f6ed45/STP_UplinkFast.pcapng) (pcapng) Cisco STP UplinkFast proxy multicast frames sent to 0100.0ccd.cdcd. This file contains a capture of proxy (also called dummy) multicast frames sent after a root port switchover on behalf of 3 dynamic unicast MAC addresses to update the "upstream" part of the network about the new path toward them. For each of the MAC addresses (001d.e50a.d740, 0800.2774.b2c5, e4be.ede3.f013), the switch sends out 4 frames using the particular MAC address as a source, and the 0100.0ccd.cdcd as a destination, with each frame using a different type: SNAP (OUI 0x00000c, PID 0x0115), AppleTalk (EtherType 0x809b), IPX (EtherType 0x8137), and ARP (EtherType 0x0806). The frame payload is just a stuffing to the minimal frame length; it has no meaning.
 
 ### Bluetooth
 
