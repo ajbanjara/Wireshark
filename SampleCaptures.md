@@ -1886,6 +1886,22 @@ And another NetBIOS example: SMB between an MS-DOS client and a Windows 98 serve
 
 [Asphodel\_WMRTCP5135.pcapng](uploads/__moin_import__/attachments/SampleCaptures/Asphodel_WMRTCP5135.pcapng) Streaming data example from a wireless module through a reciever.
 
+### Protobuf
+
+Please refer to [Protobuf dissector description page](/Protobuf) for how to use the sample capture files.
+
+[protobuf_udp_addressbook.pcapng](uploads/f41df2a5b4c029020ed83beb8b298644/protobuf_udp_addressbook.pcapng) Protobuf UDP example.
+
+[protobuf_tcp_addressbook.pcapng](uploads/b5e241ea7007912e14a37b2949a02768/protobuf_tcp_addressbook.pcapng) Protobuf TCP example.
+
+[protobuf_udp_addressbook_with_image.pcapng](uploads/bcb1665b9647314b5fbdbdbe1f068a6c/protobuf_udp_addressbook_with_image.pcapng) Protobuf UDP example with image field.
+
+### gRPC
+
+Please refer to [gRPC dissector description page](/gRPC) for how to use the sample capture files.
+
+[grpc_person_search.pcapng](uploads/7df3d66e563087902d39a7ba3db82ed5/grpc_person_search.pcapng) Search information of persons by name.
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/__moin_import__/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
