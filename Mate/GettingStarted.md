@@ -10,7 +10,7 @@ These are the steps to try out MATE:
 
   - go to Preferences-\>mate and set the config filename to the file you want to use (e.g. *D:\\tcp.mate* on win32), you don't have to restart Wireshark :smiley:
 
-  - load a corresponding capture file (e.g. [SampleCaptures/http.cap](uploads/__moin_import__/attachments/SampleCaptures/http.cap)) and see if MATE has added some new display filter fields, something like: *mate tcp\_pdu:1-\>tcp\_ses:1*
+  - load a corresponding capture file (e.g. [SampleCaptures/http.cap](uploads/27707187aeb30df68e70c8fb9d614981/http.cap)) and see if MATE has added some new display filter fields, something like: *mate tcp\_pdu:1-\>tcp\_ses:1*
 
   - or, at prompt: *path\_to*`/wireshark -o "mate.config: tcp.mate" -r http.cap`
 
