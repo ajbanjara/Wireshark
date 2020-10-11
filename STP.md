@@ -31,7 +31,7 @@ There are no STP specific preference settings.
 
 ## Example capture file
 
-\* [SampleCaptures/stp.pcap](uploads/__moin_import__/attachments/SampleCaptures/stp.pcap)
+\* [SampleCaptures/stp.pcap](uploads/8d3d0627231ab1e2fa5d3fe8be2390a7/stp.pcap)
 
 ## Display Filter
 
