@@ -77,6 +77,8 @@ Set the `CMAKE_BUILD_TYPE` to `Debug`. Ex:
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Debug ..
+make
+gdb run/tshark
 ```
 
 ### Building without optimizations using autotools
