@@ -65,7 +65,21 @@ To help DDD locate your source files while debugging, "cd" into the directory wh
 
 ## Debugging without Optimization
 
-(This only applies if building with autotools, not with cmake or nmake. If you know how to do this with either of those, feel free to add the steps.)
+If you are debugging and optimization is a problem (for example, the line numbers displayed when stepping through the code don't appear to line up with what's actually being executed), use the steps in the subsections below to disable optimizations when building.
+
+(Steps for autotools and cmake are listed below. If you know the steps for building with nmake, feel free to add them.)
+
+### Building without optimizations using cmake
+
+Set the `CMAKE_BUILD_TYPE` to `Debug`. Ex:
+
+```
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+```
+
+### Building without optimizations using autotools
 
 If you are debugging a specific dissector and optimization is a problem:
 
