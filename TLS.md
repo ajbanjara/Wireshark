@@ -124,11 +124,16 @@ Step-by-step instructions to decrypt TLS traffic from Chrome or Firefox in Wires
 
 8.  Check that the decrypted data is visible. For example, using the `tls and (http or http2)` filter.
 
-For Windows, an environment variable can be set globally as described in [this walkthrough](https://redflagsecurity.net/2019/03/10/decrypting-tls-wireshark/), but this is not recommended since it is easy to forget about and may be a security issue since it allows decryption of all your TLS traffic. A better way to set the environment variable is via a batch file. Create a file `start-fx.cmd` with:
+For **Windows**, an environment variable can be set globally as described in [this walkthrough](https://redflagsecurity.net/2019/03/10/decrypting-tls-wireshark/), but this is not recommended since it is easy to forget about and may be a security issue since it allows decryption of all your TLS traffic. A better way to set the environment variable is via a batch file. Create a file `start-fx.cmd` with:
 
     @echo off
     set SSLKEYLOGFILE=%USERPROFILE%\Desktop\keylogfile.txt
     start firefox
+
+For **Linux/OS X**, you open a terminal then start the browser with:
+
+    export SSLKEYLOGFILE=$HOME/Desktop/keylogfile.txt
+    firefox
 
 Change the `SSLKEYLOGFILE` path as needed, and replace `firefox` with `chrome` for Google Chrome. This mechanism currently (2019) does not work for Safari, Microsoft Edge, and others since their TLS libraries (Microsoft SChannel/Apple **SecureTransport**) do not support this mechanism. This mechanism works for applications other than web browsers as well, but it dependent on the TLS library used by the application.
 
