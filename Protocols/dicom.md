@@ -2,9 +2,9 @@
 
 Wikipedia has a very good high level description about DICOM and the protocol specifications can be found at the DICOM Homepage. This page will focus on wireshark specific topics.
 
-    Disclaimer: 
+## Disclaimer
     
-    Wireshark is not a Medical Device and therefore exported files MUST NOT be used for any clinical processes. The exported file are solely for data and communication interpretation purposes, and the implementation does not claim to be a reference. For certain network captures, the different PDUs are not resembled in the correct order, i.e. leading to invalid DICOM files. So when looking at the files e.g. using a DICOM editor, apply the necessary care, as far as the interpretation of the results go.
+Wireshark is not a Medical Device and therefore exported files MUST NOT be used for any clinical processes. The exported file are solely for data and communication interpretation purposes, and the implementation does not claim to be a reference. For certain network captures, the different PDUs are not resembled in the correct order, i.e. leading to invalid DICOM files. So when looking at the files e.g. using a DICOM editor, apply the necessary care, as far as the interpretation of the results go.
 
 ## History
 
