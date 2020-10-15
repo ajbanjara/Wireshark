@@ -1890,17 +1890,19 @@ And another NetBIOS example: SMB between an MS-DOS client and a Windows 98 serve
 
 Please refer to [Protobuf dissector description page](/Protobuf) for how to use the sample capture files.
 
-[protobuf_udp_addressbook.pcapng](uploads/f41df2a5b4c029020ed83beb8b298644/protobuf_udp_addressbook.pcapng) Protobuf UDP example.
+[protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) Protobuf UDP example.
 
-[protobuf_tcp_addressbook.pcapng](uploads/b5e241ea7007912e14a37b2949a02768/protobuf_tcp_addressbook.pcapng) Protobuf TCP example.
+[protobuf_tcp_addressbook.pcapng](uploads/b2f61c813d697e3ed22accf728de3122/protobuf_tcp_addressbook.pcapng) Protobuf TCP example.
 
-[protobuf_udp_addressbook_with_image.pcapng](uploads/bcb1665b9647314b5fbdbdbe1f068a6c/protobuf_udp_addressbook_with_image.pcapng) Protobuf UDP example with image field.
+[protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) Protobuf UDP example with image field.
 
 ### gRPC
 
 Please refer to [gRPC dissector description page](/gRPC) for how to use the sample capture files.
 
-[grpc_person_search.pcapng](uploads/7df3d66e563087902d39a7ba3db82ed5/grpc_person_search.pcapng) Search information of persons by name.
+[grpc_person_search_protobuf_with_image.pcapng](uploads/f6fcdceb0248669c0b057bd15d45ab6f/grpc_person_search_protobuf_with_image.pcapng) gRPC Person search service example, using Protobuf to serialize structured data.
+
+[grpc_person_search_json_with_image.pcapng](uploads/88c03db83efb2e3253c88f853d40477b/grpc_person_search_json_with_image.pcapng) gRPC Person search service example, using JSON to serialize structured data.
 
 ## Captures in specific file formats
 
