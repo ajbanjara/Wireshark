@@ -3,9 +3,9 @@
 Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data. For a description of Protobuf refer to [Protocol Buffers home page](https://developers.google.com/protocol-buffers).
 
 Change log about Wireshark supporting Protobuf:
-- Wirshark 2.6.0 - initial support.
-- Wirshark 3.2.0 - supports *.proto file.
-- Wirshark 3.3.0 - supports dissecting Protobuf fields as Wireshark fields and `'protobuf_field'` subdissector table features, fixes bugs about parsing *.proto file.
+- Wireshark 2.6.0 - initial support.
+- Wireshark 3.2.0 - supports *.proto file.
+- Wireshark 3.3.0 - supports dissecting Protobuf fields as Wireshark fields and `'protobuf_field'` subdissector table features, fixes bugs about parsing *.proto file.
 
 ## Protocol dependencies
 
@@ -85,14 +85,14 @@ If your protocol is over UDP and the payload of each UDP is a Protobuf message, 
 ![udp_port_message_type_settings](uploads/f0817682ec00a3d47130fcce330c8c70/udp_port_message_type_settings.png)
 >Note, The field of 'UDP ports' might be a range, for example, "8127,8200-8300,9127".
 
-Then, you can find the parsed Protobuf details on open the sample capture file [protobuf_udp_addressbook.pcapng](uploads/f41df2a5b4c029020ed83beb8b298644/protobuf_udp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) with Wireshark:
+Then, you can find the parsed Protobuf details on open the sample capture file [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) with Wireshark:
 ![protobuf_udp_by_mapping](uploads/e8c53f0801fb1490a50ad7844b6c5aa7/protobuf_udp_by_mapping.png)
 
 Another way to parse Protobuf UDP packets is to write a simple script with Lua to create a dissector for each root message type, that allows you to use "Decode as..." feature on UDP packets. This method will be introduced in the next section.
 
 ### Write your own Protobuf UDP or TCP dissectors
 
-If the root message type of a Protouf UDP and TCP protocol is the `'tutorial.AddressBook'` in `addressbook.proto`, and the whole payload of an UDP package is a `'tutorial.AddressBook'` message, and each message of the protocol over TCP is a `'tutorial.AddressBook'` message prefixed by 4 bytes length in big-endian ([4bytes length][a message][4bytes length][a message]...), then you can put following file named `'create_protobuf_dissector.lua'` in your 'plugins' subdirectory of 'Personal configuration' directory:
+If the root message type of a Protobuf UDP and TCP protocol is the `'tutorial.AddressBook'` in `addressbook.proto`, and the whole payload of an UDP package is a `'tutorial.AddressBook'` message, and each message of the protocol over TCP is a `'tutorial.AddressBook'` message prefixed by 4 bytes length in big-endian ([4bytes length][a message][4bytes length][a message]...), then you can put following file named `'create_protobuf_dissector.lua'` in your 'plugins' subdirectory of 'Personal configuration' directory:
 ```lua
 do
     local protobuf_dissector = Dissector.get("protobuf")
@@ -166,13 +166,13 @@ end
 
 >Note, You can find the 'Personal configuration' directory from your Wireshark 'About' dialog by menu 'About->Folders->Personal configuration'.
 
-Now you can clear the *'Protobuf UDP Message Types'* table in Protobuf preferences, and then reopen the [protobuf_udp_addressbook.pcapng](uploads/f41df2a5b4c029020ed83beb8b298644/protobuf_udp_addressbook.pcapng) file, and click the 'Decode As' menu to select the ADDRBOOK protocol:
+Now you can clear the *'Protobuf UDP Message Types'* table in Protobuf preferences, and then reopen the [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) file, and click the 'Decode As' menu to select the ADDRBOOK protocol:
 ![decode_as_dialog](uploads/b27f092bedb6f746724f7e53832c1a5a/decode_as_dialog.png)
 
 The UDP packet will be parsed as the AddrBook protocol which takes the Protobuf `'tutorial.AddressBook'` message as the root message:
 ![protobuf_decode_as_udp](uploads/3712b7c9040a39c1598788bcc3751b15/protobuf_decode_as_udp.png)
 
-To test the Protobuf TCP dissector, you can open the [protobuf_ tcp_ addressbook.pcapng](uploads/b5e241ea7007912e14a37b2949a02768/protobuf_tcp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) and click the 'Decode As' menu to select the ADDRBOOK protocol (on 18127 TCP port). The 4 bytes length field and the AddressBook message will be dissected like:
+To test the Protobuf TCP dissector, you can open the [protobuf_ tcp_ addressbook.pcapng](uploads/b2f61c813d697e3ed22accf728de3122/protobuf_tcp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) and click the 'Decode As' menu to select the ADDRBOOK protocol (on 18127 TCP port). The 4 bytes length field and the AddressBook message will be dissected like:
 ![protobuf_decode_as_tcp](uploads/e8a65d3e6d7d36216fee97575279ef7b/protobuf_decode_as_tcp.png)
 
 If you have a new Protobuf TCP dissector using root message type like 'package.NewMessage', and each message is also prefixed by 4 bytes length field, you can just add following line to 
@@ -196,7 +196,7 @@ do
 end
 ```
 
-Then, open the sample capture file [protobuf_udp_addressbook_with_image.pcapng](uploads/bcb1665b9647314b5fbdbdbe1f068a6c/protobuf_udp_addressbook_with_image.pcapng) on the [SampleCaptures page](/SampleCaptures), and you will find that the 'portait_image' Protobuf field is dissected as PNG image data:
+Then, open the sample capture file [protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) on the [SampleCaptures page](/SampleCaptures), and you will find that the 'portait_image' Protobuf field is dissected as PNG image data:
 ![protobuf_udp_with_image](uploads/3dd1230451b54135f818d949c893d7e9/protobuf_udp_with_image.png)
 
 ### Preference Settings
@@ -224,6 +224,6 @@ These two options are only used when the message type or field definitions canno
 
 ## Example capture file
 
-- [protobuf_udp_addressbook.pcapng](uploads/f41df2a5b4c029020ed83beb8b298644/protobuf_udp_addressbook.pcapng) Protobuf UDP example.
-- [protobuf_tcp_addressbook.pcapng](uploads/b5e241ea7007912e14a37b2949a02768/protobuf_tcp_addressbook.pcapng) Protobuf TCP example. (prefixed by 4 bytes length field)
-- [protobuf_udp_addressbook_with_image.pcapng](uploads/bcb1665b9647314b5fbdbdbe1f068a6c/protobuf_udp_addressbook_with_image.pcapng) Protobuf UDP example with image field.
+- [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) Protobuf UDP example.
+- [protobuf_tcp_addressbook.pcapng](uploads/b2f61c813d697e3ed22accf728de3122/protobuf_tcp_addressbook.pcapng) Protobuf TCP example.
+- [protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) Protobuf UDP example with image field.
