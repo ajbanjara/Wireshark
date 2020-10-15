@@ -71,6 +71,8 @@ Things not (yet) part of the [Wireshark User's Guide](http://www.wireshark.org/d
 
 - [PracticalJokes](/PracticalJokes): How to make Wireshark do strange things
 
+- [InTheMedia](/InTheMedia): Movies and TV-Shows featuring Wireshark
+
 ---
 
 Imported from https://wiki.wireshark.org/ on 2020-08-11 23:10:57 UTC
