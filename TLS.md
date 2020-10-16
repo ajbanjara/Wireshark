@@ -142,6 +142,8 @@ For **macos**, you open a terminal then start the browser with:
 
 Change the `SSLKEYLOGFILE` path as needed, and replace `firefox` with `chrome` for Google Chrome. This mechanism currently (2019) does not work for Safari, Microsoft Edge, and others since their TLS libraries (Microsoft SChannel/Apple **SecureTransport**) do not support this mechanism. This mechanism works for applications other than web browsers as well, but it dependent on the TLS library used by the application.
 
+**Note:** Chromium based versions of Edge (version 79+) should work too.
+
 Examples of other applications:
 
   - Applications using OpenSSL could use a [GDB or a LD\_PRELOAD trick](https://security.stackexchange.com/q/80158/2630) to extract the secrets. This includes Python.
