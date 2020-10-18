@@ -1896,6 +1896,8 @@ Please refer to [Protobuf dissector description page](/Protobuf) for how to use 
 
 [protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) Protobuf UDP example with image field.
 
+[protobuf_udp_addressbook_with_image_ts.pcapng](uploads/c425dd4bb60f7d7ea35ec1b924bf3788/protobuf_udp_addressbook_with_image_ts.pcapng) Protobuf UDP example about image field and google.protobuf.Timestamp field.
+
 ### gRPC
 
 Please refer to [gRPC dissector description page](/gRPC) for how to use the sample capture files.
