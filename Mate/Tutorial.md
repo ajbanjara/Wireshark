@@ -68,7 +68,7 @@ So, if we open a capture using this configuration
 
   - filtering with **mate.http\_req.Duration \> 1.5** will show those request that take more than 1.5 seconds to complete.
 
-You have to know that **mate.xxx.Time** gives the time in seconds between the pdu matching the [GopStart](/GopStart) and the Pdu matching the [GopStop](/GopStop) (yes, you can create timers using this\!). On the other hand, **mate.xxx.Duration** gives you the time passed between the [GopStart](/GopStart) and the last pdu assigned to that Gop regardless whether it is a stop or not. After the [GopStop](/GopStop), Pdus matching the Gop's Key will still be assigned to the same Gop as far as they don't match the [GopStart](/GopStart), in which case a new Gop with the same key will be created.
+You have to know that **mate.xxx.Time** gives the time in seconds between the pdu matching the GopStart and the Pdu matching the GopStop (yes, you can create timers using this\!). On the other hand, **mate.xxx.Duration** gives you the time passed between the GopStart and the last pdu assigned to that Gop regardless whether it is a stop or not. After the GopStop, Pdus matching the Gop's Key will still be assigned to the same Gop as far as they don't match the GopStart, in which case a new Gop with the same key will be created.
 
 ## Getting DNS and HTTP together into a Gog
 
