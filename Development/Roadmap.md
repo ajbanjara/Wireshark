@@ -6,9 +6,8 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 | **Release** | **Expected Date** | **Notes** |
 | ---         |  ---              | ---       |
-| 3.4.0rc1    | October 22, 2020  | First release candidate for 3.4 |
-| 3.4.0       | November 4, 2020  | First release of the 3.4 branch |
-| 3.2.8       | November 4, 2020  | Next maintenance release of the 3.2 branch |
+| 3.4.0       | October 29, 2020  | First release of the 3.4 branch |
+| 3.2.8       | October 29, 2020  | Next maintenance release of the 3.2 branch |
 
 ## Backporting Changes
 
@@ -17,11 +16,11 @@ Significant bug fixes should be [backported to all applicable stable branches](D
 
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/master) in the [master (development) branch](https://gitlab.com/wireshark/wireshark/-/tree/master)
 
+[Recent changes](https://gitlab.com/wireshark/wireshark/commits/release-3.4) in the [3.4 branch](https://gitlab.com/wireshark/wireshark/-/tree/release-3.4)
+
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-3.2) in the [3.2 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-3.2)
 
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-3.0) in the [3.0 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-3.0)
-
-[Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-2.6) in the [2.6 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-2.6)
 
 ## Proposed Changes
 
