@@ -22,7 +22,7 @@ The sample below demonstrates the workflow for a patch. Replace `USERNAME` with 
     $ # Submit a patch:
     $ git checkout -b BRANCH_NAME
     Switched to a new branch 'BRANCH_NAME'
-    < Make changes>
+    <Make changes>
     $ git commit
     $ git push downstream HEAD
     Enumerating objects: 14, done.
@@ -39,7 +39,7 @@ The sample below demonstrates the workflow for a patch. Replace `USERNAME` with 
      * [new branch]      HEAD -> BRANCH_NAME
 
     $ # Amend your current change (e.g.: edit commit message, add additional tests):
-    < make some changes>
+    <Make changes>
     $ git commit -a --amend
     $ git push downstream +HEAD
     $ # ...or add a separate commit on top of the current change:
