@@ -8,11 +8,67 @@ See the [Migrating From Gerrit](#migrating-from-gerrit) section if you have an o
 
 For complete instructions on contributing code, see the [contribution section of the Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSrcContribute.html).
 
+# Quickstart
+
+The sample below demonstrates the workflow for a patch. Replace `USERNAME` with your GitLab username and `BRANCH_NAME` with the name you choose for your branch:
+
+    $ # Prepare your environment:
+    $ git clone -o upstream git@gitlab.com:wireshark/wireshark.git
+    $ cd wireshark
+    $ git remote add downstream git@gitlab.com:USERNAME/wireshark.git
+    $ cp tools/pre-commit .git/hooks
+    $ chmod a+x .git/hooks/pre-commit
+    
+    $ # Submit a patch:
+    $ git checkout -b BRANCH_NAME
+    Switched to a new branch 'BRANCH_NAME'
+    < Make changes>
+    $ git commit
+    $ git push downstream HEAD
+    Enumerating objects: 14, done.
+    Counting objects: 100% (14/14), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (13/13), done.
+    Writing objects: 100% (13/13), 148.07 KiB | 21.15 MiB/s, done.
+    Total 13 (delta 6), reused 0 (delta 0), pack-reused 0
+    remote:
+    remote: To create a merge request for BRANCH_NAME, visit:
+    remote:   https://gitlab.com/USERNAME/wireshark/merge_requests/new?merge_request%5Bsource_branch%5D=BRANCH_NAME
+    remote:
+    To gitlab.com:USERNAME/wireshark.git
+     * [new branch]      HEAD -> BRANCH_NAME
+
+    $ # Amend your current change (e.g.: edit commit message, add additional tests):
+    < make some changes>
+    $ git commit -a --amend
+    $ git push downstream +HEAD
+    $ # ...or add a separate commit on top of the current change:
+    < make some changes>
+    $ git commit -a
+    $ git push downstream HEAD
+
+    $ # Work complete! Delete the local BRANCH_NAME branch:
+    $ git checkout master
+    Switched to branch 'master'
+    $ git branch -D BRANCH_NAME
+    Deleted branch BRANCH_NAME (was c159b39).
+    
+    $ # Oops! Need to make more changes to the BRANCH_NAME branch:
+    $ git fetch upstream
+    $ git checkout upstream BRANCH_NAME
+
+    $ # Oops! Need to squash commits:
+    $ git checkout BRANCH_NAME
+    $ # Replace the '10' with the number of commits to squash together
+    $ # In your editor, keep 'pick' for your first commit and replace the other 'pick's with 'squash':
+    $ git rebase -i @~10 --rebase-merges
+    $ git push downstream +HEAD
+
 # Setup
 
 - Install git. For Windows users see [this page](/Development/SubmittingPatches/GitForWindows) for help with that.
 
-- Go to https://gitlab.com and and sign in. You can register a GitLab account directly, or sign in using your GitHub, Google, Bitbucket, and other accounts.
+- Go to https://gitlab.com and sign in. You can register a GitLab account directly, or sign in using your GitHub, Google, Bitbucket, and other accounts.
 
 - Go to https://gitlab.com/profile/keys and add an SSH key.
 
@@ -34,7 +90,7 @@ In your local repository directory, there will be a `.git/hooks/` directory, wit
 
 Wireshark provides a custom pre-commit hook which performs general checks along with Wireshark-specific API and formatting checks, but it might return false positives.
 If you want to install it, copy the `pre-commit` file from the `tools` directory (`cp ./tools/pre-commit .git/hooks/`) and make sure it is executable.
-Alternatively you can use Git's sample git pre-commit hook which detects whitespace errors such as mixed tabs and spaces.
+Alternatively, you can use Git's sample git pre-commit hook which detects whitespace errors such as mixed tabs and spaces.
 To install it, copy or rename the existing `.git/hooks/pre-commit.sample` file to `.git/hooks/pre-commit`.
 If the pre-commit hook is preventing you from committing what you believe is a valid change, you can run `git commit --no-verify` to skip running the hooks.
 
@@ -84,7 +140,7 @@ When running `git commit`, you will be prompted to describe the change. Here ar
 
   - If the change is specific to a single protocol, start this line with the abbreviated name of the protocol and a colon.
     
-  - If the change is not complete yet prefix the line with `[WIP]` to inform this change not to be submitted yet. This can later be removed.
+  - If the change is not complete yet, prefix the line with `[WIP]` to inform this change not to be submitted yet. This can be removed later.
 
 - Insert a single blank line after the first line.
 
@@ -98,7 +154,7 @@ As mentioned above, you can use "#" to [reference issues](https://docs.gitlab.co
 
 Putting all that together, we get the following example:
 
-    MIPv6: fix dissection of Service Selection Identifier
+    MIPv6: Fix dissection of Service Selection Identifier
 
     APN field is not encoded as a dotted string so the first character is not a
     length. Closes #10323.
@@ -327,53 +383,6 @@ A more comprehensive description of git can be found in [this book](https://git-
 
 GitLab does not currently provide a way to track the changes happening on a specific file. It is a frequently requested [open issue](https://gitlab.com/gitlab-org/gitlab/-/issues/1817), so support may be added some time in the future.
 
-# Sample Workflow Commands
-
-The sample below demonstrates the workflow for a patch. Replace `mybranchname` with the name you choose for your branch:
-
-    $ # Prepare to submit a patch
-    $ git clone -o upstream git@gitlab.com:wireshark/wireshark.git
-    $ cd wireshark
-    $ cp tools/pre-commit .git/hooks
-    $ chmod a+x .git/hooks/pre-commit
-    $ git checkout -b mybranchname
-    Switched to a new branch 'mybranchname'
-    
-    $ # Make some changes
-    $ git commit
-    $ git push downstream HEAD
-    Enumerating objects: 14, done.
-    Counting objects: 100% (14/14), done.
-    Delta compression using up to 8 threads
-    Compressing objects: 100% (13/13), done.
-    Writing objects: 100% (13/13), 148.07 KiB | 21.15 MiB/s, done.
-    Total 13 (delta 6), reused 0 (delta 0), pack-reused 0
-    remote:
-    remote: To create a merge request for mybranchname, visit:
-    remote:   https://gitlab.com/myusername/wireshark/merge_requests/new?merge_request%5Bsource_branch%5D=mybranchname
-    remote:
-    To gitlab.com:myusername/wireshark.git
-     * [new branch]      HEAD -> mybranchname
-        
-    $ # Amend your current change (e.g.: Added additional tests)...
-    < make some changes>
-    $ git commit -a --amend
-    $ git push downstream +HEAD
-    $ # ...or add a separate commit on top of the current change
-    < make some changes>
-    $ git commit -a
-    $ git push downstream HEAD
-    
-    $ # Work complete! Delete the mybranchname branch
-    $ git checkout master
-    Switched to branch 'master'
-    $ git branch -D mybranchname
-    Deleted branch mybranchname (was c159b39).
-    
-    $ # Oops! Need to make more changes to the mybranchname branch
-    $ git fetch upstream
-    $ git checkout upstream mybranchname
-
 # Migrating From Gerrit
 
 Prior to using GitLab, Wireshark used the [Gerrit code review system](https://code.wireshark.org/review). Here are a few things to keep in mind when migrating to GitLab:
@@ -397,7 +406,7 @@ You can leave it as-is or rename it, but it [might not be updated](https://bugs.
 The documentation here and in the [Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/) assumes that you have an "upstream" remote for the main repository and a "downstream" remote for your personal repository:
 
     git remote add upstream git@gitlab.com:wireshark/wireshark.git
-    git remote add downstream git@gitlab.com:myusername/wireshark.git
+    git remote add downstream git@gitlab.com:USERNAME/wireshark.git
 
 You can name the remotes anything you like.
 
