@@ -28,7 +28,7 @@ On Irix, packet capture support is present by default.
 
 ## Windows
 
-On Windows, you need to have [NPcap](/NPcap) or the older [WinPcap](/WinPcap) installed in order to capture network traffic.
+On Windows, you need to have [Npcap](/Npcap) or the older [WinPcap](/WinPcap) installed in order to capture network traffic.
 
 ---
 
