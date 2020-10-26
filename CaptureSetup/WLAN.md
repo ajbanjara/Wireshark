@@ -365,7 +365,7 @@ from the command line.
 
 #### Starting from Windows 7: Npcap
 
-Npcap is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. Npcap has added many features compared to the legacy [WinPcap](/WinPcap).
+[Npcap](https://nmap.org/npcap/) is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. [Npcap](https://nmap.org/npcap/) has added many features compared to the legacy [WinPcap](/WinPcap).
 
     1) NDIS 6 Support
     2) "Admin-only Mode" Support
@@ -373,11 +373,11 @@ Npcap is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF)
     4) Loopback Packets Capture and Send Support (either as fake Ethernet or Null/Loopback frames)
     5) Raw 802.11 packets Capture Support (in "monitor mode")
 
-When installed on Windows 7 or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with radiotap header can be see. Otherwise, only 802.11 data packets can be see. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with Npcap.
+When installed on Windows 7 or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with radiotap header can be see. Otherwise, only 802.11 data packets can be see. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with [Npcap](https://nmap.org/npcap/).
 
-The current latest installer can be found on the Npcap home page at <https://npcap.org>, and the source code can be found at <https://github.com/nmap/npcap>.
+The current latest installer can be found on the Npcap home page at <https://nmap.org/npcap/>, and the source code can be found at <https://github.com/nmap/npcap>.
 
-Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect Npcap presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
+Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect [Npcap](https://nmap.org/npcap/) presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
 
 #### WinPcap
 
