@@ -2,7 +2,9 @@
 
 [Npcap](https://nmap.org/npcap/) and [WinPcap](http://www.winpcap.org) are Windows versions of the [libpcap](http://www.tcpdump.org/) library. One of them must be installed in order to capture live network traffic on Windows.
 
-The Wireshark installer from 3.0 onwards includes [Npcap](https://nmap.org/npcap/), where versions before include WinPcap. Even with the older Wireshark versions Npcap might work better for you, especially if you run Windows 10.
+The Wireshark installer from 3.0 onwards includes [Npcap](https://nmap.org/npcap/), where versions before include WinPcap.  
+Even with the older Wireshark versions Npcap might work better for you, especially if you run Windows 10.  
+Npcap has a Yes/No comparison chart - [Npcap or WinPcap?](https://nmap.org/npcap/vs-winpcap.html)
 
 See [CaptureSetup/CapturePrivileges](/CaptureSetup/CapturePrivileges) for information about using Npcap and WinPcap with Wireshark.
 
@@ -10,7 +12,8 @@ The libpcap/WinPcap file format description can be found at: [Development/Libpca
 
 ## Npcap Versions
 
-:warning: **Since Npcap is just getting its first widespread exposure to the world unexpected issues may arise. Please use an updated version when possible.**
+Npcap gets regular [bug fixes and upgrades](https://github.com/nmap/npcap/blob/master/CHANGELOG.md) on its own release schedule, which means the version bundled with the Wireshark installer may not be the latest. 
+Please use an [updated version](https://nmap.org/npcap/) when possible.
 
 See the "Add or Remove Programs" list of the "Control Panel" for the installed version.
 
@@ -42,11 +45,11 @@ See [the change log for WinPcap](http://www.winpcap.org/misc/changelog.htm) for 
 
 ## Installation
 
-The Wireshark installer will copy the WinPcap installer and call it, so you get installation done "all in one place". This is the same WinPcap installer that you can get from WinPcap's [download](http://www.winpcap.org/install/default.htm) page.
+~~The Wireshark installer will copy the WinPcap installer and call it, so you get installation done "all in one place". This is the same WinPcap installer that you can get from WinPcap's [download](http://www.winpcap.org/install/default.htm) page.~~
 
-However, you might need to install WinPcap by the standalone installer, if you want to try the latest alpha/beta, or there might even be a new WinPcap release version available.
+~~However, you might need to install WinPcap by the standalone installer, if you want to try the latest alpha/beta, or there might even be a new WinPcap release version available.~~
 
-The User's Guide [Installing Wireshark under Windows](http://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallWinInstall.html) page will also describe how to install WinPcap.
+~~The User's Guide [Installing Wireshark under Windows](http://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallWinInstall.html) page will also describe how to install WinPcap.~~
 
 ## Windows Versions
 
