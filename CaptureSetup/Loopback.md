@@ -12,7 +12,7 @@ See [CaptureSetup/NetworkMedia](/CaptureSetup/NetworkMedia) for Wireshark captur
 
 ### Starting from Windows Vista: Npcap
 
-Npcap is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. Npcap has added many features compared to the legacy [WinPcap](/WinPcap).
+[Npcap](https://nmap.org/npcap/) is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. [Npcap](https://nmap.org/npcap/) has added many features compared to the legacy [WinPcap](/WinPcap).
 
     1) NDIS 6 Support
     2) "Admin-only Mode" Support
@@ -24,7 +24,7 @@ When installed on Windows Vista or later (including Win7, Win8 and Win10) with o
 
 When installed on Windows XP or earlier, it will install the legacy [WinPcap](/WinPcap) driver.
 
-While waiting for an official download page, the current latest installer can be found here: <https://github.com/nmap/npcap/releases>, the source code can be found here: <https://github.com/nmap/npcap>
+The current latest installer can be found here: <https://nmap.org/npcap/>, the source code can be found here: <https://github.com/nmap/npcap>
 
 Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect Npcap presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
 
