@@ -158,12 +158,12 @@ See also <https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Life-Cycle-
 
 Python 3.4 or newer has become required since v2.9.0rc0-2460-ge9f7bb5127. The test suite currently does not depend on pytest, but can be used with it.
 
-| Distro         | package version                                     |
-|----------------|-----------------------------------------------------|
-| RHEL/CentOS 7  | (unavailable, EPEL python34-pytest 2.8.5 is too old |
-| RHEL/CentOS 8  | python3-pytest 3.4.2                                |
-| Debian Stretch | python3-pytest 3.0.6                                |
-| Ubuntu 17.10   | python3-pytest 3.1.3                                |
+| Distro         | package version                                      |
+|----------------|------------------------------------------------------|
+| RHEL/CentOS 7  | (unavailable, EPEL python34-pytest 2.8.5 is too old) |
+| RHEL/CentOS 8  | python3-pytest 3.4.2                                 |
+| Debian Stretch | python3-pytest 3.0.6                                 |
+| Ubuntu 17.10   | python3-pytest 3.1.3                                 |
 On older systems, you can install it via: `pip3 install pytest pytest-xdist`
 
 ## Lua
@@ -174,7 +174,7 @@ Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is 
 |-----------------------------------------------|--------------|---------|---------|---------|
 | SLES 11                                       | no           | 5.1.4   | no      | no      |
 | RHEL/CentOS 6/7                               | 2.0.4 (EPEL) | 5.1.4   | no      | no      |
-| RHEL/CentOS 8                                 | no           | no      | no      | 5.3.4   |
+| RHEL/CentOS 8                                 | no           | 5.1.5 (EPEL compat-lua package)      | no      | 5.3.4   |
 | SLES 12                                       | no           | 5.1.5   | 5.2.2   | no      |
 | Debian Jessie                                 | 2.0.3        | 5.1.5   | 5.2.3   | no      |
 | Ubuntu 16.04                                  | 2.0.4        | 5.1.5   | 5.2.4   | 5.3.1   |
