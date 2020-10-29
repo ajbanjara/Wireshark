@@ -38,6 +38,8 @@ Release Notes for each release are available on the [main site](https://www.wire
 
 The git change log provides good information about changes in each release:
 
+  - [release-3.4](https://gitlab.com/wireshark/wireshark/commits/release-3.4)
+
   - [master-3.2](https://gitlab.com/wireshark/wireshark/commits/master-3.2)
 
   - [master-3.0](https://gitlab.com/wireshark/wireshark/commits/master-3.0)
@@ -74,9 +76,10 @@ In order to limit the development burden, support for a (old-)stable release is 
 
 | Version | Stable Release Date | End of Life                 | Notes |
 |----|----|----|----|
-| 3.4     | Q3 2020             | Release + 18 or more months | Support ends when 3.8.0 is released.                                                                           |
+| 3.6     | Q2, 2021             | Release + 18 or more months | Support ends when 3.10.0 is released.                                                                           |
+| 3.4     | October 29, 2020             | Release + 18 or more months | Support ends when 3.8.0 is released.                                                                           |
 | 3.2     | December 18, 2019   | June 18, 2021 or later      | Last release to support Windows 7 and Windows Server 2008 R2. Support ends when 3.6.0 is released.                                                   |
-| 3.0     | February 28, 2019   | August 28, 2020 or later    | Support ends when 3.4.0 is released.                                                                                                                 |
+| 3.0     | February 28, 2019   | October 29, 2020 or later    | |
 | 2.6     | April 18, 2018      | October 18, 2020            | Long term support (LTS). Last release to support GTK+ and Qt4. Last release to support Red Hat EL 6. Last release to support Mac OS X 10.6 and 10.7 and OS X 10.8, 10.9, 10.10, and 10.11. |
 | 2.4     | July 19, 2017       | July 19, 2019               | GTK+ UI disabled by default.                                                                                                                         |
 | 2.2     | September 7, 2016   | September 7, 2018           | Last release to support Windows Vista and (the non-R2) Windows Server 2008.                                                                          |
