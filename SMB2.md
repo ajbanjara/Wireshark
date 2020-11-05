@@ -46,6 +46,8 @@ The SMB2 dissector is partially functional.
 
   - [smb2-peter.pcap](uploads/__moin_import__/attachments/SMB2/smb2-peter.pcap) Simulated traffic (containing file reads/writes) between a Samba 4.4.x client and server on Arch Linux (from June 2016).
 
+  - [smb2_dac_sample.pcap.gz](uploads/c4a9fcae9aea2b705e7b9131b8a063ca/smb2_dac_sample.pcap.gz) A capture containing SMB2/GetInfo and SMB2/SetInfo with examples of Dynamic Access Control specific ACEs. That is: conditional ACEs (use filter "nt.ace.cond"), system resource attribute ACEs (use filter "nt.ace.sra") and scopred policy ID ACEs (use filter "nt.ace.type == 19").
+
 ## Display Filter
 
 A complete list of SMB2 display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/s/smb2.html)
