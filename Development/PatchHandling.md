@@ -1,6 +1,6 @@
 # Patch Handling
 
-Note: Since early 2014 with the introduction of [Gerrit](https://code.wireshark.org/review) this process has evolved beyond this stage, see [Development/SubmittingPatches](/Development/SubmittingPatches).
+Note: Since early 2014 with the introduction of [Gerrit](https://code.wireshark.org/review) and the subsequent relocation to [GiLab](https://gitlab.com/wireshark/wireshark) mid 2020 this process has evolved beyond this stage, see [Development/SubmittingPatches](/Development/SubmittingPatches).
 
 ## Introduction
 
