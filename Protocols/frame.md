@@ -25,8 +25,9 @@ Configuration options are under `Edit-> Preferences...-> Protocols-> Frame`.
 ![201108_frame_preferences](uploads/8d708c782b23ad2f30718875fb95b72e/201108_frame_preferences.png)  
 "Show File Offset" adds a file offset to the frame tree, and "Treat all frames as DOCSIS frames" forces each frame to be dissected as DOCSIS. See [CaptureSetup/DOCSIS](/CaptureSetup/DOCSIS) for more information.
   
-Preferences also available by right clicking on a packet:  
-![201108_frame_preferences_2](uploads/a6f61be75fc821fe89364dd03eafe43d/201108_frame_preferences_2.png)
+Preferences are also available by right clicking on a packet:  
+
+![201108_frame_preferences_2a](uploads/95ba8b17257d5bd790c93e466e94cfed/201108_frame_preferences_2a.png)
 
 ## Example capture file
 
