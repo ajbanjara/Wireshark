@@ -9,7 +9,7 @@ First verify that this bug is not already known and/or solved. You can do this b
 
 ## Where to Report Bugs
 
-The preferred way of reporting bugs is through the [Wireshark Issues database](https://https://gitlab.com/wireshark/wireshark/issues). If that fails the [Wireshark developer mailing list](https://www.wireshark.org/mailman/listinfo/wireshark-dev) can act as an alternative.
+The preferred way of reporting bugs is through the [Wireshark Issues database](https://gitlab.com/wireshark/wireshark/issues). If that fails the [Wireshark developer mailing list](https://www.wireshark.org/mailman/listinfo/wireshark-dev) can act as an alternative.
 
 ## What to Report
 
