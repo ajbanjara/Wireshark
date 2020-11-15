@@ -52,7 +52,9 @@ Gratuitous ARPs are useful for four reasons:
 
 ## Discussion
 
-What's a good choice for example MACs? I picked `02:02:02:02:02:02`. Is there a better one? -- [RandyMcEoin](/RandyMcEoin)
+What's a good choice for example MACs? I picked `02:02:02:02:02:02`. Is there a better one? -- RandyMcEoin  
+(201115 - [RFC7042](https://tools.ietf.org/html/rfc7042) - "IANA Considerations and IETF Protocol and Documentation Usage for IEEE 802 Parameters")  
+&nbsp;&nbsp;&nbsp;&nbsp;`00-00-5E-00-53-00 through 00-00-5E-00-53-FF: assigned for use in documentation.`
 
 \-The '02' byte at the start of the MAC indicates that this is a 'locally administered address' which has been set by the local user or system. Most normal ethernet devices are allocated a MAC with 00 as the most significant byte.
 
