@@ -4,11 +4,11 @@ Transport Protocol for call signalling, created to overcome several lacks and pr
 
 ## History
 
-  - [RFC2960](http://www.ietf.org/rfc/rfc2960.txt) "Stream Control Transmission Protocol" released October 2000
+  - [RFC2960](https://tools.ietf.org/html/rfc2960) "Stream Control Transmission Protocol" released October 2000
 
 ## Protocol dependencies
 
-  - [IP](/IP): Typically, SCTP uses [IP](/IP) as its underlying protocol. The assigned protocol number for SCTP on IP is 132.
+  - [IP](/Internet_Protocol): Typically, SCTP uses [IP](/Internet_Protocol) as its underlying protocol. The [assigned protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) for SCTP on IP is 132.
 
 ## Example traffic
 
@@ -114,11 +114,12 @@ Transport Protocol for call signalling, created to overcome several lacks and pr
 
 ## Wireshark
 
-The SCTP dissector is functional.
+The [SCTP dissector](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-sctp.c) is functional.
 
 ## Preference Settings
+![201115_SCTP_prefs](uploads/dbcff84d4e3ffcbcbf89fa99de4a87c0/201115_SCTP_prefs.png)  
 
-Three preference settings exist for SCTP:
+Three preference settings exist for SCTP:  (XXX - update needed)
 
   - Checksum type
   - If Control chunks should be shown or not
@@ -162,11 +163,11 @@ Capture only SCTP traffic:
 
   - <http://www.iana.org/assignments/sctp-parameters>
 
-  - <http://www.sctp.org/>
+  - [www.sctp.org](https://web.archive.org/web/20120205041302fw_/http://www.sctp.org/index.html) (Wayback Machine)
 
   - <http://www.sctp.de/>
 
-  - [Better networking with SCTP](http://www-128.ibm.com/developerworks/linux/library/l-sctp/?ca=dgr-lnxw07SCTP)
+  - [Better networking with SCTP](https://web.archive.org/web/20061231013052/http://www-128.ibm.com/developerworks/linux/library/l-sctp/?ca=dgr-lnxw07SCTP) (Wayback Machine)
 
 ## Discussion
 
