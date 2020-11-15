@@ -31,12 +31,13 @@ You're still here? (For the Cliff Clavins)
 
 Both RFCs above reference [IEN-212](https://www.rfc-editor.org/ien/ien212.txt) (pristine scan of a hard copy [here](http://www.postel.org/ien/pdf/ien212.pdf) )
 
-   6.   Robert Gurwitz and Robert Hinden.  IP - Local Area Network
+RFC919 -    6.   Robert Gurwitz and Robert Hinden.  IP - Local Area Network
+        Addressing Issues.  IEN-212, Bolt Beranek and Newman, September 1982.
+
+RFC922 -    6.   Robert Gurwitz and Robert Hinden.  IP - Local Area Network
         Addressing Issues.  IEN-212, BBN, September 1982.
 
-   6.   Robert Gurwitz and Robert Hinden.  IP - Local Area Network
-        Addressing Issues.  IEN-212, Bolt Beranek and Newman, September
-        1982.
+
 
 When Walker, Richer & Quinn rebranded as WRQ, the joke was they went from sounding like a law firm to sounding like a radio station. Same for BBN.
 
