@@ -2,7 +2,7 @@
 
 [TCP](/TCP), [UDP](/UDP), and [SCTP](/SCTP) all use *port numbers* to identify the logical communications between hosts. The combination of a port and IP address identifies a TCP/UDP/SCTP *[Endpoint](/Endpoint)*, and the endpoint pairs on either end of a "connection" make up a TCP/UDP/SCTP *[Conversation](/Conversation)*.
 
-As the underlying [IP](/IP) protocol can "only" transfer data between two IP hosts, it's often desired to transfer [TCP](/TCP)/[UDP](/UDP) data from more than one application between two IP hosts.
+As the underlying [IP](/Internet_Protocol) protocol can "only" transfer data between two IP hosts, it's often desired to transfer [TCP](/TCP)/[UDP](/UDP) data from more than one application between two IP hosts.
 
 The concept of a TCP/UDP port is to provide several logical channels between the same IP hosts. When sending a packet, TCP/UDP multiplexes the data from separate applications over one IP "host to host transfer". While receiving, TCP/UDP demultiplexes the IP packets again, providing the received data to the applications interested in.
 
@@ -10,11 +10,23 @@ The addressing of this multiplexing/demultiplexing is done using the ports.
 
 -----
 
-Port numbers are unsigned 16-bit integers, ranging from 0 to 65535. The [IANA list of assigned port numbers](http://www.iana.org/assignments/port-numbers) has divided ports into three ranges:
+Port numbers are unsigned 16-bit integers, ranging from 0 to 65535. The [IANA list of assigned port numbers](http://www.iana.org/assignments/port-numbers) has divided ports into three ranges ([RFC 6335](https://tools.ietf.org/html/rfc6335)):
 
 * 0 through 1023: **Well Known** Ports
 * 1024 through 49151: **Registered** Ports
 * 49152 through 65535: **Dynamic** or **Private** Ports
+  
+```
+   o  the System Ports, also known as the Well Known Ports, from 0-1023
+      (assigned by IANA)
+
+   o  the User Ports, also known as the Registered Ports, from 1024-
+      49151 (assigned by IANA)
+
+   o  the Dynamic Ports, also known as the Private or Ephemeral Ports,
+      from 49152-65535 (never assigned)
+```
+  
 
 Ports 1024 and above are also referred to as *ephemeral ports*.
 
