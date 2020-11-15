@@ -2,9 +2,9 @@
 
 The [IANA](http://www.iana.org) assigns a lot of different numbers (and the like) related to network protocols. Widely known are the well known [TCP](/TCP)/[UDP](/UDP) port assignments (see [PortReference](/PortReference)), such as the assignment of [TCP](/TCP) port 80 as the standard port for [HTTP](/HTTP) traffic. In addition to this, the IANA has made a number of other assignments:
 
-  - [Protocol numbers](http://www.iana.org/assignments/protocol-numbers) for protocols running on top of [IP](/IP)
+  - [Protocol numbers](http://www.iana.org/assignments/protocol-numbers) for protocols running on top of [IP](/Internet_Protocol)
 
-  - [Media types](http://www.iana.org/assignments/media-types/index.html) used in [HTTP](/HTTP), [SIP](/SIP), e-mail, [WSP](/WSP), [MMSE](/MMSE) and many other protocols
+  - [Media types](http://www.iana.org/assignments/media-types/index.html) used in [HTTP](/Hyper_Text_Transfer_Protocol), [SIP](/SIP), e-mail, [WSP](/Wireless_Session_Protocol), [MMSE](/Multimedia_Messaging_Service_Encapsulation) and many other protocols
 
 ## History
 
@@ -16,7 +16,7 @@ The assigned numbers (including the port numbers) were once reported using [RFC]
 
   - [RFC3232](http://www.rfc-editor.org/rfc/rfc3232.txt): States that RFC1700 is obsoleted by the IANA list.
 
-  - [IANA list of assigned numbers](http://www.iana.org/numbers.html): Official lists of assigned numbers and the like.
+  - [IANA list of assigned numbers](http://www.iana.org/numbers): Official lists of assigned numbers and the like.
 
 ---
 
