@@ -2,7 +2,7 @@
 
 Any packet destined for all stations on a network segment is considered *broadcast* traffic.
 
-Broadcast addresses are usually used by [ARP](/ARP), [DHCP](/DHCP), and other protocols that do some sort of *discovery*.
+Broadcast addresses are usually used by [ARP](/AddressResolutionProtocol), [DHCP](/DHCP), and other protocols that do some sort of *discovery*.
 
 ## Ethernet (and other 802.x networks)
 
@@ -23,6 +23,22 @@ There are no broadcast IPv6 addresses - [RFC 2373](http://www.ietf.org/rfc/rfc23
 [Multicast](/Multicast), [Unicast](/Unicast)
 
 ## Discussion
+
+You're still here? (For the Cliff Clavins)  
+
+[RFC919](https://tools.ietf.org/html/rfc919)  "BROADCASTING INTERNET DATAGRAMS"   
+[RFC922](https://tools.ietf.org/html/rfc922)  "BROADCASTING INTERNET DATAGRAMS IN THE PRESENCE OF SUBNETS"  
+
+Both RFCs above reference [IEN-212](https://www.rfc-editor.org/ien/ien212.txt) (pristine scan of a hard copy [here](http://www.postel.org/ien/pdf/ien212.pdf) )
+
+   6.   Robert Gurwitz and Robert Hinden.  IP - Local Area Network
+        Addressing Issues.  IEN-212, BBN, September 1982.
+
+   6.   Robert Gurwitz and Robert Hinden.  IP - Local Area Network
+        Addressing Issues.  IEN-212, Bolt Beranek and Newman, September
+        1982.
+
+When Walker, Richer & Quinn rebranded as WRQ, the joke was they went from sounding like a law firm to sounding like a radio station. Same for BBN.
 
 ---
 
