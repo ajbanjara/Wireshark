@@ -6,9 +6,10 @@ Specifications of all of these protocols can be found in the [RFC](/RFC) documen
 
 A simplified overview of the core TCP/IP protocols could look like this:
 
-| :-: | :---------------------------------------------: |
+|     |                                                 |
+|  -  |  ---------------------------------------------  |
 | 5-7 | Application layer (**HTTP**, **FTP**, ...)      |
-| 4   | **TCP** (connections), **UDP** (connectionless) |
+| 4   | **TCP** (connections) / **UDP** (connectionless) |
 | 3   | Internet (**IP**, **ICMP**)                     |
 | 2   | Link layer (**ARP**, **PPP**, Ethernet, ...)    |
 
@@ -18,27 +19,27 @@ The TCP/IP family consists of (at least) the following protocols:
 
 Link layer:
 
-  - [ARP](/ARP): Address Resolution Protocol: Map [IP](/IP) to hardware (e.g. [Ethernet](/Ethernet)) addresses
+  - [ARP](/AddressResolutionProtocol): Address Resolution Protocol: Map [IP](/Internet_Protocol) to hardware (e.g. [Ethernet](/Ethernet)) addresses
 
-  - [RARP](/RARP): Reverse ARP: Map hardware (e.g. [Ethernet](/Ethernet)) to [IP](/IP) addresses
+  - [RARP](/RARP): Reverse ARP: Map hardware (e.g. [Ethernet](/Ethernet)) to [IP](/Internet_Protocol) addresses
 
 Link layer (serial line):
 
-  - [CSLIP](/CSLIP): Compressed Serial Line IP: Compressing [TCP](/TCP)/[IP](/IP) Headers for Low-Speed Serial Links (RFC 1144), obsolete
+  - CSLIP: Compressed Serial Line IP: Compressing [TCP](/TCP)/[IP](/Internet_Protocol) Headers for Low-Speed Serial Links [RFC 1144](https://tools.ietf.org/html/rfc1144), obsolete
 
   - [PPP](/PPP): The Point-to-Point Protocol
 
-  - [PPP-MP](/PPP-MP): The Point-to-Point Multilink Protocol
+  - PPP-MP: The Point-to-Point Multilink Protocol
 
-  - [SLIP](/SLIP): Serial Line IP: Transmission of [IP](/IP) datagrams over serial lines (RFC 1055), obsolete
+  - SLIP: Serial Line IP: Transmission of [IP](/Internet_Protocol) datagrams over serial lines [RFC 1055](https://tools.ietf.org/html/rfc1055), obsolete
 
 Network layer:
 
-  - [IP](/IP): Internet Protocol (version 4): transfer IP packets from one host to another. One of the most common protocols today. This is what the Internet is built around.
+  - [IP](/Internet_Protocol): Internet Protocol (version 4): transfer IP packets from one host to another. One of the most common protocols today. This is what the Internet is built around.
 
   - [IPv6](/IPv6): Internet Protocol (version 6): transfer IP packets from one host to another
 
-  - [ICMP](/ICMP): Internet Control Message Protocol (version 4): This is a protocol to report common errors and events in the [IP](/IP), [TCP](/TCP) and [UDP](/UDP) protocols.
+  - [ICMP](/Internet_Control_Message_Protocol): Internet Control Message Protocol (version 4): This is a protocol to report common errors and events in the [IP](/Internet_Protocol), [TCP](/TCP) and [UDP](/UDP) protocols.
 
   - [ICMPv6](/ICMPv6): Internet Control Message Protocol (version 6): This is a protocol to report common errors and events in the [IPv6](/IPv6), [TCP](/TCP) and [UDP](/UDP) protocols.
 
@@ -48,13 +49,13 @@ Network layer (routing):
 
   - [BGP](/BGP): Border Gateway Protocol
 
-  - [EGP](/EGP): Exterior Gateway Protocol
+  - EGP: Exterior Gateway Protocol
 
-  - [GGP](/GGP): Gateway to Gateway Protocol
+  - GGP: Gateway to Gateway Protocol
 
-  - [IGRP](/IGRP): Interior Gateway Routing Protocol
+  - IGRP: Interior Gateway Routing Protocol
 
-  - [ND](/ND): Neighbor Discovery
+  - ND: Neighbor Discovery
 
   - [OSPF](/OSPF): Open Shortest Path First
 
@@ -72,7 +73,7 @@ Network Layer ([IPsec](/IPsec) Internet Protocol Security):
 
 Transport layer:
 
-  - These protocols run atop [IP](/IP):
+  - These protocols run atop [IP](/Internet_Protocol):
 
   - [DCCP](/DCCP): Datagram Congestion Control Protocol: stream based, reliable, connection oriented transfer of data
 
@@ -80,11 +81,13 @@ Transport layer:
 
   - [UDP](/UDP): User Datagram Protocol: datagram (packet) based, unreliable, connectionless transfer of data
 
-  - [UDP-Lite](/UDP-Lite): Lightweight User Datagram Protocol: datagram (packet) based, unreliable, connectionless transfer of data
+  - [UDP-Lite](/Lightweight_User_Datagram_Protocol): Lightweight User Datagram Protocol: datagram (packet) based, unreliable, connectionless transfer of data
 
   - [TCP](/TCP): Transmission Control Protocol: stream based, reliable, connection oriented transfer of data
 
-  - [PortReference](/PortReference): [TCP](/TCP)/[UDP](/UDP) port numbers [ThTextese](/ThTextese) protocols run atop [UDP](/UDP), and provide additional transport-layer services:
+  - [PortReference](/PortReference): [TCP](/TCP)/[UDP](/UDP) port numbers 
+
+These protocols run atop [UDP](/UDP), and provide additional transport-layer services:
 
   - [RTP](/RTP): datagram (packet) based, unreliable, connection oriented transfer of time sensitive data
 
@@ -100,21 +103,21 @@ Session layer:
 
   - [DCE/RPC](/DCE/RPC): Remote procedure calls using the OSF's [RPC](/RPC) mechanism
 
-  - [HTTP](/HTTP): Hyper Text Transfer Protocol: (and other files as well). Probably the best known protocol as it is used to allow users surfing on the Internet.
+  - [HTTP](/Hyper_Text_Transfer_Protocol): Hyper Text Transfer Protocol: (and other files as well). Probably the best known protocol as it is used to allow users surfing on the Internet.
 
   - [SMTP](/SMTP): Simple Mail Transfer Protocol: send mails to a mail server
 
 Presentation layer:
 
-  - [MIME](/MIME): content encoding (for [HTTP](/HTTP), [SMTP](/SMTP), ...) (RFC 2045-2049)
+  - MIME: content encoding (for [HTTP](/Hyper_Text_Transfer_Protocol), [SMTP](/SMTP), ...) (RFC 2045-2049)
 
 Application layer:
 
   - [ANCP](/ANCP): Access Node Control Protocol: TCP based L2 control protocol used in service provider DSL and PON Networks.
 
-  - [BOOTP](/BOOTP): BOOT Protocol: antecessor of [DHCP](/DHCP), see bellow
+  - [BOOTP](/BOOTP): BOOT Protocol: antecessor of [DHCP](/DHCP), see below
 
-  - [DHCP](/DHCP): Dynamic Host Configuration Protocol: distribute [IP](/IP), Gateway and [DNS](/DNS) server addresses and alike
+  - [DHCP](/DHCP): Dynamic Host Configuration Protocol: distribute [IP](/Internet_Protocol), Gateway and [DNS](/DNS) server addresses and alike
 
   - [DNS](/DNS): Domain Name System: translate human readable addresses (e.g. wiki.wireshark.org) into [IP](/IP) addresses
 
@@ -140,7 +143,7 @@ Application layer:
 
   - [RLogin](/RLogin): remote login: remote shell access (unsecure)
 
-  - [RSH](/RSH): Remote SHell: remote shell access (unsecure)
+  - RSH: Remote SHell: remote shell access (unsecure)
 
   - [RSIP](/RSIP): Realm Specific IP (RFC 3102-3104)
 
@@ -156,9 +159,9 @@ Application layer:
 
 Unsorted:
 
-  - [URN](/URN): Uniform Resource Names (RFC 1737)
+  - URN: Uniform Resource Names ([RFC 1737](https://tools.ietf.org/html/rfc1737))
 
-  - [URL](/URL): Uniform Resource Locators (RFC 1738)
+  - URL: Uniform Resource Locators ([RFC 1738](https://tools.ietf.org/html/rfc1738))
 
 ## History
 
