@@ -2,6 +2,10 @@
 
 **Note: Python support was removed from wireshark as of June 2014 (commit 1777f6082462). An alternative might be <https://github.com/ashdnazg/pyreshark>.**
 
+[Is it still possible to make a dissector plugin for Wireshark in python ?](https://ask.wireshark.org/question/18108/is-it-still-possible-to-make-a-dissector-plugin-for-wireshark-in-python/)  
+
+----------------------------
+
 The projects aim is to give the possibility to developers to easily extend Wireshark with Python.
 
 It is a project in development and therefore is experimental. It is better to not use this in production for now. It is good though for prototyping as the syntax is rather concise.
