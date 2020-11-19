@@ -340,9 +340,36 @@ Many developers also install libraries using [Homebrew](https://brew.sh/) and th
 
 # Windows
 
-FOSS library packaging and distribution on Windows is (to put it mildly) [a mess](https://twitter.com/geraldcombs/status/735870968451629056). There is no centralized, mature packaging system similar to what you will find in a typical Linux distribution. As a result we've created our own repository of packages from various sources including the [openSUSE Build Service](https://build.opensuse.org/project/show?project=windows%3Amingw%3Awin64), the [Lua Binaries](http://luabinaries.sourceforge.net/) project, ourselves (i.e. via manual compilation) and others. Packages are installed using `tools/win-setup.ps1` in the Wireshark sources.
+FOSS library packaging and distribution on Windows has historically been [a mess](https://twitter.com/geraldcombs/status/735870968451629056), but things are improving.
+Two notable projects that might fix this are [vcpkg](https://github.com/Microsoft/vcpkg) and [Conan](https://www.conan.io/).
+Neither of them provide packages for all of the libraries that we use, so we maintain repositories of [32-bit](https://anonsvn.wireshark.org/wireshark-win32-libs/) and [64-bit](https://anonsvn.wireshark.org/wireshark-win64-libs/) packages which are installed using `tools/win-setup.ps1` in the Wireshark sources.
 
-There are a few projects that aim to fix the packaging problem on Windows including [vcpkg](https://github.com/Microsoft/vcpkg), [Conan](https://www.conan.io/), and [Win-builds](http://win-builds.org/doku.php). Hopefully we can use one of them in the future.
+| Library | vcpkg | Conan | Notes |
+|---------|----|----|----|
+| BCG     | no | no | |
+| Brotli                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/brotli) | [yes](https://conan.io/center/brotli) | |
+| c-ares                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/c-ares) | [yes](https://conan.io/center/c-ares) | |
+| GLib                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/glib) | [yes](https://conan.io/center/glib) | |
+| GnuTLS                | no | no | |
+| iLBC                  | no | no | |
+| Kerberos (krb5)       | no | no | |
+| libgcrypt             | no | no | |
+| libmaxminddb          | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libmaxminddb) | no | |
+| libpcap               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libpcap) | [yes](https://conan.io/center/libpcap) | |
+| libsmi                | no | no | |
+| libssh | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libssh) | no | This is not the same as libssh2. |
+| libxml2               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libxml2) | [yes](https://conan.io/center/libxml2) | |
+| Lua                   | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/lua) | [yes](https://conan.io/center/lua) | |
+| lz4                   | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/lz4) | [yes](https://conan.io/center/lz4) | |
+| minizip               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/minizip) | [yes](https://conan.io/center/minizip) | |
+| Nghttp2               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/nghttp2) | [yes](https://conan.io/center/libnghttp2) | |
+| opus                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/opus) | [yes](https://conan.io/center/opus) | |
+| Qt                    | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/qt5) | no | |
+| SBC                   | no | no | |
+| Snappy                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/snappy) | [yes](https://conan.io/center/snappy) | |
+| WinSparkle            | no | no | |
+| Zlib                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/zlib) | [yes](https://conan.io/center/zlib) | |
+| zstd                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/zstd) | [yes](https://conan.io/center/zstd) | |
 
 ---
 
