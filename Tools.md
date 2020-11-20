@@ -108,6 +108,8 @@ Tools related to [NetworkTroubleshooting](/NetworkTroubleshooting) and alike.
 
 The following tools can process the libpcap-format files that Wireshark and TShark produce or can perform network traffic capture and analysis functions complementary to those performed by Wireshark and TShark. In brackets you will find the program license and the supported operating systems.
 
+  - [Arkime](https://github.com/arkime/arkime) Arkime (formerly Moloch) is a large scale, open source, indexed packet capture (PCAP) and search tool.
+
   - [Cap'r Mak'r](http://www.pcapr.net/caprmakr) generates new pcaps for various protocols
 
   - [Chaosreader](http://chaosreader.sourceforge.net/) Extracts data streams from TCP connections and writes each stream to a file (GPL, Windows, various UN\*Xes)
@@ -143,8 +145,6 @@ The following tools can process the libpcap-format files that Wireshark and TSha
   - [justsniffer](http://justniffer.sourceforge.net) is a tcp packet sniffer. (GPL, BSD/Linux/Win32)
 
   - [Mojo Packets](https://mojopackets.com/) Mojo Packets™ is web based tool which aims to simplify trace based analysis and troubleshooting of connectivity issues observed in Wi-Fi (IEEE 802.11) environments.
-
-  - [Moluch](https://github.com/aol/moloch) Moloch is an open source, large scale IPv4 packet capturing (PCAP), indexing and database system.
 
   - [Mu DoS](http://www.pcapr.net/dos) converts any packet into a DoS generator
 
