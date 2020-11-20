@@ -1,5 +1,3 @@
-# False Positives
-
 Every once in a while, an antivirus program pops up and says that Wireshark (and Ethereal before it) contains some sort of malware. This is a list of the reports we've received in reverse chronological order. So far, every single report has been a false positive.
 
   - Mar 2016: CLEAN MX, via hosting provider
