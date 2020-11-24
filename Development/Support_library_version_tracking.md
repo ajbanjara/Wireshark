@@ -22,7 +22,7 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 | 5.0.0      | Dec 2012 | Minimum required version on Windows and macOS since v2.3.0rc0-1178-ge8588294 |
 | 5.1.0      | Jul 2013 | |
 | 5.2.0      | Dec 2013 | Minimum required version since v2.9.0rc0-27-g5d8964cd |
-| 5.3.0      | May 2014 | Last to support 10.6 Snow Leopard. [OS X 10.6 Snow Leopard through 10.9 Mavericks](https://github.com/qt/qtdoc/blob/5.3/doc/src/platforms/supported-platforms.qdoc#L113), **Wireshark 2.6.x**. |
+| 5.3.0      | May 2014 | Minimum required version since v3.3.0rc0-111-g14e4759b56 Last to support 10.6 Snow Leopard. [OS X 10.6 Snow Leopard through 10.9 Mavericks](https://github.com/qt/qtdoc/blob/5.3/doc/src/platforms/supported-platforms.qdoc#L113), **Wireshark 2.6.x**. |
 | 5.4.0      | Dec 2014 | [Mac OS X 10.7 Lion through 10.10 Yosemite, "limited" support for 10.6 Snow Leopard](https://web.archive.org/web/20141227001541/http://doc.qt.io:80/qt-5/osx.html) |
 | 5.5.0      | Jul 2015 | [Mac OS X 10.7 Lion through 10.10 Yosemite](https://web.archive.org/web/20160101135637/http://doc.qt.io:80/QtSupportedPlatforms/index.html) |
 | 5.6.0      | Mar 2016 | Long Term Support (LTS) release, [OS X 10.8 Mountain Lion through 10.11 El Capitan](https://web.archive.org/web/20160430172052/http://doc.qt.io:80/qt-5/supported-platforms.html) |
