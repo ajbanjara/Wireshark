@@ -6,6 +6,8 @@ If you are only trying to capture network traffic between the machine running Wi
 
 If you're trying to capture network traffic that's *not* being sent to or from the machine running Wireshark or TShark, i.e. traffic between two or more other machines on an Ethernet segment, you will have to capture in "promiscuous mode", and, on a switched Ethernet network, you will have to set up the machine specially in order to capture that traffic. This is discussed below.
 
+See also Jasper Bongertz's [Network Packet Capture Playbook](https://blog.packet-foo.com/the-network-packet-capture-playbook/), which gives more details about Ethernet capture.
+
 ## Table of contents
 
 [[_TOC_]]
