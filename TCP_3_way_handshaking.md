@@ -2,7 +2,7 @@
 
 We assume that both host (A) and server (B) side start from CLOSED status.
 
-![http://www.netpro360.com/\_images/Three\_way\_handshake.png](http://www.netpro360.com/_images/Three_way_handshake.png "http://www.netpro360.com/_images/Three_way_handshake.png")
+~~http://www.netpro360.com/_images/Three_way_handshake.png~~  
 
 1\. The server process create a ***TCB*** <sup>\[1\]</sup> and use ***TCB*** prepares to accept the host's request. After **TCB** born the server change status to LISTEN.
 
