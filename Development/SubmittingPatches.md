@@ -116,7 +116,8 @@ You can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.h
 
 - Run `git push downstream HEAD`. This pushes the current branch (my-branch-name) to your personal repository.
 
-- Go to https://gitlab.com/wireshark/wireshark/merge_requests.
+- Go to https://gitlab.com/wireshark/wireshark/merge_requests.  
+(Should this be https://gitlab.com/USERNAME/wireshark/merge_requests ??? See above)  
 You should see a "New merge request" button for your branch.
 Press it.
 
