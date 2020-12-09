@@ -108,6 +108,10 @@ You should also refer to some preferences of [Protobuf](/Protobuf):
 
 - **Dissect Protobuf fields as Wireshark fields**. Enable this option if you want to search for messages based on the name of Protobuf message or field. For example, you can input 'pbf.tutorial.Person.name == "Lily"' as a display filter to search protobuf message including persons who named "Lily" in capture files mentioned in previous sections.
 
+## How to Export TLS Master keys of gRPC
+
+The capture files that sending gRPC messages in plaintext mode can be parsed by Wireshark directly. If your gRPC connection is secured over TLS, please refer to [this page](/grpc/tls) for how to export the TLS master key of gRPC in some languages.
+
 ## Example capture file
 
 - [grpc_person_search_protobuf_with_image.pcapng](uploads/f6fcdceb0248669c0b057bd15d45ab6f/grpc_person_search_protobuf_with_image.pcapng) gRPC Person search service example, using Protobuf to serialize structured data.
