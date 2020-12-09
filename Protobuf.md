@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # Protocol Buffers (Protobuf)
 
 Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data. For a description of Protobuf refer to [Protocol Buffers home page](https://developers.google.com/protocol-buffers).
