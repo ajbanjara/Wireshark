@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # gRPC
 
 gRPC is an open source, high-performance remote procedure call (RPC) framework. For a description of gRPC refer to [gRPC home page](https://grpc.io/).
