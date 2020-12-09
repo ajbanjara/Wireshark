@@ -112,7 +112,7 @@ You should also refer to some preferences of [Protobuf](/Protobuf):
 
 ## How to Export TLS Master keys of gRPC
 
-The capture files that sending gRPC messages in plaintext mode can be parsed by Wireshark directly. If your gRPC connection is secured over TLS, please refer to [this page](/grpc/tls) for how to export the TLS master key of gRPC in some languages.
+The capture files that sending gRPC messages in plaintext mode can be parsed by Wireshark directly. If your gRPC connection is secured over TLS, please refer to [this page](/How-to-Export-TLS-Master-keys-of-gRPC) for how to export the TLS master key of gRPC in some languages.
 
 ## Example capture file
 
