@@ -295,6 +295,8 @@ Some changes that fix bugs should also be applied to release branches, so that t
 
 Changes that backport cleanly by cherry-picking them can be backported by using the "Cherry-pick" option in the "Options" item on the page for the [commit](https://gitlab.com/wireshark/wireshark/-/commits/master). (**N.B.**, *not* the page for the merge request.) The "Cherry-pick" option will pop up a dialog; choose the branch to which the change should be cherry-picked, and leave "Start a '''new merge request''' with these changes" checked.  Clicking "Cherry-pick" will take you to a page for a new merge request; follow the instructions for merge requests in "Submitting A Change" above.
 
+:warning: When using the GUI as above, GitLab automatically names cherry-picked branches with a name like "cherry-pick-{commit}", and this name cannot be [changed or chosen](https://gitlab.com/gitlab-org/gitlab/-/issues/17462). This means that it is [impossible](https://gitlab.com/gitlab-org/gitlab/-/issues/18825#note_435056560) to use the GUI to cherry-pick the same commit into two or more release branches (e.g., "release-3.4" and "master-3.2") simultaneously. As a workaround, either wait until the merge is applied to one release branch and the cherry-pick branch deleted, and repeat the process for the second release branch, or use the command line procedure described below for any additional branches.
+
 Changes that *don't* backport cleanly by cherry-picking them will require some editing on your part in order to backport them.  To backport a change to a release branch that can't be cleanly cherry-picked:
 
 - If necessary, do a `git pull` to update your repository so that it includes the change.
