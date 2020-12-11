@@ -37,13 +37,16 @@ The sample below demonstrates the workflow for a patch. Replace `USERNAME` with 
     remote:
     To gitlab.com:USERNAME/wireshark.git
      * [new branch]      HEAD -> BRANCH_NAME
+    $ # Switch back to master for the next change:
+    $ git checkout master
 
-    $ # Amend your current change (e.g.: edit commit message, add additional tests):
+    $ # Amend a change (e.g.: edit commit message, add additional tests):
+    $ git checkout BRANCH_NAME
     <Make changes>
     $ git commit -a --amend
     $ git push downstream +HEAD
     $ # ...or add a separate commit on top of the current change:
-    < make some changes>
+    < Make some changes>
     $ git commit -a
     $ git push downstream HEAD
 
