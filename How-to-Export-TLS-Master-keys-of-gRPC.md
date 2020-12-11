@@ -111,11 +111,11 @@ protected void handlerAdded0(ChannelHandlerContext ctx) {
 	ctx.pipeline().addBefore(ctx.name(), /* name= */ null, this.executor != null
 		? new SslHandler(sslEngine, false, this.executor)
 		: new SslHandler(sslEngine, false));
-	// add for exporting master for wireshark
-	if (Boolean.getBoolean(System.getProperty(SslMasterKeyHandler.SYSTEM_PROP_KEY))) {
-		// note that the '.addLast()' is not work
-		ctx.pipeline().addBefore(ctx.name(), null, SslMasterKeyHandler.newWireSharkSslMasterKeyHandler());
-	}
+	// add following code for exporting master for wireshark
+        if (Boolean.getBoolean(SslMasterKeyHandler.SYSTEM_PROP_KEY)) {
+            ctx.pipeline().addBefore(ctx.name(), null,
+                SslMasterKeyHandler.newWireSharkSslMasterKeyHandler());
+        }
 }
 ```
 This will write master keys to the log named "io.netty.wireshark". You can configure the log4j.xml for exporting master keys to a key log file:
