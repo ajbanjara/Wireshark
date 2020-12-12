@@ -131,6 +131,14 @@ This will write master keys to the log named "io.netty.wireshark". You can confi
 	<appender-ref ref="key-file" />
 </category>
 ```
+Enable this feature by setting the system property
+```
+   -Dio.netty.ssl.masterKeyHandler=true
+```
+or
+```java
+   System.setProperty(SslMasterKeyHandler.SYSTEM_PROP_KEY, "true");
+```
 That will make the master keys be written to the file `d:\keyfile.txt'.
 
 This is just a workaround because the class *'io.grpc.netty.ProtocolNegotiators'* may be different each version. [Formal solution](https://github.com/grpc/grpc-java/issues/7199) based on the [SslMasterKeyHandler](https://github.com/netty/netty/pull/8653) feature of netty may be provied in the future.
@@ -142,3 +150,10 @@ Unfortunately, these language-specific gRPC implementations currently do not sup
 You may also try the methods described in [Wireshark tls wiki page](/tls).
 
 > This wiki page will be updated if there's new progress.
+
+# Sample Captures
+- [grpc_person_search_protobuf_and_json_tls.pcapng][] -- Person search gRPC sample captures(60051 for protobuf payload and 60052 for json).
+- [grpc_person_search_protobuf_and_json_tls.keylog.txt][] -- Key log file for grpc_person_search_protobuf_and_json_tls.pcapng.
+
+[grpc_person_search_protobuf_and_json_tls.keylog.txt]: uploads/bdb819da1d262ac9226a9d9079eedb8d/grpc_person_search_protobuf_and_json_tls.keylog.txt
+[grpc_person_search_protobuf_and_json_tls.pcapng]: uploads/bf889abf927b7d041b34a136dce7e176/grpc_person_search_protobuf_and_json_tls.pcapng
