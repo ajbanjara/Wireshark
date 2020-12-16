@@ -14,7 +14,11 @@ LDAP was developed as simple access protocol for [X.500](/X.500) databases.
 
 ## Example traffic
 
-TODO: - Add example traffic here (as plain text or Wireshark screenshot).
+TODO: - Add example traffic here (as plain text or Wireshark screenshot).  
+  
+Windows - generate traffic with [LDP.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771022(v=ws.11)) which is available by loading [Remote Server Administration Tools (RSAT) for Windows](https://docs.microsoft.com/en-us/troubleshoot/windows-server/system-management-components/remote-server-administration-tools)  
+  
+Linux - [OpenLDAP](https://www.openldap.org/) daemon [slapd](https://www.openldap.org/software/man.cgi?query=slapd) - Ubuntu setup [here](https://ubuntu.com/server/docs/service-ldap)
 
 ## Wireshark
 
