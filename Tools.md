@@ -108,6 +108,8 @@ Tools related to [NetworkTroubleshooting](/NetworkTroubleshooting) and alike.
 
 The following tools can process the libpcap-format files that Wireshark and TShark produce or can perform network traffic capture and analysis functions complementary to those performed by Wireshark and TShark. In brackets you will find the program license and the supported operating systems.
 
+  - [A-packets](https://apackets.com/) Allow read pcap file and analyze IPv4/IPv6, HTTP, Telnet, FTP, DNS, SSDP, WPA protocols, build map of network structure and nodes activity graph, sniff and analyze network traffic and other pcap data.  Analyse pcap files to view HTTP headers and data, extract transferred binaries, files, office documents, pictures.
+
   - [Arkime](https://github.com/arkime/arkime) Arkime (formerly Moloch) is a large scale, open source, indexed packet capture (PCAP) and search tool.
 
   - [Cap'r Mak'r](http://www.pcapr.net/caprmakr) generates new pcaps for various protocols
