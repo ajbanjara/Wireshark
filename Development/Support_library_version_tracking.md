@@ -346,14 +346,14 @@ Neither of them provide packages for all of the libraries that we use, so we mai
 
 | Library | vcpkg | Conan | Notes |
 |---------|----|----|----|
-| BCG     | no | no | |
+| Bcg729  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/bcg729) | no | |
 | Brotli                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/brotli) | [yes](https://conan.io/center/brotli) | |
 | c-ares                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/c-ares) | [yes](https://conan.io/center/c-ares) | |
 | GLib                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/glib) | [yes](https://conan.io/center/glib) | |
 | GnuTLS                | no | no | |
-| iLBC                  | no | no | |
+| iLBC                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libilbc) | no | |
 | Kerberos (krb5)       | no | no | |
-| libgcrypt             | no | no | |
+| libgcrypt             | [almost](https://github.com/microsoft/vcpkg/tree/master/ports/libgcrypt) | no | vcpkg port is Linux / macOS only. |
 | libmaxminddb          | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libmaxminddb) | no | |
 | libpcap               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libpcap) | [yes](https://conan.io/center/libpcap) | |
 | libsmi                | no | no | |

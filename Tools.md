@@ -108,7 +108,7 @@ Tools related to [NetworkTroubleshooting](/NetworkTroubleshooting) and alike.
 
 The following tools can process the libpcap-format files that Wireshark and TShark produce or can perform network traffic capture and analysis functions complementary to those performed by Wireshark and TShark. In brackets you will find the program license and the supported operating systems.
 
- - [A-packets](https://apackets.com/) Allow read pcap file and analyze IPv4/IPv6, HTTP, Telnet, FTP, DNS, SSDP, WPA protocols, build map of network structure and nodes activity graph, sniff and analyze network traffic and other pcap data. Analyse pcap files to view HTTP headers and data, extract transferred binaries, files, office documents, pictures.
+  - [A-packets](https://apackets.com/) Allow read pcap file and analyze IPv4/IPv6, HTTP, Telnet, FTP, DNS, SSDP, WPA protocols, build map of network structure and nodes activity graph, sniff and analyze network traffic and other pcap data.  Analyse pcap files to view HTTP headers and data, extract transferred binaries, files, office documents, pictures.
 
   - [Arkime](https://github.com/arkime/arkime) Arkime (formerly Moloch) is a large scale, open source, indexed packet capture (PCAP) and search tool.
 
@@ -296,7 +296,7 @@ These tools attempt to repair damaged capture files as much as can be done.
 
 ### Capture file tools
 
-  - [Brim](https://www.brimsecurity.com/) A new way to browse, store and archive your logs (Windows, macOS, [BSD 3-Clause License](https://github.com/brimsec/brim/blob/master/LICENSE.txt))
+  - [Brim](https://www.brimsecurity.com/) A new way to browse, store and archive your logs (Windows, macOS, Linux, [BSD 3-Clause License](https://github.com/brimsec/brim/blob/master/LICENSE.txt))
 
   - [Brute Shark](https://github.com/odedshimon/BruteShark) a Network Forensic Analysis Tool (NFAT) that performs deep processing and inspection of network traffic (mainly PCAP files). (Windows, Linux, [GPLv3](https://github.com/odedshimon/BruteShark/blob/master/LICENSE))
 
