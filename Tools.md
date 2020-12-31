@@ -296,7 +296,7 @@ These tools attempt to repair damaged capture files as much as can be done.
 
 ### Capture file tools
 
-  - [Brim](https://www.brimsecurity.com/) A new way to browse, store and archive your logs (Windows, macOS, [BSD 3-Clause License](https://github.com/brimsec/brim/blob/master/LICENSE.txt))
+  - [Brim](https://www.brimsecurity.com/) A new way to browse, store and archive your logs (Windows, macOS, Linux, [BSD 3-Clause License](https://github.com/brimsec/brim/blob/master/LICENSE.txt))
 
   - [Brute Shark](https://github.com/odedshimon/BruteShark) a Network Forensic Analysis Tool (NFAT) that performs deep processing and inspection of network traffic (mainly PCAP files). (Windows, Linux, [GPLv3](https://github.com/odedshimon/BruteShark/blob/master/LICENSE))
 
