@@ -353,7 +353,7 @@ Neither of them provide packages for all of the libraries that we use, so we mai
 | GnuTLS                | no | no | |
 | iLBC                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libilbc) | no | |
 | Kerberos (krb5)       | no | no | |
-| libgcrypt             | no | no | |
+| libgcrypt             | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libgcrypt) | no | |
 | libmaxminddb          | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libmaxminddb) | no | |
 | libpcap               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libpcap) | [yes](https://conan.io/center/libpcap) | |
 | libsmi                | no | no | |
