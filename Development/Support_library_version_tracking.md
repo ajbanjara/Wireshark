@@ -257,7 +257,7 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 
 ## SUSE Linux Enterprise Server
 
-Version numbering skipped from 12 to 15
+Ten years of General Support for a major version, with a six month window to upgrade to the latest Service Pack after it is released. Version numbering skipped from 12 to 15. As of version 15 openSUSE and SLES closely track each other.
 
 | Distribution | Initial release       | End of Normal Support | GLIB version    | Gtk2 version      | Gtk3 version     | Qt4 version   | Qt5 version          |
 |--------------|-----------------------|-----------------------|-----------------|-------------------|------------------|---------------|----------------------|
@@ -267,7 +267,9 @@ Version numbering skipped from 12 to 15
 | SLES 11 SP3  | 2013/07               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
 | SLES 11 SP4  | 2015/07               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
 | SLES 12      | 2014/10 (SP5 2019/12) | 2024/10               | 2.48.2 (2.38.2) | 2.24.31 (2.24.24) | 3.20.10 (3.10.9) | 4.8.7 (4.8.6) | 5.6.2 (5.5.1, 5.3.1) |
-| SLES 15      | 2018/07               | 2028/7                | 2.54.3          | 2.24.32           | 3.22.30          | (none)        | 5.9.4                |
+| SLES 15      | 2018/07               | 2019/12               | 2.54.3          | x             | x            | (none)            | 5.9.4                |
+| SLES 15 SP1  | 2019/06               | 2021/01               | 2.54.3          | x             | x            | (none)            | 5.9.4                |
+| SLES 15 SP2  | 2020/07               | 2028/07               | 2.62.5          | x             | x            | (none)            | 5.12.7               |
 
 ## openSUSE
 
@@ -292,7 +294,7 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 | openSUSE 13.2      | 2.42.2       | 2.24.28      | 3.14.13      | 4.8.6       | 5.4.1       |
 | openSUSE Leap 42.3 | 2.48.2       | x            | x            | 4.8.7       | 5.6.2       |
 | openSUSE Leap 15.0 | 2.54.3       | x            | x            | 4.8.7       | 5.9.4       |
-| openSUSE Leap 15.2 | 2.62.5       | x            | x            | 4.8.7       | 5.12.7       |
+| openSUSE Leap 15.2 | 2.62.5       | x            | x            | 4.8.7       | 5.12.7      |
 
 ## Debian
 
