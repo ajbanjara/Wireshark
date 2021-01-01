@@ -105,7 +105,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 1.4.2   | Sep 2008 | Min. req. since Oct 2015 (v2.1.0rc0-189-g82ec0bb0)                                               |
 | 1.4.5   | Dec 2009 | Debian Squeeze, RHEL6                                                                            |
 | 1.4.6   | Jul 2010 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                     |
-| 1.5.0   | Jun 2011 | Debian Wheezy, SLES 11 SP2-SP3. Needed for simpler PKCS#1 padding handling in SSL                |
+| 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6) Debian Wheezy, SLES 11 SP2-SP3. Needed for simpler PKCS#1 padding handling in SSL                |
 | 1.5.3   | Jul 2013 | RHEL7                                                                                            |
 | 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM) |
 | 1.6.1   | Jan 2014 | SLES 12, Ubuntu 14.04LTS                                                                         |
