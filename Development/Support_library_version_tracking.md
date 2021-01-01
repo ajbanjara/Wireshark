@@ -52,7 +52,7 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 | 2.30         |              | 3.2          | Sep 2011 |                                                                                         |
 | 2.32         |              | 3.4          | Feb 2012 | GLib 2.32 is min. req. since April 2018 (v2.9.0rc0-34-gb30e3d42)                        |
 | 2.34         |              | 3.6          | Sep 2012 |                                                                                         |
-| 2.36         |              | 3.8          | Mar 2013 | GLib 2.36 in min. req. since Nov 2020 (v3.5.0rc0-201-g15d315c2ae)                     |
+| 2.36         |              | 3.8          | Mar 2013 | GLib 2.36 is min. req. since Nov 2020 (v3.5.0rc0-201-g15d315c2ae)                     |
 | 2.38         |              | 3.10         | Oct 2014 |                                                                                         |
 | 2.40         |              | 3.12         | Mar 2014 |                                                                                         |
 | 2.42         |              | 3.14         | Sep 2014 |                                                                                         |
@@ -63,7 +63,7 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 
 ## GnuTLS
 
-Note: odd numbers are development versions, even are stable. Exception: 3.5.x at some point became the stable branch.
+Note: GnuTLS has a stable branch, and sometimes a development branch and/or a previous stable branch. These are not always obvious, as the development branch becomes the stable branch when it is deemed ready; *e.g.* in July 2018 3.5.x was the stable branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-devel/2018-July/008583.html)), 3.6.x was the development branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-devel/2018-July/008584.html)), 3.3.x was the previous stable branch receiving bug-fixes ([announcement](https://lists.gnupg.org/pipermail/gnutls-devel/2018-July/008582.html)), and 3.4.x was unsupported.
 
 | Version | Date     | Notes                                                                                                                     |
 |---------|----------|---------------------------------------------------------------------------------------------------------------------------|
