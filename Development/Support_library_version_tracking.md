@@ -80,7 +80,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.2.11  | Feb 2014 | Ubuntu 14.04                                                                                                              |
 | 3.2.15  | May 2014 | SLES 12; Windows releases from Wireshark 1.12.2+, 2.0+ (r409)                                                             |
 | 3.3.8   | Sep 2014 | Debian Jessie                                                                                                             |
-| 3.3.27  | Mar 2017 | SLES 12SP5                                                                                                                |
+| 3.3.27  | Mar 2017 | SLES 12SP3 (and later)                                                                                                                |
 | 3.3.29  | Feb 2018 | RHEL7                                                                                                                     |
 | 3.4.0   | Apr 2015 | (gnutls_pubkey_import_privkey is working now for PKCS#11, [commit](https://gitlab.com/gnutls/gnutls/commit/4a8bcb9331d109e31f1b63f5df3ed67c0746619c))                                                         |
 | 3.4.10  | Mar 2016 | Ubuntu 16.04                                                                                                              |
