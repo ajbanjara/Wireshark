@@ -149,6 +149,7 @@ See also <https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Life-Cycle-
 | 3.16.0  | Nov 2019 |  |
 | 3.17.0  | Mar 2020 |  |
 | 3.18.0  | Jul 2020 |  |
+| 3.19.2  | Dec 2020 | Apple Silicon first supported |
 
 (\*1) SLES12 SP2 includes CMake 3.5 according to <https://www.suse.com/media/presentation/TUT88458_suse_linux_enterprise_server_12_sp_whats_new.pdf>
 
