@@ -7,7 +7,7 @@ I maintain some builders that help me fix bugs in wireshark as soon as they appe
 | Platform | Status |
 |----------|--------|
 | Gitlab CI | [![pipeline status](https://gitlab.com/wireshark/wireshark/badges/master/pipeline.svg)](https://gitlab.com/wireshark/wireshark/-/pipelines) |
-| Travis CI | [![pipeline status](https://api.travis-ci.com/crondaemon/wireshark.svg?branch=master)](https://travis-ci.com/crondaemon/wireshark/builds) |
+| Travis CI | [![pipeline status](https://www.travis-ci.com/gitlab/crondaemon/wireshark.svg?branch=master)](https://www.travis-ci.com/gitlab/crondaemon/wireshark/builds) |
 | Semaphore CI | [![pipeline status](https://semaphoreci.com/api/v1/crondaemon/wireshark/branches/master/badge.svg)](https://semaphoreci.com/crondaemon/wireshark) |
 | AppVeyor | [![pipeline status](https://ci.appveyor.com/api/projects/status/00oc33lud6bq3x5f?svg=true)](https://ci.appveyor.com/project/crondaemon/wireshark/) |
 | Cirrus CI | [![pipeline status](https://api.cirrus-ci.com/github/crondaemon/wireshark.svg)](https://cirrus-ci.com/) |
