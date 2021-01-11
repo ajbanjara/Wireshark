@@ -79,7 +79,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.1.22  | Mar 2014 | Windows releases from Wireshark 1.12+ (r400)                                                                              |
 | 3.2.11  | Feb 2014 | Ubuntu 14.04                                                                                                              |
 | 3.2.15  | May 2014 | SLES 12; Windows releases from Wireshark 1.12.2+, 2.0+ (r409)                                                             |
-| 3.3.0   | Apr 2014 | Min. req. since Jan 2021 (v3.5.0rc0-530-gfbd3fb3138)                   
+| 3.3.0   | Apr 2014 | Min. req. since Jan 2021 (v3.5.0rc0-530-gfbd3fb3138)                      
 |
 | 3.3.8   | Sep 2014 | Debian Jessie                                                                                                             |
 | 3.3.27  | Mar 2017 | SLES 12SP3 (and later)                                                                                                                |
