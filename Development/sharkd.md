@@ -123,7 +123,7 @@ and closes the putty session.
 
 This function connects to sharkd running in Daemon mode, sends two commands, displays the response for each and then closes the connection.
 
-```
+```python
 import socket
 
 def get_json_bytes(json_string):
