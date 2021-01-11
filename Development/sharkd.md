@@ -1,36 +1,109 @@
-## Background
-
-I am interested in sharkd but I couldn't find any doc for it, so I created this page.
-
 ## Introduction
 
-sharkd is a daemon (service) that offers Wireshark functionality through a TCP service. In Windows, you start it like this:
+sharkd is a program that makes the powerful dissection and analysis capabilities of Wireshark available via a programmatic interface.  A program can send simple JSON-format requests to sharkd to load, analyse and manipulate network packet files.
 
-``` 
+Many of the functions that we see in the standard Wireshark user interface are available via sharkd including packet protocol tree, packet bytes and display filters.
+
+## Installation
+
+The sharkd executable is not included in the standard Wireshark binary package (Windows MSI, etc.) and so must be built from source.  Building sharkd under Windows results in a sharkd.exe executable.
+
+sharkd will not work with just the sharkd.exe file; it uses Wireshark DLLs and preference files.  Therefore, we need to install everything that results from a build of sharkd.
+
+## Running sharkd
+
+We can run sharkd in two modes:
+
+- Console Mode where we can send JSON requests via stdin and receive JSON responses from stdout
+- Daemon Mode where sharkd starts as a service running on a socket, allowing us to send JSON requests and receive JSON responses via the socket
+
+To start sharkd in Console Mode use the command:
+```
+  sharkd -
+```  
+To start sharkd in Daemon Mode running on a TCP port, use the command:
+```
   sharkd tcp:127.0.0.1:4446
 ```
+This will result in sharkd listening for TCP connections to localhost TCP port 4446.  You can change the TCP port number if necessary.
 
-This starts the service accessible via localhost port 4446.
-
-Commands and responses are in JSON format, for example:
-
-``` 
-  { "req": "status" }
+UNIX sockets are also supported:
 ```
-
-Gets the current status of sharkd. A typical response is:
-
-``` 
-  {"frames":10903,"duration":94.610105000,"filename":"bad_syn.pcapng","filesize":5472888}
+  sharkd unix:/tmp/sharkd.sock
 ```
+Multiple sessions can connect to JSON running in Daemon Mode.  A dedicated sharkd.exe process is spun up for each connection.  Therefore, when there are no connections there is a single sharkd process, when there is one active session there are two sharkd processes, when a second connection is made there will be three sharkd processes, and so on.
+
+## sharkd Requests
+
+sharkd service requests have the general format:
+```
+  {"req":"command","_option_":"_value_","_option_":"_value_",...}
+```
+The request processor uses a simple gets(...) function to read incoming requests.  This means that:
+- The request may only contain printable characters
+- Special characters must be escaped
+- Numeric values can be quoted or not quoted - not quoted is the norm and response numerics are not quoted
+  + e.g. {"req":"frame", "frame":4, "proto":"true"}
+  + e.g. {"req":"frame", "frame":"4", "proto":"true"}
+  + e.g. response - {"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
+- The entire requests must be on a single line
+- The request must end with a line feed
+  
+The commands must be in lower case as shows below.  Also note the use of the UK English spelling of analyse; analyze won't work.
+
+The commands are:
+
+- load - load a packet trace file for analysis
+  + e.g. {"req":"load","file":"c:\\traces\\example.pcapng"}
+  +  e.g. {"req":"load","file":"c:/traces/example.pcapng"}
+- status - get basic information about the loaded file (name, size, number of frames, etc.)
+  + e.g. {"req":"status"}
+- analyse - lists the protocols found in a packet file and its start and end times
+  + e.g. {"req":"analyse"}
+- info
+- check - used to confirm that sharkd is ready to accept requests
+  + e.g. {"req":"check"}
+- complete
+- frames - get Packet List information for a range of packets
+  + e.g. {"req":"frames","filter":"frame.number<=20"}
+- tap
+- follow - get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified (protocol payload is UTF-8 (ASCII) obfuscated with base64 encoding)
+  + e.g. {"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}
+  + e.g. {"req":"follow","follow":"TCP","filter":"tcp.stream==1"}
+- iograph - creates time sequenced list of values for graphing; default is second-by-second
+  + e.g. {"req":"iograph","graph0":"packets"}
+- intervals
+- frame - get full information about a frame including the protocol tree
+  + e.g. {"req":"frame", "frame":"4", "proto":"true"}
+- setcomment - set the comment in a frame in the loaded trace - not saved to trace file
+  + e.g. {"req":"setcomment","frame":1,"comment":"Hello world"}
+- setconf - set a configuration parameter
+  + e.g. {"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}
+- dumpconf - list one, some or all configuration parameters
+  + e.g. {"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
+- download
+- bye - end a startd session
+  + e.g. {"req":"bye"}
+  
+## Bugs
+
+During experimentation with sharkd, a few bugs were discovered that are noteworthy.
+
+Issuing commands to interrogate or modify a packet file before loading any file often results in a program exception.
+
+The Windows file path backslash (\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
+
+## Studying and Debugging sharkd
+
+Many will want to use Visual Studio to study the way sharkd works or for debugging.  Remember that when running in Daemon Mode, the JSON requests will be processed by a dedicated sharkd process, and not the one you start executing in Visual Studio.  The simplest way to avoid this situation is to study or debug when running in Console Mode.
 
 ## Testing with Putty
 
 Suitable putty settings are:
 
-  - Host Name (or IP address): localhost
-  - Port: 4446
-  - Connection Type: Raw
+- Host Name (or IP address): localhost
+- Port: 4446
+- Connection Type: Raw
 
 When you successfully connect, the daemon writes a stdout message:
 
@@ -46,14 +119,49 @@ If you send invalid JSON on the connection, sharkd writes the stdout message:
 
 and closes the putty session.
 
-## Commands
+## Simple Python Code Example
 
-These are the supported commands:
+This function connects to sharkd running in Daemon mode, sends two commands, displays the response for each and then closes the connection.
 
-To follow
+```
+import socket
 
-As far as I can tell, sharkd doesn't support the use of new line in the JSON and so all commands must be on a single line.
+def get_json_bytes(json_string):
+    return bytes((json_string + '\n'), 'utf-8')
 
----
+def json_send_recv(s, json) -> str:
+    s.sendall(get_json_bytes(json))
+    data = s.recv(1024)
+    return data[:-4].decode('utf-8')
 
-Imported from https://wiki.wireshark.org/Development/sharkd on 2020-08-11 23:13:05 UTC
+host = socket.gethostbyname('localhost')
+port = 4446  # The port used by sharkd
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print('c: Connecting to ' + host + ':' + str(port))
+s.connect((host, port))
+
+json_string = '{"req":"load","file":"c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng"}'
+print('s: ' + json_string)
+recv_json = json_send_recv(s, json_string)
+print('r: ' + recv_json)
+
+json_string = '{"req":"status"}'
+print('s: ' + json_string)
+rx_json = json_send_recv(s, json_string)
+print('r: ' + rx_json)
+
+print('c: Closing connection to ' + host + ':' + str(port))
+s.close()
+
+```
+
+The output looks like this:
+
+```
+c: Connecting to 127.0.0.1:4446
+s: {"req":"load","file":"c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng"}
+r: {"err":0}
+s: {"req":"status"}
+r: {"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
+c: Closing connection to 127.0.0.1:4446
+```
