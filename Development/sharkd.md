@@ -121,7 +121,7 @@ and closes the putty session.
 
 ## Simple Python Code Example
 
-This function connects to sharkd running in Daemon mode, sends two commands, displays the response for each and then closes the connection.
+This program connects to sharkd running in Daemon mode, sends two commands, displays the response for each and then closes the connection.
 
 ```python
 import socket
