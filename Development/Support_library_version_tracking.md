@@ -249,7 +249,10 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 | Fedora 27    | 2.54.3       | x            | x            | x           | 5.9.6       |
 | Fedora 28    | 2.56.4       | x            | x            | x           | 5.11.3      |
 | Fedora 29    | 2.58.3       | x            | x            | x           | 5.11.3      |
-| Fedora 30    | 2.60.1       | x            | x            | x           | 5.12.1      |
+| Fedora 30    | 2.60.7       | x            | x            | x           | 5.12.5      | 
+| Fedora 31    | 2.62.6       | x            | x            | x           | 5.13.2      | 
+| Fedora 32    | 2.64.6       | x            | x            | x           | 5.14.2      | 
+| Fedora 33    | 2.66.4       | x            | x            | x           | 5.15.2      | 
 
 ## SUSE Linux Enterprise Server
 
