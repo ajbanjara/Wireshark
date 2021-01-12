@@ -43,9 +43,9 @@ The request processor uses a simple gets(...) function to read incoming requests
 - The request may only contain printable characters
 - Special characters must be escaped
 - Numeric values can be quoted or not quoted - not quoted is the norm and response numerics are not quoted
-  + e.g. {"req":"frame", "frame":4, "proto":"true"}
-  + e.g. {"req":"frame", "frame":"4", "proto":"true"}
-  + e.g. response - {"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
+  + e.g. `{"req":"frame", "frame":4, "proto":"true"}`
+  + e.g. `{"req":"frame", "frame":"4", "proto":"true"}`
+  + e.g. response - `{"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}`
 - The entire requests must be on a single line
 - The request must end with a line feed
   
@@ -54,36 +54,36 @@ The commands must be in lower case as shows below.  Also note the use of the UK 
 The commands are:
 
 - load - load a packet trace file for analysis
-  + e.g. {"req":"load","file":"c:\\traces\\example.pcapng"}
-  +  e.g. {"req":"load","file":"c:/traces/example.pcapng"}
+  + e.g. `{"req":"load","file":"c:\\traces\\example.pcapng"}`
+  + e.g. `{"req":"load","file":"c:/traces/example.pcapng"}`
 - status - get basic information about the loaded file (name, size, number of frames, etc.)
-  + e.g. {"req":"status"}
+  + e.g. `{"req":"status"}`
 - analyse - lists the protocols found in a packet file and its start and end times
-  + e.g. {"req":"analyse"}
+  + e.g. `{"req":"analyse"}`
 - info
 - check - used to confirm that sharkd is ready to accept requests
-  + e.g. {"req":"check"}
+  + e.g. `{"req":"check"}`
 - complete
 - frames - get Packet List information for a range of packets
-  + e.g. {"req":"frames","filter":"frame.number<=20"}
+  + e.g. `{"req":"frames","filter":"frame.number<=20"}`
 - tap
 - follow - get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified (protocol payload is UTF-8 (ASCII) obfuscated with base64 encoding)
-  + e.g. {"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}
-  + e.g. {"req":"follow","follow":"TCP","filter":"tcp.stream==1"}
+  + e.g. `{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}`
+  + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
 - iograph - creates time sequenced list of values for graphing; default is second-by-second
-  + e.g. {"req":"iograph","graph0":"packets"}
+  + e.g. `{"req":"iograph","graph0":"packets"}`
 - intervals
 - frame - get full information about a frame including the protocol tree
-  + e.g. {"req":"frame", "frame":"4", "proto":"true"}
+  + e.g. `{"req":"frame", "frame":"4", "proto":"true"}`
 - setcomment - set the comment in a frame in the loaded trace - not saved to trace file
-  + e.g. {"req":"setcomment","frame":1,"comment":"Hello world"}
+  + e.g. `{"req":"setcomment","frame":1,"comment":"Hello world"}`
 - setconf - set a configuration parameter
-  + e.g. {"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}
+  + e.g. `{"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}`
 - dumpconf - list one, some or all configuration parameters
-  + e.g. {"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
+  + e.g. `{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}`
 - download
 - bye - end a startd session
-  + e.g. {"req":"bye"}
+  + e.g. `{"req":"bye"}`
   
 ## Bugs
 
@@ -91,7 +91,7 @@ During experimentation with sharkd, a few bugs were discovered that are notewort
 
 Issuing commands to interrogate or modify a packet file before loading any file often results in a program exception.
 
-The Windows file path backslash (\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
+The Windows file path backslash (\\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
 
 ## Studying and Debugging sharkd
 
