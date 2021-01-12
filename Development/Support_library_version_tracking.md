@@ -231,11 +231,6 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 
 | Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------|--------------|--------------|--------------|-------------|-------------|
-| Fedora 12    | 2.22         | 2.18         | (none)       | 4.6.3       | (none)      |
-| Fedora 13    | 2.24         | 2.20         | (none)       | 4.6.3       | (none)      |
-| Fedora 14    | 2.26         | 2.22         | 2.90.5       | 4.7.4       | (none)      |
-| Fedora 15    | 2.28         | 2.24         | 3.0.9        | 4.7.4       | (none)      |
-| Fedora 16    | 2.30         | 2.24         | 3.2.1        | 4.8.4       | (none)      |
 | Fedora 17    | 2.32         | 2.24         | 3.4.3        | 4.8.5       | 5.0.2       |
 | Fedora 18    | 2.34         | 2.24         | 3.6.2        | 4.8.5       | 5.2.0-rc1   |
 | Fedora 19    | 2.36         | 2.24.22      | 3.8.2        | 4.8.6       | 5.3.2       |
@@ -243,9 +238,9 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 | Fedora 21    | 2.42         | 2.24.28      | 3.14.14      | 4.8.6       | 5.4.1       |
 | Fedora 22    | 2.44         | 2.24.28      | 3.16.5       | 4.8.7       | 5.4.2       |
 | Fedora 23    | 2.46         | 2.24.28      | 3.18.2       | 4.8.7       | 5.5.0       |
-| Fedora 24    | 2.48         | 2.24.30      | 3.20.6       | 4.8.7       | 5.6.0       |
-| Fedora 25    | 2.50.1       | 2.24.31      | 3.22.2       | 4.8.7       | 5.7.0       |
-| Fedora 26    | ?            | ?            | ?            | ?           | ?           |
+| Fedora 24    | 2.48         | 2.24.30      | 3.20.6       | 4.8.7       | 5.6.2       |
+| Fedora 25    | 2.50.3       | 2.24.31      | 3.22.2       | 4.8.7       | 5.7.1       |
+| Fedora 26    | 2.52.3       | x            | x            | x           | 5.9.4       |
 | Fedora 27    | 2.54.3       | x            | x            | x           | 5.9.6       |
 | Fedora 28    | 2.56.4       | x            | x            | x           | 5.11.3      |
 | Fedora 29    | 2.58.3       | x            | x            | x           | 5.11.3      |
@@ -278,9 +273,6 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| openSUSE 11.2      | 2.22.4       | 2.18.6       | (none)       | 4.5.3       | (none)      |
-| openSUSE 11.3      | 2.24.1       | 2.20.1       | (none)       | 4.6.3       | (none)      |
-| openSUSE 11.4      | 2.28.0       | 2.22.1       | 3.0.0        | 4.7.1       | (none)      |
 | openSUSE 12.1      | 2.30.1       | 2.24.7       | 3.2.1        | 4.7.4       | (none)      |
 | openSUSE 12.2      | 2.32.4       | 2.24.10      | 3.4.4        | 4.8.1       | (none)      |
 | openSUSE 12.3      | 2.34.3       | 2.24.18      | 3.6.5        | 4.8.4       | (none)      |
@@ -296,7 +288,6 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| squeeze            | 2.24.2       | 2.20.1       | (none)       | 4.6.3       | (none)      |
 | wheezy             | 2.33.12      | 2.24.10      | 3.4.2        | 4.8.2       | (none)      |
 | jessie             | 2.42.1       | 2.24.25      | 3.14.5       | 4.8.6       | 5.3.2       |
 | stretch            | 2.50.3       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
