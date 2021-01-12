@@ -76,6 +76,7 @@ The commands are:
 - iograph - creates time sequenced list of values for graphing; default is second-by-second
   + e.g. `{"req":"iograph","graph0":"packets"}`
 - intervals - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
+  + e.g. `{"req":"intervals"}`
 - frame - get full information about a frame including the protocol tree
   + e.g. `{"req":"frame", "frame":"4", "proto":"true"}`
 - setcomment - set the comment in a frame in the loaded trace - not saved to trace file
