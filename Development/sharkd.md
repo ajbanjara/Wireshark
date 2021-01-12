@@ -70,6 +70,7 @@ The commands are:
   + e.g. `{"req":"frames","filter":"frame.number<=20"}`
 - tap - setup up to 16 statistics tap and get statistics from it; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
   + e.g. `{"req":"tap","tap0":"expert"}`
+  + e.g. `{"req":"tap","tap0":"eo:http"}
 - follow - get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified (protocol payload is UTF-8 (ASCII) obfuscated with base64 encoding)
   + e.g. `{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}`
   + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
@@ -85,7 +86,9 @@ The commands are:
   + e.g. `{"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}`
 - dumpconf - list one, some or all configuration parameters
   + e.g. `{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}`
-- download - to be completed
+- download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is encoded is BASE64 encoded
+  + e.g. `{"req":"download","token":"eo:http_0"}`
+  + See tshark --export-objects and the Export Objects function in Wireshark
 - bye - end a startd session
   + e.g. `{"req":"bye"}`
   
