@@ -70,7 +70,7 @@ The commands are:
   + e.g. `{"req":"frames","filter":"frame.number<=20"}`
 - tap - setup up to 16 statistics tap and get statistics from it; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
   + e.g. `{"req":"tap","tap0":"expert"}`
-  + e.g. `{"req":"tap","tap0":"eo:http"}
+  + e.g. `{"req":"tap","tap0":"eo:http"}`
 - follow - get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified (protocol payload is UTF-8 (ASCII) obfuscated with base64 encoding)
   + e.g. `{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}`
   + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
