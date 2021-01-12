@@ -217,7 +217,6 @@ Latest versions are listed, earlier versions are between parentheses.
 
 | Distribution        | Initial Release | End of Normal Support | GLIB version            | Gtk2 version             | Gtk3 version    | Qt4 version   | Qt5 version            |
 |---------------------|-----------------|-----------------------|-------------------------|--------------------------|-----------------|---------------|------------------------|
-| Red Hat EL/CentOS 5 | 2007/3          | 2017/3                | 2.12.3                  | 2.10.4                   | (none)          | 4.2.1         | (none)                 |
 | Red Hat EL/CentOS 6 | 2010/11         | 2020/11               | 2.28.8 (2.26.1, 2.22.5) | 2.24.23 (2.20.1, 2.18.9) | (none)          | 4.6.2         | base:(none) EPEL:5.6.1 |
 | Red Hat EL/CentOS 7 | 2014/6          | 2024/6                | 2.50.3 (2.40.0, 2.36.3) | 2.24.22                  | 3.22.26 (3.8.4) | 4.8.7 (4.8.5) | 5.9.7 (5.6.2)          |
 | Red Hat EL/CentOS 8 | 2019/5          | 2029/5                | 2.56.4                  | 2.24.32                  | 3.22.30         | (none)        | 5.12.15 (5.11.1)        |
@@ -232,11 +231,6 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 
 | Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------|--------------|--------------|--------------|-------------|-------------|
-| Fedora 7     | 2.12         | 2.10         | (none)       | (none)      | (none)      |
-| Fedora 8     | 2.14         | 2.12         | (none)       | (none)      | (none)      |
-| Fedora 9     | 2.16         | 2.12         | (none)       | 4.5.2       | (none)      |
-| Fedora 10    | 2.18         | 2.14         | (none)       | 4.5.3       | (none)      |
-| Fedora 11    | 2.20         | 2.16         | (none)       | 4.6.2       | (none)      |
 | Fedora 12    | 2.22         | 2.18         | (none)       | 4.6.3       | (none)      |
 | Fedora 13    | 2.24         | 2.20         | (none)       | 4.6.3       | (none)      |
 | Fedora 14    | 2.26         | 2.22         | 2.90.5       | 4.7.4       | (none)      |
@@ -281,11 +275,6 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| openSUSE 10.0      | 2.8.1        | 2.8.3        | (none)       | 4.0.1       | (none)      |
-| openSUSE 10.2      | 2.12.4       | 2.10.6       | (none)       | 4.2.1       | (none)      |
-| openSUSE 10.3      | 2.14.1       | 2.12.0       | (none)       | 4.3.1       | (none)      |
-| openSUSE 11.0      | 2.16.3       | 2.12.9       | (none)       | 4.4.0       | (none)      |
-| openSUSE 11.1      | 2.18.2       | 2.14.4       | (none)       | 4.4.3       | (none)      |
 | openSUSE 11.2      | 2.22.4       | 2.18.6       | (none)       | 4.5.3       | (none)      |
 | openSUSE 11.3      | 2.24.1       | 2.20.1       | (none)       | 4.6.3       | (none)      |
 | openSUSE 11.4      | 2.28.0       | 2.22.1       | 3.0.0        | 4.7.1       | (none)      |
