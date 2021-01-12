@@ -62,6 +62,7 @@ The commands are:
   + e.g. `{"req":"analyse"}`
 - info - get a list of format and statistics information types available to sharkd clients
   + e.g. `{"req":"info"}`
+  + Equivalent to the tshark -G option
 - check - used to confirm that sharkd is ready to accept requests
   + e.g. `{"req":"check"}`
 - complete - to be completed
