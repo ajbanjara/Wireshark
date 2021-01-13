@@ -134,6 +134,8 @@ Now it's time to tweak the code:
 
   - [QtShark](/Development/QtShark): Qt based version of Wireshark.
 
+  - [sharkd](/Development/sharkd): A program that makes Wireshark capabilities available via a programmatic interface.
+
   - [Update](/Development/Update): Check version and Update Wireshark on a frequent basis
 
 ## Tools
