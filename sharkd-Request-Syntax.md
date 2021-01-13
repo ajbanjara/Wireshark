@@ -22,6 +22,7 @@ This request type has no other parameters.
 ```
 ---
 
+
 ## bye
 
 Ends the startd session.
@@ -51,3 +52,4 @@ C:\Development\wsbuild64\run\Debug\sharkd.exe (process 10396) exited with code 0
 To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
 Press any key to close this window . . .
 ```
+---
