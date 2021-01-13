@@ -1,4 +1,4 @@
-## analyse
+# analyse
 
 Lists the protocols found in a packet file and its start and end times.
 
