@@ -23,7 +23,7 @@ This request type has no other parameters.
 ---
 
 
-## bye
+# bye
 
 Ends the startd session.
 
