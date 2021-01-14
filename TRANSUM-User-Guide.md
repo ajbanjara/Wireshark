@@ -165,3 +165,71 @@ TRANSUM supports tshark.  To obtain the decode information tshark must be run wi
 tshark -2 -q -ta -C TRANSUM -Y "transum"  -T fields -E separator=, -E quote=d -e _ws.col.Time -e frame.number -e ip.src -e ip.dst -e transum.art -e _ws.col.Info -r trace_file.pcapng
 ```
 
+## Configuration
+In this section we look at the individual configuration.
+
+The TRANSUM plugin is not enabled by default, and so the first step is to enable it:
+
+- In the main top menu choose Analyze -> Enabled protocols...
+- In the Enabled Protocols dialogue box search for TRANSUM
+- Check the TRANSUM protocol and click OK
+
+Now let's look at the preferences for the TRANSUM plugin.
+
+![image](uploads/a2dce941a21bbf2cb829900847665acd/image.png)
+
+The preferences dialogue screen can be accessed in the normal ways:
+- In the top menu go to Edit -> Preferences -> Protocols (expand this) -> TRANSUM
+- Right click on an TRANSUM RTE Data object in the Packet Detail pane and choose Protocol Preferences -> Open TRANSUM RTE DATA preferences ...
+
+### Capture position
+
+This setting affects how TRANSUM handles TCP retransmissions.
+
+- Client - TRANSUM ignores retransmissions from service to client.  The rationale is that if we are tracing adjacent to the client and we see an original packet and later a retransmitted packet then the client would have seen both too, and so the retransmission should be ignored.
+- Service - TRANSUM ignores retransmissions from client to service.  The rationale is that if we are tracing adjacent to the service and we see an original packet and later a retransmitted packet then the service would have seen both too, and so the retransmission should be ignored.
+- Intermediate - TRANSUM includes all retransmissions in spread calculations.
+
+Wireshark can mark a packet as a TCP Retransmission if ACKs and data packets get out of sync.  This will cause an inaccurate RTE calculation if the retransmission is the last request or last response packet.
+
+### Subdissector reassembly enabled
+
+This setting should match that of the TCP preference *Allow subdissectors to reassemble TCP streams*.
+
+[MISSING IMAGE]
+
+If none of the options to add RTE data to particular packets are set as defined below, the RTE data will be added to the packet list entry that has a summary of the APDU message.
+NB:  It's important to note that this setting will not automatically track that of the TCP preference setting.  Currently the Wireshark support for LUA scripting does not provide a mechanism to read the preference settings of another dissector and so we must manually keep these settings in sync.
+
+### Output RTE data for these TCP service ports
+
+This is a list of the TCP service ports for which TRANSUM will calculate RTE values.  The list must be port numbers with a single comma between each.  TRANSUM now supports port ranges of the form 4000-4024.
+If you need TRANSUM to generate RTE data for other service ports simply add them to the list.
+For example, a Microsoft SQL Database instance uses port 1433 by default.  However, your DBA may have configured it to use another port, or you may have multiple instances running on a single server, in which case you will want to add those port numbers.
+
+### Output RTE data for these UDP service ports
+
+This is a list of the UDP service ports for which TRANSUM will calculate RTE values.  The list must be port numbers with a single comma between each.  TRANSUM now supports port ranges of the form 4000-4024.
+If you need TRANSUM to generate RTE data for other UDP service ports simply add them to the list.
+
+### Discard orphaned TCP Keep-Alives
+
+TRANSUM ignores packets that Wireshark marks as TCP Keep-Alive.  However, Wireshark needs to see the packet prior to the TCP Keep-Alive to correctly interpret the current packet as a TCP Keep-Alive, and if this earlier packet is not in the trace file Wireshark will assume that the Keep-Alive packet as a data packet.
+
+![image](uploads/82dec76c41959c680fe16c4e7e40c542/image.png)
+
+The above screenshot shows the issue.  Note how packet 1 has been interpreted as a data packet, whereas it is actually a TCP Keep-Alive.  We can see that TRANSUM assumes that this is the first packet of the Request APDU and so we get a very high Req Spread value.
+
+By enabling this* Discard orphaned TCP Keep-Alives* option TRANSUM will assume that any packet with a TCP Len of 1 byte and the ACK flag set is a TCP Keep-Alive, and so ignore the packet.
+
+![image](uploads/801ec0a70257bbec1b1aa3385b1431b8/image.png)
+
+Here the discard option has been enabled and we see that TRANSUM has ignored packet 1.  It's important to note that even though enabling this option gets around the TRANSUM issue, Wireshark still incorrectly assumes that the packet contains valid data.
+
+The default setting is *disabled*
+
+### RTE Data Placement
+
+By checking one or more of the options presented after this heading we can specify which packets should include the RTE data.
+
+[MISSING IMAGE]
