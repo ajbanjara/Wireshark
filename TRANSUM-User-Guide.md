@@ -233,3 +233,243 @@ The default setting is *disabled*
 By checking one or more of the options presented after this heading we can specify which packets should include the RTE data.
 
 [MISSING IMAGE]
+
+## Using TRANSUM
+
+### Interpreting the Output
+In this section we'll look at the meaning of every element of the TRANSUM RTE Data.
+
+![image](uploads/bc730f07f2d9fd876e62e70dd7aa4ec4/image.png)
+
+#### RTE Status (transum.status)
+The value here indicates the status of the RTE data:
+OK - both a request and response was detected and all values should be valid
+Response missing - although TRANSUM detected a request it could not find a matching response
+
+#### Req First Seg (transum.firstreq)
+This is the frame number of the first (or only) packet in a sequence of packets that make up the APDU Request.
+
+#### Req Last Seg (transum.lastreq)
+This is the frame number of the last (or only) packet in a sequence of packets that make up the APDU Request.
+
+#### Rsp First Seg (transum.firstrsp)
+This is the frame number of the first (or only) packet in a sequence of packets that make up the APDU Response.
+
+#### Rsp Last Seg (transum.lastrsp)
+This is the frame number of the last (or only) packet in a sequence of packets that make up the APDU Response.
+
+#### APDU Rsp Time (transum.art)
+The difference between the timestamp of the Request First Segment and the timestamp of the Response Last Segment, expressed in seconds.  This is the amount of time the client entity must wait for completion of the APDU Request.
+
+#### Service Time (transum.st)
+The difference between the timestamp of the Request Last Segment and the timestamp of the Response First Segment, expressed in seconds.  This is the amount of time the service takes to process and respond to the APDU Request.
+
+#### Req Spread (transum.reqspread)
+The Request Spread is the difference between the timestamp of the Request First Segment and the timestamp of the Request Last Segment, expressed in seconds.  Sometimes the value is shown in scientific notation e.g. 3.9e-005 which equates to 39 microseconds. This is the amount of time the transport mechanism (including the underlying network infrastructure) took to send the entire APDU Request from the client to the service.
+
+#### Rsp Spread (transum.rspspread)
+The Response Spread is the difference between the timestamp of the Response First Segment and the timestamp of the Response Last Segment, expressed in seconds.  Sometimes the value is shown in scientific notation e.g. 3.9e-005 which equates to 39 microseconds.  This is the amount of time the transport mechanism (including the underlying network infrastructure) took to send the entire APDU Request from the service to the client.
+
+#### Trace clip filter (transum.clip_filter)
+Using this filter selects all packets with TCP Payload within a TCP or UDP stream starting at the Request First Segment and ending at the Response Last Segment.  See Selecting a Trace Clip for further details
+
+#### Calculation (transum.calculation)
+This value indicates which TRANSUM dissector generated the RTE Data.
+
+### Using Packet List Output
+
+We can add RTE Data to the packet list window, the procedure is quite simple:
+
+- Right click on a TRANSUM RTE Data value such as APDU Rsp Time
+- From the pop-up menu choose Apply as Column
+
+Adding all of the RTE Data values as columns can make things a bit confusing.  The best compromise is to add the time values (APDU Rsp Time, Service Time, Req Spread and Rsp Spread.
+
+![image](uploads/5353e67fc45015227b0663c89b406f68/image.png)
+
+This provides an instant view of the performance of each APDU pair.  The display can be further simplified by adding a filter term of *transum*:
+
+![image](uploads/49fce6d286886d235a7bc9fa7884b507/image.png)
+
+Once we have the data in this form we can sort by, say, slowest APDU Rsp Time and immediate start studying those APDU Request-Response pairs that are slow.
+
+![image](uploads/42a28d1abf52280749e8ed212139b4da/image.png)
+
+It's at this point that we can make good use of the Trace Clip facility.
+
+### Selecting a Trace Clip
+
+TRANSUM will generates a filter expression that will show all data packets for the present APDU Request-Response pair
+
+To select a trace clip do the following:
+
+1. Right click on the Trace clip filter field and choose Prepare a Filter -> Selected
+1. In the filter expression box deleted from the start of the expression up to the first quote
+1. Go to the end of the expression and delete the last quote
+1. Apply the filter
+
+An alternative procedure (and maybe simpler) is:
+
+1. Right click on the Trace clip filter field and choose Copy -> Value
+1. Paste the copied value into the Filter: box
+1. Apply the filter
+
+Because the filter term generated is based around the TCP or UDP Stream Number the filter will include all packets between the first APDU Request packet to the last APDU Response packet.  For those protocol that don't multiplex multiple sessions onto one TCP connection, the trace entries selected will be just those associated with the APDU Pair that interests us. However, protocols like SMB2 multiplex multiple SMB sessions onto a single TCP connection.  In this case our trace clip may include packets for other APDU pairs.
+
+In practice this limitation turns out to be an advantage.  We are often looking for TCP related performance issues and if we didn't see all of the packets on a TCP connection within the timeframe of a slow APDU pair we could miss a cause for the problem.
+
+### Batch Processing with Tshark
+
+TRANSUM support for Tshark opens up a whole new area of analysis.  With a relatively simple script we can process hundreds of trace files to select detailed performance data for any of the protocols supported by TRANSUM.
+
+### Processing a Single File (HttpTs)
+
+Let's start by looking at a single command that will extract web performance figures from a single trace file.
+```
+tshark -2 -q -ta -R "eth.type" -Y "transum && tcp.port==80"
+-T fields -E separator=, -E quote=d
+-e _ws.col.Time -e frame.number -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport
+-e transum.firstreq -e transum.lastreq -e transum.firstrsp -e transum.lastrsp
+-e transum.art -e transum.st -e transum.reqspread -e transum.rspspread -e http.request.method -e http.request.uri
+-r _trace_file_
+```
+At first look this looks very complicated, but once we break it down it's actually very simple.
+
+<table>
+<tr>
+<th>
+Element
+</th>
+<th>
+Meaning
+</th>
+</tr>
+<tr>
+<td>
+tshark
+</td>
+<td>
+The command to invoke Tshark
+</td>
+</tr>
+<tr>
+<td>
+-2
+</td>
+<td>
+This switch forces Tshark to scan the trace file twice.  This causes Tshark to produce decode information and the generate further information on the second scan.  TRANSUM requires this switch.
+</td>
+</tr>
+<tr>
+<td>
+-q
+</td>
+<td>
+Quiet mode.  Because we will redirect the output into a CSV we don't want spurious messages.
+</td>
+</tr>
+<tr>
+<td>
+-ta
+</td>
+<td>
+Ensures we get absolute time.  Other settings will work but we find this is the most useful particularly when processing multiple files.
+</td>
+</tr>
+<tr>
+<td>
+-R "eth.type"
+</td>
+<td>
+This is a necessary dummy entry that forces Tshark to perform detailed decodes on all packets.
+</td>
+</tr>
+<tr>
+<td>
+-Y "transum && tcp.port==80"
+</td>
+<td>
+This is an output filter so that we only get packets with TRANSUM RTE Data for HTTP traffic.
+</td>
+</tr>
+<tr>
+<td>
+-T fields -E separator=, -E quote=d 
+</td>
+<td>
+These switches and values ensure that the output is CSV compatible.
+</td>
+</tr>
+<tr>
+<td>
+-e
+</td>
+<td>
+ Each of these parameters define the columns to output.
+</td>
+</tr>
+<tr>
+<td>
+-r
+</td>
+<td>
+ This parameter states the trace file that's used for input.
+</td>
+</tr>
+</table>
+ 
+To make life much simpler we can create a script with the command and replace the file name with an input variable reference.  A simple Windows .bat file would look like this:
+```
+@echo off
+REM  Parameter %1 is name of the file to be processed
+echo "Time","Frame","IP Src","IP Dst","TCP Src","TCP Dst","Req First Seg","Req Last Seg","Rsp First Seg","Rsp Last Seg","APDU Rsp Time","Service Time","Req Spread","Rsp Spread","Method","URI"
+tshark -2 -q -ta -R "eth.type" -Y "transum && tcp.port==80"  -T fields -E separator=, -E quote=d -e _ws.col.Time -e frame.number -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport -e transum.firstreq -e transum.lastreq -e transum.firstrsp -e transum.lastrsp -e transum.art -e transum.st -e transum.reqspread -e transum.rspspread -e http.request.method -e http.request.uri -r %1
+```
+If the .bat file is called HttpSum.bat we can create a CSV with the command:
+```
+C:\temp> HttpSum trace_file.pcapng > http_performance.csv
+```
+The CSV can then be opened in a spreadsheet program like Excel for further manipulation.
+
+### Processing Multiple Files (HttpSum)
+
+Building on the simple example above we can create a Windows .bat file that enumerates a list of files and then processes them in sequence to produce a single CSV with performance data:
+```
+@echo off
+REM  Parameter %1 is name of the file to be processed - wildcards are allowed
+if %1. == . (
+ ECHO .
+ ECHO Processing stopped - no parameters provided
+ goto :EOF
+)
+echo "Time","Frame","IP Src","IP Dst","TCP Src","TCP Dst","Req First Seg","Req Last Seg","Rsp First Seg","Rsp Last Seg","APDU Rsp Time","Service Time","Req Spread","Rsp Spread","Method","URI"
+for %%f in (%1) do call :ffsub %%f
+goto :EOF
+
+:ffsub
+tshark -2 -q -ta -R "eth.type" -Y "transum && tcp.port==80"  -T fields -E separator=, -E quote=d
+-e _ws.col.Time -e frame.number -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport -e transum.firstreq -e transum.lastreq -e transum.firstrsp -e transum.lastrsp -e transum.art -e transum.st
+-e transum.reqspread -e transum.rspspread -e http.request.method -e http.request.uri -r %1
+goto :EOF
+```
+Let's call the above .bat file HttpSum.bat. If we have a directory containing multiple HTTP traces that have file names that start myHttpTrace we can summarise all of them with:
+```
+C:\temp> HttpSum myHttpTrace* > performance_data.csv
+```
+The resulting CSV can be opened directly in your spreadsheet program.
+
+![image](uploads/74fd4866c3e9b3f2e99eac9e61f02bc9/image.png)
+
+In this trace, frame number 3 is a measurement for a SYN - SYN/ACK response time and so there is no associated Method or URI. The Time column can be formatted with the Excel custom format hh:hh:ss.000 to give a readable value.
+
+### SMB Performance
+
+Here's a useful command to get SMB2 response times in CSV format.
+```
+"c:\program files\wireshark\tshark" -2 -q -ta -Y "transum && tcp.port==445" -T fields -E separator=, -E quote=d -e _ws.col.Time -e frame.number -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport
+-e transum.firstreq -e transum.lastreq -e transum.firstrsp -e transum.lastrsp -e transum.art -e transum.st -e transum.reqspread -e transum.rspspread -e smb2.cmd -e smb2.fid -r "%1"
+```
+Store this in a file, say, smb_performance.bat and then execute from the command line with something like this:
+```
+smb_performance slow_file_transfer.pcapng
+```
