@@ -2,7 +2,7 @@ TRANSUM is a Wireshark plugin that calculates response time information and deli
 
 # User Guide
 
-A TRANSUM User Guide can be found [here](https://community.tribelab.com/mod/book/view.php?id=545). (Broken link - see this Wireshark Q\&A [question](https://ask.wireshark.org/question/13907/transum-question))
+A TRANSUM User Guide can be found [here](https://gitlab.com/wireshark/wireshark/-/wikis/TRANSUM-User-Guide).
 
 # Development Notes
 
