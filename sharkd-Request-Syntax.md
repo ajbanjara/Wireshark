@@ -1,15 +1,25 @@
+The available statd request types are:
+
+- [analyse](#analyse)
+- [bye](#bye)
+
 # analyse
 
 Lists the protocols found in a packet file and its start and end times.
 
-### Request Syntax
+### Request
 ```
 {"req":"analyse"}
 ```
 
-### Response Syntax
+### Response
 
-To be completed.
+| Name | Value | Type |
+|------|-------|------|
+| frames | Number of frames in the loaded file | integer |
+| protocols | List of the protocol found in the loaded file | list of strings |
+| first | Time of first entry in the capture | float representing epoch time and fractions of seconds |
+| last | Time of last entry in the capture | float representing epoch time and fractions of seconds |
 
 ### Parameters
 
@@ -22,7 +32,6 @@ This request type has no other parameters.
 ```
 ---
 
-
 # bye
 
 Ends the startd session.
@@ -31,12 +40,12 @@ If the request is sent in a Daemon Mode session connecting to sharkd, the connec
 
 If the request is sent in a Console Mode session, the sharkd process exits.
 
-### Request Syntax
+### Request
 ```
 {"req":"bye"}
 ```
 
-### Response Syntax
+### Response
 
 There is no response to this request.
 
