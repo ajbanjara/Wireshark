@@ -53,44 +53,44 @@ The commands must be in lower case as shows below.  Also note the use of the UK 
 
 The commands are:
 
-- load - load a packet trace file for analysis
-  + e.g. `{"req":"load","file":"c:\\traces\\example.pcapng"}`
-  + e.g. `{"req":"load","file":"c:/traces/example.pcapng"}`
-- status - get basic information about the loaded file (name, size, number of frames, etc.)
-  + e.g. `{"req":"status"}`
 - analyse - lists the protocols found in a packet file and its start and end times
   + e.g. `{"req":"analyse"}`
-- info - get a list of format and statistics information types available to sharkd clients
-  + e.g. `{"req":"info"}`
-  + Equivalent to the tshark -G option
+- bye - end a startd session
+  + e.g. `{"req":"bye"}`
 - check - used to confirm that sharkd is ready to accept requests
   + e.g. `{"req":"check"}`
 - complete - to be completed
-- frames - get Packet List information for a range of packets
-  + e.g. `{"req":"frames","filter":"frame.number<=20"}`
-- tap - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
-  + e.g. `{"req":"tap","tap0":"expert"}`
-  + e.g. `{"req":"tap","tap0":"eo:http"}`
+- download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
+  + e.g. `{"req":"download","token":"eo:http_0"}`
+  + See tshark --export-objects and the Export Objects function in Wireshark
+- dumpconf - list one, some or all configuration parameters
+  + e.g. `{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}`
 - follow - get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified (protocol payload is UTF-8 (ASCII) obfuscated with base64 encoding)
   + e.g. `{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}`
   + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
-- iograph - creates time sequenced list of values for graphing; default is second-by-second
-  + e.g. `{"req":"iograph","graph0":"packets"}`
-- intervals - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
-  + e.g. `{"req":"intervals"}`
 - frame - get full information about a frame including the protocol tree
   + e.g. `{"req":"frame", "frame":"4", "proto":"true"}`
+- frames - get Packet List information for a range of packets
+  + e.g. `{"req":"frames","filter":"frame.number<=20"}`
+- info - get a list of format and statistics information types available to sharkd clients
+  + e.g. `{"req":"info"}`
+  + Equivalent to the tshark -G option
+- intervals - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
+  + e.g. `{"req":"intervals"}`
+- iograph - creates time sequenced list of values for graphing; default is second-by-second
+  + e.g. `{"req":"iograph","graph0":"packets"}`
+- load - load a packet trace file for analysis
+  + e.g. `{"req":"load","file":"c:\\traces\\example.pcapng"}`
+  + e.g. `{"req":"load","file":"c:/traces/example.pcapng"}`
 - setcomment - set the comment in a frame in the loaded trace - not saved to trace file
   + e.g. `{"req":"setcomment","frame":1,"comment":"Hello world"}`
 - setconf - set a configuration parameter
   + e.g. `{"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}`
-- dumpconf - list one, some or all configuration parameters
-  + e.g. `{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}`
-- download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
-  + e.g. `{"req":"download","token":"eo:http_0"}`
-  + See tshark --export-objects and the Export Objects function in Wireshark
-- bye - end a startd session
-  + e.g. `{"req":"bye"}`
+- status - get basic information about the loaded file (name, size, number of frames, etc.)
+  + e.g. `{"req":"status"}`
+- tap - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
+  + e.g. `{"req":"tap","tap0":"expert"}`
+  + e.g. `{"req":"tap","tap0":"eo:http"}`
   
 ## Bugs
 
