@@ -3,6 +3,8 @@ The available statd request types are:
 - [analyse](#analyse)
 - [bye](#bye)
 
+See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
+
 # analyse
 
 Lists the protocols found in a packet file and its start and end times.
