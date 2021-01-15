@@ -4,6 +4,8 @@ sharkd is a program that makes the powerful dissection and analysis capabilities
 
 Many of the functions that we see in the standard Wireshark user interface are available via sharkd including packet protocol tree, packet bytes and display filters.
 
+[[_TOC_]]
+
 ## Installation
 
 The sharkd executable is not included in the standard Wireshark binary package (Windows MSI, etc.) and so must be built from source.  Building sharkd under Windows results in a sharkd.exe executable.
