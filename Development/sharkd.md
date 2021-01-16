@@ -93,6 +93,13 @@ The commands are:
 - tap - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
   + e.g. `{"req":"tap","tap0":"expert"}`
   + e.g. `{"req":"tap","tap0":"eo:http"}`
+
+Entering JSON requests through the Console Interface sometimes generates additional stdout messages as well as the JSON response, for example:
+```
+{"req":"load","file":"c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng"}
+load: filename=c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng
+{"err":0}
+```
   
 ## Bugs
 
