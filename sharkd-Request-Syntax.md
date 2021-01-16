@@ -2,6 +2,7 @@ The available statd request types are:
 
 - [analyse](#analyse)
 - [bye](#bye)
+- [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
 
@@ -10,9 +11,12 @@ See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Develo
 Lists the protocols found in a packet file and its start and end times.
 
 ### Request
-```
-{"req":"analyse"}
-```
+
+| Name | Value | Type |
+|------|-------|------|
+| req | "analyse" | string |
+
+NB: The request values is _analyse_ spelt in the UK English way - _analyze_ will not work.
 
 ### Response
 
@@ -43,17 +47,14 @@ If the request is sent in a Daemon Mode session connecting to sharkd, the connec
 If the request is sent in a Console Mode session, the sharkd process exits.
 
 ### Request
-```
-{"req":"bye"}
-```
+
+| Name | Value | Type |
+|------|-------|------|
+| req | "bye" | string |
 
 ### Response
 
 There is no response to this request.
-
-### Parameters
-
-This request type has no other parameters.
 
 ### Examples
 ```
@@ -64,3 +65,38 @@ To automatically close the console when debugging stops, enable Tools->Options->
 Press any key to close this window . . .
 ```
 ---
+
+# load
+
+Load a packet trace file for analysis.
+
+### Request
+
+| Name | Value | Type |
+|------|-------|------|
+| req | "load" | string |
+| file | Path and name of the file to be loaded | string |
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code | integer |
+
+Error Codes:
+
+| Error Code | Description |
+|------|-------------------|
+| 0 | The operation was successful |
+| 2 | The file doesn't exist |
+
+### Examples
+```
+{"req":"load","file":"c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng"}
+{"err":0}
+
+{"req":"load","file":"c:/traces/Contoso_01/web01/wrong_name.pcapng"}
+{"err":2}
+```
+---
+
