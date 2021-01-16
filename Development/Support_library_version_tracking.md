@@ -267,7 +267,7 @@ Ten years of General Support for a major version, with a six month window to upg
 
 ## openSUSE
 
-Version numbering changed over time: ..., 13.2, Leap 42.1, ..., Leap 42.3, Leap 15.0. From openSUSE Leap: at least 36 months lifetime, until the next major Leap version is available. Until openSUSE 13.2: 8 month release cycle, 18 months lifetime, see <https://en.opensuse.org/Lifetime>
+Version numbering changed over time: ..., 13.2, Leap 42.1, ..., Leap 42.3, Leap 15.0. From openSUSE Leap: Each major version at least 36 months lifetime, until the next major Leap version is available, with a six month window to upgrade to the latest minor release. Minor releases are expected to be roughly annually, thus giving approximately an 18 months total lifetime. Until openSUSE 13.2: 8 month release cycle, 18 months lifetime, see <https://en.opensuse.org/Lifetime>
 
 Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
