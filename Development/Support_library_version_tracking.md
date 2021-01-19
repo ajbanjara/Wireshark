@@ -68,10 +68,9 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | Version | Date     | Notes                                                                                                                     |
 |---------|----------|---------------------------------------------------------------------------------------------------------------------------|
 | 1.2.0   | Jan 2005 | Min. req. since at least Jun 2009 (old)                                                                                   |
-| 2.4.1   | Jun 2008 | SLES 11 Initial release to SP4                                                                                            |
-| 2.8.0   | May 2009 | Debian Squeeze has 2.8.6                                                                                                  |
+| 2.8.0   | May 2009 |                                                                                                                                |
 | 2.10.0  | Jun 2010 |                                                                                                                           |
-| 2.12.0  | Mar 2011 | Min. req. since Oct 2015 (v2.1.0rc0-244-gfe1ab42f). Last of the 2.x series. Debian Wheezy has 2.12.20. RHEL6 has 2.12.23. |
+| 2.12.0  | Mar 2011 | Min. req. since Oct 2015 (v2.1.0rc0-244-gfe1ab42f). Last of the 2.x series. |
 | 3.0.0   | Jul 2011 | License changed from LGPLv2.1+ to LGPLv3 (incompatible license)                                                           |
 | 2.12.18 | Mar 2012 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                                              |
 | 3.1.10  | Mar 2013 | License changed back to LGPLv2.1+ (development version)                                                                   |
@@ -102,11 +101,9 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 |---------|----------|--------------------------------------------------------------------------------------------------|
 | 1.1.92  | Feb 2004 | Min. req. since Jul 2008 (old)                                                                   |
 | 1.4.0   | Dec 2007 |                                                                                                  |
-| 1.4.1   | Apr 2008 | SLES 11 Initial release and SP1                                                                  |
 | 1.4.2   | Sep 2008 | Min. req. since Oct 2015 (v2.1.0rc0-189-g82ec0bb0)                                               |
-| 1.4.5   | Dec 2009 | Debian Squeeze, RHEL6                                                                            |
 | 1.4.6   | Jul 2010 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                     |
-| 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6) Debian Wheezy, SLES 11 SP2-SP3. Needed for simpler PKCS#1 padding handling in SSL                |
+| 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6). Needed for simpler PKCS#1 padding handling in SSL                |
 | 1.5.3   | Jul 2013 | RHEL7                                                                                            |
 | 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM) |
 | 1.6.1   | Jan 2014 | SLES 12, Ubuntu 14.04LTS                                                                         |
@@ -129,9 +126,7 @@ See also <https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Life-Cycle-
 | Version | Date     | Notes                                                                                                                                                                                 |
 |---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2.8.3   | Nov 2010 | Minimum required version for non-Windows (before Feb 2016) |
-| 2.8.7   | Dec 2011 | Ubuntu 12.04 Precise (EOL April 2017) |
 | 2.8.8   | Apr 2012 | Minimum required version for non-Windows (as of Feb 2016, v2.1.0rc0-2202-g6b54fbf3) |
-| 2.8.9   | Aug 2012 | Debian Wheezy (2.8.11.1 in wheezy-backports) |
 | 2.8.11  | May 2013 | Minimum required version for non-Windows (as of Oct 2017, v2.5.0rc0-1352-gf19a2c0b) |
 | 2.8.12  | Nov 2013 | Last 2.8 release (2.8.12.2 is used in Ubuntu 14.04, RHEL/CentOS 6/7 and SLES 12) |
 | 3.0.2   | Sep 2014 | Debian Jessie |
@@ -231,8 +226,6 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 
 | Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------|--------------|--------------|--------------|-------------|-------------|
-| Fedora 17    | 2.32         | 2.24         | 3.4.3        | 4.8.5       | 5.0.2       |
-| Fedora 18    | 2.34         | 2.24         | 3.6.2        | 4.8.5       | 5.2.0-rc1   |
 | Fedora 19    | 2.36         | 2.24.22      | 3.8.2        | 4.8.6       | 5.3.2       |
 | Fedora 20    | 2.38         | 2.24.27      | 3.10.9       | 4.8.6       | 5.4.1       |
 | Fedora 21    | 2.42         | 2.24.28      | 3.14.14      | 4.8.6       | 5.4.1       |
@@ -288,7 +281,6 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| wheezy             | 2.33.12      | 2.24.10      | 3.4.2        | 4.8.2       | (none)      |
 | jessie             | 2.42.1       | 2.24.25      | 3.14.5       | 4.8.6       | 5.3.2       |
 | stretch            | 2.50.3       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
 | buster             | 2.58.3       | x            | x            | x           | 5.11.3      |
@@ -302,7 +294,6 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| precise (12.04LTS) | 2.32.4       | 2.24.10      | 3.4.2        | 4.8.1       | (none)      |
 | trusty (14.04LTS)  | 2.40.2       | 2.24.23      | 3.10.8       | 4.8.5       | 5.2.1       |
 | utopic (14.10)     | 2.42.1       | 2.24.25      | 3.12.2       | 4.8.6       | 5.3.0       |
 | vivid (15.04)      | 2.44.1       | 2.24.27      | 3.14.13      | 4.8.6       | 5.4.1       |
