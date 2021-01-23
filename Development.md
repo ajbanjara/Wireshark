@@ -96,8 +96,6 @@ Now it's time to tweak the code:
 
   - [Security](/Development/Security): Efforts to make Wireshark more secure
 
-  - [ExpertInfo](/Development/ExpertInfo): a better "user display" of network misbehaviour
-
   - [Packet Input](/Development/PacketInput): how to get packet data into Wireshark in some "unusual" ways
 
   - [String handling in dissectors](/Development/String-handling-in-dissectors) How string handling should work in Wireshark (ie encoding support, how to deal with invalid strings, etc)
