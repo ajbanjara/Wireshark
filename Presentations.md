@@ -6,9 +6,9 @@ This page contains links to places where you can find some presentations (usuall
 
 Sharkfest is an annual gathering of Wireshark developers and users. Many of the presentations given at previous Sharkfests are available online for your viewing pleasure:
 
-  - [Sharkfest retrospectives](https://sharkfest.wireshark.org/retrospective.php)
+  - [Sharkfest retrospectives](https://sharkfest.wireshark.org/retrospective)
 
-  - [Sharkfest Europe retrospectives](https://sharkfesteurope.wireshark.org/retrospective.html)
+  - [Sharkfest Europe retrospectives](https://sharkfesteurope.wireshark.org/retrospective)
 
 ### Other presentations
 
