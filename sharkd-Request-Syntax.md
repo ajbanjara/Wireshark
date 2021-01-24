@@ -88,16 +88,16 @@ M/O: M = Mandatory, O = Optional
 
 | Name | Value | Type |
 |------|-------|------|
-| err | Error code | integer |
+| err | Error code - always 0 | integer |
 | field | Return message | string |
 | filter | Return message | string |
 
-Error Codes:
+Return Message:
 
-| Error Code | Description |
-|------|-------------------|
-| 0 | The operation was successful |
-| 2 | The file doesn't exist |
+| Return Message | Description |
+|----------------|-------------|
+| "ok" | The field or filter is valid |
+| Other values | As described in the return message  |
 
 ### Examples
 ```
