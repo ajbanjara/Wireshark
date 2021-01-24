@@ -109,7 +109,7 @@ sharkd always uses the preferences set in the Default profile.  There isn't a wa
 
 If you change any preference in the Default profile (by editing the preferences file or using Wireshark Edit -> Preferences) it will not take effect in any current sharkd sessions.  You will need to start a new session.
   
-Unfortunately, sharkd doesn't obey other aspects of the profile such as enabled_protos.  For example, TRANSUM isn't enabled by default and there isn't a way to enable it for use with sharkd.  There may be a problem with TRANSUM as it relies on two-pass analysis of the packets to generate the RTE data and there isn't a -2 switch for sharkd in the way there is with Tshark.
+Unfortunately, sharkd doesn't obey other aspects of the profile such as enabled_protos.  For example, TRANSUM isn't enabled by default and there isn't a way to enable it for use with sharkd.
 
 ## Bugs
 
@@ -122,6 +122,11 @@ The Windows file path backslash (\\) separator must be escaped, and if they are 
 ## Studying and Debugging sharkd
 
 Many will want to use Visual Studio to study the way sharkd works or for debugging.  Remember that when running in Daemon Mode, the JSON requests will be processed by a dedicated sharkd process, and not the one you start executing in Visual Studio.  The simplest way to avoid this situation is to study or debug when running in Console Mode.
+
+When a file is loaded into Wireshark, the protocol dissectors are called once for every packet in the PCAPNG file, and then called at least once more as the packets are displayed.  This is also true with sharkd:
+
+- The dissectors are called once for each frame when the _load_ request is executed
+- The dissectors are called again for an individual frame when a _frame_ request is executed
 
 ## Testing with Putty
 
