@@ -55,11 +55,11 @@ The commands **must be in lower case** as shows below.  Quotes around keys and v
 
 The commands are:
 
-- [analyse](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
+- [analyse](sharkd-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
   + e.g. `{"req":"analyse"}`
-- [bye](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#bye) - end a startd session
+- [bye](sharkd-Request-Syntax#bye) - end a startd session
   + e.g. `{"req":"bye"}`
-- check - used to check the validity of a field or filter
+- [check](sharkd-Request-Syntax#check) - used to check the validity of a field or filter
   + e.g. `{"req":"check", "field":"tcp.srcport"}`
   + e.g. `{"req":"check", "filter":"tcp.dstport==80"}`
 - complete - to be completed
@@ -82,7 +82,7 @@ The commands are:
   + e.g. `{"req":"intervals"}`
 - iograph - creates time sequenced list of values for graphing; default is second-by-second
   + e.g. `{"req":"iograph","graph0":"packets"}`
-- [load](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#load) - load a packet trace file for analysis
+- [load](sharkd-Request-Syntax#load) - load a packet trace file for analysis
   + e.g. `{"req":"load","file":"c:\\traces\\example.pcapng"}`
   + e.g. `{"req":"load","file":"c:/traces/example.pcapng"}`
 - setcomment - set the comment in a frame in the loaded trace - not saved to trace file
