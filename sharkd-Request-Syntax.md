@@ -1,7 +1,8 @@
-The available statd request types are:
+The available sharkd request types are:
 
 - [analyse](#analyse)
 - [bye](#bye)
+- [check](#check)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
