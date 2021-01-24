@@ -55,9 +55,9 @@ The commands must be in lower case as shows below.  Also note the use of the UK 
 
 The commands are:
 
-- analyse - lists the protocols found in a packet file and its start and end times
+- [analyse](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
   + e.g. `{"req":"analyse"}`
-- bye - end a startd session
+- [bye](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#bye) - end a startd session
   + e.g. `{"req":"bye"}`
 - check - used to confirm that sharkd is ready to accept requests
   + e.g. `{"req":"check"}`
@@ -81,7 +81,7 @@ The commands are:
   + e.g. `{"req":"intervals"}`
 - iograph - creates time sequenced list of values for graphing; default is second-by-second
   + e.g. `{"req":"iograph","graph0":"packets"}`
-- load - load a packet trace file for analysis
+- [load](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#load) - load a packet trace file for analysis
   + e.g. `{"req":"load","file":"c:\\traces\\example.pcapng"}`
   + e.g. `{"req":"load","file":"c:/traces/example.pcapng"}`
 - setcomment - set the comment in a frame in the loaded trace - not saved to trace file
