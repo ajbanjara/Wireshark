@@ -12,9 +12,11 @@ Lists the protocols found in a packet file and its start and end times.
 
 ### Request
 
-| Name | Value | Type |
-|------|-------|------|
-| req | "analyse" | string |
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "analyse" | string | M |
+
+M/O: M = Mandatory, O = Optional
 
 NB: The request values is _analyse_ spelt in the UK English way - _analyze_ will not work.
 
@@ -48,9 +50,11 @@ If the request is sent in a Console Mode session, the sharkd process exits.
 
 ### Request
 
-| Name | Value | Type |
-|------|-------|------|
-| req | "bye" | string |
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "bye" | string | M |
+
+M/O: M = Mandatory, O = Optional
 
 ### Response
 
@@ -72,11 +76,13 @@ Check the validity of a field name or filter expression.
 
 ### Request
 
-| Name | Value | Type |
-|------|-------|------|
-| req | "check" | string |
-| field | A fully qualified field reference | string |
-| filter | A display filter expression | string |
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "check" | string | M |
+| field | A fully qualified field reference | string | O |
+| filter | A display filter expression | string | O |
+
+M/O: M = Mandatory, O = Optional
 
 ### Response
 
@@ -124,10 +130,12 @@ Load a packet trace file for analysis.
 
 ### Request
 
-| Name | Value | Type |
-|------|-------|------|
-| req | "load" | string |
-| file | Path and name of the file to be loaded | string |
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "load" | string | M |
+| file | Path and name of the file to be loaded | string | M |
+
+M/O: M = Mandatory, O = Optional
 
 ### Response
 
