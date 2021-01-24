@@ -66,6 +66,58 @@ Press any key to close this window . . .
 ```
 ---
 
+# check
+
+Check the validity of a field name or filter expression.
+
+### Request
+
+| Name | Value | Type |
+|------|-------|------|
+| req | "check" | string |
+| field | A fully qualified field reference | string |
+| filter | A display filter expression | string |
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code | integer |
+| field | Return message | string |
+| filter | Return message | string |
+
+Error Codes:
+
+| Error Code | Description |
+|------|-------------------|
+| 0 | The operation was successful |
+| 2 | The file doesn't exist |
+
+### Examples
+```
+{"req":"check", "field":"tcp.srcport"}
+{"err":0,"field":"ok"}
+
+{"req":"check", "field":"transum.art"}
+{"err":0,"field":"notfound"}
+
+{"req":"check", "filter":"tcp.dstport==80"}
+{"err":0,"filter":"ok"}
+
+{"req":"check", "filter":"tcp.bad_field==80"}
+{"err":0,"filter":"Neither \"tcp.bad_field\" nor \"80\" are field or protocol names."}
+
+{"req":"check", "filter":"tcp.dstport==abc"}
+{"err":0,"filter":"\"abc\" is not a valid number."}
+
+{"req":"check", "filter":"tcp.dstport==80 &| tcp.srcport==45678"}
+{"err":0,"filter":"Syntax error near \"tcp.srcport\"."}
+
+{"req":"check", "filter":"tcp.dstport==80 && tcp.srcport==89000"}
+{"err":0,"filter":"\"89000\" too big for this field, maximum 65535."}
+```
+---
+
 # load
 
 Load a packet trace file for analysis.
