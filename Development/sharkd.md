@@ -51,7 +51,7 @@ The request processor uses a simple gets(...) function to read incoming requests
 - The entire requests must be on a single line
 - The request must end with a line feed
   
-The commands must be in lower case as shows below.  Also note the use of the UK English spelling of analyse; analyze won't work.
+The commands **must be in lower case** as shows below.  Quotes around keys and values **must be double quotes** - single quotes produce a JSON error.  Also note the use of the UK English spelling of analyse; analyze won't work.
 
 The commands are:
 
