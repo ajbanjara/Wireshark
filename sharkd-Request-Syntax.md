@@ -3,6 +3,7 @@ The available sharkd request types are:
 - [analyse](#analyse)
 - [bye](#bye)
 - [check](#check)
+- [complete](#complete)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
@@ -127,7 +128,7 @@ Return Message:
 
 # complete
 
-Fetches the properties of a field or preference.
+Fetches the properties of a field(s) or preference(s).
 
 ### Request
 
@@ -139,17 +140,21 @@ Fetches the properties of a field or preference.
 
 M/O: M = Mandatory, O = Optional
 
+The complete request assumes that the value specified for field or pref is the first part of its reference (i.e. prefix) and returns a list of every field that matches.  This is not a match based on the dotted hierarchy but a straightforward string match, e.g:
+
+"field":"http.request" will return details for http.request_number as well as http.request.line, http.request.method, etc.
+
 ### Response
 
 | Name | Value | Type |
 |------|-------|------|
 | err | Error code - always 0 | integer |
 | field | "f":"_field_reference_"<br/>"t":_field_type_<br>"n":"_field_name_" | array of objects |
-| pref| "f":"_field_reference_"<br/>"t":_field_type_<br>"n":"_field_name_" | array of objects |
+| pref| "f":"_preference_name_"<br/>"d":_preference_description_ | array of objects |
 
 The field_type is a numeric value determined by an enumerated list - see [ftypes.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/ftypes/ftypes.h) 
 
-If the input field or pref values are incorrect, an empty array is returned.
+If the input field or pref values is incorrect, an empty array is returned.
 
 ### Examples
 ```
@@ -161,6 +166,9 @@ If the input field or pref values are incorrect, an empty array is returned.
 
 {"req":"complete", "field":"http.bad_ref"}
 {"err":0,"field":[]}
+
+{"req":"complete", "pref":"tcp"}
+{"err":0,"pref":[{"f":"tcp","d":"TCP"},{"f":"tcpencap","d":"TCPENCAP"},{"f":"tcpros","d":"TCPROS"}]}
 ```
 ---
 
