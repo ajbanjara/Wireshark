@@ -109,7 +109,7 @@ sharkd always uses the preferences set in the Default profile.  There isn't a wa
 
 If you change any preference in the Default profile (by editing the preferences file or using Wireshark Edit -> Preferences) it will not take effect in any current sharkd sessions.  You will need to start a new session.
   
-Unfortunately, sharkd doesn't obey other aspects of the profile such as enabled_protos.  For example, TRANSUM isn't enabled by default and there isn't a way to enable it for use with sharkd.
+Unfortunately, sharkd doesn't obey other aspects of the profile such as enabled_protos.  For example, TRANSUM isn't enabled by default and there isn't a way to enable it for use with sharkd.  There may be a problem with TRANSUM as it relies on two-pass analysis of the packets to generate the RTE data and there isn't a -2 switch for sharkd in the way there is with Tshark.
 
 ## Bugs
 
