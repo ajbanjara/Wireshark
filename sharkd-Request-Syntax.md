@@ -125,6 +125,45 @@ Return Message:
 ```
 ---
 
+# complete
+
+Fetches the properties of a field or preference.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "complete" | string | M |
+| field | A fully qualified field reference | string | O |
+| pref | A fully qualified preference reference | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code - always 0 | integer |
+| field | "f":"_field_reference_"<br/>"t":_field_type_<br>"n":"_field_name_" | array of objects |
+| pref| "f":"_field_reference_"<br/>"t":_field_type_<br>"n":"_field_name_" | array of objects |
+
+The field_type is a numeric value determined by an enumerated list - see [ftypes.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/ftypes/ftypes.h) 
+
+If the input field or pref values are incorrect, an empty array is returned.
+
+### Examples
+```
+{"req":"complete", "field":"http.request.method"}
+{"err":0,"field":[{"f":"http.request.method","t":26,"n":"Request Method"}]}
+
+{"req":"complete", "field":"http.request"}
+{"err":0,"field":[{"f":"http.request","t":2,"n":"Request"},{"f":"http.request_number","t":7,"n":"Request number"},{"f":"http.request.line","t":26,"n":"Request line"},{"f":"http.request.method","t":26,"n":"Request Method"},{"f":"http.request.uri","t":26,"n":"Request URI"},{"f":"http.request.uri.path","t":26,"n":"Request URI Path"},{"f":"http.request.uri.query","t":26,"n":"Request URI Query"},{"f":"http.request.uri.query.parameter","t":26,"n":"Request URI Query Parameter"},{"f":"http.request.version","t":26,"n":"Request Version"},{"f":"http.request.full_uri","t":26,"n":"Full request URI"},{"f":"http.request_in","t":35,"n":"Request in frame"}]}
+
+{"req":"complete", "field":"http.bad_ref"}
+{"err":0,"field":[]}
+```
+---
+
 # load
 
 Load a packet trace file for analysis.
