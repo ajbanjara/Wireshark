@@ -62,7 +62,7 @@ The commands are:
 - [check](sharkd-Request-Syntax#check) - used to check the validity of a field or filter
   + e.g. `{"req":"check", "field":"tcp.srcport"}`
   + e.g. `{"req":"check", "filter":"tcp.dstport==80"}`
-- complete - to be completed
+- [complete](sharkd-Request-Syntax#complete) - returns the properties of a field(s) or preference(s) based on a partial or complete reference
 - download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
   + e.g. `{"req":"download","token":"eo:http_0"}`
   + See tshark --export-objects and the Export Objects function in Wireshark
