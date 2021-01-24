@@ -37,6 +37,8 @@ Multiple sessions can connect to JSON running in Daemon Mode.  A dedicated shark
 
 ## sharkd Requests
 
+### Request Syntax
+
 sharkd service requests have the general format:
 ```
   {"req":"command","_option_":"_value_","_option_":"_value_",...}
@@ -50,8 +52,18 @@ The request processor uses a simple gets(...) function to read incoming requests
   + e.g. response - `{"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}`
 - The entire requests must be on a single line
 - The request must end with a line feed
-  
+
 The commands **must be in lower case** as shows below.  Quotes around keys and values **must be double quotes** - single quotes produce a JSON error.  Also note the use of the UK English spelling of analyse; analyze won't work.
+
+If you send invalid JSON on the connection, sharkd writes the stdout message:
+
+```
+  invalid JSON -> closing
+```
+
+and sharkd session terminates.
+
+### Commands
 
 The commands are:
 
@@ -141,14 +153,6 @@ When you successfully connect, the daemon writes a stdout message:
 ``` 
   Hello in child.
 ```
-
-If you send invalid JSON on the connection, sharkd writes the stdout message:
-
-``` 
-  invalid JSON -> closing
-```
-
-and closes the putty session.
 
 ## Simple Python Code Example
 
