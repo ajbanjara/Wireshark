@@ -103,7 +103,14 @@ Entering JSON requests through the Console Interface sometimes generates additio
 load: filename=c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng
 {"err":0}
 ```
+## Profiles and Preferences
+
+sharkd always uses the preferences set in the Default profile.  There isn't a way to set the profile to anything other than Default.  We can explicitly set preferences for the duration of a session with setconf (i.e. these changes won't be persistent) and these will take effect immediately.
+
+If you change any preference in the Default profile (by editing the preferences file or using Wireshark Edit -> Preferences) it will not take effect in any current sharkd sessions.  You will need to start a new session.
   
+Unfortunately, sharkd doesn't obey other aspects of the profile such as enabled_protos.  For example, TRANSUM isn't enabled by default and there isn't a way to enable it for use with sharkd.
+
 ## Bugs
 
 During experimentation with sharkd, a few bugs were discovered that are noteworthy.
