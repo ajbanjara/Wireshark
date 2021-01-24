@@ -59,8 +59,9 @@ The commands are:
   + e.g. `{"req":"analyse"}`
 - [bye](https://gitlab.com/wireshark/wireshark/-/wikis/sharkd-Request-Syntax#bye) - end a startd session
   + e.g. `{"req":"bye"}`
-- check - used to confirm that sharkd is ready to accept requests
-  + e.g. `{"req":"check"}`
+- check - used to check the validity of a field or filter
+  + e.g. `{"req":"check", "field":"tcp.srcport"}`
+  + e.g. `{"req":"check", "filter":"tcp.dstport==80"}`
 - complete - to be completed
 - download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
   + e.g. `{"req":"download","token":"eo:http_0"}`
