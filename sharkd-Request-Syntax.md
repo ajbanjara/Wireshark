@@ -4,6 +4,7 @@ The available sharkd request types are:
 - [bye](#bye)
 - [check](#check)
 - [complete](#complete)
+- [dumpconf](#dumpconf)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
@@ -169,6 +170,33 @@ If the input field or pref values is incorrect, an empty array is returned.
 
 {"req":"complete", "pref":"tcp"}
 {"err":0,"pref":[{"f":"tcp","d":"TCP"},{"f":"tcpencap","d":"TCPENCAP"},{"f":"tcpros","d":"TCPROS"}]}
+```
+---
+
+# dumpconf
+
+Lists one or all configuration parameters.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "dumpconf" | string | M |
+| pref | A fully qualified preference reference | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+If the pref value is not specified, all preferences are listed.
+
+### Response
+
+TBC
+
+### Examples
+```
+{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
+
+{"req":"dumpconf"}
 ```
 ---
 
