@@ -63,9 +63,9 @@ If you send invalid JSON on the connection, sharkd writes the stdout message:
 
 and sharkd session terminates.
 
-### Commands
+### Request Types
 
-The commands are:
+The request types are:
 
 - [analyse](sharkd-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
   + e.g. `{"req":"analyse"}`
@@ -121,15 +121,23 @@ sharkd always uses the preferences set in the Default profile.  There isn't a wa
 
 If you change any preference in the Default profile (by editing the preferences file or using Wireshark Edit -> Preferences) it will not take effect in any current sharkd sessions.  You will need to start a new session.
   
-Unfortunately, sharkd doesn't obey other aspects of the profile such as enabled_protos.  For example, TRANSUM isn't enabled by default and there isn't a way to enable it for use with sharkd.
+sharkd obeys other aspects of the Default profile such as disabled_protos, enabled_protos, etc.
 
 ## Bugs
 
 During experimentation with sharkd, a few bugs were discovered that are noteworthy.
 
+### Exception if File Not Loaded
+
 Issuing commands to interrogate or modify a packet file before loading any file often results in a program exception.
 
+### Exception if Backslash is Not Escaped
+
 The Windows file path backslash (\\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
+
+### TRANSUM Data Not in Tree
+
+With the TRANSUM protocol enabled in the Default profile, the protocol is enabled correctly and the dissect_transum function is called but the RTE data doesn't appear in the protocol tree returned by the _frame_ request, and the protocol is not listed by the _analyse_ request.
 
 ## Studying and Debugging sharkd
 
