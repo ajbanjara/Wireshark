@@ -135,10 +135,6 @@ Issuing commands to interrogate or modify a packet file before loading any file 
 
 The Windows file path backslash (\\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
 
-### TRANSUM Data Not in Tree
-
-With the TRANSUM protocol enabled in the Default profile, the protocol is enabled correctly and the dissect_transum function is called but the RTE data doesn't appear in the protocol tree returned by the _frame_ request, and the protocol is not listed by the _analyse_ request.
-
 ## Studying and Debugging sharkd
 
 Many will want to use Visual Studio to study the way sharkd works or for debugging.  Remember that when running in Daemon Mode, the JSON requests will be processed by a dedicated sharkd process, and not the one you start executing in Visual Studio.  The simplest way to avoid this situation is to study or debug when running in Console Mode.
