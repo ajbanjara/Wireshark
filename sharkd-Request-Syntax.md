@@ -195,8 +195,10 @@ TBC
 ### Examples
 ```
 {"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
+{"prefs":{"tcp.desegment_tcp_streams":{"b":1}}}
 
 {"req":"dumpconf"}
+{"prefs":{"2dparityfec.enable":{"b":0},"6lowpan.rfc4944_short_address_format":{"b":0},"6lowpan.iid_has_universal_local_bit":{"b":0},"6lowpan.summary_in_tree":{"b":1},"6lowpan.context0":{"s":""},"6lowpan.context1":{"s":""},"6lowpan.context2":{"s":""},"6lowpan.context3":{"s":""},"6lowpan.context4":{"s":""},"6lowpan.context5":{"s":""},"6lowpan.context6":{"s":""},"6lowpan.context7":{"s":""},"6lowpan.context8":{"s":""},"6lowpan.context9":{"s":""},"6lowpan.context10":{"s":""},"6lowpan.context11":{"s":""},"6lowpan.context12":{"s":""},"6lowpan.context13":{"s":""},"6lowpan.context14":{"s":""},"6lowpan.context15":{"s":""},"9p.tcp.port":{"u":564},"_ws.expert.expert_severity_levels":{"t":[]},"a11.udp.port":{"u":699} ...
 ```
 ---
 
