@@ -5,6 +5,7 @@ The available sharkd request types are:
 - [check](#check)
 - [complete](#complete)
 - [dumpconf](#dumpconf)
+- [follow](#follow)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
