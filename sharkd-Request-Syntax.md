@@ -28,7 +28,7 @@ NB: The request values is _analyse_ spelt in the UK English way - _analyze_ will
 | Name | Value | Type |
 |------|-------|------|
 | frames | Number of frames in the loaded file | integer |
-| protocols | List of the protocol found in the loaded file | list of strings |
+| protocols | List of the protocol found in the loaded file | array of strings |
 | first | Time of first entry in the capture | float representing epoch time and fractions of seconds |
 | last | Time of last entry in the capture | float representing epoch time and fractions of seconds |
 
@@ -190,8 +190,6 @@ If the pref value is not specified, all preferences are listed.
 
 ### Response
 
-
-
 | Name | Objects in the Array | Type |
 |------|-------|------|
 | prefs |                      | array of objects |
@@ -216,6 +214,50 @@ If the pref value is not specified, all preferences are listed.
 "bjnp.udp.port":{"r": "8611-8614"}, ...
 "couchbase.tls.port":{"u": 11207}, ...
 "couchbase.tcp.port":{"r": "11210"}, ...
+```
+---
+
+# follow
+
+Get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified.  The protocol payload is JSON-Base64 encoded to accommodate binary content.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "follow" | string | M |
+| follow | Protocol payload to output | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name  | Value      | Type |
+|-------|------------|------|
+| err   | Error code | integer |
+| shost | Service IP address | string (dotted IP address) |
+| sport | Service port number | string |
+| sbytes | Total number of bytes from service to client | integer |
+| chost | Client IP address | string (dotted IP address) |
+| cport | Client port number | string |
+| cbytes | Total number of bytes from client to service | integer |
+| payloads | The payload carried by the protocol<br/>specified in the packets in the stream | array of objects | 
+| - "n": | Number of bytes in the payload | integer |
+| - "d": | Protocol payload | bytes encoded as JSON-Base64 |
+| - "s": | Direction of the flow<br/>missing - client to service<br/>1 - service to client | integer |
+
+Bear in mind that this request will deliver all the data in a stream and so the response may be very large.
+
+### Examples
+```
+{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}
+{"err":0,"shost":"192.168.3.78","sport":"80","sbytes":110,"chost":"192.168.3.85","cport":"46815","cbytes":5339,"payloads":[{"n":4,"d":"R0VUIC9NeUFwcC9Ib21lL0Fib3V ... 5NQ0KDQo=","s":1},{"n":9,"d":"PCFET0 ... KPC9odG1sPg0K","s":1}]}
+
+{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}
+{"err":0,"shost":"192.168.3.79","sport":"1433","sbytes":163222,"chost":"192.168.3.78","cport":"50442","cbytes":66745,"payloads":[{"n":5,"d":"AQkBBAAAA ... hAHQAZQA="},{"n":6,"d":"BAEBCQBH ... AYAAAA=","s":1},{"n":22741,"d":"BgAAABoAQwByAGUAYQB0AGkAdgBlACAAQQByAHQAcwAAAAAAALb7XKyOAAAAAAAABAIAAAAIAAAAAAAAAA+q/xEAwQAKAAAAAAAAAHkAAAAA/gAA4AAAAAAAAAAAAA==","s":1}]}
+
+{"req":"follow","follow":"TCP","filter":"tcp.stream==10000"}
+{"err":0,"shost":"NONE","sport":"0","sbytes":0,"chost":"NONE","cport":"0","cbytes":0}
 ```
 ---
 
