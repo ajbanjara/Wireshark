@@ -82,7 +82,7 @@ The request types are:
   + See tshark --export-objects and the Export Objects function in Wireshark
 - dumpconf - list one, some or all configuration parameters
   + e.g. `{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}`
-- follow - get client and server information for a particular protocol or stream plus the data payload being carried by the protocol specified (protocol payload is UTF-8 (ASCII) obfuscated with base64 encoding)
+- follow - get client and server information for a particular protocol or stream plus the data payload which is JSON-Base64 encoded to accommodate binary content.
   + e.g. `{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}`
   + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
 - frame - get full information about a frame including the protocol tree
