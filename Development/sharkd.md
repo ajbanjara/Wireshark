@@ -80,12 +80,12 @@ The request types are:
 - download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
   + e.g. `{"req":"download","token":"eo:http_0"}`
   + See tshark --export-objects and the Export Objects function in Wireshark
-- dumpconf - list one, some or all configuration parameters
+- [dumpconf](sharkd-Request-Syntax#dumpconf) - list one, some or all configuration parameters
   + e.g. `{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}`
-- follow - get client and server information for a particular protocol or stream plus the data payload which is JSON-Base64 encoded to accommodate binary content.
+- [follow](sharkd-Request-Syntax#follow) - get client and server information for a particular protocol or stream plus the data payload which is JSON-Base64 encoded to accommodate binary content.
   + e.g. `{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}`
   + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
-- frame - get full information about a frame including the protocol tree
+- [frame](sharkd-Request-Syntax#frame) - get full information about a frame including the protocol tree
   + e.g. `{"req":"frame", "frame":4, "proto":"true"}`
 - frames - get Packet List information for a range of packets
   + e.g. `{"req":"frames","filter":"frame.number<=20"}`
