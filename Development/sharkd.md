@@ -135,6 +135,17 @@ Issuing commands to interrogate or modify a packet file before loading any file 
 
 The Windows file path backslash (\\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
 
+## Annoying Features
+
+sharkd has some very annoying "features":
+
+- If you enter a blank line the session immediately terminates
+- If you enter invalid JSON, you may get a raw text message but you won't get a JSON response
+- Some requests give no response if you specify incorrect values
+- The options for the frame request are not true boolean, e.g. ```"bytes":false``` and ```"bytes":true``` produce the same result
+- Some request types don't return an error code ("err":)
+- The error code is nearly always 0 (zero) even when the request fails or is incorrectly formed
+
 ## Studying and Debugging sharkd
 
 Many will want to use Visual Studio to study the way sharkd works or for debugging.  Remember that when running in Daemon Mode, the JSON requests will be processed by a dedicated sharkd process, and not the one you start executing in Visual Studio.  The simplest way to avoid this situation is to study or debug when running in Console Mode.
