@@ -273,9 +273,15 @@ Get full information about a frame including the protocol tree.
 |------|-------|------|-----|
 | req | "frame" | string | M |
 | frame | Frame number | integer | M |
-| proto | Get the protocol tree - "true" or "false" | string | O |
+| proto | If present, output the protocol tree | Any valid JSON value | O |
+| ref_frame | If present, output the time reference frame number<br/>This doesn't seem to work | Any valid JSON value | O |
+| prev_frame | If present, output the previously displayed frame number<br/>This doesn't seem to work | Any valid JSON value | O |
+| columns | If present, output frame columns | Any valid JSON value | O |
+| color | If present, output color-filter bg/fg | Any valid JSON value | O |
+| bytes | If present, output frame bytes | Any valid JSON value | O |
+| hidden | If present, output hidden tree fields | Any valid JSON value | O |
 
-To be completed
+NB: A value of _true_ is acceptable for any field that has a type of _Any valid JSON value_.  However, a value of false is also treated as true i.e. ```{"req":"frame", "frame":4, "bytes":false}``` will output the frame bytes.
 
 M/O: M = Mandatory, O = Optional
 
@@ -320,7 +326,14 @@ M/O: M = Mandatory, O = Optional
 {"req":"frame", "frame":4}
 {"err":0,"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
 
-To be completed
+{"req":"frame", "frame":4, "columns":true}
+{"err":0,"col":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+
+{"req":"frame", "frame":4, "color":true}
+{"err":0,"bg":"e4ffc7","fg":"12272e","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+
+{"req":"frame", "frame":4, "bytes":"true"}
+{"err":0,"bytes":"AAwp+/kTAAwp2dO1CABFAACimmFAAEAGGAHAqANVwKgDTrbfAFAefnCL/KwyboAYAOU0GwAAAQEICgSv6tUOKKxsR0VUIC9NeUFwcC9Ib21lL0Fib3V0IEhUVFAvMS4xDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXNlci1BZ2VudDogSmFrYXJ0YSBDb21tb25zLUh0dHBDbGllbnQvMy4xDQpIb3N0OiB3ZWIwMQ0KDQo=","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
 ```
 ---
 
