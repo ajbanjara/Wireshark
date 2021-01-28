@@ -7,6 +7,7 @@ The available sharkd request types are:
 - [dumpconf](#dumpconf)
 - [follow](#follow)
 - [frame](#frame)
+- [frames](#frames)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
@@ -334,6 +335,43 @@ M/O: M = Mandatory, O = Optional
 
 {"req":"frame", "frame":4, "bytes":"true"}
 {"err":0,"bytes":"AAwp+/kTAAwp2dO1CABFAACimmFAAEAGGAHAqANVwKgDTrbfAFAefnCL/KwyboAYAOU0GwAAAQEICgSv6tUOKKxsR0VUIC9NeUFwcC9Ib21lL0Fib3V0IEhUVFAvMS4xDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXNlci1BZ2VudDogSmFrYXJ0YSBDb21tb25zLUh0dHBDbGllbnQvMy4xDQpIb3N0OiB3ZWIwMQ0KDQo=","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+```
+---
+
+# frames
+
+Get Packet List information for a range of packets.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "frames" | string | M |
+| column0...columnXX | Requested columns either number in range [0..NUM_COL_FMTS], or custom (syntax \<dfilter\>:\<occurence\>).<br/><br/>If column0 is not specified default column set will be used. | array of objects | O |
+| filter | Output those frames that pass this filter expression | string | O |
+| skip | Skip N frames | integer | O |
+| limit | Limit the output to N frames | integer | O |
+| refs | Output based on this list (comma separated) of sorted time reference frame numbers. | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name  | Value      | Type |
+|-------|------------|------|
+| err   | Error code | integer |
+| c     | Output of columns as strings | array of strings |
+
+### Examples
+```
+{"req":"frames","filter":"frame.number<=2"}
+[{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]
+
+{"req":"frames","skip":2,"limit":2}
+[{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]
+
+{"req":"frames","limit":2}
+[{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]
 ```
 ---
 
