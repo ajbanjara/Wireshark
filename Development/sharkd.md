@@ -87,7 +87,7 @@ The request types are:
   + e.g. `{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}`
 - [frame](sharkd-Request-Syntax#frame) - get full information about a frame including the protocol tree
   + e.g. `{"req":"frame", "frame":4, "proto":"true"}`
-- frames - get Packet List information for a range of packets
+- [frames](sharkd-Request-Syntax#frames) - get Packet List information for a range of packets
   + e.g. `{"req":"frames","filter":"frame.number<=20"}`
 - info - get a list of format and statistics information types available to sharkd clients
   + e.g. `{"req":"info"}`
