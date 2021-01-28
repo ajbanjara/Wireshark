@@ -357,21 +357,25 @@ M/O: M = Mandatory, O = Optional
 
 ### Response
 
+The response is an array of objects.  The elements of the object are as follows:
+
 | Name  | Value      | Type |
 |-------|------------|------|
-| err   | Error code | integer |
 | c     | Output of columns as strings | array of strings |
+| num   | Frame number | integer |
+| bg    | Color filter - background color in hex | string |
+| fg    | Color filter - foreground color in hex | string |
 
 ### Examples
 ```
 {"req":"frames","filter":"frame.number<=2"}
 [{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]
 
-{"req":"frames","skip":2,"limit":2}
-[{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]
-
 {"req":"frames","limit":2}
 [{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]
+
+{"req":"frames","skip":2,"limit":2}
+[{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]
 ```
 ---
 
