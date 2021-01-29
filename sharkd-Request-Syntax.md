@@ -10,6 +10,7 @@ The available sharkd request types are:
 - [frames](#frames)
 - [info](#info)
 - [intervals](#intervals)
+- [iograph](#iograph)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
@@ -329,6 +330,9 @@ M/O: M = Mandatory, O = Optional
 {"req":"frame", "frame":4}
 {"err":0,"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
 
+{"req":"frame", "frame":4, "proto":true}
+{"err":0,"tree":[{"l":"Frame 4: 176 bytes on wire (1408 bits), 176 bytes captured (1408 bits) on interface \\Device\\NPF_{304D305E-652F-47CD-B730-94986169FE76}, id 0","h":[0,176],"t":"proto","f":"frame","e":10538,"n":[{"l":"Interface id: 0 (\\Device\\NPF_{304D305E-652F-47CD-B730-94986169FE76})","f":"frame.inter ... rue},{"l":"Req Spread: 0.000000000 seconds","f":"transum.reqspread == 0.000000000","g":true},{"l":"Rsp Spread: 0.000164000 seconds","f":"transum.rspspread == 0.000164000","g":true},{"l":"Trace clip filter: tcp.stream==0 && frame.number>=4 && frame.number<=9 && tcp.len>0","f":"transum.clip_filter == \"tcp.stream==0 && frame.number>=4 && frame.number<=9 && tcp.len>0\"","g":true},{"l":"Calculation: Generic TCP","f":"transum.calculation == \"Generic TCP\"","g":true}]}],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+
 {"req":"frame", "frame":4, "columns":true}
 {"err":0,"col":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
 
@@ -401,7 +405,7 @@ M/O: M = Mandatory, O = Optional
 |------|-------|------|
 | intervals | Data array of arrays of integer values in the format [x,y,z] where:<br/>x - interval number<br/>y - number of frames in this interval<br/>z - number of bytes in this interval | an array of arrays of comma separated integers |
 | last | The last interval number in the sample | integer |
-| fames | The total number of frames in the sample | integer |
+| frames | The total number of frames in the sample | integer |
 | bytes | The total number of bytes in the sample | integer |
 
 NB: If there are no packets within an interval, no values are generated for that interval
@@ -415,6 +419,65 @@ NB: If there are no packets within an interval, no values are generated for that
 {"intervals":[[0,12,6758],[1,1,54],[10,15,14783],[12,23,16676],[20,9,3775]],"last":20,"frames":60,"bytes":42046}
 ```
 The output in the final example has intervals missing because there were no packets within these intervals.
+
+---
+
+# iograph
+
+Creates time sequenced list of values for graphing; default is second-by-second.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "iographs" | string | M |
+| interval | Interval time in milliseconds | integer | O |
+| filter | Display filter term applied prior to producing the sample set | string | O |
+| graph0 | First graph request - see below for details | string | M |
+| graph1...graph9 | Other graph requests - see below for details | string | O |
+| filter0 | First graph filter | string | O |
+| filter1...filter9 | Other graph filters | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+Graph requests:
+
+| Name | Value | Type |
+|------|-------|------|
+| graph0...graph9 | "packets" | string |
+| graph0...graph9 | "bytes" | string |
+| graph0...graph9 | "bits" | string |
+| graph0...graph9 | "sum:<field>" | string |
+| graph0...graph9 | "frames:<field>" | string |
+| graph0...graph9 | "max:<field>" | string |
+| graph0...graph9 | "min:<field>" | string |
+| graph0...graph9 | "avg:<field>" | string |
+| graph0...graph9 | "load:<field>" | string |
+
+**NB:** Whichever field we want to graph must appear in the corresponding filter expression.  If it doesn't, no values are generated.
+
+An attempt to graph a field that is not a numeric produces an empty output array.
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| iograph | The top level array of output objects, one for each graph | an array of objects |
+| items | An array of values for one of the graphs specified | integer |
+
+NB: If there are no packets within an interval, no values are generated for that interval
+
+### Examples
+```
+{"req":"iograph","graph0":"packets","filter0":"frame.number<=100"}
+{"iograph":[{"items":[13.000000,38.000000,23.000000,25.000000,1.000000]}]}
+
+{"req":"iograph","graph0":"sum:tcp.len","filter0":"http && frame.number<=100 && tcp.len"}
+{"iograph":[{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}
+
+{"req":"iograph","graph0":"http.request","filter0":"http && frame.number<=100 && http.request"}
+{"iograph":[]}
+```
 
 ---
 
