@@ -94,7 +94,7 @@ The request types are:
   + Equivalent to the tshark -G option
 - [intervals](sharkd-Request-Syntax#intervals) - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
   + e.g. `{"req":"intervals"}`
-- iograph - creates time sequenced list of values for graphing; default is second-by-second
+- [iograph](sharkd-Request-Syntax#iograph) - creates time sequenced list of values for graphing; default is second-by-second
   + e.g. `{"req":"iograph","graph0":"packets"}`
 - [load](sharkd-Request-Syntax#load) - load a packet trace file for analysis
   + e.g. `{"req":"load","file":"c:\\traces\\example.pcapng"}`
