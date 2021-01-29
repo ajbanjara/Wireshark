@@ -14,6 +14,7 @@ The available sharkd request types are:
 - [load](#load)
 - [setcomment](#setcomment)
 - [setconf](#setconf)
+- [status](#status)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
 
@@ -596,5 +597,33 @@ Error Codes:
 
 {"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
 {"prefs":{"tcp.desegment_tcp_streams":{"b":1}}}
+```
+---
+
+# status
+
+Get basic information about the loaded file (name, size, number of frames, etc.).
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "status" | string | M |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| frames | Count of currently loaded frames | integer |
+| duration | Time difference between time of first frame, and last loaded frame | number |
+| filename | Capture file name - only present if file is loaded | string |
+| filesize | Capture file size  - only present if file is loaded | integer |
+
+### Examples
+```
+{"req":"status"}
+{"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
 ```
 ---
