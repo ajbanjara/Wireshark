@@ -381,42 +381,6 @@ The response is an array of objects.  The elements of the object are as follows:
 ```
 ---
 
-# load
-
-Load a packet trace file for analysis.
-
-### Request
-
-| Name | Value | Type | M/O |
-|------|-------|------|-----|
-| req | "load" | string | M |
-| file | Path and name of the file to be loaded | string | M |
-
-M/O: M = Mandatory, O = Optional
-
-### Response
-
-| Name | Value | Type |
-|------|-------|------|
-| err | Error code | integer |
-
-Error Codes:
-
-| Error Code | Description |
-|------|-------------------|
-| 0 | The operation was successful |
-| 2 | The file doesn't exist |
-
-### Examples
-```
-{"req":"load","file":"c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng"}
-{"err":0}
-
-{"req":"load","file":"c:/traces/Contoso_01/web01/wrong_name.pcapng"}
-{"err":2}
-```
----
-
 # intervals
 
 This request considers aggregates the packet data to produce a count of the number of frames and a sum of the number of bytes in each interval.  The aggregation is performed on fixed time intervals (default is one second).
@@ -452,5 +416,41 @@ NB: If there are no packets within an interval, no values are generated for that
 ```
 The output in the final example has intervals missing because there were no packets within these intervals.
 
+---
+
+# load
+
+Load a packet trace file for analysis.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "load" | string | M |
+| file | Path and name of the file to be loaded | string | M |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code | integer |
+
+Error Codes:
+
+| Error Code | Description |
+|------|-------------------|
+| 0 | The operation was successful |
+| 2 | The file doesn't exist |
+
+### Examples
+```
+{"req":"load","file":"c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng"}
+{"err":0}
+
+{"req":"load","file":"c:/traces/Contoso_01/web01/wrong_name.pcapng"}
+{"err":2}
+```
 ---
 
