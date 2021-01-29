@@ -89,10 +89,10 @@ The request types are:
   + e.g. `{"req":"frame", "frame":4, "proto":"true"}`
 - [frames](sharkd-Request-Syntax#frames) - get Packet List information for a range of packets
   + e.g. `{"req":"frames","filter":"frame.number<=20"}`
-- info - get a list of format and statistics information types available to sharkd clients
+- [info](sharkd-Request-Syntax#info) - get a list of format and statistics information types available to sharkd clients
   + e.g. `{"req":"info"}`
   + Equivalent to the tshark -G option
-- intervals - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
+- [intervals](sharkd-Request-Syntax#intervals) - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
   + e.g. `{"req":"intervals"}`
 - iograph - creates time sequenced list of values for graphing; default is second-by-second
   + e.g. `{"req":"iograph","graph0":"packets"}`
