@@ -15,6 +15,7 @@ The available sharkd request types are:
 - [setcomment](#setcomment)
 - [setconf](#setconf)
 - [status](#status)
+- [tap](#tap)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
 
@@ -625,5 +626,62 @@ M/O: M = Mandatory, O = Optional
 ```
 {"req":"status"}
 {"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
+```
+---
+
+# tap
+
+Set up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "tap" | string | M |
+| tap0 | First tap type request | string | M | 
+| tap1 ... tap15 | Other tap type request | string | O | 
+
+M/O: M = Mandatory, O = Optional
+
+Tap Types are:
+
+| Type | Output |
+|------|--------|
+| stats | |
+| nstat | |
+| conv | |
+| host | |
+| rtp-streams | |
+| rtp-analyse | |
+| eo | Export objects |
+| expert | |
+| rtd | |
+| srt | |
+| flow | |
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code | integer |
+| taps | One array for each tap specified | array of objects |
+| - tap | Tap type - see above | string |
+| - type | Tap type - see above | string |
+| - details | A array of objects, one for each packet | array of objects |
+
+Details fields are:
+
+| Name | Value | Type |
+|------|-------|------|
+| f | | |
+| s | | |
+
+To be completed.
+
+NB: Many of these taps produce a lot of data.
+
+### Examples
+```
+{"taps":[{"tap":"expert","type":"expert","details":[{"f":2,"s":"Chat","g":"Sequence","m":"Connection establish acknowledge (SYN+ACK): server port 80","p":"TCP"},{"f":1,"s":"Chat","g":"Sequence","m":"Connection establish request (SYN): server port 80","p":"TCP"}]}],"err":0}
 ```
 ---
