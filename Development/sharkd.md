@@ -101,7 +101,7 @@ The request types are:
   + e.g. `{"req":"load","file":"c:/traces/example.pcapng"}`
 - [setcomment](sharkd-Request-Syntax#setcomment) - set the comment in a frame in the loaded trace - not saved to trace file
   + e.g. `{"req":"setcomment","frame":1,"comment":"Hello world"}`
-- setconf - set a configuration parameter
+- [setconf](sharkd-Request-Syntax#setconf) - set a configuration parameter
   + e.g. `{"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}`
 - status - get basic information about the loaded file (name, size, number of frames, etc.)
   + e.g. `{"req":"status"}`
