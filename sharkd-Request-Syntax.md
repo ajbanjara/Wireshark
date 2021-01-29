@@ -447,12 +447,12 @@ Graph requests:
 | graph0...graph9 | "packets" | string |
 | graph0...graph9 | "bytes" | string |
 | graph0...graph9 | "bits" | string |
-| graph0...graph9 | "sum:<field>" | string |
-| graph0...graph9 | "frames:<field>" | string |
-| graph0...graph9 | "max:<field>" | string |
-| graph0...graph9 | "min:<field>" | string |
-| graph0...graph9 | "avg:<field>" | string |
-| graph0...graph9 | "load:<field>" | string |
+| graph0...graph9 | "sum:\<field\>" | string |
+| graph0...graph9 | "frames:\<field\>" | string |
+| graph0...graph9 | "max:\<field\>" | string |
+| graph0...graph9 | "min:\<field\>" | string |
+| graph0...graph9 | "avg:\<field\>" | string |
+| graph0...graph9 | "load:\<field\>" | string |
 
 **NB:** Whichever field we want to graph must appear in the corresponding filter expression.  If it doesn't, no values are generated.
 
