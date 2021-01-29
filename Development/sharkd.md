@@ -103,9 +103,9 @@ The request types are:
   + e.g. `{"req":"setcomment","frame":1,"comment":"Hello world"}`
 - [setconf](sharkd-Request-Syntax#setconf) - set a configuration parameter
   + e.g. `{"req":"setconf","name":"tcp.desegment_tcp_streams","value":"TRUE"}`
-- status - get basic information about the loaded file (name, size, number of frames, etc.)
+- [status](sharkd-Request-Syntax#status) - get basic information about the loaded file (name, size, number of frames, etc.)
   + e.g. `{"req":"status"}`
-- tap - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
+- [tap](sharkd-Request-Syntax#tap) - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
   + e.g. `{"req":"tap","tap0":"expert"}`
   + e.g. `{"req":"tap","tap0":"eo:http"}`
 
