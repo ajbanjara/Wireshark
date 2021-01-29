@@ -335,7 +335,7 @@ Note that some adapters might be supported using the [NdisWrapper](http://ndiswr
 
 ### macOS ([Mac] OS X)
 
-Using Apple's own AirPort Extreme 802.11 wireless cards:
+Using Apple's own 802.11 adapters:
 
 In Mac OS X releases prior to 10.4.0 (Panther and earlier), neither monitor mode, nor seeing 802.11 headers when capturing data, nor capturing non-data frames are supported - although promiscuous mode is supported.
 
@@ -345,7 +345,9 @@ In Mac OS X 10.5.x (Leopard), monitor mode is supported; 802.11 headers are prov
 
 In Mac OS X 10.6.x (Snow Leopard) and later versions, monitor mode is supported; 802.11 headers are provided, and non-data frames are captured, only in monitor mode. With Wireshark 1.4 or later, to capture in monitor mode on an AirPort Extreme device, check the "Monitor mode" checkbox in the "Capture Options" dialog (in Wirehark before 1.8) or in the "Edit Interface Settings" dialog for the interface in Wireshark 1.8 and later. With versions earlier than 1.4, see the description of how to enable monitor mode on 10.5.x.
 
-It's possible to capture in monitor mode on an AirPort Extreme while it's associated, but this necessarily limits the captures to the channel in use. You can use the undocumented "airport" command to disassociate from a network, if necessary, and set the channel. As the command is not in the standard path, you might find it convenient to set up a link, as shown in <http://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/>:
+It's possible to capture in monitor mode on the adapters in older machines while the adapter associated, but this necessarily limits the captures to the channel in use.  The adapters in newer machines do not support capturing in monitor mode while associated; the capture will start, but it will not capture any packets.
+
+You can use the undocumented "airport" command to disassociate from a network, if necessary, and set the channel. As the command is not in the standard path, you might find it convenient to set up a link, as shown in <http://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/>:
 
     sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
 
