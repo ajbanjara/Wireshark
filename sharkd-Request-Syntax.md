@@ -8,6 +8,8 @@ The available sharkd request types are:
 - [follow](#follow)
 - [frame](#frame)
 - [frames](#frames)
+- [info](#info)
+- [intervals](#intervals)
 - [load](#load)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
@@ -413,5 +415,42 @@ Error Codes:
 {"req":"load","file":"c:/traces/Contoso_01/web01/wrong_name.pcapng"}
 {"err":2}
 ```
+---
+
+# intervals
+
+This request considers aggregates the packet data to produce a count of the number of frames and a sum of the number of bytes in each interval.  The aggregation is performed on fixed time intervals (default is one second).
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "intervals" | string | M |
+| interval | Interval time in milliseconds | integer | O |
+| filter | Display filter term applied prior to producing the sample set | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| intervals | Data array of arrays of integer values in the format [x,y,z] where:<br/>x - interval number<br/>y - number of frames in this interval<br/>z - number of bytes in this interval | an array of arrays of comma separated integers |
+| last | The last interval number in the sample | integer |
+| fames | The total number of frames in the sample | integer |
+| bytes | The total number of bytes in the sample | integer |
+
+NB: If there are no packets within an interval, no values are generated for that interval
+
+### Examples
+```
+{"req":"intervals","filter":"frame.number<=60"}
+{"intervals":[[0,13,6812],[1,38,31459],[2,9,3775]],"last":2,"frames":60,"bytes":42046}
+
+{"req":"intervals","interval":100,"filter":"frame.number<=60"}
+{"intervals":[[0,12,6758],[1,1,54],[10,15,14783],[12,23,16676],[20,9,3775]],"last":20,"frames":60,"bytes":42046}
+```
+The output in the final example has intervals missing because there were no packets within these intervals.
+
 ---
 
