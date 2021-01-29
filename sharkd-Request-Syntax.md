@@ -475,6 +475,9 @@ NB: If there are no packets within an interval, no values are generated for that
 {"req":"iograph","graph0":"sum:tcp.len","filter0":"http && frame.number<=100 && tcp.len"}
 {"iograph":[{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}
 
+{"req":"iograph","graph0":"sum:frame.len","filter0":"http && frame.number<=100 && frame.len","graph1":"sum:tcp.len","filter1":"http && frame.number<=100 && tcp.len"}
+{"iograph":[{"items":[2685.000000,4904.000000,1153.000000,5614.000000]},{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}
+
 {"req":"iograph","graph0":"http.request","filter0":"http && frame.number<=100 && http.request"}
 {"iograph":[]}
 ```
