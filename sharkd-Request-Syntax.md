@@ -13,6 +13,7 @@ The available sharkd request types are:
 - [iograph](#iograph)
 - [load](#load)
 - [setcomment](#setcomment)
+- [setconf](#setconf)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
 
@@ -557,3 +558,43 @@ Error Codes:
 ```
 ---
 
+# setconf
+
+Set a preference for the duration of a sharkd session i.e. the preference file is not modified and so the setting is not persistent.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "setconf" | string | M |
+| pref | The new value for the preference | as appropriate | M |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code | integer |
+
+Error Codes:
+
+| Error Code | Description |
+|------|-------------------|
+| 0 | The operation was successful |
+
+### Examples
+```
+{"req":"setconf","name":"tcp.desegment_tcp_streams","value":false}
+{"err":0}
+
+{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
+{"prefs":{"tcp.desegment_tcp_streams":{"b":0}}}
+
+{"req":"setconf","name":"tcp.desegment_tcp_streams","value":true}
+{"err":0}
+
+{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
+{"prefs":{"tcp.desegment_tcp_streams":{"b":1}}}
+```
+---
