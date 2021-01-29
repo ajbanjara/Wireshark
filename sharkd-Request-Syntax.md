@@ -12,6 +12,7 @@ The available sharkd request types are:
 - [intervals](#intervals)
 - [iograph](#iograph)
 - [load](#load)
+- [setcomment](#setcomment)
 
 See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
 
@@ -517,6 +518,42 @@ Error Codes:
 
 {"req":"load","file":"c:/traces/Contoso_01/web01/wrong_name.pcapng"}
 {"err":2}
+```
+---
+
+# setcomment
+
+Sets a comment in a frame for the duration of a sharkd session i.e. the PCAPNG file is not modified and so the comment is not persistent.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "setcomment" | string | M |
+| frame | The frame in which the comment is set | integer | M |
+| comment | The comment text | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| err | Error code | integer |
+
+Error Codes:
+
+| Error Code | Description |
+|------|-------------------|
+| 0 | The operation was successful |
+
+### Examples
+```
+{"req":"setcomment","frame":1,"comment":"Hello world"}
+{"err":0}
+
+{"req":"frame", "frame":1, "proto":"true"}
+{"err":0,"comment":"Hello world","tree":[{"l":"Packet comments","t":"proto","f":"pkt_comment","s":"Comment","e":10541,"n":[{"l":"Hello world","f":"frame.comment == \"Hello world\"","s":"Comment","e":55379,"n":[{"l":"Expert Info (Comment/Comment): Hello world","t":"pro ...
 ```
 ---
 
