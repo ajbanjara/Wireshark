@@ -669,12 +669,37 @@ Tap Types are:
 | - type | Tap type - see above | string |
 | - details | A array of objects, one for each packet | array of objects |
 
-Details fields are:
+Objects in the details fields:
 
 | Name | Value | Type |
 |------|-------|------|
-| f | | |
-| s | | |
+| **stat** | |
+| | |
+| **nstat** | |
+| | |
+| **conv** | |
+| | |
+| **host** | |
+| | |
+| **rtp-streams** | |
+| | |
+| **rtp-analyse** | |
+| | |
+| **eo** | |
+| | |
+| **expert** | |      |
+| f    | Frame number | integer |
+| g    | Expert group | integer |
+|      | "Sequence" |
+| m    | Expert message | string |
+| p    | Protocol that this message applies to | string |
+| s    | Severity of this message | string |
+|      | "Chat" |
+| **rtd** | |
+| | |
+| **srt** | |
+| | |
+| **flow** | |
 
 To be completed.
 
