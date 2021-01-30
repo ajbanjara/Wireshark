@@ -4,6 +4,7 @@ The available sharkd request types are:
 - [bye](#bye)
 - [check](#check)
 - [complete](#complete)
+- [download](#download)
 - [dumpconf](#dumpconf)
 - [follow](#follow)
 - [frame](#frame)
@@ -180,6 +181,33 @@ If the input field or pref values is incorrect, an empty array is returned.
 
 {"req":"complete", "pref":"tcp"}
 {"err":0,"pref":[{"f":"tcp","d":"TCP"},{"f":"tcpencap","d":"TCPENCAP"},{"f":"tcpros","d":"TCPROS"}]}
+```
+---
+
+# download
+
+Get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "download" | string | M |
+| token | TBC | string | O |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+|   |   |   |
+
+TBC
+
+### Examples
+```
+TBC
 ```
 ---
 
