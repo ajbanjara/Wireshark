@@ -77,7 +77,7 @@ The request types are:
 - [complete](sharkd-Request-Syntax#complete) - returns the properties of a field(s) or preference(s) based on a partial or complete reference
   + e.g. `{"req":"complete", "field":"http.request.method"}`
   + e.g. `{"req":"complete", "field":"http.request"}`
-- download - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
+- [download](sharkd-Request-Syntax#download) - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
   + e.g. `{"req":"download","token":"eo:http_0"}`
   + See tshark --export-objects and the Export Objects function in Wireshark
 - [dumpconf](sharkd-Request-Syntax#dumpconf) - list one, some or all configuration parameters
