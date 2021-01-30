@@ -164,7 +164,6 @@ Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is 
 
 | Platform                                      | LuaJIT       | Lua 5.1 | Lua 5.2 | Lua 5.3 |
 |-----------------------------------------------|--------------|---------|---------|---------|
-| SLES 11                                       | no           | 5.1.4   | no      | no      |
 | RHEL/CentOS 6/7                               | 2.0.4 (EPEL) | 5.1.4   | no      | no      |
 | RHEL/CentOS 8                                 | no           | 5.1.5 (EPEL compat-lua package)      | no      | 5.3.4   |
 | SLES 12                                       | no           | 5.1.5   | 5.2.2   | no      |
