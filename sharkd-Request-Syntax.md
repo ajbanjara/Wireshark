@@ -689,7 +689,7 @@ Objects in the details fields:
 | | |
 | **expert** | |      |
 | f    | Frame number | integer |
-| g    | Expert group | integer |
+| g    | Expert group | string |
 |      | "Sequence" |
 | m    | Expert message | string |
 | p    | Protocol that this message applies to | string |
