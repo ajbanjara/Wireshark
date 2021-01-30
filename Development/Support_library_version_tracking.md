@@ -44,7 +44,7 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 |--------------|--------------|--------------|----------|-----------------------------------------------------------------------------------------|
 | 2.12         | 2.10         |              | Jul 2006 | GTK+ 2.12 is min. req. since 11 July 2011                                               |
 |              | 2.14         |              | Aug 2007 | GLib 2.14 is min. req. since 11 July 2011 (old)                                         |
-| 2.22         | 2.18         |              | Sep 2009 | GLib 2.22 is min. req. since Aug 2016 (v2.3.0rc0-201-gd21295f9); SLES11 has GLib 2.22.5 |
+| 2.22         | 2.18         |              | Sep 2009 | GLib 2.22 is min. req. since Aug 2016 (v2.3.0rc0-201-gd21295f9)                         |
 | 2.24         | 2.20         |              | Apr 2010 |                                                                                         |
 | 2.26         | 2.22         |              | Oct 2010 |                                                                                         |
 | 2.26         | 2.24         |              | Dec 2010 |                                                                                         |
@@ -76,10 +76,8 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.1.10  | Mar 2013 | License changed back to LGPLv2.1+ (development version)                                                                   |
 | 3.2.0   | May 2013 | Min. req. since Nov 2018 (v2.9.0rc0-2678-gbcd32b07)                                                                       |
 | 3.1.22  | Mar 2014 | Windows releases from Wireshark 1.12+ (r400)                                                                              |
-| 3.2.11  | Feb 2014 | Ubuntu 14.04                                                                                                              |
-| 3.2.15  | May 2014 | SLES 12; Windows releases from Wireshark 1.12.2+, 2.0+ (r409)                                                             |
+| 3.2.15  | May 2014 | Windows releases from Wireshark 1.12.2+, 2.0+ (r409)                                                             |
 | 3.3.0   | Apr 2014 | Min. req. since Jan 2021 (v3.5.0rc0-530-gfbd3fb3138)                                                                                                           |
-| 3.3.8   | Sep 2014 | Debian Jessie                                                                                                             |
 | 3.3.27  | Mar 2017 | SLES 12SP3 (and later)                                                                                                                |
 | 3.3.29  | Feb 2018 | RHEL7                                                                                                                     |
 | 3.4.0   | Apr 2015 | (gnutls_pubkey_import_privkey is working now for PKCS#11, [commit](https://gitlab.com/gnutls/gnutls/commit/4a8bcb9331d109e31f1b63f5df3ed67c0746619c))                                                         |
@@ -106,9 +104,8 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6). Needed for simpler PKCS#1 padding handling in SSL                |
 | 1.5.3   | Jul 2013 | RHEL7                                                                                            |
 | 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM) |
-| 1.6.1   | Jan 2014 | SLES 12, Ubuntu 14.04LTS                                                                         |
+| 1.6.1   | Jan 2014 | SLES 12                                                                         |
 | 1.6.2   | Aug 2014 | Windows releases from Wireshark 1.12.2, 2.0+ (r409) until 2.6                                    |
-| 1.6.3   | Feb 2015 | Debian Jessie                                                                                    |
 | 1.6.5   | Feb 2016 | Ubuntu 16.04LTS                                                                                  |
 | 1.7.0   | Apr 2016 | Needed for ChaCha20-Poly1305 support (TLS 1.3 decryption)                                        |
 | 1.7.2   | Jul 2016 | Ubuntu 16.10                                                                                     |
@@ -129,10 +126,8 @@ See also <https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Life-Cycle-
 | 2.8.8   | Apr 2012 | Minimum required version for non-Windows (as of Feb 2016, v2.1.0rc0-2202-g6b54fbf3) |
 | 2.8.11  | May 2013 | Minimum required version for non-Windows (as of Oct 2017, v2.5.0rc0-1352-gf19a2c0b) |
 | 2.8.12  | Nov 2013 | Last 2.8 release (2.8.12.2 is used in Ubuntu 14.04, RHEL/CentOS 6/7 and SLES 12) |
-| 3.0.2   | Sep 2014 | Debian Jessie |
 | 3.1.3   | Feb 2015 | Minimum required version for Windows (as of Apr 2015, v1.99.6rc0-369-g0d37980a) |
-| 3.5.1   | Mar 2016 | Minimum required version for non-Windows (as of May 2018, v2.9.0rc0-547-g4c1690ac). Ubuntu 16.04 (cmake3 in Ubuntu 14.04), SLES12 SP2 (*1). In RHEL 6 and 7 install cmake3 from EPEL. |
-| 3.6.2   | Oct 2016 | EPEL6: available as cmake3 (3.6.1), Debian Jessie-backports 3.6.2 |
+| 3.5.1   | Mar 2016 | Minimum required version for non-Windows (as of May 2018, v2.9.0rc0-547-g4c1690ac). Ubuntu 16.04 (cmake3 in Ubuntu 14.04), SLES12 SP2 (*1). In RHEL 7 install cmake3 from EPEL. |
 | 3.7.0   | Jan 2017 | Minimum required version for Windows (as of Jun 2017, v2.5.0rc0-92-g4edc6115)                                                                                                      |
 | 3.7.2   | Jan 2017 | Debian Stretch |
 | 3.8.0   | Apr 2017 | |
@@ -173,7 +168,6 @@ Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is 
 | RHEL/CentOS 6/7                               | 2.0.4 (EPEL) | 5.1.4   | no      | no      |
 | RHEL/CentOS 8                                 | no           | 5.1.5 (EPEL compat-lua package)      | no      | 5.3.4   |
 | SLES 12                                       | no           | 5.1.5   | 5.2.2   | no      |
-| Debian Jessie                                 | 2.0.3        | 5.1.5   | 5.2.3   | no      |
 | Ubuntu 16.04                                  | 2.0.4        | 5.1.5   | 5.2.4   | 5.3.1   |
 | macOS (homebrew)                              | 2.0.5        | 5.1.5   | no      | 5.3.5   |
 | Ubuntu >= 18.04 / Debian >= stretch-backports | 2.1.0~beta3  | 5.1.5   | 5.2.4   | 5.3.3   |
@@ -184,11 +178,9 @@ nghttp2 is required for complete HTTP/2 support. It also powers HTTP/2 support i
 
 | Platform             | version |
 |----------------------|---------|
-| RHEL/CentOS 6 (EPEL) | 1.6.0   |
 | RHEL/CentOS 7 (EPEL) | 1.31.1  |
 | RHEL/CentOS 8        | 1.33.0  |
 | Fedora 29            | 1.39.2  |
-| Debian Jessie        | 0.6.4   |
 | Debian Stretch       | 1.18.1  |
 | Ubuntu 16.04         | 1.7.1   |
 | Ubuntu 18.04         | 1.30.0  |
@@ -226,10 +218,6 @@ Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 mont
 
 | Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------|--------------|--------------|--------------|-------------|-------------|
-| Fedora 19    | 2.36         | 2.24.22      | 3.8.2        | 4.8.6       | 5.3.2       |
-| Fedora 20    | 2.38         | 2.24.27      | 3.10.9       | 4.8.6       | 5.4.1       |
-| Fedora 21    | 2.42         | 2.24.28      | 3.14.14      | 4.8.6       | 5.4.1       |
-| Fedora 22    | 2.44         | 2.24.28      | 3.16.5       | 4.8.7       | 5.4.2       |
 | Fedora 23    | 2.46         | 2.24.28      | 3.18.2       | 4.8.7       | 5.5.0       |
 | Fedora 24    | 2.48         | 2.24.30      | 3.20.6       | 4.8.7       | 5.6.2       |
 | Fedora 25    | 2.50.3       | 2.24.31      | 3.22.2       | 4.8.7       | 5.7.1       |
@@ -248,11 +236,6 @@ Ten years of General Support for a major version, with a six month window to upg
 
 | Distribution | Initial release       | End of Normal Support | GLIB version    | Gtk2 version      | Gtk3 version     | Qt4 version   | Qt5 version          |
 |--------------|-----------------------|-----------------------|-----------------|-------------------|------------------|---------------|----------------------|
-| SLES 11      | 2009/03               | 2019/3                | 2.18.2          | 2.14.4            | (none)           | 4.4.3         | (none)               |
-| SLES 11 SP1  | 2010/06               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.2         | (none)               |
-| SLES 11 SP2  | 2012/02               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
-| SLES 11 SP3  | 2013/07               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
-| SLES 11 SP4  | 2015/07               | 2019/3                | 2.22.5          | 2.18.9            | (none)           | 4.6.3         | (none)               |
 | SLES 12      | 2014/10 (SP5 2019/12) | 2024/10               | 2.48.2 (2.38.2) | 2.24.31 (2.24.24) | 3.20.10 (3.10.9) | 4.8.7 (4.8.6) | 5.6.2 (5.5.1, 5.3.1) |
 | SLES 15      | 2018/07               | 2019/12               | 2.54.3          | x             | x            | (none)            | 5.9.4                |
 | SLES 15 SP1  | 2019/06               | 2021/01               | 2.54.3          | x             | x            | (none)            | 5.9.4                |
@@ -266,10 +249,6 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| openSUSE 12.1      | 2.30.1       | 2.24.7       | 3.2.1        | 4.7.4       | (none)      |
-| openSUSE 12.2      | 2.32.4       | 2.24.10      | 3.4.4        | 4.8.1       | (none)      |
-| openSUSE 12.3      | 2.34.3       | 2.24.18      | 3.6.5        | 4.8.4       | (none)      |
-| openSUSE 13.1      | 2.38.2       | 2.24.23      | 3.10.9       | 4.8.5       | 5.1.1       |
 | openSUSE 13.2      | 2.42.2       | 2.24.28      | 3.14.13      | 4.8.6       | 5.4.1       |
 | openSUSE Leap 42.3 | 2.48.2       | x            | x            | 4.8.7       | 5.6.2       |
 | openSUSE Leap 15.0 | 2.54.3       | x            | x            | 4.8.7       | 5.9.4       |
@@ -295,9 +274,6 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
 | trusty (14.04LTS)  | 2.40.2       | 2.24.23      | 3.10.8       | 4.8.5       | 5.2.1       |
-| utopic (14.10)     | 2.42.1       | 2.24.25      | 3.12.2       | 4.8.6       | 5.3.0       |
-| vivid (15.04)      | 2.44.1       | 2.24.27      | 3.14.13      | 4.8.6       | 5.4.1       |
-| wily (15.10)       | 2.46.2       | 2.24.28      | 3.16.7       | 4.8.6       | 5.4.2       |
 | xenial (16.04LTS)  | 2.48.0       | 2.24.30      | 3.18.9       | 4.8.7       | 5.5.1       |
 | yakkety (16.10)    | 2.50.0       | 2.24.30      | 3.20.9       | 4.8.7       | 5.6.1       |
 | zesty (17.04)      | 2.52.0       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
