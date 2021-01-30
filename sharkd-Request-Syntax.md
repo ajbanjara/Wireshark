@@ -643,21 +643,23 @@ Set up to 16 statistics taps and get statistics from them; tap types are stats, 
 
 M/O: M = Mandatory, O = Optional
 
-Tap Types are:
+**Tap Types**
 
-| Type | Output |
-|------|--------|
-| stats | |
-| nstat | |
-| conv | |
-| host | |
-| rtp-streams | |
-| rtp-analyse | |
-| eo | Export objects |
-| expert | |
-| rtd | |
-| srt | |
-| flow | |
+The format of this attribute is ```"tap0":"<type>:<subtype>"```
+
+| Type | Subtype | Output |
+|------|---------|--------|
+| conv | | |
+| eo | Export objects | |
+| expert | | |
+| flow | | |
+| host | | |
+| nstat | | |
+| rtd | | |
+| rtp-streams | | |
+| rtp-analyse | | |
+| srt | | |
+| stat | | |
 
 ### Response
 
@@ -673,19 +675,13 @@ Objects in the details fields:
 
 | Name | Value | Type |
 |------|-------|------|
-| **stat** | |
-| | |
-| **nstat** | |
-| | |
 | **conv** | |
 | | |
-| **host** | |
-| | |
-| **rtp-streams** | |
-| | |
-| **rtp-analyse** | |
-| | |
 | **eo** | |
+| | |
+| **flow** | |
+| | |
+| **host** | |
 | | |
 | **expert** | |      |
 | f    | Frame number | integer |
@@ -695,11 +691,18 @@ Objects in the details fields:
 | p    | Protocol that this message applies to | string |
 | s    | Severity of this message | string |
 |      | "Chat" |
+| **nstat** | |
+| | |
 | **rtd** | |
+| | |
+| **rtp-streams** | |
+| | |
+| **rtp-analyse** | |
 | | |
 | **srt** | |
 | | |
-| **flow** | |
+| **stat** | |
+| | |
 
 To be completed.
 
@@ -707,6 +710,9 @@ NB: Many of these taps produce a lot of data.
 
 ### Examples
 ```
+{"req":"tap","tap0":"conv:Ethernet"}
+{"taps":[{"tap":"conv:Ethernet","type":"conv","convs":[{"saddr":"VMware_d9:d3:b5","daddr":"VMware_fb:f9:13","rxf":1,"rxb":74,"txf":1,"txb":74,"start":0.000000000,"stop":0.000075000,"filter":"eth.addr==00:0c:29:d9:d3:b5 && eth.addr==00:0c:29:fb:f9:13"}],"proto":"Ethernet","geoip":false}],"err":0}
+
 {"taps":[{"tap":"expert","type":"expert","details":[{"f":2,"s":"Chat","g":"Sequence","m":"Connection establish acknowledge (SYN+ACK): server port 80","p":"TCP"},{"f":1,"s":"Chat","g":"Sequence","m":"Connection establish request (SYN): server port 80","p":"TCP"}]}],"err":0}
 ```
 ---
