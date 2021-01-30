@@ -714,5 +714,8 @@ NB: Many of these taps produce a lot of data.
 {"taps":[{"tap":"conv:Ethernet","type":"conv","convs":[{"saddr":"VMware_d9:d3:b5","daddr":"VMware_fb:f9:13","rxf":1,"rxb":74,"txf":1,"txb":74,"start":0.000000000,"stop":0.000075000,"filter":"eth.addr==00:0c:29:d9:d3:b5 && eth.addr==00:0c:29:fb:f9:13"}],"proto":"Ethernet","geoip":false}],"err":0}
 
 {"taps":[{"tap":"expert","type":"expert","details":[{"f":2,"s":"Chat","g":"Sequence","m":"Connection establish acknowledge (SYN+ACK): server port 80","p":"TCP"},{"f":1,"s":"Chat","g":"Sequence","m":"Connection establish request (SYN): server port 80","p":"TCP"}]}],"err":0}
+
+{"req":"tap","tap0":"stat:http_req"}
+{"taps":[{"tap":"stats:http_req","type":"stats","name":"HTTP/Requests","stats":[{"name":"HTTP Requests by HTTP Host","count":1,"rate":0.1431,"perc":100,"burstrate":0.0100,"bursttime":0.000,"sub":[{"name":"web01","count":1,"rate":0.1431,"perc":100.00,"burstrate":0.0100,"bursttime":0.000,"sub":[{"name":"/MyApp/Home/About","count":1,"rate":0.1431,"perc":100.00,"burstrate":0.0100,"bursttime":0.000}]}]}]}],"err":0}
 ```
 ---
