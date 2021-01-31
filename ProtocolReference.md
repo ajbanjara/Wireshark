@@ -250,19 +250,9 @@ A protocol can belong to more than one family.
 
 ## External links
 
-  - <http://protocolinfo.org/wiki/List_of_protocols> on protocolinfo.org (related to l7-filter)
-
   - <http://en.wikipedia.org/wiki/Network_protocol> Network protocols on wikipedia.org
 
-  - <http://www.protocols.com/pbook/> protocol directory at protocols.com
-
-  - <http://www.javvin.com/protocolsuite.html> Protocol Dictionary at javvin.com
-
-  - <http://dir.yahoo.com/Computers_and_Internet/Communications_and_Networking/Protocols/> Protocols at Yahoo.com
-
   - <http://www.rfc-editor.org/rfc-index.html> Index of RFCs at the IANA
-
-  - <http://www.linkbit.com/support-decoder.html> Linkbit online message parser
 
   - <http://msdn.microsoft.com/en-us/library/jj712081.aspx> Open Specifications for common Windows protocols at Microsoft.com
 
