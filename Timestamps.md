@@ -1,8 +1,8 @@
 # Timestamps
 
-Wireshark just gets its timestamp from libpcap/WinPcap, and libpcap/WinPcap gets it from the packet capture mechanism it uses; Wireshark itself doesn't generate the timestamp so there's nothing Wireshark can do about it.
+Wireshark just gets its timestamp from libpcap/Npcap, and libpcap/Npcap gets it from the packet capture mechanism it uses; Wireshark itself doesn't generate the timestamp so there's nothing Wireshark can do about it.
 
-How the timestamp works is OS dependent. In some UNIXes that code is in the network drivers; it's higher up in the networking code path in other UNIXes. In Windows, with [WinPcap](/WinPcap), timestamping is done by the [WinPcap](/WinPcap) driver.
+How the timestamp works is OS dependent. In some UNIXes that code is in the network drivers; it's higher up in the networking code path in other UNIXes. In Windows, with [Npcap](/Npcap), timestamping is done by the [Npcap](/Npcap) driver.
 
 Another issue might be if the OS delivers multiple packets per interrupt. This can be because the OS does "polling" or otherwise arranges that one interrupt be delivered for a batch of packets to reduce interrupt-handling overhead. If that's the case, the timestamps might be the same for multiple packets, at least to the resolution of the timestamping routine.
 
