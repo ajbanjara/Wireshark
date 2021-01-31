@@ -60,7 +60,7 @@ There are families of protocols, where the protocols relate to each other:
 
   - Identifier-Locator split protocols: [HIP](/HIP), LISP, SHIM6
 
-  - LTE [ProtocolFamily](/ProtocolFamily): Protocols for the 4G LTE, including S1AP,NAS,Diameter, GTPv2,GTPv1.GTP-U
+  - [LTEProtocolFamily](/LTEProtocolFamily): Protocols for the 4G LTE, including S1AP,NAS,Diameter, GTPv2,GTPv1.GTP-U
 
 A protocol can belong to more than one family.
 
