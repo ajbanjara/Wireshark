@@ -422,6 +422,7 @@ The response is an array of objects.  The elements of the object are as follows:
 There are a few considerations when using the frames request:
 
 - The columns must be predefined in the Default profile
+- Values for hidden columns are included in the response
 - After making a change to the columns with Wireshark, we must:
   + Close Wireshark to save the change
   + Restart Wireshark, including the whole daemon (if using Daemon Mode) not just the running session
