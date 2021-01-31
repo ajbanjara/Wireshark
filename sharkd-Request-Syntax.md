@@ -417,6 +417,17 @@ The response is an array of objects.  The elements of the object are as follows:
 ```
 ---
 
+### Notes
+
+There are a few considerations when using the frames request:
+
+- The columns must be predefined in the Default profile
+- After making a change to the columns with Wireshark, we must:
+  + Close Wireshark to save the change
+  + Restart Wireshark, including the whole daemon (if using Daemon Mode) not just the running session
+- The columns are just listed as quoted comma separated variables
+- There are no labels or field names associated with the columns
+
 # info
 
 Get a list of format and statistics information types available to sharkd clients.
