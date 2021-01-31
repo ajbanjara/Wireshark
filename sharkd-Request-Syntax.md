@@ -417,6 +417,66 @@ The response is an array of objects.  The elements of the object are as follows:
 ```
 ---
 
+# info
+
+Get a list of format and statistics information types available to sharkd clients.
+
+### Request
+
+| Name | Value | Type | M/O |
+|------|-------|------|-----|
+| req | "info" | string | M |
+
+M/O: M = Mandatory, O = Optional
+
+### Response
+
+| Name | Value | Type |
+|------|-------|------|
+| columns |  | array of objects |
+| stats   |  | array of objects |
+| ftypes  |  | array of objects |
+| version |  | string |
+| nstat   |  | array of objects |
+| convs   |  | array of objects |
+| sequ    |  | array of objects |
+| taps    |  | array of objects |
+| eo      |  | array of objects |
+| srt     |  | array of objects |
+| rtd     |  | array of objects |
+| follow  |  | array of objects |
+
+To be completed
+
+### Examples
+```
+{"req":"info"}
+{"columns":[{"name":"802.1Q VLAN id","format":"%q"},
+...
+"stats":[{"name":"29West/Queues/Advertisements by Queue","tap":"stat:lbmr_queue_ads_queue"},
+...
+
+"ftypes":["FT_NONE","FT_PROTOCOL","FT_BOOLEAN","FT_CHAR","FT_UINT8","FT_UINT16","FT_UINT24","FT_UINT32",
+...
+"version":"v3.5.0rc0-595-g0d820ddc8d2d",
+"nstat":[{"name":"A-I/F BSMAP Statistics","tap":"nstat:ansi_a,bsmap"},
+...
+"convs":[{"name":"Conversation List/Bluetooth","tap":"conv:Bluetooth"},
+...
+"seqa":[{"name":"All Flows","tap":"seqa:any"},
+...
+"taps":[{"name":"RTP streams","tap":"rtp-streams"},{"name":"Expert Information","tap":"expert"}],
+"eo":[{"name":"Export Object/DICOM","tap":"eo:dicom"},
+...
+"srt":[{"name":"Service Response Time/AFP","tap":"srt:afp"},
+...
+"rtd":[{"name":"Response Time Delay/H.225 RAS","tap":"rtd:h225_ras"},
+...
+"follow":[{"name":"Follow/HTTP","tap":"follow:HTTP"}, ... }
+```
+
+---
+
 # intervals
 
 This request considers aggregates the packet data to produce a count of the number of frames and a sum of the number of bytes in each interval.  The aggregation is performed on fixed time intervals (default is one second).
