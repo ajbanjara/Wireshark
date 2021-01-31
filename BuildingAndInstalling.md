@@ -1,6 +1,6 @@
 # BuildingAndInstalling
 
-Please note: this page content is currently very limited. You may first consult the [Wireshark User's Guide](http://www.wireshark.org/docs/wsug_html_chunked/), the [Wireshark Developers Guide](http://www.wireshark.org/docs/wsdg_html_chunked/) and the various README files provided with Wireshark.
+:warning: this page content is outdated w.r.t to currently supported releases of Wireshark, and very limited. You may want to first consult the [Wireshark User's Guide](http://www.wireshark.org/docs/wsug_html_chunked/), the [Wireshark Developers Guide](http://www.wireshark.org/docs/wsdg_html_chunked/) and the various [README files](https://gitlab.com/wireshark/wireshark/-/tree/master/doc) provided with Wireshark for up to date build and installation information.
 
 [[_TOC_]]
 
