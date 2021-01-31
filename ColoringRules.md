@@ -10,7 +10,7 @@ The coloring rules were previously called **color filters** and a file named col
 
 To use one of the coloring rules files listed here, download it to your local machine, select **View→Coloring Rules** in Wireshark, and click the **Import…** button.
 
-If you'd like to add an entry to this page you can export a rule set by clicking on the **Export…** button in the Coloring Rules dialog. (It helps if you save the file with a ".txt" extension.) To upload the exported file, click on the **AttachFile** link on the left. If you wish to include a screen shot, please create a separate page for your filter and put the screen shot and filter on that page. A [WikiSandBox](/WikiSandBox) is available if you want to practice attaching files.
+If you'd like to add an entry to this page you can export a rule set by clicking on the **Export…** button in the Coloring Rules dialog. (It helps if you save the file with a ".txt" extension.) To upload the exported file, drag and drop the file in the edit pane. If you wish to include a screen shot, please create a separate page for your filter and put the screen shot and filter on that page.
 
 # Sample Coloring Rules
 
