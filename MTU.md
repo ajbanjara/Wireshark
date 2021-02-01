@@ -1,10 +1,14 @@
 # Maximum Transmission Unit
 
-The MTU is the maximum payload length for a particular transmission media. For example, the MTU for Ethernet is typically 1500 bytes. (The maximum packet length for Ethernet is typically 1518 bytes, but that includes 14 bytes of Ethernet header and 4 bytes of CRC, leaving 1500 bytes of payload.) If a host wishes to send packet larger than the MTU for a network, the packet must be broken up into chunks no larger than the MTU.
+The MTU is the maximum payload length for a particular transmission media. For example, the MTU for Ethernet is typically 1500 bytes. The maximum packet length for Ethernet is typically 1518 bytes, but that includes 14 bytes of Ethernet header and 4 bytes of CRC, leaving 1500 bytes of payload. When a VLAN tag is involved the packet length is increased to 1522 bytes. If a host wishes to send a packet larger than the MTU for a network, the packet must be broken up into chunks no larger than the MTU.
 
-The smallest MTU between two hosts is known as the **path MTU**.
+The smallest MTU between two hosts is known as the **path MTU**. This may be the same or smaller then the MTU of the interface the host sends the packet from. The reason for this is that the smallest MTU of *any* link between the routers in the path between both hosts determines the MTU of the whole path. 
 
-*\[ Need some text on PMTU discovery, MTU-vs-MRU \]*
+In order to find the path MTU a host sends IP packets with the Don't Fragment flag set. When the packet size exceeds the path MTU size the router with the limiting MTU sends an ICMP packet back informing the sending host that the IP packet needs to be fragmented. The sending host now knows that the path MTU is limited below the packet sent. There are several RFC's on this process (For IPv4: [RFC 1191](https://tools.ietf.org/html/rfc1191), [RFC 4821](https://tools.ietf.org/html/rfc4821), [RFC 8899](https://tools.ietf.org/html/rfc8899) and IPv6: [RFC 8201](https://tools.ietf.org/html/rfc8201))
+
+## MRU
+
+Usually maximum transmission sizes of an interface are symetrical, i.e. the maximum transmission unit is equal to the maximum receive unit. But this is not by definition, but is a design feature of the interface.
 
 ## Common MTU Values
 
@@ -37,6 +41,18 @@ The **ifconfig** command might also report the MTU along with other information 
  ifconfig <interface>
 ```
 
+On Linux with the **ip** command (from [iproute2](https://wiki.linuxfoundation.org/networking/iproute2)), to set the MTU:
+
+```
+  ip link set { DEVICE | group GROUP } mtu MTU
+```
+
+The **ip** command can show all details of the interface among which the MTU.
+
+```
+ ip link show [DEVICE]
+```
+
 ### Windows
 
 Getting your MTU value can be done using trial and error using the **ping** command.
@@ -62,7 +78,7 @@ Getting your MTU value can be done using trial and error using the **ping** comm
 
 Setting your MTU value can be done using the registry. See KB article [158474](http://support.microsoft.com/default.aspx?scid=kb;en-us;158474) for more details.
 
-See also [RFC 1191](http://www.ietf.org/rfc/rfc1191.txt) for a table of common MTUs.
+See also [RFC 1191](https://tools.ietf.org/html/rfc1191#page-17) for a table of common MTUs.
 
 ---
 
