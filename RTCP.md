@@ -105,13 +105,15 @@ The RTCP dissector can do this calculation (see preference settings above) which
 
 ## Mathematical background
 
-Mathematical background could be read in section I. and II.A) in paper[Optimization of Large-Scale RTCP Feedback Reporting in Fixed and Mobile Networks](http://adela.utko.feec.vutbr.cz/projects/publications/#2)
+Mathematical background could be read in section I. and II.A) in paper [Optimization of Large-Scale RTCP Feedback Reporting in Fixed and Mobile Networks](https://www.researchgate.net/profile/Dan_Komosny/publication/224690674_Optimization_of_Large-Scale_RTCP_Feedback_Reporting_in_Fixed_and_Mobile_Networks/links/02e7e533957301b676000000/Optimization-of-Large-Scale-RTCP-Feedback-Reporting-in-Fixed-and-Mobile-Networks.pdf)
 
 ## Further research and development of RTCP
 
-  - [Realtime control protocol and its improvements for Internet Protocol Television](http://adela.utko.feec.vutbr.cz/projects/publications/#3)
+  - [Realtime control protocol and its improvements for Internet Protocol Television](https://www.researchgate.net/publication/292746893_Real-time_control_protocol_and_its_improvements_for_internet_protocol_television)
 
-  - [Optimization of Large-Scale RTCP Feedback Reporting in Fixed and Mobile Networks](http://adela.utko.feec.vutbr.cz/projects/publications/#2)
+  - [Optimization of Large-Scale RTCP Feedback Reporting in Fixed and Mobile Networks](https://www.researchgate.net/profile/Dan_Komosny/publication/224690674_Optimization_of_Large-Scale_RTCP_Feedback_Reporting_in_Fixed_and_Mobile_Networks/links/02e7e533957301b676000000/Optimization-of-Large-Scale-RTCP-Feedback-Reporting-in-Fixed-and-Mobile-Networks.pdf)
+
+  - [Dan Komosny publications](https://www.researchgate.net/profile/Dan_Komosny)
 
 ## External links
 
