@@ -223,6 +223,10 @@ And so on.
 
 #### ssl-secrets
 
+__Wireshark won't save the decrypted data, but you can export the session keys which are specific to the traffic in your capture file. After doing the decryption with the private key, go to file -> Export TLS Session Keys. Save the keys to a file. When you want to view the decrypted traffic again without the private key, point to the session keys file in the TLS protocol preferences under "(Pre)-Master-Secret log filename".__  Wise words from Sake Blok.
+
+Need to check how we decode using the private key with sharkd.
+
 TBC
 
 #### rtp
