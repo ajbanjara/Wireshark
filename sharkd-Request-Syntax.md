@@ -193,7 +193,7 @@ Get decoded objects (exported objects, SSL secrets or rtp data); some downloaded
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
 | req | "download" | string | M |
-| token | Token to download<br/>eo:<object_ref><br/>ssl-secrets<br/>rtp: | string | M |
+| token | Token to download:<br/>- eo:<object_ref><br/>- ssl-secrets<br/>- rtp: | string | M |
 
 M/O: M = Mandatory, O = Optional
 
