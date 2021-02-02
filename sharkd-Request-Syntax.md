@@ -251,6 +251,7 @@ Need to do a lot more work on the ssl-secrets detail above.
 
 #### rtp
 
+Source Address / Source Port / Destination Address Destination Port / Synchronization Source Identifier 
 TBC
 
 ### Response
@@ -269,6 +270,9 @@ TBC
 ```
 {"req":"download","token":"eo:http_0"}
 {"file":"About","mime":"text/html","data":"PCFET0NUWV ... ib2R5Pg0KPC9odG1sPg0K"}
+
+{"req":"download","token":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e"}
+{"file":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e","mime":"audio/x-wav","data":"UklGRv////9XQVZF ... AQQAsj/eABwA5AC6P4Y/8gB8AJQAzAC"}
 ```
 ---
 
