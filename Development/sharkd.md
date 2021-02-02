@@ -6,6 +6,8 @@ Many of the functions that we see in the standard Wireshark user interface are a
 
 [[_TOC_]]
 
+The wiki page [sharkd Request Syntax](sharkd-Request-Syntax) gives full details of the request types and their parameters.
+
 ## Installation
 
 The sharkd executable is not included in the standard Wireshark binary package (Windows MSI, etc.) and so must be built from source.  Building sharkd under Windows results in a sharkd.exe executable.
@@ -115,6 +117,8 @@ Entering JSON requests through the Console Interface sometimes generates additio
 load: filename=c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng
 {"err":0}
 ```
+The wiki page [sharkd Request Syntax](sharkd-Request-Syntax) gives full details of the request types and their parameters.
+
 ## Profiles and Preferences
 
 sharkd always uses the preferences set in the Default profile.  There isn't a way to set the profile to anything other than Default.  We can explicitly set preferences for the duration of a session with setconf (i.e. these changes won't be persistent) and these will take effect immediately.
