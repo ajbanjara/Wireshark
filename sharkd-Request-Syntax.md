@@ -193,21 +193,58 @@ Get decoded objects (exported objects, SSL secrets or rtp data); some downloaded
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
 | req | "download" | string | M |
-| token | TBC | string | O |
+| token | Token to download<br/>eo:<object_ref><br/>ssl-secrets<br/>rtp: | string | M |
 
 M/O: M = Mandatory, O = Optional
+
+#### eo
+
+For the eo (Export Object) token we can download data objects of the following types:
+
+- DICOM
+- HTTP
+- IMF
+- SMB
+- TFTP
+
+The __object_ref__ is created by suffixing the type with an underscore character (_) followed by an index into the table of detected objects.  If we display the HTTP Export Objects for a sample file we may see something like this:
+
+[Add screenshot here]
+
+To get the first object, we would use the request:
+```
+{"req":"download","token":"eo:http_0"}
+```
+To get the second object, we would use the request:
+```
+{"req":"download","token":"eo:http_1"}
+```
+And so on.
+
+#### ssl-secrets
+
+TBC
+
+#### rtp
+
+TBC
 
 ### Response
 
 | Name | Value | Type |
 |------|-------|------|
-|   |   |   |
+| file | Suggested file name | string  |
+| mime | The objects MIME content-type | string  |
+| data | Base64-encoded object | string |
+
+NB: If a request is made for a token that doesn't exist, sharkd responds with ```\r\n\r\n``` only i.e. there is no JSON response.
 
 TBC
 
 ### Examples
 ```
-TBC
+{"req":"download","token":"eo:http_0"}
+{"file":"About","mime":"text/html","data":"PCFET0NUWV ... ib2R5Pg0KPC9odG1sPg0K"}
 ```
 ---
 
