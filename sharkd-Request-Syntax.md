@@ -209,7 +209,7 @@ For the eo (Export Object) token we can download data objects of the following t
 
 The __object_ref__ is created by suffixing the type with an underscore character (_) followed by an index into the table of detected objects.  If we display the HTTP Export Objects for a sample file we may see something like this:
 
-[Add screenshot here]
+![export_object_screenshot](uploads/b882b04fb39f1c9752c9103b70ef02d2/export_object_screenshot.png)
 
 To get the first object, we would use the request:
 ```
