@@ -223,11 +223,31 @@ And so on.
 
 #### ssl-secrets
 
-__Wireshark won't save the decrypted data, but you can export the session keys which are specific to the traffic in your capture file. After doing the decryption with the private key, go to file -> Export TLS Session Keys. Save the keys to a file. When you want to view the decrypted traffic again without the private key, point to the session keys file in the TLS protocol preferences under "(Pre)-Master-Secret log filename".__  Wise words from Sake Blok.
+The sharkd source code contains the following notes:
+```
+    /* Output format is:
+     * "RSA Session-ID:xxxx Master-Key:yyyy\n"
+     * Where xxxx is the session ID in hex (max 64 chars)
+     * Where yyyy is the Master Key in hex (always 96 chars)
+     * So in total max 3+1+11+64+1+11+96+2 = 189 chars
+     * or
+     * "CLIENT_RANDOM zzzz yyyy\n"
+     * Where zzzz is the client random (always 64 chars)
+     * Where yyyy is same as above
+     * So length will always be 13+1+64+1+96+2 = 177 chars
+     *
+     * Wireshark can read CLIENT_RANDOM since v1.8.0.
+     * Both values are exported in case you use the Session-ID for resuming a
+     * session in a different capture.
+     */
+```
+On the Wireshark Ask forum, Sake Blok (a man who knows a lot about this subject) stated:
 
-Need to check how we decode using the private key with sharkd.
+_Wireshark won't save the decrypted data, but you can export the session keys which are specific to the traffic in your capture file. After doing the decryption with the private key, go to file -> Export TLS Session Keys. Save the keys to a file. When you want to view the decrypted traffic again without the private key, point to the session keys file in the TLS protocol preferences under "(Pre)-Master-Secret log filename"._
 
-TBC
+Whilst Sake's notes apply to the Wireshark Export TLS Session Keys, it's not clear to me if _download ssl-secrets_ refers to the same functionality.  If it does, we need to determine how we decode using the private key with sharkd.
+
+Need to do a lot more work on the ssl-secrets detail above.
 
 #### rtp
 
