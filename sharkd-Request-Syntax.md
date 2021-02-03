@@ -18,7 +18,7 @@ The available sharkd request types are:
 - [status](#status)
 - [tap](#tap)
 
-See the [sharkd wiki page](https://gitlab.com/wireshark/wireshark/-/wikis/Development/sharkd) for an overview.
+See the [sharkd wiki page](sharkd) for an overview.
 
 # analyse
 
@@ -225,31 +225,11 @@ And so on.
 
 #### ssl-secrets
 
-The sharkd source code contains the following notes:
-```
-    /* Output format is:
-     * "RSA Session-ID:xxxx Master-Key:yyyy\n"
-     * Where xxxx is the session ID in hex (max 64 chars)
-     * Where yyyy is the Master Key in hex (always 96 chars)
-     * So in total max 3+1+11+64+1+11+96+2 = 189 chars
-     * or
-     * "CLIENT_RANDOM zzzz yyyy\n"
-     * Where zzzz is the client random (always 64 chars)
-     * Where yyyy is same as above
-     * So length will always be 13+1+64+1+96+2 = 177 chars
-     *
-     * Wireshark can read CLIENT_RANDOM since v1.8.0.
-     * Both values are exported in case you use the Session-ID for resuming a
-     * session in a different capture.
-     */
-```
-On the Wireshark Ask forum, Sake Blok (a man who knows a lot about this subject) stated:
+sharkd can export and download the session keys which are specific to the traffic in a capture file.  To extract the session keys we must first decrypt the traffic using the server private (RSA) key.  This is done by passing in the private key via the TLS preferences; either using Wireshark to edit the prefs file, or by using the sharkd setconf request prior to loading the trace file.
 
-_Wireshark won't save the decrypted data, but you can export the session keys which are specific to the traffic in your capture file. After doing the decryption with the private key, go to file -> Export TLS Session Keys. Save the keys to a file. When you want to view the decrypted traffic again without the private key, point to the session keys file in the TLS protocol preferences under "(Pre)-Master-Secret log filename"._
+Once the file is decrypted, we can download the Session Keys (ssl-secrets).
 
-Whilst Sake's notes apply to the Wireshark Export TLS Session Keys, it's not clear to me if _download ssl-secrets_ refers to the same functionality.  If it does, we need to determine how we decode using the private key with sharkd.
-
-Need to do a lot more work on the ssl-secrets detail above.
+See the [TLS page](TLS) of this wiki for further information.
 
 #### rtp
 
@@ -272,9 +252,35 @@ A full request would then look like this:
 
 NB: If a request is made for a token that doesn't exist, sharkd responds with ```\r\n\r\n``` only i.e. there is no JSON response.
 
-The file value for an rtp download is the string "rtp:" suffixed with the stream specification.  See the rtp example below.
+#### eo
 
-TBC
+The exported object can be an HTML page, a jpg image, a CSS stylesheet, etc.  The file name is equivalent to the final element of a URL path such as _index.html_ or _favicon.ico_
+
+#### ssl-secret
+
+Output format is:
+```
+RSA Session-ID:xxxx Master-Key:yyyy\n
+```
+Where:
+- xxxx is the session ID in hex (max 64 chars)
+- yyyy is the Master Key in hex (always 96 chars)
+
+So in total max 3+1+11+64+1+11+96+2 = 189 chars
+
+Alternatively, the output is:
+```
+CLIENT_RANDOM zzzz yyyy\n
+```
+Where:
+- zzzz is the client random (always 64 chars)
+- yyyy is same as above
+
+So length will always be 13+1+64+1+96+2 = 177 chars
+
+#### rtp
+
+The file value for an rtp download is the string "rtp:" suffixed with the stream specification.  See the rtp example below.
 
 ### Examples
 ```
