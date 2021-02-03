@@ -139,9 +139,9 @@ Issuing commands to interrogate or modify a packet file before loading any file 
 
 The Windows file path backslash (\\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
 
-## Annoying Features
+## Unexpected Results
 
-sharkd has some very annoying "features":
+sharkd will sometimes produce unexpected results:
 
 - If you enter a blank line the session immediately terminates
 - If you enter invalid JSON, you may get a raw text message but you won't get a JSON response
