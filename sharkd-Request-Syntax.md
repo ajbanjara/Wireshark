@@ -193,9 +193,11 @@ Get decoded objects (exported objects, SSL secrets or rtp data); some downloaded
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
 | req | "download" | string | M |
-| token | Token to download:<br/>- eo:<object_ref><br/>- ssl-secrets<br/>- rtp: | string | M |
+| token | Token to download:<br/>- eo:\<object_ref\><br/>- ssl-secrets<br/>- rtp:\<stream_specification\> | string | M |
 
 M/O: M = Mandatory, O = Optional
+
+Details of the object_ref and stream_specification are under eo and rtp respectively below.
 
 #### eo
 
@@ -251,8 +253,14 @@ Need to do a lot more work on the ssl-secrets detail above.
 
 #### rtp
 
-Source Address / Source Port / Destination Address Destination Port / Synchronization Source Identifier 
-TBC
+With this option we can download the audio content from an rtp stream as an x-wav MIME data file.  The request must contain the stream_specification which uniquely identifies the stream as follows:
+
+_source-ip_\__source-port_\__destination-ip_\__destination-port_\__synchronization-source-identifier_
+
+A full request would then look like this:
+```
+{"req":"download","token":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e"}
+```
 
 ### Response
 
@@ -263,6 +271,8 @@ TBC
 | data | Base64-encoded object | string |
 
 NB: If a request is made for a token that doesn't exist, sharkd responds with ```\r\n\r\n``` only i.e. there is no JSON response.
+
+The file value for an rtp download is the string "rtp:" suffixed with the stream specification.  See the rtp example below.
 
 TBC
 
