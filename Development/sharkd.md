@@ -219,3 +219,7 @@ s: {"req":"status"}
 r: {"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
 c: Closing connection to 127.0.0.1:4446
 ```
+
+## Acknowledgement
+
+Writing a feature like sharkd is a big task, and so we must acknowledge the work of Jakub Zawadzki who authored the code.
