@@ -490,7 +490,7 @@ There are a few considerations when using the frames request:
 - Values for hidden columns are included in the response
 - After making a change to the columns with Wireshark, we must:
   + Close Wireshark to save the change
-  + Restart Wireshark, including the whole daemon (if using Daemon Mode) not just the running session
+  + Restart sharkd, including the whole daemon (if using Daemon Mode) not just the running session
 - The columns are just listed as quoted comma separated variables
 - There are no labels or field names associated with the columns
 
