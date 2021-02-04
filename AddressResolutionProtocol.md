@@ -34,6 +34,9 @@ Layer 3 protocols:
 
   - IPv6: ARP replaced by Neighbor Discovery  (see [RFC4861](https://tools.ietf.org/html/rfc4861) )  XXX - add/redirect to more info
 
+![200328_IPv6_neighbor_discovery](uploads/c525a517eb2870b6c53d5e93f5ed3ca9/200328_IPv6_neighbor_discovery.jpg)  
+(Slide courtesy of Jeff Carrell - [@JeffCarrell_v6](https://twitter.com/jeffcarrell_v6))  
+
 ## Example traffic
 
 ![arp.png](uploads/__moin_import__/attachments/AddressResolutionProtocol/arp.png "arp.png")
