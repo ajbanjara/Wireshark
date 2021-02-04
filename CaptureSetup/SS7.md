@@ -16,7 +16,7 @@ With libpcap 0.9.1 or later on Linux, if libpcap has been built with support for
 
 ## Capturing with E1/T1/J1 PCMCIA and PCI boards from Utel Systems
 
-As indicated in this message: <http://www.ethereal.com/lists/ethereal-dev/200510/msg00125.html>, it is possible to use PCMCIA or PCI form hardware from [Utel Systems](http://www.utelsystems.com/) to capture SS7 traffic with Wireshark on Windows. (The message was sent before the rename of Ethereal to Wireshark.) This requires a patched version of [WinPcap](/WinPcap).
+As indicated in this message: <https://marc.info/?l=ethereal-dev&m=112892915122025&w=2>, it is possible to use PCMCIA or PCI form hardware from [Utel Systems](http://www.utelsystems.com/) to capture SS7 traffic with Wireshark on Windows. (The message was sent before the rename of Ethereal to Wireshark.) This requires a patched version of [WinPcap](/WinPcap).
 
 BUT, according to [this message](http://www.wireshark.org/lists/wireshark-users/201001/msg00097.html), Utel no longer supports Ethereal/Wireshark.
 
