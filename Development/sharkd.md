@@ -21,6 +21,12 @@ We can run sharkd in two modes:
 - Console Mode where we can send JSON requests via stdin and receive JSON responses from stdout
 - Daemon Mode where sharkd starts as a service running on a socket, allowing us to send JSON requests and receive JSON responses via the socket
 
+Multiple sessions can connect to sharkd running in Daemon Mode.  A dedicated sharkd.exe process is spun up for each connection.  Therefore, when there are no connections there is a single sharkd process, when there is one active session there are two sharkd processes, when a second connection is made there will be three sharkd processes, and so on.
+
+There are two command line option formats; Classic (the original format) and POSIX.  The POSIX format attempts to follow the POSIX command line standard and offers more options.  We refer to the POSIX extended range of options as the Gold options.
+
+### Classic
+
 To start sharkd in Console Mode use the command:
 ```
   sharkd -
@@ -35,7 +41,25 @@ UNIX sockets are also supported:
 ```
   sharkd unix:/tmp/sharkd.sock
 ```
-Multiple sessions can connect to JSON running in Daemon Mode.  A dedicated sharkd.exe process is spun up for each connection.  Therefore, when there are no connections there is a single sharkd process, when there is one active session there are two sharkd processes, when a second connection is made there will be three sharkd processes, and so on.
+In this case, sharkd always uses the preferences set in the Default profile.  sharkd obeys other aspects of the Default profile such as disabled_protos, enabled_protos, etc.
+
+### Gold
+```
+Gold (gold_options):
+  -a <socket>, --api <socket>
+                           listen on this socket
+  -h, --help               show this help information
+  -v, --version            show version information
+  -C <config profile>, --config-profile <config profile>
+                           start with specified configuration profile
+
+  Examples:
+    sharkd -C myprofile
+    sharkd -a tcp:127.0.0.1:4446 -C myprofile
+```
+If you change any preferences in the selected profile (by editing the preferences file or using Wireshark Edit -> Preferences) the changes will not take effect in any current sharkd sessions.  You will need to start a new session.
+
+sharkd obeys other aspects of the selected profile such as disabled_protos, enabled_protos, etc.
 
 ## sharkd Requests
 
@@ -118,14 +142,6 @@ load: filename=c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng
 {"err":0}
 ```
 The wiki page [sharkd Request Syntax](sharkd-Request-Syntax) gives full details of the request types and their parameters.
-
-## Profiles and Preferences
-
-sharkd always uses the preferences set in the Default profile.  There isn't a way to set the profile to anything other than Default.  We can explicitly set preferences for the duration of a session with setconf (i.e. these changes won't be persistent) and these will take effect immediately.
-
-If you change any preference in the Default profile (by editing the preferences file or using Wireshark Edit -> Preferences) it will not take effect in any current sharkd sessions.  You will need to start a new session.
-  
-sharkd obeys other aspects of the Default profile such as disabled_protos, enabled_protos, etc.
 
 ## Bugs
 
