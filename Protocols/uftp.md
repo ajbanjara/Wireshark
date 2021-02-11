@@ -71,12 +71,13 @@ The UFTP dissector is fully functional, for both version 3 and 4 of the protocol
 
 ## Display Filter
 
-A complete list of UFTP display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/u/uftp.html)
+(210210 - at this time, each version is split out into a separate dissector)  
+A complete list of UFTP display filter fields can be found in the display filter reference - [uftp](http://www.wireshark.org/docs/dfref/u/uftp.html), [uftp4](http://www.wireshark.org/docs/dfref/u/uftp4.html), [uftp5](http://www.wireshark.org/docs/dfref/u/uftp5.html)
 
 Show only the UFTP based traffic:
 
 ``` 
- uftp 
+ uftp or uftp4 or uftp5
 ```
 
 ## Capture Filter
