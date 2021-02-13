@@ -746,10 +746,11 @@ Set a preference for the duration of a sharkd session i.e. the preference file i
 
 ### Request
 
-| Name | Value | Type | M/O |
-|------|-------|------|-----|
-| req | "setconf" | string | M |
-| pref | The new value for the preference | as appropriate | M |
+| Name  | Value | Type | M/O |
+|-------|-------|------|-----|
+| req   | "setconf" | string | M |
+| name  | The name of the preference | string | M |
+| value | The new value for the preference | string | M |
 
 M/O: M = Mandatory, O = Optional
 
