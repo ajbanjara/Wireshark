@@ -209,7 +209,16 @@ For the eo (Export Object) token we can download data objects of the following t
 - SMB
 - TFTP
 
-The __object_ref__ is created by suffixing the type with an underscore character (_) followed by an index into the table of detected objects.  If we display the HTTP Export Objects for a sample file we may see something like this:
+Before requesting a download for an exported object we must export it.  This is done by running an appropriate tap command, for example:
+```
+{"jsonrpc":"2.0","id":3,"method":"tap", "params":{"tap0":"eo:http"}}
+```
+then we can make the request like this:
+```
+{"jsonrpc":"2.0","id":3,"method":"download", "params":{"token":"eo:http_0"}}
+```
+
+The __object_ref__ is created by suffixing the type with an underscore character (_) followed by an index into the table of detected objects.  In Wireshark, if we display the HTTP Export Objects for a sample file we may see something like this:
 
 ![export_object_screenshot](uploads/b882b04fb39f1c9752c9103b70ef02d2/export_object_screenshot.png)
 
