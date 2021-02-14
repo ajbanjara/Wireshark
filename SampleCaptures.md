@@ -1906,6 +1906,14 @@ Please refer to [gRPC dissector description page](/gRPC) for how to use the samp
 
 [grpc_person_search_json_with_image.pcapng](uploads/88c03db83efb2e3253c88f853d40477b/grpc_person_search_json_with_image.pcapng) gRPC Person search service example, using JSON to serialize structured data.
 
+### AllJoyn
+
+[Gitlab issues](https://gitlab.com/wireshark/wireshark/-/issues) with samples attached.  
+
+[9361 - AllJoyn protocol dissector](https://gitlab.com/wireshark/wireshark/-/issues/9361)
+
+[10567 - Improve support for AllJoyn Reliable Datagram Protocol.](https://gitlab.com/wireshark/wireshark/-/issues/10567)
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/__moin_import__/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
