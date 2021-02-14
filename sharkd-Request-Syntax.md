@@ -256,6 +256,8 @@ NB: If a request is made for a token that doesn't exist, sharkd responds with ``
 
 The exported object can be an HTML page, a jpg image, a CSS stylesheet, etc.  The file name is equivalent to the final element of a URL path such as _index.html_ or _favicon.ico_
 
+If we try to download an exported object that doesn't exist, there will be no response from sharkd.
+
 #### ssl-secret
 
 Output format is:
