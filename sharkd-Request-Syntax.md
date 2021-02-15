@@ -356,7 +356,8 @@ Get client and server information for a particular protocol or stream plus the d
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
 | req | "follow" | string | M |
-| follow | Protocol payload to output | string | O |
+| follow | Protocol payload to output | string | M |
+| filter | Filter expression | string | M |
 
 M/O: M = Mandatory, O = Optional
 
