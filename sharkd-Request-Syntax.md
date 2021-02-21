@@ -486,6 +486,8 @@ Get Packet List information for a range of packets.
 
 M/O: M = Mandatory, O = Optional
 
+For details regarding the content of each column, see the columns listed on [sharkd Info Request Output Example](sharkd-Info-Request-Output-Example) wiki page.
+
 ### Response
 
 The response is an array of objects.  The elements of the object are as follows:
@@ -508,8 +510,8 @@ The response is an array of objects.  The elements of the object are as follows:
 {"req":"frames","skip":2,"limit":2}
 [{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]
 
-{"jsonrpc":"2.0","id":1,"method":"frames", "params":{"limit":1, "column0":20, "column1":"transum.art:1"}}
-{"jsonrpc":"2.0","id":1,"result":[{"c":["VMware_d9:d3:b5","0.000075000"],"num":1,"bg":"e4ffc7","fg":"12272e"}]}
+{"req":"frames","skip":2,"limit":1, "column0":20, "column1":"transum.art:1"}
+[{"c":["VMware_d9:d3:b5","0.000075000"],"num":1,"bg":"e4ffc7","fg":"12272e"}]
 ```
 ---
 
@@ -553,6 +555,8 @@ M/O: M = Mandatory, O = Optional
 | srt     |  | array of objects |
 | rtd     |  | array of objects |
 | follow  |  | array of objects |
+
+For a complete example of the output from the info request see the [sharkd Info Request Output Example](sharkd-Info-Request-Output-Example) wiki page.
 
 To be completed
 
