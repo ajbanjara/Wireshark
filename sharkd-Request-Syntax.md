@@ -478,7 +478,7 @@ Get Packet List information for a range of packets.
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
 | req | "frames" | string | M |
-| column0...columnXX | Requested columns either number in range [0..NUM_COL_FMTS], or custom (syntax \<dfilter\>:\<occurence\>).<br/><br/>If column0 is not specified default column set will be used. | array of objects | O |
+| column0...columnXX | Requested columns either number in range [0..NUM_COL_FMTS], or custom (syntax \<dfilter\>:\<occurence\>).<br/><br/>If column0 is not specified, the current profile column set will be used. | integer or string | O |
 | filter | Output those frames that pass this filter expression | string | O |
 | skip | Skip N frames | integer | O |
 | limit | Limit the output to N frames | integer | O |
@@ -507,6 +507,9 @@ The response is an array of objects.  The elements of the object are as follows:
 
 {"req":"frames","skip":2,"limit":2}
 [{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]
+
+{"jsonrpc":"2.0","id":1,"method":"frames", "params":{"limit":1, "column0":20, "column1":"transum.art:1"}}
+{"jsonrpc":"2.0","id":1,"result":[{"c":["VMware_d9:d3:b5","0.000075000"],"num":1,"bg":"e4ffc7","fg":"12272e"}]}
 ```
 ---
 
