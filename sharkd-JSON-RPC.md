@@ -1,5 +1,3 @@
-[THIS IS WORK IN PROGRESS]
-
 ## Introduction
 
 sharkd is a program that makes the powerful dissection and analysis capabilities of Wireshark available via a programmatic interface.  A program can send simple JSON-format requests to sharkd to load, analyse and manipulate network packet files.
