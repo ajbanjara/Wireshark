@@ -156,17 +156,17 @@ If the input field or pref values is incorrect, an empty array is returned.
 
 ### Examples
 ```
-{"req":"complete", "field":"http.request.method"}
-{"err":0,"field":[{"f":"http.request.method","t":26,"n":"Request Method"}]}
+{"jsonrpc":"2.0","id":9,"method":"complete","params":{"field":"http.request.method"}}
+{"jsonrpc":"2.0","id":9,"result":{"field":[{"f":"http.request.method","t":26,"n":"Request Method"}]}}
 
-{"req":"complete", "field":"http.request"}
-{"err":0,"field":[{"f":"http.request","t":2,"n":"Request"},{"f":"http.request_number","t":7,"n":"Request number"},{"f":"http.request.line","t":26,"n":"Request line"},{"f":"http.request.method","t":26,"n":"Request Method"},{"f":"http.request.uri","t":26,"n":"Request URI"},{"f":"http.request.uri.path","t":26,"n":"Request URI Path"},{"f":"http.request.uri.query","t":26,"n":"Request URI Query"},{"f":"http.request.uri.query.parameter","t":26,"n":"Request URI Query Parameter"},{"f":"http.request.version","t":26,"n":"Request Version"},{"f":"http.request.full_uri","t":26,"n":"Full request URI"},{"f":"http.request_in","t":35,"n":"Request in frame"}]}
+{"jsonrpc":"2.0","id":9,"method":"complete","params":{"field":"http.request"}}
+{"jsonrpc":"2.0","id":9,"result":{"field":[{"f":"http.request","t":2,"n":"Request"},{"f":"http.request_number","t":7,"n":"Request number"},{"f":"http.request.line","t":26,"n":"Request line"},{"f":"http.request.method","t":26,"n":"Request Method"},{"f":"http.request.uri","t":26,"n":"Request URI"},{"f":"http.request.uri.path","t":26,"n":"Request URI Path"},{"f":"http.request.uri.query","t":26,"n":"Request URI Query"},{"f":"http.request.uri.query.parameter","t":26,"n":"Request URI Query Parameter"},{"f":"http.request.version","t":26,"n":"Request Version"},{"f":"http.request.full_uri","t":26,"n":"Full request URI"},{"f":"http.request_in","t":35,"n":"Request in frame"}]}}
 
-{"req":"complete", "field":"http.bad_ref"}
-{"err":0,"field":[]}
+{"jsonrpc":"2.0","id":9,"method":"complete","params":{"field":"http.bad_ref"}}
+{"jsonrpc":"2.0","id":9,"result":{"field":[]}}
 
-{"req":"complete", "pref":"tcp"}
-{"err":0,"pref":[{"f":"tcp","d":"TCP"},{"f":"tcpencap","d":"TCPENCAP"},{"f":"tcpros","d":"TCPROS"}]}
+{"jsonrpc":"2.0","id":9,"method":"complete","params":{"pref":"tcp"}}
+{"jsonrpc":"2.0","id":9,"result":{"pref":[{"f":"tcp","d":"TCP"},{"f":"tcpencap","d":"TCPENCAP"},{"f":"tcpros","d":"TCPROS"}]}}
 ```
 ---
 
@@ -210,11 +210,11 @@ The __object_ref__ is created by suffixing the type with an underscore character
 
 To get the first object, we would use the request:
 ```
-{"req":"download","token":"eo:http_0"}
+{"jsonrpc":"2.0","id":3,"method":"download", "params":{"token":"eo:http_0"}}
 ```
 To get the second object, we would use the request:
 ```
-{"req":"download","token":"eo:http_1"}
+{"jsonrpc":"2.0","id":3,"method":"download", "params":{"token":"eo:http_1"}}
 ```
 And so on.
 
@@ -234,7 +234,7 @@ _source-ip_\__source-port_\__destination-ip_\__destination-port_\__synchronizati
 
 A full request would then look like this:
 ```
-{"req":"download","token":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e"}
+{"jsonrpc":"2.0","id":3,"method":"download", "params":{"token":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e"}}
 ```
 
 ### Response
@@ -281,11 +281,11 @@ The file value for an rtp download is the string "rtp:" suffixed with the stream
 
 ### Examples
 ```
-{"req":"download","token":"eo:http_0"}
-{"file":"About","mime":"text/html","data":"PCFET0NUWV ... ib2R5Pg0KPC9odG1sPg0K"}
+{"jsonrpc":"2.0","id":3,"method":"download", "params":{"token":"eo:http_0"}}
+{"jsonrpc":"2.0","id":3,"result":{"file":"About","mime":"text/html","data":"PCFET0NUWV ... ib2R5Pg0KPC9odG1sPg0K"}}
 
-{"req":"download","token":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e"}
-{"file":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e","mime":"audio/x-wav","data":"UklGRv////9XQVZF ... AQQAsj/eABwA5AC6P4Y/8gB8AJQAzAC"}
+{"jsonrpc":"2.0","id":4,"method":"download", "params":{"token":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e"}}
+{"jsonrpc":"2.0","id":4,"result":{"file":"rtp:200.57.7.204_8000_200.57.7.196_40376_0xd2bd4e3e","mime":"audio/x-wav","data":"UklGRv////9XQVZF ... AQQAsj/eABwA5AC6P4Y/8gB8AJQAzAC"}}
 ```
 ---
 
@@ -320,11 +320,11 @@ If the pref value is not specified, all preferences are listed.
 
 ### Examples
 ```
-{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
-{"prefs":{"tcp.desegment_tcp_streams":{"b":1}}}
+{"jsonrpc":"2.0","id":4,"method":"dumpconf", "params":{"pref":"tcp.desegment_tcp_streams"}}
+{"jsonrpc":"2.0","id":4,"result":{"prefs":{"tcp.desegment_tcp_streams":{"b":1}}}}
 
-{"req":"dumpconf"}
-{"prefs": ...
+{"jsonrpc":"2.0","id":5,"method":"dumpconf"}
+{"jsonrpc":"2.0","id":5,"result":{"prefs": ...
 "ber.decode_primitive":{"b":0}, ...
 "bgp.asn_len":{"e":[{"v":0,"s":1,"d":"Auto-detect"},{"v":2,"d":"2 octet"},{"v":4,"d":"4 octet"}]} ...
 "bjnp.udp.port":{"r": "8611-8614"}, ...
@@ -367,14 +367,14 @@ Bear in mind that this request will deliver all the data in a stream and so the 
 
 ### Examples
 ```
-{"req":"follow","follow":"HTTP","filter":"tcp.stream==0"}
-{"err":0,"shost":"192.168.3.78","sport":"80","sbytes":110,"chost":"192.168.3.85","cport":"46815","cbytes":5339,"payloads":[{"n":4,"d":"R0VUIC9NeUFwcC9Ib21lL0Fib3V ... 5NQ0KDQo=","s":1},{"n":9,"d":"PCFET0 ... KPC9odG1sPg0K","s":1}]}
+{"jsonrpc":"2.0","id":4,"method":"follow", "params":{"follow":"HTTP","filter":"tcp.stream==0"}}
+{"jsonrpc":"2.0","id":4,"result":{"shost":"192.168.3.78","sport":"80","sbytes":110,"chost":"192.168.3.85","cport":"46815","cbytes":5339,"payloads":[{"n":4,"d":"R0VUIC9NeUFwcC9Ib21lL0Fib3V ... 5NQ0KDQo=","s":1},{"n":9,"d":"PCFET0 ... KPC9odG1sPg0K","s":1}]}}
 
-{"req":"follow","follow":"TCP","filter":"tcp.stream==1"}
-{"err":0,"shost":"192.168.3.79","sport":"1433","sbytes":163222,"chost":"192.168.3.78","cport":"50442","cbytes":66745,"payloads":[{"n":5,"d":"AQkBBAAAA ... hAHQAZQA="},{"n":6,"d":"BAEBCQBH ... AYAAAA=","s":1},{"n":22741,"d":"BgAAABoAQwByAGUAYQB0AGkAdgBlACAAQQByAHQAcwAAAAAAALb7XKyOAAAAAAAABAIAAAAIAAAAAAAAAA+q/xEAwQAKAAAAAAAAAHkAAAAA/gAA4AAAAAAAAAAAAA==","s":1}]}
+{"jsonrpc":"2.0","id":5,"method":"follow", "params":{"follow":"TCP","filter":"tcp.stream==1"}}
+{"jsonrpc":"2.0","id":5,"result":{"shost":"192.168.3.79","sport":"1433","sbytes":163222,"chost":"192.168.3.78","cport":"50442","cbytes":66745,"payloads":[{"n":5,"d":"AQkBBAAAA ... hAHQAZQA="},{"n":6,"d":"BAEBCQBH ... AYAAAA=","s":1},{"n":22741,"d":"BgAAABoAQwByAGUAYQB0AGkAdgBlACAAQQByAHQAcwAAAAAAALb7XKyOAAAAAAAABAIAAAAIAAAAAAAAAA+q/xEAwQAKAAAAAAAAAHkAAAAA/gAA4AAAAAAAAAAAAA==","s":1}]}}
 
-{"req":"follow","follow":"TCP","filter":"tcp.stream==10000"}
-{"err":0,"shost":"NONE","sport":"0","sbytes":0,"chost":"NONE","cport":"0","cbytes":0}
+{"jsonrpc":"2.0","id":6,"method":"follow", "params":{"follow":"TCP","filter":"tcp.stream==10000"}}
+{"jsonrpc":"2.0","id":6,"result":{"shost":"NONE","sport":"0","sbytes":0,"chost":"NONE","cport":"0","cbytes":0}}
 ```
 ---
 
