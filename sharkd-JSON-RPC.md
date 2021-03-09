@@ -109,7 +109,7 @@ This version of sharkd produces an error response for request syntax and value e
 The request types are:
 
 - [analyse](sharkd-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
-  + e.g. `{{"jsonrpc":"2.0","id":1,"method":"analyse"}`
+  + e.g. `{"jsonrpc":"2.0","id":1,"method":"analyse"}`
 - [bye](sharkd-Request-Syntax#bye) - end a startd session
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"bye"}`
 - [check](sharkd-Request-Syntax#check) - used to check the validity of a field or filter
@@ -160,15 +160,7 @@ The wiki page [sharkd Request Syntax](sharkd-Request-Syntax) gives full details 
 
 ## Bugs
 
-During experimentation with sharkd, a few bugs were discovered that are noteworthy.
-
-### Exception if File Not Loaded
-
-Issuing commands to interrogate or modify a packet file before loading any file often results in a program exception.
-
-### Exception if Backslash is Not Escaped
-
-The Windows file path backslash (\\) separator must be escaped, and if they are not, this too results in a program exception.  Alternatively, forward slashes can be used as shown in the load request example above.
+None noted at this time.
 
 ## Studying and Debugging sharkd
 
