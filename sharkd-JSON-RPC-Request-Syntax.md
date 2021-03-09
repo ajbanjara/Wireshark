@@ -30,7 +30,7 @@ Lists the protocols found in a packet file and its start and end times.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "analyse" | string | M |
+| method | "analyse" | string | M |
 
 M/O: M = Mandatory, O = Optional
 
@@ -67,7 +67,7 @@ If the request is sent in a Console Mode session, the sharkd process exits.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "bye" | string | M |
+| method | "bye" | string | M |
 
 M/O: M = Mandatory, O = Optional
 
@@ -90,7 +90,7 @@ Check the validity of a field name or filter expression.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "check" | string | M |
+| method | "check" | string | M |
 | field | A fully qualified field reference | string | O |
 | filter | A display filter expression | string | O |
 
@@ -132,7 +132,7 @@ Fetches the properties of a field(s) or preference(s).
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "complete" | string | M |
+| method | "complete" | string | M |
 | field | A fully qualified field reference | string | O |
 | pref | A fully qualified preference reference | string | O |
 
@@ -178,7 +178,7 @@ Get decoded objects (exported objects, SSL secrets or rtp data); some downloaded
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "download" | string | M |
+| method | "download" | string | M |
 | token | Token to download:<br/>- eo:\<object_ref\><br/>- ssl-secrets<br/>- rtp:\<stream_specification\> | string | M |
 
 M/O: M = Mandatory, O = Optional
@@ -297,7 +297,7 @@ Lists one or all configuration parameters.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "dumpconf" | string | M |
+| method | "dumpconf" | string | M |
 | pref | A fully qualified preference reference | string | O |
 
 M/O: M = Mandatory, O = Optional
@@ -341,7 +341,7 @@ Get client and server information for a particular protocol or stream plus the d
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "follow" | string | M |
+| method | "follow" | string | M |
 | follow | Protocol payload to output | string | M |
 | filter | Filter expression | string | M |
 
@@ -386,7 +386,7 @@ Get full information about a frame including the protocol tree.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "frame" | string | M |
+| method | "frame" | string | M |
 | frame | Frame number | integer | M |
 | proto | If present, output the protocol tree | Any valid JSON value | O |
 | ref_frame | If present, output the time reference frame number<br/>This doesn't seem to work | Any valid JSON value | O |
@@ -438,20 +438,20 @@ M/O: M = Mandatory, O = Optional
 
 ### Examples
 ```
-{"req":"frame", "frame":4}
-{"err":0,"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+{"jsonrpc":"2.0","id":6,"method":"frame", "params":{"frame":4}}
+{"jsonrpc":"2.0","id":6,"result":{"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}}
 
-{"req":"frame", "frame":4, "proto":true}
-{"err":0,"tree":[{"l":"Frame 4: 176 bytes on wire (1408 bits), 176 bytes captured (1408 bits) on interface \\Device\\NPF_{304D305E-652F-47CD-B730-94986169FE76}, id 0","h":[0,176],"t":"proto","f":"frame","e":10538,"n":[{"l":"Interface id: 0 (\\Device\\NPF_{304D305E-652F-47CD-B730-94986169FE76})","f":"frame.inter ... rue},{"l":"Req Spread: 0.000000000 seconds","f":"transum.reqspread == 0.000000000","g":true},{"l":"Rsp Spread: 0.000164000 seconds","f":"transum.rspspread == 0.000164000","g":true},{"l":"Trace clip filter: tcp.stream==0 && frame.number>=4 && frame.number<=9 && tcp.len>0","f":"transum.clip_filter == \"tcp.stream==0 && frame.number>=4 && frame.number<=9 && tcp.len>0\"","g":true},{"l":"Calculation: Generic TCP","f":"transum.calculation == \"Generic TCP\"","g":true}]}],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+{"jsonrpc":"2.0","id":7,"method":"frame", "params":{"frame":4, "proto":true}}
+{"jsonrpc":"2.0","id":6,"result":{"tree":[{"l":"Frame 4: 176 bytes on wire (1408 bits), 176 bytes captured (1408 bits) on interface \\Device\\NPF_{304D305E-652F-47CD-B730-94986169FE76}, id 0","h":[0,176],"t":"proto","f":"frame","e":10538,"n":[{"l":"Interface id: 0 (\\Device\\NPF_{304D305E-652F-47CD-B730-94986169FE76})","f":"frame.inter ... rue},{"l":"Req Spread: 0.000000000 seconds","f":"transum.reqspread == 0.000000000","g":true},{"l":"Rsp Spread: 0.000164000 seconds","f":"transum.rspspread == 0.000164000","g":true},{"l":"Trace clip filter: tcp.stream==0 && frame.number>=4 && frame.number<=9 && tcp.len>0","f":"transum.clip_filter == \"tcp.stream==0 && frame.number>=4 && frame.number<=9 && tcp.len>0\"","g":true},{"l":"Calculation: Generic TCP","f":"transum.calculation == \"Generic TCP\"","g":true}]}],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}}
 
-{"req":"frame", "frame":4, "columns":true}
-{"err":0,"col":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+{"jsonrpc":"2.0","id":8,"method":"frame", "params":{"frame":4, "columns":true}}
+{"jsonrpc":"2.0","id":6,"result":{"col":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}}
 
-{"req":"frame", "frame":4, "color":true}
-{"err":0,"bg":"e4ffc7","fg":"12272e","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+{"jsonrpc":"2.0","id":9,"method":"frame", "params":{"frame":4, "color":true}}
+{"jsonrpc":"2.0","id":6,"result":{"bg":"e4ffc7","fg":"12272e","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}}
 
-{"req":"frame", "frame":4, "bytes":"true"}
-{"err":0,"bytes":"AAwp+/kTAAwp2dO1CABFAACimmFAAEAGGAHAqANVwKgDTrbfAFAefnCL/KwyboAYAOU0GwAAAQEICgSv6tUOKKxsR0VUIC9NeUFwcC9Ib21lL0Fib3V0IEhUVFAvMS4xDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXNlci1BZ2VudDogSmFrYXJ0YSBDb21tb25zLUh0dHBDbGllbnQvMy4xDQpIb3N0OiB3ZWIwMQ0KDQo=","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}
+{"jsonrpc":"2.0","id":10,"method":"frame", "params":{"frame":4, "bytes":"true"}}
+{"jsonrpc":"2.0","id":6,"result":{"bytes":"AAwp+/kTAAwp2dO1CABFAACimmFAAEAGGAHAqANVwKgDTrbfAFAefnCL/KwyboAYAOU0GwAAAQEICgSv6tUOKKxsR0VUIC9NeUFwcC9Ib21lL0Fib3V0IEhUVFAvMS4xDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXNlci1BZ2VudDogSmFrYXJ0YSBDb21tb25zLUh0dHBDbGllbnQvMy4xDQpIb3N0OiB3ZWIwMQ0KDQo=","fol":[["HTTP","tcp.stream eq 0"],["TCP","tcp.stream eq 0"]]}}
 ```
 ---
 
@@ -463,7 +463,7 @@ Get Packet List information for a range of packets.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "frames" | string | M |
+| method | "frames" | string | M |
 | column0...columnXX | Requested columns either number in range [0..NUM_COL_FMTS], or custom (syntax \<dfilter\>:\<occurence\>).<br/><br/>If column0 is not specified, the current profile column set will be used. | integer or string | O |
 | filter | Output those frames that pass this filter expression | string | O |
 | skip | Skip N frames | integer | O |
@@ -487,17 +487,17 @@ The response is an array of objects.  The elements of the object are as follows:
 
 ### Examples
 ```
-{"req":"frames","filter":"frame.number<=2"}
-[{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]
+{"jsonrpc":"2.0","id":4,"method":"frames", "params":{"filter":"frame.number<=2"}}
+{"jsonrpc":"2.0","id":6,"result":{[{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]}
 
-{"req":"frames","limit":2}
-[{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]
+{"jsonrpc":"2.0","id":5,"method":"frames", "params":{"limit":2}
+{"jsonrpc":"2.0","id":6,"result":{[{"c":["1","0.000000","192.168.3.85","192.168.3.78","TCP","74","46815 ÔåÆ 80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=78637781 TSecr=0 WS=128"],"num":1,"bg":"e4ffc7","fg":"12272e"},{"c":["2","0.000075","192.168.3.78","192.168.3.85","TCP","74","80 ÔåÆ 46815 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 TSval=237546604 TSecr=78637781"],"num":2,"bg":"e4ffc7","fg":"12272e"}]}
 
-{"req":"frames","skip":2,"limit":2}
-[{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]
+{"jsonrpc":"2.0","id":7,"method":"frames", "params":{"skip":2,"limit":2}
+{"jsonrpc":"2.0","id":6,"result":{[{"c":["3","0.000195","192.168.3.85","192.168.3.78","TCP","66","46815 ÔåÆ 80 [ACK] Seq=1 Ack=1 Win=29312 Len=0 TSval=78637781 TSecr=237546604"],"num":3,"bg":"e4ffc7","fg":"12272e"},{"c":["4","0.000319","192.168.3.85","192.168.3.78","HTTP","176","GET /MyApp/Home/About HTTP/1.1 "],"num":4,"bg":"e4ffc7","fg":"12272e"}]}
 
-{"req":"frames","skip":2,"limit":1, "column0":20, "column1":"transum.art:1"}
-[{"c":["VMware_d9:d3:b5","0.000075000"],"num":1,"bg":"e4ffc7","fg":"12272e"}]
+{"jsonrpc":"2.0","id":8,"method":"frames", "params":{"skip":2,"limit":1, "column0":20, "column1":"transum.art:1"}}
+{"jsonrpc":"2.0","id":6,"result":{[{"c":["VMware_d9:d3:b5","0.000075000"],"num":1,"bg":"e4ffc7","fg":"12272e"}]}
 ```
 ---
 
@@ -521,7 +521,7 @@ Get a list of format and statistics information types available to sharkd client
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "info" | string | M |
+| method | "info" | string | M |
 
 M/O: M = Mandatory, O = Optional
 
@@ -582,7 +582,7 @@ This request considers aggregates the packet data to produce a count of the numb
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "intervals" | string | M |
+| method | "intervals" | string | M |
 | interval | Interval time in milliseconds | integer | O |
 | filter | Display filter term applied prior to producing the sample set | string | O |
 
@@ -619,7 +619,7 @@ Creates time sequenced list of values for graphing; default is second-by-second.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "iographs" | string | M |
+| method | "iographs" | string | M |
 | interval | Interval time in milliseconds | integer | O |
 | filter | Display filter term applied prior to producing the sample set | string | O |
 | graph0 | First graph request - see below for details | string | M |
@@ -681,7 +681,7 @@ Load a packet trace file for analysis.
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "load" | string | M |
+| method | "load" | string | M |
 | file | Path and name of the file to be loaded | string | M |
 
 M/O: M = Mandatory, O = Optional
@@ -717,7 +717,7 @@ Sets a comment in a frame for the duration of a sharkd session i.e. the PCAPNG f
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "setcomment" | string | M |
+| method | "setcomment" | string | M |
 | frame | The frame in which the comment is set | integer | M |
 | comment | The comment text | string | O |
 
@@ -795,7 +795,7 @@ Get basic information about the loaded file (name, size, number of frames, etc.)
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "status" | string | M |
+| method | "status" | string | M |
 
 M/O: M = Mandatory, O = Optional
 
@@ -823,7 +823,7 @@ Set up to 16 statistics taps and get statistics from them; tap types are stats, 
 
 | Name | Value | Type | M/O |
 |------|-------|------|-----|
-| req | "tap" | string | M |
+| method | "tap" | string | M |
 | tap0 | First tap type request | string | M | 
 | tap1 ... tap15 | Other tap type request | string | O | 
 
