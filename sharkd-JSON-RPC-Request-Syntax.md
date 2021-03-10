@@ -1,4 +1,4 @@
-The available sharkd request types are:
+The available sharkd request methods are:
 
 - [analyse](#analyse)
 - [bye](#bye)
