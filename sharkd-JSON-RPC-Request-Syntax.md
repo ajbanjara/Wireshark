@@ -20,7 +20,7 @@ The available sharkd request types are:
 - [status](#status)
 - [tap](#tap)
 
-See the [sharkd wiki page](sharkd) for an overview.
+See the [sharkd wiki page](sharkd-JSON-RPC) for an overview.
 
 # analyse
 
