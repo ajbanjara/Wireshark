@@ -397,7 +397,7 @@ Get full information about a frame including the protocol tree.
 | bytes | If present, output frame bytes | Any valid JSON value | O |
 | hidden | If present, output hidden tree fields | Any valid JSON value | O |
 
-NB: A value of _true_ is acceptable for any field that has a type of _Any valid JSON value_.  However, a value of false is also treated as true i.e. ```{"req":"frame", "frame":4, "bytes":false}``` will output the frame bytes.
+NB: A value of _true_ is acceptable for any field that has a type of _Any valid JSON value_.  However, a value of false is also treated as true i.e. ```{"jsonrpc":"2.0","id":6,"method":"frame","params":{"frame":4, "bytes":false}}``` will output the frame bytes.
 
 M/O: M = Mandatory, O = Optional
 
@@ -549,8 +549,8 @@ To be completed
 
 ### Examples
 ```
-{"req":"info"}
-{"columns":[{"name":"802.1Q VLAN id","format":"%q"},
+{"jsonrpc":"2.0","id":6,"method":"info"}
+{"jsonrpc":"2.0","id":7,"result":{{"columns":[{"name":"802.1Q VLAN id","format":"%q"},
 ...
 "stats":[{"name":"29West/Queues/Advertisements by Queue","tap":"stat:lbmr_queue_ads_queue"},
 ...
@@ -602,11 +602,11 @@ NB: If there are no packets within an interval, no values are generated for that
 
 ### Examples
 ```
-{"req":"intervals","filter":"frame.number<=60"}
-{"intervals":[[0,13,6812],[1,38,31459],[2,9,3775]],"last":2,"frames":60,"bytes":42046}
+{"jsonrpc":"2.0","id":6,"method":"intervals", "params":{"filter":"frame.number<=60"}}
+{"jsonrpc":"2.0","id":7,"result":{"intervals":[[0,13,6812],[1,38,31459],[2,9,3775]],"last":2,"frames":60,"bytes":42046}}
 
-{"req":"intervals","interval":100,"filter":"frame.number<=60"}
-{"intervals":[[0,12,6758],[1,1,54],[10,15,14783],[12,23,16676],[20,9,3775]],"last":20,"frames":60,"bytes":42046}
+{"jsonrpc":"2.0","id":6,"method":"intervals", "params":{"interval":100,"filter":"frame.number<=60"}}
+{"jsonrpc":"2.0","id":7,"result":{"intervals":[[0,12,6758],[1,1,54],[10,15,14783],[12,23,16676],[20,9,3775]],"last":20,"frames":60,"bytes":42046}}
 ```
 The output in the final example has intervals missing because there were no packets within these intervals.
 
@@ -659,17 +659,17 @@ NB: If there are no packets within an interval, no values are generated for that
 
 ### Examples
 ```
-{"req":"iograph","graph0":"packets","filter0":"frame.number<=100"}
-{"iograph":[{"items":[13.000000,38.000000,23.000000,25.000000,1.000000]}]}
+{"jsonrpc":"2.0","id":6,"method":"iograph", "params":{"graph0":"packets","filter0":"frame.number<=100"}}
+{"jsonrpc":"2.0","id":7,"result":{"iograph":[{"items":[13.000000,38.000000,23.000000,25.000000,1.000000]}]}
 
-{"req":"iograph","graph0":"sum:tcp.len","filter0":"http && frame.number<=100 && tcp.len"}
-{"iograph":[{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}
+{"jsonrpc":"2.0","id":6,"method":"iograph", "params":{"graph0":"sum:tcp.len","filter0":"http && frame.number<=100 && tcp.len"}}
+{"jsonrpc":"2.0","id":7,"result":{"iograph":[{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}}
 
-{"req":"iograph","graph0":"sum:frame.len","filter0":"http && frame.number<=100 && frame.len","graph1":"sum:tcp.len","filter1":"http && frame.number<=100 && tcp.len"}
-{"iograph":[{"items":[2685.000000,4904.000000,1153.000000,5614.000000]},{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}
+{"jsonrpc":"2.0","id":6,"method":"iograph", "params":{"graph0":"sum:frame.len","filter0":"http && frame.number<=100 && frame.len","graph1":"sum:tcp.len","filter1":"http && frame.number<=100 && tcp.len"}}
+{"jsonrpc":"2.0","id":7,"result":{"iograph":[{"items":[2685.000000,4904.000000,1153.000000,5614.000000]},{"items":[2553.000000,4640.000000,955.000000,5416.000000]}]}}
 
-{"req":"iograph","graph0":"http.request","filter0":"http && frame.number<=100 && http.request"}
-{"iograph":[]}
+{"jsonrpc":"2.0","id":6,"method":"iograph", "params":{"graph0":"http.request","filter0":"http && frame.number<=100 && http.request"}}
+{"jsonrpc":"2.0","id":7,"result":{"iograph":[]}}
 ```
 
 ---
@@ -738,11 +738,11 @@ Error Codes:
 
 ### Examples
 ```
-{"req":"setcomment","frame":1,"comment":"Hello world"}
-{"err":0}
+{"jsonrpc":"2.0","id":6,"method":"setcomment", "params":{"frame":1,"comment":"Hello world"}
+{"jsonrpc":"2.0","id":1,"result":{"status":"OK"}}
 
-{"req":"frame", "frame":1, "proto":"true"}
-{"err":0,"comment":"Hello world","tree":[{"l":"Packet comments","t":"proto","f":"pkt_comment","s":"Comment","e":10541,"n":[{"l":"Hello world","f":"frame.comment == \"Hello world\"","s":"Comment","e":55379,"n":[{"l":"Expert Info (Comment/Comment): Hello world","t":"pro ...
+{"jsonrpc":"2.0","id":6,"method":"setcomment", "params":{"frame":1, "proto":"true"}}
+{"jsonrpc":"2.0","id":1,"result":{"comment":"Hello world","tree":[{"l":"Packet comments","t":"proto","f":"pkt_comment","s":"Comment","e":10541,"n":[{"l":"Hello world","f":"frame.comment == \"Hello world\"","s":"Comment","e":55379,"n":[{"l":"Expert Info (Comment/Comment): Hello world","t":"pro ...
 ```
 ---
 
@@ -774,17 +774,17 @@ Error Codes:
 
 ### Examples
 ```
-{"req":"setconf","name":"tcp.desegment_tcp_streams","value":false}
-{"err":0}
+{"jsonrpc":"2.0","id":6,"method":"setconf", "params":{"name":"tcp.desegment_tcp_streams","value":false}}
+{"jsonrpc":"2.0","id":1,"result":{"status":"OK"}}
 
-{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
-{"prefs":{"tcp.desegment_tcp_streams":{"b":0}}}
+{"jsonrpc":"2.0","id":6,"method":"dumpconf", "params":{"pref":"tcp.desegment_tcp_streams"}}
+{"jsonrpc":"2.0","id":1,"result":{"tcp.desegment_tcp_streams":{"b":0}}}
 
-{"req":"setconf","name":"tcp.desegment_tcp_streams","value":true}
-{"err":0}
+{"jsonrpc":"2.0","id":6,"method":"setconf", "params":{"name":"tcp.desegment_tcp_streams","value":true}}
+{"jsonrpc":"2.0","id":1,"result":{"status":"OK"}}
 
-{"req":"dumpconf","pref":"tcp.desegment_tcp_streams"}
-{"prefs":{"tcp.desegment_tcp_streams":{"b":1}}}
+{"jsonrpc":"2.0","id":6,"method":"dumpconf", "params":{"pref":"tcp.desegment_tcp_streams"}}
+{"jsonrpc":"2.0","id":1,"result":{"tcp.desegment_tcp_streams":{"b":1}}}
 ```
 ---
 
@@ -811,8 +811,8 @@ M/O: M = Mandatory, O = Optional
 
 ### Examples
 ```
-{"req":"status"}
-{"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}
+{"jsonrpc":"2.0","id":6,"method":"status"}
+{"jsonrpc":"2.0","id":1,"result":{{"frames":53882,"duration":1841.532335000,"filename":"web01_00001_20161012151754.pcapng","filesize":36433896}}
 ```
 ---
 
@@ -885,16 +885,15 @@ NB: Many of these taps produce a lot of data.
 
 ### Examples
 ```
-{"req":"tap","tap0":"conv:Ethernet"}
-{"taps":[{"tap":"conv:Ethernet","type":"conv","convs":[{"saddr":"VMware_d9:d3:b5","daddr":"VMware_fb:f9:13","rxf":1,"rxb":74,"txf":1,"txb":74,"start":0.000000000,"stop":0.000075000,"filter":"eth.addr==00:0c:29:d9:d3:b5 && eth.addr==00:0c:29:fb:f9:13"}],"proto":"Ethernet","geoip":false}],"err":0}
+{"jsonrpc":"2.0","id":1,"method":"tap", "params":{"tap0":"conv:Ethernet"}}
+{"jsonrpc":"2.0","id":1,"result":{"taps":[{"tap":"conv:Ethernet","type":"conv","convs":[{"saddr":"VMware_d9:d3:b5","daddr":"VMware_fb:f9:13","rxf":1,"rxb":74,"txf":1,"txb":74,"start":0.000000000,"stop":0.000075000,"filter":"eth.addr==00:0c:29:d9:d3:b5 && eth.addr==00:0c:29:fb:f9:13"}],"proto":"Ethernet","geoip":false}]}}
 
-{"taps":[{"tap":"expert","type":"expert","details":[{"f":2,"s":"Chat","g":"Sequence","m":"Connection establish acknowledge (SYN+ACK): server port 80","p":"TCP"},{"f":1,"s":"Chat","g":"Sequence","m":"Connection establish request (SYN): server port 80","p":"TCP"}]}],"err":0}
+{"jsonrpc":"2.0","id":1,"result":{"taps":[{"tap":"expert","type":"expert","details":[{"f":2,"s":"Chat","g":"Sequence","m":"Connection establish acknowledge (SYN+ACK): server port 80","p":"TCP"},{"f":1,"s":"Chat","g":"Sequence","m":"Connection establish request (SYN): server port 80","p":"TCP"}]}}
 
-{"req":"tap","tap0":"seqa:tcp"}
-sharkd_session_process_tap() count=1
-{"taps":[{"tap":"seqa:tcp","type":"flow","nodes":["192.168.3.85","192.168.3.78"],"flows":[{"t":"0.000000","n":[0,1],"pn":[46815,80],"c":"Seq = 0"},{"t":"0.000075","n":[1,0],"pn":[80,46815],"c":"Seq = 0 Ack = 1"}]}],"err":0}
+{"jsonrpc":"2.0","id":2,"method":"tap", "params":{"tap0":"seqa:tcp"}}
+{"jsonrpc":"2.0","id":2,"result":{"taps":[{"tap":"seqa:tcp","type":"flow","nodes":["192.168.3.85","192.168.3.78"],"flows":[{"t":"0.000000","n":[0,1],"pn":[46815,80],"c":"Seq = 0"},{"t":"0.000075","n":[1,0],"pn":[80,46815],"c":"Seq = 0 Ack = 1"}]}]}}
 
-{"req":"tap","tap0":"stat:http_req"}
-{"taps":[{"tap":"stats:http_req","type":"stats","name":"HTTP/Requests","stats":[{"name":"HTTP Requests by HTTP Host","count":1,"rate":0.1431,"perc":100,"burstrate":0.0100,"bursttime":0.000,"sub":[{"name":"web01","count":1,"rate":0.1431,"perc":100.00,"burstrate":0.0100,"bursttime":0.000,"sub":[{"name":"/MyApp/Home/About","count":1,"rate":0.1431,"perc":100.00,"burstrate":0.0100,"bursttime":0.000}]}]}]}],"err":0}
+{"jsonrpc":"2.0","id":3,"method":"tap", "params":{"tap0":"stat:http_req"}}
+{"jsonrpc":"2.0","id":3,"result":{"taps":[{"tap":"stats:http_req","type":"stats","name":"HTTP/Requests","stats":[{"name":"HTTP Requests by HTTP Host","count":1,"rate":0.1431,"perc":100,"burstrate":0.0100,"bursttime":0.000,"sub":[{"name":"web01","count":1,"rate":0.1431,"perc":100.00,"burstrate":0.0100,"bursttime":0.000,"sub":[{"name":"/MyApp/Home/About","count":1,"rate":0.1431,"perc":100.00,"burstrate":0.0100,"bursttime":0.000}]}]}]}]}
 ```
 ---
