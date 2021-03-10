@@ -1,5 +1,3 @@
-[WORK IN PROGRESS]
-
 The available sharkd request types are:
 
 - [analyse](#analyse)
