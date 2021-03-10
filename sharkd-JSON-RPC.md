@@ -1,12 +1,12 @@
 ## Introduction
 
-sharkd is a program that makes the powerful dissection and analysis capabilities of Wireshark available via a programmatic interface.  A program can send simple JSON-format requests to sharkd to load, analyse and manipulate network packet files.
+sharkd is a program that makes the powerful dissection and analysis capabilities of Wireshark available via a programmatic interface.  A program can send simple JSON-format requests to sharkd to load, analyse and manipulate network packet files.  The format of the requests and responses are based on the [JSON-RPC Specification](https://www.jsonrpc.org/specification)
 
 Many of the functions that we see in the standard Wireshark user interface are available via sharkd including packet protocol tree, packet bytes and display filters.
 
 [[_TOC_]]
 
-The wiki page [sharkd Request Syntax](sharkd-Request-Syntax) gives full details of the request types and their parameters.
+The wiki page [sharkd JSON RPC Request Syntax](sharkd-JSON-RPC-Request-Syntax) gives full details of the request types and their parameters.
 
 ## Installation
 
@@ -106,45 +106,45 @@ This version of sharkd produces an error response for request syntax and value e
 
 The request types are:
 
-- [analyse](sharkd-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
+- [analyse](sharkd-JSON-RPC-Request-Syntax#analyse) - lists the protocols found in a packet file and its start and end times
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"analyse"}`
-- [bye](sharkd-Request-Syntax#bye) - end a startd session
+- [bye](sharkd-JSON-RPC-Request-Syntax#bye) - end a startd session
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"bye"}`
-- [check](sharkd-Request-Syntax#check) - used to check the validity of a field or filter
+- [check](sharkd-JSON-RPC-Request-Syntax#check) - used to check the validity of a field or filter
   + e.g. `{{"jsonrpc":"2.0","id":1,"method":"check","params":{"field":"tcp.srcport"}}`
   + e.g. `{{"jsonrpc":"2.0","id":1,"method":"check","params":{"filter":"tcp.dstport==80"}}`
-- [complete](sharkd-Request-Syntax#complete) - returns the properties of a field(s) or preference(s) based on a partial or complete reference
+- [complete](sharkd-JSON-RPC-Request-Syntax#complete) - returns the properties of a field(s) or preference(s) based on a partial or complete reference
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"complete","params":{"field":"http.request.method"}}`
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"complete","params":{"field":"http.request"}}`
-- [download](sharkd-Request-Syntax#download) - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
+- [download](sharkd-JSON-RPC-Request-Syntax#download) - get decoded objects (exported objects, SSL secrets or rtp data); some downloaded data is base64 encoded
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"download","params":{"token":"eo:http_0"}}`
   + See tshark --export-objects and the Export Objects function in Wireshark
-- [dumpconf](sharkd-Request-Syntax#dumpconf) - list one, some or all configuration parameters
+- [dumpconf](sharkd-JSON-RPC-Request-Syntax#dumpconf) - list one, some or all configuration parameters
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"dumpconf","params":{"pref":"tcp.desegment_tcp_streams"}}`
-- [follow](sharkd-Request-Syntax#follow) - get client and server information for a particular protocol or stream plus the data payload which is JSON-Base64 encoded to accommodate binary content.
+- [follow](sharkd-JSON-RPC-Request-Syntax#follow) - get client and server information for a particular protocol or stream plus the data payload which is JSON-Base64 encoded to accommodate binary content.
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"follow","params":{"follow":"HTTP","filter":"tcp.stream==0"}}`
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"follow","params":{"follow":"TCP","filter":"tcp.stream==1"}}`
-- [frame](sharkd-Request-Syntax#frame) - get full information about a frame including the protocol tree
+- [frame](sharkd-JSON-RPC-Request-Syntax#frame) - get full information about a frame including the protocol tree
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"frame","params":{"frame":4, "proto":"true"}}`
-- [frames](sharkd-Request-Syntax#frames) - get Packet List information for a range of packets
+- [frames](sharkd-JSON-RPC-Request-Syntax#frames) - get Packet List information for a range of packets
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"frames","params":{"filter":"frame.number<=20"}}`
-- [info](sharkd-Request-Syntax#info) - get a list of format and statistics information types available to sharkd clients
+- [info](sharkd-JSON-RPC-Request-Syntax#info) - get a list of format and statistics information types available to sharkd clients
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"info"}`
   + Equivalent to the tshark -G option
-- [intervals](sharkd-Request-Syntax#intervals) - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
+- [intervals](sharkd-JSON-RPC-Request-Syntax#intervals) - generate basic capture statistics (total frames and total bytes) per requested interval (default is per second)
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"intervals"}`
-- [iograph](sharkd-Request-Syntax#iograph) - creates time sequenced list of values for graphing; default is second-by-second
+- [iograph](sharkd-JSON-RPC-Request-Syntax#iograph) - creates time sequenced list of values for graphing; default is second-by-second
   + e.g. `{"req":"iograph","graph0":"packets"}`
-- [load](sharkd-Request-Syntax#load) - load a packet trace file for analysis
+- [load](sharkd-JSON-RPC-Request-Syntax#load) - load a packet trace file for analysis
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"load","params":{"file":"c:\\traces\\example.pcapng"}}`
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"load","params":{"file":"c:/traces/example.pcapng"}}`
-- [setcomment](sharkd-Request-Syntax#setcomment) - set the comment in a frame in the loaded trace - not saved to trace file
+- [setcomment](sharkd-JSON-RPC-Request-Syntax#setcomment) - set the comment in a frame in the loaded trace - not saved to trace file
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"setcomment","params":{"frame":1,"comment":"Hello world"}}`
-- [setconf](sharkd-Request-Syntax#setconf) - set a configuration parameter
+- [setconf](sharkd-JSON-RPC-Request-Syntax#setconf) - set a configuration parameter
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"setconf","params":{"name":"tcp.desegment_tcp_streams","value":"TRUE"}}`
-- [status](sharkd-Request-Syntax#status) - get basic information about the loaded file (name, size, number of frames, etc.)
+- [status](sharkd-JSON-RPC-Request-Syntax#status) - get basic information about the loaded file (name, size, number of frames, etc.)
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"status"}`
-- [tap](sharkd-Request-Syntax#tap) - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
+- [tap](sharkd-JSON-RPC-Request-Syntax#tap) - setup up to 16 statistics taps and get statistics from them; tap types are stats, nstat, conv, host, rtp-streams, rtp-analyse, eo, expert, rtd, srt and flow
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"tap","params":{"tap0":"expert"}}`
   + e.g. `{"jsonrpc":"2.0","id":1,"method":"tap","params":{"tap0":"eo:http"}}`
 
@@ -154,7 +154,7 @@ Entering JSON requests through the Console Interface sometimes generates additio
 load: filename=c:/traces/Contoso_01/web01/web01_00001_20161012151754.pcapng
 {"jsonrpc":"2.0","id":1,"result":{"status":"OK"}}
 ```
-The wiki page [sharkd Request Syntax](sharkd-Request-Syntax) gives full details of the request types and their parameters.
+The wiki page [sharkd JSON RPC Request Syntax](sharkd-JSON-RPC-Request-Syntax) gives full details of the request types and their parameters.
 
 ## Bugs
 
