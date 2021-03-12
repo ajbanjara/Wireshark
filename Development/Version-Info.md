@@ -1,5 +1,8 @@
 ### Npcap version is that of system data was collected on, not that which was bundled with Wireshark  
   
+[Wireshark 3.2.3](/Development/Version-Info/3.2.3-Wireshark-(Windows))  
+[Tshark 3.2.3](/Development/Version-Info/3.2.3-Tshark-(Windows))
+  
 [Wireshark 3.2.4](/Development/Version-Info/3.2.4-Wireshark-(Windows))  
 [Tshark 3.2.4](/Development/Version-Info/3.2.4-Tshark-(Windows))
   
