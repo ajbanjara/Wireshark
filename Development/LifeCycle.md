@@ -34,7 +34,8 @@ For the planning of the upcoming releases and their proposed contents see the [r
 
 ## Past Releases
 
-Release Notes for each release are available on the [main site](https://www.wireshark.org/docs/relnotes/).
+Release Notes for each release are available on the [main site](https://www.wireshark.org/docs/relnotes/).  
+[Version Info](/Development/Version-Info) (build components) for past Windows releases.
 
 The git change log provides good information about changes in each release:
 
