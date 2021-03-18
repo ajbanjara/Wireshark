@@ -66,7 +66,9 @@ A protocol can belong to more than one family.
 
 ## General
 
-  - [OsiModel](/OsiModel): The famous ISO/OSI 7 layer protocol stack reference model, see the definition at [wikipedia.org](http://en.wikipedia.org/wiki/Osi_model).
+  - [Frame](/Protocols/frame): The frame protocol isn't a real protocol itself, but used by Wireshark as a base for all the protocols on top of it.
+
+  - OsiModel: The famous ISO/OSI 7 layer protocol stack reference model, see the definition at [wikipedia.org](http://en.wikipedia.org/wiki/Osi_model).
 
   - [RFC](/RFC): Request For Comments: Not a protocol itself, but the place where a lot of the internet protocol standards can be found.
 
