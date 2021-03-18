@@ -8,7 +8,7 @@ IP addresses in the range 224.0.0.0 to 239.255.255.255 (224/4) have been reserve
 
 ## Mapping IPv4 Multicast Addresses to Ethernet
 
-In order for multicast to work properly in IP-over-Ethernet, each IP multicast address must be mapped to a corresponding Ethernet multicast address. The IANA owns an [Ethernet](/Ethernet) OUI (01:00:5e), half of which has been reserved for this purpose. There's a slight problem, however — the address space for IP multicast addresses (28 bits) is bigger than the range of addresses reserved in the Ethernet OUI (23 bits).
+In order for multicast to work properly in IP-over-Ethernet, each IP multicast address must be mapped to a corresponding Ethernet multicast address. The [IANA](https://www.iana.org/assignments/ethernet-numbers/ethernet-numbers.xhtml#ethernet-numbers-1) owns an [Ethernet](/Ethernet) OUI (01:00:5e), half of which has been reserved for this purpose. There's a slight problem, however — the address space for IP multicast addresses (28 bits) is bigger than the range of addresses reserved in the Ethernet OUI (23 bits).
 
 To get around this, only the lower 23 bits of each IP multicast address are used for the mapping.
 
