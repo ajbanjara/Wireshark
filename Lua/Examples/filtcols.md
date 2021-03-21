@@ -112,4 +112,78 @@ const value_string ssl_version_short_names[] = {
                 val_to_str_const(session->version, ssl_version_short_names, "SSL"));
 ```
 
-There is `session->version` but it's not available to use in a display filter.
+There is `session->version` but it's not available to use in a display filter.  
+  
+## Notes
+  
+**Pinfo and pinfo.cols - where do they come from?**
+
+The [Wireshark Lua API Reference](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm_modules.html) is [`auto-generated`](https://gitlab.com/wireshark/wireshark/-/blob/master/doc/README.wslua) from files in [epan/wslua](https://gitlab.com/wireshark/wireshark/-/tree/master/epan/wslua) and included 
+ in the [Wireshark Developer’s Guide](https://www.wireshark.org/docs/wsdg_html_chunked/). 
+All the information is there but it's sometimes quicker to look at the source.  
+  
+As used in `filtcols`:  
+  
+`pinfo.number`, `pinfo.cols`:  
+[Pinfo](https://www.wireshark.org/docs/wsdg_html_chunked/lua_module_Pinfo.html#lua_class_Pinfo) source is [epan/wslua/wslua_pinfo.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/wslua/wslua_pinfo.c) which combines [epan/packet_info.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/packet_info.h), [epan/frame_data.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/frame_data.h) and maybe others?  
+  
+`pinfo.cols.protocol`, `pinfo.cols.info`:  
+[Columns](https://www.wireshark.org/docs/wsdg_html/#lua_class_Columns) source in [epan/wslua/wslua_column.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/wslua/wslua_column.c) which aligns with [epan/column-utils.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/column-utils.h).
+  
+**Why is pinfo.cols returning an empty value?**  
+  
+[tshark](https://www.wireshark.org/docs/man-pages/tshark.html) has special magical incantations for whether or not it populates the `cinfo` that Lua pulls pinfo.cols data from. There is an open merge request ([2473: tshark: add --columns option](https://gitlab.com/wireshark/wireshark/-/merge_requests/2473)) to add an option to explicitly create the column data.  
+
+[tshark.c](https://gitlab.com/wireshark/wireshark/-/blob/master/tshark.c)  
+<pre>
+    /* We only need the columns if either
+         1) some tap needs the columns
+       or
+         2) we're printing packet info but we're *not* verbose; in verbose
+            mode, we print the protocol tree, not the protocol summary.
+       or
+         3) there is a column mapped as an individual field */
+    if ((tap_flags & TL_REQUIRES_COLUMNS) || (print_packet_info && print_summary) || output_fields_has_cols(output_fields))
+      cinfo = &cf->cinfo;
+    else
+      cinfo = NULL;
+</pre>
+
+`-T fields` will create the data but at that point you may as well add `-e _ws.col.info` and `-e _ws.col.protocol` to the command and skip Lua.  
+Until then try `-V` as mentioned in [11.7.1. TreeItem](https://www.wireshark.org/docs/wsdg_html_chunked/lua_module_Tree.html#lua_class_TreeItem) or `-P` ([tshark man page: DESCRIPTION](https://www.wireshark.org/docs/man-pages/tshark.html) but be aware `-T` options will foobar things.
+
+<pre>
+      } else if (strcmp(optarg, "pdml") == 0) {
+        output_action = WRITE_XML;
+        print_details = TRUE;   /* Need details */
+        print_summary = FALSE;  /* Don't allow summary */
+      } else if (strcmp(optarg, "psml") == 0) {
+        output_action = WRITE_XML;
+        print_details = FALSE;  /* Don't allow details */
+        print_summary = TRUE;   /* Need summary */
+      } else if (strcmp(optarg, "fields") == 0) {
+        output_action = WRITE_FIELDS;
+        print_details = TRUE;   /* Need full tree info */
+        print_summary = FALSE;  /* Don't allow summary */
+      } else if (strcmp(optarg, "json") == 0) {
+        output_action = WRITE_JSON;
+        print_details = TRUE;   /* Need details */
+        print_summary = FALSE;  /* Don't allow summary */
+      } else if (strcmp(optarg, "ek") == 0) {
+        output_action = WRITE_EK;
+        if (!print_summary)
+          print_details = TRUE;
+      } else if (strcmp(optarg, "jsonraw") == 0) {
+        output_action = WRITE_JSON_RAW;
+        print_details = TRUE;   /* Need details */
+        print_summary = FALSE;  /* Don't allow summary */
+      }
+</pre>
+
+**Nil vs Null**  
+[Lua: What's the difference between null and nil?](https://stackoverflow.com/questions/31323443/lua-whats-the-difference-between-null-and-nil)  
+[Lua Reference Manual](https://www.lua.org/pil/2.1.html): "Nil is a type with a single value, nil, whose main property is to be different from any other value."  
+  
+The 1.0.0 version of `filtcols` did comparisons against `NULL` (oops) and happened to work in Wireshark but not tshark. [@cjmaynard](https://gitlab.com/cjmaynard) fixed it in this Wireshark Q&A question: [Tshark LUA Script](https://ask.wireshark.org/question/21374/tshark-lua-script/)  
+  
+`FIXME` - update script here on Wiki page.
