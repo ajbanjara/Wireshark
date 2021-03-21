@@ -415,7 +415,9 @@ One tool that is particularly effective and flexible for performing channel hopp
 
 If you are looking for a simpler channel hopping solution, you can use the following shell script; modify it to suit your needs.
 
-<http://802.11ninja.net/code/chanhop.sh>
+`http://802. 11ninja. net/code/chanhop.sh`  
+  
+210321 - link not working. Web search for `chanhop.sh` returns several versions.  
 
 Save this script to a file (e.g. /usr/local/bin/chanhop.sh) and run:
 
