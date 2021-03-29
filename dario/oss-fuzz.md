@@ -1,8 +1,8 @@
 # Compile wireshark to reproduce OSS-fuzz testcases
 
 ```
-cmake -g -DCMAKE\_C\_COMPILER=clang-10 -DCMAKE\_CXX\_COMPILER=clang++-10
--DCMAKE\_BUILD\_TYPE=Debug -DENABLE\_ASAN=1 -DENABLE\_UBSAN=1 -DENABLE\_FUZZER=1 -GNinja ..
+cmake -g -DCMAKE_C_COMPILER=clang-10 -DCMAKE_CXX_COMPILER=clang++-10
+-DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=1 -DENABLE_UBSAN=1 -DENABLE_FUZZER=1 -GNinja ..
 ninja all-fuzzers
 ./run/fuzzshark_ip <testcase>
 ```
