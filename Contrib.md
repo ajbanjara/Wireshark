@@ -222,6 +222,12 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>unknown</p></td>
 <td><p>A post-dissector to allow filtering on Protocol and Info columns</p></td>
 </tr>
+<tr class="odd">
+<td><p><a href="uploads/3a12c9e0124a04e0771ec56fc7e9a7a5/arp_host.lua" class="attachment">arp_host.lua</a></p></td>
+<td><p>1.0.0</p></td>
+<td><p>unknown</p></td>
+<td><p>Hacked up version of "Extract field values" to answer [Resolved or Mapped ARP Target IP Address](https://ask.wireshark.org/question/22016/resolved-or-mapped-arp-target-ip-address/)</p></td>
+</tr>
 </tbody>
 </table>
 
