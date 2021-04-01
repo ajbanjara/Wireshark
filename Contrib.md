@@ -228,6 +228,12 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>unknown</p></td>
 <td><p>Hacked up version of [Extract field values](https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples#extract-field-values) to answer [Resolved or Mapped ARP Target IP Address](https://ask.wireshark.org/question/22016/resolved-or-mapped-arp-target-ip-address/)</p></td>
 </tr>
+<tr class="even">
+<td><p><a href="uploads/960ae7841b94b0fc6cefc90b2055a057/ip_src_alternate.lua" class="attachment">ip_src_alternate.lua</a></p></td>
+<td><p>1.0.0</p></td>
+<td><p>unknown</p></td>
+<td><p>A blend of filtcols.lua and arp_host.lua to answer [How do I find two consecutive frames from the same IP source address](https://ask.wireshark.org/question/22090/how-do-i-find-two-consecutive-frames-from-the-same-ip-source-address/)</p></td>
+</tr>
 </tbody>
 </table>
 
