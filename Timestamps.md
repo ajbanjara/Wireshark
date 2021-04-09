@@ -22,6 +22,8 @@ Please put some hard facts here ...
 
 Just simply add measurement values (and the hard facts on the environment) on a specific platform so others can participate ...
 
+OS level explanation of timestamps: [Frame Arrival Time drift](https://ask.wireshark.org/question/6330/frame-arrival-time-drift/)
+
 ---
 
 Imported from https://wiki.wireshark.org/Timestamps on 2020-08-11 23:26:39 UTC
