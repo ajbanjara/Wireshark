@@ -381,6 +381,9 @@ The current latest installer can be found on the Npcap home page at <https://nma
 
 Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect [Npcap](https://nmap.org/npcap/) presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
 
+**Monitor Mode working again with [npcap 1.30](https://www.wireshark.org/lists/wireshark-dev/202104/msg00013.html). Results are YMMV based on the [adapter used](https://twitter.com/bonsaiviking/status/1381257960404434947).**  
+Example capture with Panda PAU06 (802.11n USB Wireless LAN Card) vs internal Intel(R) Dual Band Wireless-AC 7260: [210411_win10_radiotap.pcapng](uploads/a1fc307b47b031f2e2cfd9dd6c7eecf4/210411_win10_radiotap.pcapng)
+
 #### WinPcap
 
 <span id="windows" class="anchor"></span> Capturing WLAN traffic on Windows depends on [WinPcap](/WinPcap) and on the underlying network adapters and drivers. Unfortunately, [WinPcap](/WinPcap) doesn't support monitor mode and, on Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
