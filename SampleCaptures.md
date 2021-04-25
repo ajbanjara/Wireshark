@@ -1922,6 +1922,8 @@ Please refer to [gRPC dissector description page](/gRPC) for how to use the samp
 
 [erf-ethernet-example.erf](uploads/__moin_import__/attachments/SampleCaptures/erf-ethernet-example.erf) A Endace [ERF](/ERF) capture file.
 
+[pcapng-example.pcapng](uploads/96afe21b136f715d5b96df4a646c57d9/pcapng-example.pcapng) A PCAPNG example file with comments, name resolution and TLS secrets.
+
 ## Captures used in Wireshark testing
 
 The following are used during Wireshark testing, and are from the test/captures directory.
@@ -2116,4 +2118,3 @@ Does anyone have a sample trace of Q-in-Q (IEEE 802.1ah) or MAC-in-MAC? If you a
 
 ---
 
-Imported from https://wiki.wireshark.org/SampleCaptures on 2020-08-11 23:24:23 UTC
