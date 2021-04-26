@@ -110,9 +110,10 @@ Setting the label requires manual interaction (atm). So yes, this label won't re
 
 Furthermore a normal user is not allowed to set labels at the moment. Having the label in the issue template won't add the label when opening an issue.
 
-Maybe we need another bot (like triage-ops [2]) to set labels automatically.
+Maybe we need another bot (like triage-ops [3]) to set labels automatically.
 
 
 
 [1]: https://docs.gitlab.com/ee/user/project/labels.html
 [2]: https://docs.gitlab.com/ee/user/project/labels.html#scoped-labels
+[3]: https://gitlab.com/gitlab-org/quality/triage-ops
