@@ -96,7 +96,7 @@ For the future I propose to have this set of labels:
 | version::dev|Development or prerelease versions|
 |ws-status::unconfirmed | This bug has recently been added to the issue tracker. Nobody has confirmed that this bug is valid.
 |ws-status::confirmed | This bug is valid.
-|ws-status::waiting-for-response | To solve this issue additional data of information (a sample capture for example) is required. Most of the time the creator of the issue should add this data.
+|ws-status::waiting-for-response | To solve this issue additional data or information (a sample capture for example) is required. Most of the time the creator of the issue should add this data.
 |ws-status::in-progress | This bug is not yet resolved, but is assigned to the proper person who is working on the bug.
 |ws-status::invalid | The problem described is not a bug or not our bug.
 |ws-status::wontfix | The problem described is a bug which will never be fixed.
