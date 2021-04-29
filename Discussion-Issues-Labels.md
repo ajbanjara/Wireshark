@@ -69,7 +69,7 @@ For the future I propose to have this set of labels:
 | --- | --- | --- |
 | build|The tools and environment required to create Wireshark. This includes CMake, Visual Studio, gcc, clang, NSIS, and associated testing and packaging scripts.| manually, automatically |
 | crash|Crash or hang in a Wireshark executable| manually, automatically |
-| docs|Documentation|
+| docs|Documentation| manually |
 |enhancement|Enhancement or feature request| automatically via template |
 | translations|Translation and localization in Wireshark| manually |
 | web sites|The Wireshark web sites, including www.wireshark.org ask.wireshark.org, and gitlab.wireshark.org. Problems with infrastructure-related network services such as SMTP and DNS should be reported here as well.| manually |
