@@ -75,7 +75,7 @@ For the future I propose to have this set of labels:
 | web sites|The Wireshark web sites, including www.wireshark.org ask.wireshark.org, and gitlab.wireshark.org. Problems with infrastructure-related network services such as SMTP and DNS should be reported here as well.| manually |
 | cli::dumpcap|Packet capture tool used by Wireshark, TShark, and sharkd| manually |
 | cli::other|Other commmand line utilities that ship with Wireshark: editcap, mergecap, capinfos, text2pcap, etc.| manually |
-| ui::tshark|The TShark text-mode analyzer| manually |
+| cli::tshark|The TShark text-mode analyzer| manually, automatically |
 | ui::qt|The main Wireshark (Qt) UI| manually |
 | lib::lua| LUA extension | manually |
 | lib::wireshark|The library that dissects packets| manually |
@@ -86,8 +86,8 @@ For the future I propose to have this set of labels:
 | os::other|FreeBSD, NetBSD, OpenBSD, AIX, HP-UX, Solaris, and other OS| manually |
 | os::windows|Microsoft Windows| manually |
 | version::outdated|Version reached end of life | automatically |
-| version::3.2|Version 3.2.x| manually (maybe automatically) |
-| version::3.4|Versions 3.4.x| manually (maybe automatically) |
+| version::3.2|Version 3.2.x| manually, maybe automatically |
+| version::3.4|Versions 3.4.x| manually, maybe automatically |
 | version::dev|Development or prerelease versions| manually, automatically |
 |ws-status::unconfirmed | This bug has recently been added to the issue tracker. Nobody has confirmed that this bug is valid. | automatically |
 |ws-status::confirmed | This bug is valid. | manually |
