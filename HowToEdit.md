@@ -53,11 +53,11 @@ Please save screen captures as PNG or GIF. JPEG can introduce artifacts that mak
 
 **Note:** The instructions below have not been updated for the new Wiki. In particular, redirections do not work the same way, and [all existing redirections are broken](https://gitlab.com/wireshark/gitlab-migration/-/issues/6).
 
-It's often the case that a protocol is known under different names or abbreviations, e.g. HTTP or [HyperTextTransferProtocol](/HyperTextTransferProtocol), or ...
+It's often the case that a protocol is known under different names or abbreviations, e.g. HTTP or [HyperTextTransferProtocol](/Hyper_Text_Transfer_Protocol), or ...
 
 To prevent duplicated content, redirections are used, so one master page exists with maybe one or even more redirection pages pointing to it. When the wiki user clicks on this redirected term, he/she will see the master page, with a small comment at the top of the page about the redirection.
 
-The master page should be named the way it's often used in the text on other pages (most of the time this will be the abbreviated protocol name). This results in not showing the redirection note most of the time. For example: to reduce typing, I would typically use HTTP in my texts, instead of the much longer [HyperTextTransferProtocol](/HyperTextTransferProtocol), although this might be useful at some places.
+The master page should be named the way it's often used in the text on other pages (most of the time this will be the abbreviated protocol name). This results in not showing the redirection note most of the time. For example: to reduce typing, I would typically use HTTP in my texts, instead of the much longer [HyperTextTransferProtocol](/Hyper_Text_Transfer_Protocol), although this might be useful at some places.
 
 When creating the master page, it's a good idea to use the Protocol Template page, which will give you a skeleton to fill in common protocol data.
 
