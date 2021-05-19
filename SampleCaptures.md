@@ -422,6 +422,10 @@ Apple [AirTunes](/AirTunes) protocol as used by [AirPort](/AirPort). See <http:/
 
 [Bluetooth1.cap](uploads/__moin_import__/attachments/SampleCaptures/Bluetooth1.cap) (Linux BlueZ hcidump) Contains some [Bluetooth](/Bluetooth) packets captured using hcidump.
 
+### CredSSP
+
+[ws-cssp.tgz](uploads/8c35b41dcf37fa3dd795e08f73f15991/ws-cssp.tgz) Contains rdp sessions from Windows and freerdp clients, featuring CredSSP over TLS, GSS-KRB5, SPNEGO and U2U (user-to-user). Certificate key and Kerberos keytab included.
+
 ### UDP-Lite
 
 Several [UDP-Lite](/UDP-Lite) packets, some correct, some wrong.
