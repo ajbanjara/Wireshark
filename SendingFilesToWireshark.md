@@ -17,6 +17,7 @@ It's sometimes necessary to send files to one of the Wireshark [mailing lists](h
 If your capture file **does not** contain sensitive information it can be attached to a [bug report](/ReportingBugs), the [SampleCaptures](/SampleCaptures) page or sent to the wireshark-users or wireshark-dev mailing list.
 
 If your capture file **does** contain sensitive information, it should be attached to a [bug report](/ReportingBugs) and marked *private* - the [SampleCaptures](/SampleCaptures) page and the Wireshark mailing lists are public, so if you attach a capture file to the [SampleCaptures](/SampleCaptures) page, anybody who can read that page can read your capture, and if you send it to one of the Wireshark mailing lists, everybody who is on that list will get a copy of your capture.
+(See the [Tools](/Tools#capture-file-editors-andor-anonymizers) page for utilities to anonymize data in a capture before uploading)
 
 Note also that if your capture file is large, you shouldn't send it to the list, as per the first item in the "Do's and Don'ts" list above.
 
