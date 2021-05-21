@@ -24,7 +24,6 @@ The screenshot shows dissection of the baseband frames with several segmented an
 
 The DVB-S2 dissector is fully functional. There are some missing features which might be implemented in future (this list is sorted with descending priority, highest priority is on the first bullet):
 
-  - reassembly of segmented GSE packets (over several baseband frames)
   - display other baseband payload then GSE (e.g. MPE)
   - label re-use (display last used label)
   - RTP support
@@ -32,12 +31,17 @@ The DVB-S2 dissector is fully functional. There are some missing features which 
 
 ## Preference Settings
 
-  - Enable dissector
+  - Enable dissection of USER DATA
   - Enable dissection of GSE data
 
-In the protocol preference settings the DVB-S2 dissector can be globally enabled or disabled. This setting defaults to "disabled".
+The default setting of both preferences is "disabled", i.e. payload is displayed as hex data rather than dissected.
 
-To dissect the content of the captured GSE frame the second check box has to be selected. In case of segmentation of the GSE packets over several baseband frames the dissection of the encapsulated content is not supported at the moment. The default setting is "disabled", i.e. the content of the GSE frame is displayed as hex data.
+The first preference setting must be enabled in order to dissect any protocol layers above the BBHeader, e.g. the GSE packet header. (In the future this could be extended to TS packets.)
+
+The second preference setting must be enabled (along with the first) in order to dissect the payload of the captured GSE frame. (One potential use case is to avoid complicated filter expressions when GSE frames contain tunneled Ethernet and IP packets that might be confused with the outer layer Ethernet and IP.)
+
+There is a heuristic dissector for detecting DVB-S2-BB (more specifically, beginning at the mode adaptation layer) over UDP. By default it is disabled, and it must be enabled in 
+"Analyze->Enabled Protocols". (As the DVB-S2-BB dissector is not registered by name, does not have a libpcap link-layer type, and does not have registered well-known ports, there is no way to dissect packets without the heuristic dissector being enabled.)
 
 ## Example capture file
 
