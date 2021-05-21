@@ -59,11 +59,11 @@ Show only the protocol based traffic:
 
 ## External links and Standards reference
 
-1.  *[Mode Adaption Input and Output Interface](http://satlabs.org/pdf/sl_561_Mode_Adaptation_Input_and_Output_Interfaces_for_DVB-S2_Equipment_v1.3.pdf)*
+1.  *[Mode Adaption Input and Output Interface](https://web.archive.org/web/20170226064346/http://satlabs.org/pdf/sl_561_Mode_Adaptation_Input_and_Output_Interfaces_for_DVB-S2_Equipment_v1.3.pdf)*
 
-2.  *[DVB Framing Structure](http://www.etsi.org/deliver/etsi_en/302300_302399/302307/01.02.01_60/en_302307v010201p.pdf)*
+2.  *[DVB Framing Structure](https://www.etsi.org/deliver/etsi_en/302300_302399/30230701/01.04.01_20/en_30230701v010401a.pdf)*
 
-3.  *[DVB Generic Stream Encapsulation](http://www.etsi.org/deliver/etsi_ts/102600_102699/102606/01.01.01_60/ts_102606v010101p.pdf)*
+3.  *[DVB Generic Stream Encapsulation](https://www.etsi.org/deliver/etsi_ts/102600_102699/10260601/01.02.01_60/ts_10260601v010201p.pdf)*
 
 ## Discussion
 
