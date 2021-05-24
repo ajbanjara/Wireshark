@@ -217,18 +217,24 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>A blend of filtcols.lua and arp_host.lua to answer [How do I find two consecutive frames from the same IP source address](https://ask.wireshark.org/question/22090/how-do-i-find-two-consecutive-frames-from-the-same-ip-source-address/)</p></td>
 </tr>
 <tr class="even">
+<td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/PostDissector/IPv6-Post-dissector" class="https">ipv6-postdissector.lua</a></p></td>
+<td><p>1.2</p></td>
+<td><p>unknown</p></td>
+<td><p>An IPv6 post-dissector that fully expands all IPv6 addresses.</p></td>
+</tr>
+<tr class="odd">
 <td><p><a href="uploads/__moin_import__/attachments/Contrib/TCPextend-post_dissector.lua" class="attachment">TCPextend-post_dissector.lua</a></p></td>
 <td><p>v0.7-20150706</p></td>
 <td><p>1.10.0</p></td>
 <td><p>The TCP-extend plugin displays some additional TCP statistics information, as new fields which can be used in display filters, columns, etc. The plugin is hosted on <a href="https://github.com/gaddman/wireshark-tcpextend" class="https">github</a>, which you should see for details.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><a href="uploads/__moin_import__/attachments/Contrib/tcp_stats.lua" class="attachment">tcp_stats.lua</a></p></td>
 <td><p>2017-06-21</p></td>
 <td><p>1.10.0</p></td>
 <td><p>The TCP-Stats plugin scans through all TCP connections and provides a summarized statistics of MSS, Window Scaling, iRTT, Highest Delta and Lowest Window Size. Latest version at <a href="https://github.com/sgissi/snippets/blob/master/tcp_stats.lua" class="https">github</a>. It is meant to run from tshark, see script header for instructions</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><a href="uploads/__moin_import__/attachments/Contrib/transum.lua" class="attachment">transum.lua</a></p></td>
 <td><p>9b</p></td>
 <td><p>1.10.0</p></td>
