@@ -408,7 +408,7 @@ Apple [AirTunes](/AirTunes) protocol as used by [AirPort](/AirPort). See <http:/
 
 [rarp\_request.cap](uploads/__moin_import__/attachments/SampleCaptures/rarp_request.cap) (libpcap) A reverse ARP request.
 
-[rarp\_req\_reply.pcap](uploads/__moin_import__/attachments/SampleCaptures/rarp_req_reply.pcap) (pcapng) RARP request and reply.
+[rarp\_req\_reply.pcapng](uploads/5786c3aca4f163fdbdcf55d92da6c3f2/rarp_req_reply.pcapng) (pcapng) RARP request and reply.
 
 ### Spanning Tree Protocol
 
