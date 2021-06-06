@@ -202,6 +202,11 @@ Here are the steps:
     ```
     git pull --rebase upstream/master
     ```
+
+NOTE: syntax above needs a little work.  
+Should be `git rebase upstream/master` or `git pull --rebase upstream master` ???  
+See [git rebase upstream/master vs git pull --rebase upstream master](https://stackoverflow.com/questions/15602037/git-rebase-upstream-master-vs-git-pull-rebase-upstream-master) for discussion.
+
     This fetches Wireshark's master branch and reapplies your changes on top of it.
 
 - At this point you will likely have merge errors -- otherwise you wouldn't have been told so by the reviewer.
