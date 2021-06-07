@@ -223,6 +223,18 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>An IPv6 post-dissector that fully expands all IPv6 addresses.</p></td>
 </tr>
 <tr class="odd">
+<td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Taps/tap-subnet" class="https">tap-subnet.lua</a></p></td>
+<td><p>1.3</p></td>
+<td><p>unknown</p></td>
+<td><p>A tap that displays IPv4 subnet statistics in a GUI menu.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Taps/tap-resolved" class="https">tap-resolved.lua</a></p></td>
+<td><p>1.15</p></td>
+<td><p>3.2.0</p></td>
+<td><p>A tap that displays sorted resolved data in a GUI menu.</p></td>
+</tr>
+<tr class="odd">
 <td><p><a href="uploads/__moin_import__/attachments/Contrib/TCPextend-post_dissector.lua" class="attachment">TCPextend-post_dissector.lua</a></p></td>
 <td><p>v0.7-20150706</p></td>
 <td><p>1.10.0</p></td>
