@@ -408,7 +408,7 @@ Apple [AirTunes](/AirTunes) protocol as used by [AirPort](/AirPort). See <http:/
 
 [rarp\_request.cap](uploads/__moin_import__/attachments/SampleCaptures/rarp_request.cap) (libpcap) A reverse ARP request.
 
-[rarp\_req\_reply.pcap](uploads/__moin_import__/attachments/SampleCaptures/rarp_req_reply.pcap) (pcapng) RARP request and reply.
+[rarp\_req\_reply.pcapng](uploads/5786c3aca4f163fdbdcf55d92da6c3f2/rarp_req_reply.pcapng) (pcapng) RARP request and reply.
 
 ### Spanning Tree Protocol
 
@@ -1930,6 +1930,8 @@ Please refer to [gRPC dissector description page](/gRPC) for how to use the samp
 
 [erf-ethernet-example.erf](uploads/__moin_import__/attachments/SampleCaptures/erf-ethernet-example.erf) A Endace [ERF](/ERF) capture file.
 
+[pcapng-example.pcapng](uploads/96afe21b136f715d5b96df4a646c57d9/pcapng-example.pcapng) A PCAPNG example file with packets from interfaces with different link-layer types, file- and packet-comments, a name resolution block and a TLS session keys block.
+
 ## Captures used in Wireshark testing
 
 The following are used during Wireshark testing, and are from the test/captures directory.
@@ -2123,5 +2125,3 @@ Does anyone have a sample trace of Q-in-Q (IEEE 802.1ah) or MAC-in-MAC? If you a
 -----
 
 ---
-
-Imported from https://wiki.wireshark.org/SampleCaptures on 2020-08-11 23:24:23 UTC
