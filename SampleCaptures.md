@@ -765,6 +765,10 @@ Captures of protocols belonging to the [SIGTRAN](/SIGTRAN) family.
 
 [MagicJack+ short test call](uploads/__moin_import__/attachments/SampleCaptures/MagicJack-_short_call.pcap "MagicJack+ short test call") A complete telephone call example
 
+[sip-rtp-opus-hybrid.pcap](uploads/1868d73fee89fce9d77c6ba21929e773/sip-rtp-opus-hybrid.pcap) SIP and OPUS hybrid payloads, include OPUS-multiple frames packets.
+
+[rtp-opus-only.pcap](uploads/1d5d8e249b46a446eaecc7970b8d129d/rtp-opus-only.pcap) RTP Opus payloads only (without SIP/SDP).
+
 SIP calls between SIPp ([scenario file](https://git.lekensteyn.nl/peter/wireshark-notes/tree/sipsim/uac_media.xml)) and FreeSWITCH 1.6.12, playing [ivr-on\_hold\_indefinitely.wav](https://freeswitch.org/stash/projects/FS/repos/freeswitch-sounds/commits/d55f6602be073fda2138febf286954ad125c6878#sounds/trunk/fr/ca/june/48000/ivr/ivr-on_hold_indefinitely.wav) in one direction using various codecs:
 
   - [sip-rtp-dvi4.pcap](uploads/__moin_import__/attachments/SampleCaptures/sip-rtp-dvi4.pcap)
