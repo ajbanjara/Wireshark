@@ -1,6 +1,6 @@
 # An IPv6 post-dissector that fully expands all IPv6 addresses.  
 
-This post-dissector was written for someone who requested this feature, although I can no longer remember who that was or when exactly I first supplied provided the post-dissector.  
+This post-dissector was written for someone who requested this feature, although I can no longer remember who that was or when exactly I first provided the post-dissector.  
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
 
