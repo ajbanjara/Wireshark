@@ -2,6 +2,8 @@
 
 Wireshark can save network packet dissections in a PDML (Packet Description Markup Language) file. PDML conforms to the [XML](https://en.wikipedia.org/wiki/XML) standard and contains details about the packet dissection.
 
+[Where can I get the official document about pdml file format?](https://ask.wireshark.org/question/23198/where-can-i-get-the-official-document-about-pdml-file-format/)
+
 ## Programs supporting this file type
 
   - Wireshark
@@ -30,7 +32,24 @@ If you like to use the java XSLT processor [saxon](http://saxon.sourceforge.net)
 
   - <http://cubic.org/~doj/pdml/cubic.pdml> show HTML conversion of the example PDML file in your web browser.
 
+  - [README.xml-output](https://gitlab.com/wireshark/wireshark/-/blob/master/doc/README.xml-output) also mentions `Packet Summary Markup Language (PSML)`
+
+  - [Using XML for Efficient and Modular Packet Processing](https://staff.polito.it/mario.baldi/publications/2005GlobeComm_NetPDL.pdf)
+
+  - [PDML Specification](https://web.archive.org/web/20060103131443/http://analyzer.polito.it:80/30alpha/docs/dissectors/PDMLSpec.htm) (Internet Archive)
+
+  - [Original commit](https://gitlab.com/wireshark/wireshark/-/commit/058ef64db8ce40909a18c91ab4805804362f80cb) Add the ability to print packet dissections in PDML (an XML-based format)
+
+  - [PSML](https://gitlab.com/wireshark/wireshark/-/commit/f4564cf6aa66ac7c2c5d12388b201fc67b40cfc7) added PSML output to the printing dialog
+
+
 ## Discussion
+
+```
+#define PDML_VERSION "0"
+#define PSML_VERSION "0"
+```
+Versions still at `0` in [print.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/print.c). Have there been any changes that merit updating them?
 
 ---
 
