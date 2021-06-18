@@ -1,3 +1,5 @@
+## WARNING: The code that implements this version of sharkd has not yet been merged.
+
 The available sharkd request methods are:
 
 - [analyse](#analyse)
