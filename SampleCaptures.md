@@ -424,7 +424,9 @@ Apple [AirTunes](/AirTunes) protocol as used by [AirPort](/AirPort). See <http:/
 
 ### CredSSP
 
-[ws-cssp.tgz](uploads/8c35b41dcf37fa3dd795e08f73f15991/ws-cssp.tgz) Contains rdp sessions from Windows and freerdp clients, featuring CredSSP over TLS, GSS-KRB5, SPNEGO and U2U (user-to-user). Certificate key and Kerberos keytab included.
+[ws-cssp.tgz](uploads/8c35b41dcf37fa3dd795e08f73f15991/ws-cssp.tgz) Contains RDP sessions from Windows and freerdp clients, featuring CredSSP over TLS, GSS-KRB5, SPNEGO and U2U (user-to-user). Certificate key and Kerberos keytab included.
+
+[TSRemoteGuardCreds.tgz](uploads/b268382f9025e0e45501431e33009738/TSRemoteGuardCreds.tgz) Contains an RDP session using remoteguard (TSRemoteGuardCreds).
 
 ### UDP-Lite
 
