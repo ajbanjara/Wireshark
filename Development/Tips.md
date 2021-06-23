@@ -12,14 +12,11 @@ Sometimes you just want to peek at some variables to see whats going on in your 
     
     Start Wireshark and go to Edit->Preferences...->Advanced. In the Search: box enter "console", then select  `gui.console_open` in the search results. Change Value to 'ALWAYS' and click the Ok button.
 
-  - Look for the 'logging level' (`console.log.level`) preference, and set it to 252 to include all messages. (This value is a bitwise OR of [GLogLevelFlags](https://github.com/GNOME/glib/blob/glib-2-46/glib/gmessages.h#L51)). When the log level is 0 (default) all messages are hidden. The default value of 28 is set in [prefs.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/prefs.c):  
-`    prefs.console_log_level = G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL | G_LOG_LEVEL_ERROR;`
-
-  - put `g_log` statements in your code (`g_debug`, `g_message`, `g_info`, `g_warning`, `g_error`, see [GLib Message Logging](https://developer.gnome.org/glib/stable/glib-Message-Logging.html)) or (in case the log level is 0) `g_print`. Also available is `proto_tree_add_debug_text(tree, format)` which will display debug message right in the place. Check proto.c for details.
-
-When running `tshark` from a shell, you can also set the log level preference directly:
-
-    tshark -oconsole.log.level:252 -r some.pcap
+  - Wireshark logging broadly adopts the concept of domain and level from the GLib Messages and Logging API. You can filter the log level using the command-line option `--log-level=<level>` or the environment variable `WIRESHARK_LOG_LEVEL=<level>`. You can filter the domain using `--log-domains=<domain>` or `WIRESHARK_LOG_DOMAINS=<domain>`. The domain filter accepts a comma separated list of domains. The log levels available by increasing verbosity are "critical", "warning", "message" (default), "info", "debug" and "noisy". Level "noisy" usually more useful if you know what you are looking for and can filter log output to a specific domain.
+```
+$ tshark --log-level=noisy --log-domain=main,capture --log-file=/tmp/wsdebug -r some.pcap
+```
+  - put `ws_log` statements in your code (`ws_debug`, `ws_info`, `ws_message`, etc..., see [wsutil/wslog.h](https://gitlab.com/wireshark/wireshark/-/blob/master/wsutil/wslog.h)) or `g_print`. Also available is `proto_tree_add_debug_text(tree, format)` which will display debug message right in the place. Check proto.c for details.
 
 If you have your eye on some condition, so you can add the following to your code:
 
