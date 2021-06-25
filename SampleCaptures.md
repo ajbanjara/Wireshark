@@ -1105,19 +1105,47 @@ File **[dcerpc-winreg-with-rpc-sec-verification-trailer.pcap](uploads/__moin_imp
 File **[dcerpc\_witness.pcapng](uploads/__moin_import__/attachments/SampleCaptures/dcerpc_witness.pcapng)  
 **Description: **Sample Witness traffic**
 
-### IPsec - ESP Payload Decryption and Authentication Checking Examples
+### IPsec
 
-File: **[ipsec\_esp\_capture\_1.tgz](uploads/__moin_import__/attachments/SampleCaptures/ipsec_esp_capture_1.tgz) [ESP](/ESP)  
-**Description: **Example for ESP payload Decryption and Authentication checking for simple transport mode in v4/v6.**
+#### Example 1: [ESP](/ESP) Payload Decryption and Authentication Checking Examples
 
-File: **[ipsec\_esp\_capture\_2.tgz](uploads/__moin_import__/attachments/SampleCaptures/ipsec_esp_capture_2.tgz) [ESP](/ESP)  
-**Description: **Example for ESP payload Decryption and Authentication checking for tunnel mode in v4.**
+**Archive:** [ipsec_esp.tgz](uploads/21afad41e961b83b9e74cf1fd500a9be/ipsec_esp.tgz)
 
-File: **[ipsec\_esp\_capture\_3.tgz](uploads/__moin_import__/attachments/SampleCaptures/ipsec_esp_capture_3.tgz) [ESP](/ESP)  
-**Description: **Example for ESP payload Decryption with authentication Checking for some more Encryption Algorithms not defined in RFC4305.**
+Some examples for ESP payload decryption and authentication checking from 2006. The four archives have been joined and the SAs have been converted from the Ethereal preferences format into an `esp_sa` uat file. Other from that, the examples are unchanged.
 
-File: **[ipsec\_esp\_capture\_5.tgz](uploads/__moin_import__/attachments/SampleCaptures/ipsec_esp_capture_5.tgz) [ESP](/ESP)  
-**Description: **Example of Authentication Checking and decryption using Hexadecimal keys.**
+**Contents:**
+
+- **ipsec_esp_capture_1**: ESP payload decryption and authentication checking for simple transport mode in v4/v6.
+- **ipsec_esp_capture_2**: ESP payload decryption and authentication checking for tunnel mode in v4.
+- **ipsec_esp_capture_3**: ESP payload decryption with authentication checking for some more encryption algorithms not defined in RFC4305.
+- **ipsec_esp_capture_5**: Authentication checking and decryption using binary keys specified as hexadecimal values
+
+**Contributors:** Frederic Roudaut (2006), Matthias  St. Pierre (2021)
+
+#### Example 2: Dissection of encrypted (and UDP-encapsulated) [IKEv2](/IKEv2) and [ESP](/ESP) messages
+
+**Archive:** [ipsec_ikev2+esp_aes-gcm_aes-ctr_aes-cbc.tgz](uploads/dc5b30a117424e6ed21c726771a4006b/ipsec_ikev2+esp_aes-gcm_aes-ctr_aes-cbc.tgz)
+
+A **VPN client** (192.168.245.131) behind a NAT device connects three times to a **VPN gateway** (172.16.15.92) using IKEv2, the user sends some pings through the VPN tunnel (192.168.225.0/24) to the gateway (192.168.225.1), which are returned successfully, and disconnects. The three connections differ by the AES operation modes (AES-GCM, AES-CTR, and AES-CBC, in that order) used for encrypting the IKE_AUTH and ESP messages:
+
+| Nr | Encryption                          | Authentication             |
+| -- | ------------------------------------| -------------------------- |
+|  1 | AES-GCM with 16 octet ICV [RFC4106] | NULL                       |
+|  2 | AES-CTR [RFC3686]                   | HMAC-SHA-256-128 [RFC4868] |
+|  3 | AES-CBC [RFC3602]                   | HMAC-SHA-256-128 [RFC4868] |
+
+The entire conversation (IKE+ESP) is sent UDP-encapsulated on port 4500.
+
+**Contents:**
+
+- **capture.pcap**: packet capture file
+- **esp_sa**: decryption table for the ESP SAs (requires [Merge Request !3444])
+- **esp_sa.no_icv** decryption table for the ESP SAs (without AES-GCM ICV length; for current releases of Wireshark)
+- **ikev2_decryption_table**: decryption table for the IKEv2 SAs
+
+[Merge Request !3444]: https://gitlab.com/wireshark/wireshark/-/merge_requests/3444
+
+**Contributor:** Matthias  St. Pierre
 
 ### Pro-MPEG FEC - Professional video FEC data over RTP
 
