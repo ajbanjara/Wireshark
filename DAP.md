@@ -20,15 +20,36 @@ XXX - Add example traffic here (as plain text or Wireshark screenshot).
 
 ## Wireshark
 
-The DAP dissector is fully functional, including support for signed operations.
+The DAP dissector is fully functional, including support for signed operations.  
+  
+From the source file [packet-dap.c](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-dap.c) (fodder for Wiki searches)    
+```c
+/* packet-dap.c
+ * Routines for X.511 (X.500 Directory Asbtract Service) and X.519 DAP  packet dissection
+ * Graeme Lunt 2005
+```
+```
+/* we don't have a separate dissector for X519 -
+   most of DAP is defined in X511 */
+#define PNAME  "X.519 Directory Access Protocol"
+```
+
 
 ## Preference Settings
 
-There is a single preference field for the DAP dissector, the DAP TCP Port - the port to which DAP associations are made. The default value is 102.
+There is a single preference field for the DAP dissector, the DAP TCP Port - the port to which DAP associations are made. The default value is 102.  
+  
+NOTE: moved in [31205360](https://gitlab.com/wireshark/wireshark/-/commit/3120536012bc85361e2e5cd204bd4aa91fb67ff6) :
+"Have TPKT support a TCP port range preference instead of having "subdissectors?" register their own."
+![210701_dap_preferences](uploads/48d4445f44e310aecb1377299e03c94b/210701_dap_preferences.png)
 
 ## Example capture file
 
-To be provided.
+To be provided.  
+  
+Attached to issue #5507 : "X.519 - BER: Dissector for OID:1.3.12.2.1011.5.4.1.1 and OID:1.3.12.2.1011.5.4.1.2 not implemented. Contact Wireshark developers if you want this supported"  
+  
+TSTI11_DSA.TRC: example trace file highlighting the missing dissector
 
 ## Display Filter
 
