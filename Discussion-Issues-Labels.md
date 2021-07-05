@@ -93,7 +93,9 @@ For the future I propose to have this set of labels:
 |ws-status::confirmed | This bug is valid. | manually |
 |ws-status::waiting-for-response | To solve this issue additional data or information (a sample capture for example) is required. Most of the time the creator of the issue should add this data. | manually |
 |ws-status::in-progress | This bug is not yet resolved, but is assigned to the proper person who is working on the bug. | automatically, manually |
-|ws-status::closed | The issue is closed (maybe fixed, not-our-bug, duplicate etc).| automatically |
+|ws-status::resolved | This issue has been resolved | automatically |
+|ws-status::wont-fix | This issue will not be fixed (maybe not our bug) | manually |
+|ws-status::closed | The issue is closed (maybe duplicate)| automatically, manually |
 
 
 The scoped label version has to be updated every time we introduce a new major version. All issues having a now end of life label have to be updated to version::outdated. This can easily be done with some API calls.
