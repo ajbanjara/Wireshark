@@ -64,13 +64,13 @@ Doing a quick and very dirty hack, replacing the pcap\_dispatch() by the pcap\_n
 
 One of the guys at Corvus Technologies has gathered all the information and instructions on how to get this working into one document. There is also an installer there of a working version.
 
-Instructions: <http://www.corvus.net/documents/wireshark-remote>
+Instructions: http: //www corvus net/documents/wireshark-remote
 
-Installer: <http://www.corvus.net/tools/> MD5:6095e0ec5e7c52b7feafad27201ef93a
+Installer: [http: //www corvus net/tools/](https://web.archive.org/web/20060902032851/http://www.corvus.net:80/tools/) MD5:6095e0ec5e7c52b7feafad27201ef93a
 
-Also, [here is a link](http://www.wireshark.org/lists/wireshark-dev/200507/msg00501.html) to a discussion on the Wireshark-Dev mailing list of this issue and the workaround/kludge Corvus took to enable remote packet capture.
+Also, [here is a link](http://www.wireshark.org/lists/ethereal-dev/200507/msg00501.html) to a discussion on the Ethereal-dev mailing list of this issue and the workaround/kludge Corvus took to enable remote packet capture.
 
-A [bugzilla entry](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=2809) details the steps involved in building support for the rpcap protocol on Linux.
+A [bugzilla entry](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=2809) ([Gitlab issue #2809](https://gitlab.com/wireshark/wireshark/-/issues/2809)) details the steps involved in building support for the rpcap protocol on Linux.
 
 ---
 
