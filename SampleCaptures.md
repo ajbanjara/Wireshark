@@ -606,7 +606,7 @@ Several [UDP-Lite](/UDP-Lite) packets, some correct, some wrong.
 
 [nsm.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/nsm.pcap.gz) (libpcap) A "fake" trace containing all [NSM](/NSM) functions.
 
-[getsetacl.cap](uploads/__moin_import__/attachments/SampleCapture/getsetacl.cap) (libpcap) A trace containing NFSACL functions.
+[getsetacl.cap](uploads/f44766777e18d287025137ceab7df83e/getsetacl.cap) (libpcap) A trace containing NFSACL functions.
 
 [nfsv4.1_pnfs.cap](uploads/__moin_import__/attachments/SampleCaptures/nfsv4.1_pnfs.cap) NFSv4.1 trace containing pNFS.
 
