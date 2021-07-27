@@ -2,7 +2,7 @@
 
 The rtptools distribution consists of a number of small applications (including rtpdump/rtpplay) that can be used for processing RTP data.
 
-<http://www.cs.columbia.edu/IRT/software/rtptools/>
+<https://github.com/irtlab/rtptools>
 
 Wireshark can write files in the same format as used by these tools.
 
@@ -16,9 +16,9 @@ Wireshark can write files in the same format as used by these tools.
 
 ### Format
 
-The rtpdump file format in Wireshark should (at least more or less) correspond to the binary file format used by the rtpdump/rtpplay program (rtptools). <http://www.cs.columbia.edu/IRT/software/rtptools/> You will also find a description of the file format on that page (but it may cause some confusion regarding padding/byte order)
+The rtpdump file format in Wireshark should (at least more or less) correspond to the binary file format used by the rtpdump/rtpplay program (rtptools). <https://github.com/irtlab/rtptools> You will also find a description of the file format on that page (but it may cause some confusion regarding padding/byte order)
 
-The description/source code in the Wireshark source tree (the file to look at is tap-rtp-common.c) may be a better source of information: <https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob;f=ui/tap-rtp-common.c>
+The description/source code in the Wireshark source tree (the file to look at is [tap-rtp-common.c](https://gitlab.com/wireshark/wireshark/-/blob/master/ui/tap-rtp-common.c)) may be a better source of information.
 
 Actually, the original author(s) of the file format specification on the above mentioned site did not specify alignment/padding issues for the file format. However the binary packages as well as example dump files available for download on that site stick to a certain scheme, which the implementation of Wireshark also does. That is there are two padding bytes at the end of the RD\_hdr\_t, which brings the RD\_hdr\_t to a size of 8 octets instead of 6. The rest is as noted, without any additional padding.
 
