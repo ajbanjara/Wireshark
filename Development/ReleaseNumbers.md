@@ -24,7 +24,7 @@ Additionally [automated builds](https://www.wireshark.org/download/automated/) i
 
   - There have been 1595 commits since the last minor release (3.2.0) was branched off.
 
-  - This build was triggered by [commit 584569932b06](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=commit;h=584569932b066fb4cc2f2c533743bf5c58c8c076).
+  - This build was triggered by [commit 584569932b06](https://gitlab.com/wireshark/wireshark/-/commit/584569932b066fb4cc2f2c533743bf5c58c8c076).
 
 During development it may be desirable to have more exposure of newly implemented features. Although the development builds are available for everyone to download occasionally a development snapshot will be released. Note that these aren't branched off from the development tree, nor maintained. To indicate that development continues the Maintenance release number will be incremented.
 

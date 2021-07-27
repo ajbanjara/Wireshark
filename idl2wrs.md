@@ -2,9 +2,9 @@
 
 `idl2wrs` is a tool to take CORBA IDL file(s) and generate plugins. For more information, refer to:
 
-  - The [doc/README.idl2wrs](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob;f=doc/README.idl2wrs;h=9d3e612c2fa09c499e2f0624c388f782776bc93d;hb=HEAD) file
+  - The [doc/README.idl2wrs](https://gitlab.com/wireshark/wireshark/-/blob/master/doc/README.idl2wrs) file
 
-  - Files in the [idl/](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=tree;f=idl;h=55e8fd778843f5489f6c07239d474590617de36c;hb=HEAD) directory
+  - Files in the [idl/](https://gitlab.com/wireshark/wireshark/-/tree/master/idl) directory
 
   - The [idl2wrs man page](http://www.wireshark.org/docs/man-pages/idl2wrs.html)
 

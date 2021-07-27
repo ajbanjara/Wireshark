@@ -109,7 +109,7 @@ As for the "Close this capture file" button:
 
 ## Links
 
-  - <https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob;f=doc/README.wmem>
+  - <https://gitlab.com/wireshark/wireshark/-/blob/master/doc/README.wmem>
 
 ---
 

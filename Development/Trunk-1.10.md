@@ -1,6 +1,6 @@
 # Past 1.10 Releases
 
-For other and upcoming releases, see the [Git repository shortlog](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs%2Fheads%2Fmaster-1.10).
+For other and upcoming releases, see the [Git repository shortlog](https://gitlab.com/wireshark/wireshark/-/commits/master-1.10).
 
 Release Notes for each release are available on the [main site](https://www.wireshark.org/docs/relnotes/).
 

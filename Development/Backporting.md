@@ -1,6 +1,6 @@
 # Backporting Changes
 
-Bug fixes are typically [cherry-picked](http://git-scm.com/docs/git-cherry-pick) from the [development branch](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=shortlog;h=refs/heads/master) to each stable branch. Backporting can be done a number of ways.
+Bug fixes are typically [cherry-picked](http://git-scm.com/docs/git-cherry-pick) from the [development branch](https://gitlab.com/wireshark/wireshark/-/commits/master/) to each stable branch. Backporting can be done a number of ways.
 
 ## Using Your Web Browser
 

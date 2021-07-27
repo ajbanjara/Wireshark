@@ -28,7 +28,7 @@ If you like to use the java XSLT processor [saxon](http://saxon.sourceforge.net)
 
 ## External links
 
-  - [pdml2html.xsl](https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob;f=pdml2html.xsl;hb=HEAD) in the Wireshark GIT repository.
+  - [pdml2html.xsl](https://gitlab.com/wireshark/wireshark/-/blob/master/pdml2html.xsl) in the Wireshark GIT repository.
 
   - <http://cubic.org/~doj/pdml/cubic.pdml> show HTML conversion of the example PDML file in your web browser.
 

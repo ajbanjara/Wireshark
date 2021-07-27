@@ -14,7 +14,7 @@ Most of Wireshark's code resides in packet-decoding logic, a.k.a dissectors, spr
 
 # Accepting and Committing Changes
 
-Wireshark's code is version managed in Git at <https://code.wireshark.org/review/gitweb?p=wireshark.git;a=summary>. If you are not familiar with Git, please read [Pro Git](http://git-scm.com/book). *master* is the main development branch and *master-2.0*, *master-1.12*, etc. are for maintaining the contents of stable release branches like Wireshark 2.0.x, 1.12.x, etc. respectively. Released versions are tagged as wireshark-\<release version\>, e.g. wireshark-1.12.4.
+Wireshark's code is version managed in Git at <https://gitlab.com/wireshark/wireshark>. If you are not familiar with Git, please read [Pro Git](http://git-scm.com/book). *master* is the main development branch and *master-2.0*, *master-1.12*, etc. are for maintaining the contents of stable release branches like Wireshark 2.0.x, 1.12.x, etc. respectively. Released versions are tagged as wireshark-\<release version\>, e.g. wireshark-1.12.4.
 
 Every change to the officially managed branches goes through code review using Gerrit at <https://code.wireshark.org/review/>. If you are not familiar with Gerrit, please read [this guide](https://code.wireshark.org/review/Documentation/intro-quick.html).
 

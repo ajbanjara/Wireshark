@@ -39,7 +39,7 @@ The filtered view will be all packets with a `tcp.stream` value equal to the `tc
 
 History of the feature: <https://www.wireshark.org/lists/wireshark-dev/200707/msg00314.html>
 
-Code commit: <https://code.wireshark.org/review/gitweb?p=wireshark.git;a=commit;h=9865b6346f6442bc8326cde55e5f012250748131>
+Code commit: <https://gitlab.com/wireshark/wireshark/-/commit/9865b6346f6442bc8326cde55e5f012250748131>
 
 `As per Ulf's request add ${proto.field} macros that will use the value of the given field has in the last selected packet.`
 
