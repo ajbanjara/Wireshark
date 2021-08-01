@@ -252,6 +252,12 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>1.10.0</p></td>
 <td><p>The TRANSUM plugin provides four new response time fields (APDU Response Time, Service Time, Request Spread, and Response Spread), powerful filtering options and a quick way to match front-end response times to back-end service delays. See <a href="http://www.tribelabzero.com/transum" class="http">tribelabzero.com</a> for details.</p></td>
 </tr>
+<tr class="even">
+<td><p><a href="https://gitlab.com/-/snippets/2156053" class="attachment">delta_distance.lua</a></p></td>
+<td><p>2021-08-01</p></td>
+<td><p>1.10.0</p></td>
+<td><p>Calculates the speed of light distance between packets.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -315,6 +321,12 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>1.0.3-180</p></td>
 <td><p>1.10.0</p></td>
 <td><p>The <a href="/CloudShark" class="nonexistent">CloudShark</a> plug-in for Wireshark lets you seamlessly sync your Wireshark packet captures with the <a href="/CloudShark" class="nonexistent">CloudShark</a> Appliance. After installing the <a href="/CloudShark" class="nonexistent">CloudShark</a> plug-in on your system with Wireshark, you will be able to manage, view, analyze, and share your Wireshark captures on <a href="https://appliance.cloudshark.org" class="https">CloudShark's website</a>.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://gitlab.com/-/snippets/2156054" class="http">Browser SSLKEYLOG</a></p></td>
+<td><p>2021-08-01</p></td>
+<td><p>3.0.0</p></td>
+<td><p>Runs Chrome or Firefox with the SSLKEYLOG environment variable set to Wireshark's tls.keylog_file preference.</p></td>
 </tr>
 </tbody>
 </table>
