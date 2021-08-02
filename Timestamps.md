@@ -22,7 +22,9 @@ Please put some hard facts here ...
 
 Just simply add measurement values (and the hard facts on the environment) on a specific platform so others can participate ...
 
-OS level explanation of timestamps: [Frame Arrival Time drift](https://ask.wireshark.org/question/6330/frame-arrival-time-drift/)
+OS level explanation of timestamps: [Frame Arrival Time drift](https://ask.wireshark.org/question/6330/frame-arrival-time-drift/)  
+  
+210801: [Frame number & Frame time & Frame.time_delta](https://ask.wireshark.org/question/23759/frame-number-frame-time-frametime_delta/)
 
 ---
 
