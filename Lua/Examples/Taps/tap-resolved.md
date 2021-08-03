@@ -4,7 +4,7 @@ This tap was originally written for Thomas Baudelet to help with [Issue 16419 - 
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
 
-[tap-resolved.lua](uploads/8a3524c12cedbc7ad701afebc8801a88/tap-resolved.lua)
+[tap-resolved.lua](uploads/3fdc76949dd8e2eee6fe5661debe2eb7/tap-resolved.lua)
 
 **Example** - Using the [openflow_v1.3_messages.pcapng.gz](https://wiki.wireshark.org/SampleCaptures?action=AttachFile&do=get&target=openflow_v1.3_messages.pcapng.gz) capture file from the [SampleCaptures](SampleCaptures) page.
 
@@ -32,7 +32,7 @@ This tap was originally written for Thomas Baudelet to help with [Issue 16419 - 
 
 local tap_resolved_info =
 {
-    version = "1.16",
+    version = "1.17",
     author = "Christopher Maynard",
     description = "A tap that displays sorted resolved data in a GUI menu",
 }
@@ -523,19 +523,12 @@ function resolved_items_window()
                         src_eth_tvb(0, 1):uint(), src_eth_tvb(1, 1):uint(), src_eth_tvb(2, 1):uint())
                     local oui_name
 
-                    oui_name = src_eth[1]:match("(.+)_(%w+:%w+:%w+)")
-                    --[[
-                    TODO: How to handle 00:00:00?  Should we resolve it to
-                          "Cooked" or resolve the OUI part to Xerox?  For now,
-                          let's not give it any special treatment.
-
                     if src_eth[1] == "Cooked" then
-                        --oui_name = "Cooked"
                         oui_name = "Officially Xerox, but 0:0:0:0:0:0 is more common"
                     else
-                        oui_name = src_eth[1]:match("(.+)_(%w+:%w+:%w+)")
+                        oui_name = src_eth[1]:match("(.+)_(%x+):(%x+):(%x+)")
                     end
-                    --]]
+
                     tapdata.mac_oui[src_eth_tvb(0, 3):uint()] = {
                         oui = oui_str,
                         resolved = oui_name and oui_name or oui_str
@@ -604,6 +597,29 @@ function resolved_items_window()
                 resolved = sa_mac[1],
                 mtype = mac_type
             }
+
+            local oui_vals = {}
+            local oui_val
+
+            oui_vals[1], oui_vals[2], oui_vals[3] = sa_mac[4]:match("(%x+):(%x+):(%x+)")
+            oui_val = tonumber(oui_vals[1], 16) * 65536 + tonumber(oui_vals[2], 16) * 256 + tonumber(oui_vals[3], 16)
+
+            if tapdata.mac_oui[oui_val] == nil then
+                local oui_str = string.format("%s:%s:%s",
+                    oui_vals[1], oui_vals[2], oui_vals[3])
+                local oui_name
+
+                if sa_mac[1] == "Cooked" then
+                    oui_name = "Officially Xerox, but 0:0:0:0:0:0 is more common"
+                else
+                    oui_name = sa_mac[1]:match("(.+)_(%x+):(%x+):(%x+)")
+                end
+
+                tapdata.mac_oui[oui_val] = {
+                    oui = oui_str,
+                    resolved = oui_name and oui_name or oui_str
+                }
+            end
         end
 
     end -- taps.ipv6.packet()
