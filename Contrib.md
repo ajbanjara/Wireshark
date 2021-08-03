@@ -230,7 +230,7 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 </tr>
 <tr class="even">
 <td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Taps/tap-resolved" class="https">tap-resolved.lua</a></p></td>
-<td><p>1.15</p></td>
+<td><p>1.16</p></td>
 <td><p>3.2.0</p></td>
 <td><p>A tap that displays sorted resolved data in a GUI menu.</p></td>
 </tr>
