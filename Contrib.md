@@ -196,7 +196,7 @@ None yet.
 </tr>
 <tr class="odd">
 <td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/filtcols" class="https">filtcols.lua</a></p></td>
-<td><p>1.0.0</p></td>
+<td><p>1.0.2</p></td>
 <td><p>unknown</p></td>
 <td><p>A post-dissector to allow filtering on Protocol and Info columns</p></td>
 </tr>
