@@ -8,7 +8,7 @@ This tap was originally written for Thomas Baudelet to help with [Issue 16419 - 
 
 **Example** - Using the [openflow_v1.3_messages.pcapng.gz](https://wiki.wireshark.org/SampleCaptures?action=AttachFile&do=get&target=openflow_v1.3_messages.pcapng.gz) capture file from the [SampleCaptures](SampleCaptures) page.
 
-![tap-resolved](uploads/a6208a1ffa6dca7c7ab4ca9a8fa96aed/tap-resolved.png)
+![tap-resolved](uploads/2cc2eaccdcbd5072be2763e6ecd8327a/tap-resolved.png)
 
 **Source**  
 ```
