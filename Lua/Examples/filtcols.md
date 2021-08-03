@@ -4,7 +4,7 @@ Enhancement: filter for info column in Wireshark [Issue #13491](https://gitlab.c
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)
 
-[filtcols.lua](uploads/fb84a4ce39814feae21c736951a5646c/filtcols.lua)
+[filtcols.lua](uploads/b0c83564e69cf9a573849525bddfd830/filtcols.lua)
 
 **Example** - [Analyze filter smb2.cmd == 9 && smb2.filename contains "fname" shows no results](https://ask.wireshark.org/question/18603/analyze-filter-smb2cmd-9-smb2filename-contains-fname-shows-no-results/)  
 **Filter** `filtcols.info contains "file87.txt"`  
@@ -33,7 +33,7 @@ Enhancement: filter for info column in Wireshark [Issue #13491](https://gitlab.c
 
 local filtcols_info =
 {
-    version = "1.0.0",
+    version = "1.0.2",
     author = "Chuck Craft",
     description = "Support filtering on Protocol and Info columns",
 }
@@ -60,25 +60,30 @@ pkt_data.info = {}
 function filtcols_p.dissector(tvb,pinfo,tree)
 
     local cols_protocol = tostring(pinfo.cols.protocol)
-    local pkt_proto = pkt_data.protocol[pinfo.number]
 
     if  cols_protocol ~= "(protocol)" then
         pkt_data.protocol[pinfo.number] = cols_protocol
     end
 
-    if  pkt_proto ~= NULL then
+
+    local pkt_proto = pkt_data.protocol[pinfo.number]
+
+    if  pkt_proto ~= nil then
         tree:add(col_protocol_field, pkt_proto)
     end
 
+
     
     local cols_info = tostring(pinfo.cols.info)
-    local pkt_info = pkt_data.info[pinfo.number]
 
     if cols_info ~= "(info)" then
         pkt_data.info[pinfo.number] = cols_info
     end
 
-    if pkt_info ~= NULL then
+
+    local pkt_info = pkt_data.info[pinfo.number]
+
+    if pkt_info ~= nil then
          tree:add(col_info_field, pkt_info)
     end
 end
@@ -186,4 +191,4 @@ Until then try `-V` as mentioned in [11.7.1. TreeItem](https://www.wireshark.org
   
 The 1.0.0 version of `filtcols` did comparisons against `NULL` (oops) and happened to work in Wireshark but not tshark. [@cjmaynard](https://gitlab.com/cjmaynard) fixed it in this Wireshark Q&A question: [Tshark LUA Script](https://ask.wireshark.org/question/21374/tshark-lua-script/)  
   
-`FIXME` - update script here on Wiki page.
+`FIXME` - update script here on Wiki page.[filtcols.lua](uploads/b0c83564e69cf9a573849525bddfd830/filtcols.lua)
