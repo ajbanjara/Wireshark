@@ -32,7 +32,7 @@ This tap was originally written for Thomas Baudelet to help with [Issue 16419 - 
 
 local tap_resolved_info =
 {
-    version = "1.15",
+    version = "1.16",
     author = "Christopher Maynard",
     description = "A tap that displays sorted resolved data in a GUI menu",
 }
@@ -70,6 +70,7 @@ local eth_addr_resolved = Field.new("eth.addr_resolved")
 local eth_addr_oui_resolved = Field.new("eth.addr.oui_resolved")
 local wlan_addr = Field.new("wlan.addr")
 local wlan_addr_resolved = Field.new("wlan.addr_resolved")
+local sll_src_eth = Field.new("sll.src.eth")
 
 local vlan_id = Field.new("vlan.id")
 local vlan_id_name = Field.new("vlan.id_name")
@@ -80,6 +81,7 @@ local ip_addr = Field.new("ip.addr")
 local ip_host = Field.new("ip.host")
 local ipv6_addr = Field.new("ipv6.addr")
 local ipv6_host = Field.new("ipv6.host")
+local ipv6_sa_mac = Field.new("ipv6.sa_mac")
 
 local tcp_port = Field.new("tcp.port")
 local udp_port = Field.new("udp.port")
@@ -94,10 +96,10 @@ function resolved_items_window()
     instances = instances + 1
 
     --[[
-        The tap data, locally accessible by every function of the tap
-        beware not to use a global for taps with multiple instances or you might
-        find it been written by more instances of the tap, not what we want.
-        each tap will have its own private instance of tapdata.
+        The tap data, locally accessible by every function of the tap.  Beware
+        not to use a global for taps with multiple instances or you might find
+        it has been written by more instances of the tap - not what we want.
+        Each tap will have its own private instance of tapdata.
     --]]
     local tapdata = {
         mac_oui = {},
@@ -166,15 +168,14 @@ function resolved_items_window()
 
         --Build the text one line at a time
         for i, n in ipairs(a) do
-            local line = string.format("%-39s\t%-20s\n", -- \t%s
-                tapdata.mac_addr[n].address, tapdata.mac_addr[n].resolved)
-                --, tapdata.mac_addr[n].mtype)
+            local line = string.format("%-39s\t%-20s\t%s\n", -- \t%s
+                tapdata.mac_addr[n].address, tapdata.mac_addr[n].resolved,
+                tapdata.mac_addr[n].mtype)
             taptext.mac_addr = taptext.mac_addr .. line
         end
 
         if string.len(taptext.mac_addr) > 0 then
-            -- \tType
-            taptext.mac_addr = string.format("%-39s\t%-20s\n", "MAC", "Name") .. taptext.mac_addr .. "\n"
+            taptext.mac_addr = string.format("%-39s\t%-20s\tType\n", "MAC", "Name") .. taptext.mac_addr .. "\n"
         end
         return taptext.mac_addr
     end -- build_mac_addr_text()
@@ -407,9 +408,9 @@ function resolved_items_window()
 
     -- Our taps: Add more as needed/desired
     local taps = {
-        mac_addr = Listener.new("frame", "eth.addr or wlan.addr"),
+        mac_addr = Listener.new("frame", "eth.addr or wlan.addr or sll.src.eth"),
         ip = Listener.new("frame", "ip.addr"),
-        ipv6 = Listener.new("frame", "ipv6.addr"),
+        ipv6 = Listener.new("frame", "ipv6.addr or ipv6.sa_mac"),
 
         ports = Listener.new("frame",
             -- The applicable port filters; add more as needed.
@@ -443,16 +444,30 @@ function resolved_items_window()
                 for i in pairs(addr_ex) do
                     local addr = addr_ex[i]
                     local addr_tvb = addr_ex[i].range
-                    local addr_bytes_str = tostring(addr_tvb)
                     local name = addr_resolved_ex[i]
                     local addr_str = string.format("%02x:%02x:%02x:%02x:%02x:%02x",
                         addr_tvb(0, 1):uint(), addr_tvb(1, 1):uint(), addr_tvb(2, 1):uint(),
                         addr_tvb(3, 1):uint(), addr_tvb(4, 1):uint(), addr_tvb(5, 1):uint())
+                    local mac_type
 
-                    tapdata.mac_addr[addr_bytes_str] = {
+                    if tapdata.mac_addr[addr_str] == nil then
+                        mac_type = mt
+                    else
+                        mac_type = tapdata.mac_addr[addr_str].mtype
+                        if string.find(mac_type, mt) == nil then
+                            --[[
+                            Prepending instead of appending seems to look better and
+                            makes the output more consistent when both eth.addr and ipv6.sa_mac
+                            resolve to the same value.
+                            --]]
+                            mac_type = mt .. "," .. mac_type
+                        end
+                    end
+
+                    tapdata.mac_addr[addr_str] = {
                         address = addr_str,
                         resolved = name and tostring(name) or addr_str,
-                        mtype = mt
+                        mtype = mac_type
                     }
 
                     if addr_oui_resolved_ex then
@@ -470,6 +485,63 @@ function resolved_items_window()
 
         if eth_addr() ~= nil then
             mac_add_tapdata({eth_addr()}, {eth_addr_resolved()}, {eth_addr_oui_resolved()}, "eth")
+        end
+
+        if sll_src_eth() ~= nil then
+            local sll_src_eth_ex = {sll_src_eth()}
+
+            for i in pairs(sll_src_eth_ex) do
+                local src_eth_tvb = sll_src_eth_ex[i].range
+                local src_eth = {}
+                local mac_type
+
+                src_eth[1], src_eth[2], src_eth[3], src_eth[4] =
+                    sll_src_eth_ex[i].display:match("(.+)(%s+)(%()(.+)(%))")
+
+                if tapdata.mac_addr[src_eth[4]] == nil then
+                    mac_type = "sll"
+                else
+                    mac_type = tapdata.mac_addr[src_eth[4]].mtype
+                    if string.find(mac_type, "sll") == nil then
+                        --[[
+                        Prepending instead of appending seems to look better and
+                        makes the output more consistent when both eth.addr and ipv6.sa_mac
+                        resolve to the same value, so do the same for sll.src.eth too.
+                        --]]
+                        mac_type = "sll," .. mac_type
+                    end
+                end
+
+                tapdata.mac_addr[src_eth[4]] = {
+                    address = src_eth[4],
+                    resolved = src_eth[1],
+                    mtype = mac_type
+                }
+
+                if tapdata.mac_oui[src_eth_tvb(0, 3):uint()] == nil then
+                    local oui_str = string.format("%02x:%02x:%02x",
+                        src_eth_tvb(0, 1):uint(), src_eth_tvb(1, 1):uint(), src_eth_tvb(2, 1):uint())
+                    local oui_name
+
+                    oui_name = src_eth[1]:match("(.+)_(%w+:%w+:%w+)")
+                    --[[
+                    TODO: How to handle 00:00:00?  Should we resolve it to
+                          "Cooked" or resolve the OUI part to Xerox?  For now,
+                          let's not give it any special treatment.
+
+                    if src_eth[1] == "Cooked" then
+                        --oui_name = "Cooked"
+                        oui_name = "Officially Xerox, but 0:0:0:0:0:0 is more common"
+                    else
+                        oui_name = src_eth[1]:match("(.+)_(%w+:%w+:%w+)")
+                    end
+                    --]]
+                    tapdata.mac_oui[src_eth_tvb(0, 3):uint()] = {
+                        oui = oui_str,
+                        resolved = oui_name and oui_name or oui_str
+                    }
+                end
+            end
         end
 
         if wlan_addr() ~= nil then
@@ -510,6 +582,30 @@ function resolved_items_window()
                 resolved = tostring(host)
             }
         end
+
+        local ipv6_sa_mac_ex = {ipv6_sa_mac()}
+        for i in pairs(ipv6_sa_mac_ex) do
+            local sa_mac = {}
+            local mac_type
+
+            sa_mac[1], sa_mac[2], sa_mac[3], sa_mac[4] =
+                ipv6_sa_mac_ex[i].display:match("(.+)(%s+)(%()(.+)(%))")
+            if tapdata.mac_addr[sa_mac[4]] == nil then
+                mac_type = "ipv6 sa"
+            else
+                mac_type = tapdata.mac_addr[sa_mac[4]].mtype
+                if string.find(mac_type, "ipv6 sa") == nil then
+                    mac_type = mac_type .. ",ipv6 sa"
+                end
+            end
+
+            tapdata.mac_addr[sa_mac[4]] = {
+                address = sa_mac[4],
+                resolved = sa_mac[1],
+                mtype = mac_type
+            }
+        end
+
     end -- taps.ipv6.packet()
 
     function taps.ports.packet(pinfo, tvb)
@@ -715,7 +811,29 @@ end -- resolved_items_window()
     MENU_ANALYZE_CONVERSATION (Analyze/Conversation Filter),
     MENU_TOOLS_UNSORTED (Tools). (number)
 
-    The only one that seems to work is MENU_TOOLS_UNSORTED, so use that one.
+    NOTE: The most up-to-date values are from init.lua
+
+    MENU                        Works? Yes/No
+    -------------------------   -------------
+    - unspecified -             No
+    MENU_STAT_UNSORTED          Yes
+    MENU_STAT_GENERIC           No
+    MENU_STAT_CONVERSATION      No
+    MENU_STAT_ENDPOINT          No
+    MENU_STAT_RESPONSE          Yes
+    MENU_STAT_TELEPHONY         Yes
+    MENU_STAT_TELEPHONY_ANSI    Yes
+    MENU_STAT_TELEPHONY_GSM     Yes
+    MENU_STAT_TELEPHONY_LTE     Yes
+    MENU_STAT_TELEPHONY_MTP3    Yes
+    MENU_STAT_TELEPHONY_SCTP    No
+    MENU_ANALYZE                No      -- wsdg
+    MENU_ANALYZE_UNSORTED       No      -- init.lua
+    MENU_ANALYZE_CONVERSATION   No
+    MENU_TOOLS_UNSORTED         Yes
+
+    The only two that seem to make sense to use are either
+    MENU_TOOLS_UNSORTED or MENU_STAT_UNSORTED, but let's go with MENU_TOOLS_UNSORTED.
 --]]
 register_menu("Resolved Items", resolved_items_window, MENU_TOOLS_UNSORTED)
 
