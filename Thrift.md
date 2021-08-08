@@ -45,7 +45,7 @@ A Thrift custom sub-dissector works the same way as any dissector: Create the `e
 The initial `packet-tcustom.c` file looks like that:
 
 ```c
-#include <epan/proto.h>
+#include <epan/packet.h>
 #include "packet-thrift.h"
 
 void proto_register_tcustom(void);
