@@ -234,6 +234,8 @@ A protocol can belong to more than one family.
 
   - [TeamSpeak2](/TeamSpeak2): The [TeamSpeak2](/TeamSpeak2) VoIP protocol.
 
+  - [Thrift](/Thrift): Apache Thrift is a lightweight, language-independent software stack for point-to-point RPC implementations.
+
   - [Tinkerforge](/Tinkerforge): Tinkerforge Protocol.
 
   - [Tor](/Tor): The Tor Protocol.
