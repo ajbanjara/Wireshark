@@ -35,7 +35,7 @@ Writing a Thrift-based sub-dissector removes the need for the documentation of y
 :construction:
 - [x] Basic types (booleans, numbers, strings, and binary blobs)
 - [x] Enumerations
-- [ ] Containers (lists, sets, and maps)
+- [x] Containers (lists, sets, and maps)
 - [ ] Structures (for any depth of imbrication)
 
 This section describes the usual steps to create a dissector based on Thrift.
@@ -51,13 +51,17 @@ The initial `packet-tcustom.c` file looks like that:
 void proto_register_tcustom(void);
 void proto_reg_handoff_tcustom(void);
 
+// Common helper definitions but not always needed (see containers and structures)
+#define TMUTF8 NULL, { .encoding = ENC_UTF_8|ENC_NA }
+#define TMRAW NULL, { .encoding = ENC_NA }
+
 static int proto_tcustom = -1;
 
 // Here will go all hf id declarations
-//static int 
+//static int hf_tcustom_<where>_<what>
 
 static int ett_tcustom = -1;
-// Any "ett tree" addition will happen here first
+// Any "ett tree" addition (for containers and structures) will happen here first
 
 void
 proto_register_tcustom(void)
@@ -256,6 +260,86 @@ Then, the dissection is done as usual using `dissect_thrift_t_i32`:
 ```
 
 #### Containers
+
+Thrift exposes 3 kinds of container:
+* A `list` is an ordered sequence of 0 or more objects of a given type (same type for all elements, repetitions are authorized).
+* A `set` is an unordered sequence of 0 or more objects of a given type (same type for all elements) without repetition of the same object in the set.
+* A `map` is an unordered sequence of 0 or more pairs of objects
+  * The first object of each pair is the _key_.
+  * The second object of each pair is the _value_.
+  * All keys are of the same type, all values are of the same type.
+  * The type of the keys can be different from the type of the values.
+  * A given _key_ cannot be repeated within the `map`.
+  * A given _value_ can be repeated within the `map`.
+
+The example will use the following definition:
+```c
+service Containers {
+  oneway void set_keys(1: map<string, i32> registry);
+}
+```
+
+In order to properly dissect these containers, we need to describe both the container itself and the elements (key and value in case of `map`).
+
+We will first describe the key and value as any `string` or `i32`:
+```c
+        { &hf_tcustom_set_keys_registry_key,
+            { "Registry Key", "tcustom.set_keys.registry.key",
+                FT_STRING, BASE_NONE, NULL,
+                0x0, NULL, HFILL }
+        },
+        { &hf_tcustom_set_keys_registry_value,
+            { "Registry Value", "tcustom.set_keys.registry.value",
+                FT_INT32, BASE_DEC, NULL,
+                0x0, NULL, HFILL }
+        },
+```
+
+But we also need to encapsulate that into a `thrift_member_t` structure that will be used by the container helper function:
+```c
+static const thrift_member_t tcustom_set_keys_registry_key   = { &hf_tcustom_set_keys_registry_key,   0, FALSE, DE_THRIFT_T_BINARY, TMUTF8 };
+static const thrift_member_t tcustom_set_keys_registry_value = { &hf_tcustom_set_keys_registry_value, 0, FALSE, DE_THRIFT_T_BINARY, TMFILL };
+```
+
+In order, the fields of this structure are:
+* The hf id that describes the data.
+* The field id. (only used in structures, set it to 0)
+* Is the field optional? (also for structures, set to `FALSE`)
+* The expected type of the field/element/key/value, required to ensure we will decode the data properly. Remember that Thrift exposes more types in the IDL than on the network:
+  * `string` and `binary` are transfered as `DE_THRIFT_T_BINARY` (only the encoding changes)
+  * `struct`, `union`, and `exception` are transfered as `DE_THRIFT_T_STRUCT`.
+* The "ett tree" of the inner element (for a list of structures, it would be the ett tree of the structure), keep it `NULL` for all types but containers and structures.
+* The additional parameters in case this element needs some:
+  * `binary` and `string` need an encoding.
+  * `list` and `set` need information about the element type.
+  * `map` needs information about the key and value types.
+  * `struct` & co need information about the fields (we’ll see in next chapter).
+
+Since in most cases, ett tree and additional parameters are not necessary, the `packet-thrift.h` header provides the convenient definition of `TMFILL` (similar to the `HFILL` for hf ids).
+
+If your dissector often uses strings and/or binaries, you can use the `TMUTF8` and `TMRAW` definitions given in this example.
+
+The definition of the `thrift_member_t` for the inner element or key and value types closes the description of the content, then we need to describe the container itself.
+
+* Add the matching "ett tree":
+  * Add `static int ett_tcustom_set_keys_registry = -1;` next to the declaration of `ett_custom` (the _trunk_ of our tree).
+  * Add `ett_tcustom_set_keys_registry` in the initialization list in `proto_register_tcustom`.
+* Add the hf id definition which is straightforward:
+
+```c
+        { &hf_tcustom_set_keys_registry,
+            { "Registry Configuration Keys", "tcustom.set_keys.registry",
+                FT_NONE, BASE_NONE, NULL, // We don’t want to display the data in the interface
+                0x0, NULL, HFILL }
+        },
+```
+
+Then you can call `dissect_thrift_t_map` (or any other container helper) with its additional parameters.
+```c
+    offset = dissect_thrift_t_map(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_set_keys_registry, ett_tcustom_set_keys_registry, &tcustom_set_keys_registry_key, &tcustom_set_keys_registry_value);
+```
+
+#### Structures
 
 :construction:
 
