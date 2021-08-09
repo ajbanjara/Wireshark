@@ -24,6 +24,29 @@ Set RSA configuration to IP address:127.0.0.1, Port:4433, Protocol:data, Key Fil
 
   - [SampleCaptures/snakeoil.tgz](uploads/__moin_import__/attachments/SampleCaptures/snakeoil.tgz)
 
+## Create sample data
+
+From ASK quesiton [Decrypt DTLS packet](https://ask.wireshark.org/question/23865/decrypt-dtls-packet/) :  
+
+Here's a working scenario on a Linux box,
+
+Start Wireshark, set DTLS preferences Pre-Shared Key to `0102030405060708090a0b0c0d0e0f`  
+(Important to start capture before bringing up session below)  
+
+As a server run this in a Linux console
+
+```
+$ PSK=0102030405060708090a0b0c0d0e0f
+$ openssl s_server -dtls -psk $PSK -cipher PSK-AES128-CBC-SHA -nocert -accept 23000
+```
+As a client run this in another Linux console
+
+```
+$ PSK=0102030405060708090a0b0c0d0e0f
+$ openssl s_client -psk $PSK -dtls -connect 127.0.0.1:23000
+```
+Type something in the client console and press enter, it should show up on the server console, and in Wireshark the DTLS packets should show this same data in an Application Data packet.
+
 ## Display Filter
 
 A complete list of PROTO display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/d/dtls.html).
