@@ -34,7 +34,7 @@ Writing a Thrift-based sub-dissector removes the need for the documentation of y
 
 :construction:
 - [x] Basic types (booleans, numbers, strings, and binary blobs)
-- [ ] Enumerations
+- [x] Enumerations
 - [ ] Containers (lists, sets, and maps)
 - [ ] Structures (for any depth of imbrication)
 
@@ -52,6 +52,9 @@ void proto_register_tcustom(void);
 void proto_reg_handoff_tcustom(void);
 
 static int proto_tcustom = -1;
+
+// Here will go all hf id declarations
+//static int 
 
 static int ett_tcustom = -1;
 // Any "ett tree" addition will happen here first
@@ -129,7 +132,8 @@ dissect_tcustom_<command_name>(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tr
     return offset;
 }
 ```
-*Note*: The above template can be used without any modification to handle a function without any parameter (like `good_bye()` in this example). The only improvement against the generic dissector is the identification of the command as one from our custom protocol, including filtering capabilities, this is why it's interesting to implement this kind of command as well.
+*Note*: The above template can be used to handle a function without any parameter (like `good_bye()` in this example). The only improvement against the generic dissector is the identification of the command as one from our custom protocol, including filtering capabilities, this is why it's interesting to implement this kind of command as well.
+In this case, remove the `thrift_opt` definition on the first line and add `_U_` after the `data` parameter as it will not be used.
 
 Registration happens in `proto_reg_handoff_tcustom()`
 
@@ -146,17 +150,18 @@ proto_reg_handoff_tcustom(void)
 
 For any field that needs to be dissected, the first step is to define it in the hf_register_info section for proper display:
 
-For `initialize(binary init_vector)`, we define the unique parameter:
+For `initialize(binary init_vector)`, we define the unique parameter via its hf id under the name `hf_tcustom_<command_name>_<param_name>` (if a parameter or structure field with a given name is _always_ of the same type as any other parameter or structure field with the same name, you can omit the command name):
 ```c
-        { &hf_tcustom_init_vector,
-            { "Initialization Vector", "tcustom.init_vector",
+        // Associated with the declaration of hf_tcustom_initialize_init_vector at the beginning
+        { &hf_tcustom_initialize_init_vector,
+            { "Initialization Vector", "tcustom.initialize.init_vector",
                 FT_BYTES, BASE_NONE, NULL,
                 0x0, NULL, HFILL }
         },
 ```
 After that, we can use the hf info using the matching `dissect_thrift_t_<type>` helper in `dissect_tcustom_initialize` function:
 ```c
-    offset = dissect_thrift_t_binary(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_init_vector);
+    offset = dissect_thrift_t_binary(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_initialize_init_vector);
 ```
 
 - Parameters `tvb`, `pinfo`, `tcustom_tree`, and `thrift_opt` are always passed as-is to the helper function, *do not* change anything.
@@ -167,46 +172,90 @@ After that, we can use the hf info using the matching `dissect_thrift_t_<type>` 
 
 For `register(bool unregister, string server_name, i16 port)`, we define the 3 parameters:
 ```c
-        { &hf_tcustom_unregister,
-            { "Unregister", "tcustom.unregister",
+        { &hf_tcustom_register_unregister,
+            { "Unregister", "tcustom.register.unregister",
                 FT_BOOLEAN, BASE_NONE, NULL,
                 0x0, NULL, HFILL }
         },
-        { &hf_tcustom_server_name,
-            { "Server Host Name", "tcustom.server_name",
+        { &hf_tcustom_register_server_name,
+            { "Server Host Name", "tcustom.register.server_name",
                 FT_STRING, BASE_NONE, NULL,
                 0x0, NULL, HFILL }
         },
         // Please note that all Thrift integers are signed.
         // This particular application seems to only support ports up to 32767.
-        { &hf_tcustom_port,
-            { "Port Number", "tcustom.port",
+        { &hf_tcustom_register_port,
+            { "Port Number", "tcustom.register.port",
                 FT_INT16, BASE_DEC, NULL,
                 0x0, NULL, HFILL }
         },
 ```
 and we put the 3 successive calls in `dissect_tcustom_register`:
 ```c
-    offset = dissect_thrift_t_bool(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_unregister);
+    offset = dissect_thrift_t_bool(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_register_unregister);
     // When using string type in the .thrift definition, data is serialized as an UTF-8 string.
-    offset = dissect_thrift_t_string(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_server_name);
-    offset = dissect_thrift_t_i16(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 3, hf_tcustom_port);
+    offset = dissect_thrift_t_string(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_register_server_name);
+    offset = dissect_thrift_t_i16(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 3, hf_tcustom_register_port);
 ```
 
 For `greetings(binary user_name_utf32le)`, the content is just a binary from Thrift point of view but we happen to know that this is indeed an UTF-32 string encoded in little-endian (for some kind of historical reasons, this tends to happen in real-life projects) so we define it as a string:
 ```c
-        { &hf_tcustom_user_name,
-            { "User Name", "tcustom.user_name",
+        { &hf_tcustom_greetings_user_name,
+            { "User Name", "tcustom.greetings.user_name",
                 FT_STRING, BASE_NONE, NULL,
                 0x0, NULL, HFILL }
         },
 ```
 In this case, we need to use `dissect_thrift_t_string_enc` that allows us to specify the encoding of the string:
 ```c
-    offset = dissect_thrift_t_string_enc(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_user_name, ENC_UCS_4|ENC_LITTLE_ENDIAN);
+    offset = dissect_thrift_t_string_enc(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_greetings_user_name, ENC_UCS_4|ENC_LITTLE_ENDIAN);
 ```
 
 #### Enumerations
+
+The handling of thrift enumerations is similar to any enumeration in Wireshark, the only constraint is to associate them with `i32` integers.
+
+The example will use the following .thrift definition file:
+```c
+enum nearly_boolean {
+  true,
+  false,
+  maybe,
+}
+
+service Enumeration {
+  oneway void configure(1: nearly_boolean active);
+}
+```
+
+In this case, we need to define the string translations for each enum values as usual:
+```c
+static const value_string tcustom_nearly_boolean_vals[] = {
+    { 0, "Very True" }, // Like in C, Thrift enums start at 0
+    { 1, "Absolutely False" },
+    { 2, "It’s not impossible" },
+    { 0, NULL },
+};
+```
+
+Then, we define the parameter in the hf_field_info section associated to the right enumeration:
+```c
+        { &hf_tcustom_configure_active,
+            { "Is Not", "tcustom.configure.active",
+                FT_INT32, BASE_DEC, VALS(tcustom_nearly_boolean_vals),
+                0x0, NULL, HFILL }
+        },
+```
+
+*Note*: I choose to keep the hf_id associated with the specific use and not the type itself to allow for an easier search. This choice brings the need to define a new hf_id for every usage of this type. You might want to do otherwise to limit the number of hf_id.
+
+Then, the dissection is done as usual using `dissect_thrift_t_i32`:
+
+```c
+    offset = dissect_thrift_t_i32(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_configure_active);
+```
+
+#### Containers
 
 :construction:
 
