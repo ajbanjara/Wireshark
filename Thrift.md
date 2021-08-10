@@ -219,7 +219,7 @@ In this case, we need to use `dissect_thrift_t_string_enc` that allows us to spe
 
 The handling of thrift enumerations is similar to any enumeration in Wireshark, the only constraint is to associate them with `i32` integers.
 
-The example will use the following .thrift definition file:
+The example will use the following definition:
 ```c
 enum nearly_boolean {
   true,
@@ -341,7 +341,42 @@ Then you can call `dissect_thrift_t_map` (or any other container helper) with it
 
 #### Structures
 
+The last types of object exposed by Thrift are the `struct` and `union` types.
+* A `struct` contains any number of fields, each of them indexed by a specific numeric value (visible on the network). In addition, each field can be
+  * either `required`, meaning it must be present when the parent `struct` is used in communication,
+  * or `optional`, meaning it may or may not be present during communication.
+  * In the context of Wireshark, the absence of qualifier must be considered equivalent to `optional`.
+* An `union` is similar to a `struct` (and is sent as such in the serialized data) with the following restrictions:
+  * All fields are `optional`.
+  * Exactly one (1) field is filled when used in a communication.
+
+To demonstrate this, we’ll use the following definition:
+```c
+union big_integer {
+  1: i64    small;
+  2: binary efficient;
+  3: list<bool> inefficient;
+};
+
+struct placement {
+  0: required i32 position;
+  32767: optional i8 occurrences;
+};
+
+service Structures {
+  oneway void insert(1: big_integer bigint, 2: placement where);
+}
+```
+
 :construction:
+
+#### Functions with a reply
+
+:construction:
+
+#### :paperclip: Hijacking structure dissection feature :paperclips:
+
+:gift:
 
 ### Example 1: [Jaeger](https://github.com/jaegertracing)
 
