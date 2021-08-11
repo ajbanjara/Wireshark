@@ -32,12 +32,6 @@ Writing a Thrift-based sub-dissector removes the need for the documentation of y
 
 ### Generic usage
 
-:construction:
-- [x] Basic types (booleans, numbers, strings, and binary blobs)
-- [x] Enumerations
-- [x] Containers (lists, sets, and maps)
-- [ ] Structures (for any depth of imbrication)
-
 This section describes the usual steps to create a dissector based on Thrift.
 
 A Thrift custom sub-dissector works the same way as any dissector: Create the `epan/dissectors/packet-tcustom.c` file and update `epan/dissectors/CMakeLists.txt` accordingly.
@@ -368,7 +362,87 @@ service Structures {
 }
 ```
 
-:construction:
+As usual, we start with the definition of the leafs (exact definition left as an exercise :pencil:):
+```c
+// hf id for all leaf elements
+static int hf_tcustom_big_integer_small = -1;
+static int hf_tcustom_big_integer_efficient = -1;
+static int hf_tcustom_big_integer_inefficient_bit = -1; // For the elements of the list
+static int hf_tcustom_big_integer_inefficient = -1; // The list itself
+static int hf_tcustom_placement_position = -1;
+static int hf_tcustom_placement_occurrences = -1;
+
+// ett tree for the list
+static int ett_tcustom_big_integer_inefficient = -1;
+
+// description of the list for deep dissection
+static const thrift_member_t tcustom_big_integer_inefficient = { &hf_tcustom_big_integer_inefficient_bit, 0, FALSE, DE_THRIFT_T_BOOL, TMFILL };
+```
+Note that in this case, the leafs are child of a structure type so the naming scheme is now following the pattern `hf_tcustom_<type_name>_<field_name>` (it should be safe to assume we never have collision between type and command names but you can adapt to your needs).
+
+Now we need to write the necessary ett trees (`ett_tcustom_insert_bigint` and `ett_tcustom_insert_where`) and hf id for the structures:
+```c
+        { &hf_tcustom_insert_bigint,
+            { "Big Integer", "tcustom.insert.bigint",
+                FT_NONE, BASE_NONE, NULL,
+                0x0, NULL, HFILL }
+        },
+        { &hf_tcustom_insert_where,
+            { "Where", "tcustom.insert.where",
+                FT_NONE, BASE_NONE, NULL,
+                0x0, NULL, HFILL }
+        },
+```
+
+Now, we need the description for the structure dissection which looks like the same type as for lists and sets. The main difference is while the containers took 1 or 2 pointers to a `thrift_member_t`, the structure needs a sequence of elements so in this case, we want an array of element which are described as follows in our example:
+```c
+static const thrift_member_t tcustom_big_integer[] = {
+    { &hf_tcustom_big_integer_small, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
+    { &hf_tcustom_big_integer_efficient, 2, TRUE, DE_THRIFT_T_BINARY, TMFILL },
+    { &hf_tcustom_big_integer_inefficient, 3, TRUE, DE_THRIFT_T_LIST, &ett_tcustom_big_integer_inefficient, { .element = &tcustom_big_integer_inefficient } },
+    { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+};
+static const thrift_member_t tcustom_placement[] = {
+    { &hf_tcustom_placement_position, 0, FALSE, DE_THRIFT_T_I32, TMFILL },
+    { &hf_tcustom_placement_occurrences, 32767, TRUE, DE_THRIFT_T_I8, TMFILL },
+    { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+};
+```
+This time, we see the second and third fields of the `thrift_member_t` structure really used:
+* The second one is the field id as described in the .thrift IDL file (necessary to realign when optional fields are not provided).
+* The third one is `TRUE` if the field is `optional` (or without qualifier) and `false` if `required`.
+
+The last parameter (after the ett tree for the targetted element) also get more visible here (it can be used in container as well, depending on the type of elements):
+* Most of the time, it’s not used and `TMFILL` provides a default initialization.
+* For binary fields, we provide the expected encoding with `{ .encoding = ENC_SOMETHING }`.
+* For lists and set, we provide the pointer to the element description with `{ .element = &tcustom_<type_name>_<field_name> }`
+* For maps, we provide both the key and value descriptions with `{ .key = &tcustom_<type_name>_<field_name>_key, .value = &tcustom_<type_name>_<field_name>_value }`
+* For sub-structures, we provide the list of members with `{ .members = tcustom_<subtype_name> }`
+* Finally, all structures and unions end with a `T_STOP` field when serialized, this is materialized in the description with the fixed content `{ NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }` which also marks the end of the array.
+
+At this point, we can now call the helper as usual:
+```c
+    offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_insert_bigint, ett_tcustom_insert_bigint, tcustom_big_integer);
+    offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_insert_where, ett_tcustom_insert_where, tcustom_placement);
+```
+ 
+##### Simplified display of unions
+
+Given that unions always contain exactly one field, you might want to omit the sub-tree that would contain only one element (especially if you need to scan a long list of these).
+
+This is very easily achieved by _not_ giving the matching hf id and ett tree elements and replace them with `-1` which is the default value for uninitialized elements.
+
+In order to clarify this behavior, we can define the constant:
+```c
+static const int DISABLE_SUBTREE = -1;
+```
+
+And we can now replace the first call with:
+```c
+    offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, DISABLE_SUBTREE, DISABLE_SUBTREE, tcustom_big_integer);
+```
+
+:warning: If you choose to omit the tree, the label displayed in the interface will be the one from the available field (here, it would be the definition for `small`, `efficient`, or `inefficient` field) and not the definition of the union itself (which can in fact be removed, along with the matching ett tree).
 
 #### Functions with a reply
 
