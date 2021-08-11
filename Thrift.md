@@ -454,7 +454,7 @@ And we can now replace the first call with:
 
 ### Example 1: [Jaeger](https://github.com/jaegertracing)
 
-For this first real example, we will dissect the `emitBatch` command described in [agent.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/agent.thrift) and depending on structures defined in [https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/jaeger.thrift](jaeger.thrift).
+For this first real example, we will dissect the `emitBatch` command described in [agent.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/agent.thrift) and depending on structures defined in [jaeger.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/jaeger.thrift).
 
 The complete dissector is shared on GitLab and/or GitHub (repository TBD), with the history of commits following the process described below.
 
