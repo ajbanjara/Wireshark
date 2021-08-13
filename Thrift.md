@@ -165,7 +165,7 @@ After that, we can use the hf info using the matching `dissect_thrift_t_<type>` 
 - Parameters `tvb`, `pinfo`, `tcustom_tree`, and `thrift_opt` are always passed as-is to the helper function, *do not* change anything.
 - `offset` is always passed as it was received from previous helper, they do handle the error cases transparently.
 - `is_field` is always set to `TRUE` when using the individual fields dissection (essentially an internal parameter).
-- `field_id` is the number associated to the parameter in the IDL definition (not checked in the case of parameter dissection).
+- `field_id` is the number associated to the parameter in the IDL definition.
 - `hf_id` is the hf info matching the field we want to dissect.
 
 For `register(bool unregister, string server_name, i16 port)`, we define the 3 parameters:
@@ -451,7 +451,80 @@ In a similar way, when used as a field for a structure or an element inside a co
 
 #### Functions with a reply
 
-:construction:
+Until now, we only dissected `oneway` commands which do not expect any response so when we see them on the network, we just have to dissect the parameters.
+
+However, the Thrift IDL allow the definition of commands that return a value or possibly an exception:
+```c
+exception out_of_memory_exception {
+  1: int error_code;
+  2: string message;
+};
+
+service EchoChamber {
+  binary ping(1: binary payload)
+  throws (1: out_of_memory_exception oom_exc
+          /* 2: some_other_exception so_exc, … */);
+}
+```
+
+When commands with a result are used, we need to answer 2 questions:
+1. Is this the request or the answer?
+2. In case of answer, what kind of response was it?
+
+For the first question, we need to take a look at the `data` provided by the Thrift generic dissector that we already casted into a `thrift_option_data_t` pointer:
+```c
+    switch (thrift_opt->mtype) {
+    case ME_THRIFT_T_CALL:
+        // Dissect the parameters as we do for oneway commands.
+        offset = dissect_thrift_t_binary(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_ping_payload);
+        break;
+    case ME_THRIFT_T_REPLY:
+        /* TODO: Dissect the answer. */
+        break;
+    default: // ME_THRIFT_T_ONEWAY or ME_THRIFT_T_EXCEPTION
+        // Something is wrong, let the generic dissector handle that.
+        return 0;
+    }
+    // We still need to dissect the ending `T_STOP` in all cases.
+    offset = dissect_thrift_t_stop(tvb, pinfo, tcustom_tree, offset);
+```
+
+Note: You could do the check for `oneway` commands as well, in which case only `ME_THRIFT_T_ONEWAY` would be valid.
+
+Regarding dissection of the answer, we need to understand that 2 kinds of answers are possible:
+- A successful answer where we need to dissect the return type in the `T_REPLY`.
+- A application exception reply, where we received one of the exceptions described in the `.thrift` files in the `T_REPLY`.
+- A Thrift protocol exception, where we receive a `T_EXCEPTION`.
+
+The last case is the easy one: as these exceptions are described in [Thrift itself](https://github.com/apache/thrift/blob/master/doc/specs/thrift-rpc.md), the `T_EXCEPTION` messages are handled by the generic dissector.
+
+The `T_REPLY` on the other hand are a little more complex. As described in the [RPC specification](https://github.com/apache/thrift/blob/master/doc/specs/thrift-rpc.md), the answer contains either the return type as field 0, or exactly one exception with the field id defined in the IDL.
+
+To be able to dissect the right element, we need to know the field id that is contained in the `T_REPLY`. This piece of information is once again provided in the `thrift_option_data_t` structure:
+```c
+    case ME_THRIFT_T_REPLY:
+        // Dissect the answer.
+        switch (thrift_opt->reply_field_id) {
+        case 0:
+            // If the return type is void, this `case 0:` only contains the `break;`.
+            offset = dissect_thrift_t_binary(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 0, hf_tcustom_ping_return);
+            break;
+        case 1:
+            // Exception are just structures with a specific use.
+            offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_ping_oom_exc, ett_tcustom_oom_exc, tcustom_oom_exc);
+            break;
+        /*case 2:
+            offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_ping_so_exc, ett_tcustom_so_exc, tcustom_so_exc);
+            break;
+        // et caetera. */
+        default:
+            // Unsupported exception, let the generic dissector handle that.
+            return 0:
+        }
+        break;
+```
+
+*Note*: whether or not application exceptions are defined for a particular command, the return type will always be field number 0 in the `T_REPLY`.
 
 #### :paperclip: Hijacking structure dissection feature :paperclips:
 
