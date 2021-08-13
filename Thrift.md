@@ -239,7 +239,7 @@ static const value_string tcustom_nearly_boolean_vals[] = {
 Then, we define the parameter in the hf_field_info section associated to the right enumeration:
 ```c
         { &hf_tcustom_configure_active,
-            { "Is Not", "tcustom.configure.active",
+            { "Active", "tcustom.configure.active",
                 FT_INT32, BASE_DEC, VALS(tcustom_nearly_boolean_vals),
                 0x0, NULL, HFILL }
         },
