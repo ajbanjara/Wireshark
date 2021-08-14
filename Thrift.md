@@ -511,20 +511,24 @@ To be able to dissect the right element, we need to know the field id that is co
             break;
         case 1:
             // Exception are just structures with a specific use.
-            offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_ping_oom_exc, ett_tcustom_oom_exc, tcustom_oom_exc);
+            offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_out_of_memory_exception, ett_tcustom_out_of_memory_exception, tcustom_out_of_memory_exception);
             break;
         /*case 2:
-            offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_ping_so_exc, ett_tcustom_so_exc, tcustom_so_exc);
+            offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_some_other_exception, ett_tcustom_some_other_exception, tcustom_some_other_exception);
             break;
         // et caetera. */
         default:
             // Unsupported exception, let the generic dissector handle that.
-            return 0:
+            return 0;
         }
         break;
 ```
 
+We do not need to differentiate the exceptions by the name they were given in this specific command (using `hf_tcustom_ping_oom_exc` or `hf_tcustom_ping_so_exc`) because we can't have several times the same exception type for a given command (while we can have several parameters or fields with the same type), this way, hf id and ett tree are defined only once for exceptions.
+
 *Note*: whether or not application exceptions are defined for a particular command, the return type will always be field number 0 in the `T_REPLY`.
+
+The complete dissector (compiled but untested) for all these examples is attached in [packet-tcustom.c](uploads/927f4bd33b61dd3cb4f81eed35342562/packet-tcustom.c) for reference.
 
 #### :paperclip: Hijacking structure dissection feature :paperclips:
 
