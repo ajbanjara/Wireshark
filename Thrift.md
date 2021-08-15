@@ -1,5 +1,3 @@
-*Please Note*: :construction: This page is a work in progress :construction:
-
 [[_TOC_]]
 
 # Apache Thrift (Thrift)
