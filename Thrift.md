@@ -530,9 +530,52 @@ We do not need to differentiate the exceptions by the name they were given in th
 
 The complete dissector (compiled but untested) for all these examples is attached in [packet-tcustom.c](uploads/927f4bd33b61dd3cb4f81eed35342562/packet-tcustom.c) for reference.
 
-#### :paperclip: Hijacking structure dissection feature :paperclips:
+#### :tools: Hijacking structure dissection feature :paperclips:
 
-:gift:
+Looking at the serialization of parameters, it really looks like a structure. In fact, even the definition looks like a structure with some restrictions:
+* Field id should be strictly positive.
+* All fields are `required` (the `optional` modifier is ignored).
+
+The only difference is that the field header (field type = `struct` and field id) are not present at the beginning of this struct.
+
+Since this missing field header also exist in the 3 container types, the ability to dissect a struct (or any other type, for that matter) must be available, right?
+
+That’s precisely the use of the `is_field` parameter of the `dissect_thrift_t_<type>` functions. Set it to `FALSE` and the function will not start with the header dissection.
+
+Getting back to the definition of `register(bool unregister, string server_name, i16 port)`, another way of dissecting it would be to replace the 4 `dissect_thrift_t_<type>` calls (:warning: `T_STOP` is always part of the `struct`) with a structure definition and a single call to `dissect_thrift_t_struct`:
+```c
+    static const thrift_member_t tcustom_register_params[] = {
+        { &hf_tcustom_register_unregister, 1, FALSE, DE_THRIFT_T_BOOL, TMFILL },
+        { &hf_tcustom_register_server_name, 2, FALSE, DE_THRIFT_T_BINARY, TMUTF8 },
+        { &hf_tcustom_register_port, 3, FALSE, DE_THRIFT_T_I8, TMFILL },
+        { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+    };
+    // In this case, the TCustom tree holds the structure fields so we disable the creation of an additional sub-tree.
+    offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, FALSE, 0, DISABLE_SUBTREE, DISABLE_SUBTREE, tcustom_register_params);
+
+    // No call to dissect_thrift_t_stop()
+    if (offset > 0) proto_item_set_end(tcustom_pi, tvb, offset);
+    return offset;
+```
+
+This can be interesting if the protocol contains a lot of commands with the same list of parameters, for instance.
+
+The same principle can be applied for the return value and exceptions with the difference that in this case, everything is optional and the field id for the nominal return type is 0 (that’s the only value which is not visible in the IDL).
+
+The structure definition would look like this for `binary ping(1: binary payload)`:
+```c
+    static const thrift_member_t tcustom_ping_result[] = {
+        { &hf_tcustom_ping_return, 0, TRUE, DE_THRIFT_T_BINARY, TMRAW }, // Omitted if return type is void
+        { &hf_tcustom_out_of_memory_exception, 1, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_out_of_memory_exception, { .members = tcustom_out_of_memory_exception } },
+        //{ &hf_tcustom_some_other_exception, 2, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_some_other_exception, { .members = tcustom_some_other_exception } },
+        { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+    };
+
+    // …
+    case ME_THRIFT_T_REPLY:
+        offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, FALSE, 0, DISABLE_SUBTREE, DISABLE_SUBTREE, tcustom_ping_result);
+        // WARNING: Make sure that dissect_thrift_t_stop is not called after that.
+```
 
 ### Example 1: [Jaeger](https://github.com/jaegertracing)
 
