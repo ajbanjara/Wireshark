@@ -623,6 +623,8 @@ For this first real example, we will dissect the `emitBatch` command described i
 
 The complete dissector is shared on GitLab and/or GitHub (repository TBD), with the history of commits following the process described below.
 
+A [capture file](/uploads/c5eb22240c76f97801c6120017196bcd/jaeger-compact.pcap) is available on [SampleCaptures](/SampleCaptures#thrift).
+
 :construction:
 
 ### Example 2: [Armeria Maritima](https://en.wikipedia.org/wiki/Armeria_maritima)
@@ -634,5 +636,7 @@ In particular, Jaeger is using ONEWAY command which allow the dissector to start
 This protocol is also developed as a plugin instead of an integrated dissector.
 
 The complete dissector is shared on GitLab and/or GitHub (repository TBD), with the history of commits following the process described below.
+
+A [capture file](/uploads/99d63eaf8a2780a1da96cb111267deea/anony-tcp-std.pcap) is available on [SampleCaptures](/SampleCaptures#thrift).
 
 :construction:
