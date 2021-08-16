@@ -1871,6 +1871,14 @@ Please refer to [gRPC dissector description page](/gRPC) for how to use the samp
 
 [10567 - Improve support for AllJoyn Reliable Datagram Protocol.](https://gitlab.com/wireshark/wireshark/-/issues/10567)
 
+### Thrift
+
+Please refer to [Thrift dissector description page](/Thrift) for how to use the sample capture files with specific dissectors.
+
+[jaeger-compact.pcap](uploads/c5eb22240c76f97801c6120017196bcd/jaeger-compact.pcap) Thrift Compact Protocol UDP example using [Jaeger](https://www.jaegertracing.io/).
+
+[anony-tcp-std.pcap](uploads/99d63eaf8a2780a1da96cb111267deea/anony-tcp-std.pcap) Thrift Binary Protocol TCP example with [packet reassembly](https://gitlab.com/wireshark/wireshark/-/issues/16244).
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/__moin_import__/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
