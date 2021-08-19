@@ -621,11 +621,65 @@ The structure definition would look like this for `binary ping(1: binary payload
 
 For this first real example, we will dissect the `emitBatch` command described in [agent.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/agent.thrift) and depending on structures defined in [jaeger.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/jaeger.thrift).
 
-The complete dissector is shared on GitLab and/or GitHub (repository TBD), with the history of commits following the process described below.
+The complete dissector is shared on GitLab [on jaeger branch of EnigmaTriton/wireshark](https://gitlab.com/EnigmaTriton/wireshark/-/tree/jaeger), with the history of commits following the process described below.
 
-A [capture file](/uploads/c5eb22240c76f97801c6120017196bcd/jaeger-compact.pcap) is available on [SampleCaptures](/SampleCaptures#thrift).
+A [capture file](/uploads/c5eb22240c76f97801c6120017196bcd/jaeger-compact.pcap) is available on [SampleCaptures](/SampleCaptures#thrift) to test.
+
+#### Add (empty) Jaeger dissector
+
+For the first commit, we create a simple dissector with only the registration of said dissector in Wireshark.
+
+In order to have a compilable dissector at every step (even if we do not have any command dissected before the last commits), we will essentially follow the order used in the file for the definition of the various types and define the matching dissector “objects” in the same order.
+
+The idea of this approach is roughly the one an automated dissector generator would follow reading the `.thrift`IDL definitions.
+
+#### Add jaeger enums
 
 :construction:
+
+#### Add jaeger.Tag structure as tracing.Tag
+
+:construction:
+
+#### Add tracing.Log structure
+
+:construction:
+
+#### Add tracing.SpanRef structure
+
+:construction:
+
+#### Add tracing.Span structure
+
+:construction:
+
+#### Add tracing.Process structure
+
+:construction:
+
+#### Add tracing.ClientStats structure
+
+:construction:
+
+#### Add tracing.Batch structure
+
+:construction:
+
+#### Add tracing.BatchSubmitResponse structure
+
+:construction:
+
+#### Add tracing.submitBatches Thrift command
+
+:construction:
+
+#### Add agent.emitBatch Thrift command
+
+:construction:
+
+#### Remove unused thrift_member_t
+
+At this point, we consider the dissector complete so we clear the unused elements that were created through our systematic approach in order to avoid any compilation warning and get a dissector that passed all merge checks. :)
 
 ### Example 2: [Armeria Maritima](https://en.wikipedia.org/wiki/Armeria_maritima)
 
