@@ -1,4 +1,29 @@
-[[_TOC_]]
+* [Apache Thrift (Thrift)](#apache-thrift-thrift)
+  * [Protocol dependencies](#protocol-dependencies)
+  * [Write your own Thrift-based dissector](#write-your-own-thrift-based-dissector)
+    * [Generic usage](#generic-usage)
+      * [Basic types](#basic-types)
+      * [Enumerations](#enumerations)
+      * [Containers](#containers)
+      * [Structures](#structures)
+        * [Simplified display of unions](#simplified-display-of-unions)
+      * [Functions with a reply](#functions-with-a-reply)
+      * [:tools: Hijacking structure dissection feature :paperclips:](#tools-hijacking-structure-dissection-feature-paperclips)
+    * [Example 1: Jaeger](#example-1-jaeger)
+      * [Add (empty) Jaeger dissector](#add-empty-jaeger-dissector)
+      * [Add jaeger enums](#add-jaeger-enums)
+      * [Add jaeger.Tag structure as tracing.Tag](#add-jaegertag-structure-as-tracingtag)
+      * [Add tracing.Log structure](#add-tracinglog-structure)
+      * [Add tracing.SpanRef structure](#add-tracingspanref-structure)
+      * [Add tracing.Span structure](#add-tracingspan-structure)
+      * [Add tracing.Process structure](#add-tracingprocess-structure)
+      * [Add tracing.ClientStats structure](#add-tracingclientstats-structure)
+      * [Add tracing.Batch structure](#add-tracingbatch-structure)
+      * [Add tracing.BatchSubmitResponse structure](#add-tracingbatchsubmitresponse-structure)
+      * [Add tracing.submitBatches Thrift command](#add-tracingsubmitbatches-thrift-command)
+      * [Add agent.emitBatch Thrift command](#add-agentemitbatch-thrift-command)
+      * [Remove unused thrift_member_t](#remove-unused-thrift_member_t)
+    * [Example 2: Armeria Maritima](#example-2-armeria-maritima)
 
 # Apache Thrift (Thrift)
 
@@ -131,8 +156,7 @@ dissect_tcustom_<command_name>(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tr
 }
 ```
 
-*Note*: The above template can be used to handle a function without any parameter (like `good_bye()` in this example). The only improvement against the generic dissector is the identification of the command as one from our custom protocol, including filtering capabilities, this is why it's interesting to implement this kind of command as well.
-In this case, remove the `thrift_opt` definition on the first line and add `_U_` after the `data` parameter as it will not be used.
+_Note_: The above template can be used to handle a function without any parameter (like `good_bye()` in this example). The only improvement against the generic dissector is the identification of the command as one from our custom protocol, including filtering capabilities, this is why it's interesting to implement this kind of command as well. In this case, remove the `thrift_opt` definition on the first line and add `_U_` after the `data` parameter as it will not be used.
 
 Registration happens in `proto_reg_handoff_tcustom()`
 
@@ -166,7 +190,7 @@ After that, we can use the hf info using the matching `dissect_thrift_t_<type>` 
     offset = dissect_thrift_t_binary(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_initialize_init_vector);
 ```
 
-* Parameters `tvb`, `pinfo`, `tcustom_tree`, and `thrift_opt` are always passed as-is to the helper function, *do not* change anything.
+* Parameters `tvb`, `pinfo`, `tcustom_tree`, and `thrift_opt` are always passed as-is to the helper function, _do not_ change anything.
 * `offset` is always passed as it was received from previous helper, they do handle the error cases transparently.
 * `is_field` is always set to `TRUE` when using the individual fields dissection (essentially an internal parameter).
 * `field_id` is the number associated to the parameter in the IDL definition.
@@ -258,7 +282,7 @@ Then, we define the parameter in the hf_field_info section associated to the rig
         },
 ```
 
-*Note*: I choose to keep the hf_id associated with the specific use and not the type itself to allow for an easier search. This choice brings the need to define a new hf_id for every usage of this type. You might want to do otherwise to limit the number of hf_id.
+_Note_: I choose to keep the hf_id associated with the specific use and not the type itself to allow for an easier search. This choice brings the need to define a new hf_id for every usage of this type. You might want to do otherwise to limit the number of hf_id.
 
 Then, the dissection is done as usual using `dissect_thrift_t_i32`:
 
@@ -454,7 +478,7 @@ At this point, we can now call the helper as usual:
     offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_insert_bigint, ett_tcustom_insert_bigint, tcustom_big_integer);
     offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_insert_where, ett_tcustom_insert_where, tcustom_placement);
 ```
- 
+
 ##### Simplified display of unions
 
 Given that unions always contain exactly one field, you might want to omit the sub-tree that would contain only one element (especially if you need to scan a long list of these).
@@ -563,7 +587,7 @@ To be able to dissect the right element, we need to know the field id that is co
 
 We do not need to differentiate the exceptions by the name they were given in this specific command (using `hf_tcustom_ping_oom_exc` or `hf_tcustom_ping_so_exc`) because we can't have several times the same exception type for a given command (while we can have several parameters or fields with the same type), this way, hf id and ett tree are defined only once for exceptions.
 
-*Note*: whether or not application exceptions are defined for a particular command, the return type will always be field number 0 in the `T_REPLY`.
+_Note_: whether or not application exceptions are defined for a particular command, the return type will always be field number 0 in the `T_REPLY`.
 
 The complete dissector (compiled but untested) for all these examples is attached in [packet-tcustom.c](uploads/927f4bd33b61dd3cb4f81eed35342562/packet-tcustom.c) for reference.
 
@@ -635,11 +659,36 @@ The idea of this approach is roughly the one an automated dissector generator wo
 
 #### Add jaeger enums
 
-:construction:
+Since enumerations are really easy to define for Wireshark use and can only be leaf types (unlike structures or containers that can contain other structures that must be defined first), we start with them no matter the order of their definition in the `.thrift`files.
+
+Since thrift consider the files as sub-namespaces, it might be possible to have duplicate names in different files so we need to consider the unicity of several elements using a few basic components:
+
+* The protocol name: Jaeger
+* The file name: jaeger (or agent)
+* The type: TagType or SpanRefType for the enums
+* More for other types as described in the Generic Usage chapter.
+
+The name of the `value_string` arrays will then be `<protoabbrev>_<filename>_<enum_name>_vals` to follow the convention used in Wireshark dissectors which translates to `jaeger_jaeger_TagType_vals` in the first case.
+
+* TagType does not follow the `lower_case_with_underscore`convention but follows the exact name used in the IDL, which is what an automated generator would do.
+* For the same reason, we have the `jaeger_jaeger_` repetition at the beginning of the variable names which seems redundant but might not always be.
 
 #### Add jaeger.Tag structure as tracing.Tag
 
-:construction:
+Once the enumerations are covered, we need to define the structures starting with the ones without any dependency on other structures.
+
+The simplest way of doing that is to start with the `.thrift` files without any `include` and parse them from top to bottom. In this case we only target the `emitBatch` command in `agent.thrift` which only depends on `jaeger.thrift` types so we will ignore the `zipkincore.thrift` file entirely.
+
+In the case of structure, we need to define an hf id for each of the fields, a `member_thrift_t`array to define the content of the structure, and an ett tree for the structure itself.
+
+This is where the first problem arise: the recommended pre-commit hook for Wireshark is active on my repository and it rejects field keys with duplicated protoabbrev so `"jaeger.jaeger.something"` is not accepted.
+
+* Solution 1: disable the pre-commit hook.
+* Solution 2: rename the file (at least virtually regarding the naming, for an automated code generator, a real renaming —with update of the includes— would be necessary).
+
+I choose the second solution and since `"jaeger.jaegertracing.something"` (from the namespaces defined in the file) is also rejected, we'll use `"jaeger.tracing.something"` and, for consistency, `jaeger_tracing_` in the variable names as if the file was named `tracing.thrift`.
+
+Once the structure is created, we will also add a simple `thrift_member_t` defining the structure itself as it might be necessary if the structure is used in a container. To do that, we need to create an additional hf id for the structure itself.
 
 #### Add tracing.Log structure
 
