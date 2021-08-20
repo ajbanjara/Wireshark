@@ -681,6 +681,10 @@ The simplest way of doing that is to start with the `.thrift` files without any 
 
 In the case of structure, we need to define an hf id for each of the fields, a `member_thrift_t`array to define the content of the structure, and an ett tree for the structure itself.
 
+ :warning: The first 2 fields are mandatory (so "optional" member in third position is `FALSE`) and the remaining ones are optional, make sure to use the right values for each field.
+
+As this is the first structure (and it does not have any container field), all fields are using simple types that do not need additional variable definition to be usable in the array.
+
 This is where the first problem arise: the recommended pre-commit hook for Wireshark is active on my repository and it rejects field keys with duplicated protoabbrev so `"jaeger.jaeger.something"` is not accepted.
 
 * Solution 1: disable the pre-commit hook.
@@ -692,11 +696,24 @@ Once the structure is created, we will also add a simple `thrift_member_t` defin
 
 #### Add tracing.Log structure
 
-:construction:
+For the second structure, we proceed in the same way as the first one:
+
+1. Define the hf id for each field _as well as the structure itself_.
+2. Define the ett tree for the structure.
+3. Define the structure content (all fields are mandatory) as well as the structure “element“.
+
+The main thing here is that one of the fields is a list so we need a few more things to make it work:
+
+1. An ett tree for the list itself.
+2. A definition for the `.element` member of the `thrift_member_t` that describes the list.
+
+The ett tree is easily defined and initialized and it appears that the type of the elements in the list is the `Tag`type for which we conveniently defined a `thrift_member_t` for this exact purpose.
 
 #### Add tracing.SpanRef structure
 
-:construction:
+`SpanRef` is one of the easy structures, containing only a few integers and an enum (which, aside from the use of `VALS(value_string[])`, is akin to an integer).
+
+Once again, we create the list of hf id, the ett tree, the structure content, and the structure element (just in case).
 
 #### Add tracing.Span structure
 
