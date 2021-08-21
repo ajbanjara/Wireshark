@@ -724,7 +724,7 @@ The `Span` structure is quite straightforward after what we already did, in part
 1. Define the hf id for each field as well as the structure itself.
 2. Define the ett trees for the 3 lists as well as the structure.
 3. Define the `thrift_member_t` array for the structure content using the previously defined `thrift_member_t` structure elements for the `.element` definition of each list.
-4. Define the `thrift_member_t`  element for this struct.
+4. Define the `thrift_member_t` element for this struct.
 
 However, the documentation of the flags field indicates that this integer is in fact a flag-typed enum (hence the name), format that is supported neither by Thrift nor by the Thrift dissector but in this case, it’s small enough to take one step further and help the user immediately see the meaning of the value.
 
@@ -751,19 +751,37 @@ In the content definition of the `Batch` structure, we use directly the ett tree
 
 This last structure is so basic (a single mandatory boolean) that the fact that it’s a structure is probably just for future extendability in case the Jaeger protocol requires more information in this place.
 
-As a side note, this is a good design decision when your protocol is intended to evolve in time.
+As a side note, this is a good design decision when your protocol might evolve over time.
 
 #### Add tracing.submitBatches Thrift command
 
-:construction:
+The `jaeger.thrift` file ends with the definition of a simple command expecting an answer. No exceptions are defined so we don’t have to handle that case.
+
+The first step is to create the function that will take care of the dissection and register it in `proto_reg_handoff_jaeger`.
+
+We define it following the skeleton provided in Generic usage chapter in Basic type section and we add a check for the `thrift_opt->mtype` value.
+
+The only parameter (`ME_THRIFT_T_CALL` case) is a list of `Batch` structures so we just have to define the ett tree for this list and use what we already prepare for `Batch` with the `dissect_thrift_t_list` function.
+
+The return type (`ME_THRIFT_T_REPLY` case, or `else` like here) is also a list of structure so we need to define another ett tree for the return type. Since there are no exceptions, we can directly call `dissect_thrift_t_list` and be done with it.
+
+Unfortunately, the provided capture does no contain any `submitBatches` call so we can’t check our dissector yet.
 
 #### Add agent.emitBatch Thrift command
 
-:construction:
+Since the `jaeger.thrift` file is now entirely covered, we can now switch to `agent.thrift` and the `emitBatch` command we’re interested in.
+
+Once again, we create a skeleton function and register it in `proto_reg_handoff_jaeger`.
+
+In this case, this is a `oneway` command so we don’t have to worry about `thrift_opt->mtype` as there is only one possibility.
+
+Since we only have a single parameter which is a structure, we don’t need to define an hf id and can directly use the generic hf id we defined for this structure.
+
+We add a single call to `dissect_thrift_t_struct` with the right parameters and we’re done, the example capture can now be dissected with all the details we want to have.
 
 #### Remove unused thrift_member_t
 
-At this point, we consider the dissector complete so we clear the unused elements that were created through our systematic approach in order to avoid any compilation warning and get a dissector that passed all merge checks. :)
+At this point, we consider the dissector complete so we clear the unused elements that were created through our systematic approach in order to avoid any compilation warning and get a dissector that passes all merge checks. :trophy:
 
 ### Example 2: [Armeria Maritima](https://en.wikipedia.org/wiki/Armeria_maritima)
 
