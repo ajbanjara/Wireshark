@@ -661,7 +661,7 @@ The idea of this approach is roughly the one an automated dissector generator wo
 
 Since enumerations are really easy to define for Wireshark use and can only be leaf types (unlike structures or containers that can contain other structures that must be defined first), we start with them no matter the order of their definition in the `.thrift`files.
 
-Since thrift consider the files as sub-namespaces, it might be possible to have duplicate names in different files so we need to consider the unicity of several elements using a few basic components:
+Since thrift consider the files as sub-namespaces, it is possible to have duplicate names in different files so we need to consider the unicity of several elements using a few basic components:
 
 * The protocol name: Jaeger
 * The file name: jaeger (or agent)
@@ -671,7 +671,7 @@ Since thrift consider the files as sub-namespaces, it might be possible to have 
 The name of the `value_string` arrays will then be `<protoabbrev>_<filename>_<enum_name>_vals` to follow the convention used in Wireshark dissectors which translates to `jaeger_jaeger_TagType_vals` in the first case.
 
 * TagType does not follow the `lower_case_with_underscore`convention but follows the exact name used in the IDL, which is what an automated generator would do.
-* For the same reason, we have the `jaeger_jaeger_` repetition at the beginning of the variable names which seems redundant but might not always be.
+* For the same reason, we have the `jaeger_jaeger_` repetition at the beginning of the variable names which seems redundant but might not always be (we will also see `jaeger_agent_` for instance).
 
 #### Add jaeger.Tag structure as tracing.Tag
 
@@ -681,9 +681,11 @@ The simplest way of doing that is to start with the `.thrift` files without any 
 
 In the case of structure, we need to define an hf id for each of the fields, a `member_thrift_t`array to define the content of the structure, and an ett tree for the structure itself.
 
- :warning: The first 2 fields are mandatory (so "optional" member in third position is `FALSE`) and the remaining ones are optional, make sure to use the right values for each field.
+:warning: The first 2 fields are mandatory (so "optional" member in third position is `FALSE`) and the remaining ones are optional, make sure to use the right values for each field. Using `TRUE` everywhere (everything optional) avoids having to check for each field if it’s mandatory or not but Wireshark wouldn’t be able to detect malformed PDUs regarding missing mandatory fields).
 
 As this is the first structure (and it does not have any container field), all fields are using simple types that do not need additional variable definition to be usable in the array.
+
+We just prepare the constants `TMUTF8` and `TMRAW` as described in the first chapter since we already need them (once or twice for now but it might help later on).
 
 This is where the first problem arise: the recommended pre-commit hook for Wireshark is active on my repository and it rejects field keys with duplicated protoabbrev so `"jaeger.jaeger.something"` is not accepted.
 
@@ -717,23 +719,39 @@ Once again, we create the list of hf id, the ett tree, the structure content, an
 
 #### Add tracing.Span structure
 
-:construction:
+The `Span` structure is quite straightforward after what we already did, in particular with `Log`:
+
+1. Define the hf id for each field as well as the structure itself.
+2. Define the ett trees for the 3 lists as well as the structure.
+3. Define the `thrift_member_t` array for the structure content using the previously defined `thrift_member_t` structure elements for the `.element` definition of each list.
+4. Define the `thrift_member_t`  element for this struct.
+
+However, the documentation of the flags field indicates that this integer is in fact a flag-typed enum (hence the name), format that is supported neither by Thrift nor by the Thrift dissector but in this case, it’s small enough to take one step further and help the user immediately see the meaning of the value.
+
+1. Define the enumeration `value_string` array (2 flags means 4 different values only).
+2. Use it in the initialization of `hf_jaeger_tracing_Span_flags`.
+
+An automated dissector generator could not do that but this kind of small manual improvements can go a long way into helping ease the analysis of a trace.
 
 #### Add tracing.Process structure
 
-:construction:
+Nothing unusual in this structure, a mandatory field which is an UTF-8 string and an optional field which is a list containing one of the previously defined structures.
 
 #### Add tracing.ClientStats structure
 
-:construction:
+Very basic structure containing only 3 mandatory 64-bit integers.
 
 #### Add tracing.Batch structure
 
-:construction:
+This structure contains some elements we are now accustomed to (a list of structures and an integer) but also structures as direct members of the structure we are currently preparing. In this case, the setup is even easier than the lists since we don’t have to define an ett tree for it.
+
+In the content definition of the `Batch` structure, we use directly the ett tree defined for the structure itself and the `.members` value is the `thrift_member_t` array describing the content of the inner structure.
 
 #### Add tracing.BatchSubmitResponse structure
 
-:construction:
+This last structure is so basic (a single mandatory boolean) that the fact that it’s a structure is probably just for future extendability in case the Jaeger protocol requires more information in this place.
+
+As a side note, this is a good design decision when your protocol is intended to evolve in time.
 
 #### Add tracing.submitBatches Thrift command
 
