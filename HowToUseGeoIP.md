@@ -20,9 +20,9 @@ It's more convenient if you put all of the databases in the same directory. Once
 
 ![geoip-settings-2.png](uploads/__moin_import__/attachments/HowToUseGeoIP/geoip-settings-2.png "geoip-settings-2.png")
 
-Now, restart Wireshark. At this point you should be able to load a capture file, select *Statistics→Endpoints*, and see geolocation information in any tab that contains IPv4 addresses (IPv4, TCP, UDP, etc).
+Now, restart Wireshark. At this point you should be able to load a capture file, select *Statistics→Endpoints*, and see geolocation information in the IPv4 and IPv6 tabs.
 
-You can optionally see geolocation data in the IPv4 packet detail tree. To enable this, go to *Edit→Preferences→Protocols→IPv4* and make sure *Enable IPv4 geolocation* is checked.
+You can optionally see geolocation data in the IPv4 (IPv6) packet detail tree. To enable this, go to *Edit→Preferences→Protocols→IPv4 (IPv6)* and make sure *Enable IPv4 (IPv6) geolocation* is checked.
 
 ## MaxMind's deprecated databases
 
@@ -52,15 +52,15 @@ You can optionally see GeoIP data in the IP packet detail tree. To enable this, 
 
 ## Filtering Traffic
 
-You can use the *ip.geoip* display filters to filter traffic.
+You can use the [ip.geoip](https://www.wireshark.org/docs/dfref/i/ip.html) ([ipv6.geoip](https://www.wireshark.org/docs/dfref/i/ipv6.html)) display filters to filter traffic.
 
 Exclude U.S.-based traffic:
 
-` ip and not ip.geoip.country == "United States" `
+` ip and not ip.geoip.country == "United States" `
 
 Show address above the arctic circle:
 
-` ip.geoip.lat > "66.5" `
+` ip.geoip.lat > 66.5 `
 
 ---
 
