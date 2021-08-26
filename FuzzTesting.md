@@ -50,6 +50,13 @@ In addition to the standard fuzz-test.sh script, Wireshark comes with two other 
 
 The fuzz-test.sh script just uses editcap with some simple arguments and a bit of additional logic. Both programs are worth exploring for more powerful or focused fuzz-testing.
 
+# See also
+
+[happy-shark](https://github.com/wireshark/happy-shark): _Happy Shark is the regression test framework for Wireshark consisting of a tool and a collection of capture files._  
+[[Wireshark-dev] Revive the happy-shark repository?](https://www.wireshark.org/lists/wireshark-dev/202101/msg00052.html)  
+!2839 : [Draft: Test: Add external tests.](https://gitlab.com/wireshark/wireshark/-/merge_requests/2839)  
+AKA happyshark
+
 ---
 
 Imported from https://wiki.wireshark.org/FuzzTesting on 2020-08-11 23:14:14 UTC
