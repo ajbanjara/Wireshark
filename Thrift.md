@@ -787,12 +787,102 @@ At this point, we consider the dissector complete so we clear the unused element
 
 The second example is the reverse engineered protocol for an anonymized capture that will allow us to cover all types of data as well as a few elements not covered by the Jaeger dissector above.
 
-In particular, Jaeger is using ONEWAY command which allow the dissector to start dissecting the data without any prior check, while this protocol uses CALL commands associated to REPLY which request the sub-dissector to check the direction before analysis of the content.
+In particular, Jaeger is using `ONEWAY` command which allow the dissector to start dissecting the data without any prior check, while this protocol uses `CALL` commands associated to `REPLY` which request the sub-dissector to check the direction before analysis of the content (and also can return an exception even though the sample capture does not contain any).
 
 This protocol is also developed as a plugin instead of an integrated dissector.
 
-The complete dissector is shared on GitLab and/or GitHub (repository TBD), with the history of commits following the process described below.
+The complete dissector is shared on GitLab [on armeria branch of EnigmaTriton/wireshark](https://gitlab.com/EnigmaTriton/wireshark/-/tree/armeria), with the history of commits following the process described below.
 
 A [capture file](/uploads/99d63eaf8a2780a1da96cb111267deea/anony-tcp-std.pcap) is available on [SampleCaptures](/SampleCaptures#thrift).
+
+#### Create Armeria plugin
+
+Unlike the Jaeger dissector, the armeria dissector is not integrated but created as a plugin.
+
+If you are developping a dissector for an internal protocol that you don’t intend to share, that’g probably the option you’ll want to choose in order not to have to rebuild Wireshark for every new release.
+
+This first commit creates a bare minimum Thrift sub-dissector plugin and includes the `.thrift` IDL files (not necessary to build the plugin, only added for reference).
+
+#### Add enumerations
+
+:construction:
+
+#### Add value_content & date_time
+
+:construction:
+
+#### Add cardinal_data & range
+
+:construction:
+
+#### Add db_range structure
+
+:construction:
+
+#### Add element & acceptable structures
+
+:construction:
+
+#### Add line structure
+
+:construction:
+
+#### Add restriction, dwarf_day & snow_white_task
+
+:construction:
+
+#### Add grimm_data structure
+
+:construction:
+
+#### Add all exceptions
+
+:construction:
+
+#### Add function for easy exception handling
+
+:construction:
+
+#### Add anonymous_command_on and that_won_t_do commands
+
+:construction:
+
+#### Add anonymous_things dissection
+
+:construction:
+
+#### Add anonymous_command_differently
+
+:construction:
+
+#### Add what_did_you_expect_really and someone_tries_to_analyze
+
+:construction:
+
+#### Add there_is_no_spoon_trust_me and yet_another_command_passed
+
+:construction:
+
+#### Add This_command_runs and unknown_command_in
+
+:construction:
+
+#### Add another_anonymous_command
+
+:construction:
+
+#### Add this_should_be_the_least
+
+:construction:
+
+#### Remove compiler warnings on unused thrift_member_t
+
+:construction:
+
+#### Remove unused href entries from tools/checkhf.pl
+
+:construction:
+
+## Considerations for a sub-dissector generator
 
 :construction:
