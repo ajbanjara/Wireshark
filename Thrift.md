@@ -894,9 +894,8 @@ As the return value in case of success is always field number 0 of the `REPLY`, 
 This is very similar to the idea in *Hijacking structure dissection feature* where we define the reply as an union with a few additional benefits:
 
 * If an exception is seen, the Armeria tree will show "Armeria: Exception (N)" at its root (N being the number of the exception.
-* If the `REPLY` contains several fields, it will be dectected (overwise, union dissected as struct would just show several fields next to each other, without any warning about the non-compliance).
-* If the exception is unknown (the command evolved since the sub-dissector was written and can no throw a new one), the sub-dissector gracefully indicates exactly that instead of a generic error about unsupported field).
-* It acts as any `dissect_thrift_t_<type>` function, so we just let the dissection continue with `dissect_thrift_t_stop` once this function returns the updated offset.
+* If the exception is unknown (the command evolved since the sub-dissector was written and can now throw a new one), the sub-dissector gracefully indicates exactly that instead of a generic error about unsupported field.
+* It dissects the entire reply as union, including the final `T_STOP` and set the end of the PDU so we can just call `return dissect_armeria_reply_with_exceptions(…);` without having to worry about what we need to do next.
 
 It receives the `thrift_member_t` array that defines the union of return value + exceptions as a parameter.
 
@@ -904,7 +903,42 @@ While this function is specific to the rules defined above, your own protocol mi
 
 #### Add anonymous_command_on and that_won_t_do commands
 
-:construction:
+To make things a little more progressive, we will not start with the first command described in `armeria.thrift` file but the next ones.
+
+We start from the skeleton given in the generic explanation and then, we add the parameters and reply handling.
+
+The first thing to add to the basic skeleton function is the handling of `CALL`vs. `REPLY`. The generic explanation recommends a switch to ensure all cases are handled properly so we proceed as recommended.
+
+The value 0 for `NOT_AN_EXPECTED_PDU` will indicate to the generic dissector that we did not dissect anything.
+
+For the `CALL`, we need to handle the parameters which are all mandatory and must be sequential, starting with field id number 1.
+
+The easiest implementation, especially when you have just a few fields, is to add as much `offset = dissect_thrift_t_<type>(…);` as you have parameters.
+
+In both these cases, we only have a single parameter:
+
+* `anonymous_command_on` takes an enumeration value (32-bit integer).
+* `that_won_t_do` takes a binary buffer.
+
+To cover simple parameters like these, we only need to define the hf id that decribes the name of the parameter and the associated filter.
+
+Note that, like with Jaeger, if we try to use the `<protoabbrev>.<namespace>.<command_name>.*` filter, the pre-commit hook will complain again about the “duplicated protobbrev” because the file is `armeria.thrift`. In this case, this is less a problem since command names must be unique on the network because the namespace is not part of the content so we just drop the namespace (in the variable names as well for consistency).
+
+The return values are quite simple too but we want to handle the possible exceptions as well. To take that into account, we create the `thrift_member_t` array that matches an union containg the result as field 0 and the exceptions with their respective field ids as defined in the `.thrift` file.
+
+The name does not matter as we are inside a function so we use a generic name for faster copy-paste. :smirk_cat:
+
+For the exception, we can use the hf id defined for the `thrift_member_t` element as we don’t really care where the exception occured:
+
+* It’s always at the first level of a reply.
+* We can easily filter the command name as well with a compound filter.
+
+For the successful result itself, we need to define a new name that does not conflict with the parameters so we have 2 solutions:
+
+1. Either use a name that is reserved in most languages, `return` comes to mind (`hf_armeria_<command_name>_return`, `"armeria.<command_name>.return"`).
+2. Or use the absence of name (this is the choice in this example).
+
+Once the pseudo-union is defined, we just have to call our helper function for dissection.
 
 #### Add anonymous_things dissection
 
