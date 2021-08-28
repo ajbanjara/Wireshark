@@ -13,7 +13,7 @@ For an overview of the different protocols available, see [Thrift GitHub reposit
 Change log about Wireshark supporting Thrift:
 
 * Wireshark 2.0.0 - Initial support for Thrift Binary Protocol.
-* Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one (in progress, see wireshark!3752).
+* Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one.
 
 ## Protocol dependencies
 
@@ -443,7 +443,7 @@ The last parameter (after the ett tree for the targetted element) also get more 
 * Most of the time, it’s not used and `TMFILL` provides a default initialization.
 * For binary fields, we provide the expected encoding with `{ .encoding = ENC_SOMETHING }`.
 * For lists and set, we provide the pointer to the element description with `{ .element = &tcustom_<type_name>_<field_name> }`
-* For maps, we provide both the key and value descriptions with `{ .key = &tcustom_<type_name>_<field_name>_key, .value = &tcustom_<type_name>_<field_name>_value }`
+* For maps, we provide both the key and value descriptions with `{ .m.key = &tcustom_<type_name>_<field_name>_key, .m.value = &tcustom_<type_name>_<field_name>_value }`
 * For sub-structures, we provide the list of members with `{ .members = tcustom_<subtype_name> }`
 * Finally, all structures and unions end with a `T_STOP` field when serialized, this is materialized in the description with the fixed content `{ NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }` which also marks the end of the array.
 
@@ -456,7 +456,7 @@ At this point, we can now call the helper as usual:
 
 ##### Simplified display of unions
 
-Given that unions always contain exactly one field, you might want to omit the sub-tree that would contain only one element (especially if you need to scan a long list of these).
+Given that unions always contain exactly one field, you might want to omit the sub-tree that would contain only one element (especially if you need to scan a long list of those).
 
 This is very easily achieved by _not_ giving the matching hf id and ett tree elements and replace them with `-1` which is the default value for uninitialized elements.
 
@@ -636,7 +636,7 @@ The idea of this approach is roughly the one an automated dissector generator wo
 
 Since enumerations are really easy to define for Wireshark use and can only be leaf types (unlike structures or containers that can contain other structures that must be defined first), we start with them no matter the order of their definition in the `.thrift`files.
 
-Since thrift consider the files as sub-namespaces, it is possible to have duplicate names in different files so we need to consider the unicity of several elements using a few basic components:
+Since thrift consider the files as sub-namespaces, it is possible to have duplicate names in different files so we need to ensure the unicity of several elements using a few basic components:
 
 * The protocol name: Jaeger
 * The file name: jaeger (or agent)
@@ -774,41 +774,99 @@ A [capture file](/uploads/99d63eaf8a2780a1da96cb111267deea/anony-tcp-std.pcap) i
 
 Unlike the Jaeger dissector, the armeria dissector is not integrated but created as a plugin.
 
-If you are developping a dissector for an internal protocol that you don’t intend to share, that’g probably the option you’ll want to choose in order not to have to rebuild Wireshark for every new release.
+If you are developping a dissector for an internal protocol that you don’t intend to share, that’s probably the option you’ll want to choose in order not to have to rebuild Wireshark for every new release.
 
 This first commit creates a bare minimum Thrift sub-dissector plugin and includes the `.thrift` IDL files (not necessary to build the plugin, only added for reference).
 
 #### Add enumerations
 
-:construction:
+As we did for Jaeger sub-dissector, we start we the enumerations which are really easy to define for Wireshark use and can only be leaf types.
+
+We will use the same naming rules as in Jaeger for easier maintenance (we know what to search for) and unicity of names:
+
+* The protocol name: Armeria (protoabbrev = armeria)
+* The file name: common
+* The type: roman_numerals, ordinal, … for the enums
+* More for other types as described in the Generic Usage chapter.
+
+The name of the `value_string` arrays will then be `<protoabbrev>_<filename>_<enum_name>_vals` to follow the convention used in Wireshark dissectors which translates to `armeria_common_roman_numerals_vals` in the first case.
+
+In addition to the definition of the `value_string` arrays, we add a `thrift_member_t` structure for each of the enumeration. The definition of each structure depends upon the definition of af hf id so we declare all of them and register them.
+
+This will allow us to quickly define containers with these enumerations as elements without the need to go back to check if it is already defined or not (or worse, define a different one for each container it appears in).
 
 #### Add value_content & date_time
 
-:construction:
+Once enumerations are defined, we proceed with the structures in the same order they are defined in the `.thrift` file to ensure that all dependencies exist when we process a definition.
+
+The first structure (as in `DE_THRIFT_T_STRUCT` on the network) we define is the classical “variant” type, here named `value_content` which is a union: all fields are optional and exactly one of them is defined for any given instance.
+
+The process is as described in the first theoretical explanation and Jaeger structures with a small difference:
+
+1. Define the hf id for each field (one of each basic type, 2 `DE_THRIFT_T_BINARY` for `string`and `binary` types, nice example for the various possibilities).
+2. Define the structure content (all fields are optional) as well as the union “element“.
+
+As this is an union, we did not create an hf id and an ett tree for the union and we use `DISABLE_SUBTREE` in the `thrift_member_t` element. This will allow the union to appear as a single element in the dissection tree instead of a tree that always contain exactly 1 element.
+
+In order to handle the ASCII string and binary buffer, we also define `TMASCII` and `TMRAW` fillers (using ASCII instead of UTF-8 will make Wireshark highlight the payloads that are using non-ASCII characters even if they are valid in UTF-8, this can help the analysis in case of issue).
+
+The second structure, named `date_time`, looks very similar as all fields are also optional but this is not an union as we can (and do) have several of the fields defined in a given instance of the object so we proceed as we would for any other structure:
+
+1. Define the hf id for each field (all `FT_INT16`) as well as the structure itself.
+2. Define the ett tree for the structure.
+3. Define the structure content as well as the structure “element“.
+
+And because one point of the sub-dissector is to get a better readability of the capture, we also define a `value_string` array for the months as if they were defined in an enum.
+
+However, we do not define the hf id and `thrift_member_t` as for the other enums because this is not a type that is used elsewhere than this structure.
 
 #### Add cardinal_data & range
 
-:construction:
+Next, we proceed with `cardinal_data` and `range` structures.
+
+Both structures are quite straightforward with all fields being optional and all of the same type within a given structure:
+
+* UTF-8 strings in `cardinal_data` (therefore, we define the `TMUTF8` filler which helps a lot here).
+* 32-bit integers in `range`.
 
 #### Add db_range structure
 
-:construction:
+The next structure is `db_range`, containing a single optional field (probably to be prepared for future extension) which is it self a structure of type `range` so we make use of the `armeria_common_range` array defined in the previous commit to specify the `.members` definition.
 
 #### Add element & acceptable structures
 
-:construction:
+Next come the `element` and `acceptable` structures which are both relatively easy to specify with all fields being booleans.
+
+The main point of attention in this case is the requiredness of each field, with optional resulting if the third member being `TRUE` and a required field showing a `FALSE` value.
+
+As previously explained, we could make our life easier considering all fields optional but Wireshark would not detect the missing madatory fields.
 
 #### Add line structure
 
-:construction:
+The `line` structure is a little less monotonous. All fields are optional but we see almost all simple types and we have a few structures as well.
+
+The systematic definition of the ett tree for a structure allow us to write the `thrift_member_t` array for the `line` structure without any additional definition needed.
 
 #### Add restriction, dwarf_day & snow_white_task
 
-:construction:
+The next 3 structures are not showing anything we didn’t already encountered in the previous structures (only basic types, all of them optional except for `restriction.minimum_quantity`).
+
+On the other hand, it’s _not_ showing something we always saw before: the requiredness is not specified for some of the fields.
+
+In this case, Thrift recommends that it should be considered as `required` from a sender point of view and `optional` from a receiver point of view to account for the various implementations that may or may not abide to these recommendations.
+
+Wireshark being a “receiver” in all cases, we take the “optional” route.
 
 #### Add grimm_data structure
 
-:construction:
+The final `struct` definition of the Armeria protocol concerns `grimm_data` and is a little more tedious than the other ones as the structure contains several lists.
+
+1. Define the hf id for each field as well as the structure itself.  
+   _Note_: No need to define hf id for the list elements as these are structures so we already defined everything we need.
+2. Define the ett tree for the structure as well as each list.
+3. Define the structure content as well as the structure “element“ for `grimm_data`.
+
+This is the first time we use the `armeria_common_<structure_name>_element` we defined systematically for every structure but depending on your protocol (and the number of containers you use), it could happen much more often.
 
 #### Add all exceptions
 
