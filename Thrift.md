@@ -870,11 +870,37 @@ This is the first time we use the `armeria_common_<structure_name>_element` we d
 
 #### Add all exceptions
 
-:construction:
+The last types we need to define in this sub-dissector are the exceptions.
+
+As explained in the generic part, the exceptions are exactly like structures when we consider them from serialization point of vue, the only difference being the authorized use inside an application using Thrift RPC.
+
+With that in mind, the dissection of the exceptions for the Armeria protocol comes easy as the structures only contain basic types.
+
+In this case, since the `error_code` parameter is always present (and we happen to know that it’s mandatory for every new exception in our protocol), we decide to bend the rule a little and use the already defined `hf_armeria_common_error_code` for each use of this enumeration.
+
+This will allow us to filter a capture globally on `armeria.common.error_code` which might be useful during analysis.
+
+As a matter of fact, we could also define a single hf id for the message that we would filter and use the more obvious filters `armeria.exception.error_code` and `armeria.exception.message` but it’s starting to go a little too much out of the automation path (it’s fine if you are writing the sub-dissector entirely manually, it’s a good way to take shortcuts).
 
 #### Add function for easy exception handling
 
-:construction:
+For the Armeria protocol, we can easily see in the IDL definition (and it’s in fact a design rule that for any command in Armeria protocol), the exceptions that can be raised follow 2 rules:
+
+* They are numbered from 1 to the number of possible exceptions,
+* There is no gap in the numbering (for example where exceptions could be 1, 2, and 4).
+
+As the return value in case of success is always field number 0 of the `REPLY`, these rules allow us to define a common function that would take care of dissecting the reply for us whatever the status is.
+
+This is very similar to the idea in *Hijacking structure dissection feature* where we define the reply as an union with a few additional benefits:
+
+* If an exception is seen, the Armeria tree will show "Armeria: Exception (N)" at its root (N being the number of the exception.
+* If the `REPLY` contains several fields, it will be dectected (overwise, union dissected as struct would just show several fields next to each other, without any warning about the non-compliance).
+* If the exception is unknown (the command evolved since the sub-dissector was written and can no throw a new one), the sub-dissector gracefully indicates exactly that instead of a generic error about unsupported field).
+* It acts as any `dissect_thrift_t_<type>` function, so we just let the dissection continue with `dissect_thrift_t_stop` once this function returns the updated offset.
+
+It receives the `thrift_member_t` array that defines the union of return value + exceptions as a parameter.
+
+While this function is specific to the rules defined above, your own protocol might have some rules that allow the creation of a similar function albeit somewhat different. For example, if any exception is always associated to the same field id (`basic_exception` is always number 1, `invalid_parameter_exception` is always number 2, …).
 
 #### Add anonymous_command_on and that_won_t_do commands
 
