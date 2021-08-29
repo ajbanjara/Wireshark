@@ -942,19 +942,70 @@ Once the pseudo-union is defined, we just have to call our helper function for d
 
 #### Add anonymous_things dissection
 
-:construction:
+The very first command defined in the IDL needs a few additional steps regarding the handling of the parameter as it is not directly a value but as set of values (from an enumeration).
+
+1. Define an hf id for the set itself, whose display name is the name of the parameter.
+2. Define an ett tree for the set.
+
+We dont need more because we already defined a `thrift_member_t` for the enumeration (and an hf id that is referenced in the `thrift_member_t`) so we can use it directly as the element parameter (remember that we need to give a reference to the structure).
+
+The result could also seem slightly more complex because it’s a structure but most requirements are already there.
+
+1. _The `thrift_member_t` array is present as it is the very definition of the structure._
+2. _The ett tree is already defined for the structure itself (part of the creation process)._
+3. We need to create an hf id for the result, as always.
+4. We create the `thrift_member_t` array describing the union holding this result and the exceptions.
 
 #### Add anonymous_command_differently
 
-:construction:
+The next command we will dissect is much simpler on the parameter side: without any parameter, the `ME_THRIFT_T_CALL` case is just empty.
+
+The reply, on the other hand, adds a new type of result with a list of enumeration values:
+
+1. We need to create the hf id for the result (the list itself).
+2. We also need to create an ett tree for the list.
+3. Since the elements of the list are an already defined type (an enumeration in this case), we just plug in the `thrift_member_t` previously defined as the `.element` value which will use the matching hf id.
 
 #### Add what_did_you_expect_really and someone_tries_to_analyze
 
-:construction:
+The next 2 commands have the exact same first parameter (same name, same type) but due to the filter value which contains the command name, we cannot mutualize the hf id (we can still go faster with a copy-paste and just change the hf variable name and filter string).
+
+Since this first common parameter is a structure, we don’t need anything else than the hf id.
+
+For the second parameter of `someone_tries_to_analyze`, we have a set of enumeration values so we proceed the same way as for `anonymous_things`:
+
+1. Define an hf id for the set itself, whose display name is the name of the parameter.
+2. Define an ett tree for the set.
+
+Regarding the results, the first command returns a single structure so we just need to define the hf id and add the right values in the first element of the `thrift_member_t` array.
+
+The second command returns a set of structures which is not very different from a set of enumeration values:
+
+1. We need to create the hf id for the result (the list itself).
+2. We also need to create an ett tree for the list.
+3. Since the elements of the list are an already defined type (this time it’s a structure), we just plug in the `thrift_member_t` previously defined as the `.element` value which will use the matching hf id.
+
+At this step, we take a break for compilation and check what we achieved with the example capture:
+
+* Once reassembled, this result is more than 50 kB long.
+* The structure itself contains more sub-structures:
+  * The presence of `date_time` and the values in it indicates it’s probably some kind of log.
+* Some of those structures are among the most difficult to analyze without the sub-dissector:
+  * `element` and `acceptable` structures contain only boolean fields.
+  * Not all fields are mandatory in `acceptable` which makes it even worse to analyze.
+
+Then, we give the current state of the plugin to our colleagues who immediately offer us a well deserved coffee after seeing the achievement. :coffee:
 
 #### Add there_is_no_spoon_trust_me and yet_another_command_passed
 
-:construction:
+Next, we work on `there_is_no_spoon_trust_me` which doesn’t present any unseen characteristics since it does not have any parameter and returns a set of enumeration values which is essentiall the same as the list in `anonymous_command_differently`.
+
+The command `yet_another_command_passed` presents a new challenge, not due to the absence of parameter, obviously, but the result is a list of strings so we have a few more things to prepare:
+
+1. We need to create the hf id for the result (the set itself).
+2. We also need to create an ett tree for the set.
+3. :new: We need to define another hf id for the elements of the set.
+4. :new: We need to define a `thrift_member_t` that will be fed into the `.element` value of the set description.
 
 #### Add This_command_runs and unknown_command_in
 
