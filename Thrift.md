@@ -985,6 +985,10 @@ The second command returns a set of structures which is not very different from 
 2. We also need to create an ett tree for the list.
 3. Since the elements of the list are an already defined type (this time it’s a structure), we just plug in the `thrift_member_t` previously defined as the `.element` value which will use the matching hf id.
 
+Here is what it looked like like without the specific dissection:
+
+![generic_dissection](uploads/7561225d4dd9fcbc315a3c23ce232477/generic_dissection.png)
+
 At this step, we take a break for compilation and check what we achieved with the example capture:
 
 * Once reassembled, this result is more than 50 kB long.
@@ -993,6 +997,12 @@ At this step, we take a break for compilation and check what we achieved with th
 * Some of those structures are among the most difficult to analyze without the sub-dissector:
   * `element` and `acceptable` structures contain only boolean fields.
   * Not all fields are mandatory in `acceptable` which makes it even worse to analyze.
+
+Here is how it looks with a proper specific dissection:
+
+![specific_dissection](uploads/b099b12b76a5cf365922fbb01c4070fa/specific_dissection.png)
+
+In addition to the much clearer fields, we can see much more information on the same screen.
 
 Then, we give the current state of the plugin to our colleagues who immediately offer us a well deserved coffee after seeing the achievement. :coffee:
 
