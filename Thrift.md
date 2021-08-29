@@ -1007,25 +1007,79 @@ The command `yet_another_command_passed` presents a new challenge, not due to th
 3. :new: We need to define another hf id for the elements of the set.
 4. :new: We need to define a `thrift_member_t` that will be fed into the `.element` value of the set description.
 
+In this case, we chose to name the element "Key Name" because it appears to be the same values that we put in the `dict_keys` parameter of next command. Without this hint (or in an automated code generation), the name would have been something like "Result Element" or simply "Element".
+
 #### Add This_command_runs and unknown_command_in
 
-:construction:
+The next commands use the same tools we already used for the previous ones:
+
+* Define the hf id and ett tree for the list parameter.
+* Define an hf id for the list elements because we don’t already have one:
+  * If you have a plural name for the parameter itself, you probably can use the singular,
+  * With "Object List", then "Object" would be a safe bet,
+  * Without any insight (think automation), the name "Element" can be used,
+  * In this case, it’s manual and `dict_keys` most probably designate dictionary keys.
+* Define the hf id and ett tree for the list result.
+* Use the `thrift_member_t` of the union to conclude the handling of `This_command_runs`.
+
+For `unknown_command_in`, it’s even easier with a single enumeration value parameter and a single structure result:
+
+* Define the hf ids for the parameter and result.
+* Use these and already defined variables to fill in the `dissect_thrift_t_i32` call and result+exception definition.
 
 #### Add another_anonymous_command
 
-:construction:
+Now, we get to the mind-boggling `another_anonymous_command` where the parameter is simple enough (a set of integers which was probably an enumeration before anonymization but I got lazy seeing the number of values :sleeping:) but the return value is a map whose value is a list of unions.
+
+We start with the parameter:
+
+* Define the hf id and ett tree for the set.
+* Define the hf id and `thrift_member_t` for the integer elements (would already been present with an enumeration).
+* Call `dissect_thrift_t_set` with the appropriate parameters.
+
+For the result, it will take a little more steps and a deep dive in one of the most difficult problem in computer science: naming things (or maybe we will just keep things generic and unspecific).
+
+To handle the dependencies, we need to start from the leafs of the object and work our way down to the root of the map which is the result:
+
+1. Consider the elements of the list: Luckily for us, it’s an union with it’s own generic hf id and `thrift_member_t` element description.
+2. Step into the next level and consider the key and value of the map:
+   a. Define the hf id (and stick to the "Key" name) and `thrift_member_t` for the key (once again, defining the enum would have spared us the work :disappointed:)
+   b. Define the hf id (and stick to the "Value" name), the ett tree (it’s a list), and the `thrift_member_t` for the value using the previously defined `thrift_member_t`.
+3. Finally, handle the result itself:
+   a. Define the hf id for the result.
+   b. Define the ett tree as it’s a map.
+   c. Add the map in the union definition using the key and value `thrift_member_t` as the members `.m.key` and `.m.value`.
+
+Once again, the sub-disssection of the command makes it much easier to analyze than the generic dissection and in this case for 2 reasons:
+
+1. We see nearly meaningful names for the different trees.
+2. Since the content of the list is the `value_content` union, we pruned one level of tree and just see a map from integer to a list of basic type.
+
+In this case, the sample capture is quite anticlimactic because the map contains only 1 key-value pair and the list in it contains only 1 element.
 
 #### Add this_should_be_the_least
 
-:construction:
+The last command we dissect is using the same tools as previously:
+
+1. Define the hf id and `thrift_member_t` for the byte elements of the parameter list (nothing is necessary for the elements of the result list since the structure in it is already associated with the right variables).
+2. Define the hf ids and ett trees for both lists.
+3. Add the call to `dissect_thrift_t_list` for the parameter and the `DE_THRIFT_T_LIST` element in the array of `thrift_member_t` defining the result+exceptions union.
+
+This commit closes the implementation of our sub-dissector and everything is nicely displayed in Wireshark.
 
 #### Remove compiler warnings on unused thrift_member_t
 
-:construction:
+Now, it’s time to clean-up our code regarding elements that were systematically defined “just in case” and end up unused.
+
+The first step happens with the obvious warnings about unused variables that the compiler complains about so we clean that up.
 
 #### Remove unused href entries from tools/checkhf.pl
 
-:construction:
+Now, the compilation is nice and clean so we run the various verification scripts that are at our disposal for pre-commit hook or just verifications that our code follows recommendations.
+
+In this case, only `tools/checkhf.pl` complains about “unused href entr[ies]” so we remove all the cited hf id variables and registrations.
+
+Keep in mind that your own sub-dissector could require to go back and forth between the compilation warnings and the various verification scripts even if one pass is enough here (also note that before cleaning the compilation warnings, `tools/checkhf.pl` was not complaining).
 
 ## Considerations for a sub-dissector generator
 
