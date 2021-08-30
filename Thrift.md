@@ -1093,4 +1093,21 @@ Keep in mind that your own sub-dissector could require to go back and forth betw
 
 ## Considerations for a sub-dissector generator
 
+### Naming the variables
+
+The first point of attention should be the naming of the various variables (mostly hf id and ett trees) used in the dissector:
+
+* The first option would be to just use numbered variables and keep track of the use inside the code generator (that’s the approach taken for thrift code generator).
+* The second option would follow the rules explained above (maybe with some adjustments).
+
+While the first option might seem easier for the code generator, the user looses the possibility of easy customization (for hf id).
+If done right it could help the analysis a lot while remaining low maintenance (by simply applying a patch after a new code generation).
+The examples that come to mind are the `flags` field of the `Span` structure in Jaeger dissector or the `month` field in the `date_time` structure.
+
+### Generic or specific hf id
+
+:construction:
+
+### Path of the filter string
+
 :construction:
