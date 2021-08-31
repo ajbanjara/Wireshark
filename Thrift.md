@@ -1093,6 +1093,18 @@ Keep in mind that your own sub-dissector could require to go back and forth betw
 
 ## Considerations for a sub-dissector generator
 
+If for a small interface you could easily manually develop the sub-dissector, it quickly becomes tedious and error-prone.
+
+The Jaeger exemple is in fact a very small subset of the entire Jaeger interface and the Armeria example only covers the anonymized capture (some optional sub-structures that were not present in the capture became integers or boolean for simplification and the 90% or 95% that were not visible were dropped entirely).
+
+Even for these simplified examples, some amount of automation was used (sed+regex —or vim + `:%s/…/…/g`, manual editions, loop back to first step) and it was still quite long to write and completely unmaintainable as all the semi-automated steps would have to be run in order every time the protocol evolves.
+
+With that in mind, it becomes obvious that we need to be able to have a way to input the `*.thrift` files somewhere and in a single action (or close enough) get full dissection of our Thrift based protocol.
+
+One tempting approach might be to do like it is done on [Protobuf](Protobuf) side: update Wireshark to read and parse the `*.thrift` files automatically to display the right dissection.
+
+While this is very interesting and remains the ultimate goal, it might be easier to generate the code from the IDL files following the proposals below (and when it’s complete, it could be the base for the inner parser as the logic would be readily available as a single call to `dissect_thrift_t_struct()` with right parameters is always enough to cover a complete PDU).
+
 ### Naming the variables
 
 The first point of attention should be the naming of the various variables (mostly hf id and ett trees) used in the dissector:
