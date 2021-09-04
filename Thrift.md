@@ -529,7 +529,7 @@ In a similar way, when used as a field for a structure or an element inside a co
 
 :warning: If you choose to omit the tree, the label displayed in the interface will be the one from the available field (here, it would be the definition for `small`, `efficient`, or `inefficient` field) and not the definition of the union itself (which can in fact be removed, along with the matching ett tree).
 
-##### Partial definition of structure for faster results
+##### Partial definition of structure for faster development results
 
 **Note**: :warning: This feature relies on MR [!4104](https://gitlab.com/wireshark/wireshark/-/merge_requests/4104) which is not merged yet. :warning:
 
