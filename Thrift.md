@@ -70,6 +70,8 @@ However, there are a few cases where the heuristic cannot detect that Thrift is 
 * When the old Thrift Binary Protocol header is used instead of the new Thrift Strict Binary Protocol header (not enough fixed data to ensure balance between false positive and false negative).
 * When the endpoint uses unbuffered transport as the first packet is only 4 bytes long for Thrift Binary Protocol and even less for Compact.
 
+In such cases, the port settings indicate that the selected port is indeed Thrift data. This will ensure that the Thrift dissector is called without relying on the heuristic and the Thrift dissector will properly handle valid Thrift data, ensuring reassembly or dissecting the old header.
+
 ## Write your own Thrift-based dissector
 
 With Thrift protocols being self-described, it’s relatively easy to analyse Thrift PDU with Wireshark on one screen and the documentation of your protocol on the other but it can get bothersome when your protocol contains a lot of different types and deep sub-structures.
@@ -533,7 +535,56 @@ In a similar way, when used as a field for a structure or an element inside a co
 
 When manually writing a dissector, it might be interesting to get results faster during the development by letting the generic dissector handle part of the work especially when we have a lot of fields and/or deep sub-structures.
 
-:construction:
+While there is no way to directly trigger the generic dissector from the sub-dissector, it is possible to omit the definition of some of the fields and the struct handler will reroute non-specified field ids to the generic dissector and handle them.
+
+Given a definition like:
+
+```c
+struct resource {
+    // Very big structure we don’t want/need to handle right now
+}
+
+struct data {
+    1: required i64 id;
+    2: required string name;
+    3: required resource content;
+}
+```
+
+The complete way of defining this would use the following structure definition:
+
+```c
+static const thrift_member_t tcustom_data[] = {
+    { &hf_tcustom_data_id, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
+    { &hf_tcustom_data_name, 2, TRUE, DE_THRIFT_T_BINARY, TMUTF8 },
+    { &hf_tcustom_data_content, 3, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_resource, { .members = tcustom_resource } },
+    { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+};
+```
+
+In order to accelerate the development (at least the fact that we have some results and the ability to filter on the `id` and `name` fields of the data structure), we can proceed as follows:
+
+```c
+static const thrift_member_t tcustom_data[] = {
+    { &hf_tcustom_data_id, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
+    { &hf_tcustom_data_name, 2, TRUE, DE_THRIFT_T_BINARY, TMUTF8 },
+    { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+};
+```
+
+This saves us the need to define the entire `resource` structure before we can use the `data` structure.
+
+This feature can be used for any number of fields, no matter their types or position in the parent structure.
+
+In this case, we could have defined the entire `data` structure associated to the following definition for a similar result:
+
+```c
+static const thrift_member_t tcustom_resource[] = {
+    { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
+};
+```
+
+In this case, the `content` field is correctly displayed (avoiding the irregularity in the `data` display tree) but this is the only difference and the content of its sub-tree is still dissected by the generic dissector.
 
 #### Functions with a reply
 
