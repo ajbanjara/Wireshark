@@ -527,6 +527,14 @@ In a similar way, when used as a field for a structure or an element inside a co
 
 :warning: If you choose to omit the tree, the label displayed in the interface will be the one from the available field (here, it would be the definition for `small`, `efficient`, or `inefficient` field) and not the definition of the union itself (which can in fact be removed, along with the matching ett tree).
 
+##### Partial definition of structure for faster results
+
+**Note**: :warning: This feature relies on MR [!4104](https://gitlab.com/wireshark/wireshark/-/merge_requests/4104) which is not merged yet. :warning:
+
+When manually writing a dissector, it might be interesting to get results faster during the development by letting the generic dissector handle part of the work especially when we have a lot of fields and/or deep sub-structures.
+
+:construction:
+
 #### Functions with a reply
 
 Until now, we only dissected `oneway` commands which do not expect any response so when we see them on the network, we just have to dissect the parameters.
