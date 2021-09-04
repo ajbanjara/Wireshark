@@ -1093,9 +1093,9 @@ Keep in mind that your own sub-dissector could require to go back and forth betw
 
 ## Considerations for a sub-dissector generator
 
-If for a small interface you could easily manually develop the sub-dissector, it quickly becomes tedious and error-prone.
+If for a small interface you could easily manually develop the sub-dissector, it quickly becomes tedious and error-prone when the interface grows.
 
-The Jaeger exemple is in fact a very small subset of the entire Jaeger interface and the Armeria example only covers the anonymized capture (some optional sub-structures that were not present in the capture became integers or boolean for simplification and the 90% or 95% that were not visible were dropped entirely).
+The Jaeger exemple is in fact a very small subset of the entire Jaeger interface and the Armeria example only covers the anonymized capture (some optional sub-structures that were not present in the capture became integers or boolean for simplification and the 90% or 95% that were not visible were dropped entirely for demonstration purpose).
 
 Even for these simplified examples, some amount of automation was used (sed+regex —or vim + `:%s/…/…/g`, manual editions, loop back to first step) and it was still quite long to write and completely unmaintainable as all the semi-automated steps would have to be run in order every time the protocol evolves.
 
@@ -1118,8 +1118,42 @@ The examples that come to mind are the `flags` field of the `Span` structure in 
 
 ### Generic or specific hf id
 
-:construction:
+Another compeling argument for automation is the huge number of href we need to create for each structure field, parameter and return types but even for that there is still the question whether the hf id shoud be linked to the type of the content or the position inside the structure (or name of the parameter for the command, it’s similar).
+
+Using the type as the base is quit straightforward when the type is defined in the `.thrift` files like the structures and enumerations since we already considered the systematic creation of an hf id for the `thrift_member_t` “element”.
+
+On the other hand, using the type as the sole element means that we are not able to differentiate between 2 fields of the same structure which have the same type but a different usage.
+
+However, when it’s a container or a basic type (integer, string, …), we need to consider the name anyway with additional questions:
+
+* Are 2 fields with the same name and type (like `i64 id`) really always the same type and does it make sense to search for `tprotocol.id == 2459` accross the entire capture?
+* How do we consider 2 fields with the same name but a different type? For example in `add_user(user_data user)` and `remove_user(i64 user)` when the second “user” really means “user id” but automation doesn’t know.
+* What is the name of the content of a container?
+  * “Element” for a list or a set?
+  * “Key” and “Value” for a map?
+  * Use the user-defined type name if applicable?
+  * Use generic names like “Int 32”, “Boolean”, or “String” for basic types?
+  * Use a combination of above solutions, like “String Key”?
+  * What if we have nested containers?
 
 ### Path of the filter string
 
-:construction:
+Another element that should be taken into account when generating a sub-dissector is the choice of the filter string that can later be used in Wireshark’s display filter.
+
+1. Do we want to integrate the namespace in the path?
+   * If we do, there is the risk of the “protoabbrev” duplication which might or might not be a blocking issue depending on your policy.
+   * The integration of the namespace can also leads to very long paths making it impractical.
+   * On the other hand, eluding the namespace may lead to conflicts in type names (a sanely defined protocol should not have any but we need to consider every well-formed IDL without additional constraints).
+   * This choice could probably be easily left to the end user of the dissector generator if they take care of guaranteeing unicity.
+2. Do we want to search a field or parameter by its type only or do we want to search for the name?
+   * A search by name implies that we have a different hf id for each field of each structure (see previous section).
+   * A search by type does not add this constraint and allows to find every occurence of a given type in a single search.
+3. How do we filter for the result of a function?
+   * Use the name of the function without additional sub-element?
+   * Use a generic name like “result” or “return”? (The former seems more natural but the latter is guaranteed to avoid conflicts as it is reserved in most languages, [including Thrift itself](https://github.com/apache/thrift/blob/master/doc/specs/idl.md#reserved-keywords).
+
+### Detection of unused elements
+
+Last point concerns the clean-up commits we have at the end of both examples, the code generator should keep track of what is used and what is not in order to avoid having to clean-up unused variables after the generation.
+
+Done right, this could avoid generation of entire `thrift_member_t` arrays if the protocol happen to still contain the definition for structures that are no longer used and therefore limit the memory usage.
