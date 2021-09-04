@@ -23,6 +23,53 @@ In some cases however, in particular when one of the endpoints is using an unbuf
 
 In this case, one can set the known port number in the Thrift dissector preferences (both TCP and UDP are supported).
 
+## Preferences settings
+
+The Thrift dissector allows for some customization of the user experience whether a subdissector is used or not.
+![preferences](uploads/a40e386562204cd4122bf57267a14654/preferences.png)
+
+_Display binary as bytes or strings_: As the generic Thrift dissector as bundled in vanilla Wireshark does not know if the `T_BINARY` fields are binary blobs or strings (and in this case, which encoding), this settings allows the user to choose the encoding that Wireshark must use for _all_ `T_BINARY` fields.
+
+* _UTF-8 if printable_: using a basic heuristic, the dissector checks for each field whether the content is a printable UTF-8 string or not.
+  * If it is considered printable, Wireshark dispalys it a a string (making the filtering requests easier as well).
+  * If it is not the case, display falls back to an hexadecimal representation of the binary field.
+  * Both Thrift protocols specify that “_Strings_ are first encoded to UTF-8, and then send as binary” so this setting should work in most cases.
+    * [Thrift Binary protocol encoding](https://github.com/apache/thrift/blob/master/doc/specs/thrift-binary-protocol.md#string-encoding)
+    * [Thrift Compact protocol encoding](https://github.com/apache/thrift/blob/master/doc/specs/thrift-compact-protocol.md#string-encoding)
+* _Binary (hexadecimal string)_: Consider all `T_BINARY` fields as binary blobs.
+  * You can consider using this setting if you find the heuristic trying to display some binaries as strings when it should not.
+  * Also consider making a report to help improve the heuristic.
+* _ASCII_ and various unicode encodings: If you know that you protocol uses (or should use) a specific encoding for all strings then you can explicitly set it.
+
+_Thrift TLS port_: Select the TCP port used for your TLS encrypted communications.
+
+_Show internal Thrift fields in the dissection tree_: This setting only applies to sub-dissectors as the generic dissector always displays these internal fields.
+
+By default, the sub-dissections will not show the internal Thrift fields (field type and field id) as the field name displayed by the sub-dissector is usually much more usable.
+
+![hide_internal](uploads/8d15230a31181024ae6b2baf34e445c0/hide_internal.png)
+
+However, you might want to display these fields in some cases to better understand how data is interpreted, including while developing a sub-dissector.
+
+![show_internal](uploads/1093e789487983de77f9b7a5cdbcff37/show_internal.png)
+
+_Fallback to generic Thrift dissector if sub-dissector fails_: In case the sub-dissector return with an error code, for example when a mandatory field is missing or the field type is not what was expected, the generic dissector can try to dissect the PDU if it’s well-formed.
+
+This can be useful to understand why the sub-dissector failed and still be able to see the end of the PDU.
+
+_Reassemble Framed Thrift messages spannig multiple TCP segments_: Tells the helper function `tcp_dissect_pdus`, used when Framed Transport is used by the application, to reassemble Thrift PDUs that are split into several TCP packets.
+
+In the absence of Framed Transport, the reassembly is controlled by the global TCP parameter _Allow subdissector to reassemble TCP streams_.
+
+While UDP and USB bulk are supported by the Thrift dissector, reassembly is not available for these transport streams.
+
+_Thrift TCP port_ and _Thrift UDP port_: As explained in previous section, the heuristic Thrift dissector will properly detect and dissect Thrift PDU in most cases so there should not be any need for port selection.
+
+However, there are a few cases where the heuristic cannot detect that Thrift is in use:
+
+* When the old Thrift Binary Protocol header is used instead of the new Thrift Strict Binary Protocol header (not enough fixed data to ensure balance between false positive and false negative).
+* When the endpoint uses unbuffered transport as the first packet is only 4 bytes long for Thrift Binary Protocol and even less for Compact.
+
 ## Write your own Thrift-based dissector
 
 With Thrift protocols being self-described, it’s relatively easy to analyse Thrift PDU with Wireshark on one screen and the documentation of your protocol on the other but it can get bothersome when your protocol contains a lot of different types and deep sub-structures.
