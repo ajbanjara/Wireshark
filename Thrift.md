@@ -568,6 +568,7 @@ In order to accelerate the development (at least the fact that we have some resu
 static const thrift_member_t tcustom_data[] = {
     { &hf_tcustom_data_id, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
     { &hf_tcustom_data_name, 2, TRUE, DE_THRIFT_T_BINARY, TMUTF8 },
+    { NULL, 3, TRUE, DE_THRIFT_T_GENERIC, TMFILL },
     { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
 };
 ```
@@ -580,6 +581,11 @@ In this case, we could have defined the entire `data` structure associated to th
 
 ```c
 static const thrift_member_t tcustom_resource[] = {
+    { NULL, 1, TRUE, DE_THRIFT_T_GENERIC, TMFILL },
+    { NULL, 2, FALSE, DE_THRIFT_T_GENERIC, TMFILL },
+    { NULL, 3, TRUE, DE_THRIFT_T_GENERIC, TMFILL },
+    // ... Specify all fields and only indicate whether they are optional or not...
+    // ... or just always put TRUE (optional) as long as all possible field ids are covered.
     { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
 };
 ```
