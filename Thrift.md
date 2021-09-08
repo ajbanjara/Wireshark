@@ -531,8 +531,6 @@ In a similar way, when used as a field for a structure or an element inside a co
 
 ##### Partial definition of structure for faster development results
 
-**Note**: :warning: This feature relies on MR [!4104](https://gitlab.com/wireshark/wireshark/-/merge_requests/4104) which is not merged yet. :warning:
-
 When manually writing a dissector, it might be interesting to get results faster during the development by letting the generic dissector handle part of the work especially when we have a lot of fields and/or deep sub-structures.
 
 While there is no way to directly trigger the generic dissector from the sub-dissector, it is possible to omit the definition of some of the fields and the struct handler will reroute non-specified field ids to the generic dissector and handle them.
