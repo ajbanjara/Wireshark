@@ -29,6 +29,7 @@ If you don't find what you're looking for, you may also try:
 * [https://bugs.wireshark.org/bugzilla/](https://bugs.wireshark.org/bugzilla/) Added as attachments to recreate bug or test a fix.
 * [Malware of the Day](https://www.activecountermeasures.com/category/malware-of-the-day/) Network traffic of malware samples in the lab.
 * [Malware-Traffic-Analysis.net](https://www.malware-traffic-analysis.net/about.html) Sharing information on malicious network traffic and malware samples. A source for pcap files and malware samples...
+* [http://njrusmc.net/jobaid/jobaid.html](http://njrusmc.net/jobaid/jobaid.html) A collection of network protocols captures (like BGP, OSP, Netflow etc) by Nick Russo
 
 ## General / Unsorted
 
