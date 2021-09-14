@@ -116,7 +116,7 @@ Step-by-step instructions to decrypt TLS traffic from Chrome or Firefox in Wires
 
 4.  Verify that the location from step 2 is created.
 
-5.  In Wireshark, go to *Preferences* -\> *Protocols* -\> *TLS*, and change the *(Pre)-Master-Secret log filename* preference to the path from step 2.
+5.  In Wireshark, go to *Edit* -\> *Preferences* -\> *Protocols* -\> *TLS*, and change the *(Pre)-Master-Secret log filename* preference to the path from step 2.
 
 6.  Start the Wireshark capture.
 
