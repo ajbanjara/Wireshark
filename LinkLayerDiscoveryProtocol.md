@@ -96,9 +96,9 @@ Open source LLDP projects:
 
   - [ladvd](http://blinkenlights.nl/software/ladvd/) - last release: June 2017
 
-  - [lldpd](https://vincentbernat.github.io/lldpd/) - last release: April 2018
+  - [lldpd](https://lldpd.github.io/) - last release: August 2021
 
-  - [Open-LLDP](http://www.open-lldp.org) - last release: June 2013
+  - [Open-LLDP](http://www.open-lldp.org) - last release: November 2020
 
 ## Discussion
 
