@@ -302,6 +302,8 @@ These tools attempt to repair damaged capture files as much as can be done.
 
   - [large-pcap-analyzer](https://github.com/f18m/large-pcap-analyzer) is designed to perform some common operations on very large PCAP files at high speed.
 
+  - [sctpunbunlde](https://github.com/kor44/sctpunbundle/releases) splits SCTP chunks into separate frames. [Git repo](https://github.com/kor44/sctpunbundle)
+
 ### Capture file conversion
 
 These tools convert between different capture file formats.
