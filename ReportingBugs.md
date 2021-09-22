@@ -66,7 +66,7 @@ Sometimes it is also useful to have the output of Valgrind attached to a bug rep
 
 If your bug report contains sensitive information you can keep the information private:
 
-  - In Gitlab Issues you can mark the issue as "Confidentiality". This makes the issue accessible to the reported and Team members only.
+  - In Gitlab Issues you can mark the issue as "confidential". This makes the issue accessible to the reporter and Team members only. (Gitlab docs: [Confidential issues](https://docs.gitlab.com/ee/user/project/issues/confidential_issues.html))
 
   - Instead of sending the report to the [Wireshark development mailing list](https://www.wireshark.org/mailman/listinfo/wireshark-dev) (which is a public forum) you can send it to <security@wireshark.org>, which has limited distribution.
 
