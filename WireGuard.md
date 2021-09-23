@@ -48,9 +48,9 @@ The protocol name is `wg`.
 
 To filter WireGuard traffic while capturing, you can use:
 
-`udp[8:4] >= 0x1000000 and udp[8:4] <= 0x4000000`
+`udp[8:1] >= 1 and udp[8:1] <= 4 and udp[9:1] == 0 and udp[10:2] == 0`
 
-This filter works like the WireGuard heuristics, it test the first byte for a valid message type (1, 2, 3, or 4), and checks that the next three reserved bytes are zero.
+This filter works like the WireGuard heuristics. It tests the first byte for a valid message type (1, 2, 3, or 4) and checks that the next three reserved bytes are zero.
 
 Alternatively if you know the UDP port number, you can filter it like this:
 
