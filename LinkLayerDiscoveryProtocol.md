@@ -4,7 +4,7 @@ The Link Layer Discovery Protocol (LLDP) is a vendor neutral layer 2 protocol th
 
 ## History
 
-After several years of development LLDP was formally defined in May of 2005 as IEEE Std 802.1AB-2005.
+After several years of development LLDP was formally defined in May of 2005 as [IEEE Std 802.1AB-2005](https://standards.ieee.org/standard/802_1AB-2005.html).
 
 LLDP was developed as an open and extendable standard. It was modeled on and borrowed concepts from the numerous vendor proprietary discovery protocols such as Cisco Discovery Protocol (CDP), Extreme Discovery Protocol (EDP) and others.
 
