@@ -86,9 +86,11 @@ For some perspective on how the LLDP came to be, see the following from ieee802.
 
 It's interesting to note that unlike the LLDP drafts referenced above, the final LLDP standard abandoned the notion of an LLDP Header and instead simply mandated the presence of certain TLVs. In the various draft documents the LLDP Header was supposed to include a Version field. The current LLDP standard does not include any notion of a Version.
 
-LLDP agent for Windows 2000/XP (Shareware):
+LLDP agent for Windows:
 
-  - [haneWIN LLDP Service](https://hanewin.net/lldp-e.htm)
+  - [haneWIN LLDP Service](https://hanewin.net/lldp-e.htm) - Windows 2000/XP (shareware)
+
+  - [WinLLDPService](https://raspi.github.io/projects/winlldpservice/) - last release: February 2018 (opensource)
 
 Open source LLDP projects:
 
