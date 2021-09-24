@@ -88,7 +88,7 @@ It's interesting to note that unlike the LLDP drafts referenced above, the final
 
 LLDP agent for Windows 2000/XP (Shareware):
 
-  - [haneWIN LLDP Service](http://www.hanewin.de/lldp-e.htm)
+  - [haneWIN LLDP Service](https://hanewin.net/lldp-e.htm)
 
 Open source LLDP projects:
 
