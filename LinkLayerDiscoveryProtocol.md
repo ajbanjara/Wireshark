@@ -184,7 +184,7 @@ The LLDP-MED specification defines the following set of TIA Organizationally Spe
 
 The following links include some information regarding LLDP-MED.
 
-  - [LLDP-MED simplifies VoIP deployments (from Network World)](http://www.networkworld.com/news/tech/2004/110104techupdate.html)
+  - [LLDP-MED simplifies VoIP deployments (from Network World)](https://www.networkworld.com/article/2326532/lldp-med-simplifies-voip-deployments.html)
 
   - [LLDP & LLDP-MED Standards (CIMA MS Power Point presentation)](http://www.state.co.us/cima/2005Spring/Presentations/ProCurve%20Networking%20LLDP%20&%20LLDP-MED%20Standards.ppt)
 
