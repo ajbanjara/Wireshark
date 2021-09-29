@@ -1727,6 +1727,11 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 
 [pcapng-example.pcapng](uploads/96afe21b136f715d5b96df4a646c57d9/pcapng-example.pcapng) A PCAPNG example file with packets from interfaces with different link-layer types, file- and packet-comments, a name resolution block and a TLS session keys block.
 
+### Huawei's GRE bonding control (RFC8157)
+
+[greb_DSLkeepalive_m.cap](uploads/0c476e603bf492bd9f914c01fcfe7084/greb_DSLkeepalive_m.cap)
+Keepalive (regular "Hello") for the bonding as seen on a Deutsche Telekom DSL line (that's why it is encapsuluated in PPP and VLAN 7)
+
 ## Captures used in Wireshark testing
 
 The following are used during Wireshark testing, and are from the test/captures directory.
