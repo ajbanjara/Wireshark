@@ -1717,6 +1717,11 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 
 [anony-tcp-std.pcap](uploads/99d63eaf8a2780a1da96cb111267deea/anony-tcp-std.pcap) Thrift Binary Protocol TCP example with [packet reassembly](https://gitlab.com/wireshark/wireshark/-/issues/16244).
 
+### Huawei's GRE bonding control (RFC8157)
+
+[greb_DSLkeepalive_m.cap](uploads/0c476e603bf492bd9f914c01fcfe7084/greb_DSLkeepalive_m.cap)
+Keepalive (regular "Hello") for the bonding as seen on a Deutsche Telekom DSL line (that's why it is encapsuluated in PPP and VLAN 7)
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/__moin_import__/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
@@ -1726,11 +1731,6 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 [erf-ethernet-example.erf](uploads/__moin_import__/attachments/SampleCaptures/erf-ethernet-example.erf) A Endace [ERF](/ERF) capture file.
 
 [pcapng-example.pcapng](uploads/96afe21b136f715d5b96df4a646c57d9/pcapng-example.pcapng) A PCAPNG example file with packets from interfaces with different link-layer types, file- and packet-comments, a name resolution block and a TLS session keys block.
-
-### Huawei's GRE bonding control (RFC8157)
-
-[greb_DSLkeepalive_m.cap](uploads/0c476e603bf492bd9f914c01fcfe7084/greb_DSLkeepalive_m.cap)
-Keepalive (regular "Hello") for the bonding as seen on a Deutsche Telekom DSL line (that's why it is encapsuluated in PPP and VLAN 7)
 
 ## Captures used in Wireshark testing
 
