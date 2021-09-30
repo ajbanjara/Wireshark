@@ -1722,6 +1722,9 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 [greb_DSLkeepalive_m.cap](uploads/0c476e603bf492bd9f914c01fcfe7084/greb_DSLkeepalive_m.cap)
 Keepalive (regular "Hello") for the bonding as seen on a Deutsche Telekom DSL line (that's why it is encapsuluated in PPP and VLAN 7)
 
+[notifyLTE.pcap](uploads/64bfcee3cc3e25d56c6cd43eb5f82d4b/notifyLTE.pcap)
+"Notify" over LTE, just keeping the IPv6 prefix fresh
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/__moin_import__/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
