@@ -1725,6 +1725,10 @@ Keepalive (regular "Hello") for the bonding as seen on a Deutsche Telekom DSL li
 [notifyLTE.pcap](uploads/64bfcee3cc3e25d56c6cd43eb5f82d4b/notifyLTE.pcap)
 "Notify" over LTE, just keeping the IPv6 prefix fresh
 
+[greb_notifyDSLfail_overLTE.cap](uploads/ef50161950b672bcc73d3d7b71c272bc/greb_notifyDSLfail_overLTE.cap) Notification of DSL failure
+
+[greb_filterlist.pcap](uploads/d9bfb8281125a1d71ed9d138a4d491ea/greb_filterlist.pcap) Notify incl. filter list
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/__moin_import__/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
