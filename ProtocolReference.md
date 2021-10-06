@@ -124,7 +124,7 @@ A protocol can belong to more than one family.
 
   - [HSR](/HSR): High-availability Seamless Redundancy: A protocol for network redundancy.
 
-  - [I2C](http://www.nxp.com/documents/user_manual/UM10204.pdf): (sometimes IIC) bi-directional two wires bus used in most of embeded system to transfer data. this include [IPMB](/IPMB_protocol) protocol
+  - [I2C](https://web.archive.org/web/20170624192823/https://www.nxp.com/documents/user_manual/UM10204.pdf): (sometimes IIC) bi-directional two wires bus used in most of embeded system to transfer data. this include [IPMB](/IPMB_protocol) protocol
 
   - [IEEE\_802.15.4](/IEEE_802.15.4): Low-power wireless networking protocol intended for sensor networks.
 
