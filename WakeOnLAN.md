@@ -10,7 +10,7 @@ For a history of WakeOnLAN and Magic Packet technology, refer to either [this wi
 
   - [Ethernet](/Ethernet): According to AMD's white paper, WakeOnLAN depends only on Ethernet. However, the paper also indicates that the Magic Packet can reside anywhere within the payload. This means that we would have to search every Ethernet frame for the Magic Packet. In my opinion, doing so would degrade Wireshark performance, especially since most traffic will not contain a Magic Packet. Therefore, the WakeOnLAN dissector has been implemented to dissect only the actual implementations of the Magic Packet. As of this writing, the author is only aware of 2 implementations, one being [ether-wake](http://linux.die.net/man/8/ether-wake) which uses Ethertype 0x0842, which is unfortunately not yet a registered Ethertype, and the other implementation being over [UDP](/UDP).
 
-  - [UDP](/UDP): Several tools mentioned in the above wikipedia article implement the Magic Packet over [UDP](/UDP).
+  - [UDP](/UDP): Several tools mentioned in the above Wikipedia article implement the Magic Packet over [UDP](/UDP).
 
 ## Packet Format
 
@@ -24,7 +24,7 @@ The Synchronization Stream is defined as 6 bytes of FFh.
 
 The Target MAC block contains 16 duplications of the [IEEE](http://www.ieee.org/portal/site) address of the target, with no breaks or interruptions.
 
-The Password field is optional, but if present, contains either 4 bytes or 6 bytes. The WakeOnLAN dissector was implemented to dissect the password, if present, according to the command-line format that ether-wake uses, therefore, if a 4-byte password is present, it will be dissected as an IPv4 address and if a 6-byte password is present, it will be dissected as an Ethernet address.
+The Password field is optional, but if present, contains either 4 bytes or 6 bytes. The WakeOnLAN dissector was implemented to dissect the password, if present, according to the command-line format that [ether-wake](http://linux.die.net/man/8/ether-wake) uses, therefore, if a 4-byte password is present, it will be dissected as an IPv4 address and if a 6-byte password is present, it will be dissected as an Ethernet address.
 
 ## Example traffic
 
