@@ -156,6 +156,7 @@ Python 3.4 or newer has become required since v2.9.0rc0-2460-ge9f7bb5127. The te
 | RHEL/CentOS 8  | python3-pytest 3.4.2                                 |
 | Debian Stretch | python3-pytest 3.0.6                                 |
 | Ubuntu 17.10   | python3-pytest 3.1.3                                 |
+
 On older systems, you can install it via: `pip3 install pytest pytest-xdist`
 
 ## Lua
