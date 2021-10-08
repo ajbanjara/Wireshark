@@ -56,5 +56,16 @@ Chapter 11. Customizing Wireshark 11.8. Display Filter Macros
 Chapter 6. Working With Captured Packets 6.7. Defining And Saving Filter Macros
 
 ---
+## Notes
+**Not implemented yet - upvote #15504**
+[[Feature request] - Simple arithmetical operations for Display Filters](https://gitlab.com/wireshark/wireshark/-/issues/15504)
+```
+- a filter that shows only 5 last minutes in a capture file:
+Choose last packet and apply:
+
+frame.time_relative >= ${frame.time_relative} - 300
+
+```
+---
 
 Imported from https://wiki.wireshark.org/DFilterMacro on 2020-08-11 23:13:29 UTC
