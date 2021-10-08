@@ -14,6 +14,8 @@ This dissector dissects the [Guacamole Protocol](https://guacamole.apache.org/do
 
 ![guacamole_over_tcp](uploads/48ff80ee3e8ace9f683e9b73856cbc33/guacamole_over_tcp.png)
 
+You can also find another sample capture file attached to the [GUACAMOLE-620](https://issues.apache.org/jira/browse/GUACAMOLE-620) Jira issue.  That one will exercise the TCP reassembly feature as well.
+
 In order to dissect the Guacamole data over HTTP as depicted in the diagram on the [Implementation and architecture](https://guacamole.apache.org/doc/gug/guacamole-architecture.html) page, the following Guacamole PostDissector is also needed.  This is not an ideal solution but I know of no other way to get to the HTTP payload without modifying the Wireshark HTTP dissector.
 
 **NOTE**: You will need to modify the Guacamole PostDissector to set `GUACDC_WEB_PORT` to the correct port to match your configuration.
