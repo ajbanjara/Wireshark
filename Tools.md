@@ -282,6 +282,8 @@ These tools can be used to "anonymize" capture files, replacing fields such as I
 
   - The [TraceWrangler](http://www.tracewrangler.com/) tool.
 
+  - The [VoIP Anonymizer Tool](https://www.voipanalyzertool.com/anonymize).   Anonymize Wireshark VoIP captures. Following SIP information is anonymized: digest credentials, user names, phone numbers, IP addresses, RTP payload. (Windows/Linux/macOS)
+
   - The [WireEdit](https://wireedit.com/) tool from Omnipacket.
 
   - [Colasoft Packet Builder](https://www.colasoft.com/packet_builder/) enables creating custom network packets; users can use this tool to check their network protection against attacks and intruders. Colasoft Packet Builder includes a very powerful editing feature. Besides common HEX editing raw data, it features a Decoding Editor allowing users to edit specific protocol field values much easier. (Windows, see [EULA](https://www.colasoft.com/products/license_pt_builder.php))
