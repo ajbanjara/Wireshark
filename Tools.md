@@ -210,6 +210,8 @@ The following tools can process the libpcap-format files that Wireshark and TSha
 
   - [VisualEther Protocol Analyzer](http://www.eventhelix.com/VisualEther/) generates sequence diagrams from Wireshark PDML output (Win32)
 
+  - [VoIP Analyzer Tool](https://www.voipanalyzertool.com/) Merge, Split, Audit or Anonymize Wireshark VoIP captures. (Windows/Linux/macOS)
+
   - [WebScarab](https://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) [WebScarab](/WebScarab) is a framework for analysing applications that communicate using the HTTP and HTTPS protocols.
 
   - [Xplico](http://www.xplico.org) A network forensic analysis tool (GPL, Linux only)
