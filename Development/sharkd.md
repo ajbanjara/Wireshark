@@ -31,6 +31,13 @@ To start sharkd in Console Mode use the command:
 ```
   sharkd -
 ```  
+**Note:** the default compilations only support `tcp` ports on Windows.  
+See [Which package contains sharkd?](https://ask.wireshark.org/question/24794/which-package-contains-sharkd/) and [Add sharkd - daemon variant](https://code.wireshark.org/review/#/c/18208/)  
+```
+Peter Wu | Jan 24, 2017 | Patch Set 8: Code-Review+1
+Should be a good start. (Disabling the TCP socket also removes my concern about remote attacks.)
+```
+
 To start sharkd in Daemon Mode running on a TCP port, use the command:
 ```
   sharkd tcp:127.0.0.1:4446
