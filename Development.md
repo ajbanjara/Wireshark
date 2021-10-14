@@ -154,7 +154,6 @@ Now it's time to tweak the code:
 
 ## Discussion
 
-  - [Discussion-Issues-Labels](/Discussion-Issues-Labels): Discussion how we want to handle labels for issues
 
 -----
 
