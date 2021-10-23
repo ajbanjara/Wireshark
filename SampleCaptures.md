@@ -21,15 +21,16 @@ If you don't find what you're looking for, you may also try:
 * [http://www.google.com/](http://www.google.com/)
 * [http://www.icir.org/enterprise-tracing/download.html](http://www.icir.org/enterprise-tracing/download.html) (unsorted capture of packet headers from enterprise traffic - use the .anon files)
 * [https://www.openpacket.org/capture/list](https://www.openpacket.org/capture/list) (open repository of traces particularly related to digital security)
-* [http://www.packetlife.net/captures/](http://www.packetlife.net/captures/) (community submissions, organized and moderated)
+* [https://packetlife.net/captures/](https://packetlife.net/captures/) (community submissions, organized and moderated)
 * [http://www.pcapr.net/](http://www.pcapr.net/) (web 2.0 for pcaps with editing, DoS, etc; powered by wireshark)
-* [http://www.netresec.com/?page=PcapFiles](http://www.netresec.com/?page=PcapFiles) (great list of places to download pcap files from)
+* [https://www.netresec.com/?page=PcapFiles](http://www.netresec.com/?page=PcapFiles) (great list of places to download pcap files from)
 * [http://sysdoccap.codeplex.com/wikipage?title=System%20Overview%20Document%20Scenario%20Captures](http://sysdoccap.codeplex.com/wikipage?title=System%20Overview%20Document%20Scenario%20Captures) (Microsoft System Overview Document captures).
 * [Collection of Pcap files from malware analysis](http://contagiodump.blogspot.co.uk/2013/04/collection-of-pcap-files-from-malware.html) (You will need to contact [Mila](https://www.blogger.com/profile/09472209631979859691) for the password to extract the files.)
-* [https://bugs.wireshark.org/bugzilla/](https://bugs.wireshark.org/bugzilla/) Added as attachments to recreate bug or test a fix.
+* [https://gitlab.com/wireshark/wireshark/-/issues](https://gitlab.com/wireshark/wireshark/-/issues) Added as attachments to recreate bug or test a fix.
 * [Malware of the Day](https://www.activecountermeasures.com/category/malware-of-the-day/) Network traffic of malware samples in the lab.
 * [Malware-Traffic-Analysis.net](https://www.malware-traffic-analysis.net/about.html) Sharing information on malicious network traffic and malware samples. A source for pcap files and malware samples...
-* [http://njrusmc.net/jobaid/jobaid.html](http://njrusmc.net/jobaid/jobaid.html) A collection of network protocols captures (like BGP, OSPF, Netflow etc) by Nick Russo
+* [https://njrusmc.net/jobaid/jobaid.html](https://njrusmc.net/jobaid/jobaid.html) A collection of network protocols captures (like BGP, OSPF, Netflow etc) by Nick Russo
+* [https://tshark.dev/search/pcaptable/](https://tshark.dev/search/pcaptable/) A search engine for captures on Wireshark, Wireshark bugs, and PacketLife
 
 ## General / Unsorted
 
