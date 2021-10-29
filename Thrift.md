@@ -1118,7 +1118,7 @@ Then, we give the current state of the plugin to our colleagues who immediately 
 
 #### Add there_is_no_spoon_trust_me and yet_another_command_passed
 
-Next, we work on `there_is_no_spoon_trust_me` which doesn’t present any unseen characteristics since it does not have any parameter and returns a set of enumeration values which is essentiall the same as the list in `anonymous_command_differently`.
+Next, we work on `there_is_no_spoon_trust_me` which doesn’t present any unseen characteristics since it does not have any parameter and returns a set of enumeration values which is essentially the same as the list in `anonymous_command_differently`.
 
 The command `yet_another_command_passed` presents a new challenge, not due to the absence of parameter, obviously, but the result is a list of strings so we have a few more things to prepare:
 
