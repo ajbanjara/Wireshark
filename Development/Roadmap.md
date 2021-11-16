@@ -3,11 +3,11 @@
 This is a tentative roadmap for the next stable releases of Wireshark. For more information on the Wireshark release lifecycle and on past releases see [Development/LifeCycle](/Development/LifeCycle).
 
 ## Planning
-
 | **Release** | **Expected Date** | **Notes** |
 |-------------|-------------------|-----------|
-| 3.6.0 | October 20, 2021 | First release of the 3.6 branch |
+| 3.6.0 | November 17, 2021 | First release of the 3.6 branch |
 | 3.4.10 | November 17, 2021 | Next maintenance release of the 3.4 branch |
+| 3.2.18 | November 17, 2021 | Last maintenance release of the 3.2 branch |
 
 ## Backporting Changes
 
@@ -27,8 +27,8 @@ For a list of bugs that should have been fixed before the 2.0 release, see [Bugz
 
 Other proposed items (possibly out of date, see wiki source):
 
-* Items marked with 1️⃣ in the TODO list of [Development/SNMP](/Development/SNMP) since rev148 2007-08-30
-* Keep plugin API and ABI stable and versioned, so binary plugins will reliably work with more than one Wireshark version (ABI changes can be followed here: [https://abi-laboratory.pro/tracker/timeline/wireshark/](https://abi-laboratory.pro/tracker/timeline/wireshark/)) since rev2033 2011-10-30
+* Items marked with :one: in the TODO list of [Development/SNMP](/Development/SNMP) since rev148 2007-08-30
+* Keep plugin API and ABI stable and versioned, so binary plugins will reliably work with more than one Wireshark version (ABI changes can be followed here: <https://abi-laboratory.pro/tracker/timeline/wireshark/>) since rev2033 2011-10-30
   * Run `tools/git-compare-abis.sh` in the Git repository right before the release since rev2033 2011-10-30
   * Bump library versions as needed based on [Libtool's documentation](http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html) in `*/Makefile.am` and `*/CmakeList.txt` (don't forget updating `debian/*.symbols`) since rev2033 2011-10-30 for autotools, rev3305 2014-05-30 for cmake
   * When major library version bumps are needed `*.CMakeList.txt`-s have to be changed at two locations and `debian/lib*N.*` files have to be updated and renamed
@@ -50,4 +50,4 @@ Other proposed items (possibly out of date, see wiki source):
 
 ---
 
-Imported from [https://wiki.wireshark.org/Development/Roadmap](https://wiki.wireshark.org/Development/Roadmap) on 2020-08-11 23:13:03 UTC
+Imported from <https://wiki.wireshark.org/Development/Roadmap> on 2020-08-11 23:13:03 UTC
