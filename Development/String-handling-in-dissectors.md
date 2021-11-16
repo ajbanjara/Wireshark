@@ -79,6 +79,8 @@ Again, non-printing characters is an orthogonal question. Users should be able t
 
 In the "processed internally" case, if the part of the string that's being looked at contains an invalid octet sequence, the processing should fail, otherwise the processing should still work. For example, an HTTP request beginning with 0x47 0x45 0x54 0x20 0xC0 should be treated as a GET request with the operand being invalid, but an HTTP request beginning with 0x47 0x45 0x54 0xC0 should be treated as an invalid request.
 
+The display filter engine should use an internal string representation that allows working with embedded null bytes (C-style strings are out). Need to check if external tools and dependencies can handle that (PCRE2 does).
+
 ### Exporting to Other Programs
 
 There seem to be two probable use cases:
