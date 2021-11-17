@@ -29,7 +29,8 @@ For the future I propose to have this set of labels:
 | os::windows|Microsoft Windows| manually |
 | version::outdated|Version reached end of life | automatically |
 | version::3.2|Version 3.2.x| manually, maybe automatically |
-| version::3.4|Versions 3.4.x| manually, maybe automatically |
+| version::3.4|Version 3.4.x| manually, maybe automatically |
+| version::3.6|Version 3.6.x| manually, maybe automatically |
 | version::dev|Development or prerelease versions| manually, automatically |
 |ws-status::unconfirmed | This bug has recently been added to the issue tracker. Nobody has confirmed that this bug is valid. | automatically |
 |ws-status::confirmed | This bug is valid. | manually, automatically |
