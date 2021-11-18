@@ -5,9 +5,8 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 ## Planning
 | **Release** | **Expected Date** | **Notes** |
 |-------------|-------------------|-----------|
-| 3.6.0 | November 17, 2021 | First release of the 3.6 branch |
-| 3.4.10 | November 17, 2021 | Next maintenance release of the 3.4 branch |
-| 3.2.18 | November 17, 2021 | Last maintenance release of the 3.2 branch |
+| 3.6.0 | November 22, 2021 | First release of the 3.6 branch |
+| 3.4.11 | February 17, 2022 | Next maintenance release of the 3.4 branch |
 
 ## Backporting Changes
 
@@ -19,7 +18,6 @@ Significant bug fixes should be [backported to all applicable stable branches](D
 
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/release-3.4) in the [3.4 branch](https://gitlab.com/wireshark/wireshark/-/tree/release-3.4)
 
-[Recent changes](https://gitlab.com/wireshark/wireshark/commits/master-3.2) in the [3.2 branch](https://gitlab.com/wireshark/wireshark/-/tree/master-3.2)
 
 ## Proposed Changes
 
