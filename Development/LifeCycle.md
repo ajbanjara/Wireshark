@@ -39,6 +39,8 @@ Release Notes for each release are available on the [main site](https://www.wire
 
 The git change log provides good information about changes in each release:
 
+  - [release-3.6](https://gitlab.com/wireshark/wireshark/commits/release-3.6)
+
   - [release-3.4](https://gitlab.com/wireshark/wireshark/commits/release-3.4)
 
   - [master-3.2](https://gitlab.com/wireshark/wireshark/commits/master-3.2)
@@ -75,11 +77,12 @@ Changes for older releases are listed in wiki pages:
 
 In order to limit the development burden, support for a (old-)stable release is eventually ended. This is the planning for abandoning old releases. A note is added why such release may still be relevant for you.
 
-| Version | Stable Release Date | End of Life                 | Notes |
+| Version | Stable Release Date | End of Support               | Notes |
 |----|----|----|----|
-| 3.6     | Q2, 2021             | Release + 18 or more months | Support ends when 3.10.0 is released.                                                                           |
-| 3.4     | October 29, 2020             | Release + 18 or more months | Support ends when 3.8.0 is released.                                                                           |
-| 3.2     | December 18, 2019   | June 18, 2021 or later      | Last release to support Windows 7 and Windows Server 2008 R2. Support ends when 3.6.0 is released.                                                   |
+| 4.0     | Q2, 2022             | Release + 18 or more months | Support ends when 4.4.0 is released.                                                                           |
+| 3.6     | November 22, 2021             | Release + 18 or more months | Support ends when 4.2.0 is released.                                                                           |
+| 3.4     | October 29, 2020             | Release + 18 or more months | Support ends when 4.0.0 is released.                                                                           |
+| 3.2     | December 18, 2019   | November 22, 2021   | Last release to support Windows 7 and Windows Server 2008 R2. |
 | 3.0     | February 28, 2019   | October 29, 2020    | |
 | 2.6     | April 18, 2018      | October 18, 2020            | Long term support (LTS). Last release to support GTK+ and Qt4. Last release to support Red Hat EL 6. Last release to support Mac OS X 10.6 and 10.7 and OS X 10.8, 10.9, 10.10, and 10.11. |
 | 2.4     | July 19, 2017       | July 19, 2019               | GTK+ UI disabled by default.                                                                                                                         |
