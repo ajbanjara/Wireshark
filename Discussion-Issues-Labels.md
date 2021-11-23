@@ -22,7 +22,7 @@ For the future I propose to have this set of labels:
 | lib::wireshark|The library that dissects packets| manually |
 | lib::wiretap|The library that reads and writes different capture file formats (libwiretap).| manually |
 | lib::wsutil|The library that provides common utility functions (libwsutil).| manually |
-| lib::dfilter|The library that handles the display filter.|manually|
+| dfilter| Everything that has to do with display filters.|manually|
 | os::linux|Linux Distributions like Debian, Ubuntu, Red Hat Linux, Fedora and others| manually |
 | os::macos|macOS| manually |
 | os::other|FreeBSD, NetBSD, OpenBSD, AIX, HP-UX, Solaris, and other OS| manually |
