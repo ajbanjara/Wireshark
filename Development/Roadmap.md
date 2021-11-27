@@ -3,7 +3,6 @@
 This is a tentative roadmap for the next stable releases of Wireshark. For more information on the Wireshark release lifecycle and on past releases see [Development/LifeCycle](/Development/LifeCycle).
 
 ## Planning
-
 | **Release** | **Expected Date** | **Notes** |
 |-------------|-------------------|-----------|
 | 3.6.1 | December 29, 2021 | First release of the 3.6 branch |
@@ -27,6 +26,10 @@ Other proposed items (possibly out of date, see wiki source):
 
 * Items marked with :one: in the TODO list of [Development/SNMP](/Development/SNMP) since rev148 2007-08-30
 * When major library version bumps are needed `*.CMakeList.txt`-s have to be changed at two locations and `debian/lib*N.*` files have to be updated and renamed
+* Keep plugin API and ABI stable and versioned, so binary plugins will reliably work with more than one Wireshark version (ABI changes can be followed here: <https://abi-laboratory.pro/tracker/timeline/wireshark/>) since rev2033 2011-10-30
+  * Run `tools/git-compare-abis.sh` in the Git repository right before the release since rev2033 2011-10-30
+  * Bump library versions as needed based on [Libtool's documentation](http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html) in `*/Makefile.am` and `*/CmakeList.txt` (don't forget updating `debian/*.symbols`) since rev2033 2011-10-30 for autotools, rev3305 2014-05-30 for cmake
+  * When major library version bumps are needed `*.CMakeList.txt`-s have to be changed at two locations and `debian/lib*N.*` files have to be updated and renamed
 * Include Lua API changes in release notes (Lua dissectors can detect Wireshark version using get_version() and adjust the API used.)
 * Add privilege separation for dissection since rev10 2006-03-27
 * Add thread/multiprocessor support since rev12 2006-04-06
