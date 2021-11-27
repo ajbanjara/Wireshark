@@ -94,13 +94,13 @@ LLDP agent for Windows:
 
 Open source LLDP projects:
 
-  - [OpenLLDP](http://openlldp.sourceforge.net/index.html) - last release: June 2010
+  - [OpenLLDP](http://openlldp.sourceforge.net/index.html) - last release: 0.4alpha (June 2010)
 
-  - [ladvd](https://github.com/sspans/ladvd/) - last release: March 2018
+  - [ladvd](https://github.com/sspans/ladvd/) - last release: 1.1.2 (March 2018)
 
-  - [lldpd](https://lldpd.github.io/) - last release: August 2021
+  - [lldpd](https://lldpd.github.io/) - last release: 1.0.13 (November 2021)
 
-  - [Open-LLDP](http://www.open-lldp.org) - last release: November 2020
+  - [Open-LLDP](http://www.open-lldp.org) - last release: 1.1.0 (November 2020)
 
 ## Discussion
 

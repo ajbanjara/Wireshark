@@ -85,6 +85,8 @@ There is also a Telephony BCD
   - TBCD-STRING ::= OCTET STRING -- This type (Telephony Binary Coded Decimal String) is used to -- represent several digits from 0 through 9, \*, \#, a, b, c, two -- digits per octet, each digit encoded 0000 to 1001 (0 to 9), -- 1010 (\*), 1011 (\#), 1100 (a), 1101 (b) or 1110 (c); 1111 used -- as filler when there is an odd number of digits. -- bits 8765 of octet n encoding digit 2n -- bits 4321 of octet n encoding digit 2(n-1) +1
   - Ability to register dissectors on ip address, for example a multicast IP.
 
+6. Wireshark should handle dissection of tunneled connections better. A lot of dissection infrastructure code assumes a frame only contains a single endpoint connection (or else dissection of encapsulation is stateless, this prevents reassembly, etc). This would also open the option for display filters to filter on a particular layer within the encapsulation (e.g: inner TCP header destination port).
+
 ## Dissector generation
 
 1.  A dissector generator that reads [NetPDL](http://analyzer.polito.it/30alpha/docs/dissectors/NetPDLSpec.htm) specifications for protocols and generates dissectors would be useful. Those dissectors would probably be more likely to be free of bugs than dissectors written by hand. Something to read NetPDL and interpret it at run time might also be useful for end users. Note, though, that the NetPDL page listed earlier says "***Warning: this is an early draft specification and it is subject to change. The reader must take care not to consider this document as a final specification.***"

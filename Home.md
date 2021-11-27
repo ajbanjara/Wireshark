@@ -1,7 +1,7 @@
 # Wireshark Wiki
 
 This is the [wiki](http://en.wikipedia.org/wiki/Wiki) site for the [Wireshark](http://www.wireshark.org) network protocol analyzer.
-If you would like permission to edit this wiki, please see [the editing instructions page](/HowToEdit) (tl;dr: send us a note with your GitLab account name).
+If you would like permission to edit this wiki, please see [the editing instructions page](/HowToEdit) (tl;dr: send us a note with your GitLab account name or request access to the [Wiki Editor group](https://gitlab.com/wireshark/wiki-editors) using the Gitlab feature).
 
 ## General
 
