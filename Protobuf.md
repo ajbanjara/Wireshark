@@ -5,19 +5,22 @@
 Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data. For a description of Protobuf refer to [Protocol Buffers home page](https://developers.google.com/protocol-buffers).
 
 Change log about Wireshark supporting Protobuf:
+
 - Wireshark 2.6.0 - initial support.
-- Wireshark 3.2.0 - supports *.proto file.
-- Wireshark 3.3.0 - supports dissecting Protobuf fields as Wireshark fields and `'protobuf_field'` subdissector table features, fixes bugs about parsing *.proto file.
+- Wireshark 3.2.0 - supports \*.proto file.
+- Wireshark 3.3.0 - supports dissecting Protobuf fields as Wireshark fields and `'protobuf_field'` subdissector table features, fixes bugs about parsing \*.proto file.
+- Wireshark 3.5.0 - supports displaying default values for the fields missing in capture files.
 
 ## Protocol dependencies
 
 Protobuf content is normally dissected by Wireshark from some higher layer dissectors including gRPC or other UDP/TCP based dissectors. You can add Protobuf processing support to your dissector written in C via:
 
-```c++
+```cpp
 dissector_handle_t  protobuf_handle = find_dissector("protobuf");
 ...
 call_dissector_with_data(protobuf_handle, tvb, pinfo, tree, "message,tutorial.AddressBook");
 ```
+
 or dissector written in Lua via:
 
 ```lua
@@ -28,9 +31,8 @@ pcall(Dissector.call, protobuf_dissector, tvb, pinfo, tree)
 ```
 
 Higher layer dissectors can give protobuf message type information by the data argument or `private_table["pb_msg_type"]`. The format of message type information is:\
-&nbsp;&nbsp;&nbsp;&nbsp;**"message," message_type_name**\
-The `message_type_name` is the full name of message type, prefixed by the package name.
-When parsing a Protobuf content, the Protobuf dissector will search the message definition file (*.proto) from the *'Protobuf Search Paths'* preferences based on the given `message_type_name`.
+    **"message," message_type_name**\
+The `message_type_name` is the full name of message type, prefixed by the package name. When parsing a Protobuf content, the Protobuf dissector will search the message definition file (\*.proto) from the _'Protobuf Search Paths'_ preferences based on the given `message_type_name`.
 
 ## An example about using Protobuf dissector
 
@@ -38,8 +40,7 @@ We use an example to show how to use the protobuf dissector.
 
 ### The example of Protobuf message definition file
 
-The binary wire format of Protocol Buffers (Protobuf) messages are not self-described protocol. Wireshark should be configured with Protocol Buffers language files (*.proto) to enable proper dissection of Protobuf data based on the message, enum and field definitions. Wireshark supports *.proto files written in Protocol Buffers language version 2 or 3 syntax.
-Following is an example of *.proto file, named `addressbook.proto`:
+The binary wire format of Protocol Buffers (Protobuf) messages are not self-described protocol. Wireshark should be configured with Protocol Buffers language files (\*.proto) to enable proper dissection of Protobuf data based on the message, enum and field definitions. Wireshark supports \*.proto files written in Protocol Buffers language version 2 or 3 syntax. Following is an example of \*.proto file, named `addressbook.proto`:
 
 ```protobuf
 // This file comes from the official Protobuf example with a little modification.
@@ -73,28 +74,26 @@ message AddressBook {
 }
 ```
 
-According to the line `'import "google/protobuf/timestamp.proto"'`, the file `addressbook.proto` depends on the official *.proto library of Protobuf.
+According to the line `'import "google/protobuf/timestamp.proto"'`, the file `addressbook.proto` depends on the official \*.proto library of Protobuf.
 
 ### Protobuf Search Paths Settings
 
-You can tell Wireshark where to find *.proto files by setting Protobuf Search Paths at the Protobuf protocol preferences. If the full path of `addressbook.proto` file is `d:/protos/my_proto_files/addressbook.proto` and the real path of the dependent file `"google/protobuf/timestamp.proto"` is `d:/protos/protobuf-3.4.1/include/google/protobuf/timestamp.proto` (in Protobuf official library directory `d:/protos/protobuf-3.4.1/include`). You should add the `d:/protos/protobuf-3.4.1/include/` and `d:/protos/my_proto_files` paths into *'Protobuf Search Paths'* table and make the *'Load all files'* option of the `'d:/protos/my_proto_files'` record enabled for preloading the message definitions from the `addressbook.proto` file:
-![protobuf_search_paths2](uploads/96e71ebf85b499a17600b1504f98fec6/protobuf_search_paths2.png)
-This preferences dialog can be found by menu 'Edit->Preferences->Protocols->ProtoBuf->Protobuf search paths'.
+You can tell Wireshark where to find \*.proto files by setting Protobuf Search Paths at the Protobuf protocol preferences. If the full path of `addressbook.proto` file is `d:/protos/my_proto_files/addressbook.proto` and the real path of the dependent file `"google/protobuf/timestamp.proto"` is `d:/protos/protobuf-3.4.1/include/google/protobuf/timestamp.proto` (in Protobuf official library directory `d:/protos/protobuf-3.4.1/include`). You should add the `d:/protos/protobuf-3.4.1/include/` and `d:/protos/my_proto_files` paths into _'Protobuf Search Paths'_ table and make the _'Load all files'_ option of the `'d:/protos/my_proto_files'` record enabled for preloading the message definitions from the `addressbook.proto` file: ![protobuf_search_paths2](uploads/96e71ebf85b499a17600b1504f98fec6/protobuf_search_paths2.png) This preferences dialog can be found by menu 'Edit->Preferences->Protocols->ProtoBuf->Protobuf search paths'.
 
 ### Built-in Protobuf UDP dissector
 
-If your protocol is over UDP and the payload of each UDP is a Protobuf message, you can use Wireshark's built-in Protobuf UDP dissector directly. For example, If the payload of UDP on port 8127 is the message type of `'tutorial.AddressBook'` defined in `addressbook.proto` file which can be found in *'Protobuf Search Paths'*, you can add a record about UDP port and message type mapping to the *'Protobuf UDP Message Types'* table in Protobuf preferences:
-![udp_port_message_type_settings](uploads/f0817682ec00a3d47130fcce330c8c70/udp_port_message_type_settings.png)
->Note, The field of 'UDP ports' might be a range, for example, "8127,8200-8300,9127".
+If your protocol is over UDP and the payload of each UDP is a Protobuf message, you can use Wireshark's built-in Protobuf UDP dissector directly. For example, If the payload of UDP on port 8127 is the message type of `'tutorial.AddressBook'` defined in `addressbook.proto` file which can be found in _'Protobuf Search Paths'_, you can add a record about UDP port and message type mapping to the _'Protobuf UDP Message Types'_ table in Protobuf preferences: ![udp_port_message_type_settings](uploads/f0817682ec00a3d47130fcce330c8c70/udp_port_message_type_settings.png)
 
-Then, you can find the parsed Protobuf details on open the sample capture file [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) with Wireshark:
-![protobuf_udp_by_mapping](uploads/e8c53f0801fb1490a50ad7844b6c5aa7/protobuf_udp_by_mapping.png)
+> Note, The field of 'UDP ports' might be a range, for example, "8127,8200-8300,9127".
+
+Then, you can find the parsed Protobuf details on open the sample capture file [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) with Wireshark: ![protobuf_udp_by_mapping](uploads/e8c53f0801fb1490a50ad7844b6c5aa7/protobuf_udp_by_mapping.png)
 
 Another way to parse Protobuf UDP packets is to write a simple script with Lua to create a dissector for each root message type, that allows you to use "Decode as..." feature on UDP packets. This method will be introduced in the next section.
 
 ### Write your own Protobuf UDP or TCP dissectors
 
-If the root message type of a Protobuf UDP and TCP protocol is the `'tutorial.AddressBook'` in `addressbook.proto`, and the whole payload of an UDP package is a `'tutorial.AddressBook'` message, and each message of the protocol over TCP is a `'tutorial.AddressBook'` message prefixed by 4 bytes length in big-endian ([4bytes length][a message][4bytes length][a message]...), then you can put following file named `'create_protobuf_dissector.lua'` in your 'plugins' subdirectory of 'Personal configuration' directory:
+If the root message type of a Protobuf UDP and TCP protocol is the `'tutorial.AddressBook'` in `addressbook.proto`, and the whole payload of an UDP package is a `'tutorial.AddressBook'` message, and each message of the protocol over TCP is a `'tutorial.AddressBook'` message prefixed by 4 bytes length in big-endian (\[4bytes length\]\[a message\]\[4bytes length\]\[a message\]...), then you can put following file named `'create_protobuf_dissector.lua'` in your 'plugins' subdirectory of 'Personal configuration' directory:
+
 ```lua
 do
     local protobuf_dissector = Dissector.get("protobuf")
@@ -166,19 +165,16 @@ do
 end
 ```
 
->Note, You can find the 'Personal configuration' directory from your Wireshark 'About' dialog by menu 'About->Folders->Personal configuration'.
+> Note, You can find the 'Personal configuration' directory from your Wireshark 'About' dialog by menu 'About->Folders->Personal configuration'.
 
-Now you can clear the *'Protobuf UDP Message Types'* table in Protobuf preferences, and then reopen the [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) file, and click the 'Decode As' menu to select the ADDRBOOK protocol:
-![decode_as_dialog](uploads/b27f092bedb6f746724f7e53832c1a5a/decode_as_dialog.png)
+Now you can clear the _'Protobuf UDP Message Types'_ table in Protobuf preferences, and then reopen the [protobuf_udp_addressbook.pcapng](uploads/e2b98423e5f0dc85e0b1228ebbd044e2/protobuf_udp_addressbook.pcapng) file, and click the 'Decode As' menu to select the ADDRBOOK protocol: ![decode_as_dialog](uploads/b27f092bedb6f746724f7e53832c1a5a/decode_as_dialog.png)
 
-The UDP packet will be parsed as the AddrBook protocol which takes the Protobuf `'tutorial.AddressBook'` message as the root message:
-![protobuf_decode_as_udp](uploads/3712b7c9040a39c1598788bcc3751b15/protobuf_decode_as_udp.png)
+The UDP packet will be parsed as the AddrBook protocol which takes the Protobuf `'tutorial.AddressBook'` message as the root message: ![protobuf_decode_as_udp](uploads/3712b7c9040a39c1598788bcc3751b15/protobuf_decode_as_udp.png)
 
-To test the Protobuf TCP dissector, you can open the [protobuf_ tcp_ addressbook.pcapng](uploads/b2f61c813d697e3ed22accf728de3122/protobuf_tcp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) and click the 'Decode As' menu to select the ADDRBOOK protocol (on 18127 TCP port). The 4 bytes length field and the AddressBook message will be dissected like:
-![protobuf_decode_as_tcp](uploads/e8a65d3e6d7d36216fee97575279ef7b/protobuf_decode_as_tcp.png)
+To test the Protobuf TCP dissector, you can open the [protobuf_ tcp_ addressbook.pcapng](uploads/b2f61c813d697e3ed22accf728de3122/protobuf_tcp_addressbook.pcapng) on the [SampleCaptures page](/SampleCaptures) and click the 'Decode As' menu to select the ADDRBOOK protocol (on 18127 TCP port). The 4 bytes length field and the AddressBook message will be dissected like: ![protobuf_decode_as_tcp](uploads/e8a65d3e6d7d36216fee97575279ef7b/protobuf_decode_as_tcp.png)
 
-If you have a new Protobuf TCP dissector using root message type like 'package.NewMessage', and each message is also prefixed by 4 bytes length field, you can just add following line to 
-'create_protobuf_dissector.lua' file:
+If you have a new Protobuf TCP dissector using root message type like 'package.NewMessage', and each message is also prefixed by 4 bytes length field, you can just add following line to 'create_protobuf_dissector.lua' file:
+
 ```lua
     create_protobuf_dissector("NewProtocolName", "New Protocol Name",
                               true, true, "package.NewMessage")
@@ -186,7 +182,7 @@ If you have a new Protobuf TCP dissector using root message type like 'package.N
 
 ### Protobuf field subdissectors
 
-A subdissector can register itself in `"protobuf_field"` dissector table for parsing the value of the field of bytes or string type. The key of record in `"protobuf_field"` table is the full name of the field.
+A subdissector can register itself in `"protobuf_field"` dissector table for parsing the value of the field. The key of record in `"protobuf_field"` table is the full name of the field.
 
 For example, there is a bytes type field for carrying a portrait image in Person message type of `addressbook.proto`. We can put following Lua script `'protobuf_portrait_field.lua'` into the 'plugins' subdirectory of 'Personal configuration' directory:
 
@@ -198,31 +194,48 @@ do
 end
 ```
 
-Then, open the sample capture file [protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) on the [SampleCaptures page](/SampleCaptures), and you will find that the 'portait_image' Protobuf field is dissected as PNG image data:
-![protobuf_udp_with_image](uploads/3dd1230451b54135f818d949c893d7e9/protobuf_udp_with_image.png)
+Then, open the sample capture file [protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) on the [SampleCaptures page](/SampleCaptures), and you will find that the 'portait_image' Protobuf field is dissected as PNG image data: ![protobuf_udp_with_image](uploads/3dd1230451b54135f818d949c893d7e9/protobuf_udp_with_image.png)
 
 ### Preference Settings
 
-The *'Protobuf Search Paths'* and *'Protobuf UDP Message Types'* tables are introduced in previous sections, there are some other preferences:
-![preferences_gui](uploads/acaefac9ab5fd04601bd182b993014c2/preferences_gui.png)
+The _'Protobuf Search Paths'_ and _'Protobuf UDP Message Types'_ tables are introduced in previous sections, there are some other preferences: ![preferences_gui2](uploads/d0ffd9195f9a443ab9cc1c8b39148322/preferences_gui2.png)
 
-- Dissect Protobuf fields as Wireshark fields:
+* Load .proto files on startup:
 
-If this option is turnned on, the Protobuf messages and fields will be dissected as Wireshark  fields . The names of all these Wireshark fields will be prefixed with "pbf." (for fields) or "pbm." (for messages) followed by their full names. For example, you can input 'pbf.tutorial.Person.name == "Lily"' as a display filter to search protobuf message including persons who named "Lily" in capture files mentioned in previous sections.
+Load .proto files when Wireshark starts. By default, the .proto files are loaded only when the Protobuf dissector is called for the first time. That make tshark can use 'protobuf fields as wireshark fields' feature by providing protobuf field name in display filter (-Y option).
+
+* Dissect Protobuf fields as Wireshark fields:
+
+If this option is turnned on, the Protobuf messages and fields will be dissected as Wireshark fields . The names of all these Wireshark fields will be prefixed with "pbf." (for fields) or "pbm." (for messages) followed by their full names. For example, you can input 'pbf.tutorial.Person.name == "Lily"' as a display filter to search protobuf message including persons who named "Lily" in capture files mentioned in previous sections.
 
 - Show details of message, fields and enums:
 
-If this option is turnned on, the details of messages and fields will be shown, that includes the wire type and field number format of field, value nodes of field and enum_value, etc. It is recommended to turn it off because too many details are displayed that might bother you.
-![detail](uploads/0d918892ca5289979bd157f15d2757d4/detail.png)
+If this option is turnned on, the details of messages and fields will be shown, that includes the wire type and field number format of field, value nodes of field and enum_value, etc. It is recommended to turn it off because too many details are displayed that might bother you. ![detail](uploads/0d918892ca5289979bd157f15d2757d4/detail.png)
 
 - Show all fields of bytes type as string:
 
 Show all fields of bytes type as string. For example, ETCD string is defined as type of bytes, we can turn this option on to check the string content of these kind of fields.
 
+* Add missing fields with default values:
+
+Make Protobuf fields that are not serialized on the wire to be displayed with default values.  The default value will be displayed according to following situations:
+
+     1) Explicitly-declared default values in 'proto2', for example:
+
+           `optional int32 result_per_page = 3 [default = 10]; // default value is 10`
+
+     2) For bools, the default value is false.
+
+     3) For enums, the default value is the first defined enum value, which must be 0 in 'proto3' (but allowed to be other in 'proto2').
+
+     4) For numeric types, the default value is zero.
+
+       There are no default values for fields 'repeated' or 'bytes' and 'string' without default value declared. If the missing field is 'required' in a 'proto2' file, a warning item will be added to the tree.
+
 - Try to dissect all undefined length-delimited fields as string:
 - Try to show all possible field types for each undefined field:
 
-These two options are only used when the message type or field definitions cannot be found in the *'Protobuf Search Paths'*. It is recommended to turn them off by default.
+These two options are only used when the message type or field definitions cannot be found in the _'Protobuf Search Paths'_. It is recommended to turn them off by default.
 
 ## Example capture file
 
