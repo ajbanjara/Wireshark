@@ -8,6 +8,7 @@ Change log about Wireshark supporting gRPC:
 - Wireshark 2.6.0 - initial support.
 - Wireshark 3.2.0 - supports parse Protobuf content of gRPC according to *.proto files. The message of stream gRPC method can now be parsed with supporting of HTTP2 streaming mode reassembly feature.
 - Wireshark 3.3.0 - fixes bugs about parsing *.proto file. Adds some new Protobuf features, which can also be used for gRPC that serializes structured data using Protobuf.
+- Wireshark 3.7.0 - supports using http2 fake headers to parse the DATAs of a long-lived stream without first HEADERS frame.
 
 >Note, the message body of gRPC is usually serialized in Protobuf format. So please also refer to [Protobuf page](/Protobuf) for the change log of Protobuf dissector.
 
@@ -96,19 +97,43 @@ If the gRPC message body is Protobuf data, then you can register your subdissect
 
 ### Preference Settings
 
-![grpc_preferences](uploads/39e591329e36b167580368bd5f56f6e7/grpc_preferences.png)
+![grpc_preferences2](uploads/ee3ef51edfde38576232e48b4d6530da/grpc_preferences2.png)
 
 The main preferences of gRPC includes:
 
 - **Always check whether the message is JSON regardless of content-type**. If this option is enabled, Wireshark always checks whether the message is JSON (body starts with '{' and ends with '}', regardless of the Content-Type header of HTTP2. It is recommended to turn this option on.
 
-- **Turn on streaming reassembly mode**. Required for parsing streaming RPCs. If turn this option on, HTTP2 will reassemble gRPC message as soon as possible. Or else the gRPC message will be reassembled at the end of each HTTP2 STREAM. If your .proto files contains streaming RPCs (declaring RPC operation input or output message type with 'stream' label), you need to keep this option on.
+Note that the old **Turn on streaming reassembly mode** option is always turned on now.
 
 You should also refer to some preferences of [Protobuf](/Protobuf):
 
 - **Protobuf Search Paths**. Tell Wireshark where your gRPC Service Definitions (*.proto) is.
 
 - **Dissect Protobuf fields as Wireshark fields**. Enable this option if you want to search for messages based on the name of Protobuf message or field. For example, you can input 'pbf.tutorial.Person.name == "Lily"' as a display filter to search protobuf message including persons who named "Lily" in capture files mentioned in previous sections.
+
+## How to Parse an Incomplete Long-lived gRPC Stream Capture File
+
+HTTP2 support long-lived stream like gRPC streaming call that allows sending many request or response messages in one HTTP2 stream. In the past, if we started capturing after the long-lived stream was established, the subsequently captured DATA frames would not be able to parsed because of losing the header information in initial HEADERS frame.
+
+Here is an incomplete capture file [grpc_person_search_protobuf_with_image-missing_headers.pcapng](uploads/4873a655be41de4419b70899c74a282b/grpc_person_search_protobuf_with_image-missing_headers.pcapng) (which is part of [grpc_person_search_protobuf_with_image.pcapng](uploads/f6fcdceb0248669c0b057bd15d45ab6f/grpc_person_search_protobuf_with_image.pcapng) in fact). It cannot be parsed because the `":path"` and `"content-type"` header in the request (to server) direction of the stream\[3\], and `"content-type"` header in response (from server) direction of the stream\[3\] are missing.
+
+Here are packets list of the above capture file:
+![grpc_protobuf_search_response-missing-headers-nok](uploads/a8e304645c1f2de4559dcd0c603216b4/grpc_protobuf_search_response-missing-headers-nok.png)
+
+We can configure `http2 fake headers` UAT in http2 preference:
+![grpc_http2_fake_headers_uat](uploads/183ed3e569a6eed697735f8c7fb60776/grpc_http2_fake_headers_uat.png)
+
+The DATAs will be parsed as GRPC correctly:
+![grpc_protobuf_search_response-missing-headers-ok](uploads/514d53f9ee0828432b863c04f2ca730e/grpc_protobuf_search_response-missing-headers-ok.png)
+
+The fields of `http2_fake_headers` uat are:
+
+* **Server port**: The TCP port of the HTTP2 (gRPC) server
+* **Stream ID**: The stream_id of the long-lived stream. The 0 means applicable to all streams.
+* **Direction**: `*IN*` means this rule matches the messages sent to the server, `*OUT*` means about the messages sent out from the server.
+* **Header name**: The name of the fake header.
+* **Header value**: The value of the fake header.
+* **Enable**: FALSE means temporarily excluding this fake header. 
 
 ## How to Export TLS Master keys of gRPC
 
@@ -118,3 +143,4 @@ The capture files that sending gRPC messages in plaintext mode can be parsed by 
 
 - [grpc_person_search_protobuf_with_image.pcapng](uploads/f6fcdceb0248669c0b057bd15d45ab6f/grpc_person_search_protobuf_with_image.pcapng) gRPC Person search service example, using Protobuf to serialize structured data.
 - [grpc_person_search_json_with_image.pcapng](uploads/88c03db83efb2e3253c88f853d40477b/grpc_person_search_json_with_image.pcapng) gRPC Person search service example, using JSON to serialize structured data.
+- [grpc_person_search_protobuf_with_image-missing_headers.pcapng](uploads/4873a655be41de4419b70899c74a282b/grpc_person_search_protobuf_with_image-missing_headers.pcapng) Part of gRPC Person search service example serialized in protobuf. (Missing http2 headers)
