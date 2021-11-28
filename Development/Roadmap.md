@@ -3,6 +3,7 @@
 This is a tentative roadmap for the next stable releases of Wireshark. For more information on the Wireshark release lifecycle and on past releases see [Development/LifeCycle](/Development/LifeCycle).
 
 ## Planning
+
 | **Release** | **Expected Date** | **Notes** |
 |-------------|-------------------|-----------|
 | 3.6.1 | December 29, 2021 | First release of the 3.6 branch |
