@@ -188,6 +188,8 @@ The following tools can process the libpcap-format files that Wireshark and TSha
 
   - [tcpick](http://tcpick.sourceforge.net/) tcpick is a textmode sniffer libpcap-based that can track, reassemble and reorder tcp streams (GPL, BSD/Linux/Unix)
 
+  - [TcpShark](https://manabapp.github.io/TcpShark/index.html) is the packet analyzer specializing in TCP analysis, front-end for TShark. (GPL, Linux/Solaris/macOS)
+
   - [tcpstat](http://www.frenchfries.net/paul/tcpstat/) Tool for reporting statistics for TCP connections (BSD style, BSD/Linux/Unix)
 
   - [tcptrace](http://www.tcptrace.org/) Tool for analysis of TCP connections (GPL, BSD/Linux/Unix)
