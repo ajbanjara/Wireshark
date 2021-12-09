@@ -94,6 +94,10 @@ If you don't find what you're looking for, you may also try:
 
 [cigi3.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/cigi3.pcap.gz) (libpcap) Common Image Generator Interface (CIGI) version 3 packets.
 
+[cisco-nexus92-erspan-marker.pcap](uploads/0726107c7d22fe6114308c7d395e512b/cisco-nexus92-erspan-marker.pcap) A marker packet sent from a Cisco Nexus switch running NXOS 9.2, with a non-zero ASIC relative timestamp and the corresponding UTC absolute timestamp.
+
+[cisco-nexus10-erspan-marker.pcap](uploads/05f5bd4b68b7aadc166ae4ff9f836de2/cisco-nexus10-erspan-marker.pcap) A marker packet sent from a Cisco Nexus switch running NXOS 10, with a zero ASIC relative timestamp and the corresponding UTC absolute timestamp.
+
 [ciscowl.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/ciscowl.pcap.gz) (libpcap) Cisco Wireless LAN Context Control Protocol ([WLCCP](/WLCCP)) version 0x0
 
 [ciscowl_version_0xc1.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/ciscowl_version_0xc1.pcap.gz) (libpcap) Cisco Wireless LAN Context Control Protocol ([WLCCP](/WLCCP)) version 0xc1. Includes following base message types: SCM Advertisements, EAP Auth., Path Init, Registration
