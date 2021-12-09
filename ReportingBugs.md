@@ -1,4 +1,4 @@
-This site is outdated and needs some more updates (labeling issues, templates etc).
+*This page is outdated and needs some more updates (labeling issues, templates etc).*
 ---
 
 # Reporting Bugs
@@ -17,33 +17,30 @@ The preferred way of reporting bugs is through the [Wireshark Issues database](h
 
 Wireshark runs on a multitude of operating systems, including Windows, MacOS X, Linux, \*BSD, Solaris, and others. It's important to let us know what platform(s) you're having trouble with. You can get the complete version and build information using one of two methods:
 
-  - In Wireshark, select *Help-\>About Wireshark* from the main menu. You can copy the build information in the about box and paste it into your report.
+  - In Wireshark, select *Help-\>About Wireshark* from the main menu. You can copy the build information in the about box by simply clicking the *Copy to Clipboard* button and paste it into your report.
 
   - From the command line, run "tshark -v" or "wireshark -v". This will print the build information in your terminal window.
 
 In either case the build information should look something like this:
 
 ```
-Wireshark 3.3.0 (v3.3.0rc0-1948-g67d3772d1b12)
+3.6.1 (v3.6.1rc0-12-ge8e6f99e4fc1)
 
-Copyright 1998-2020 Gerald Combs <gerald@wireshark.org> and contributors.
-License GPLv2+: GNU GPL version 2 or later <https://www.gnu.org/licenses/gpl-2.0.html>
-This is free software; see the source for copying conditions. There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compiled (64-bit) using GCC 11.2.0, with Qt 5.15.2, with libpcap, with POSIX
+capabilities (Linux), with libnl 3, with GLib 2.70.1, with zlib 1.2.11, with Lua
+5.2.4, with GnuTLS 3.7.2 and PKCS #11 support, with Gcrypt 1.9.4, with MIT
+Kerberos, with MaxMind DB resolver, with nghttp2 1.43.0, with brotli, with LZ4,
+with Zstandard, with Snappy, with libxml2 2.9.12, with libsmi 0.4.8, with
+QtMultimedia, without automatic updates, with SpeexDSP (using system library),
+without Minizip.
 
-Compiled (64-bit) with Qt 5.11.3, with libpcap, with POSIX capabilities (Linux),
-with libnl 3, with GLib 2.58.3, with zlib 1.2.11, with SMI 0.4.8, with c-ares
-1.14.0, with Lua 5.2.4, with GnuTLS 3.6.7 and PKCS #11 support, with Gcrypt
-1.8.4, with MIT Kerberos, with MaxMind DB resolver, with nghttp2 1.36.0, with
-brotli, with LZ4, with Zstandard, with Snappy, with libxml2 2.9.4, with
-QtMultimedia, without automatic updates, with SpeexDSP (using system library).
-
-Running on Linux 4.19.0-8-amd64, with Intel(R) Xeon(R) CPU E5-2697 v3 @ 2.60GHz
-(with SSE4.2), with 16042 MB of physical memory, with locale en_US.UTF-8, with
-libpcap version 1.8.1, with GnuTLS 3.6.7, with Gcrypt 1.8.4, with brotli 1.0.7,
-with zlib 1.2.11, binary plugins supported (0 loaded).
-
-Built using clang 4.2.1 Compatible Clang 7.0.1 (tags/RELEASE_701/final).
+Running on Linux 5.15.0-2-amd64, with Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz
+(with SSE4.2), with 15949 MB of physical memory, with GLib 2.70.2, with zlib
+1.2.11, with Qt 5.15.2, with libpcap 1.10.1 (with TPACKET_V3), with c-ares
+1.18.1, with GnuTLS 3.7.2, with Gcrypt 1.9.4, with nghttp2 1.43.0, with brotli
+1.0.9, with LZ4 1.9.3, with Zstandard 1.4.8, with libsmi 0.4.8, with light
+display mode, without HiDPI, with LC_TYPE=en_US.UTF-8, binary plugins supported
+(20 loaded).
 ```
 
 ### A Capture File
@@ -72,20 +69,9 @@ If your bug report contains sensitive information you can keep the information p
 
 ## Additional Information
 
-Issues filed in the issue database are monitored by the developers and solved as time permits. It may be that additional information is required to find the cause of the problem. A comment will be added to the issue report requesting that information, and the issues's state will be labeled as #TBD#. These changes will be sent to the email address that you've provided when filing the bug report, so it is important to monitor that mailbox.
-
-Please respond to these requests to keep the investigation into the problem going, even if you can't provide the information yourself. Once you have provided the information, you may set the bug's state back to its previous value (either UNCONFIRMED or CONFIRMED). If the requested information isn't provided within a certain amount of time the only option is to close the bug report. This window depends on the severity of the problem, as follows:
-
-
-| Severity | Add. Info requests | closed after |
-| -------- | ------------------ | ------------ |
-| Blocker  | N/A                | when solved  |
-| Critical | N/A                | when solved  |
-| Major    | Three              | 3 months     |
-| Normal   | Two                | 2 months     |
-| Trivial  | One                | 1 month      |
-| Enhance  | One                | 1 month      |
-
+Issues filed in the issue database are monitored by the developers and solved as time permits. It may be that additional information is required to find the cause of the problem. A comment will be added to the issue report requesting that information. These changes will be sent to the email address associated with your GitLab account,
+so it is important to monitor that mailbox. Please respond to these requests to keep the investigation into the
+problem going, even if you can't provide the information yourself.
 
 ## Reporting Viruses
 
