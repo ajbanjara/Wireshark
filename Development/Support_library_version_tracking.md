@@ -34,7 +34,10 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 | 5.12.0     | Dec 2018 | Long Term Support (LTS) release, [macOS 10.12 Sierra through 10.14 Mojave](https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html), **Wireshark 3.0.x, 3.2.x** |
 | 5.13.0     | Jun 2019 | [macOS Sierra through Mojave](https://web.archive.org/web/20190705173826/https://doc.qt.io/qt-5/supported-platforms.html) |
 | 5.14.0     | Dec 2019 | [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html) |
-| 5.15.0     | May 2020 | Long Term Support (LTS) release, [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html), **Wireshark Windows 3.4.x** |
+| 5.15.0     | May 2020 | Long Term Support (LTS) release, [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html), **Wireshark Windows 3.4.x and 3.6.x** |
+| 6.0.0     | Aug 2020 | No official support for 32-bit Windows |
+| 6.1.0     | May 2021 | |
+| 6.2.0     | Sep 2021 | Long Term Support (LTS) release, [macOS 10.14 through 11](https://doc.qt.io/qt-6/supported-platforms.html) |
 
 ## GLib and GTK+
 
@@ -281,6 +284,8 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 | disco (19.04)      | 2.60.4       | x            | x            | x           | 5.12.2      |
 | eoan (19.10)       | 2.62.4       | x            | x            | x           | 5.12.4      |
 | focal (20.04LTS)   | 2.64.2       | x            | x            | x           | 5.12.8      |
+| hirsute (21.04)    | 2.66.0       | x            | x            | x           | 5.15.2      |
+| impish (21.10)     | 2.68.2       | x            | x            | x           | 5.15.2      |
 
 Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
@@ -304,7 +309,7 @@ Neither of them provide packages for all of the libraries that we use, so we mai
 | GLib                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/glib) | [yes](https://conan.io/center/glib) | |
 | GnuTLS                | [almost](https://github.com/microsoft/vcpkg/tree/master/ports/libgnutls) | no | |
 | iLBC                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libilbc) | no | |
-| Kerberos (krb5)       | no | no | |
+| Kerberos (krb5)       | no | no | [vcpkg requested](https://github.com/microsoft/vcpkg/issues/20903) |
 | libgcrypt             | [almost](https://github.com/microsoft/vcpkg/tree/master/ports/libgcrypt) | no | vcpkg port is Linux / macOS only. |
 | libmaxminddb          | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libmaxminddb) | no | |
 | libpcap               | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libpcap) | [yes](https://conan.io/center/libpcap) | |
