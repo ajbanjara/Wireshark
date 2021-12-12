@@ -216,19 +216,17 @@ Note: RHEL 6.6 and Qt5 is [supported](https://blog.qt.io/blog/2015/06/24/qt-is-c
 
 Releases can be found at <https://fedoraproject.org/wiki/Releases>. Every 6 months a new version is released with 13 months of support.
 
-| Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
-|--------------|--------------|--------------|--------------|-------------|-------------|
-| Fedora 23    | 2.46         | 2.24.28      | 3.18.2       | 4.8.7       | 5.5.0       |
-| Fedora 24    | 2.48         | 2.24.30      | 3.20.6       | 4.8.7       | 5.6.2       |
-| Fedora 25    | 2.50.3       | 2.24.31      | 3.22.2       | 4.8.7       | 5.7.1       |
-| Fedora 26    | 2.52.3       | x            | x            | x           | 5.9.4       |
-| Fedora 27    | 2.54.3       | x            | x            | x           | 5.9.6       |
-| Fedora 28    | 2.56.4       | x            | x            | x           | 5.11.3      |
-| Fedora 29    | 2.58.3       | x            | x            | x           | 5.11.3      |
-| Fedora 30    | 2.60.7       | x            | x            | x           | 5.12.5      | 
-| Fedora 31    | 2.62.6       | x            | x            | x           | 5.13.2      | 
-| Fedora 32    | 2.64.6       | x            | x            | x           | 5.14.2      | 
-| Fedora 33    | 2.66.4       | x            | x            | x           | 5.15.2      | 
+| Distribution | GLIB version | Qt5 version | Qt6 version |
+|--------------|--------------|-------------|-------------|
+| Fedora 27    | 2.54.3       | 5.9.6       | (none)      |
+| Fedora 28    | 2.56.4       | 5.11.3      | (none)      |
+| Fedora 29    | 2.58.3       | 5.11.3      | (none)      |
+| Fedora 30    | 2.60.7       | 5.12.5      | (none)      |
+| Fedora 31    | 2.62.6       | 5.13.2      | (none)      |
+| Fedora 32    | 2.64.6       | 5.14.2      | (none)      |
+| Fedora 33    | 2.66.4       | 5.15.2      | (none)      |  
+| Fedora 34    | 2.68.1       | 5.15.2      | 6.2.1       |
+| Fedora 35    | 2.70.2       | 5.15.2      | 6.2.1       |
 
 ## SUSE Linux Enterprise Server
 
