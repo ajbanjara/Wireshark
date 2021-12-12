@@ -1,4 +1,6 @@
-This page exists to help us make educated decisions about how far we can bump our minimum library versions by letting us know what Linux distributions we'll lose support for when we bump the version. (Linux is somewhat special here because it tends to be hard to upgrade these libraries without changing entire versions. Of course if someone wants to put other OS's here, that's fine too.)
+This page helps us make educated decisions about how far we can bump our minimum library versions by letting us know what library versions are supported on different operating system versions.
+Linux is somewhat special here because it tends to be hard to upgrade these libraries without changing entire versions.
+Although we have more control over libraries on Windows and macOS, we are still often limited by official support for specific OS versions.
 
 [[_TOC_]]
 
