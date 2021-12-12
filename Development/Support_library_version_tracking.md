@@ -245,12 +245,12 @@ Version numbering changed over time: ..., 13.2, Leap 42.1, ..., Leap 42.3, Leap 
 
 Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
-| Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
-|--------------------|--------------|--------------|--------------|-------------|-------------|
-| openSUSE 13.2      | 2.42.2       | 2.24.28      | 3.14.13      | 4.8.6       | 5.4.1       |
-| openSUSE Leap 42.3 | 2.48.2       | x            | x            | 4.8.7       | 5.6.2       |
-| openSUSE Leap 15.0 | 2.54.3       | x            | x            | 4.8.7       | 5.9.4       |
-| openSUSE Leap 15.2 | 2.62.5       | x            | x            | 4.8.7       | 5.12.7      |
+| Distribution       | GLIB version | Qt5 version | Qt6 version   |
+|--------------------|--------------|-------------|---------------|
+| openSUSE Leap 42.3 | 2.48.2       | 5.6.2       | (none)        |
+| openSUSE Leap 15.0 | 2.54.3       | 5.9.4       | (none)        |
+| openSUSE Leap 15.2 | 2.62.5       | 5.12.7      | (experimental)|
+| openSUSE Leap 15.3 | 2.62.6       | 5.12.7      | (experimental)|
 
 ## Debian
 
