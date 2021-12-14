@@ -336,10 +336,13 @@ Sensitive informations like passwords, phone numbers, personal IP/MAC addresses.
 
 Used protocols includes DHCP, PPP, Ethernet, IP, ARP, L2TP, SIP, RTP, DNS, ICMP, DHCPv6, NTP, IGMPv2, ICMPv6, HTTP, HTTPS, Syslog, RADIUS...
 
-* [nb6-startup.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-startup.pcap) Includes etablishement of IPv4 and IPv6 connections, download of configuration, connection to a VoIP server...
-* [nb6-http.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-http.pcap) Three different HTTP requests: first was sent on the private IPv4 network (IPoE), second was sent on the public IPv4 network, third was sent on the public IPv6 network (L2TP tunnel).
-* [nb6-telephone.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-telephone.pcap) A brief phone call to SFR's voicemail service.
-* [nb6-hotspot.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-hotspot.pcap) Someone connecting to SFR's wireless community network.
+[nb6-startup.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-startup.pcap) Includes etablishement of IPv4 and IPv6 connections, download of configuration, connection to a VoIP server...
+
+[nb6-http.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-http.pcap) Three different HTTP requests: first was sent on the private IPv4 network (IPoE), second was sent on the public IPv4 network, third was sent on the public IPv6 network (L2TP tunnel).
+
+[nb6-telephone.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-telephone.pcap) A brief phone call to SFR's voicemail service.
+
+[nb6-hotspot.pcap](uploads/__moin_import__/attachments/SampleCaptures/nb6-hotspot.pcap) Someone connecting to SFR's wireless community network.
 
 A detailed analysis of these captures, along with an explanation of how these captures were realized, is available in French [here](https://lafibre.info/sfr-tutoriels/captures-reseau-du-demarrage-et-fonctionnement-de-la-neufbox-6/).
 
@@ -617,13 +620,15 @@ For captures using SSL/TLS, see [#SSL_with_decryption_keys](/SampleCaptures#ssl-
 
 ### Network Time Protocol
 
-File: \*\*[NTP_sync.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTP_sync.pcap) (4KB, showing the [NetworkTimeProtocol](/NetworkTimeProtocol))\
-\*\*Contributor: \*\*Gerald Combs\
-\*\*Description: **After reading about the round robin** [**DNS**](/DNS) **records set up by the folks at** [**pool.ntp.org**](http://www.pool.ntp.org)**, I decided to use their service to sync my laptop's clock. The attached file contains the result of running**
+[NTP_sync.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTP_sync.pcap) (4KB, showing the [NetworkTimeProtocol](/NetworkTimeProtocol))\
+Contributor: Gerald Combs\
+Description: After reading about the round robin [DNS](/DNS) records set up by the folks at [pool.ntp.org](http://www.pool.ntp.org), I decided to use their service to sync my laptop's clock. The attached file contains the result of running**
 
-**net time /setsntp:us.pool.ntp.org\
-net stop w32time\
-net start w32time**
+```
+net time /setsntp:us.pool.ntp.org
+net stop w32time
+net start w32time
+```
 
 at the command prompt. Something to note is that each pool.ntp.org DNS record contains multiple addresses. The Windows time client appears to query all of them.
 
@@ -631,23 +636,21 @@ at the command prompt. Something to note is that each pool.ntp.org DNS record co
 
 ### SyncE Protocol
 
-**File:** [SyncE_bidirectional.pcapng](uploads/__moin_import__/attachments/SampleCaptures/SyncE_bidirectional.pcapng) (1.5KB, showing the [syncE](/syncE) protocol)\
-**Contributor:** [RadhaKrishna](/RadhaKrishna). courtesy:Karsten, RAD, Germany\
-**Description:** SyncE is a synchronization mechanism for Ethernet networks. This mechanism uses SSM packets to qualify the synchronization signal quality.
+[SyncE_bidirectional.pcapng](uploads/__moin_import__/attachments/SampleCaptures/SyncE_bidirectional.pcapng) (1.5KB, showing the [syncE](/syncE) protocol)\
+Contributor: [RadhaKrishna](/RadhaKrishna). courtesy:Karsten, RAD, Germany\
+Description: SyncE is a synchronization mechanism for Ethernet networks. This mechanism uses SSM packets to qualify the synchronization signal quality.
 
 ### PostgreSQL v3 Frontend/Backend Protocol
 
-File: \*\*[pgsql.cap.gz](uploads/__moin_import__/attachments/SampleCaptures/pgsql.cap.gz) (2KB, showing a brief [PostgresProtocol](/PostgresProtocol) session)\
-\*\*Contributor: \*\*Abhijit Menon-Sen\
-\*\*
+[pgsql.cap.gz](uploads/__moin_import__/attachments/SampleCaptures/pgsql.cap.gz) (2KB, showing a brief [PostgresProtocol](/PostgresProtocol) session)\
+Contributor: Abhijit Menon-Sen
 
-File: \*\*[pgsql-jdbc.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/pgsql-jdbc.pcap.gz) (584KB, showing a PostgreSQL JDBC test session)\
-\*\*Contributors: \*\*Kris Jurka and Abhijit Menon-Sen\
-\*\*
+[pgsql-jdbc.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/pgsql-jdbc.pcap.gz) (584KB, showing a PostgreSQL JDBC test session)\
+Contributors: Kris Jurka and Abhijit Menon-Sen\
 
 ### MySQL protocol
 
-File: [**mysql_complete.pcap**](uploads/__moin_import__/attachments/SampleCaptures/mysql_complete.pcap) **(6 KB, from bug 2691)**
+File: [mysql_complete.pcap](uploads/__moin_import__/attachments/SampleCaptures/mysql_complete.pcap) (6 KB, from bug 2691)
 
 For MySQL captures using SSL, see [#SSL_with_decryption_keys](/SampleCaptures#ssl-with-decryption-keys).
 
@@ -989,23 +992,23 @@ Contributed by [Lorenzo Cafaro](https://github.com/lcafaro).
 
 These captures exercise the Session (SES), Presentation(PRES), Assocation Control (ACSE), Reliable Transfer (RTSE), Remote Operations (ROSE), X.400 P1 Transfer (X411), X.400 Information Object [X420](/X420) and STANAG 4406 [S4406](/S4406) dissectors.
 
-Contributor: **Graeme Lunt**
+Contributor: Graeme Lunt
 
-File: \*\*[x400-ping-refuse.pcap](uploads/__moin_import__/attachments/SampleCaptures/x400-ping-refuse.pcap) (2KB)\
-\*\*Description: **An X.400 bind attempt using RTS in normal mode generating an authentication error from the responder.**
+File: [x400-ping-refuse.pcap](uploads/__moin_import__/attachments/SampleCaptures/x400-ping-refuse.pcap) (2KB)\
+Description: An X.400 bind attempt using RTS in normal mode generating an authentication error from the responder.
 
-File: \*\*[x400-ping-success.pcap](uploads/__moin_import__/attachments/SampleCaptures/x400-ping-success.pcap) (2KB)\
-\*\*Description: **An X.400 bind attempt using RTS in normal mode with a bind result from the responder.**
+File: [x400-ping-success.pcap](uploads/__moin_import__/attachments/SampleCaptures/x400-ping-success.pcap) (2KB)\
+Description: An X.400 bind attempt using RTS in normal mode with a bind result from the responder.
 
-File: \*\*[p772-transfer-success.pcap](uploads/__moin_import__/attachments/SampleCaptures/p772-transfer-success.pcap) (4KB)\
-\*\*Description: **An X.400 bind attempt using RTS in normal mode with a bind result from the responder, and then the successful transfer of a P772 message.**
+File: [p772-transfer-success.pcap](uploads/__moin_import__/attachments/SampleCaptures/p772-transfer-success.pcap) (4KB)\
+Description: **An X.400 bind attempt using RTS in normal mode with a bind result from the responder, and then the successful transfer of a P772 message.
 
 ### Direct Message Protocol
 
 Contributor: **Stig Bjorlykke**
 
-File: \*\*[dmp-examples.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/dmp-examples.pcap.gz) (667B)\
-\*\*Description: **Some example** [**DMP**](/DMP) **messages. Note that the examples uses port number 24209, which must be configured in the protocol page.**
+File: [dmp-examples.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/dmp-examples.pcap.gz) (667B)\
+Description: Some example [DMP](/DMP) **messages. Note that the examples uses port number 24209, which must be configured in the protocol page.
 
 ### STANAG 5066 SIS
 
@@ -1013,16 +1016,16 @@ These captures show a succeful and unsuccesful transfer of a simple line of text
 
 Contributor: **Menno Andriesse**
 
-File: \*\*[S5066-HFChat-1.pcap](uploads/__moin_import__/attachments/SampleCaptures/S5066-HFChat-1.pcap) (4KB)\
-\*\*Description: **A line of text is send and acknowledged**
+File: [S5066-HFChat-1.pcap](uploads/__moin_import__/attachments/SampleCaptures/S5066-HFChat-1.pcap) (4KB)\
+Description: A line of text is send and acknowledged
 
-File: \*\*[S5066-HFChat-Rejected.pcap](uploads/__moin_import__/attachments/SampleCaptures/S5066-HFChat-Rejected.pcap) (2KB)\
-\*\*Description: **A line of text is send and rejected because the other node does not respond.**
+File: [S5066-HFChat-Rejected.pcap](uploads/__moin_import__/attachments/SampleCaptures/S5066-HFChat-Rejected.pcap) (2KB)\
+Description: A line of text is send and rejected because the other node does not respond.
 
 Contributor: **Taner Kurtulus**
 
-File: \*\*[S5066-Expedited.pcap](uploads/__moin_import__/attachments/SampleCaptures/S5066-Expedited.pcap) (2KB)\
-\*\*Description: **A line of text is sent/received with Expedited S_Prims and confirmed**
+File: [S5066-Expedited.pcap](uploads/__moin_import__/attachments/SampleCaptures/S5066-Expedited.pcap) (2KB)\
+Description: A line of text is sent/received with Expedited S_Prims and confirmed
 
 ### STANAG 5066 DTS
 
@@ -1030,65 +1033,65 @@ These captures show a successful BFTP transfer over a hardlink between two peers
 
 Contributor: **İbrahim Can Yüce**
 
-File: [**Stanag5066-TCP-ENCAP-Bftp-Exchange-tx-rx.pcapng**](uploads/__moin_import__/attachments/SampleCaptures/Stanag5066-TCP-ENCAP-Bftp-Exchange-tx-rx.pcapng)\
-Description: **BFTP file transfer exchange D_PDUs captured directly from the line.**
+File: [Stanag5066-TCP-ENCAP-Bftp-Exchange-tx-rx.pcapng**](uploads/__moin_import__/attachments/SampleCaptures/Stanag5066-TCP-ENCAP-Bftp-Exchange-tx-rx.pcapng)\
+Description: BFTP file transfer exchange D_PDUs captured directly from the line.
 
-File: [**Stanag5066-RAW-ENCAP-Bftp-Exchange-tx.pcap**](uploads/__moin_import__/attachments/SampleCaptures/Stanag5066-RAW-ENCAP-Bftp-Exchange-tx.pcap)\
-Description: **BFTP file transfer exchange D_PDUs encapsulated in TCP, then handed off to S5066 dissector.**
+File: [Stanag5066-RAW-ENCAP-Bftp-Exchange-tx.pcap](uploads/__moin_import__/attachments/SampleCaptures/Stanag5066-RAW-ENCAP-Bftp-Exchange-tx.pcap)\
+Description: BFTP file transfer exchange D_PDUs encapsulated in TCP, then handed off to S5066 dissector.
 
 ### RTP Norm
 
 These captures show samples of RTP NORM transfers.
 
-Contributor: **Julian Onions**
+Contributor: Julian Onions
 
-File: \*\*[rtp-norm-transfer.pcap](uploads/__moin_import__/attachments/SampleCaptures/rtp-norm-transfer.pcap) (291.2 KB)\
-\*\*Description: **A norm file transfer over multicast (to one acking host).**
+File: [rtp-norm-transfer.pcap](uploads/__moin_import__/attachments/SampleCaptures/rtp-norm-transfer.pcap) (291.2 KB)\
+Description: A norm file transfer over multicast (to one acking host).
 
-File: \*\*[rtp-norm-stream.zip](uploads/__moin_import__/attachments/SampleCaptures/rtp-norm-stream.zip) (673.4 KB)\
-\*\*Description: **A portion of a NORM stream transfer.**
+File: [rtp-norm-stream.zip](uploads/__moin_import__/attachments/SampleCaptures/rtp-norm-stream.zip) (673.4 KB)\
+Description: A portion of a NORM stream transfer.
 
 ### DCE/RPC and MSRPC-based protocols
 
 Captures in this section show traffic related to various DCE/RPC-based and MSRPC-based interfaces.
 
-File: \*\*[dcerpc-fault-stub-data-02.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/dcerpc-fault-stub-data-02.pcap.gz)\
-\*\*Description: **A DCERPC Fault pdu with extended error information (MS-EERR).**
+File: [dcerpc-fault-stub-data-02.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/dcerpc-fault-stub-data-02.pcap.gz)\
+Description: A DCERPC Fault pdu with extended error information (MS-EERR).
 
 #### DSSETUP MSRPC interface
 
-File: \*\*[dssetup_DsRoleGetPrimaryDomainInformation_standalone_workstation.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleGetPrimaryDomainInformation_standalone_workstation.cap) (1.0 KB)\
-\*\*Description: [**DsRoleGetPrimaryDomainInformation**](/DsRoleGetPrimaryDomainInformation) **operation (DSSETUP) against a standalone workstation.**
+File: [dssetup_DsRoleGetPrimaryDomainInformation_standalone_workstation.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleGetPrimaryDomainInformation_standalone_workstation.cap) (1.0 KB)\
+Description: [DsRoleGetPrimaryDomainInformation](/DsRoleGetPrimaryDomainInformation) operation (DSSETUP) against a standalone workstation.
 
-File: \*\*[dssetup_DsRoleGetPrimaryDomainInformation_ad_member.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleGetPrimaryDomainInformation_ad_member.cap) (1.5 KB)\
-\*\*Description: [**DsRoleGetPrimaryDomainInformation**](/DsRoleGetPrimaryDomainInformation) **operation (DSSETUP) against an Active Directory domain member workstation.**
+File: [dssetup_DsRoleGetPrimaryDomainInformation_ad_member.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleGetPrimaryDomainInformation_ad_member.cap) (1.5 KB)\
+Description: [DsRoleGetPrimaryDomainInformation](/DsRoleGetPrimaryDomainInformation) operation (DSSETUP) against an Active Directory domain member workstation.
 
-File: \*\*[dssetup_DsRoleGetPrimaryDomainInformation_ad_dc.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleGetPrimaryDomainInformation_ad_dc.cap) (1.0 KB)\
-\*\*Description: [**DsRoleGetPrimaryDomainInformation**](/DsRoleGetPrimaryDomainInformation) **operation (DSSETUP) against an Active Directory DC.**
+File: [dssetup_DsRoleGetPrimaryDomainInformation_ad_dc.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleGetPrimaryDomainInformation_ad_dc.cap) (1.0 KB)\
+Description: [DsRoleGetPrimaryDomainInformation](/DsRoleGetPrimaryDomainInformation) **operation (DSSETUP) against an Active Directory DC.
 
-File: \*\*[dssetup_DsRoleDnsNameToFlatName_w2k3_op_rng_error.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleDnsNameToFlatName_w2k3_op_rng_error.cap) (1.0 KB)\
-\*\*Description: **In Windows Server 2003, there is only one operation (**[**DsRoleGetPrimaryDomainInformation**](/DsRoleGetPrimaryDomainInformation)**) in the DSSETUP interface. This capture shows that the** [**DsRoleDnsNameToFlatName**](/DsRoleDnsNameToFlatName) **is not supported in Windows Server 2003.**
+File: [dssetup_DsRoleDnsNameToFlatName_w2k3_op_rng_error.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleDnsNameToFlatName_w2k3_op_rng_error.cap) (1.0 KB)\
+Description: In Windows Server 2003, there is only one operation ([DsRoleGetPrimaryDomainInformation](/DsRoleGetPrimaryDomainInformation)) in the DSSETUP interface. This capture shows that the [DsRoleDnsNameToFlatName](/DsRoleDnsNameToFlatName) is not supported in Windows Server 2003.
 
-File: \*\*[dssetup_DsRoleDnsNameToFlatName_w2k.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleDnsNameToFlatName_w2k.cap) (1.0 KB)\
-\*\*Description: [**DsRoleDnsNameToFlatName**](/DsRoleDnsNameToFlatName) **operation against a Windows 2000 system without MS04-011 applied**
+File: [dssetup_DsRoleDnsNameToFlatName_w2k.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleDnsNameToFlatName_w2k.cap) (1.0 KB)\
+Description: [DsRoleDnsNameToFlatName](/DsRoleDnsNameToFlatName) operation against a Windows 2000 system without MS04-011 applied
 
-File: \*\*[dssetup_DsRoleUpgradeDownlevelServer_MS04-011_exploit.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleUpgradeDownlevelServer_MS04-011_exploit.cap) (5.0 KB)\
-\*\*Description: **traffic of an exploit for the security vulnerabillity exploitable using the** [**DsRoleUpgradeDownlevelServer**](/DsRoleUpgradeDownlevelServer) **operation (Windows 2000 and Windows XP systems without MS04-011 applied)**
+File: [dssetup_DsRoleUpgradeDownlevelServer_MS04-011_exploit.cap](uploads/__moin_import__/attachments/SampleCaptures/dssetup_DsRoleUpgradeDownlevelServer_MS04-011_exploit.cap) (5.0 KB)\
+Description: traffic of an exploit for the security vulnerabillity exploitable using the [DsRoleUpgradeDownlevelServer](/DsRoleUpgradeDownlevelServer) operation (Windows 2000 and Windows XP systems without MS04-011 applied)
 
 #### NSPI MSRPC Interface
 
-File \*\*[nspi.pcap](uploads/__moin_import__/attachments/SampleCaptures/nspi.pcap) (7.2 KB)\
-\*\*Description: **MAPI Profile creation between Microsoft Exchange 2003 and the mail applet in the configuration panel (Windows 2003 Server and Windows XP Professional)**
+File [nspi.pcap](uploads/__moin_import__/attachments/SampleCaptures/nspi.pcap) (7.2 KB)\
+Description: MAPI Profile creation between Microsoft Exchange 2003 and the mail applet in the configuration panel (Windows 2003 Server and Windows XP Professional)
 
 #### WINREG Interface
 
-File \*\*[dcerpc-winreg-with-rpc-sec-verification-trailer.pcap](uploads/__moin_import__/attachments/SampleCaptures/dcerpc-winreg-with-rpc-sec-verification-trailer.pcap)\
-\*\*Description: **smbtorture in Samba's make test. Frame 34 contains a rpc_sec_verification_trailer.**
+File [dcerpc-winreg-with-rpc-sec-verification-trailer.pcap](uploads/__moin_import__/attachments/SampleCaptures/dcerpc-winreg-with-rpc-sec-verification-trailer.pcap)\
+Description: **smbtorture in Samba's make test. Frame 34 contains a rpc_sec_verification_trailer.
 
 #### WITNESS Interface
 
-File \*\*[dcerpc_witness.pcapng](uploads/__moin_import__/attachments/SampleCaptures/dcerpc_witness.pcapng)\
-\*\*Description: **Sample Witness traffic**
+File [dcerpc_witness.pcapng](uploads/__moin_import__/attachments/SampleCaptures/dcerpc_witness.pcapng)\
+Description: Sample Witness traffic
 
 ### IPsec
 
