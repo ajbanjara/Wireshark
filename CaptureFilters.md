@@ -136,7 +136,6 @@ Wireshark tries to determine if it's running remotely (e.g. via SSH or Remote De
 
   - [Filtering while capturing](http://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html) from the [Wireshark User's Guide](http://www.wireshark.org/docs/wsug_html_chunked/).
 
-  - 
   - For the current version of Wireshark, 1.8.6, and for earlier 1.8.x releases, the capture filter dialog box is no longer available in the capture options window. Instead, you need to double-click on the interface listed in the capture options window in order to bring up the "Edit Interface Settings" window. At the bottom of this window you can enter your capture filter string or select a saved capture filter from the list, by clicking on the "Capture Filter" button.
 
   - The [pcap-filter man page](http://www.wireshark.org/docs/man-pages/pcap-filter.html) includes a comprehensive capture filter reference
@@ -157,11 +156,9 @@ The [String-Matching Capture Filter Generator](http://www.wireshark.org/tools/st
 
 BTW, the Symantec page says that Blaster probes 135/tcp, 4444/tcp, and 69/udp. Would
 
-  - ``` 
      (tcp dst port 135 or tcp dst port 4444 or udp dst port 69) and ip[2:2]==48
-    ```
 
-  - be a better filter? - *Gerald Combs*
+be a better filter? - *Gerald Combs*
 
 Q: What is a good filter for just capturing SIP and RTP packets?
 
@@ -193,26 +190,14 @@ Capture all traffic originating (source) in the IP range 192.168.XXX.XXX:
 
 Capture PPPoE traffic:
 
-  - ``` 
     pppoes
-    ```
 
-  - ``` 
     pppoes and (host 192.168.0.0 and port 80)
-    ```
 
 Capture VLAN traffic:
 
-  - ``` 
     vlan
-    ```
 
-  - ``` 
     vlan and (host 192.168.0.0 and port 80)
-    ```
-
------
-
----
 
 Imported from https://wiki.wireshark.org/CaptureFilters on 2020-08-11 23:11:47 UTC
