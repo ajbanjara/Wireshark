@@ -32,7 +32,7 @@ In addition, if you are on a switched Ethernet, rather than a shared Ethernet, y
 
 In the old days, Ethernet networks were shared networks, using shared media or hubs to connect the Ethernet nodes together, meaning all packets could be received by all nodes on that network. Therefore, if an Ethernet adapter on such a network is put into promiscuous mode, all packets on the network will be seen by that adapter and thus can be captured with that adapter.
 
-![Capture-shared-hub-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-shared-hub-ws.png "Capture-shared-hub-ws.png")
+![Capture-shared-hub-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-shared-hub-ws.png "Capture-shared-hub-ws.png")
 
 Today, shared networks are becoming popular again, as WLAN's are using this technique. You might have a look at [CaptureSetup/WLAN](/CaptureSetup/WLAN) for details.
 
@@ -44,7 +44,7 @@ An Ethernet switch will do a similar thing to the Ethernet adapter hardware ment
 
 As [Unicast](/Unicast) packets not sent to that host will not be put on the switch port to which that host's adapter is connected, that adapter will not have those packets, so putting the adapter into promiscuous mode can't cause it to deliver packets to that host, and you won't see those packets even if you capture in promiscuous mode.
 
-![Capture-switch-problem-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-problem-ws.png "Capture-switch-problem-ws.png")
+![Capture-switch-problem-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-problem-ws.png "Capture-switch-problem-ws.png")
 
 The following will describe some methods to circumvent this problem.
 
@@ -52,7 +52,7 @@ The following will describe some methods to circumvent this problem.
 
 If you only need the capture data from a specific host, try to capture on that machine.
 
-![Capture-switch-same-computer-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-same-computer-ws.png "Capture-switch-same-computer-ws.png")
+![Capture-switch-same-computer-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-same-computer-ws.png "Capture-switch-same-computer-ws.png")
 
   - Advantage: Easy to use
   - Disadvantage: Other traffic not available
@@ -61,7 +61,7 @@ If you only need the capture data from a specific host, try to capture on that m
 
 If you have an "old" Ethernet hub available, put it inside the Ethernet line you want to capture from. This could be the line between a switch and a node or between two switches.
 
-![Capture-switch-hub-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-hub-ws.png "Capture-switch-hub-ws.png")
+![Capture-switch-hub-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-hub-ws.png "Capture-switch-hub-ws.png")
 
 Beware that this will interrupt network traffic while you plug the cables\!
 
@@ -85,7 +85,7 @@ While high-end managed switches (like e.g. Cisco Catalyst) usually fully dedicat
 
 Rumor has it that some switches can monitor the whole throughput of the switch. As a switch can transfer more traffic than a single line can transmit, you will be unlikely to see all traffic.
 
-![Capture-switch-monitor-port-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-monitor-port-ws.png "Capture-switch-monitor-port-ws.png")
+![Capture-switch-monitor-port-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-monitor-port-ws.png "Capture-switch-monitor-port-ws.png")
 
   - Advantage: Easy to use if such a switch available
   - Disadvantage: More expensive switch needed (though not as expensive as they once were), capture packet loss at high traffic
@@ -102,7 +102,7 @@ Many laptops have one network adapter built-in; a second can be added using a PC
 
 The bridge is 'transparent' at the level of IP and similar protocols, and 'almost' transparent at the Ethernet level - it creates a small delay in packet transmission, and the Ethernet addresses of the two NICs may respond to some broadcast messages.
 
-![Capture-switch-mitm-2NIC-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mitm-2NIC-ws.png "Capture-switch-mitm-2NIC-ws.png")
+![Capture-switch-mitm-2NIC-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mitm-2NIC-ws.png "Capture-switch-mitm-2NIC-ws.png")
 
   - Advantage: requires no changes to monitored host, uses only generally available hardware
   - Disadvantage: dedicated machine configuration required
@@ -113,7 +113,7 @@ Several vendors offer network taps, which can be plugged into a line. There are 
 
 Breakout taps will have four connectors: two for the existing line and two outputs for both directions of the [EthernetFullDuplex](/EthernetFullDuplex) traffic.
 
-![Capture-switch-tap-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-tap-ws.png "Capture-switch-tap-ws.png")
+![Capture-switch-tap-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-tap-ws.png "Capture-switch-tap-ws.png")
 
 To use breakout taps, you have to capture both outputs. Prior to version 1.8 Wireshark cannot capture from two interfaces at once, so for those versions you have to start two Wireshark instances for capturing and merge the resulting capture files together.
 
@@ -149,7 +149,7 @@ The differing number of twists per inch in each pair of wires (which is why each
 
 To capture packets going between two computers on a switched network, you can use a MITM attack (ARP Poisoning). This type of attack will fool the two computers into thinking that your MAC address is the MAC address of the other machine. This will in turn make the switch route all of their traffic to your computer where you can sniff it and then send the traffic along as if nothing ever happened. This type of attack can cause havoc on some switches and LANs so use it carefully.
 
-![Capture-switch-mitm-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mitm-ws.png "Capture-switch-mitm-ws.png")
+![Capture-switch-mitm-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mitm-ws.png "Capture-switch-mitm-ws.png")
 
 :warning: **Please do not try this on any LAN other than your own\!**
 
@@ -162,7 +162,7 @@ See [What is ARP Poisoning ?](http://thevega.blogspot.com/2008_06_01_archive.htm
 
 Switches keep a translation table that maps various MAC addresses to the physical ports on the switch. As a result of this, a switch can intelligently route packets from one host to another, but it has a limited memory for this work. MAC flooding makes use of this limitation to bombard the switch with fake MAC addresses until the switch can't keep up. The switch then enters into what is known as a \`failopen mode', wherein it starts acting as a hub by broadcasting packets to all the machines on the network. Once that happens sniffing can be performed easily. MAC flooding can be performed by using macof, a utility which comes with the [dsniff](http://www.monkey.org/~dugsong/dsniff/) suite.
 
-![Capture-switch-mac-flooding-ws.png](../uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mac-flooding-ws.png "Capture-switch-mac-flooding-ws.png")
+![Capture-switch-mac-flooding-ws.png](uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mac-flooding-ws.png "Capture-switch-mac-flooding-ws.png")
 
 :warning: **Please do not try this on any LAN other than your own\!**
 
