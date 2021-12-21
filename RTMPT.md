@@ -27,7 +27,7 @@ None
 
 ## Example capture file
 
-A sample capture can be found here [http://wiki.wireshark.org/SampleCaptures?action=AttachFile\&do=get\&target=rtmp\_sample.tgz](uploads/__moin_import__/attachments/SampleCaptures/rtmp_sample.tgz)
+A sample capture can be found here: [rtmp_sample.tgz](uploads/__moin_import__/attachments/SampleCaptures/rtmp_sample.tgz).
 
 ## Display Filter
 
