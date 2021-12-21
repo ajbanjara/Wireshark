@@ -6,7 +6,8 @@ This tap was originally written for Thomas Baudelet to help with [Issue 16419 - 
 
 [tap-resolved.lua](uploads/74753cf139dd16f74db314e4f8a2330d/tap-resolved.lua)
 
-**Example** - Using the [openflow_v1.3_messages.pcapng.gz](https://wiki.wireshark.org/SampleCaptures?action=AttachFile&do=get&target=openflow_v1.3_messages.pcapng.gz) capture file from the [SampleCaptures](SampleCaptures) page.
+**Example** - Using the [openflow_v1.3_messages.pcapng.gz](uploads/__moin_import__/attachments/SampleCaptures/openflow_v1.3_messages.pcapng.gz
+) capture file from the [SampleCaptures](SampleCaptures) page.
 
 ![tap-resolved](uploads/2cc2eaccdcbd5072be2763e6ecd8327a/tap-resolved.png)
 
