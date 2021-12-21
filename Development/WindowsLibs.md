@@ -1,8 +1,8 @@
 # Windows Libraries
 
-This article documents how to update library dependencies for Windows.  
-`https` links to the current libraries are available in the `WSDG`: [Chapter 5. Library Reference](https://www.wireshark.org/docs/wsdg_html_chunked/ChapterLibraries.html)  
-See [wireshark-vcpkg-scripts](https://gitlab.com/geraldcombs/wireshark-vcpkg-scripts) for newer? method to add libraries.
+This article documents how some of our Windows library dependencies are updated.  
+`https` links to the current libraries are available in the `WSDG`: [Chapter 5. Library Reference](https://www.wireshark.org/docs/wsdg_html_chunked/ChapterLibraries.html).  
+Note that many of our libraries are built using [vcpkg](https://github.com/microsoft/vcpkg/). See `.gitlab-ci.yml` in the [wireshark-vcpkg-scripts](https://gitlab.com/geraldcombs/wireshark-vcpkg-scripts) for details.
 
 ## Packaging notes
 
