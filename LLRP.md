@@ -28,7 +28,7 @@ There are no preferences available for the LLRP dissector.
 
 A capture file (in pcap format) showing an example session between an LLRP Reader and LLRP Client Application is available on the [SampleCaptures](/SampleCaptures) page:
 
-  - [SampleCaptures/llrp.cap](/SampleCaptures?action=AttachFile&do=get&target=llrp.cap)
+  - [SampleCaptures/llrp.cap](uploads/__moin_import__/attachments/SampleCaptures/llrp.cap)
 
 # Display Filter
 
