@@ -263,10 +263,10 @@ Search for packages in openSUSE here: <https://software.opensuse.org/search>
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| jessie             | 2.42.1       | 2.24.25      | 3.14.5       | 4.8.6       | 5.3.2       |
 | stretch            | 2.50.3       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
 | buster             | 2.58.3       | x            | x            | x           | 5.11.3      |
-| bullseye (testing) | 2.62.4       | x            | x            | x           | 5.12.5      |
+| bullseye           | 2.66.8       | x            | x            | x           | 5.15.2      |
+| bookworm (testing) | 2.70.2       | x            | x            | x           | 5.15.2      |
 
 Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
@@ -278,9 +278,6 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 |--------------------|--------------|--------------|--------------|-------------|-------------|
 | trusty (14.04LTS)  | 2.40.2       | 2.24.23      | 3.10.8       | 4.8.5       | 5.2.1       |
 | xenial (16.04LTS)  | 2.48.0       | 2.24.30      | 3.18.9       | 4.8.7       | 5.5.1       |
-| yakkety (16.10)    | 2.50.0       | 2.24.30      | 3.20.9       | 4.8.7       | 5.6.1       |
-| zesty (17.04)      | 2.52.0       | 2.24.31      | 3.22.11      | 4.8.7       | 5.7.1       |
-| artful (17.10)     | 2.54.1       | 2.24.31      | 3.22.25      | 4.8.7       | 5.9.1       |
 | bionic (18.04LTS)  | 2.56.4       | x            | x            | x           | 5.9.5       |
 | cosmic (18.10)     | 2.58.1       | x            | x            | x           | 5.11.1      |
 | disco (19.04)      | 2.60.4       | x            | x            | x           | 5.12.2      |
