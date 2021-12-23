@@ -80,8 +80,8 @@ In order to limit the development burden, support for a (old-)stable release is 
 | Version | Stable Release Date | End of Support               | Notes |
 |----|----|----|----|
 | 4.0     | Q2, 2022            | Release + 18 or more months | Support ends when 4.4.0 is released.                                                                           |
-| 3.6     | November 22, 2021   | Release + 18 or more months | Support ends when 4.2.0 is released.                                                                           |
-| 3.4     | October 29, 2020    | Release + 18 or more months | Support ends when 4.0.0 is released.                                                                           |
+| 3.6     | November 22, 2021   | May 22, 2023 or later | Support ends when 4.2.0 is released.                                                                           |
+| 3.4     | October 29, 2020    | April 29, 2022 or later | Support ends when 4.0.0 is released.                                                                           |
 | 3.2     | December 18, 2019   | November 22, 2021   | Last release to support Windows 7 and Windows Server 2008 R2. |
 | 3.0     | February 28, 2019   | October 29, 2020    | |
 | 2.6     | April 18, 2018      | October 18, 2020            | Long term support (LTS). Last release to support GTK+ and Qt4. Last release to support Red Hat EL 6. Last release to support Mac OS X 10.6 and 10.7 and OS X 10.8, 10.9, 10.10, and 10.11. |
