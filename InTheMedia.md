@@ -15,3 +15,5 @@ This site is to collect Movies and TV-Shows where Wireshark has been featured
 
    * In Episode 9 of Season 4 Wireshark is used to capture SS7 traffic.
 
+* [Invasion](https://en.wikipedia.org/wiki/Invasion_(2021_TV_series))
+   The Wireshark icon is visible in a macOS Dock
