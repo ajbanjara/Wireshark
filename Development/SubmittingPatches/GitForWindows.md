@@ -1,6 +1,6 @@
 This page is still under construction and may be incomplete. Caveat lector.  
 
-**Note** - see [Win32/64: Step-by-Step Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWindows.html) in the [Wireshark Developer’s Guide](https://www.wireshark.org/docs/wsdg_html_chunked/index.html) for full setup of Windows dev environment.  
+**Note** - see [Windows: Step-by-Step Guide](https://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWindows.html) in the [Wireshark Developer’s Guide](https://www.wireshark.org/docs/wsdg_html_chunked/index.html) for full setup of Windows dev environment.  
 Pack a lunch - takes a while.
 
 # Introduction
