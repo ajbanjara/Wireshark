@@ -1,6 +1,6 @@
 # Building Wireshark using Microsoft VC 7 and above
 
-**The info on this page is now ****obsolete**; none of the compilers listed here are still used to build Wireshark releases or supported by the Wireshark build process. [Section 2.2 "Win32/64: Step-by-Step Guide"](https://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWin32.html) in the [Wireshark Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/) contains detailed information on building Wireshark with newer versions of Visual Studio.**
+**The info on this page is now ****obsolete**; none of the compilers listed here are still used to build Wireshark releases or supported by the Wireshark build process. [Section 2.2 "Win32/64: Step-by-Step Guide"](https://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWindows.html) in the [Wireshark Developer's Guide](https://www.wireshark.org/docs/wsdg_html_chunked/) contains detailed information on building Wireshark with newer versions of Visual Studio.**
 
 This page describes how Wireshark can be compiled with recent Microsoft compilers (Version 7 and higher):
 

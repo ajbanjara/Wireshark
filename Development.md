@@ -8,7 +8,7 @@ If you are new to Wireshark development, please set up your build environment fi
 
   - Get the source code from the [Wireshark development webpage](http://www.wireshark.org/develop.html)
 
-  - **Windows**: the [Developer's Guide](http://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWin32.html) is currently invaluable for setting up a development environment in Microsoft Windows
+  - **Windows**: the [Developer's Guide](http://www.wireshark.org/docs/wsdg_html_chunked/ChSetupWindows.html) is currently invaluable for setting up a development environment in Microsoft Windows
 
   - **Unix-like**: you may find information in the README.xxx file suitable for your target platform - in the [root](https://gitlab.com/wireshark/wireshark/-/tree/master) directory of the Wireshark sources
 
