@@ -13,7 +13,7 @@ If you would like permission to edit this wiki, please see [the editing instruct
 
 ## Prepare Wireshark / TShark
 
-- [BuildingAndInstalling](/BuildingAndInstalling): Building and Installing Wireshark
+- [BuildingAndInstalling](https://www.wireshark.org/docs/wsdg_html/#ChapterSetup): Building and Installing Wireshark (Developer’s Guide) (archived [BuildingAndInstalling](/BuildingAndInstalling))
 
 - [CaptureSetup](/CaptureSetup): How to setup your network to successfully capture packets
     
@@ -75,4 +75,3 @@ Things not (yet) part of the [Wireshark User's Guide](http://www.wireshark.org/d
 
 ---
 
-Imported from https://wiki.wireshark.org/ on 2020-08-11 23:10:57 UTC
