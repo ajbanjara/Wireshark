@@ -36,13 +36,41 @@ The PTP dissector seems to work properly.
 
 ## Preference Settings
 
-There are no preference settings affecting PTP.
+![220209_PTP_UDP_ports](uploads/bdaf8f0923efde9cfc27423d550ad6f4/220209_PTP_UDP_ports.png)
+  
+ - UDP port(s):  
+UDP port(s)/range(s) to decode as PTP     (Default: 319-320)
+
+Future release - not in current 3.6.1 version  
+  
+ - "analyze_ptp_messages", "Analyze PTP messages",
+"Make the PTP dissector analyze PTP messages. Accurate Capture Timestamps required!",
+&ptp_analyze_messages);
+
+### Expert Information messages
+```
+    static ei_register_info ei[] = {
+        { &ei_ptp_v2_msg_len_too_large, { "ptp.v2.msg_len_too_large", PI_MALFORMED, PI_ERROR, "Message length goes past the end of the packet", EXPFILL }},
+        { &ei_ptp_v2_msg_len_too_small, { "ptp.v2.msg_len_too_small", PI_MALFORMED, PI_ERROR, "Message length too short to include the message length field", EXPFILL }},
+```
+Future release - not in current 3.6.1 version  
+```
+        { &ei_ptp_v2_sync_no_followup,  { "ptp.v2.sync_no_fup", PI_PROTOCOL, PI_WARN, "No Follow Up for this 2-Step Sync", EXPFILL }},
+        { &ei_ptp_v2_followup_no_sync,  { "ptp.v2.fup_without_sync", PI_PROTOCOL, PI_WARN, "No Sync for this Follow Up", EXPFILL }},
+        { &ei_ptp_v2_pdreq_no_pdresp,   { "ptp.v2.pdelay_req_without_resp", PI_PROTOCOL, PI_WARN, "No Response for this Peer Delay Request", EXPFILL }},
+        { &ei_ptp_v2_pdresp_no_pdreq,   { "ptp.v2.pdelay_resp_without_req", PI_PROTOCOL, PI_WARN, "No Request for this Peer Delay Response", EXPFILL }},
+        { &ei_ptp_v2_pdresp_no_pdfup,   { "ptp.v2.pdelay_resp_without_fup", PI_PROTOCOL, PI_WARN, "No Follow Up for this Peer Delay Response", EXPFILL }},
+        { &ei_ptp_v2_pdfup_no_pdresp,   { "ptp.v2.pdelay_fup_without_resp", PI_PROTOCOL, PI_WARN, "No Response for this Peer Delay Follow Up", EXPFILL }},
+    };
+```
 
 ## Example capture file
 
   - [SampleCaptures/PTP\_sync.pcap](uploads/__moin_import__/attachments/SampleCaptures/PTP_sync.pcap)
 
   - [SampleCaptures/ptpv2.pcap](uploads/__moin_import__/attachments/SampleCaptures/ptpv2.pcap) some PTP version 2 packets
+
+  - [SampleCaptures/ptpv2_anon.pcapng](uploads/faca5622d7ec2f07f1a9ee3f062fdfac/ptpv2_anon.pcapng) ptpv2.pcap modified with [TraceWrangler](http://www.tracewrangler.com/) to use non-standard ports (42319,42320)  
 
 ## Display Filter
 
