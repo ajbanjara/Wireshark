@@ -196,6 +196,8 @@ end
 
 Then, open the sample capture file [protobuf_udp_addressbook_with_image.pcapng](uploads/4dde0c0be2c88ad980a0f42a9f1507cb/protobuf_udp_addressbook_with_image.pcapng) on the [SampleCaptures page](/SampleCaptures), and you will find that the 'portait_image' Protobuf field is dissected as PNG image data: ![protobuf_udp_with_image](uploads/3dd1230451b54135f818d949c893d7e9/protobuf_udp_with_image.png)
 
+> You can get the field name in the subdissector by pinfo.match_string in Lua or pinfo->match_string in C code.
+
 ### Preference Settings
 
 The _'Protobuf Search Paths'_ and _'Protobuf UDP Message Types'_ tables are introduced in previous sections, there are some other preferences: ![preferences_gui2](uploads/d0ffd9195f9a443ab9cc1c8b39148322/preferences_gui2.png)
