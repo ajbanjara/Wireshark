@@ -126,11 +126,11 @@ If you capture at the grpc client side, the initialization code may like:
         // Note that you can not use 
         // GrpcSslContexts.configure(sslClientContextBuilder, SslProvider.OPENSSL).
         //
-        // If you does not import boringssl dependency in your pom.xml (or class path),
+        // If you does not include boringssl dependency in your pom.xml (or class path),
         // you can also use GrpcSslContexts.configure(sslClientContextBuilder) instead.
         //
         // Security.getProvider("SunJSSE") also can be replaced
-        // by Security.getProviders()[0] if boringssl did not imported.
+        // by Security.getProviders()[0] if boringssl library is not in your class path.
         SslContext clientSslCtx = GrpcSslContexts.configure(sslClientContextBuilder,
                                      Security.getProvider("SunJSSE")).build();
 
