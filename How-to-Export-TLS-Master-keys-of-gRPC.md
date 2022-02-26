@@ -227,9 +227,38 @@ That will make the master keys be written to the file `d:\keyfile.txt'.
 
 This is just a workaround because the class *'io.grpc.netty.ProtocolNegotiators'* may be different each version. [Formal solution](https://github.com/grpc/grpc-java/issues/7199) based on the [SslMasterKeyHandler](https://github.com/netty/netty/pull/8653) feature of netty may be provied in the future.
 
-## C++/C#/Python/...
+## C++
 
-Unfortunately, these language-specific gRPC implementations currently do not support the feature of exporting master keys yet. But most of them implement TLS using openssl or boringssl, one day they may explose the [SSL_CTX_set_keylog_callback](https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_keylog_callback.html) (since openssl 1.1.1) or [SSL_get_client_random/SSL_get_server_random/SSL_SESSION_get_master_key](https://www.openssl.org/docs/man1.1.1/man3/SSL_SESSION_get_master_key.html) methods to let user to export the master keys into key log files.
+The good news is "TLS Session Keys export for GRPC C++" PR (pull request) is merged recently (https://github.com/grpc/grpc/pull/26812). That might be released in the near future.
+
+We can configure key log file by following EXPERIMENTAL API (in include/grpc/grpc_security.h):
+
+```c
+/**
+ * EXPERIMENTAL API - Subject to change.
+ * Configures a grpc_tls_credentials_options object with tls session key
+ * logging capability. TLS channels using these credentials have tls session
+ * key logging enabled.
+ * - options is the grpc_tls_credentials_options object
+ * - path is a string pointing to the location where TLS session keys would be
+ *   stored.
+ */
+GRPCAPI void grpc_tls_credentials_options_set_tls_session_key_log_file_path(
+    grpc_tls_credentials_options* options, const char* path);
+```
+or C++ method of TlsCredentialsOptions object:
+```c++
+void TlsCredentialsOptions::set_tls_session_key_log_file_path(
+    const std::string& tls_session_key_log_file_path)
+```
+
+> The set_tls_session_key_log_file_path method relies on the [SSL_CTX_set_keylog_callback](https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_keylog_callback.html) (since openssl 1.1.1) or [SSL_get_client_random/SSL_get_server_random/SSL_SESSION_get_master_key](https://www.openssl.org/docs/man1.1.1/man3/SSL_SESSION_get_master_key.html) methods of openssl or boringssl.
+
+> This function is EXPERIMENTAL only because TlsCredentialsOptions is EXPERIMENTAL now.
+
+## C#/Python/...
+
+At present, the GRPC implementation of these languages does not support this feature. However, since these implementations are all based on GRPC C++, it is possible that they will support this feature in the near future.
 
 You may also try the methods described in [Wireshark tls wiki page](/tls).
 
