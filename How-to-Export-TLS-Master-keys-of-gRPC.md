@@ -103,7 +103,7 @@ This is easiest way, although it doesn't support native boringssl.
 
 The main steps include:
 
-- You can get jSSLKeyLog from https://jsslkeylog.github.io/ .
+- Download jSSLKeyLog from https://jsslkeylog.github.io/ .
 - Make sure your client or server code using JDK security provider (by using `GrpcSslContexts.configure(sslServerContextBuilder, Security.getProvider("SunJSSE"))`).
 - Then run the client or server program with `-javaagent:path/to/jSSLKeyLog.jar=/path/to/your_logfile.log` VM parameter, for example:
 
