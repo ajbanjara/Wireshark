@@ -95,7 +95,89 @@ After running (the command like "$> `go run client/main.go`"), the exported key 
 
 ## Java
 
-The [grpc-java](https://github.com/grpc/grpc-java) does not support exporting the master key of TLS yet. But there is a trick to extract the secrets: you can rewrite the java class *'io.grpc.netty.ProtocolNegotiators'* based on the source code of the grpc-java library version you used and put it in your classpath. The key modification is add the code
+There are two ways to export the key materials of TLS for [grpc-java](https://github.com/grpc/grpc-java) capture files.
+
+### Using jSSLKeyLog
+
+This is easiest way, although it doesn't support native boringssl.
+
+The main steps include:
+
+- You can get jSSLKeyLog from https://jsslkeylog.github.io/ .
+- Make sure your client or server code using JDK security provider (by using `GrpcSslContexts.configure(sslServerContextBuilder, Security.getProvider("SunJSSE"))`).
+- Then run the client or server program with `-javaagent:path/to/jSSLKeyLog.jar=/path/to/your_logfile.log` VM parameter, for example:
+
+```cmd
+java -javaagent:mylibs/jSSLKeyLog.jar=d:/keyfile.txt ... -jar client_or_server.jar ...
+```
+
+You will get the tls keyfile 'd:/keyfile.txt'.
+
+If you capture at the grpc client side, the initialization code may like:
+
+```java
+    ...
+    NettyChannelBuilder channelBuilder = NettyChannelBuilder.forAddress(host, port);
+
+    if (secure) {
+        SslContextBuilder sslClientContextBuilder = GrpcSslContexts.forClient().trustManager(new File("cert/server.crt"));
+        sslClientContextBuilder.protocols("TLSv1.2");
+
+        // Note that you can not use 
+        // GrpcSslContexts.configure(sslClientContextBuilder) or 
+        // GrpcSslContexts.configure(sslClientContextBuilder, SslProvider.OPENSSL).
+        //
+        // Security.getProvider("SunJSSE") also can be replaced
+        // by Security.getProviders()[0]
+        SslContext clientSslCtx = GrpcSslContexts.configure(sslClientContextBuilder,
+                                     Security.getProvider("SunJSSE")).build();
+
+        channelBuilder
+            .sslContext(clientSslCtx)
+            .negotiationType(NegotiationType.TLS);
+    } else {
+        channelBuilder.negotiationType(NegotiationType.PLAINTEXT);
+    }
+
+    this.channel = channelBuilder.build();
+    blockingStub = new PersonSearchBlockingStub(channel, useJson);
+    ...
+```
+
+If you capture at the server side, the server starting code might be changed to:
+
+```java
+    ...
+    NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(port).addService(
+                useJson ? new PersonSearchJsonImpl() : new PersonSearchImpl()
+            );
+    
+    if (secure)  {
+        SslContextBuilder sslServerContextBuilder = GrpcSslContexts
+
+                .forServer(new File(certChainFilePath), new File(privateKeyFilePath));
+        //Note that you can use GrpcSslContexts.configure(sslServerContextBuilder, SslProvider.OPENSSL);
+        SslContextBuilder serverSslCtxBuilder = GrpcSslContexts.configure(sslServerContextBuilder, Security.getProvider("SunJSSE"));
+        
+        SslContext serverSslCtx = serverSslCtxBuilder.build();
+        serverBuilder.sslContext(serverSslCtx);
+    }
+    
+    server = serverBuilder.build().start();
+    ...
+```
+
+Test environment:
+- grpc-java version: 1.36.0-SNAPSHOT
+- protobuf and protoc version: 3.12.0
+- openJDK:
+  - openjdk-8u252-b09: support TLS1.2, but not support TLS1.3
+  - openjdk-11.0.13_8: support both TLS1.2 and TLS1.3
+
+### Rewriting class `ProtocolNegotiators`
+
+This is just a trick and is not recommended.
+You can rewrite the java class *'io.grpc.netty.ProtocolNegotiators'* based on the source code of the grpc-java library version you used and put it in your classpath. The key modification is add the code
 ```java
 ctx.pipeline().addBefore(ctx.name(), null, SslMasterKeyHandler.newWireSharkSslMasterKeyHandler());
 ```
