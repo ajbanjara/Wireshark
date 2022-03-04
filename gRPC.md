@@ -8,7 +8,7 @@ Change log about Wireshark supporting gRPC:
 - Wireshark 2.6.0 - initial support.
 - Wireshark 3.2.0 - supports parse Protobuf content of gRPC according to *.proto files. The message of stream gRPC method can now be parsed with supporting of HTTP2 streaming mode reassembly feature.
 - Wireshark 3.3.0 - fixes bugs about parsing *.proto file. Adds some new Protobuf features, which can also be used for gRPC that serializes structured data using Protobuf.
-- Wireshark 3.7.0 - supports using http2 fake headers to parse the DATAs of a long-lived stream without first HEADERS frame.
+- Wireshark 3.7.0 - supports using http2 fake headers to parse the DATAs of a long-lived stream without first HEADERS frame. Supports gRPC-WEB.
 
 >Note, the message body of gRPC is usually serialized in Protobuf format. So please also refer to [Protobuf page](/Protobuf) for the change log of Protobuf dissector.
 
@@ -144,3 +144,5 @@ The capture files that sending gRPC messages in plaintext mode can be parsed by 
 - [grpc_person_search_protobuf_with_image.pcapng](uploads/f6fcdceb0248669c0b057bd15d45ab6f/grpc_person_search_protobuf_with_image.pcapng) gRPC Person search service example, using Protobuf to serialize structured data.
 - [grpc_person_search_json_with_image.pcapng](uploads/88c03db83efb2e3253c88f853d40477b/grpc_person_search_json_with_image.pcapng) gRPC Person search service example, using JSON to serialize structured data.
 - [grpc_person_search_protobuf_with_image-missing_headers.pcapng](uploads/4873a655be41de4419b70899c74a282b/grpc_person_search_protobuf_with_image-missing_headers.pcapng) Part of gRPC Person search service example serialized in protobuf. (Missing http2 headers)
+- [client-grpc-web-text-http1-send-two-unary.pcapng](uploads/a80406b4ecea28fdb70d3fb6e47f9d15/client-grpc-web-text-http1-send-two-unary.pcapng) Two simple gRPC-WEB unary call over HTTP/1.
+- [client-grpc-web-proto-http2-send-two-unary.pcapng](uploads/c9a43900bd7b4ffd6454fb2e75c2c906/client-grpc-web-proto-http2-send-two-unary.pcapng) Two simple gRPC-WEB unary call over HTTP/2.
