@@ -26,7 +26,8 @@ In this case, one can set the known port number in the Thrift dissector preferen
 ## Preferences settings
 
 The Thrift dissector allows for some customization of the user experience whether a subdissector is used or not.
-![preferences](uploads/a40e386562204cd4122bf57267a14654/preferences.png)
+![preferences](uploads/9e10fa27ecd0daf52da179151b2e0891/preferences.png)
+
 
 _Display binary as bytes or strings_: As the generic Thrift dissector as bundled in vanilla Wireshark does not know if the `T_BINARY` fields are binary blobs or strings (and in this case, which encoding), this settings allows the user to choose the encoding that Wireshark must use for _all_ `T_BINARY` fields.
 
@@ -56,6 +57,8 @@ However, you might want to display these fields in some cases to better understa
 _Fallback to generic Thrift dissector if sub-dissector fails_: In case the sub-dissector return with an error code, for example when a mandatory field is missing or the field type is not what was expected, the generic dissector can try to dissect the PDU if it’s well-formed.
 
 This can be useful to understand why the sub-dissector failed and still be able to see the end of the PDU.
+
+_Thrift nested types depth_: Indicates the maximum depth of the Thrift tree of types to prevent exceeding the system calls limit. See [Add maximum depth for emitBatch nested types](#add-maximum-depth-for-emitbatch-nested-types) for usage and sub-dissector overriding.
 
 _Reassemble Framed Thrift messages spannig multiple TCP segments_: Tells the helper function `tcp_dissect_pdus`, used when Framed Transport is used by the application, to reassemble Thrift PDUs that are split into several TCP packets.
 
@@ -868,6 +871,39 @@ We add a single call to `dissect_thrift_t_struct` with the right parameters and 
 
 At this point, we consider the dissector complete so we clear the unused elements that were created through our systematic approach in order to avoid any compilation warning and get a dissector that passes all merge checks. :trophy:
 
+#### Add maximum depth for emitBatch nested types
+
+In case of a packet matching an unsupported version of the Thrift-based protocol (missing struct member, wrong type…), the Thrift generic dissector can take over the dissection and use the binary stream to show the PDU as a generic Thrift payload as a fallback.
+
+However, as detected in #17694, a malformed packet could trigger an excessive number of nested calls leading to a crash as system limits are exceeded. Changes in !4954 introduced a limit regarding the maximum nesting depth.
+
+If the default value (25 levels of nesting) is not suitable for your protocol, the quickest way of changing that is through the "Thrift nested types depth" preference but you might have the use for a custom value for each command, which would help detect incorrect PDUs even with an incomplete sub-dissector.
+
+This can be achieved when handling the dissection back to the generic dissector by setting the "Thrift nested types depth" preference to the more pertinent value but you might want to use a different value for each commands depending on the expected depth of each parameter even if the sub-dissector is incomplete. In this case, it’s covered by setting the `thrift_option_data_t.nested_type_depth` member to the desired value before handling the control back to the generic dissector with an error return value.
+
+In the case of `emitBatch`, the maximum depth can be found with the following nesting types: `Batch/list<Span>/list<Log>/list<Tag>/basic_types`. Given that each type and each container introduces 1 level of nesting, the maximum depth expected is 8:
+
+1. `Batch`
+2. `list<>`
+3. `Span`
+4. `list<>`
+5. `Log`
+6. `list<>`
+7. `Tag`
+8. `basic_types`
+
+This translates in the sub-dissector code with the following code:
+
+```c
+    if (offset > 0) {
+        proto_item_set_end(jaeger_pi, tvb, offset);
+    } else {
+        // In case of failure and fallback_on_generic is activated in Thrift generic dissector.
+        thrift_opt->nested_type_depth = 8;
+    }
+    return offset;
+```
+
 ### Example 2: [Armeria Maritima](https://en.wikipedia.org/wiki/Armeria_maritima)
 
 The second example is the reverse engineered protocol for an anonymized capture that will allow us to cover all types of data as well as a few elements not covered by the Jaeger dissector above.
@@ -1163,12 +1199,12 @@ To handle the dependencies, we need to start from the leafs of the object and wo
 
 1. Consider the elements of the list: Luckily for us, it’s an union with it’s own generic hf id and `thrift_member_t` element description.
 2. Step into the next level and consider the key and value of the map:
-   a. Define the hf id (and stick to the "Key" name) and `thrift_member_t` for the key (once again, defining the enum would have spared us the work :disappointed:)
-   b. Define the hf id (and stick to the "Value" name), the ett tree (it’s a list), and the `thrift_member_t` for the value using the previously defined `thrift_member_t`.
+   1. Define the hf id (and stick to the "Key" name) and `thrift_member_t` for the key (once again, defining the enum would have spared us the work :disappointed:)
+   2. Define the hf id (and stick to the "Value" name), the ett tree (it’s a list), and the `thrift_member_t` for the value using the previously defined `thrift_member_t`.
 3. Finally, handle the result itself:
-   a. Define the hf id for the result.
-   b. Define the ett tree as it’s a map.
-   c. Add the map in the union definition using the key and value `thrift_member_t` as the members `.m.key` and `.m.value`.
+   1. Define the hf id for the result.
+   2. Define the ett tree as it’s a map.
+   3. Add the map in the union definition using the key and value `thrift_member_t` as the members `.m.key` and `.m.value`.
 
 Once again, the sub-disssection of the command makes it much easier to analyze than the generic dissection and in this case for 2 reasons:
 
