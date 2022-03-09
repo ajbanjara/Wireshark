@@ -14,7 +14,7 @@ See also: [SwitchReference](/SwitchReference), [HubReference](/HubReference), [C
 
 [Arista Networks](/AristaNetworks)
 
-cPacket Networks *(no documentation online?)*
+[cPacket Networks](https://www.cpacket.com/products/ctap/)
 
 [Datacom Systems](http://www.datacomsystems.com/products/network-taps)
 
