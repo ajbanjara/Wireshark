@@ -6,7 +6,7 @@ See also: [SwitchReference](/SwitchReference), [HubReference](/HubReference), [C
 
 ## Tap Hardware Documentation
 
-APCON *(no documentation online?)*
+[APCON](https://apcon.com/hardware/network-taps/apcon-tap/)
 
 [Arista Networks](/AristaNetworks)
 
@@ -18,27 +18,21 @@ cPacket Networks *(no documentation online?)*
 
 [Garland Technology](https://www.garlandtechnology.com)
 
-Gigamon *(no documentation online?)*
+[Gigamon](https://www.gigamon.com/products/access-traffic/network-taps.html)
 
 [Great Scott Gadgets / Michael Ossmann](http://greatscottgadgets.com/throwingstar/)
 
-  - Ixia
-
-  -   
-    [Net Tool Optimizers (formerly Anue Systems)](http://www.ixiacom.com/products/net-tool-optimizers)
-
-  -   
-    [Network Taps (formerly Net Optics)](http://www.ixiacom.com/products/network-taps)
+[Keysight (formerly Ixia)](https://www.keysight.com/us/en/products/network-visibility/network-taps.html)
 
 [midBit Technologies, LLC - SharkTap](http://www.midbittech.com)
+
+[NETSCOUT](https://www.netscout.com/product/enterprise/netscout-taps)
 
 [Network Critical](http://www.networkcritical.com/Resource-Library-US)
 
 [Viavi Solutions (formerly Network Instruments)](http://observer.viavisolutions.com/support/observer-ntaps.php)
 
-VSS Monitoring *(no documentation online?)*
-
-[Profi-TAP series](http://www.profitap.com)
+[ProfiTAP](http://www.profitap.com)
 
 [Cubro Packetmaster](http://www.cubro.net)
 
