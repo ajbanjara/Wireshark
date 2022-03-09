@@ -1,6 +1,10 @@
 # Tap Reference
 
-Unlike [switches](/SwitchReference) and [hubs](/HubReference), network taps operate independently of your network hardware. Many models have a number of advantages including performance, filtering, timestamping, manageability, and visibility but they also add expense and typically require rack space and power. For complete discussions of port mirroring vs taps, see the blog articles by [Tim O'Neil](http://www.lovemytool.com/blog/2007/08/span-ports-or-t.html) and [Richard Bejtlich](http://taosecurity.blogspot.com/2009/01/why-network-taps.html).
+Unlike [switches](/SwitchReference) and [hubs](/HubReference), network taps operate independently of your network hardware. Network TAPs create a copy of the (electrical or optical) signals on the wire allowing you to capture the packets exactly as they were on the wire; unlike port mirroring (span ports) TAPs don't drop packets at high rates.
+
+While copper TAPs require power, optical TAPs generally do not, though of course both take rack space.
+
+For complete discussions of port mirroring vs taps, see the blog articles by [Tim O'Neil](http://www.lovemytool.com/blog/2007/08/span-ports-or-t.html) and [Richard Bejtlich](http://taosecurity.blogspot.com/2009/01/why-network-taps.html).
 
 See also: [SwitchReference](/SwitchReference), [HubReference](/HubReference), [CaptureSetup](/CaptureSetup).
 
