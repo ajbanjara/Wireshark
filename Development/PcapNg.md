@@ -54,6 +54,10 @@ Some **very** old example files:
 
 There is a [github repository](https://github.com/hadrielk/pcapng-test-generator) of various test files to try a pcapng reader/parser on, in both little endian and big endian formats.
 
+You can dump the contents of a pcapng file with TShark:
+
+    tshark -V -Xread_format:"MIME Files Format" -r /path/to/a.pcapng
+
 ## Challenging pcapng Files
 
   - [test008.ntar](uploads/__moin_import__/attachments/Development/PcapNg/test008.ntar) (SHB, IDB, SHB, IDB) - contains two SHBs. Wireshark refuses to load this file since it contains multiple SHB's, which is not yet supported.
