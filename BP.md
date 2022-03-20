@@ -4,13 +4,13 @@ The Bundle Protocol provides datagram transport over a high-delay or disrupted n
 
 ## History
 
-BPv6 was standardized in RFC 5050.
-BPv7 is currently finalizing IETF standardization.
+BPv6 was standardized in [RFC 5050](https://www.ietf.org/rfc/rfc5050.html).
+BPv7 was standardized in [RFC 9171](https://www.ietf.org/rfc/rfc9171.html).
 
 ## Protocol dependencies
 
   - [TCPCL](/TCPCL): The BPv6 had defined a corresponding TCPCL version 3 and BPv7 has defined a TCPCL version 4 to provide reliable transfer over low-delay (_e.g._ local or terresterial) data links.
-  - [LTPCL](/LTP): The BPv6 has an experimental Licklider Transmission Protocol to provide reliable transfer over high-delay and lossy data links.
+  - [LTPCL](/LTP): The BPv6 has an experimental Licklider Transmission Protocol to provide reliable transfer over high-delay and lossy data links. There is currently no disambiguation between BPv6 and v6 over LTP; only one [client service ID](https://www.iana.org/assignments/ltp-parameters/ltp-parameters.xhtml#client-service-ids) has been allocated for "Bundle Protocol".
   - BPSec: The BP uses extension Block Integrity Block (BIB) and Block Confidentiality Block (BCB) to provide block-level security.
 
 ## Wireshark
@@ -37,4 +37,6 @@ Show only BPv6 traffic with filter `bundle` and BPv7 traffic with filter `bpv7`.
 ## External links
 
   - [RFC 5050](https://www.ietf.org/rfc/rfc5050.html) Bundle Protocol Specification
-  - [draft-ietf-dtn-bpbis-31](https://datatracker.ietf.org/doc/html/draft-ietf-dtn-bpbis-31)
+  - [RFC 9171](https://www.ietf.org/rfc/rfc9171.html) Bundle Protocol Version 7
+  - [RFC 9172](https://www.ietf.org/rfc/rfc9172.html) Bundle Protocol Security
+  - [RFC 9174](https://www.ietf.org/rfc/rfc9174.html) TCP Convergence Layer Version 4
