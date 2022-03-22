@@ -93,7 +93,7 @@ Examples of wireshark and tshark specific scripts can be found in [the Lua examp
 
 ## External Links
 
-  - [Introducing Lua](http://www.onlamp.com/pub/a/onlamp/2006/02/16/introducing-lua.html) at O'Reilly (onlamp.com)
+  - [Introducing Lua](https://web.archive.org/web/20120329183839/http://onlamp.com/pub/a/onlamp/2006/02/16/introducing-lua.html) at (Internet Archive) O'Reilly (onlamp.com)  :school: :book:  Lua Primer
 
   - [ZeroBrane Studio](https://studio.zerobrane.com/) Lightweight IDE for your Lua needs
 
