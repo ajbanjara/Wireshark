@@ -6,7 +6,7 @@ Lua is a powerful light-weight programming language designed for extending appli
 
 Lua's been added to Wireshark as a language for prototyping and scripting.
 
-For more information about Lua refer to [Lua's main site](http://www.lua.org), there you can find its [Reference Manual](http://www.lua.org/manual/5.0/manual.html) and a [book](http://www.lua.org/pil) that describes the language. There is also [The lua-users wiki](http://lua-users.org/wiki/).
+For more information about Lua refer to [Lua's main site](http://www.lua.org), there you can find its [Reference Manual](http://www.lua.org/manual/5.0/manual.html) and a [book](http://www.lua.org/pil) that describes the language. There is also [The lua-users wiki](http://lua-users.org/wiki/). For the nickel tour see   - [Introducing Lua](https://web.archive.org/web/20120329183839/http://onlamp.com/pub/a/onlamp/2006/02/16/introducing-lua.html).
 
 [[_TOC_]]
 
