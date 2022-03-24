@@ -16,10 +16,14 @@ BPv7 was standardized in [RFC 9171](https://www.ietf.org/rfc/rfc9171.html).
 ## Wireshark
 
 The BP dissector supports extension block dissecting using sub-dissector tables and payload dissection as an administrative record or based on destination EID service identification.
+The dissection hierarchy looks like:
+ 1. If the bundle flag indicates Administrative payload, the "bpv7.admin" dissector is used.
+ 1. Otherwise, the EID is used (IPN service number or DTN service demux) to determine how to dissect the payload.
+ 1. Otherwise, the heuristic dissector "bpv7.
 
 ## Preference Settings
 
-The BPv7 dissector contains a heuristic dissector for block-type-specific data (BTSD) which currently uses CBOR as a fallback.
+The BPv7 dissector contains a heuristic dissector for block-type-specific data (BTSD) which currently uses CBOR as a fallback. This heuristic dissector applies to all BTSD, including the payload data.
 
 ## Example capture file
 
