@@ -265,6 +265,12 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>1.10.0</p></td>
 <td><p>Calculates the speed of light distance between packets.</p></td>
 </tr>
+<tr class="odd">
+<td><p><a href="https://github.com/syn-bit/TLSextend" class="attachment">TLSextend</a></p></td>
+<td><p>(see github)</p></td>
+<td><p>1.10.0</p></td>
+<td><p>Adds a TLS state field by to filter out complete TCP streams based on the presence of ClientHello and/or ServerHello packets in the stream.</p></td>
+</tr>
 </tbody>
 </table>
 
