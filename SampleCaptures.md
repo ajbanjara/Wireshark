@@ -1945,7 +1945,7 @@ Does anyone have a sample trace of Q-in-Q (IEEE 802.1ah) or MAC-in-MAC? If you a
 \--LMR
 
 ---
-
+How to add a new capture file? The instruction above seems to be for an old version of the wiki software (the method is different), and it's not clear where the upload should go: is there supposed to be an attachments folder? Or is that just an artifact of the old attachments process?
 ---
 
 ---
