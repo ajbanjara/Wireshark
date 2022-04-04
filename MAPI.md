@@ -17,15 +17,15 @@ MAPI providers provide transport and/or storage: the API is opaque as to if stor
 
 4) DCERPC 14: Alter_Context: packet type 14, alter (select/change) the security context for the conversation.
 
-5) DCERPC 0,10: EcDoConnect: packet type 0, opnum 10: MAPI
-    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC
+5) DCERPC 0,10: EcDoConnect: packet type 0, opnum 10: (MAPI),
+    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC. Wireshark 3.6.3 calls this "Unknown operation 10"
 
-6) DCERTP 0,11: : ROP: packet type 0, opnum 11: MAPI
+6) DCERTP 0,11: EcDoRpcExt2 : ROP: packet type 0, opnum 11: (MAPI),
     Encapsulated Remote Operations.
-    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC.
+    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC. Wireshark 3.6.3 calls this "Unknown operation 11"
 
-7) DCERTP 0,14: EcDoDisconnect: packet type 0, opnum 14: MAPI
-    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC
+7) DCERTP 0,1: EcDoDisconnect: packet type 0, opnum 1: (MAPI),
+    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC. Wireshark 3.6.3 calls this "EcDoDisconnect"
 
 
 ## History
@@ -60,7 +60,6 @@ XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures)
 
   - [SampleCaptures/mapi.cap](uploads/__moin_import__/attachments/SampleCaptures/mapi.cap)
 
-[ShortMAPI.pcapng](uploads/9cb827b42fa645c120ed1d3c2af91770/ShortMAPI.pcapng)
 
 ## Display Filter
 
@@ -82,15 +81,23 @@ You cannot directly filter MAPI protocols while capturing.
 
   - [RFC 123](http://www.ietf.org/rfc/rfc123.txt) *The RFC title* - explanation of the RFC content.
 
-  - [OXCRPC] (https://interoperability.blob.core.windows.net/files/MS-OXCRPC/%5bMS-OXCRPC%5d.pdf) *Wire Format Protocol*. ("This protocol 
+  - [OXCRPC](https://interoperability.blob.core.windows.net/files/MS-OXCRPC/%5bMS-OXCRPC%5d.pdf) *Wire Format Protocol*. ("This protocol 
 extends DCE 1.1: Remote Procedure Call//") 
 
-  - [OXCROPS] (https://interoperability.blob.core.windows.net/files/MS-OXCROPS/%5bMS-OXCROPS%5d.pdf) *Remote Operations (ROP) List and Encoding Protocol*
+  - [OXCROPS](https://interoperability.blob.core.windows.net/files/MS-OXCROPS/%5bMS-OXCROPS%5d.pdf) *Remote Operations (ROP) List and Encoding Protocol*
 
-  - [OXCMSG] (https://interoperability.blob.core.windows.net/files/MS-OXCMSG/%5bMS-OXCMSG%5d.pdf) *Message and Attachment Object Protocol*
+  - [OXCMSG](https://interoperability.blob.core.windows.net/files/MS-OXCMSG/%5bMS-OXCMSG%5d.pdf) *Message and Attachment Object Protocol*
 "Message object: A set of properties that represents an email message [...]"
 
 ## Discussion
+
+EcDoConnectEx "Creates a session context handle on the server to be used in subsequent calls to the EcDoDisconnect, EcDoRpcExt2 and EcDoAsyncConnectEx methods.
+
+EcDoRpcExt2 "Passes generic ROP commands to the server for processing within a Session Context. The method requires an active session context handle to be returned from the EcDoConnectEx method."
+
+EcDoDisconnect "Closes a Session Context with the server. The Session Context is destroyed and all associated server state, objects, and resources that are associated with the Session Context are released. The method requires an active session context handle to be returned from the EcDoConnectEx method, as specified in section."
+
+[edc-dbcc](https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcrpc/29977edc-dbcc-48c3-891f-bdd8199b1dc5) *Exchange Server Protocols*
 
 ---
 
