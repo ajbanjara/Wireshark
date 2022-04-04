@@ -4,7 +4,9 @@ This dissector dissects the [Guacamole Protocol](https://guacamole.apache.org/do
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
 
-[guacamole.lua](uploads/eaaa29d0c5f39991b2ea17841e6b0ea0/guacamole.lua)
+[guacamole.lua](uploads/26e88a64af128e812a94dd3d44d1e055/guacamole.lua)
+
+Also requires [col.lua](uploads/815ba39e89ef7aba3258c09620f0837c/col.lua)
 
 **Example** - The following capture file containing Guacamole data over TCP can be used for testing the dissector.
 
