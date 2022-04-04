@@ -336,10 +336,10 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>Runs Chrome or Firefox with the SSLKEYLOGFILE environment variable set to Wireshark's tls.keylog_file preference.</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="https://web.archive.org/web/20150324030359/https://appliance.cloudshark.org/wireshark/" class="https">Cloudshark Lua plugin installer</a></p></td>
-<td><p>1.0.3-180</p></td>
+<td><p><a href="https://github.com/cloudshark/wireshark-plugin" class="https">Cloudshark plugin</a></p></td>
+<td><p>1.0.5</p></td>
 <td><p>1.10.0</p></td>
-<td><p>The <a href="/CloudShark" class="nonexistent">CloudShark</a> plug-in for Wireshark lets you seamlessly sync your Wireshark packet captures with the <a href="/CloudShark" class="nonexistent">CloudShark</a> Appliance. After installing the <a href="/CloudShark" class="nonexistent">CloudShark</a> plug-in on your system with Wireshark, you will be able to manage, view, analyze, and share your Wireshark captures on <a href="https://appliance.cloudshark.org" class="https">CloudShark's website</a>.</p></td>
+<td><p>The CloudShark plug-in for Wireshark makes it seamless to move your capture files from Wireshark to a CloudShark appliance or [https://www.cloudshark.org/](https://www.cloudshark.org/).  Once installed, the plugin adds a new CloudShark submenu under the existing Wireshark Tools menu.  Capture files are sent to the configured CloudShark appliance or [https://www.cloudshark.org/](https://www.cloudshark.org/) by selecting the upload option under the Tools -> Cloudshark menu.  The plugin also works with tshark from the command-line.</p></td>
 </tr>
 <tr class="even">
 <td><p>[col.lua](uploads/815ba39e89ef7aba3258c09620f0837c/col.lua)</p></td>
