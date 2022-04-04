@@ -2,7 +2,7 @@
 
 MAPI, the Microsoft Windows Messaging API, is not properly a protocol, nor an application, nor even a provider (since it is an API for plug-in providers). The distinction is notable because any "MAPI" documentation from Microsoft will be for the Windows API, rather than for wire protocols.
 
-However, "MAPI" is is properly a name used to label or describe data and protocols commonly associated with MAPI, and is used in that sense by Wireshark. 
+However, "MAPI" is properly a name used to label or describe data and protocols commonly associated with MAPI, and is used in that sense by Wireshark. 
 
 MAPI providers provide transport and/or storage: the API is opaque as to if storage or transport is being provided. The Win2K version of MS exchange used MAPI-like interfaces internally and externally, and three common MAPI consumers were Outlook, CDO, and CDC. The two providers provided by MS were the Exchange Message provider and the Address Book provider. These providers used the MSRPC protocol to encapsulate Remote OPerations (ROP) for Exchange and Outlook.
 
@@ -51,6 +51,10 @@ The MAPI dissector is (fully functional, partially functional, not existing, ...
 (XXX add links to preference settings affecting how MAPI is dissected).
 
 ## Example capture file
+This is a short (failed) MAPI conversation, showing connect, ROP, and disconnect:
+[ShortMAPI.pcapng](uploads/53dc45c557cf877642381b8e9b964671/ShortMAPI.pcapng)
+(The conversation fails because of an authentication/encryption mismatch)
+
 
 XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here (see below). Keep this file short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
 
@@ -75,6 +79,14 @@ You cannot directly filter MAPI protocols while capturing.
   - add link to MAPI specification and where to find additional info on the web about it, e.g.:
 
   - [RFC 123](http://www.ietf.org/rfc/rfc123.txt) *The RFC title* - explanation of the RFC content.
+
+  . [OXCRPC] (https://interoperability.blob.core.windows.net/files/MS-OXCRPC/%5bMS-OXCRPC%5d.pdf) *Wire Format Protocol*. ("This protocol 
+extends DCE 1.1: Remote Procedure Call//") 
+
+   . [OXCROPS] (https://interoperability.blob.core.windows.net/files/MS-OXCROPS/%5bMS-OXCROPS%5d.pdf) *Remote Operations (ROP) List and Encoding Protocol*
+
+  . [OXCMSG] (https://interoperability.blob.core.windows.net/files/MS-OXCMSG/%5bMS-OXCMSG%5d.pdf) *Message and Attachment Object Protocol*
+"Message object: A set of properties that represents an email message [...]"
 
 ## Discussion
 
