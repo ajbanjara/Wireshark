@@ -1,10 +1,38 @@
 # Microsoft Exchange MAPI (MAPI)
 
-XXX - add a brief MAPI description here
+MAPI, the Microsoft Windows Messaging API, is not properly a protocol, nor an application, nor even a provider (since it is an API for plug-in providers). The distinction is notable because any "MAPI" documentation from Microsoft will be for the Windows API, rather than for wire protocols.
+
+However, "MAPI" is is properly a name used to label or describe data and protocols commonly associated with MAPI, and is used in that sense by Wireshark. 
+
+MAPI providers provide transport and/or storage: the API is opaque as to if storage or transport is being provided. The Win2K version of MS exchange used MAPI-like interfaces internally and externally, and three common MAPI consumers were Outlook, CDO, and CDC. The two providers provided by MS were the Exchange Message provider and the Address Book provider. These providers used the MSRPC protocol to encapsulate Remote OPerations (ROP) for Exchange and Outlook.
+
+
+## Overview
+
+1) Ping: MAPI traffic commences with identifying an End Point Mapper. On Win2K, this would be a ping or netbios sequence.
+
+2) EPM: A request to the End Point Mapper for a MAPI endpoint (request includes the MAPI guid).
+
+3) DCERPC 11: Bind request: Distributed Computing Environment RPC packet type 11, a request to bind the end point to MAPI (request includes the MAPI guid)
+
+4) DCERPC 14: Alter_Context: packet type 14, alter (select/change) the security context for the conversation.
+
+5) DCERPC 0,10: EcDoConnect: packet type 0, opnum 10: MAPI
+    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC
+
+6) DCERTP 0,11: : ROP: packet type 0, opnum 11: MAPI
+    Encapsulated Remote Operations.
+    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC.
+
+7) DCERTP 0,14: EcDoDisconnect: packet type 0, opnum 14: MAPI
+    This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC
+
 
 ## History
 
-XXX - add a brief description of MAPI history
+Other MAPI providers were provided by third-party companies (in practice, to connect to other mail stores), and other MSRPC servers were provided by third-parties (to emulate exchange), but third party MAPI providers don't use MSRPC: an Exchange emulation doesn't need a custom MAPI provider, and a custom MAPI provider doesn't need an Exchange emulation.
+
+Modern versions of MS Exchange don't need RPC: remote operations are encapsulated directly over HTTPs, and modern versions of Outlook don't need a MSRPC provider to communicate with Exchange.
 
 ## Protocol dependencies
 
@@ -13,7 +41,7 @@ XXX - add a brief description of MAPI history
 ## Example traffic
 
 XXX - Add example traffic here (as plain text or Wireshark screenshot).
-
+4
 ## Wireshark
 
 The MAPI dissector is (fully functional, partially functional, not existing, ... whatever the current state is). Also add info of additional Wireshark features where appropriate, like special statistics of this protocol.
