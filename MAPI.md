@@ -60,6 +60,8 @@ XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures)
 
   - [SampleCaptures/mapi.cap](uploads/__moin_import__/attachments/SampleCaptures/mapi.cap)
 
+[ShortMAPI.pcapng](uploads/9cb827b42fa645c120ed1d3c2af91770/ShortMAPI.pcapng)
+
 ## Display Filter
 
 A complete list of MAPI display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/m/mapi.html)
@@ -80,12 +82,12 @@ You cannot directly filter MAPI protocols while capturing.
 
   - [RFC 123](http://www.ietf.org/rfc/rfc123.txt) *The RFC title* - explanation of the RFC content.
 
-  . [OXCRPC] (https://interoperability.blob.core.windows.net/files/MS-OXCRPC/%5bMS-OXCRPC%5d.pdf) *Wire Format Protocol*. ("This protocol 
+  - [OXCRPC] (https://interoperability.blob.core.windows.net/files/MS-OXCRPC/%5bMS-OXCRPC%5d.pdf) *Wire Format Protocol*. ("This protocol 
 extends DCE 1.1: Remote Procedure Call//") 
 
-   . [OXCROPS] (https://interoperability.blob.core.windows.net/files/MS-OXCROPS/%5bMS-OXCROPS%5d.pdf) *Remote Operations (ROP) List and Encoding Protocol*
+  - [OXCROPS] (https://interoperability.blob.core.windows.net/files/MS-OXCROPS/%5bMS-OXCROPS%5d.pdf) *Remote Operations (ROP) List and Encoding Protocol*
 
-  . [OXCMSG] (https://interoperability.blob.core.windows.net/files/MS-OXCMSG/%5bMS-OXCMSG%5d.pdf) *Message and Attachment Object Protocol*
+  - [OXCMSG] (https://interoperability.blob.core.windows.net/files/MS-OXCMSG/%5bMS-OXCMSG%5d.pdf) *Message and Attachment Object Protocol*
 "Message object: A set of properties that represents an email message [...]"
 
 ## Discussion
