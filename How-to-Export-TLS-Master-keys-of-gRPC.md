@@ -97,9 +97,9 @@ After running (the command like "$> `go run client/main.go`"), the exported key 
 
 There are two ways to export the key materials of TLS for [grpc-java](https://github.com/grpc/grpc-java) capture files.
 
-### Using jSSLKeyLog
+### Solution 1. Using jSSLKeyLog
 
-This is easiest way, although it doesn't support native boringssl.
+This is the easiest way, although it doesn't support native boringssl.
 
 The main steps include:
 
@@ -176,7 +176,7 @@ Test environment:
   - openjdk-8u252-b09: support TLS1.2, but not support TLS1.3
   - openjdk-11.0.13_8: support both TLS1.2 and TLS1.3
 
-### Rewriting class `ProtocolNegotiators`
+### Solution 2. Rewriting class `ProtocolNegotiators`
 
 This is just a trick and is not recommended.
 You can rewrite the java class *'io.grpc.netty.ProtocolNegotiators'* based on the source code of the grpc-java library version you used and put it in your classpath. The key modification is add the code
