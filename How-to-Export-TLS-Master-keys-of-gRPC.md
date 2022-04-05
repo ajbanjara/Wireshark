@@ -229,7 +229,7 @@ This is just a workaround because the class *'io.grpc.netty.ProtocolNegotiators'
 
 ## C++
 
-The good news is "TLS Session Keys export for GRPC C++" PR (pull request) is merged recently (https://github.com/grpc/grpc/pull/26812). That might be released in the near future.
+The "TLS Session Keys export for GRPC C++" PR (pull request) is merged  (https://github.com/grpc/grpc/pull/26812) and the feature is supported as EXPERIMENTAL API since grpc v1.45.0.
 
 We can configure key log file by following EXPERIMENTAL API (in include/grpc/grpc_security.h):
 
@@ -258,7 +258,7 @@ void TlsCredentialsOptions::set_tls_session_key_log_file_path(
 
 ## C#/Python/...
 
-At present, the GRPC implementation of these languages does not support this feature. However, since these implementations are all based on GRPC C++, it is possible that they will support this feature in the near future.
+At present, the GRPC implementation of these languages does not support this feature. However, since some of these implementations are all based on GRPC C++, it is possible that they will support this feature in the near future.
 
 You may also try the methods described in [Wireshark tls wiki page](/tls).
 
