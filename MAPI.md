@@ -4,18 +4,18 @@ MAPI, the Microsoft Windows Messaging API, is not properly a protocol, nor an ap
 
 However, "MAPI" is properly a name used to label or describe data and protocols commonly associated with MAPI, and is used in that sense by Wireshark. 
 
-MAPI providers provide transport and/or storage: the API is opaque as to if storage or transport is being provided. The Win2K version of MS exchange used MAPI-like interfaces internally and externally, and three common MAPI consumers were Outlook, CDO, and CDC. The two providers provided by MS were the Exchange Message provider and the Address Book provider. These providers used the MSRPC protocol to encapsulate Remote OPerations (ROP) for Exchange and Outlook.
+MAPI providers provide transport and/or storage: the API is opaque as to if storage or transport is being provided. The Win2K version of MS Exchange used MAPI-like interfaces internally and externally, and three common MAPI consumers were Outlook, CDO, and CDC. The two providers provided by MS were the Exchange Message provider and the Address Book provider. The Message provider used the MSRPC protocol to encapsulate Remote OPerations (ROP) for Exchange and Outlook: the Address Book provider used NSPI. ROP is also the protocol for MAPIHTTP.
 
 
 ## Overview
 
 1) Ping: MAPI traffic commences with identifying an End Point Mapper. On Win2K, this would be a ping or netbios sequence.
 
-2) EPM: A request to the End Point Mapper for a MAPI endpoint (request includes the MAPI guid).
+2) EPM: A request to the End Point Mapper for a MAPI endpoint (request includes the MAPI uuid).
 
-3) DCERPC 11: Bind request: Distributed Computing Environment RPC packet type 11, a request to bind the end point to MAPI (request includes the MAPI guid)
+3) DCERPC 11: Bind request: Distributed Computing Environment RPC packet type 11, a request to bind the end point to MAPI (request includes the MAPI uuid)
 
-4) DCERPC 14: Alter_Context: packet type 14, alter (select/change) the security context for the conversation.
+4) DCERPC 14: Alter_Context: packet type 14, alter (create/select/change) the security context for the conversation (request includes the MAPI uuid). 
 
 5) DCERPC 0,10: EcDoConnect: packet type 0, opnum 10: (MAPI),
     This is still DCERPC, but wireshark use the "MAPI" protocol label, because this kind of DCERPC is always gonna be MAPI RPC. Wireshark 3.6.3 calls this "Unknown operation 10"
@@ -91,11 +91,11 @@ extends DCE 1.1: Remote Procedure Call//")
 
 ## Discussion
 
-EcDoConnectEx "Creates a session context handle on the server to be used in subsequent calls to the EcDoDisconnect, EcDoRpcExt2 and EcDoAsyncConnectEx methods.
+EcDoConnectEx "Creates a session context handle on the server to be used in subsequent calls to the EcDoDisconnect, EcDoRpcExt2 and EcDoAsyncConnectEx methods. Because the RPC connection and security context has already been established, this no longer contains information (uuid) identifying it as MAPI.
 
 EcDoRpcExt2 "Passes generic ROP commands to the server for processing within a Session Context. The method requires an active session context handle to be returned from the EcDoConnectEx method."
 
-EcDoDisconnect "Closes a Session Context with the server. The Session Context is destroyed and all associated server state, objects, and resources that are associated with the Session Context are released. The method requires an active session context handle to be returned from the EcDoConnectEx method, as specified in section."
+EcDoDisconnect "Closes a Session Context with the server. The Session Context is destroyed and all associated server state, objects, and resources that are associated with the Session Context are released. The method requires an active session context handle to be returned from the EcDoConnectEx method"
 
 [edc-dbcc](https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcrpc/29977edc-dbcc-48c3-891f-bdd8199b1dc5) *Exchange Server Protocols*
 
