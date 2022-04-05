@@ -4,7 +4,7 @@ MAPI, the Microsoft Windows Messaging API, is not properly a protocol, nor an ap
 
 However, "MAPI" is properly a name used to label or describe data and protocols commonly associated with MAPI, and is used in that sense by Wireshark. 
 
-MAPI providers provide transport and/or storage: the API is opaque as to if storage or transport is being provided. The Win2K version of MS Exchange used MAPI-like interfaces internally and externally, and three common MAPI consumers were Outlook, CDO, and CDC. The two providers provided by MS were the Exchange Message provider and the Address Book provider. The Message provider used the MSRPC protocol to encapsulate Remote OPerations (ROP) for Exchange and Outlook: the Address Book provider used NSPI. ROP is also the protocol for MAPIHTTP.
+MAPI providers provide transport and/or storage: the API is opaque as to if storage or transport is being provided. The Win2K version of MS Exchange used MAPI-like interfaces internally and externally, and three common MAPI consumers were Outlook, CDO, and CDC. The two providers provided by MS were the Exchange Message provider and the Address Book provider. The Message provider used the MSRPC protocol to encapsulate Remote OPerations (ROP) for Exchange and Outlook: the Address Book provider version of ROP is called NSPI. ROP is also the protocol for MAPIHTTP.
 
 
 ## Overview
@@ -36,7 +36,8 @@ Modern versions of MS Exchange don't need RPC: remote operations are encapsulate
 
 ## Protocol dependencies
 
-  - [DCE/RPC](/DCE/RPC): Typically, MAPI uses [DCE/RPC](/DCE/RPC) as its transport protocol.
+  - [DCE/RPC](/DCE/RPC): Originally, MAPI used [DCE/RPC](/DCE/RPC) as its transport protocol.
+  - [MAPIHTTP](/MAPIHTTP): MAPI DCE/RPC has been replaced by MAPIHTTP, using HTTP as it's transport protocol.
 
 ## Example traffic
 
