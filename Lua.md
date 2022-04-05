@@ -99,6 +99,11 @@ Examples of wireshark and tshark specific scripts can be found in [the Lua examp
 
   - [WireBait](https://github.com/MarkoPaul0/WireBait) Lua library to facilitate the development of Wireshark dissectors by enabling users to run them against packet data without Wireshark. The packet data can come from hexadecimal string or a .pcap file. The goal here is to provide a tool reducing development time when creating a new dissector.
 
+  - [wireshark-ntop](https://github.com/ntop/wireshark-ntop) 
+This repository contains open source extensions for Wireshark. (several written in Lua)  
+Includes `sflow_tap.lua`, a tap/listener and gui screens for sflow statistics covered in
+[sFlow: Theory & practice of a sampling technology and its analysis with Wireshark](https://sharkfestus.wireshark.org/assets/presentations18/21.pdf) at [SharkFest'18](https://sharkfestus.wireshark.org/sf18). ([Presentation Video](https://youtu.be/SX_LBoGgZK4))
+
 ---
 
 Imported from https://wiki.wireshark.org/Lua on 2020-08-11 23:16:06 UTC
