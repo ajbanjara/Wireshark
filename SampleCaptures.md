@@ -1084,6 +1084,10 @@ Description: traffic of an exploit for the security vulnerabillity exploitable u
 File [nspi.pcap](uploads/__moin_import__/attachments/SampleCaptures/nspi.pcap) (7.2 KB)\
 Description: MAPI Profile creation between Microsoft Exchange 2003 and the mail applet in the configuration panel (Windows 2003 Server and Windows XP Professional)
 
+#### ROP MSRPC Interface
+File [ShortMAPI.pcapng](uploads/53dc45c557cf877642381b8e9b964671/ShortMAPI.pcapng)
+Description: This is a short (failed) MAPI conversation, showing connect, ROP, and disconnect.  The conversation fails because of an authentication/encryption mismatch. (Windows 2003 SBS Server and Outlook 2003 on Win10)
+
 #### WINREG Interface
 
 File [dcerpc-winreg-with-rpc-sec-verification-trailer.pcap](uploads/__moin_import__/attachments/SampleCaptures/dcerpc-winreg-with-rpc-sec-verification-trailer.pcap)\
