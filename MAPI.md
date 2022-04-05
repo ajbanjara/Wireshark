@@ -79,7 +79,7 @@ You cannot directly filter MAPI protocols while capturing.
 
   - add link to MAPI specification and where to find additional info on the web about it, e.g.:
 
-  - [RFC 123](http://www.ietf.org/rfc/rfc123.txt) *The RFC title* - explanation of the RFC content.
+  - [Exchange Protocols](https://interopevents.blob.core.windows.net/uploads/PDFs/2021/china/day2/Exchange%20Server%20Protocols%20Overview_AndrewDavidoff.pdf)
 
   - [OXCRPC](https://interoperability.blob.core.windows.net/files/MS-OXCRPC/%5bMS-OXCRPC%5d.pdf) *Wire Format Protocol*. ("This protocol 
 extends DCE 1.1: Remote Procedure Call//") 
