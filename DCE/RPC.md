@@ -2,9 +2,11 @@
 
 DCE/RPC is a specification for a remote procedure call mechanism that defines both APIs and an over-the-network protocol.
 
-A DCE/RPC server's endpoint mapper (EPMAP) will listen for incoming calls. A client will call this endpoint mapper and ask for a specific interface, which will be accessed on a different connection. After that, the client can request calls to the server.
+A DCE/RPC server's endpoint mapper (EPMAP) will listen for incoming calls. A client will call this endpoint mapper and ask for a specific interface, which will be accessed on a different connection. After that, the client can request calls to the server. 
 
 Because of that, you cannot simply capture from a specific TCP port to see all traffic, as there are more connections used.
+
+Binary blobs may be transported between client and server endpoints: apart from the packet type and opnum, the conversation is opaque to DCE/RPC.
 
 ## History
 
