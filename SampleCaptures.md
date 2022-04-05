@@ -192,8 +192,6 @@ If you don't find what you're looking for, you may also try:
 
 [macsec_cisco_trunk.pcap](uploads/__moin_import__/attachments/SampleCaptures/macsec_cisco_trunk.pcap) (libpcap) MACsec/802.1AE session, manual keys, 3750X switch-to-switch (Trustsec) forced across a half-duplex 10M hub connection, destination mac addresses can be seen for Cisco VTP, RSTP (RPVST+), CDP, EIGRP etc.
 
-[mapi.cap.gz](uploads/__moin_import__/attachments/SampleCaptures/mapi.cap.gz) (libpcap) MAPI session w/ Outlook and MSX server, not currently decoded by Wireshark.
-
 [messenger.pcap](uploads/__moin_import__/attachments/SampleCaptures/messenger.pcap) (libpcap) a few messenger example packets.
 
 [metamako_trailer.pcap](uploads/__moin_import__/attachments/metamako_trailer.pcap/metamako_trailer.pcap) (libpcap) the Metamako timestamp trailer format.
@@ -1082,11 +1080,14 @@ Description: traffic of an exploit for the security vulnerabillity exploitable u
 #### NSPI MSRPC Interface
 
 File [nspi.pcap](uploads/__moin_import__/attachments/SampleCaptures/nspi.pcap) (7.2 KB)\
-Description: MAPI Profile creation between Microsoft Exchange 2003 and the mail applet in the configuration panel (Windows 2003 Server and Windows XP Professional)
+Description: MAPI Profile creation between Microsoft Exchange 2003 and the mail applet in the configuration panel (Windows 2003 Server and Windows XP Professional) Name Service Provider Interface is a MAPI:ROP MSRPC protocol.
 
 #### ROP MSRPC Interface
 File [ShortMAPI.pcapng](uploads/53dc45c557cf877642381b8e9b964671/ShortMAPI.pcapng)
 Description: This is a short (failed) MAPI conversation, showing connect, ROP, and disconnect.  The conversation fails because of an authentication/encryption mismatch. (Windows 2003 SBS Server and Outlook 2003 on Win10)
+
+File [mapi.cap.gz](uploads/__moin_import__/attachments/SampleCaptures/mapi.cap.gz) (libpcap) MAPI session w/ Outlook and MSX server, not currently decoded by Wireshark.
+
 
 #### WINREG Interface
 
