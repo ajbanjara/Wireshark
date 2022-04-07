@@ -1,10 +1,10 @@
 # Nmap Packet Capture (Npcap)
 
-[Npcap](https://nmap.org/npcap/) is the Windows version of the [libpcap](http://www.tcpdump.org/) library; it includes a driver to support capturing packets.
+[Npcap](https://npcap.com/) is the Windows version of the [libpcap](http://www.tcpdump.org/) library; it includes a driver to support capturing packets.
 
-Wireshark can use this library to capture live network data on Windows.
+Wireshark uses this library to capture live network data on Windows.
 
-General information and downloads are available on the [Npcap](https://nmap.org/npcap/) web site.
+General information and downloads are available on the [Npcap web site](https://npcap.com/).
 
 The libpcap file format description can be found at: [Development/LibpcapFileFormat](/Development/LibpcapFileFormat)
 
