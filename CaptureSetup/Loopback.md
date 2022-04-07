@@ -6,33 +6,27 @@ If you are trying to capture traffic from a machine to itself, that traffic will
 
 ## Supported Platforms
 
-See [CaptureSetup/NetworkMedia](/CaptureSetup/NetworkMedia) for Wireshark capturing support on various platforms. Summary: you can capture on the loopback interface on Linux, on various BSDs including macOS, and on Digital/Tru64 UNIX, and you *might* be able to do it on Irix and AIX, but you definitely **cannot** do so on Solaris, HP-UX, or Windows.
+See [CaptureSetup/NetworkMedia](/CaptureSetup/NetworkMedia) for Wireshark capturing support on various platforms. Summary: you can capture on the loopback interface on Linux, on various BSDs including macOS, and on Digital/Tru64 UNIX, and you *might* be able to do it on Irix and AIX, but you definitely **cannot** do so on Solaris, HP-UX, or Windows without [Npcap](/Npcap).
 
 ## Windows
 
-### Starting from Windows Vista: Npcap
+### Starting from Windows 7: Npcap
 
-[Npcap](https://nmap.org/npcap/) is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. [Npcap](https://nmap.org/npcap/) has added many features compared to the legacy [WinPcap](/WinPcap).
+[Npcap](https://npcap.com/) is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. Npcap adds several new features to those existing in WinPcap, including loopback traffic capture.
 
-    1) NDIS 6 Support
-    2) "Admin-only Mode" Support
-    3) "WinPcap Compatible Mode" Support
-    4) Loopback Packets Capture and Send Support (either as fake Ethernet or Null/Loopback frames)
-    5) Raw 802.11 packets Capture Support (in "monitor mode")
+In the [list of capture interfaces](/CaptureSetup/NetworkInterfaces), select "Adapter for loopback traffic capture" and begin capturing as usual. The [data link type](https://www.tcpdump.org/linktypes.html) for this adapter is `DLT_NULL`.
 
-When installed on Windows Vista or later (including Win7, Win8 and Win10) with option "Support loopback traffic ("Npcap Loopback Adapter" will be created)" selected, it will create an *Npcap Loopback Adapter* that can be selected in Wireshark so as to capture IPv4/IPv6 loopback traffic.
+Earlier releases of Npcap (before 0.9983) installed a software network adapter called "Npcap Loopback Adapter" for this purpose. This is no longer necessary, and can disrupt network operations in some cases. If it is present in a more recent installation, it can be removed by running (as Administrator) `NPFInstall.exe -ul` from the Npcap installation directory (usually `C:\\Program Files\\Npcap`). Check Device Manager (`devmgmt.msc`) to ensure the adapter itself has been uninstalled.
 
-When installed on Windows XP or earlier, it will install the legacy [WinPcap](/WinPcap) driver.
+The current latest installer can be found here: <https://npcap.com/#download>, the source code can be found here: <https://github.com/nmap/npcap>
 
-The current latest installer can be found here: <https://nmap.org/npcap/>, the source code can be found here: <https://github.com/nmap/npcap>
-
-Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect Npcap presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
+Starting from Wireshark 3.0.0, the Windows installer includes and will install a recent version of Npcap.
 
 ### IP 127.0.0.1
 
-You can't capture on the local loopback address 127.0.0.1 with a Windows packet capture driver like [WinPcap](/WinPcap). The following page from "Windows network services internals" explains why: [The missing network loopback interface](https://web.archive.org/web/20171012161338/http://www.hsc.fr/ressources/articles/win_net_srv/missing_loopback.html).
+You can't capture on the local loopback address 127.0.0.1 with [WinPcap](/WinPcap). The following page from "Windows network services internals" explains why: [The missing network loopback interface](https://web.archive.org/web/20171012161338/http://www.hsc.fr/ressources/articles/win_net_srv/missing_loopback.html).
 
-You can, however, use a raw socket sniffer like [RawCap](http://www.netresec.com/?page=RawCap) to capture localhost network traffic in Windows. Read more here:
+You can, however, use [Npcap](/Npcap) or a raw socket sniffer like [RawCap](http://www.netresec.com/?page=RawCap) to capture localhost network traffic in Windows. Read more here:
 
   - <http://www.netresec.com/?page=Blog&month=2011-04&post=RawCap-sniffer-for-Windows-released>
 
