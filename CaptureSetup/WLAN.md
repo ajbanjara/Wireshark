@@ -129,7 +129,7 @@ Therefore, in order to capture all traffic that the adapter can receive, the ada
 
 etc..
 
-Monitor mode is not supported by [WinPcap](/WinPcap), and thus not by Wireshark or TShark, on Windows. It is supported, for at least some interfaces, on some versions of Linux, FreeBSD, NetBSD, OpenBSD, DragonFly BSD, and macOS.
+Monitor mode is supported by [Npcap](/Npcap) for some wireless cards on Windows, and thus by Wireshark or TShark. It is supported, for at least some interfaces, on some versions of Linux, FreeBSD, NetBSD, OpenBSD, DragonFly BSD, and macOS.
 
 You might have to perform operating-system-dependent and adapter-type-dependent operations to enable monitor mode, described below in the ["Turning on monitor mode"](/CaptureSetup/WLAN#turning-on-monitor-mode) section.
 
@@ -363,30 +363,22 @@ from the command line.
 
 ### Windows
 
-<span id="windows" class="anchor"></span> Capturing traffic on Windows depends on [WinPcap](/WinPcap) or Npcap and on the underlying network adapters and drivers. Npcap, which supports Windows 7 and later, supports monitor mode; [WinPcap](/WinPcap) doesn't support monitor mode. On Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
+<span id="windows" class="anchor"></span> Capturing traffic on Windows depends on [Npcap](/Npcap) or [WinPcap](/WinPcap) and on the underlying network adapters and drivers. Npcap, which supports Windows 7 and later, supports monitor mode; WinPcap doesn't support monitor mode. On Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
 
 #### Starting from Windows 7: Npcap
 
-[Npcap](https://nmap.org/npcap/) is an update of [WinPcap](/WinPcap) using NDIS 6 Light-Weight Filter (LWF), done by Yang Luo for Nmap project during Google Summer of Code 2013 and 2015. [Npcap](https://nmap.org/npcap/) has added many features compared to the legacy [WinPcap](/WinPcap).
+[Npcap](https://npcap.com/) is an update of [WinPcap](/WinPcap) by the Nmap Project. /Npcap has added many new features including /Loopback capture and raw 802.11 packet capture support (in "monitor mode").
 
-    1) NDIS 6 Support
-    2) "Admin-only Mode" Support
-    3) "WinPcap Compatible Mode" Support
-    4) Loopback Packets Capture and Send Support (either as fake Ethernet or Null/Loopback frames)
-    5) Raw 802.11 packets Capture Support (in "monitor mode")
+When installed on Windows 7 or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with [Radiotap header](https://www.radiotap.org) can be seen. Otherwise, only 802.11 data packets can be seen. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with Npcap.
 
-When installed on Windows 7 or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with radiotap header can be see. Otherwise, only 802.11 data packets can be see. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with [Npcap](https://nmap.org/npcap/).
-
-The current latest installer can be found on the Npcap home page at <https://nmap.org/npcap/>, and the source code can be found at <https://github.com/nmap/npcap>.
-
-Starting from Wireshark 1.12.8 and 1.99.9, the Windows installer will detect [Npcap](https://nmap.org/npcap/) presence (when installed in [WinPcap](/WinPcap) compatible mode) and will not try to install [WinPcap](/WinPcap) 4.1.3.
+The current latest installer can be found on the Npcap home page at <https://npcap.com/#downlaod>, and the source code can be found at <https://github.com/nmap/npcap>. Wireshark 3.0.0 and later also includes a recent version of the Npcap installer.
 
 **Monitor Mode working again with [npcap 1.30](https://www.wireshark.org/lists/wireshark-dev/202104/msg00013.html). Results are YMMV based on the [adapter used](https://twitter.com/bonsaiviking/status/1381257960404434947).**  
 Example capture with Panda PAU06 (802.11n USB Wireless LAN Card) vs internal Intel(R) Dual Band Wireless-AC 7260: [210411_win10_radiotap.pcapng](uploads/a1fc307b47b031f2e2cfd9dd6c7eecf4/210411_win10_radiotap.pcapng)
 
 #### WinPcap
 
-<span id="windows" class="anchor"></span> Capturing WLAN traffic on Windows depends on [WinPcap](/WinPcap) and on the underlying network adapters and drivers. Unfortunately, [WinPcap](/WinPcap) doesn't support monitor mode and, on Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
+<span id="winpcap" class="anchor"></span> [WinPcap](/WinPcap) doesn't support monitor mode, 802.11 headers, or capturing non-data frames.
 
 Promiscuous mode can be set; unfortunately, it's often crippled. In this mode many drivers don't supply packets at all, or don't supply packets sent by the host.
 
@@ -408,7 +400,7 @@ You might have some success capturing non-data frames in promiscuous mode with a
 
 ### Channel Hopping
 
-When capturing traffic in monitor mode, you can capture on a single, fixed channel, or capture while hopping through multiple channels (channel hopping). Channel hopping will inevitably cause you to lose traffic in your packet capture, since a wireless card in monitor mode can only capture on a single channel at any given time. However, it may be desirable to perform channel hopping initially as part of your analysis to idenitfy all the networks within range of your wireless card, and then select the channel that is most appropriate for analysis.
+When capturing traffic in monitor mode, you can capture on a single, fixed channel, or capture while hopping through multiple channels (channel hopping). Channel hopping will inevitably cause you to lose traffic in your packet capture, since a wireless card in monitor mode can only capture on a single channel at any given time. However, it may be desirable to perform channel hopping initially as part of your analysis to identify all the networks within range of your wireless card, and then select the channel that is most appropriate for analysis.
 
 If you are capturing traffic to troubleshoot a wireless connectivity problem, or to analyze traffic for a single AP or station, it's best to capture on a single, fixed channel.
 
