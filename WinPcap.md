@@ -1,31 +1,31 @@
 # Windows Packet Capture
 
-[Npcap](https://nmap.org/npcap/) and [WinPcap](http://www.winpcap.org) are Windows versions of the [libpcap](http://www.tcpdump.org/) library. One of them must be installed in order to capture live network traffic on Windows.
+[Npcap](https://npcap.com) and [WinPcap](http://www.winpcap.org) are Windows versions of the [libpcap](http://www.tcpdump.org/) library. One of them must be installed in order to capture live network traffic on Windows. Npcap supports Windows 7 through Windows 11. WinPcap is for Windows 95 through Windows 8.
 
-The Wireshark installer from 3.0 onwards includes [Npcap](https://nmap.org/npcap/), where versions before include WinPcap.  
-Even with the older Wireshark versions Npcap might work better for you, especially if you run Windows 10.  
+The Wireshark installer from 3.0 onwards includes Npcap, where versions before included WinPcap.  
+Even with the older Wireshark versions, Npcap might work better for you, especially if you run Windows 10.  
 Npcap has a Yes/No comparison chart - [Npcap or WinPcap?](https://nmap.org/npcap/vs-winpcap.html)
 
 See [CaptureSetup/CapturePrivileges](/CaptureSetup/CapturePrivileges) for information about using Npcap and WinPcap with Wireshark.
 
-The libpcap/WinPcap file format description can be found at: [Development/LibpcapFileFormat](/Development/LibpcapFileFormat)
+The libpcap file format description can be found at: [Development/LibpcapFileFormat](/Development/LibpcapFileFormat)
 
 ## Npcap Versions
 
 Npcap gets regular [bug fixes and upgrades](https://github.com/nmap/npcap/blob/master/CHANGELOG.md) on its own release schedule, which means the version bundled with the Wireshark installer may not be the latest. 
-Please use an [updated version](https://nmap.org/npcap/) when possible.
+Please use an [updated version](https://npcap.com/#download) when possible.
 
 See the "Add or Remove Programs" list of the "Control Panel" for the installed version.
 
 ## WinPcap Versions
 
-:warning: **We strongly recommend that you use version 4.1.3 or 3.1. Some annoying bugs are fixed in these versions\!**
+:warning: **We strongly recommend that you use [Npcap](/Npcap). If you must use WinPcap, use version 4.1.3. Some annoying bugs are fixed in these versions\!**
 
 See the "Add or Remove Programs" list of the "Control Panel" for the installed version.
 
-### Latest Stable Release: 4.1.3
+### Last Stable Release: 4.1.3
 
-The current and last WinPcap release version is 4.1.3. The 4.1.x versions contain the following improvements:
+The last WinPcap release version was 4.1.3. The 4.1.x versions contain the following improvements:
 
   - Support for Windows XP, Vista, 2008, Windows 7, 2008R2 64 bit, Windows 8 and Server 2012
   - Allows remote capture to work with Wireshark
@@ -45,15 +45,11 @@ See [the change log for WinPcap](http://www.winpcap.org/misc/changelog.htm) for 
 
 ## Installation
 
-~~The Wireshark installer will copy the WinPcap installer and call it, so you get installation done "all in one place". This is the same WinPcap installer that you can get from WinPcap's [download](http://www.winpcap.org/install/default.htm) page.~~
-
-~~However, you might need to install WinPcap by the standalone installer, if you want to try the latest alpha/beta, or there might even be a new WinPcap release version available.~~
-
-~~The User's Guide [Installing Wireshark under Windows](http://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallWinInstall.html) page will also describe how to install WinPcap.~~
+The Wireshark installer will copy the Npcap installer and call it, so you get installation done "all in one place". This is the same Npcap installer that you can get from [Npcap's download page](https://npcap.com/#download).
 
 ## Windows Versions
 
-You'll find complete information about this topic at [WinPcap FAQ \#14](http://www.winpcap.org/misc/faq.htm#Q-14).
+[Npcap](/Npcap) supports Windows 7 SP1 through Windows 11. The list of supported Windows versions for WinPcap is available in [WinPcap FAQ \#14](http://www.winpcap.org/misc/faq.htm#Q-14).
 
 ---
 
