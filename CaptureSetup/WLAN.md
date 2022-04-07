@@ -367,7 +367,7 @@ from the command line.
 
 #### Starting from Windows 7: Npcap
 
-[Npcap](https://npcap.com/) is an update of [WinPcap](/WinPcap) by the Nmap Project. /Npcap has added many new features including /Loopback capture and raw 802.11 packet capture support (in "monitor mode").
+[Npcap](https://npcap.com/) is an update of [WinPcap](/WinPcap) by the Nmap Project. [Npcap](/Npcap) has added many new features including [loopback capture](/CaptureSetup/Loopback) and raw 802.11 packet capture support (in "monitor mode").
 
 When installed on Windows 7 or later (including Win7, Win8 and Win10) with option "Support raw 802.11 traffic (and monitor mode) for wireless adapters" selected, all the wireless adapters can be selected in Wireshark so as to capture raw 802.11 traffic. In "monitor mode", raw 802.11 packets (data + management + control) with [Radiotap header](https://www.radiotap.org) can be seen. Otherwise, only 802.11 data packets can be seen. You can enter "monitor mode" via Wireshark or [WlanHelper](/WlanHelper).exe tool shipped with Npcap.
 
