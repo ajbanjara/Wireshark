@@ -14,6 +14,8 @@ RTSP was first specified in [RFC2326](http://www.ietf.org/rfc/rfc2326.txt).
 
 ## Example traffic
 
+pcap attached to issue #5081 [Uninitialised pointer in packet-rtsp.c causes crash](https://gitlab.com/wireshark/wireshark/-/issues/5081)
+  
 XXX - Add example traffic here (as plain text or Wireshark screenshot).
 
 ## Wireshark
@@ -22,6 +24,8 @@ The RTSP dissector is fully functional over TCP, but currently doesn't handle RT
 
 ## Preference Settings
 
+![220407_RTSP_preferences](uploads/c17313b3e0e9fab39da498ceabcf9be6/220407_RTSP_preferences.png)
+(Text below needs update. Screen shot above from 3.6.3.)  
 There are four preference settings affecting RTSP.
 
 ### RTSP TCP Port:
