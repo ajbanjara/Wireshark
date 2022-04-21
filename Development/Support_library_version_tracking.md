@@ -108,16 +108,14 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 1.4.6   | Jul 2010 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                     |
 | 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6). Needed for simpler PKCS#1 padding handling in SSL |
 | 1.5.3   | Jul 2013 | RHEL7                                                                                            |
-| 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM)
-|
+| 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM)|
 | 1.6.1   | Jan 2014 | SLES 12                                                                         |
 | 1.6.2   | Aug 2014 | Windows releases from Wireshark 1.12.2, 2.0+ (r409) until 2.6                                    |
 | 1.6.5   | Feb 2016 | Ubuntu 16.04LTS                                                                                  |
 | 1.7.0   | Apr 2016 | Needed for ChaCha20-Poly1305 support (TLS 1.3 decryption)                                        |
 | 1.7.2   | Jul 2016 | Ubuntu 16.10                                                                                     |
 | 1.7.6   | Jan 2017 | Debian Stretch, Windows releases from v2.3.0rc0-2384-g0b8a12fd                                   |
-| 1.8.0   | Jul 2017 | Min. req. since April 2022 (v3.7.0rc0-1876-gb80cdaa243) Needed for Blake2s support (WireGuard decryption)
-|
+| 1.8.0   | Jul 2017 | Min. req. since April 2022 (v3.7.0rc0-1876-gb80cdaa243) Needed for Blake2s support (WireGuard decryption) |
 | 1.8.1   | Aug 2017 | Ubuntu 18.04LTS                                                                                  |
 | 1.8.2   | Dec 2017 | SLES 15                                                                                          |
 | 1.8.3   | Jun 2018 | Windows releases from v2.9.0rc0-1361-g4d015678, Debian Buster, RHEL8                             |
