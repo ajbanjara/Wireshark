@@ -30,7 +30,7 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 | 5.6.0      | Mar 2016 | Minimum required version since February 2021 (v3.5.0rc0-1032-gabf9e027fc). Long Term Support (LTS) release, [OS X 10.8 Mountain Lion through 10.11 El Capitan](https://web.archive.org/web/20160430172052/http://doc.qt.io:80/qt-5/supported-platforms.html) |
 | 5.7.0      | Jun 2016 | Requires C++11, [OS X Mountain Lion through El Capitan](https://web.archive.org/web/20161027230721/http://doc.qt.io:80/qt-5/supported-platforms.html) |
 | 5.8.0      | Jan 2017 | [OS X Mavericks through Sierra](https://web.archive.org/web/20170309222635/http://doc.qt.io/qt-5/supported-platforms.html) |
-| 5.9.0      | May 2017 | Long Term Support (LTS) release, [OS X 10.10 Yosemite through 10.12 Sierra](https://web.archive.org/web/20170603192036/http://doc.qt.io/qt-5/supported-platforms.html), **Wireshark 3.0.0rc1** (macOS only) |
+| 5.9.0      | May 2017 | Minimum required version since April 2022 (v3.7.0rc0-1874-g13075b4ff0) Long Term Support (LTS) release, [OS X 10.10 Yosemite through 10.12 Sierra](https://web.archive.org/web/20170603192036/http://doc.qt.io/qt-5/supported-platforms.html), **Wireshark 3.0.0rc1** (macOS only) |
 | 5.10.0     | Dec 2017 | [OS X El Capitan through High Sierra](https://web.archive.org/web/20171222025417/http://doc.qt.io/qt-5/supported-platforms.html) |
 | 5.11.0     | May 2018 | [OS X 10.11 El Capitan through 10.13 High Sierra](https://web.archive.org/web/20180906124900/http://doc.qt.io/qt-5/supported-platforms.html) |
 | 5.12.0     | Dec 2018 | Long Term Support (LTS) release, [macOS 10.12 Sierra through 10.14 Mojave](https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html), **Wireshark 3.0.x, 3.2.x** |
@@ -88,13 +88,13 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.4.0   | Apr 2015 | (gnutls_pubkey_import_privkey is working now for PKCS#11, [commit](https://gitlab.com/gnutls/gnutls/commit/4a8bcb9331d109e31f1b63f5df3ed67c0746619c))                                                         |
 | 3.4.10  | Mar 2016 | Ubuntu 16.04                                                                                                              |
 | 3.4.11  | Apr 2016 | Windows releases from Wireshark v2.3.0rc0-2384-g0b8a12fd                                                                  |
-| 3.5.8   | Jan 2016 | Debian Stretch                                                                                                            |
+| 3.5.8   | Jan 2016 | Replaced 3.4.x as stable release branch ([announcement](https://lists.gnutls.org/pipermail/gnutls-devel/2017-January/008288.html)) Debian Stretch                                                                                                           |
 | 3.5.18  | Feb 2018 | Ubuntu 18.04                                                                                                              |
-| 3.6.2   | Feb 2018 | New flag: GNUTLS_PKCS11_TOKEN_PROTECTED_AUTHENTICATION_PATH; SLES 15                                                      |
+| 3.6.2   | Feb 2018 | New flag: GNUTLS_PKCS11_TOKEN_PROTECTED_AUTHENTICATION_PATH                                                      |
 | 3.6.3   | Jul 2018 | Addition of low-level PKCS#11 API: gnutls_pkcs11_token_get_ptr                                                           |
 | 3.6.4   | Sep 2018 | Ubuntu 18.10, Fedora 28, 29                                                                                               |
-| 3.6.5   | Dec 2018 | Replaces 3.5.x as stable releases branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-help/2018-December/004465.html)).                                                                  |
-| 3.6.7   | Mar 2019 | Debian Buster                                                                                                             |
+| 3.6.5   | Dec 2018 | Replaces 3.5.x as stable releases branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-help/2018-December/004465.html)).                                   |
+| 3.6.7   | Mar 2019 | Debian Buster, SLES 15SP2 / OpenSUSE Leap 15.2                                                                                                              |
 | 3.6.8   | May 2019 | RHEL8                                                                                                                     |
 | 3.6.13  | Mar 2020 | Ubuntu 20.04LTS                                                                                                           |
 
@@ -106,16 +106,18 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 1.4.0   | Dec 2007 |                                                                                                  |
 | 1.4.2   | Sep 2008 | Min. req. since Oct 2015 (v2.1.0rc0-189-g82ec0bb0)                                               |
 | 1.4.6   | Jul 2010 | Windows releases from Wireshark 1.4.13+, 1.6.7+, 1.8+ (r330)                                     |
-| 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6). Needed for simpler PKCS#1 padding handling in SSL                |
+| 1.5.0   | Jun 2011 | Min. req. since Jan 2021 (v3.5.0rc0-512-g5c936174c6). Needed for simpler PKCS#1 padding handling in SSL |
 | 1.5.3   | Jul 2013 | RHEL7                                                                                            |
-| 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM) |
+| 1.6.0   | Dec 2013 | Windows releases from 1.12+ (r400). Needed for AEAD support in ISAKMP (AESCCM) and TLS (CCM/GCM)
+|
 | 1.6.1   | Jan 2014 | SLES 12                                                                         |
 | 1.6.2   | Aug 2014 | Windows releases from Wireshark 1.12.2, 2.0+ (r409) until 2.6                                    |
 | 1.6.5   | Feb 2016 | Ubuntu 16.04LTS                                                                                  |
 | 1.7.0   | Apr 2016 | Needed for ChaCha20-Poly1305 support (TLS 1.3 decryption)                                        |
 | 1.7.2   | Jul 2016 | Ubuntu 16.10                                                                                     |
 | 1.7.6   | Jan 2017 | Debian Stretch, Windows releases from v2.3.0rc0-2384-g0b8a12fd                                   |
-| 1.8.0   | Jul 2017 | Needed for Blake2s support (WireGuard decryption)                                                |
+| 1.8.0   | Jul 2017 | Min. req. since April 2022 (v3.7.0rc0-1876-gb80cdaa243) Needed for Blake2s support (WireGuard decryption)
+|
 | 1.8.1   | Aug 2017 | Ubuntu 18.04LTS                                                                                  |
 | 1.8.2   | Dec 2017 | SLES 15                                                                                          |
 | 1.8.3   | Jun 2018 | Windows releases from v2.9.0rc0-1361-g4d015678, Debian Buster, RHEL8                             |
