@@ -44,7 +44,7 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 
 ## GLib and GTK+
 
-Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc5781ba)
+Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc5781ba), so we don't bother tracking it anymore (x)
 
 | GLIB version | Gtk2 version | Gtk3 version | Date     | Notes                                                                                   |
 |--------------|--------------|--------------|----------|-----------------------------------------------------------------------------------------|
@@ -54,12 +54,7 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 | 2.28         |              | 3.0          | Feb 2011 | GTK+ 3.0 is the minimum supported version next to GTK+ 2).                              |
 | 2.32         |              | 3.4          | Feb 2012 | GLib 2.32 is min. req. since Apr 2018 (v2.9.0rc0-34-gb30e3d42)                        |
 | 2.36         |              | 3.8          | Mar 2013 | GLib 2.36 is min. req. since Nov 2020 (v3.5.0rc0-201-g15d315c2ae)                     |
-| 2.38         |              | 3.10         | Oct 2014 | GLib 2.38 is min. req. since Mar 2021 (v3.5.0rc0-1150-g2d7b68aa09)                                                                                |
-| 2.40         |              | 3.12         | Mar 2014 |                                                                                         |
-| 2.42         |              | 3.14         | Sep 2014 |                                                                                         |
-| 2.44         |              | 3.16         | Mar 2015 |                                                                                         |
-| 2.46         |              | 3.18         | Sep 2015 |                                                                                         |
-| 2.48         |              | 3.20         | Mar 2016 |                                                                                         |
+| 2.38         |              | 3.10         | Oct 2014 | GLib 2.38 is min. req. since Mar 2021 (v3.5.0rc0-1150-g2d7b68aa09)                                                                              |
 | 2.50         |              | 3.22         | Sep 2016 |                                                                                         |
 | 2.58         |              | x            | Sep 2018 |                                                                                         |
 | 2.60         |              | x            | Mar 2019 |                                                                                         |
