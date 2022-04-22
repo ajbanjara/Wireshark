@@ -134,11 +134,9 @@ See also <https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-L
 | 2.8.12  | Nov 2013 | Last 2.8 release (2.8.12.2 is used in Ubuntu 14.04, RHEL/CentOS 6/7 and SLES 12) |
 | 3.1.3   | Feb 2015 | Minimum required version for Windows (as of Apr 2015, v1.99.6rc0-369-g0d37980a) |
 | 3.5.1   | Mar 2016 | Minimum required version for non-Windows (as of May 2018, v2.9.0rc0-547-g4c1690ac). Ubuntu 16.04 (cmake3 in Ubuntu 14.04), SLES12 SP2 (*1). In RHEL 7 install cmake3 from EPEL. |
-| 3.7.0   | Jan 2017 | Minimum required version for Windows (as of Jun 2017, v2.5.0rc0-92-g4edc6115)                                                                                                      |
-| 3.7.2   | Jan 2017 | Debian Stretch |
-| 3.8.0   | Apr 2017 | |
+| 3.7.0   | Jan 2017 | Minimum required version for Windows (as of Jun 2017, v2.5.0rc0-92-g4edc6115). Debian Stretch (3.7.2)                                                                                                     |
 | 3.9.0   | Jul 2017 | Travis Trusty (3.9.2) (*2) |
-| 3.10.0  | Nov 2017 | Ubuntu 18.04 (3.10.2); SLES 15 (3.10.2) |
+| 3.10.0  | Nov 2017 | Minimum required version for non-Windows (as of Apr 2022, v3.7.0rc0-1889-g3407992cb4). Ubuntu 18.04 (3.10.2); SLES 15 (3.10.2) |
 | 3.11.0  | Mar 2018 | RHEL8 (3.11.4) |
 | 3.12.2  | Sep 2018 | EPEL7: available as cmake3; Ubuntu 18.10 (3.12.1); Travis Xenial (3.12.4) (*2) |
 | 3.13.0  | Nov 2018 | Debian Stretch-backports (3.13.2); Debian Buster (3.13.4); Minimum required version for Windows (as of Sep 2019, v3.1.1rc0-398-g990e409273) |
