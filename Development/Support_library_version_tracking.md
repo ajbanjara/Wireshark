@@ -51,13 +51,8 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 | 2.12         | 2.10         |              | Jul 2006 | GTK+ 2.12 is min. req. since 11 July 2011                                               |
 |              | 2.14         |              | Aug 2007 | GLib 2.14 is min. req. since 11 July 2011 (old)                                         |
 | 2.22         | 2.18         |              | Sep 2009 | GLib 2.22 is min. req. since Aug 2016 (v2.3.0rc0-201-gd21295f9)                         |
-| 2.24         | 2.20         |              | Apr 2010 |                                                                                         |
-| 2.26         | 2.22         |              | Oct 2010 |                                                                                         |
-| 2.26         | 2.24         |              | Dec 2010 |                                                                                         |
 | 2.28         |              | 3.0          | Feb 2011 | GTK+ 3.0 is the minimum supported version next to GTK+ 2).                              |
-| 2.30         |              | 3.2          | Sep 2011 |                                                                                         |
 | 2.32         |              | 3.4          | Feb 2012 | GLib 2.32 is min. req. since Apr 2018 (v2.9.0rc0-34-gb30e3d42)                        |
-| 2.34         |              | 3.6          | Sep 2012 |                                                                                         |
 | 2.36         |              | 3.8          | Mar 2013 | GLib 2.36 is min. req. since Nov 2020 (v3.5.0rc0-201-g15d315c2ae)                     |
 | 2.38         |              | 3.10         | Oct 2014 | GLib 2.38 is min. req. since Mar 2021 (v3.5.0rc0-1150-g2d7b68aa09)                                                                                |
 | 2.40         |              | 3.12         | Mar 2014 |                                                                                         |
@@ -66,6 +61,14 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 | 2.46         |              | 3.18         | Sep 2015 |                                                                                         |
 | 2.48         |              | 3.20         | Mar 2016 |                                                                                         |
 | 2.50         |              | 3.22         | Sep 2016 |                                                                                         |
+| 2.58         |              | x            | Sep 2018 |                                                                                         |
+| 2.60         |              | x            | Mar 2019 |                                                                                         |
+| 2.62         |              | x            | Sep 2019 |                                                                                         |
+| 2.64         |              | x            | Feb 2020 |                                                                                         |
+| 2.66         |              | x            | Sep 2020 |                                                                                         |
+| 2.68         |              | x            | Mar 2021 |                                                                                         |
+| 2.70         |              | x            | Sep 2021 |                                                                                         |
+| 2.72         |              | x            | Mar 2022 |                                                                                         |
 
 ## GnuTLS
 
