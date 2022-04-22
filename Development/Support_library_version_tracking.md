@@ -124,7 +124,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 
 ## CMake
 
-See also <https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Life-Cycle-Considerations> for a longer list of distributions. See also <https://github.com/curl/curl/pull/990#issuecomment-245112823> for a history of CMake version + changes.
+See also <https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-Linux-Distros> for a longer list of distributions. See also <https://github.com/curl/curl/pull/990#issuecomment-245112823> for a history of CMake version + changes.
 
 | Version | Date     | Notes                                                                                                                                                                                 |
 |---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
