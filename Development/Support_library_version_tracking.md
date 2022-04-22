@@ -138,14 +138,15 @@ See also <https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-L
 | 3.7.2   | Jan 2017 | Debian Stretch |
 | 3.8.0   | Apr 2017 | |
 | 3.9.0   | Jul 2017 | Travis Trusty (3.9.2) (*2) |
-| 3.10.0  | Nov 2017 | Ubuntu 18.04 (3.10.2) |
+| 3.10.0  | Nov 2017 | Ubuntu 18.04 (3.10.2); SLES 15 (3.10.2) |
+| 3.11.0  | Mar 2018 | RHEL8 (3.11.4) |
 | 3.12.2  | Sep 2018 | EPEL7: available as cmake3; Ubuntu 18.10 (3.12.1); Travis Xenial (3.12.4) (*2) |
 | 3.13.0  | Nov 2018 | Debian Stretch-backports (3.13.2); Debian Buster (3.13.4); Minimum required version for Windows (as of Sep 2019, v3.1.1rc0-398-g990e409273) |
 | 3.14.0  | Mar 2019 | Initial VS 2019 generator |
 | 3.15.0  | Jul 2019 |  |
-| 3.16.0  | Nov 2019 |  |
+| 3.16.0  | Nov 2019 | Ubuntu 20.04 (3.16.3) |
 | 3.17.0  | Mar 2020 |  |
-| 3.18.0  | Jul 2020 |  |
+| 3.18.0  | Jul 2020 | Debian Bullseye (3.18.4) |
 | 3.19.2  | Dec 2020 | Apple Silicon first supported |
 
 (\*1) SLES12 SP2 includes CMake 3.5 according to <https://www.suse.com/media/presentation/TUT88458_suse_linux_enterprise_server_12_sp_whats_new.pdf>
