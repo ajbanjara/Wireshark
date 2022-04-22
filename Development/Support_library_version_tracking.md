@@ -277,12 +277,8 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 
 | Distribution       | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
 |--------------------|--------------|--------------|--------------|-------------|-------------|
-| trusty (14.04LTS)  | 2.40.2       | 2.24.23      | 3.10.8       | 4.8.5       | 5.2.1       |
 | xenial (16.04LTS)  | 2.48.0       | 2.24.30      | 3.18.9       | 4.8.7       | 5.5.1       |
 | bionic (18.04LTS)  | 2.56.4       | x            | x            | x           | 5.9.5       |
-| cosmic (18.10)     | 2.58.1       | x            | x            | x           | 5.11.1      |
-| disco (19.04)      | 2.60.4       | x            | x            | x           | 5.12.2      |
-| eoan (19.10)       | 2.62.4       | x            | x            | x           | 5.12.4      |
 | focal (20.04LTS)   | 2.64.2       | x            | x            | x           | 5.12.8      |
 | hirsute (21.04)    | 2.66.0       | x            | x            | x           | 5.15.2      |
 | impish (21.10)     | 2.68.2       | x            | x            | x           | 5.15.2      |
