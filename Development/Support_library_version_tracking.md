@@ -35,7 +35,7 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 | 5.11.0     | May 2018 | [OS X 10.11 El Capitan through 10.13 High Sierra](https://web.archive.org/web/20180906124900/http://doc.qt.io/qt-5/supported-platforms.html) |
 | 5.12.0     | Dec 2018 | Long Term Support (LTS) release, [macOS 10.12 Sierra through 10.14 Mojave](https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html), **Wireshark 3.0.x, 3.2.x** |
 | 5.13.0     | Jun 2019 | [macOS Sierra through Mojave](https://web.archive.org/web/20190705173826/https://doc.qt.io/qt-5/supported-platforms.html) |
-| 5.14.0     | Dec 2019 | [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html) |
+| 5.14.0     | Dec 2019 | [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/archives/qt-5.14/supported-platforms.html) |
 | 5.15.0     | May 2020 | Long Term Support (LTS) release, [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html), **Wireshark Windows 3.4.x and 3.6.x** |
 | 6.0.0     | Aug 2020 | No official support for 32-bit Windows |
 | 6.1.0     | May 2021 | |
