@@ -141,8 +141,8 @@ See also <https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-L
 | 3.14.0  | Mar 2019 | Initial VS 2019 generator |
 | 3.15.0  | Jul 2019 |  |
 | 3.16.0  | Nov 2019 | Ubuntu 20.04 (3.16.3) |
-| 3.17.0  | Mar 2020 |  |
-| 3.18.0  | Jul 2020 | Debian Bullseye (3.18.4) |
+| 3.17.0  | Mar 2020 | SLES 15SP2 (3.17.0) |
+| 3.18.0  | Jul 2020 | Debian Bullseye (3.18.4), RHEL8.4 (3.18.2) |
 | 3.19.2  | Dec 2020 | Apple Silicon first supported |
 
 (\*1) SLES12 SP2 includes CMake 3.5 according to <https://www.suse.com/media/presentation/TUT88458_suse_linux_enterprise_server_12_sp_whats_new.pdf>
