@@ -416,7 +416,7 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
   64             end
   65 
   66             for _, finfo in ipairs(finfos) do
-  67                 -- get a TvbRange of the FieldInfo
+  67                 -- get a TvbRange of the FieldInfo (fieldinfo.range in WSDG)
   68                 local ftvbr = finfo.tvb
   69                 tree:add(exfield_string, ftvbr:string(ENC_UTF_8))
   70                 tree:add(exfield_hex,tostring(ftvbr:bytes()))
