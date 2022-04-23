@@ -93,7 +93,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.6.3   | Jul 2018 | Addition of low-level PKCS#11 API: gnutls_pkcs11_token_get_ptr. Windows releases from Wireshark 2.9.1rc0-181-gcfd79b4701                                               |
 | 3.6.4   | Sep 2018 | Ubuntu 18.10, Fedora 28, 29                                                                                               |
 | 3.6.5   | Dec 2018 | Replaces 3.5.x as stable releases branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-help/2018-December/004465.html)).                                   |
-| 3.6.7   | Mar 2019 | Debian Buster, SLES 15SP2 / OpenSUSE Leap 15.2                                                                                                              |
+| 3.6.7   | Mar 2019 | Debian Buster, SLES15 SP2 / OpenSUSE Leap 15.2                                                                                                              |
 | 3.6.8   | May 2019 | RHEL8                                                                                                                     |
 | 3.6.13  | Mar 2020 | Ubuntu 20.04LTS                                                                                                           |
 
