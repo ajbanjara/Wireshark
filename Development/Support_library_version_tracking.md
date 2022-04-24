@@ -87,7 +87,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.4.0   | Apr 2015 | (gnutls_pubkey_import_privkey is working now for PKCS#11, [commit](https://gitlab.com/gnutls/gnutls/commit/4a8bcb9331d109e31f1b63f5df3ed67c0746619c))                                                         |
 | 3.4.10  | Mar 2016 | Ubuntu 16.04                                                                                                              |
 | 3.4.11  | Apr 2016 | Windows releases from Wireshark v2.3.0rc0-2384-g0b8a12fd                                                                  |
-| 3.5.8   | Jan 2016 | Replaced 3.4.x as stable release branch ([announcement](https://lists.gnutls.org/pipermail/gnutls-devel/2017-January/008288.html)) Debian Stretch                                                                                                           |
+| 3.5.8   | Jan 2016 | Min. req. since Apr 2022 (v3.7.0rc0-1897-gd2064ae188). Replaced 3.4.x as stable release branch ([announcement](https://lists.gnutls.org/pipermail/gnutls-devel/2017-January/008288.html)). Debian Stretch                                                                                                           |
 | 3.5.18  | Feb 2018 | Ubuntu 18.04                                                                                                              |
 | 3.6.2   | Feb 2018 | New flag: GNUTLS_PKCS11_TOKEN_PROTECTED_AUTHENTICATION_PATH                                                      |
 | 3.6.3   | Jul 2018 | Addition of low-level PKCS#11 API: gnutls_pkcs11_token_get_ptr. Windows releases from Wireshark 2.9.1rc0-181-gcfd79b4701                                               |
