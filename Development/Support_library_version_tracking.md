@@ -191,7 +191,7 @@ nghttp2 is required for complete HTTP/2 support. It also powers HTTP/2 support i
 | SLES 12 SP5          | 1.7.1   |
 | SLES 15              | 1.40.0  |
 
-If the minimum version can be bumped to 1.11.0, we can remove use of a deprecated function.
+The minimum version is 1.11.0 as of April 2022 (v3.7.0rc0-1902-g91987dc0ab), to eliminate the need for a deprecated function.
 
 # Linux Distributions
 
