@@ -2,6 +2,8 @@
 
 For a complete description of Wireshark's preferences, see the [User's Guide](https://www.wireshark.org/docs/wsug_html/#ChCustPreferencesSection). Some protocol preferences are described below.
 
+  - [Name Resolution](Preferences/Name-Resolution)
+
   - Protocols
       - HTTP [HTTP\_Preferences](/HTTP_Preferences)
     
