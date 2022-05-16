@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # Introduction
 
 This page contains a set of sample coloring rules that people have shared with the Wireshark community. You can learn more about coloring rules and packet colorization in the [User's Guide](http://www.wireshark.org/docs/wsug_html_chunked/ChCustColorizationSection.html).
@@ -71,6 +73,43 @@ Thanks to Peter Bruno for some rules.
   - **File:** [Wireshark-Wlan-ColouringRules](uploads/__moin_import__/attachments/ColoringRules/Wireshark-Wlan-ColouringRules.txt "Wireshark-Wlan-ColouringRules")  
     **Description:** Coloring of Wireless Lan Packets for 802.11, WPA, 11i and EAP protocols.  
     **Contributor:** muteX
+
+---
+# Temporary Coloring Rules
+
+The colors for the temporary rules can be modified on Wireshark startup. From the [WSDG](https://www.wireshark.org/docs/wsdg_html/#global_functions_Gui):  
+
+> The color list can be set from the command line using two unofficial preferences: `gui.colorized_frame.bg` and `gui.colorized_frame.fg`, which require 10 hex RGB codes (6 hex digits each), e.g.
+
+`wireshark -o gui.colorized_frame.bg:${RGB0},${RGB1},${RGB2},${RGB3},${RGB4},${RGB5},${RGB6},${RGB7},${RGB8},${RGB9}`
+
+> For example, this command yields the same results as the table above (and with all foregrounds set to black):
+
+```
+wireshark \
+-o gui.colorized_frame.bg:ffc0c0,ffc0ff,e0c0e0,c0c0ff,c0e0e0,c0ffff,c0ffc0,ffffc0,e0e0c0,e0e0e0 \
+-o gui.colorized_frame.fg:000000,000000,000000,000000,000000,000000,000000,000000,,000000,000000
+```
+
+Lua functions are available to query (`get_color_filter_slot(row)`) and set (`set_color_filter_slot(row, text)`) the temporary coloring rules.
+
+**Table 11.1. Default background colors**
+
+| Index | RGB (hex) | Color |
+| --- | --- | --- |
+| 1 | ffc0c0 | pink 1 |
+| 2 | ffc0ff | pink 2 |
+| 3 | e0c0e0 | purple 1 |
+| 4 | c0c0ff | purple 2 |
+| 5 | c0e0e0 | green 1 |
+| 6 | c0ffff | green 2 |
+| 7 | c0ffc0 | green 3 |
+| 8 | ffffc0 | yellow 1 |
+| 9 | e0e0c0 | yellow 2 |
+| 10 | e0e0e0 | gray |
+
+![220516_temporary_colors](uploads/e88fdfb1c4bea9a41f654c24907635b1/220516_temporary_colors.png)
+
 
 ---
 
