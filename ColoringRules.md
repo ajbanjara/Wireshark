@@ -110,7 +110,16 @@ Lua functions are available to query (`get_color_filter_slot(row)`) and set (`se
 
 ![220516_temporary_colors](uploads/e88fdfb1c4bea9a41f654c24907635b1/220516_temporary_colors.png)
 
+`frame.coloring_rule.name` will be `___conversation_color_filter___`"*rule number*".
 
+```
+Frame 1: 82 bytes on wire (656 bits), 82 bytes captured (656 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: May 13, 2022 16:58:14.080398000 Central Daylight Time
+    [Protocols in frame: eth:ethertype:ip:ospf]
+    [Coloring Rule Name: ___conversation_color_filter___01]
+    [Coloring Rule String: eth.addr eq xx:xx:xx:xx:xx:xx and eth.xxdr eq xx:xx:xx:xx:xx:xx
+```
 ---
 
 Imported from https://wiki.wireshark.org/ColoringRules on 2020-08-11 23:12:18 UTC
