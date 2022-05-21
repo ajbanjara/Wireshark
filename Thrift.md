@@ -640,7 +640,7 @@ For the first question, we need to take a look at the `data` provided by the Thr
 
 Note: You could do the check for `oneway` commands as well, in which case only `ME_THRIFT_T_ONEWAY` would be valid.
 
-Regarding dissection of the answer, we need to understand that 2 kinds of answers are possible:
+Regarding dissection of the answer, we need to understand that 3 kinds of answers are possible:
 
 * A successful answer where we need to dissect the return type in the `T_REPLY`.
 * A application exception reply, where we received one of the exceptions described in the `.thrift` files in the `T_REPLY`.
