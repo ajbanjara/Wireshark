@@ -75,6 +75,8 @@ However, there are a few cases where the heuristic cannot detect that Thrift is 
 
 In such cases, the port settings indicate that the selected port is indeed Thrift data. This will ensure that the Thrift dissector is called without relying on the heuristic and the Thrift dissector will properly handle valid Thrift data, ensuring reassembly or dissecting the old header.
 
+Please note that in this case, the Thrift dissector is trying very hard to find a matching format and could generate more false positive, leading to Thrift dissection ending with `[TCP segment of a reassembled PDU]` and the right dissector not being called. Because of that, if you have multiple protocols on the same port, it is recommended to set the TCP port back to 0 as soon as it is no longer required.
+
 ## Write your own Thrift-based dissector
 
 With Thrift protocols being self-described, it’s relatively easy to analyse Thrift PDU with Wireshark on one screen and the documentation of your protocol on the other but it can get bothersome when your protocol contains a lot of different types and deep sub-structures.
