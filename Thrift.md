@@ -32,7 +32,7 @@ The Thrift dissector allows for some customization of the user experience whethe
 _Display binary as bytes or strings_: As the generic Thrift dissector as bundled in vanilla Wireshark does not know if the `T_BINARY` fields are binary blobs or strings (and in this case, which encoding), this settings allows the user to choose the encoding that Wireshark must use for _all_ `T_BINARY` fields.
 
 * _UTF-8 if printable_: using a basic heuristic, the dissector checks for each field whether the content is a printable UTF-8 string or not.
-  * If it is considered printable, Wireshark dispalys it a a string (making the filtering requests easier as well).
+  * If it is considered printable, Wireshark displays it a a string (making the filtering requests easier as well).
   * If it is not the case, display falls back to an hexadecimal representation of the binary field.
   * Both Thrift protocols specify that “_Strings_ are first encoded to UTF-8, and then send as binary” so this setting should work in most cases.
     * [Thrift Binary protocol encoding](https://github.com/apache/thrift/blob/master/doc/specs/thrift-binary-protocol.md#string-encoding)
@@ -40,7 +40,7 @@ _Display binary as bytes or strings_: As the generic Thrift dissector as bundled
 * _Binary (hexadecimal string)_: Consider all `T_BINARY` fields as binary blobs.
   * You can consider using this setting if you find the heuristic trying to display some binaries as strings when it should not.
   * Also consider making a report to help improve the heuristic.
-* _ASCII_ and various unicode encodings: If you know that you protocol uses (or should use) a specific encoding for all strings then you can explicitly set it.
+* _ASCII_ and various Unicode encodings: If you know that you protocol uses (or should use) a specific encoding for all strings then you can explicitly set it.
 
 _Thrift TLS port_: Select the TCP port used for your TLS encrypted communications.
 
@@ -79,7 +79,7 @@ Please note that in this case, the Thrift dissector is trying very hard to find 
 
 ## Write your own Thrift-based dissector
 
-With Thrift protocols being self-described, it’s relatively easy to analyse Thrift PDU with Wireshark on one screen and the documentation of your protocol on the other but it can get bothersome when your protocol contains a lot of different types and deep sub-structures.
+With Thrift protocols being self-described, it’s relatively easy to analyze Thrift PDU with Wireshark on one screen and the documentation of your protocol on the other but it can get bothersome when your protocol contains a lot of different types and deep sub-structures.
 
 Writing a Thrift-based sub-dissector removes the need for the documentation of your Thrift-based protocol and makes the search for a specific PDU easier in a huge capture.
 
