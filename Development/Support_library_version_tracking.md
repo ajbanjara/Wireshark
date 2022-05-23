@@ -290,7 +290,7 @@ Many developers also install libraries using [Homebrew](https://brew.sh/) and th
 
 FOSS library packaging and distribution on Windows has historically been [a mess](https://twitter.com/geraldcombs/status/735870968451629056), but things are improving.
 Two notable projects that might fix this are [vcpkg](https://github.com/Microsoft/vcpkg) and [Conan](https://www.conan.io/).
-Neither of them provide packages for all of the libraries that we use, so we maintain repositories of [32-bit](https://anonsvn.wireshark.org/wireshark-win32-libs/) and [64-bit](https://anonsvn.wireshark.org/wireshark-win64-libs/) packages which are installed using `tools/win-setup.ps1` in the Wireshark sources.
+Neither of them provide packages for all of the libraries that we use, so we maintain repositories of [64-bit](https://dev-libs.wireshark.org/windows/) packages which are installed using `tools/win-setup.ps1` in the Wireshark sources.
 
 | Library | vcpkg | Conan | Notes |
 |---------|----|----|----|
