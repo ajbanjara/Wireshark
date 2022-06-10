@@ -1208,7 +1208,7 @@ To handle the dependencies, we need to start from the leafs of the object and wo
    2. Define the ett tree as it’s a map.
    3. Add the map in the union definition using the key and value `thrift_member_t` as the members `.m.key` and `.m.value`.
 
-Once again, the sub-disssection of the command makes it much easier to analyze than the generic dissection and in this case for 2 reasons:
+Once again, the sub-dissection of the command makes it much easier to analyze than the generic dissection and in this case for 2 reasons:
 
 1. We see nearly meaningful names for the different trees.
 2. Since the content of the list is the `value_content` union, we pruned one level of tree and just see a map from integer to a list of basic type.
