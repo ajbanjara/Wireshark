@@ -14,6 +14,7 @@ Change log about Wireshark supporting Thrift:
 
 * Wireshark 2.0.0 - Initial support for Thrift Binary Protocol.
 * Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one.
+* Wireshark 3.7.1 - Support for uuid data type (Thrift 0.17.0 - https://issues.apache.org/jira/browse/THRIFT-5587)
 
 ## Protocol dependencies
 
