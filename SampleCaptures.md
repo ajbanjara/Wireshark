@@ -327,6 +327,8 @@ If you don't find what you're looking for, you may also try:
 
 [iperf3-udp.pcapng.gz](uploads/__moin_import__/attachments/SampleCaptures/iperf3-udp.pcapng.gz) (pcapng) sample capture for iPerf3 in reverse UDP mode using `iperf3 -u -t 3 -c ping.online.net -p5208 -R`
 
+[220614_ip_flags_google.pcapng](uploads/df619289f2986680173b8cd3035ca4ac/220614_ip_flags_google.pcapng) IPv4 ICMP traffic showing various ip.flags bits. Includes Reserved Bit / Evil Bit packets. ([Nping: add support to set Reserved/Evil bit in ip flags](https://github.com/nmap/nmap/issues/2486))
+
 ## ADSL CPE
 
 Here are some captures of the data sent on an ADSL line by the Neufbox 6, the CPE provided by french ISP SFR. Capturing was done by running tcpdump via SSH on the 8/35 ATM VC.
