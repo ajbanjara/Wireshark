@@ -104,6 +104,9 @@ This repository contains open source extensions for Wireshark. (several written 
 Includes `sflow_tap.lua`, a tap/listener and gui screens for sflow statistics covered in
 [sFlow: Theory & practice of a sampling technology and its analysis with Wireshark](https://sharkfestus.wireshark.org/assets/presentations18/21.pdf) at [SharkFest'18](https://sharkfestus.wireshark.org/sf18). ([Presentation Video](https://youtu.be/SX_LBoGgZK4))
 
+  - [wireshark-lua-plugin](https://gitlab.com/jvalverde/wireshark-lua-plugin) 
+This is a plugin for Wireshark providing Lua 5.4 bindings to the libwireshark API. It allows writing Wireshark dissectors in Lua instead of C.  This is a new experimental alternative to the code using Lua 5.2 that comes with Wireshark 3.6. It is an external project to Wireshark and not officially supported by the Wireshark developer team.
+
 ---
 
 Imported from https://wiki.wireshark.org/Lua on 2020-08-11 23:16:06 UTC
