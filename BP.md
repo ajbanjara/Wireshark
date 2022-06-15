@@ -18,8 +18,11 @@ BPv7 was standardized in [RFC 9171](https://www.ietf.org/rfc/rfc9171.html).
 The BP dissector supports extension block dissecting using sub-dissector tables and payload dissection as an administrative record or based on destination EID service identification.
 The dissection hierarchy looks like:
  1. If the bundle flag indicates Administrative payload, the "bpv7.admin" dissector is used.
- 1. Otherwise, the EID is used (IPN service number or DTN service demux) to determine how to dissect the payload.
- 1. Otherwise, the heuristic dissector "bpv7.
+ 1. Otherwise, the destination EID is used to determine how to dissect the payload.
+     * For the "dtn" scheme, with a well-known scheme specific part (e.g. "dtn:none") the SSP is used with the "bpv7.payload.dtn_wkssp" dissector table.
+     * For the "dtn" scheme, the DTN service demux is used with the "bpv7.payload.dtn_serv" dissector table.
+     * For the "ipn" scheme, the IPN service number is used with the "bpv7.payload.ipn_serv" dissector table.
+ 1. Otherwise, the heuristic dissector "bpv7.btsd".
 
 ## Preference Settings
 
@@ -38,9 +41,13 @@ The unit test tree contains a BPv6 and BPv7 test file using separate CLs.
 
 Show only BPv6 traffic with filter `bundle` and BPv7 traffic with filter `bpv7`.
 
+Show TCPCL traffic with filter `tcpcl`, LTP traffic with filter `ltp`.
+
 ## External links
 
   - [RFC 5050](https://www.ietf.org/rfc/rfc5050.html) Bundle Protocol Specification
+  - [RFC 5326](https://www.rfc-editor.org/rfc/rfc5326.html) Licklider Transmission Protocol - Specification
+  - [RFC 7242](https://www.rfc-editor.org/rfc/rfc7242.html) TCP Convergence Layer Version 3
   - [RFC 9171](https://www.ietf.org/rfc/rfc9171.html) Bundle Protocol Version 7
   - [RFC 9172](https://www.ietf.org/rfc/rfc9172.html) Bundle Protocol Security
   - [RFC 9174](https://www.ietf.org/rfc/rfc9174.html) TCP Convergence Layer Version 4
