@@ -83,7 +83,8 @@ The location of the directories containing these scripts are different on differ
 
 ## Wireshark's Lua API
 
-Wireshark’s Lua API Reference Manual can be found [here](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm_modules.html). Changes to the API can be found [here](/Lua/ApiChanges).
+Wireshark’s Lua API Reference Manual can be found [here](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm_modules.html). Changes to the API can be found [here](/Lua/ApiChanges).  
+For a view of the Lua API internals and the steps used to create the `wsluarm`, see the slightly out of date, mostly correct [doc/README.wslua](https://gitlab.com/wireshark/wireshark/-/blob/master/doc/README.wslua).
 
 ## Examples
 
