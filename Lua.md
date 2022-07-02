@@ -90,7 +90,9 @@ For a view of the Lua API internals and the steps used to create the `wsluarm`, 
 
 Examples of generic Lua code can be found in [The Sample Code](http://lua-users.org/wiki/SampleCode) page of Lua-Users wiki.
 
-Examples of wireshark and tshark specific scripts can be found in [the Lua examples wiki page](/Lua/Examples), as well as on the [Contrib repository wiki page](/Contrib) and the Wireshark Developer’s Guide [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html).
+Examples of wireshark and tshark specific scripts can be found in [the Lua examples wiki page](/Lua/Examples), as well as on the [Contrib repository wiki page](/Contrib) and the Wireshark Developer’s Guide [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html).  
+  
+[EASYPOST.lua](uploads/6f35ec7531e1557df3f2964c81d80510/EASYPOST.lua) - a template to copy a field, modify the data and add as a new Protocol field.  
 
 ## External Links
 
