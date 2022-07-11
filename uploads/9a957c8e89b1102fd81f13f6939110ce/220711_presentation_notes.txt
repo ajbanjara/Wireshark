@@ -1,0 +1,159 @@
+Slide 3:
+https://ask.wireshark.org/question/22016/resolved-or-mapped-arp-target-ip-address/
+
+Slide 5:
+!!! Sample capture: 220703_arp-storm.pcapng
+https://wiki.wireshark.org/SampleCaptures
+
+Slide 6:
+Display Filter Reference
+https://www.wireshark.org/docs/dfref/a/arp.html
+
+Slide 7:
+https://xkcd.com/627/
+
+Slide 7a:
+https://sharkfestus.wireshark.org/sf15
+11: Changing Wireshark with Lua: Writing a Lua Plug-in to Create a Custom Decoder by Hadriel Kaplan
+Presentation Video (1:19:03)
+
+Slide 8:
+!4147   Profile: Add Meta Information to profiles
+https://gitlab.com/wireshark/wireshark/-/merge_requests/4147#note_676147750
+---------------------------------------------------------------------------
+-- arp_host.lua
+-- https://ask.wireshark.org/question/22016/resolved-or-mapped-arp-target-ip-address/
+-- Sample capture: https://wiki.wireshark.org/SampleCaptures#arp-rarp - arp-storm.pcap
+-- Step 1 - document as you go. See header above and set_plugin_info().
+local arp_host_info =
+{
+ version = "1.0.0",
+ author = "Good Coder",
+ description = "Arp IP Target - resolved",
+ repository = "Floppy in top drawer"
+}
+set_plugin_info(arp_host_info)
+
+
+Slide 9:
+-----------------------
+
+-- Step 2 - create a protocol to attach new fields to
+local arp_host_p = Proto.new("arp_host","Arp IP Target - resolved")
+
+
+Slide 10:
+-----------------------
+
+-- Step 3 - add some field(s) to Step 2 protocol
+local pf = {
+ target_host = ProtoField.string("arp_host.target", "ARP target (resolved)")
+}
+arp_host_p.fields = pf
+
+
+Slide 11:
+-----------------------
+
+-- Step 4 - create a Field extractor to copy packet field data.
+local arp_target_f = Field.new("arp.dst.proto_ipv4")
+
+
+Slide 12:
+-----------------------
+
+-- Step 5 - create the postdissector function that will run on each frame/packet
+function arp_host_p.dissector(tvb,pinfo,tree)
+ local subtree = nil
+ -- copy existing field(s) into table for processing
+ finfo = { arp_target_f() }
+
+ if (#finfo > 0) then
+   if not subtree then
+     subtree = tree:add(arp_host_p)
+   end
+
+   for k, v in pairs(finfo) do
+     -- process data and add results to the tree
+     subtree:add(pf.target_host, v.display)
+   end
+ end
+end
+
+
+Slide 13:
+-----------------------
+
+-- Step 6 - register the new protocol as a postdissector
+register_postdissector(arp_host_p)
+
+
+Slide 14:
+-----------------------
+
+WSDG - https://www.wireshark.org/docs/wsdg_html/ (https://www.wireshark.org/docs/)
+
+wslua source - https://gitlab.com/wireshark/wireshark/-/tree/master/epan/wslua
+
+wslua Index - https://wiki.wireshark.org/lua#wireshark-s-lua-api
+
+
+Slide 15:
+-----------------------
+
+EASYPOST.lua - https://wiki.wireshark.org/lua#examples
+
+
+Slide 19:
+-----------------------
+
+https://gitlab.com/wireshark/wireshark/-/issues/15990
+Allow the use of display filter functions in column definitions
+
+
+Slide 20:
+-----------------------
+
+-- Step 3 - add some field(s) to Step 2 protocol
+local pf = {
+ ws_count = ProtoField.uint8("ws_expert.count", "message count"),
+ ws_string = ProtoField.string("ws_expert.string", "message string")
+}
+
+ws_expert_p.fields = pf
+
+-- Step 4 - create a Field extractor to copy packet field data.
+local ws_expert_message_f = Field.new("_ws.expert.message")
+
+
+
+Slide 21:
+-----------------------
+
+ finfo = { ws_expert_message_f() }
+
+ if (#finfo > 0) then
+   if not subtree then
+     subtree = tree:add(ws_expert_p)
+   end
+
+   subtree:add(pf.ws_count, #finfo)
+
+   for k, v in pairs(finfo) do
+     -- process data and add results to the tree
+     local field_data = string.format("%s", v):upper()
+     subtree:add(pf.ws_string, field_data)
+   end
+ end
+
+
+Slide 22:
+-----------------------
+
+https://gitlab.com/wireshark/wireshark/-/merge_requests/5175
+Hide expert info of packet comments in packet tree
+
+
+Slide 23:
+-----------------------
+https://ask.wireshark.org/question/27207/how-to-display-slice-as-a-filter-in-column/
