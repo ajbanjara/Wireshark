@@ -151,11 +151,10 @@ See also <https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-L
 
 ## Python
 
-Python 3.4 or newer has become required since v2.9.0rc0-2460-ge9f7bb5127. The test suite currently does not depend on pytest, but can be used with it.
+Python 3.6 or newer has become required since v3.7.1rc0-315-gdac75fba7f. The test suite currently does not depend on pytest, but can be used with it.
 
 | Distro         | package version                                      |
 |----------------|------------------------------------------------------|
-| RHEL/CentOS 7  | (unavailable, EPEL python34-pytest 2.8.5 is too old) |
 | RHEL/CentOS 8  | python3-pytest 3.4.2                                 |
 | Debian Stretch | python3-pytest 3.0.6                                 |
 | Ubuntu 17.10   | python3-pytest 3.1.3                                 |
