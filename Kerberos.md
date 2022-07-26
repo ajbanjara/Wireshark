@@ -30,7 +30,7 @@ Various utilities can be used to create a keytab file on various OSes.
 
 Both MIT and Heimdal Kerberos provide a tool called ktutil. It can be used to create a keytab file if you already know the principal's password or Kerberos key.
 
-Example. The follow ingcommands create a keytab file for a user in a Windows domain if you know the password. Here the MIT version of ktutil is used.
+Example. The following commands create a keytab file for a user in a Windows domain if you know the password. Here the MIT version of ktutil is used.
 
     >ktutil
     ktutil: addent -password -p username/domain.com@DOMAIN.COM -k <kvno> -e rc4-hmac
@@ -250,9 +250,9 @@ To dump Kerberos keys follow the steps:
 
 You can specify the filename of the keytab file to use in the KRB5 preferences (main menu, Edit menu, Preferences menu item, in the left tree of Preferences dialog expand Protocols, select KRB5 protocol, on the right panel specify Kerberos keytab file). You can also specify the keytab file(s) to load on the command line using the -K \<keytab\> option. You can use this option multiple times to load multiple keytab files.
 
-Note, there is a bug in the windows version of kerberos decryption handling keytab files. In windows you can only specify a filename and not a full path. This means that you must store the keytab file in the same directory as where your capture file is stored (which becomes the current working directory for wireshark) and then you specify just the keytab filename without the path. This bug does applies to Wireshark version 1.10.3. It must have been fixed.
+Note, there was a bug in the Windows version around 1.10.3. It is now fixed. For reference, you could only specify a filename and not a full path. This meant that you had to store the keytab file in the same directory as where your capture file was stored (which becomes the current working directory for wireshark) and then you specify just the keytab filename without the path.
 
-Note, only 32-bit Windows version of Wireshark decrypts Kerberos traffic. 64-bit Windows version is compiled without Kerberos support. Open Wireshark About Dialog. In 64-bit version you'll see "Compiled (64-bit) ... without Kerberos ..." At the time of writing Wireshark version was 1.10.3.
+Note, similarly only 32-bit Windows version of Wireshark could decrypt Kerberos traffic around version 1.10.3. It is now fixed. For reference, 64-bit Windows version was compiled without Kerberos support. Open Wireshark About Dialog. In 64-bit version you could see see "Compiled (64-bit) ... without Kerberos ...".
 
 ## Preference Settings
 
