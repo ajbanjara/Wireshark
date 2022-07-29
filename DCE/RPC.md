@@ -214,7 +214,7 @@ You cannot directly filter DCE/RPC protocols while capturing.
 
 ## Decryption
 
-The "encrypted stub data" can be decrypted, either if using [NTLMSSP](NTLMSSP) or [Kerberos](Kerberos)
+The "encrypted stub data" can be decrypted, either if using [NTLMSSP](/NTLMSSP) or [Kerberos](/Kerberos)
 
 ## Discussion
 
