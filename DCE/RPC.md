@@ -219,6 +219,9 @@ You cannot directly filter DCE/RPC protocols while capturing.
 
   - [FreeDCE](http://sourceforge.net/projects/freedce) at sourceforge, based on 1.1?
 
+## Decryption
+The "encrypted stub data" can be decrypted, either if using [NTLMSSP] or [Kerberos]
+
 ## Discussion
 
 Ulf Lamping: one might explain **where** ncacn\_ip\_tcp is used, as I still don't know it :smiley: Ronnie: See the example capture mapi.cap.gz for an example of dcerpc using ncacn\_ip\_tcp
