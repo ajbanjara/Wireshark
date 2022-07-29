@@ -40,7 +40,7 @@ If you don't find what you're looking for, you may also try:
 
 [tfp_capture.pcapng](uploads/__moin_import__/attachments/SampleCaptures/tfp_capture.pcapng) (libpcap) Tinkerforge protocol captures over TCP/IP and USB.
 
-[NTLM.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTLM-wenchao.pcap) (libpcap) Illustrate NTLM authentication process, based on WSS 3.0
+[NTLM.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTLM-wenchao.pcap) (libpcap) Illustrate [NTLM](NTLMSSP) authentication process, based on WSS 3.0
 
 [Obsolete_Packets.cap](uploads/__moin_import__/attachments/SampleCaptures/Obsolete_Packets.cap) (libpcap) Contains various obscure/no longer in common use protocols, including Banyan VINES, [AppleTalk](/AppleTalk) and DECnet.
 
