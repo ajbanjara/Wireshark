@@ -6,11 +6,11 @@ Open specification: [\[MS-NLMP\]](https://docs.microsoft.com/en-us/openspecs/win
 
 ## "NT Password" setting allowing decryption
 
-The "NT Password" setting can contain a password used to decrypt NTLM exchanges: both the NTLM challenge/response and further protocol payloads (like \[DCE/RPC\] that may be encrypted with keys derived from the NTLM authentication.
+The "NT Password" setting can contain a password used to decrypt NTLM exchanges: both the NTLM challenge/response and further protocol payloads (like [DCE/RPC](DCE/RPC) that may be encrypted with keys derived from the NTLM authentication.
 
 Just input the user's password in the field. According to the source-code, only ASCII passwords are supported (due to the simple method for Unicode encoding). It doesn't seem to support NTLM hashes so make sure to use the cleartext password.
 
-Here's how the NTLM authentication at the beginning of a \[DRSUAPI\] (\[DCE/RPC\]) session looks like before providing the password:
+Here's how the NTLM authentication at the beginning of a [DRSUAPI](DRSUAPI) ([DCE/RPC](DCE/RPC)) session looks like before providing the password:
 
 ![before_nt_password](uploads/0617dae4c7956273ce2a513f6ddc016c/before_nt_password.png)And after providing the password, notice the additional info highlighted in blue:
 
