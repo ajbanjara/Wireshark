@@ -80,7 +80,7 @@ To dump Kerberos keys follow the steps:
 - Unfortunately you cannot simply copy these files on a running Domain Controller as both files are opened all the time the machine is running. There are a number of ways to obtain them.
 - Copy the files from hard disk image when the machine is shut down. This approach is especially handy if the domain controller is running in a Virtual Machine. This approach is preferred since in guaranties that the database was properly closed.
 - Since Windows Server 2008 you may use ntdsutil to obtain the required files. In Windows Server 2003 and Windows Server 2003 R2 ntdsutil is available but it lacks snapshot command. Execute the following commands in elevated Command Prompt on Domain Controller:
-  - <span dir="">`PS C:\\Users\\Administrator> ntdsutil C:\\Windows\\system32\\ntdsutil.exe: snapshot snapshot: activate instance ntds Active instance set to "ntds". snapshot: create Creating snapshot... Snapshot set {6033cdae-a36c-41b6-9640-4c3283a28d1a} generated successfully. snapshot: mount {6033cdae-a36c-41b6-9640-4c3283a28d1a} Snapshot {ecb2b4ff-0ac3-4353-b73f-95300958f28d} mounted as C:\\$SNAP_201311021611_VOLUMEC$\\`</span>
+  - <span dir="">`PS C:\\\\Users\\\\Administrator> ntdsutil C:\\\\Windows\\\\system32\\\\ntdsutil.exe: snapshot snapshot: activate instance ntds Active instance set to "ntds". snapshot: create Creating snapshot... Snapshot set {6033cdae-a36c-41b6-9640-4c3283a28d1a} generated successfully. snapshot: mount {6033cdae-a36c-41b6-9640-4c3283a28d1a} Snapshot {ecb2b4ff-0ac3-4353-b73f-95300958f28d} mounted as C:\\\\$SNAP_201311021611_VOLUMEC$\\\\`</span>
   - Open another elevated Command Prompt and execute the following commands:
 
     ```
@@ -158,7 +158,7 @@ To dump Kerberos keys follow the steps:
 
   You may use any machine to run this command, not necessary the domain controller.
   - After the command completes, you'll find ntds.dit.export subdirectory in the current directory with the following content:
-  - <span dir="">`PS F:\\temp> ls -name .\\ntds.dit.export datatable.3 hiddentable.4 link_table.5 MSysDefrag2.9 MSysObjects.0 MSysObjectsShadow.1 MSysUnicodeFixupVer2.2 quota_rebuild_progress_table.11 quota_table.10 sdpropcounttable.6 sdproptable.7 sd_table.8 PS F:\\temp>`</span>
+  - <span dir="">`PS F:\\\\temp> ls -name .\\\\ntds.dit.export datatable.3 hiddentable.4 link_table.5 MSysDefrag2.9 MSysObjects.0 MSysObjectsShadow.1 MSysUnicodeFixupVer2.2 quota_rebuild_progress_table.11 quota_table.10 sdpropcounttable.6 sdproptable.7 sd_table.8 PS F:\\\\temp>`</span>
   - Note, content of the directory may be different, depending on Active Directory database version.
 - Dump Kerberos keys with [NTDSXtract](http://www.ntdsxtract.com/)
   - Install [Python](http://www.python.org/) 2. (At the time of writing, NTDSXtract was not compatible with Python 3.)
@@ -209,18 +209,19 @@ To dump Kerberos keys follow the steps:
 
 ## Specifying the keytab file to use
 
-You can specify the filename of the keytab file to use in the KRB5 preferences (main menu, Edit menu, Preferences menu item, in the left tree of Preferences dialog expand Protocols, select KRB5 protocol, on the right panel specify Kerberos keytab file). You can also specify the keytab file(s) to load on the command line using the -K <keytab> option. You can use this option multiple times to load multiple keytab files.
+You can specify the filename of the keytab file to use in the KRB5 preferences (main menu, Edit menu, Preferences menu item, in the left tree of Preferences dialog expand Protocols, select KRB5 protocol, on the right panel specify Kerberos keytab file). You can also specify the keytab file(s) to load on the command line using the -K option. You can use this option multiple times to load multiple keytab files.
 
-Limitations in older versions of Wireshark:
+
 
 <details>
 <summary>
+Limitations in older version of Wireshark (< 1.10.3):
+</summary>
 
-Note, there was a bug in the Windows version around 1.10.3. It is now fixed. For reference, you could only specify a filename and not a full path. This meant that you had to store the keytab file in the same directory as where your capture file was stored (which becomes the current working directory for wireshark) and then you specify just the keytab filename without the path.
+There was a bug in the Windows version around 1.10.3. It is now fixed. For reference, you could only specify a filename and not a full path. This meant that you had to store the keytab file in the same directory as where your capture file was stored (which becomes the current working directory for wireshark) and then you specify just the keytab filename without the path.
 
-Note, similarly only 32-bit Windows version of Wireshark could decrypt Kerberos traffic around version 1.10.3. It is now fixed. For reference, 64-bit Windows version was compiled without Kerberos support. Open Wireshark About Dialog. In 64-bit version you could see see "Compiled (64-bit) ... without Kerberos ...".
-
-</summary></details>
+Similarly, only 32-bit Windows version of Wireshark could decrypt Kerberos traffic around version 1.10.3. It is now fixed. For reference, 64-bit Windows version was compiled without Kerberos support. Open Wireshark About Dialog. In 64-bit version you could see see "Compiled (64-bit) ... without Kerberos ...".
+</details>
 
 ## Preference Settings
 
