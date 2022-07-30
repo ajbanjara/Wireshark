@@ -4,28 +4,28 @@
 
 ## A dissector tutorial script
 
-Download this [dissector.lua](uploads/__moin_import__/attachments/Lua/Examples/dissector.lua) file for an example Lua script for a protocol dissector. The script is too long to embed in this page, and it's much better to view it in a text editor that supports Lua syntax highlighting, because there are a lot of comments in the script explaining things.
+Download this [dissector.lua](uploads/\__moin_import_\_/attachments/Lua/Examples/dissector.lua) file for an example Lua script for a protocol dissector. The script is too long to embed in this page, and it's much better to view it in a text editor that supports Lua syntax highlighting, because there are a lot of comments in the script explaining things.
 
 The purpose of this script is two-fold:
 
-  - To provide a reference tutorial for others writing Wireshark dissectors in Lua
-  - To test various functions being called in various ways, so this script can be used in the test-suites
+- To provide a reference tutorial for others writing Wireshark dissectors in Lua
+- To test various functions being called in various ways, so this script can be used in the test-suites
 
 If you wonder why some functions are called some way, or differently than previous invocations of the same function: the reason is its trying to to show both that it can be done numerous ways, but also trying to test those numerous ways.
 
 This script creates an elementary dissector for DNS. It's neither comprehensive nor error-free with regards to the DNS protocol. That's OK. The goal isn't to fully dissect DNS properly - Wireshark already has a good DNS dissector built-in. We don't need another one. We also have other example Lua scripts, but the nice thing about this one is getting capture files to run it against is trivial.
 
-**How to use this script:** Once the script is loaded, it creates a new protocol named "MyDNS" (or "MYDNS" in some places). If you have a capture file with DNS packets in it, simply select one in the Packet List pane, right-click on it, and select "Decode As ...", and then in the dialog box that shows up scroll down the list of protocols to one called "MYDNS", select that and click the "ok" or "apply" button. Voila\`, you're now decoding DNS packets using the simplistic dissector in this script. Another way is to download the [dns\_port.pcap](uploads/__moin_import__/attachments/SampleCaptures/dns_port.pcap "dns_port.pcap") capture file made for this script, and open that - since the DNS packets in it use UDP port 65333 (instead of the default 53), and since the MyDNS protocol in this script has been set to automatically decode UDP port 65333, it will automagically do it without doing "Decode As ...".
+**How to use this script:** Once the script is loaded, it creates a new protocol named "MyDNS" (or "MYDNS" in some places). If you have a capture file with DNS packets in it, simply select one in the Packet List pane, right-click on it, and select "Decode As ...", and then in the dialog box that shows up scroll down the list of protocols to one called "MYDNS", select that and click the "ok" or "apply" button. Voila\`, you're now decoding DNS packets using the simplistic dissector in this script. Another way is to download the [dns_port.pcap](uploads/\__moin_import_\_/attachments/SampleCaptures/dns_port.pcap "dns_port.pcap") capture file made for this script, and open that - since the DNS packets in it use UDP port 65333 (instead of the default 53), and since the MyDNS protocol in this script has been set to automatically decode UDP port 65333, it will automagically do it without doing "Decode As ...".
 
 ## A dissector tutorial with TCP-reassembly
 
-Download this [fpm.lua](uploads/__moin_import__/attachments/Lua/Examples/fpm.lua) file for an example Lua script for a TCP-based protocol dissector. The script is too long to embed in this page, and it's much better to view it in a text editor that supports Lua syntax highlighting, because there are a lot of comments in the script explaining things.
+Download this [fpm.lua](uploads/\__moin_import_\_/attachments/Lua/Examples/fpm.lua) file for an example Lua script for a TCP-based protocol dissector. The script is too long to embed in this page, and it's much better to view it in a text editor that supports Lua syntax highlighting, because there are a lot of comments in the script explaining things.
 
-**How to use this script:** Once the script is loaded, it creates a new protocol named "FPM". To see it in action, download the [segmented\_fpm.pcap](uploads/__moin_import__/attachments/SampleCaptures/segmented_fpm.pcap "segmented_fpm.pcap") capture file made for this script, and open that.
+**How to use this script:** Once the script is loaded, it creates a new protocol named "FPM". To see it in action, download the [segmented_fpm.pcap](uploads/\__moin_import_\_/attachments/SampleCaptures/segmented_fpm.pcap "segmented_fpm.pcap") capture file made for this script, and open that.
 
 ## A custom file reader & writer tutorial script
 
-Download this [pcap\_file.lua](uploads/__moin_import__/attachments/Lua/Examples/pcap_file.lua) file for an example Lua script for a custom file format reader and writer.
+Download this [pcap_file.lua](uploads/\__moin_import_\_/attachments/Lua/Examples/pcap_file.lua) file for an example Lua script for a custom file format reader and writer.
 
 Like the dissector tutorial script above, this script is too long to embed in this page, and it's much better to view it in a text editor that supports Lua syntax highlighting, because there are a lot of comments in the script explaining things.
 
@@ -33,39 +33,34 @@ Also like dissector tutorial script above, the purpose of this script is to prov
 
 This script creates an elementary file reader and writer for the legacy pcap file format. It's neither comprehensive nor error-free, and is not intended as a replacement for the built-in ability of Wireshark/Tshark to read pcap files. The goal isn't to do that. The reason this was written is getting "test" files to see how it works is trivial, since any pcap file will do (the old style pcap files, not pcapng).
 
-**How to use this script:** Once the script is loaded, it actually inserts itself as a new file reader *before* the built-in pcap file reader, so opening any pcap file means this new file reader is the one reading it. Like any Lua script, you can load it one of three ways:
+**How to use this script:** Once the script is loaded, it actually inserts itself as a new file reader _before_ the built-in pcap file reader, so opening any pcap file means this new file reader is the one reading it. Like any Lua script, you can load it one of three ways:
 
-  - By putting it in the personal plugins directory.
-
-  - By loading it from `init.lua` using `dofile()`.
-
-  - By loading it from the command line using the '`-X lua_script:pcap_file.lua`' argument, for either Tshark or Wireshark.
+- By putting it in the personal plugins directory.
+- By loading it from `init.lua` using `dofile()`.
+- By loading it from the command line using the '`-X lua_script:pcap_file.lua`' argument, for either Tshark or Wireshark.
 
 The last method is the one recommended for this file reader, so that you don't inadvertently continue using this file reader when you don't intend to. (after all, the built-in pcap file format reader is much better than this example one)
 
 ## A pcap FileShark script
 
-Download both this [fileshark\_pcap.lua](uploads/__moin_import__/attachments/Lua/Examples/fileshark_pcap.lua) file and this [linktype.lua](uploads/__moin_import__/attachments/Lua/Examples/linktype.lua) file for an example Lua script for a pcap-format [FileShark](/FileShark) script. What does that mean? It means it reads a pcap file and displays the contents of the file *format* itself, showing the file header, record headers, etc., and their fields. To do this it creates a "pcapfile" protocol dissector, with associated protocol fields of what pcap file formats have. This implements both a Lua-based dissector and custom file format reader.
+Download both this [fileshark_pcap.lua](uploads/\__moin_import_\_/attachments/Lua/Examples/fileshark_pcap.lua) file and this [linktype.lua](uploads/\__moin_import_\_/attachments/Lua/Examples/linktype.lua) file for an example Lua script for a pcap-format [FileShark](/FileShark) script. What does that mean? It means it reads a pcap file and displays the contents of the file _format_ itself, showing the file header, record headers, etc., and their fields. To do this it creates a "pcapfile" protocol dissector, with associated protocol fields of what pcap file formats have. This implements both a Lua-based dissector and custom file format reader.
 
 Like the tutorial scripts above, this script is too long to embed in this page, and it's much better to view it in a text editor that supports Lua syntax highlighting, because there are a lot of comments in the script explaining things.
 
-There are several preferences that can be set in Wireshark, under the "[PcapFile](/PcapFile)" protocol. (Edit-\>Preferences-\>Protocols-\>[PcapFile](/PcapFile))
+There are several preferences that can be set in Wireshark, under the "[PcapFile](/PcapFile)" protocol. (Edit->Preferences->Protocols->[PcapFile](/PcapFile))
 
 **How to use this script:** The main script is `fileshark_pcap.lua`, and that's what needs to be loaded - the second script (`linktype.lua`) is invoked by the main one using the Lua `require` function.
 
 Like any Lua script, you can load it one of three ways:
 
-  - By putting both scripts in the personal plugins directory.
-
-  - By loading `fileshark_pcap.lua` from `init.lua` using `dofile()`.
-
-  - By loading `fileshark_pcap.lua` from the command line using the '`-X lua_script:fileshark_pcap.lua`' argument, for either Tshark or Wireshark.
+- By putting both scripts in the personal plugins directory.
+- By loading `fileshark_pcap.lua` from `init.lua` using `dofile()`.
+- By loading `fileshark_pcap.lua` from the command line using the '`-X lua_script:fileshark_pcap.lua`' argument, for either Tshark or Wireshark.
 
 Once the script is loaded, to actually read pcap files as [FileShark](/FileShark), you need to tell Wireshark/Tshark to use the "Fileshark Pcap" format reader. There are two ways to accomplish that:
 
-  - In Wireshark, in the "Open Capture File" dialog that's shown when you do File-\>Open... (or ctrl-o), there's a drop-down box of file formats to use, at the bottom left. It usually displays "Automatic". Select the "Fileshark Pcap" from that drop-down list, and select the file you want to open, and it will display that file in [FileShark](/FileShark) mode.
-
-  - In Tshark or Wireshark, if reading a pcap capture from the command-line, then use the new "`-X 'read_format:<format>`" option.
+- In Wireshark, in the "Open Capture File" dialog that's shown when you do File->Open... (or ctrl-o), there's a drop-down box of file formats to use, at the bottom left. It usually displays "Automatic". Select the "Fileshark Pcap" from that drop-down list, and select the file you want to open, and it will display that file in [FileShark](/FileShark) mode.
+- In Tshark or Wireshark, if reading a pcap capture from the command-line, then use the new "`-X 'read_format:<format>`" option.
 
 For example, this reads in a file named "`test.pcap`" as a Fileshark: `tshark -r test.pcap -X lua_script:fileshark_pcap.lua -X 'read_format:Fileshark Pcap'`
 
@@ -75,11 +70,11 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 
 ## Using Lua to register protocols to more ports
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- register http to handle ports 4888-4891
    2 do
    3         local tcp_port_table = DissectorTable.get("tcp.port")
@@ -91,16 +86,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## dumping to multiple files
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- Create a file named by_ip/''ip_addess''.cap with all ip traffic of each ip host. (tshark only?)
    2 -- Dump files are created for both source and destination hosts
    3 function createDir (dirname)
@@ -175,16 +169,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## editing columns
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- Append "<dst> -> <src>" to the Info column with a post-dissector.
    2 -- (Taps are not guaranteed to be run at a point when they can set the
    3 -- column text, so they can't be used for this.)
@@ -201,16 +194,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## dialogs and TextWindows
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- This Example will add a menu "Lua Dialog Test" under the Tools menu, 
    2 -- which when selected will pop a dialog prompting the user for input 
    3 -- that when accepted will pop a window with a result.
@@ -248,16 +240,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## Packet counter
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 do
    2     packets = 0;
    3     local function init_listener()
@@ -277,16 +268,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## View Packet Tree of Fields/FieldInfo
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- This example iterates through the field tree of the packets, and prints out the tree field information in a text window.
    2 -- It shows the current tree for the selected packet, but this does not mean it always shows the full tree,
    3 -- because wireshark performs multiple dissection passes of a packet, with the initial pass only being high-level and not
@@ -340,16 +330,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## Extract field values
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- This script is meant to be used with tshark/wireshark, with command-line
    2 -- arguments, using the '-X lua_script[N]:argN' option.
    3 -- Each argument identifies a field we will extract into two new
@@ -431,16 +420,15 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
 
 ## Dump VoIP calls into separate files
 
-<div class="highlight lua">
+<div>
 
-<div class="codearea" dir="ltr" lang="en">
+<div>
 
-``` 
+```
    1 -- voip.lua
    2 -- Written by: Jason Garland <jgarland@jasongarland.com>
    3 
@@ -670,8 +658,13 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
 ```
 
 </div>
-
 </div>
+
+## Create new data (tvb) with ByteArray and Struct
+
+> ["I made a Lua script to test different float and double values without a capture file."](https://gitlab.com/wireshark/wireshark/-/issues/16483#note_1045283360)
+
+![220730_stig_float_anno](uploads/2beca69e8ee169ebecf2a2cdb8e94edb/220730_stig_float_anno.png)
 
 ---
 
