@@ -58,7 +58,7 @@ WARNING: pType and account type do not match. This might cause  problems.
 Key created.
 Output keytab to quark.keytab:
 Keytab version: 0x502
-keysize 64 cifs/quark.foo.net@FOO.NET ptype 1 (KRB5_NT_PRINCIPAL) vno 3 
+keysize 64 cifs/quark.foo.net@FOO.NET ptype 1 (KRB5_NT_PRINCIPAL) vno 3
 etype 0x17 (RC4-HMAC) keylength 16 (0xd0fc81746c2bed1da5d505b491634ce5)
 ```
 
@@ -107,25 +107,25 @@ To dump Kerberos keys follow the steps:
     C:\Documents and Settings\Administrator>vssadmin.exe create shadow /for=c:
     vssadmin 1.1 - Volume Shadow Copy Service administrative command-line tool
     (C) Copyright 2001 Microsoft Corp.
-    
+
     Successfully created shadow copy for 'c:\'
         Shadow Copy ID: {10b7290a-acdb-4bc0-9465-0ac881a8928b}
         Shadow Copy Volume Name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1
-    
+
     C:\Documents and Settings\Administrator>copy /Y \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\windows\NTDS\ntds.dit c:\temp
             1 file(s) copied.
-    
+
     C:\Documents and Settings\Administrator>copy /Y \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SYSTEM c:\temp
             1 file(s) copied.
-    
+
     C:\Documents and Settings\Administrator>vssadmin delete shadows /shadow={10b7290a-acdb-4bc0-9465-0ac881a8928b}
     vssadmin 1.1 - Volume Shadow Copy Service administrative command-line tool
     (C) Copyright 2001 Microsoft Corp.
-    
+
     Do you really want to delete 1 shadow copies (Y/N): [N]? y
-    
+
     Successfully deleted 1 shadow copies.
-    
+
     C:\Documents and Settings\Administrator>
     ```
   - Grab SYSTEM and NTDS.dit files in the c:\\temp directory.
@@ -138,7 +138,7 @@ To dump Kerberos keys follow the steps:
   ```
   PS F:\temp> esedbexport.exe .\ntds.dit
   esedbexport 20120102
-  
+
   Opening file.
   Exporting table 1 (MSysObjects) out of 12.
   Exporting table 2 (MSysObjectsShadow) out of 12.
@@ -169,11 +169,11 @@ To dump Kerberos keys follow the steps:
 
     ```
     PS F:\temp\ntds.dit.export> c:\Python27\python.exe f:\temp\ntdsxtract_v1_2_beta\dskeytab.py .\datatable.3 .\link_table.5 ..\system f:\temp\wd f:\temp\wd\ad.keytab
-    
+
     The directory (f:\temp\wd) specified does not exists!
     Would you like to create it? [Y/N]y
     y
-    
+
     [+] Initialising engine...
     [+] Loading saved map files (Stage 1)...
     [!] Warning: Opening saved maps failed: [Errno 2] No such file or directory: 'f:\\temp\\wd\\offlid.map'
@@ -227,11 +227,11 @@ Similarly, only 32-bit Windows version of Wireshark could decrypt Kerberos traff
 
 ## Example capture file
 
-[SampleCaptures/krb-816.zip](uploads/\__moin_import_\_/attachments/SampleCaptures/krb-816.zip) Zip archive containing Kerberos traffic capture and keytab file.
+[SampleCaptures/krb-816.zip](uploads/__moin_import__/attachments/SampleCaptures/krb-816.zip) Zip archive containing Kerberos traffic capture and keytab file.
 
-[SampleCaptures/kerberos-Delegation.zip](uploads/\__moin_import_\_/attachments/SampleCaptures/kerberos-Delegation.zip) An example of Kerberos Delegation in Windows Active Directory. Keytab file is also included. Please use Wireshark 0.10.14 SVN 17272 or above to open the trace.
+[SampleCaptures/kerberos-Delegation.zip](uploads/__moin_import__/attachments/SampleCaptures/kerberos-Delegation.zip) An example of Kerberos Delegation in Windows Active Directory. Keytab file is also included. Please use Wireshark 0.10.14 SVN 17272 or above to open the trace.
 
-[SampleCaptures/constained-delegation.zip](uploads/\__moin_import_\_/attachments/SampleCaptures/constained-delegation.zip) An example of Kerberos constrained delegation (s4U2Proxy) in Windows 2003 domain.
+[SampleCaptures/constained-delegation.zip](uploads/__moin_import__/attachments/SampleCaptures/constained-delegation.zip) An example of Kerberos constrained delegation (s4U2Proxy) in Windows 2003 domain.
 
 ## Display Filter
 
@@ -240,13 +240,13 @@ A complete list of Kerberos display filter fields can be found in the [display f
 Show only the Kerberos v5 traffic:
 
 ```
- kerberos 
+ kerberos
 ```
 
 Show only the Kerberos v4 traffic:
 
 ```
- kerberos4 
+ kerberos4
 ```
 
 ## Capture Filter
@@ -256,13 +256,13 @@ You cannot directly filter Kerberos protocols while capturing. However, if you k
 Capture Kerberos traffic over the default UDP port (88):
 
 ```
- udp port 88 
+ udp port 88
 ```
 
 Capture Kerberos traffic over the default TCP port (88):
 
 ```
- tcp port 88 
+ tcp port 88
 ```
 
 ## External links
