@@ -297,7 +297,7 @@ Neither of them provide packages for all of the libraries that we use, so we mai
 | Brotli                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/brotli) | [yes](https://conan.io/center/brotli) | |
 | c-ares                | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/c-ares) | [yes](https://conan.io/center/c-ares) | |
 | GLib                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/glib) | [yes](https://conan.io/center/glib) | |
-| GnuTLS                | [almost](https://github.com/microsoft/vcpkg/tree/master/ports/libgnutls) | no | |
+| GnuTLS                | [almost](https://github.com/microsoft/vcpkg/tree/master/ports/libgnutls) | no | GnuTLS provides [Windows builds](https://gnutls.org/download.html) |
 | iLBC                  | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/libilbc) | no | |
 | Kerberos (krb5)       | no | no | [vcpkg requested](https://github.com/microsoft/vcpkg/issues/20903) |
 | libgcrypt             | [almost](https://github.com/microsoft/vcpkg/tree/master/ports/libgcrypt) | no | vcpkg port is Linux / macOS only. |
