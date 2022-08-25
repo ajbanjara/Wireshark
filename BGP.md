@@ -12,7 +12,9 @@ XXX - add a brief description of BGP history
 
 ## Example traffic
 
-XXX - Add example traffic here (as plain text or Wireshark screenshot).
+BGP sample update message.
+
+![BGP update message](uploads/b431b9cae68e4784a45ed509b5b283db/bgp_screen.png)
 
 ## Wireshark
 
@@ -26,7 +28,7 @@ Using [Wireshark](http://www.youtube.com/watch?v=aNem_vNVp_U&list=PLrUFyg1unBb8B
 
 ## Example capture file
 
-XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here. Keep it short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
+[bgp.pcapng.gz](uploads/__moin_import__/attachments/SampleCaptures/bgp.pcapng.gz) (pcapng) BGP packets between three peers using communities and announcing six networks. The BGP implementation is FRRouting.
 
 ## Display Filter
 

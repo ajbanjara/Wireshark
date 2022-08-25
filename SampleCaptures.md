@@ -582,6 +582,8 @@ For captures using SSL/TLS, see [#SSL_with_decryption_keys](/SampleCaptures#ssl-
 
 ### Routing Protocols
 
+[bgp.pcapng.gz](uploads/__moin_import__/attachments/SampleCaptures/bgp.pcapng.gz) (pcapng) BGP packets between three peers using communities and announcing six networks. The BGP implementation is FRRouting.
+
 [bgp.pcap.gz](uploads/__moin_import__/attachments/SampleCaptures/bgp.pcap.gz) (libpcap) BGP packets, including AS path attributes.
 
 [bgp_shutdown_communication.pcap](uploads/__moin_import__/attachments/SampleCaptures/bgp_shutdown_communication.pcap) (libpcap) Sample packet for BGP Shutdown communication https://tools.ietf.org/html/draft-ietf-idr-shutdown-01.
