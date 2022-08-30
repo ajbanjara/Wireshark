@@ -220,12 +220,14 @@ Releases can be found at https://fedoraproject.org/wiki/Releases. Every 6 months
 ## SUSE Linux Enterprise Server
 
 Ten years of General Support for a major version, with a six month window to upgrade to the latest Service Pack after it is released. Version numbering skipped from 12 to 15. As of version 15 openSUSE and SLES closely track each other.
-| Distribution | Initial release | End of Normal Support | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version |
-|--------------|-----------------|-----------------------|--------------|--------------|--------------|-------------|-------------|
-| SLES 12 | 2014/10 (SP5 2019/12) | 2024/10 | 2.48.2 (2.38.2) | 2.24.31 (2.24.24) | 3.20.10 (3.10.9) | 4.8.7 (4.8.6) | 5.6.2 (5.5.1, 5.3.1) |
-| SLES 15 | 2018/07 | 2019/12 | 2.54.3 | x | x | (none) | 5.9.4 |
-| SLES 15 SP1 | 2019/06 | 2021/01 | 2.54.3 | x | x | (none) | 5.9.4 |
-| SLES 15 SP2 | 2020/07 | 2028/07 | 2.62.5 | x | x | (none) | 5.12.7 |
+| Distribution | Initial release | End of Normal Support | GLIB version | Qt5 version |
+|--------------|-----------------|-----------------------|--------------|-------------|
+| SLES 12 | 2014/10 (SP5 2019/12) | 2024/10 | 2.48.2 (2.38.2) | 5.6.2 (5.5.1, 5.3.1) |
+| SLES 15 | 2018/07 | 2019/12 | 2.54.3 | 5.9.4 |
+| SLES 15 SP1 | 2019/06 | 2021/01 | 2.54.3 | 5.9.4 |
+| SLES 15 SP2 | 2020/07 | 2022/01 | 2.62.5 | 5.12.7 |
+| SLES 15 SP3 | 2021/06 | 2023/01 | 2.62.5 | 5.12.7 |
+| SLES 15 SP4 | 2022/06 | 2028/07 | 2.70.4 | 5.15.2 |
 
 ## openSUSE
 
@@ -238,6 +240,7 @@ Search for packages in openSUSE here: https://software.opensuse.org/search
 | openSUSE Leap 15.0 | 2.54.3 | 5.9.4 | (none) |
 | openSUSE Leap 15.2 | 2.62.5 | 5.12.7 | (experimental) |
 | openSUSE Leap 15.3 | 2.62.6 | 5.12.7 | (experimental) |
+| openSUSE Leap 15.4 | 2.70.4 | 5.15.2 | (experimental) |
 
 ## Debian
 
