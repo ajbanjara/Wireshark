@@ -204,10 +204,11 @@ Note: [This site](http://rpms.famillecollet.com/rpmphp/) allows you to enter a p
 
 Latest versions are listed, earlier versions are between parentheses.
 
-| Distribution        | Initial Release | End of Normal Support | GLIB version            | Gtk2 version             | Gtk3 version    | Qt4 version   | Qt5 version            |
-|---------------------|-----------------|-----------------------|-------------------------|--------------------------|-----------------|---------------|------------------------|
-| Red Hat EL/CentOS 7 | 2014/6          | 2024/6                | 2.50.3 (2.40.0, 2.36.3) | 2.24.22                  | 3.22.26 (3.8.4) | 4.8.7 (4.8.5) | 5.9.7 (5.6.2)          |
-| Red Hat EL/CentOS 8 | 2019/5          | 2029/5                | 2.56.4                  | 2.24.32                  | 3.22.30         | (none)        | 5.12.15 (5.11.1)        |
+| Distribution        | Initial Release | End of Normal Support | GLIB version            | Qt5 version            | Qt6 version   |
+|---------------------|-----------------|-----------------------|-------------------------|------------------------|
+| Red Hat EL/CentOS 7 | 2014/6          | 2024/6                | 2.50.3 (2.40.0, 2.36.3) | 5.9.7 (5.6.2)            | (none)        |
+| Red Hat EL/CentOS 8 | 2019/5          | 2029/5                | 2.56.4                  | 5.15.2 (5.12.15, 5.11.1)  | (none)        |
+| Red Hat EL/CentOS 0 | 2022/5          | 2032/5                | 2.68.4                  | 5.15.2                           | (none)        |
 
 Note: [EPEL](https://fedoraproject.org/wiki/EPEL) is an optional repository for extra packages.
 
