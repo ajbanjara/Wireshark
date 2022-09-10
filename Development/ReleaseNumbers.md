@@ -6,7 +6,7 @@ Official Wireshark release numbers are constructed as a three number tuple: **`M
 
 In some cases, such as the file version for Windows executables, a build number may be present: **`Major.Minor.Maintenance.Build`**.
 
-The *Major release number* has reached **1** after numerous years of development. Only when the program undergoes a significant change this number will increment. The change to Qt as primary GUI toolkit was such change, resulting in the number to be set to **2**. The change to **3** came about when the GTK+ GUI toolkit was dropped and Npcap as Windows capture library was introduced. This number is likely to remain constant for a while.
+The *Major release number* has reached **1** after numerous years of development. Only when the program undergoes a significant change this number will increment. The change to Qt as primary GUI toolkit was such change, resulting in the number to be set to **2**. The change to **3** came about when the GTK+ GUI toolkit was dropped and Npcap as Windows capture library was introduced. The major release number was set to **4** when extending support to Qt6 as GUI toolkit, significant rework of the display filter engine and absorbing numerous other breaking changes. This number is likely to remain constant for a while.
 
 The *Minor release number* basically follows an even/odd number scheme. For every official release an <span class="u">even</span> number is assigned and the code is branched off for maintenance. The development continues on the next higher <span class="u">odd</span> release number. Note that this development package is a moving target and meaningless without its commit ID.
 
