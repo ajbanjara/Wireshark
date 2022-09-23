@@ -37,20 +37,26 @@ XXX - Add example traffic here (as plain text or Wireshark screenshot).
 IP dissector is fully functional. Wireshark provides some advanced features such as IP defragmentation.
 
 ## Preference Settings
+![220923_IPv4_Preferences_anno](uploads/ca9fbbe14e11a5e437de95e26a45ecba/220923_IPv4_Preferences_anno.png)
 
-  - Decode IPv4 TOS field as [DiffServ](/DiffServ) field: Whether the IPv4 type-of-service field should be decoded as a Differentiated Services field (see RFC2474/RFC2475)
+   - Decode IPv4 TOS field as DiffServ field: Whether the IPv4 type-of-service field should be decoded as a Differentiated Services field (see RFC2474/RFC2475) (ip.decode_tos_as_diffserv)
 
-  - Reassemble fragmented IP datagrams: Whether fragmented IP datagrams should be reassembled
+   - Reassemble fragmented IPv4 datagrams: Whether fragmented IPv4 datagrams should be reassembled (ip.defragment)
 
-  - Show IP summary in protocol tree: Whether the IP summary line should be shown in the protocol tree
+   - Show IPv4 summary in protocol tree: Whether the IPv4 summary line should be shown in the protocol tree (ip.summary_in_tree)
 
-  - Validate the IP checksum if possible: Whether to validate the IP checksum
+   - Validate the IPv4 checksum if possible: Whether to validate the IPv4 checksum (ip.check_checksum)
 
-  - Support packet-capture from IP TSO-enabled hardware: Whether to correct for TSO-enabled hardware captures, such as spoofing the IP packet length
+   - Support packet-capture from IP TSO-enabled hardware: Whether to correct for TSO-enabled (TCP segmentation offload) hardware captures, such as spoofing the IP packet length (ip.tso_support)
 
-  - Enable GeoIP lookups: Whether to look up IP addresses in each GeoIP database we have loaded
+   - Enable IPv4 geolocation: Whether to look up IP addresses in each MaxMind database we have loaded (ip.use_geoip)
 
-  - Interpret Reserved flag as Security flag (RFC 3514): Whether to interpret the originally reserved flag as security flag
+   - Interpret Reserved flag as Security flag (RFC 3514): Whether to interpret the originally reserved flag as security flag (ip.security_flag)
+
+   - Try heuristic sub-dissectors first: Try to decode a packet using an heuristic sub-dissector before using a sub-dissector registered to a specific port (ip.try_heuristic_first)
+
+   - UDP port(s): IPv4 UDP port(s)  (ip.udp.port)  (See [36833b76](https://gitlab.com/wireshark/wireshark/-/commit/36833b76d8b62c3eac22ef0943b9e553e3518bb9) for uses)
+
 
 ## Example capture file
 
