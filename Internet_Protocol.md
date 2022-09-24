@@ -6,7 +6,7 @@ This page describes IP version 4, which is widely used. There's also an [IPv6](/
 
 The IP protocol is used to transfer packets from one [IP-address](/IP-address) to another. The user of this layer will give a packet and a remote IP address, and IP is responsible to transfer the packet to that host.
 
-IP will (hopefully) guide the packet the right way to the remote host. The data transfer is independent of the underlying network hardware (e.g. [ATM](/ATM), [Ethernet](/Ethernet), or even a [SerialLine](/SerialLine)). If the underlying hardware is not able to transfer the maximum length required (especially on [SerialLine](/SerialLine)'s or [ATM](/ATM)), IP will split the data into several smaller IP fragments and reassemble it into a complete one at the receiving host.
+IP will (hopefully) guide the packet the right way to the remote host. The data transfer is independent of the underlying network hardware (e.g. [ATM](/ATM), [Ethernet](/Ethernet), or even a SerialLine). If the underlying hardware is not able to transfer the maximum length required (especially on SerialLine's or [ATM](/ATM)), IP will split the data into several smaller IP fragments and reassemble it into a complete one at the receiving host. See: [IP Reassembly](/IP_Reassembly), [MTU](/MTU), [Segmentation Offload](/CaptureSetup/Offloading#segmentation-offload).
 
 When IP wants to send a packet on a LAN, it must first translate the [IP-address](/IP-address) given into the underlying hardware address (e.g. an [Ethernet](/Ethernet) address). IP uses [ARP](/ARP) for this translation, which is done dynamically. On a point-to-point line, this is obviously not necessary, as there's only one host to which a given machine can send a packet.
 
