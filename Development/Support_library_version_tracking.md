@@ -198,7 +198,7 @@ Latest versions are listed, earlier versions are between parentheses.
 |--------------|-----------------|-----------------------|--------------|-------------|-------------|
 | Red Hat EL/CentOS 7 | 2014/6 | 2024/6 | 2.50.3 (2.40.0, 2.36.3) | 5.9.7 (5.6.2) | (none) |
 | Red Hat EL/CentOS 8 | 2019/5 | 2029/5 | 2.56.4 | 5.15.2 (5.12.15, 5.11.1) | (none) |
-| Red Hat EL/CentOS 9 | 2022/5 | 2032/5 | 2.68.4 | 5.15.2 | (none) |
+| Red Hat EL/CentOS 9 | 2022/5 | 2032/5 | 2.68.4 | 5.15.2 | EPEL:6.3.1 |
 
 Note: [EPEL](https://fedoraproject.org/wiki/EPEL) is an optional repository for extra packages.
 
