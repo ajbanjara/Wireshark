@@ -100,7 +100,7 @@ Open source LLDP projects:
 
   - [lldpd](https://lldpd.github.io/) - last release: 1.0.13 (November 2021)
 
-  - [Open-LLDP](http://www.open-lldp.org) - last release: 1.1.0 (November 2020)
+  - [Open-LLDP](https://github.com/intel/openlldp) - last release: 1.1.0 (November 2020)
 
 ## Discussion
 
