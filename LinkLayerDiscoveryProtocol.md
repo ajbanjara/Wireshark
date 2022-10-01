@@ -98,7 +98,7 @@ Open source LLDP projects:
 
   - [ladvd](https://github.com/sspans/ladvd/) - last release: 1.1.2 (March 2018)
 
-  - [lldpd](https://lldpd.github.io/) - last release: 1.0.13 (November 2021)
+  - [lldpd](https://lldpd.github.io/) - last release: 1.0.15 (August 2022)
 
   - [Open-LLDP](https://github.com/intel/openlldp) - last release: 1.1.0 (November 2020)
 
