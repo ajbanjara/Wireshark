@@ -308,12 +308,20 @@ Changes that *don't* backport cleanly by cherry-picking them will require some e
 
 - Create and checkout a new branch with a name related to the type of change (e.g. the bug number you're fixing or the dissector you're working on):
     ```
-    git checkout -b my-branch-name upstream/master-X.Y
+    git checkout -b my-branch-name upstream/release-X.Y
     ```
-    where "master-X.Y" is the release branch to which to backport the change.
+    where "release-X.Y" is the release branch to which to backport the change.
 
-    This creates a branch named "my-branch-name" based on the master-*X*.*Y* branch in the official repository.
+    This creates a branch named "my-branch-name" based on the release-*X*.*Y* branch in the official repository.
 
+    If the `checkout` fails, you may need to fetch the upstream branch.
+
+    ```
+    $ git checkout -b my-branch-name upstream/release-X.Y
+    fatal: 'upstream/release-X.Y' is not a commit and a branch 'my-branch-name' cannot be created from it
+
+    $ git fetch upstream release-X.Y
+    ```
 - Cherry-pick the fix:
     ```
     git cherry-pick -x {commit}
