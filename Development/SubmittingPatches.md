@@ -321,6 +321,13 @@ Changes that *don't* backport cleanly by cherry-picking them will require some e
     fatal: 'upstream/release-X.Y' is not a commit and a branch 'my-branch-name' cannot be created from it
 
     $ git fetch upstream release-X.Y
+        ...
+     * branch                  release-X.Y -> FETCH_HEAD
+     * [new branch]            release-X.Y -> upstream/release-X.Y
+
+    $ git checkout -b my-branch-name upstream/release-X.Y
+    Updating files: 100% (363/363), done.
+    Switched to a new branch 'my-branch-name'
     ```
 - Cherry-pick the fix:
     ```
