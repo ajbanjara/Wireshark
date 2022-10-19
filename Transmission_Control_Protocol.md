@@ -30,6 +30,8 @@ There are two statistical menu items for TCP available: *Statistics/Endpoints* w
 
 ## Preference Settings
 
+![221018_TCP_Preferences_anno](uploads/ffde24eff022bf5b0c9e2509e3bc3b25/221018_TCP_Preferences_anno.png)
+
   - [TCP\_Reassembly](/TCP_Reassembly)
 
   - [TCP\_Checksum\_Verification](/TCP_Checksum_Verification)
