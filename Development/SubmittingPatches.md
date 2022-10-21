@@ -2,7 +2,7 @@
 
 :information_source: **We migrated from Gerrit to GitLab on August 23rd, 2020**
 
-We migrated from [Gerrit](https://code.wireshark.org/review/) to [GitLab](https://gitlab.com/wireshark/wireshark/tree/master).
+We migrated from [Gerrit](https://www.gerritcodereview.com/) to [GitLab](https://gitlab.com/wireshark/wireshark/tree/master).
 The instructions below are being updated for use with GitLab.
 See the [Migrating From Gerrit](#migrating-from-gerrit) section if you have an open change there.
 
@@ -153,7 +153,6 @@ When running `git commit`, you will be prompted to describe the change. Here ar
 As mentioned above, you can use "#" to [reference issues](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references).
 "Closes #1234" is special -- it will close issue 1234 when the change is merged, while other references such as "see #4512" will simply link to the issue. 
 
-<!-- XXX Fix issue URL when the migration is complete. -->
 :bulb: If you're contributing a non-trivial fix to a dissector, you should [open an issue](https://gitlab.com/wireshark/wireshark/-/issues) and attach a sample capture file.
 
 Putting all that together, we get the following example:
@@ -220,12 +219,12 @@ Git will produce a message telling you this, with lines such as:
 - You can also do a `git status` to see what files are not merged for the rebase - they're the ones that are in red at the bottom, under the section `Unmerged paths`.
 Those are the ones with merge errors.
 
-- Open the offending file(s) in your editor, and search for the string "<<<<<<<".
-You will see "<<<<<<<" and ">>>>>>>" lines, which git put in to show the conflicting lines for what's in HEAD (which is `master`) vs. what's in your local branch you're trying to rebase.
-The unmerged lines from each branch are separated by a "=======" line.
+- Open the offending file(s) in your editor, and search for the string `<<<<<<<`.
+You will see `<<<<<<<` and `>>>>>>>` lines, which git put in to show the conflicting lines for what's in HEAD (which is `master`) vs. what's in your local branch you're trying to rebase.
+The unmerged lines from each branch are separated by a `=======` line.
 Some editors have conflict resolution features that make fixing this more convenient.
 
-- Fix the conflicts, by deleting the "<<<<<<<" and ">>>>>>>" and "=======" lines, and correcting the code such that the final is what the code should be once the rebasing is complete.
+- Fix the conflicts, by deleting the `<<<<<<<` and `>>>>>>>` and `=======` lines, and correcting the code such that the final is what the code should be once the rebasing is complete.
 
 - Save your file.
 
@@ -234,7 +233,7 @@ Some editors have conflict resolution features that make fixing this more conven
 - Run `git rebase --continue` to continue.
 You may hit more merge errors and need to repeat the above steps to resolve them.
 
-- Once they're all resolved, commit the changes using `git commit --amend`, save the commit message again without changing the Change-ID line in it, and `git push downstream +HEAD` to push it to your repository.
+- Once they're all resolved, commit the changes using `git commit --amend`, save the commit message again, and `git push downstream +HEAD` to push it to your repository.
  
     - Note the `--amend` option is being used, because you don't want to generate a new commit and new review; you just want to upload a new patch set for the previous review.
 
@@ -253,27 +252,6 @@ You can delete both from the command line:
     git push -d downstream my-branch-name
 
 You can also delete merged branches in your personal repository in the [GitLab web UI](https://docs.gitlab.com/ee/user/project/repository/branches/#delete-merged-branches).
-
-<!-- XXX Gerrit-era instructions are below. Do they still apply?
-
- You could force git to delete it using the `-D` option, but this is a better/cleaner way:
-
-  - Check out your local `master`: `git checkout master`
-
-  - Pull down the latest changes to it: `git pull`
-    
-      - `git pull` does both a `git fetch` and `git merge`. So long as you made no local changes to your local `master`, this step should just work.
-
-  - Rebase your changes to the latest master: `git rebase master my-branch-name`
-    
-      - If you hit a merge/rebase error at this point, go to the previous section and follow the instructions, but do not push it up again with `gerrit review`, instead just locally commit it.
-
-  - Checkout `master` again: `git checkout master`
-
-  - Delete the branch by issuing `git branch -d my-branch-name`
-    
-      - Note the lower-case `-d` option, not the upper-case `-D` which forces a deletion.
--->
 
 ## Testing Someone Else's Merge Request
 
@@ -300,7 +278,7 @@ If your change is in master, you should revert the change in a new commit with `
 
 Some changes that fix bugs should also be applied to release branches, so that the bugs are fixed in the next regular Wireshark releases.
 
-Changes that backport cleanly by cherry-picking them can be backported by using the "Cherry-pick" option in the "Options" item on the page for the [commit](https://gitlab.com/wireshark/wireshark/-/commits/master). (**N.B.**, *not* the page for the merge request.) The "Cherry-pick" option will pop up a dialog; choose the branch to which the change should be cherry-picked, and leave "Start a '''new merge request''' with these changes" checked.  Clicking "Cherry-pick" will take you to a page for a new merge request; follow the instructions for merge requests in "Submitting A Change" above.
+Changes that backport cleanly by cherry-picking them can be backported by using the "Cherry-pick" option in the "Options" item on the page for the [commit](https://gitlab.com/wireshark/wireshark/-/commits/master). (**N.B.**, *not* the page for the merge request.) The "Cherry-pick" option will pop up a dialog; remove the "master" branch name suggestion and choose the branch to which the change should be cherry-picked, and leave "Start a '''new merge request''' with these changes" checked.  Clicking "Cherry-pick" will take you to a page for a new merge request; follow the instructions for merge requests in "Submitting A Change" above.
 
 Changes that *don't* backport cleanly by cherry-picking them will require some editing on your part in order to backport them.  To backport a change to a release branch that can't be cleanly cherry-picked:
 
@@ -400,7 +378,7 @@ After a new commit:
 
 You can run `git checkout BRANCHNAME` to switch between branches you're working on, branches you're reviewing, and master.
 
-A more comprehensive description of git can be found in [this book](https://git-scm.com/book/en/v2)
+A more comprehensive description of git can be found in [this book](https://git-scm.com/book)
 
 ### Watching changes
 
@@ -408,7 +386,7 @@ GitLab does not currently provide a way to track the changes happening on a spec
 
 # Migrating From Gerrit
 
-Prior to using GitLab, Wireshark used the [Gerrit code review system](https://code.wireshark.org/review). Here are a few things to keep in mind when migrating to GitLab:
+Prior to using GitLab, Wireshark used the [Gerrit code review system](https://www.gerritcodereview.com/). Here are a few things to keep in mind when migrating to GitLab:
 
 **GitLab associates branches with merge requests**
 
@@ -438,18 +416,7 @@ If you [mirror your fork](https://about.gitlab.com/blog/2016/12/01/how-to-keep-y
 **Gerrit changes weren't migrated to GitLab merge requests**
 
 Although bugs were migrated to issues, changes must be migrated individually.
-You can migrate a change by doing the following:
-
-```
-# Download the change using git-review...
-$ git review -d 12345
-...OR click on the "download" link in the change and copy+paste the checkout command.
-$ git fetch https://code.wireshark.org/review/wireshark refs/changes/72/38172/2 && git checkout -b my-change FETCH_HEAD
-# Double-check your branch name.
-$ git status
-# Push the change to GitLab.
-$ git push downstream HEAD
-```
+Since our Gerrit system has been pulled offline this is no longer possible.
 
 **Bugs / issues are linked differently**
 
