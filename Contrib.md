@@ -83,7 +83,7 @@ None yet.
 </tr>
 <tr class="odd">
 <td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Guacamole" class="https">guacamole.lua</a></p></td>
-<td><p>1.4</p></td>
+<td><p>1.5</p></td>
 <td><p>unknown</p></td>
 <td><p>This plugin dissects the <a href="https://guacamole.apache.org/doc/gug/guacamole-protocol.html" class="https">Guacamole Protocol</a></p></td>
 <td></td>
