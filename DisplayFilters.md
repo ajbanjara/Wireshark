@@ -87,6 +87,27 @@ Filter by a protocol ( e.g. SIP ) and filter out unwanted IPs:
   ip.src != xxx.xxx.xxx.xxx && ip.dst != xxx.xxx.xxx.xxx && sip
 ```
 
+With Wireshark 4.0+ you can select a specific a specific occurrence of a field. To use the layer operator, just put a number sign and a layer number after a field. For example, if we have a GRE packet with both outer and inner IPv4 layers,
+
+```
+ip.src#1 == 10.1.2.3
+```
+
+will match the outer address,
+
+```
+ip.src#2 == 10.1.2.3
+```
+
+will match the inner address, and
+
+```
+ip.src == 10.1.2.3
+```
+
+will match either address.
+
+
 *\[ Feel free to contribute more \]*
 
 ## Gotchas
