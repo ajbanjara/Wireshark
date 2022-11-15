@@ -16,7 +16,8 @@ XXX - add a brief description of SLL history
 
 ## Example traffic
 
-Screen shot of a SLL frame from [SampleCaptures](/SampleCaptures) file: sll.pcap
+Screen shot of a SLL frame from [SampleCaptures](/SampleCaptures) file: sll.pcap  
+(Note: file missing. Leave reference for now.)  
 
 ![sll.png](uploads/__moin_import__/attachments/SLL/sll.png "sll.png")
 
@@ -32,7 +33,8 @@ There are no SLL specific preference settings.
 
 XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here (see below). Keep this file short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
 
-  - [SampleCaptures/sll.pcap](uploads/__moin_import__/attachments/SampleCaptures/sll.pcap "Upload new attachment \"sll.pcap\"")
+  - SampleCaptures/sll.pcap (Note: file missing)    
+  
 
 ## Display Filter
 
