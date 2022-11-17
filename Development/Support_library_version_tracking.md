@@ -208,7 +208,6 @@ Note: [EPEL](https://fedoraproject.org/wiki/EPEL) is an optional repository for 
 Releases can be found at https://fedoraproject.org/wiki/Releases. Every 6 months a new version is released with 13 months of support.
 | Distribution | GLIB version | Qt5 version | Qt6 version |
 |--------------|--------------|-------------|-------------|
-| Fedora 27 | 2.54.3 | 5.9.6 | (none) |
 | Fedora 28 | 2.56.4 | 5.11.3 | (none) |
 | Fedora 29 | 2.58.3 | 5.11.3 | (none) |
 | Fedora 30 | 2.60.7 | 5.12.5 | (none) |
@@ -217,6 +216,8 @@ Releases can be found at https://fedoraproject.org/wiki/Releases. Every 6 months
 | Fedora 33 | 2.66.4 | 5.15.2 | (none) |
 | Fedora 34 | 2.68.1 | 5.15.2 | 6.2.1 |
 | Fedora 35 | 2.70.2 | 5.15.2 | 6.2.1 |
+| Fedora 36 | 2.72.0 | 5.15.3 | 6.3.1 |
+| Fedora 37 | 2.74.1 | 5.15.6 | 6.3.1 |
 
 ## SUSE Linux Enterprise Server
 
