@@ -124,7 +124,7 @@ is equivalent to
  ip.src == 10.43.54.65 or ip.dst == 10.43.54.65
 ```
 
-This can be counterintuitive in some cases. Suppose we want to filter out any traffic to or from 10.43.54.65. We might try the following:
+Before Wireshark 3.6, this can be counterintuitive in some cases. Suppose we want to filter out any traffic to or from 10.43.54.65. We might try the following:
 
 ``` 
  ip.addr != 10.43.54.65
@@ -155,6 +155,8 @@ This translates to "pass any traffic except with a source IPv4 address of 10.43.
 This can also happen if, for example, you have tunneled protocols, so that you might have two separate IPv4 or IPv6 layers and two separate IPv4 or IPv6 headers, or if you have multiple instances of a field for other reasons, such as multiple IPv6 "next header" fields.
 
 If you have a filter expression of the form *name* *op* *value*, where *name* is the name of a field, *op* is a comparison operator such as `==` or `!=` or `<` or..., and *value* is a value against which you're comparing, it should be thought of as meaning "match a packet if there is *at least one* instance of the field named *name* whose value is (equal to, not equal to, less than, ...) *value*". The negation of that is "match a packet if there are *no* instances of the field named *name* whose value is (equal to, not equal to, less than, ...) *value*"; simply negating *op*, e.g. replacing `==` with `!=` or `<` with `>=`, give you another "if there is at least one" check, which is not the negation of the original check.
+
+With Wireshark 3.6+ the display filter syntax interpretation has been modified to prevent such easy mistakes. The original interpretation is still available, under a slightly different syntax. See the [User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html) for more information.
 
 ## See Also
 
