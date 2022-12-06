@@ -13,6 +13,7 @@ Release dates can be found in Qt-X.Y-release articles at https://wiki.qt.io/Cate
 The Qt Company officially supports the following [platforms and configurations](http://doc.qt.io/qt-5/supported-platforms-and-configurations.html).
 
 The highlighted Wireshark versions below mark the Qt version that is shipped with the macOS and Windows installers. For supported macOS hardware and maximum macOS versions, see also https://en.wikipedia.org/wiki/MacOS#Hardware_compatibility
+
 | Qt version | Date | Notes |
 |------------|------|-------|
 | 4.6.0 | Dec 2009 | Minimum required version in initial porting effort |
@@ -42,6 +43,7 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 ## GLib and GTK+
 
 Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc5781ba), so we don't bother tracking it anymore (x)
+
 | GLIB version | Gtk2 version | Gtk3 version | Date | Notes |
 |--------------|--------------|--------------|------|-------|
 | 2.12 | 2.10 |  | Jul 2006 | GTK+ 2.12 is min. req. since 11 July 2011 |
@@ -65,6 +67,7 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 ## GnuTLS
 
 Note: GnuTLS has a stable branch, and sometimes a development branch and/or a previous stable branch. These are not always obvious, as the development branch becomes the stable branch when it is deemed ready; _e.g._ in July 2018 3.5.x was the stable branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-devel/2018-July/008583.html)), 3.6.x was the development branch ([announcement](https://lists.gnupg.org/pipermail/gnutls-devel/2018-July/008584.html)), 3.3.x was the previous stable branch receiving bug-fixes ([announcement](https://lists.gnupg.org/pipermail/gnutls-devel/2018-July/008582.html)), and 3.4.x was unsupported.
+
 | Version | Date | Notes |
 |---------|------|-------|
 | 1.2.0 | Jan 2005 | Min. req. since at least Jun 2009 (old) |
@@ -94,6 +97,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.6.13 | Mar 2020 | Ubuntu 20.04LTS |
 
 ## Libgcrypt
+
 | Version | Date | Notes |
 |---------|------|-------|
 | 1.1.92 | Feb 2004 | Min. req. since Jul 2008 (old) |
@@ -118,6 +122,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 ## CMake
 
 See also https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-Linux-Distros for a longer list of distributions. See also https://github.com/curl/curl/pull/990#issuecomment-245112823 for a history of CMake version + changes.
+
 | Version | Date | Notes |
 |---------|------|-------|
 | 2.8.3 | Nov 2010 | Minimum required version for non-Windows (before Feb 2016) |
@@ -146,6 +151,7 @@ See also https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-Li
 ## Python
 
 Python 3.6 or newer has become required since v3.7.1rc0-315-gdac75fba7f. The test suite currently does not depend on pytest, but can be used with it.
+
 | Distro | package version |
 |--------|-----------------|
 | RHEL/CentOS 8 | python3-pytest 3.4.2 |
@@ -157,6 +163,7 @@ On older systems, you can install it via: `pip3 install pytest pytest-xdist`
 ## Lua
 
 Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is not supported due to the bitop library ([Bug 10881](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=10881)). LuaJIT was being considered for 3.1 ([Bug 15745](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15745)) and is API/ABI compatible with Lua 5.1 and supports many new 5.2 library functions since LuaJIT 2.0.0-beta11 (2012-10-16). However since LuaJIT upstream appeared inactive in 2019, it was decided not to merge the [LuaJIT patch](https://code.wireshark.org/review/33047).
+
 | Platform | LuaJIT | Lua 5.1 | Lua 5.2 | Lua 5.3 |
 |----------|--------|---------|---------|---------|
 | RHEL/CentOS 6/7 | 2.0.4 (EPEL) | 5.1.4 | no | no |
@@ -169,6 +176,7 @@ Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is 
 ## Nghttp2
 
 nghttp2 is required for complete HTTP/2 support. It also powers HTTP/2 support in curl, and should be increasingly available. The package name is typically "libnghttp2".
+
 | Platform | version |
 |----------|---------|
 | RHEL/CentOS 7 (EPEL) | 1.31.1 |
@@ -206,6 +214,7 @@ Note: [EPEL](https://fedoraproject.org/wiki/EPEL) is an optional repository for 
 ## Fedora
 
 Releases can be found at https://fedoraproject.org/wiki/Releases. Every 6 months a new version is released with 13 months of support.
+
 | Distribution | GLIB version | Qt5 version | Qt6 version |
 |--------------|--------------|-------------|-------------|
 | Fedora 28 | 2.56.4 | 5.11.3 | (none) |
@@ -222,6 +231,7 @@ Releases can be found at https://fedoraproject.org/wiki/Releases. Every 6 months
 ## SUSE Linux Enterprise Server
 
 Ten years of General Support for a major version, with a six month window to upgrade to the latest Service Pack after it is released. Version numbering skipped from 12 to 15. As of version 15 openSUSE and SLES closely track each other.
+
 | Distribution | Initial release | End of Normal Support | GLIB version | Qt5 version |
 |--------------|-----------------|-----------------------|--------------|-------------|
 | SLES 12 | 2014/10 (SP5 2019/12) | 2024/10 | 2.48.2 (2.38.2) | 5.6.2 (5.5.1, 5.3.1) |
@@ -236,6 +246,7 @@ Ten years of General Support for a major version, with a six month window to upg
 Version numbering changed over time: ..., 13.2, Leap 42.1, ..., Leap 42.3, Leap 15.0. From openSUSE Leap: Each major version at least 36 months lifetime, until the next major Leap version is available, with a six month window to upgrade to the latest minor release. Minor releases are expected to be roughly annually, thus giving approximately an 18 months total lifetime. Until openSUSE 13.2: 8 month release cycle, 18 months lifetime, see https://en.opensuse.org/Lifetime
 
 Search for packages in openSUSE here: https://software.opensuse.org/search
+
 | Distribution | GLIB version | Qt5 version | Qt6 version |
 |--------------|--------------|-------------|-------------|
 | openSUSE Leap 42.3 | 2.48.2 | 5.6.2 | (none) |
@@ -247,6 +258,7 @@ Search for packages in openSUSE here: https://software.opensuse.org/search
 ## Debian
 
 [Release EOL information](https://wiki.debian.org/LTS)
+
 | Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version | Qt6 version |
 |--------------|--------------|--------------|--------------|-------------|-------------|-------------|
 | stretch | 2.50.3 | 2.24.31 | 3.22.11 | 4.8.7 | 5.7.1 | x |
@@ -259,6 +271,7 @@ Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
 ## Ubuntu
 
 [Releases](https://wiki.ubuntu.com/Releases) are on a 6 month release cycle, 9 month (regular), 5 years (LTS) lifetime.
+
 | Distribution | GLIB version | Qt5 version | Qt6 version |
 |--------------|--------------|-------------|-------------|
 | bionic (18.04LTS) | 2.56.4 | 5.9.5 | x |
@@ -276,6 +289,7 @@ Many developers also install libraries using [Homebrew](https://brew.sh/) and th
 # Windows
 
 FOSS library packaging and distribution on Windows has historically been [a mess](https://twitter.com/geraldcombs/status/735870968451629056), but things are improving. Two notable projects that might fix this are [vcpkg](https://github.com/Microsoft/vcpkg) and [Conan](https://www.conan.io/). Neither of them provide packages for all of the libraries that we use, so we maintain repositories of [64-bit](https://dev-libs.wireshark.org/windows/) packages which are installed using `tools/win-setup.ps1` in the Wireshark sources.
+
 | Library | vcpkg | Conan | Notes |
 |---------|-------|-------|-------|
 | Bcg729 | [yes](https://github.com/microsoft/vcpkg/tree/master/ports/bcg729) | no |  |
