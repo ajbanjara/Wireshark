@@ -855,6 +855,16 @@ Usb packets exchanged while unpluggin and replugging a mouse: [mouse_replug2.pca
 
 [USBMSC-USBLL.7z](uploads/36d216660e18783c8d2229ddc372f746/USBMSC-USBLL.7z) USB memory stick connected and mounted on Windows. Includes both link layer capture and matching USBPcap capture.
 
+### USB packets with Darwin (macOS, etc.) headers
+
+[XHC1-SanDiskExtremePortableSSD.pcapng](uploads/e7f404a74a805bd809b8ec565bacb031/XHC1-SanDiskExtremePortableSSD.pcapng)
+
+[XHC20-LogitechUnifying.pcapng.gz](uploads/1ca2e5ae2519eda3a0d2328a2b5d8222/XHC20-LogitechUnifying.pcapng.gz)
+
+[XHC20-MicrosoftKeyboard.pcapng.gz](uploads/4e4c7e04ffc237af7b09e1e890e884ee/XHC20-MicrosoftKeyboard.pcapng.gz)
+
+[XHC20-OpenVizsla.pcapng.gz](uploads/b35172e69ec15d2c36f3edb41c71e610/XHC20-OpenVizsla.pcapng.gz)
+
 ### FreeBSD usbdump format file
 
 [test.usbdump](uploads/__moin_import__/attachments/SampleCaptures/test.usbdump) Sample FreeBSD usbdump capture file.
