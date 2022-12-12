@@ -322,8 +322,6 @@ These tools convert between different capture file formats.
 
 ### Collections
 
-  - [Awesome PCAP Tools](http://xiaming.me/awesome-pcaptools/) A list of tools to process pcap files in research of network traffic
-
   - [A list of tools](http://www.comlab.uni-rostock.de/research/tools.html) Web page of links to various networking tools
 
   - [dsniff](http://www.monkey.org/~dugsong/dsniff/) is a collection of tools for network auditing and penetration testing (BSD style?, BSD/Linux/Solaris/...)
