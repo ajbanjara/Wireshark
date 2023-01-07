@@ -418,9 +418,9 @@ Standards/Specifications at https://www.atsc.org/atsc-documents/type/3-0-standar
 
 Standard/Specification: ATSC3 A/330
 
-[alp-sample1.pcap](uploads/ffedd6b9fa50190e1fd12de2b90f43a4/alp-sample1.pcap) (libpcap) - Collected using SiliconDust box (Multiple PLP channel). Includes LLS (Link Layer Signalling) (packet #6) and data packets
+[alp-sample1.pcap](uploads/ffedd6b9fa50190e1fd12de2b90f43a4/alp-sample1.pcap) (libpcap) - Collected using SiliconDust box (Multiple PLP channel). Includes LLS (Link Layer Signalling) with LMT table (packet #6), packets with Sony PLP header extension (packets #1,3,5,...) and data packets
 
-[alp-sample2.pcap](uploads/486520825a0a8fb0372a77f70f0afbfc/alp-sample2.pcap) (libpcap) -Collected using SiliconDust box (Single PLP channel). Includes LLS (Link Layer Signalling) (packet #2) and data packets
+[alp-sample2.pcap](uploads/486520825a0a8fb0372a77f70f0afbfc/alp-sample2.pcap) (libpcap) - Collected using SiliconDust box (Single PLP channel). Includes LLS (Link Layer Signalling) with LMT table (packet #2), packet with Sony L1D Time Info header extension (packet #84) and data packets
 
 ### Spanning Tree Protocol
 
