@@ -422,6 +422,18 @@ Standard/Specification: ATSC3 A/330
 
 [alp-sample2.pcap](uploads/486520825a0a8fb0372a77f70f0afbfc/alp-sample2.pcap) (libpcap) - Collected using SiliconDust box (Single PLP channel). Includes LLS (Link Layer Signalling) with LMT table (packet #2), packet with Sony L1D Time Info header extension (packet #84) and data packets
 
+#### LLS (Low Level Signalling) Protocol
+
+Standard/Specification: ATSC3 A/331
+
+[lls-tables-alp.pcap](uploads/a0884e575b7edb2034948fd1bb13e5fa/lls-tables-alp.pcap) (libpcap) - Collected using SiliconDust box from three ATSC3 stations.
+Packets #1, #3 - Signed Multi Table (contains SLT and SystemTime tables).
+Packet #2, #4 - CDT (Certification Data Table).
+Packet #5 - System Time table.
+Packet #6 - SLT (Service List Table).
+Packet #7 - AEAT (Advanced Emergency Information Table).
+Packet #8 - User Defined table.
+
 ### Spanning Tree Protocol
 
 [stp.pcap](uploads/8d3d0627231ab1e2fa5d3fe8be2390a7/stp.pcap) (libpcap)
