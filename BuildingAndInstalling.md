@@ -10,15 +10,15 @@
 
 How to avoid some problems:
 
-  - Make sure to use nmake/cl/link from VS8 not 2003 server SDK R2, Use `which <cmd>` to test. Otherwise XP function `GetModuleHandleExA` in nmake of SDK will be called to display annoying pop-up window.
+  - Make sure to use nmake/cl/link from VS8 not 2003 server SDK R2, Use `which <cmd>` to test. Otherwise XP function `GetModuleHandleExA` in nmake of SDK will be called to display annoying pop-up window.
 
-  - Use `dos2unix win32-setup.sh win32-setup.sh` to fix `$'\r' command not found` problem.
+  - Use `dos2unix win32-setup.sh win32-setup.sh` to fix `$'\r' command not found` problem.
 
   - Put cygwin path after sdk to avoid `link.exe` shadowing.
 
   - Use full path such as `"c:/WINNT/system32/xcopy"` to replace xcopy in if statement of Makefile.nmake
 
-  - Problem `tshark is not a valid win32 application`. DO NOT run this `"C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\SetEnv.Cmd"`. Instead, when install 2003 server SDK R2, select register environment.
+  - Problem `tshark is not a valid win32 application`. DO NOT run this `"C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\SetEnv.Cmd"`. Instead, when install 2003 server SDK R2, select register environment.
 
 ## OpenBSD
 
@@ -40,7 +40,7 @@ To build Wireshark on macOS without a third-party package source such as Homebre
 
 2.  Install all the necessary and optional libraries and tools with the `macosx-setup.sh` script (from within the source directory): `./macosx-setup.sh`
 
-3.  Build it (from within the source directory): `mkdir build && cd build && cmake ../ && make`
+3.  Build it (from within the source directory): `mkdir build && cd build && cmake ../ && make`
 
 4.  Run it with `./run/wireshark`
 
@@ -48,15 +48,15 @@ To build Wireshark on macOS without a third-party package source such as Homebre
 
 Experimental steps for "easy" building Wireshark on macOS with the Homebrew package system.
 
-1.  If you don't already have homebrew installed, install it by running `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"` in the command prompt.
+1.  If you don't already have homebrew installed, install it by running `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"` in the command prompt.
 
-2.  Install all the necessary development packages using homebrew: `brew install c-ares cmake glib gnutls lua qt5`.
+2.  Install all the necessary development packages using homebrew: `brew install c-ares cmake glib gnutls lua qt5`.
 
-3.  Special step to work around bug in Qt/Homebrew: `export PATH=/usr/local/opt/qt5/bin:$PATH`
+3.  Special step to work around bug in Qt/Homebrew: `export PATH=/usr/local/opt/qt5/bin:$PATH`
 
 4.  [Get the source](https://wireshark.org/develop.html) either from the git repository or a tarball distribution.
 
-5.  Build it (from within the source directory): `mkdir build && cd build && cmake ../ && make`
+5.  Build it (from within the source directory): `mkdir build && cd build && cmake ../ && make`
 
 6.  Run it with `./run/wireshark`
 
@@ -105,7 +105,7 @@ Finally, to install, use the standard "make install" as "root" with PATH and LD\
 
 Although these distributions include official builds of Wireshark, they are sometimes behind the current release. Therefore, it is sometimes desirable to build the current version from the TAR source tree.
 
-Trying to build from the TAR source tree using the standard `./configure && make` command will give the following error:
+Trying to build from the TAR source tree using the standard `./configure && make` command will give the following error:
 
     /usr/include/ucd-snmp/version.h:9:2: error: #error "Please update your headers or configure using --enable-ucd-snmp-compatibility"
 
