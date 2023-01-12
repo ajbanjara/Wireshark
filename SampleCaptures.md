@@ -434,6 +434,19 @@ Packet #6 - SLT (Service List Table).
 Packet #7 - AEAT (Advanced Emergency Information Table).
 Packet #8 - User Defined table.
 
+#### MP4 init segments and segments
+
+Standards/Specifications: ATSC3 A/331, ISO/IEC 14496-12, ISO/IEC 14496-14, 3GPP TS 26.244
+
+Encapsulation: alp:ip:udp:alc:rmt-lct:mp4
+
+[mp4-ftyp-styp-sidx.pcap](uploads/19568882943f275165a5c314f35c024f/mp4-ftyp-styp-sidx.pcap) (libpcap) - Collected using SiliconDust from different ATSC3 stations (closed captions segments)
+Packet #1 - MP4 segment (styp mp4 box). Extracted mp4: [styp](uploads/0ee4c561b9c17098957fa9fcb5f2d756/styp.mp4).
+Packet #2 - MP4 truncated segment (styp mp4 box). Extracted mp4: [styp-trunc](uploads/d43f871dea86caebad5a834d2be1e0ca/styp-trunc.mp4).
+Packet #3 - MP4 init segment (ftyp mp4 box). Extracted mp4: [ftyp](uploads/fe86a796525ff6599d3c06f363031437/ftyp.mp4).
+Packet #4 - MP4 truncated segment (sidx mp4 box). Extracted mp4: [sidx.pcap](uploads/414badce315db0652fc323b7c0f18bf7/sidx.pcap).
+Packet #5 - MP4 segment (sidx mp4 box). Extracted mp4: [sidx-trunc](uploads/e7ae787bec782917058013cb79e12ed0/sidx-trunc.mp4).
+
 ### Spanning Tree Protocol
 
 [stp.pcap](uploads/8d3d0627231ab1e2fa5d3fe8be2390a7/stp.pcap) (libpcap)
