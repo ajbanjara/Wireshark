@@ -444,7 +444,7 @@ Encapsulation: alp:ip:udp:alc:rmt-lct:mp4
 Packet #1 - MP4 segment (styp mp4 box). Extracted mp4: [styp](uploads/0ee4c561b9c17098957fa9fcb5f2d756/styp.mp4).
 Packet #2 - MP4 truncated segment (styp mp4 box). Extracted mp4: [styp-trunc](uploads/d43f871dea86caebad5a834d2be1e0ca/styp-trunc.mp4).
 Packet #3 - MP4 init segment (ftyp mp4 box). Extracted mp4: [ftyp](uploads/fe86a796525ff6599d3c06f363031437/ftyp.mp4).
-Packet #4 - MP4 truncated segment (sidx mp4 box). Extracted mp4: ![sidx](uploads/f980161e5d7b81f29c3eebbc2ea29806/sidx.mp4).
+Packet #4 - MP4 truncated segment (sidx mp4 box). Extracted mp4: [sidx](uploads/f980161e5d7b81f29c3eebbc2ea29806/sidx.mp4).
 Packet #5 - MP4 segment (sidx mp4 box). Extracted mp4: [sidx-trunc](uploads/e7ae787bec782917058013cb79e12ed0/sidx-trunc.mp4).
 
 ### Spanning Tree Protocol
