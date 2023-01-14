@@ -450,6 +450,9 @@ Packet #5 - MP4 segment (sidx mp4 box). Extracted mp4: [sidx-trunc](uploads/e7ae
 #### ALC/LCT ROUTE/DASH, MMTP
 
 Standards/Specifications: ATSC3 A/331, RFC 5651, RFC 5775, ISO/IEC 23008-1
+
+Encapsulation: alp:ip:udp:alc
+
 [ch11-25-slt.pcap](uploads/35812d74f0d49a361a36491d69697052/ch11-25-slt.pcap) (libpcap) - Collected using SiliconDust from different ATSC3 stations. Includes signalling and data packets (ROUTE/DASH and MMTP)
 
 
