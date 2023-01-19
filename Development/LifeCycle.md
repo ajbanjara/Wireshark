@@ -81,7 +81,7 @@ In order to limit the development burden, support for a (old-)stable release is 
 
 | Version | Stable Release Date | End of Support               | Notes |
 |----|----|----|----|
-| 4.2     | Q4, 2022            | Release + 18 or more months | Support ends when 4.6.0 is released.                                                                           |
+| 4.2     | Q4, 2023            | Release + 18 or more months | Support ends when 4.6.0 is released.                                                                           |
 | 4.0     | September 28, 2022  | Release + 18 or more months | Support ends when 4.4.0 is released.                                                                           |
 | 3.6     | November 22, 2021   | May 22, 2024 | Long term support (LTS). Last release to support 32-bit Windows. Last release to support Red Hat EL 7. Last release to support SUSE Linux ES 12. |
 | 3.4     | October 29, 2020    | April 29, 2022 or later | Support ends when 4.0.0 is released.                                                                           |
