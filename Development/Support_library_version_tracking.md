@@ -136,7 +136,7 @@ See also https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-Li
 | 3.10.0 | Nov 2017 | Minimum required version for non-Windows (as of Apr 2022, v3.7.0rc0-1889-g3407992cb4). Ubuntu 18.04 (3.10.2); SLES 15 (3.10.2) |
 | 3.11.0 | Mar 2018 | RHEL8 (3.11.4) |
 | 3.12.2 | Sep 2018 | EPEL7: available as cmake3; Ubuntu 18.10 (3.12.1); Travis Xenial (3.12.4) (\*2) |
-| 3.13.0 | Nov 2018 | Debian Stretch-backports (3.13.2); Debian Buster (3.13.4); Minimum required version for Windows (as of Sep 2019, v3.1.1rc0-398-g990e409273) |
+| 3.13.0 | Nov 2018 | Debian Stretch-backports (3.13.2); Debian Buster (3.13.4); Minimum required version for Windows (as of Sep 2019, v3.1.1rc0-398-g990e409273) and non-Windows (as of Nov 2022, v4.1.0rc0-848-gd7ae26bf6c) |
 | 3.14.0 | Mar 2019 | Initial VS 2019 generator |
 | 3.15.0 | Jul 2019 |  |
 | 3.16.0 | Nov 2019 | Ubuntu 20.04 (3.16.3) |
