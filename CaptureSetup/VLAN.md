@@ -74,7 +74,7 @@ For some of the more sophisticated adapters, a flag can be set to disable the st
 
 Some Intel Ethernet adapters and their drivers will, by default, strip VLAN tags when processing packets or strip tagged packets completely. If you want to see the VLAN tags when capturing on one of those adapters in promiscuous mode on Windows, you will need to disable this feature. You may also need to upgrade your driver for that. This is unrelated to working with Intel's specialized driver that adds VLAN support (see below).
 
-See [Intel's original support note on this](http://www.intel.com/support/network/sb/cs-005897.htm) for more details.
+See [Intel's original support note on this](https://www.intel.com/content/www/us/en/support/articles/000005498/ethernet-products.html) for more details.
 
 ##### Broadcom
 
