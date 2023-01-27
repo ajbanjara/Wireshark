@@ -218,6 +218,8 @@ A protocol can belong to more than one family.
 
   - [PCP](/PCP): Performance Co-Pilot protocol (a performance monitoring protocol)
 
+  - [PPI](/PPI): Per-Packet Information (PPI) header
+
   - [Protobuf](/Protobuf): Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data.
 
   - [SAMETIME](/SAMETIME): The Sametime Protocol (an instant message protocol)
