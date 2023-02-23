@@ -62,13 +62,7 @@ To help DDD locate your source files while debugging, "cd" into the directory wh
 
 ## Debugging without Optimization
 
-If you are debugging and optimization is a problem (for example, the line numbers displayed when stepping through the code don't appear to line up with what's actually being executed), use the steps in the subsections below to disable optimizations when building.
-
-(Steps for autotools and cmake are listed below. If you know the steps for building with nmake, feel free to add them.)
-
-### Building without optimizations using cmake
-
-Set the `CMAKE_BUILD_TYPE` to `Debug`. Ex:
+If you are debugging and optimization is a problem (for example, the line numbers displayed when stepping through the code don't appear to line up with what's actually being executed), set the `CMAKE_BUILD_TYPE` to `Debug` to disable optimizations when building by following steps like the ones below:
 
 ```
 mkdir build
@@ -77,16 +71,6 @@ cmake -DCMAKE_BUILD_TYPE=Debug ..
 make
 gdb run/tshark
 ```
-
-### Building without optimizations using autotools
-
-If you are debugging a specific dissector and optimization is a problem:
-
-  - edit epan/dissectors/Makefile and take out the "-O2" (there should only be two instances of it)
-
-  - touch the .c file(s) which contain the code being debugged
-
-  - `make -C epan`
 
 ## Reducing libtool verbosity
 
