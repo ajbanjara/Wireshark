@@ -93,10 +93,13 @@ Using this shortcut the GDB example above can be shortened to:
 
 ## Debugging using Valgrind
 
-[Valgrind](http://valgrind.org/) dynamically analyzes programs and is great at catching memory-related errors. By default it won't catch bugs in Wireshark's chunk allocator (emem.c). Fortunately you can tell Wireshark to use g\_malloc instead of the chunk allocator at runtime:
+[Valgrind](http://valgrind.org/) dynamically analyzes programs and is great at catching memory-related errors. However, it won't catch bugs in Wireshark's memory management framework (wmem, implemented inside `wsutil/wmem/`) when using the default block memory allocators. Fortunately, you can tell Wireshark at runtime to use wmem's "simple" allocator instead, which uses malloc and a hash table and is friendly to Valgrind:
 
-    export WIRESHARK_DEBUG_EP_NO_CHUNKS=1
-    export WIRESHARK_DEBUG_SE_NO_CHUNKS=1
+    export WIRESHARK_DEBUG_WMEM_OVERRIDE=simple
+
+Similarly, GLib's GSlice memory allocator (used by some Wireshark code that does not use wmem) can be made to use malloc with another environment variable:
+
+    export G_SLICE=always-malloc
 
 Assuming you have the *lx* shortcut defined (above) you and check for memory problems like so:
 
@@ -106,22 +109,31 @@ Assuming you have the *lx* shortcut defined (above) you and check for memory pro
 
 [AddressSanitizer (ASAN)](https://github.com/google/sanitizers/wiki/AddressSanitizer) can catch memory-safety issues at runtime, including use-after-free, double-free, buffer overflow and memory leaks. It requires GCC or Clang and works on Linux and macOS. MSVC on Windows is not supported.
 
-To get started, build Wireshark with `cmake -DENABLE_ASAN=1`. For improved debugging, set some extra environment variables before running programs:
+To get started, build Wireshark with `cmake -DENABLE_ASAN=1`.
 
-    # Reduce false negatives by forcing malloc for every allocation.
-    export WIRESHARK_DEBUG_WMEM_OVERRIDE=simple
-    export G_SLICE=always-malloc
-    # The following options are only recommended when investigating
-    # memory leaks. The first option slows down a lot but results in
-    # more precise backtraces. The second option prints addresses of
-    # leaked objects which can be inspected in a debugger.
-    export ASAN_OPTIONS=fast_unwind_on_malloc=0:report_objects=1
+**Note:** ASAN slows things down by a factor of 2 (or more), so having a separate build directory for a ASAN build is useful.
+
+A variety of environment variables are useful for debugging with ASAN.
+
+The block allocators used by wmem can prevent ASAN from catching some errors. To detect errors, either use the `malloc` based allocators as with Valgrind, or set the memory allocators for wmem and GSlice to the allocators that track memory usage with canaries and inspecting freed memory (ASAN handles these better than Valgrind does):
+
+    export WIRESHARK_DEBUG_WMEM_OVERRIDE=strict
+    export G_SLICE=debug-blocks
+
+For investigating memory leaks, the following options can be useful:
+
+    # This slows down a lot more but results in more precise backtraces,
+    # especially when calling C++ standard library functions.
+    export ASAN_OPTIONS=fast_unwind_on_malloc=0
+    # This causes LeakSanitizer to print the addresses of leaked objects
+    # for inspection in a debugger.
+    export LSAN_OPTIONS=report_objects=1
 
 If you are just interested in memory safety checks, but not memory leak debugging, simply disable the latter with:
 
     export ASAN_OPTIONS=detect_leaks=0
 
-These ASAN options are documented at <https://github.com/google/sanitizers/wiki/AddressSanitizerFlags>
+These ASAN options and others are documented at <https://github.com/google/sanitizers/wiki/AddressSanitizerFlags>
 
 ## Running dumpcap on Linux as unprivileged user
 
