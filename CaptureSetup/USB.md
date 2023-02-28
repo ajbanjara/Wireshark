@@ -75,7 +75,7 @@ as root, for example by running
 
 `sudo ifconfig XHC20 up`
 
-[In macOS Catalina, you apparently have to disable System Integrity Protection to capture USB traffic](https://forums.developer.apple.com/thread/124875).
+[In macOS Catalina and later releases, you apparently have to disable System Integrity Protection to capture USB traffic](https://forums.developer.apple.com/thread/124875).
 
 ## Windows
 
