@@ -302,6 +302,8 @@ These tools attempt to repair damaged capture files as much as can be done.
 
 ### Capture file tools
 
+  - [bpfexam](https://www.tcpdump.org/bpfexam/) This tool illustrates the theory of Berkeley Packet Filter compilation and the practice of its reference implementation in libpcap. It can be used for troubleshooting and debugging as well.
+
   - [Brim](https://www.brimsecurity.com/) A new way to browse, store and archive your logs (Windows, macOS, Linux, [BSD 3-Clause License](https://github.com/brimsec/brim/blob/master/LICENSE.txt))
 
   - [Brute Shark](https://github.com/odedshimon/BruteShark) a Network Forensic Analysis Tool (NFAT) that performs deep processing and inspection of network traffic (mainly PCAP files). (Windows, Linux, [GPLv3](https://github.com/odedshimon/BruteShark/blob/master/LICENSE))
