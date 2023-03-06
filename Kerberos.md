@@ -22,6 +22,8 @@ Kerberos was initially developed as a pure authentication system but is today al
 
 The Kerberos dissector is fully functional and can if compiled and linked with either Heimdal or MIT kerberos libraries decrypt Kerberos tickets given that a keytab file containing the shared secrets is provided. This support is available for Linux/Unix. Windows support for this feature was added in 0.99.3. This feature also provides decryption of several protocols using GSS-API and Kerberos such as [LDAP](/LDAP) and [DCE/RPC](/DCE/RPC).
 
+You can refer to this tutorial: [Decrypt Kerberos/NTLM “encrypted stub data” in Wireshark](https://medium.com/tenable-techblog/decrypt-encrypted-stub-data-in-wireshark-deb132c076e7), or the steps below.
+
 #### How to Create Keytab File
 
 Various utilities can be used to create a keytab file on various OSes.
