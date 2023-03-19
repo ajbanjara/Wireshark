@@ -23,7 +23,7 @@ But after providing the password/hash, it becomes "decrypted stub data" (even th
 ![decrypted_stub](uploads/32b3687674dd3adc4e957061f0dfe79a/decrypted_stub.png)
 
 ### By providing the NT hash in a keytab file
-If you only have the NT hash (aka "NTLM hash" ) of the account, you can still decrypt NTLM encrypted traffic by providing the hash in a keytab file (yes it's surprising since a keytab file is usually meant for Kerberos, but it works!). You can refer to this [Decrypt Kerberos/NTLM “encrypted stub data” in Wireshark](https://medium.com/tenable-techblog/decrypt-encrypted-stub-data-in-wireshark-deb132c076e7#e6a4) tutorial which describes how to create the keytab file and to pass it to Wireshark.
+If you only have the NT hash (aka "NTLM hash" ) of the account, you can still decrypt NTLM encrypted traffic by providing the hash in a keytab file (yes it's surprising since a keytab file is usually meant for Kerberos, but it works!). You can refer to this [Decrypt Kerberos/NTLM “encrypted stub data” in Wireshark](https://medium.com/tenable-techblog/decrypt-encrypted-stub-data-in-wireshark-deb132c076e7#e6a4) tutorial which describes how to create the keytab file and to pass it to Wireshark. This technique is also explained in this Capture-the-Flag challenge write-up: [Insomni'Hack Teaser 2023 - Autopsy](https://tipi-hack.github.io/2023/01/22/insomnihack-teaser-autopsy.html)
 
 ### By providing the plaintext password in the "NT Password" setting
 
