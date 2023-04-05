@@ -86,7 +86,7 @@ None yet.
 <td><p>1.5</p></td>
 <td><p>unknown</p></td>
 <td><p>This plugin dissects the <a href="https://guacamole.apache.org/doc/gug/guacamole-protocol.html" class="https">Guacamole Protocol</a></p></td>
-<td></td>
+<td><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Guacamole" class="https">/Lua/Examples/Guacamole</a></td>
 </tr>
 <tr class="even">
 <td><p><a href="https://github.com/diarmuidcwc/LuaDissectors" class="https">inetx_generic.lua, et al</a></p></td>
