@@ -1,6 +1,6 @@
 # How to Decrypt 802.11
 
-Wireshark can decrypt WEP and WPA/WPA2 in pre-shared (or personal) mode. WPA/WPA2 enterprise mode decryption works also since Wireshark 2.0, with some limitations.
+Wireshark can decrypt WEP and WPA/WPA2/WPA3 in pre-shared (or personal) mode. WPA/WPA2 enterprise mode decryption works also since Wireshark 2.0, with some limitations.
 
 You can add decryption keys using Wireshark's 802.11 preferences or by using the wireless toolbar. Up to 64 keys are supported.
 
@@ -85,6 +85,12 @@ WPA and WPA2 use individual keys for each device. Older versions of Wireshark ma
 As long as you can somehow extract the PMK from either the client or the Radius Server and configure the key (as PSK) all supported Wireshark versions will decode the traffic just fine up to the first eapol rekey.
 
 Eapol rekey is often enabled for WPA/WPA2 enterprise and will change the used encryption key similar to the procedure for the initial connect, but it can also be configured and used for pre-shared (personal) mode. Wireshark 2.0 (v1.99.6rc0-454-g1439eb6 or newer) is needed if you want decode packets after a rekey.
+
+## WPA3 Per-Connection Decryption
+
+In WPA3, a different PMK is used for each connection in order to achieve forward secrecy. Capturing the 4-way handshake and knowing the network password is not enough to decrypt packets; you must obtain the PMK from either the client or access point (typically by enabling logging in wpa_supplicant or hostapd with the `-d -K` flags) and use this as the decryption key in Wireshark. Even then, the decryption will only work for packets between that client and access point, not for all devices on that network.
+
+See more discussion on the [mailing list](https://www.wireshark.org/lists/wireshark-dev/201903/msg00067.html) and [forum](https://ask.wireshark.org/question/30703/how-to-decode-wpa3_sae-using-cmds-in-linux-via-tshark/).
 
 ## Examples
 
