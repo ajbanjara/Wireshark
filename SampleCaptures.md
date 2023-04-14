@@ -1806,6 +1806,7 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 ADWS (Active Directory Web Services) relies on [WCF](https://learn.microsoft.com/en-us/dotnet/framework/wcf/) which relies on [[MC-NMF]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/mc-nmf/0aab922d-8023-48bb-8ba2-c4d3404cc69d) and [[MS-NNS]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nns/93df08eb-a6c4-4dff-81c3-519cf7236df4)
 
 In this capture file we have, the first TCP connection using SPNEGO with Kerberos and the second using raw NTLM (without SPNEGO). The targeted server for both is the same but one via FQDN (so Kerberos ticket retrieval worked) and the second via IP.
+
 [wcf_nettcpbinding.pcapng](uploads/1f2351885a425ae58c1d544f4c11c3ca/wcf_nettcpbinding.pcapng)
 
 ## Captures in specific file formats
