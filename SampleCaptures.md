@@ -8,17 +8,15 @@ If you don't see what you want here, that doesn't mean you're out of luck; look 
 
 ## How to add a new Capture File
 
-If you want to include a new example capture file, you should attach it to this page (click 'attachments' in header above). In the corresponding text, you might explain what this file is doing and what protocols, mechanisms or events it explains. Links from here to the related protocol pages are also welcome.
+If you want to include a new example capture file, you should attach it to this page (click 'Attach a file or image' in the formatting barabove). In the corresponding text, you might explain what this file is doing and what protocols, mechanisms or events it explains. Links from here to the related protocol pages are also welcome.
 
-**Please** don't just attach your capture file to the page without putting an attachment link in the page, in the format `attachment:filename.ext`; if you don't put an attachment link in the page, it's not obvious that the capture file is available.
-
-It's also a very good idea to put links on the related protocol pages pointing to your file. Referring to an attachment on this page from another Wiki page requires a link on that other Wiki page in the format `attachment:SampleCaptures/filename.ext`. For an example of this, see the [NetworkTimeProtocol](/NetworkTimeProtocol) page.
+It's also a very good idea to put links on the related protocol pages pointing to your file. Referring to an attachment on this page from another Wiki page requires to copy the link to the file. For an example of this, see the [NTP] page.
 
 ## Other Sources of Capture Files
 
 If you don't find what you're looking for, you may also try:
 
-* http://www.google.com/
+* https://www.google.com/
 * http://www.icir.org/enterprise-tracing/download.html (unsorted capture of packet headers from enterprise traffic - use the .anon files)
 * https://www.openpacket.org/capture/list (open repository of traces particularly related to digital security)
 * https://packetlife.net/captures/ (community submissions, organized and moderated)
@@ -2017,9 +2015,5 @@ As of this writing, there are 634 files matching that filter which have a total 
 Does anyone have a sample trace of Q-in-Q (IEEE 802.1ah) or MAC-in-MAC? If you add either to these samples, I would appreciate if you drop me a note at richman30@ix.netcom.com . Thank you.
 
 \--LMR
-
----
-
-## How to add a new capture file? The instruction above seems to be for an old version of the wiki software (the method is different), and it's not clear where the upload should go: is there supposed to be an attachments folder? Or is that just an artifact of the old attachments process?
 
 ---
