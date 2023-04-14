@@ -8,9 +8,9 @@ If you don't see what you want here, that doesn't mean you're out of luck; look 
 
 ## How to add a new Capture File
 
-If you want to include a new example capture file, you should attach it to this page (click 'Attach a file or image' in the formatting barabove). In the corresponding text, you might explain what this file is doing and what protocols, mechanisms or events it explains. Links from here to the related protocol pages are also welcome.
+If you want to include a new example capture file, you should attach it to this page (click 'Attach a file or image' in the formatting bar above). In the corresponding text, you might explain what this file is doing and what protocols, mechanisms or events it explains. Links from here to the related protocol pages are also welcome.
 
-It's also a very good idea to put links on the related protocol pages pointing to your file. Referring to an attachment on this page from another Wiki page requires to copy the link to the file. For an example of this, see the [NTP] page.
+It's also a very good idea to put links on the related protocol pages pointing to your file. Referring to an attachment on this page from another Wiki page requires to copy the link to the file. For an example of this, see the [NTP](NTP) page.
 
 ## Other Sources of Capture Files
 
