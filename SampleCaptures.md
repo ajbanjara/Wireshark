@@ -1803,7 +1803,7 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 [greb_filterlist.pcap](uploads/d9bfb8281125a1d71ed9d138a4d491ea/greb_filterlist.pcap) Notify incl. filter list
 
 ### ADWS
-ADWS (Active Directory Web Services) relies on [WCF](https://learn.microsoft.com/en-us/dotnet/framework/wcf/) which relies on [[MC-NMF]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/mc-nmf/0aab922d-8023-48bb-8ba2-c4d3404cc69d) and [[MS-NNS]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nns/93df08eb-a6c4-4dff-81c3-519cf7236df4)
+ADWS (Active Directory Web Services) relies on [WCF](https://learn.microsoft.com/en-us/dotnet/framework/wcf/) which relies on [\[MC-NMF\]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/mc-nmf/0aab922d-8023-48bb-8ba2-c4d3404cc69d) and [\[MS-NNS\]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nns/93df08eb-a6c4-4dff-81c3-519cf7236df4)
 
 In this capture file we have, the first TCP connection using SPNEGO with Kerberos and the second using raw NTLM (without SPNEGO). The targeted server for both is the same but one via FQDN (so Kerberos ticket retrieval worked) and the second via IP.
 
