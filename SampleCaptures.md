@@ -38,8 +38,6 @@ If you don't find what you're looking for, you may also try:
 
 [tfp_capture.pcapng](uploads/__moin_import__/attachments/SampleCaptures/tfp_capture.pcapng) (libpcap) Tinkerforge protocol captures over TCP/IP and USB.
 
-[NTLM.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTLM-wenchao.pcap) (libpcap) Illustrate [NTLM](/NTLMSSP) authentication process, based on WSS 3.0
-
 [Obsolete_Packets.cap](uploads/__moin_import__/attachments/SampleCaptures/Obsolete_Packets.cap) (libpcap) Contains various obscure/no longer in common use protocols, including Banyan VINES, [AppleTalk](/AppleTalk) and DECnet.
 
 [Apple_IP-over-IEEE_1394_Packet.pcap](uploads/__moin_import__/attachments/SampleCaptures/Apple_IP-over-IEEE_1394_Packet.pcap) (libpcap) An ICMP packet encapsulated in Apple's IP-over-1394 (ap1394) protocol
@@ -1803,11 +1801,21 @@ Please refer to [Thrift dissector description page](/Thrift) for how to use the 
 [greb_filterlist.pcap](uploads/d9bfb8281125a1d71ed9d138a4d491ea/greb_filterlist.pcap) Notify incl. filter list
 
 ### ADWS
-ADWS (Active Directory Web Services) relies on [WCF](https://learn.microsoft.com/en-us/dotnet/framework/wcf/) which relies on [MC-NMF](https://learn.microsoft.com/en-us/openspecs/windows_protocols/mc-nmf/0aab922d-8023-48bb-8ba2-c4d3404cc69d) and [MS-NNS](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nns/93df08eb-a6c4-4dff-81c3-519cf7236df4)
+ADWS (Active Directory Web Services) relies on [WCF](https://learn.microsoft.com/en-us/dotnet/framework/wcf/) which relies on [[MC-NMF]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/mc-nmf/0aab922d-8023-48bb-8ba2-c4d3404cc69d) and [[MS-NNS]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nns/93df08eb-a6c4-4dff-81c3-519cf7236df4)
 
 In this capture file we have, the first TCP connection using SPNEGO with Kerberos and the second using raw NTLM (without SPNEGO). The targeted server for both is the same but one via FQDN (so Kerberos ticket retrieval worked) and the second via IP.
 
 [wcf_nettcpbinding.pcapng](uploads/1f2351885a425ae58c1d544f4c11c3ca/wcf_nettcpbinding.pcapng)
+
+### NTLMSSP
+See [NTLMSSP](NTLMSSP)
+
+[NTLM.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTLM-wenchao.pcap) (libpcap) Illustrate [NTLM](/NTLMSSP) authentication process, based on WSS 3.0
+
+Scheduled tasks creation using the `SchRpcRegisterTask` RPC method from the [[MS-TSCH]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-tsch/d1058a28-7e02-4948-8b8d-4a347fa64931) protocol. Auth uses NTLMSSP and RPC trafic can be decrypted (as described in [NTLMSSP](NTLMSSP)) using password "clem":
+
+* With NTLMv1 ESS (Extended Session Security): [create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv1_ESS__password_clem.pcapng](uploads/53f6885e55de6c7ac0c8b516793f3aea/create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv1_ESS__password_clem.pcapng)
+* With NTLMv2: [create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv2__password_clem.pcapng](uploads/43f6d21d7fd73ff9b5e3e58b9bdb0604/create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv2__password_clem.pcapng)
 
 ## Captures in specific file formats
 
