@@ -1163,6 +1163,11 @@ Description: smbtorture in Samba's make test. Frame 34 contains a rpc_sec_verifi
 File [dcerpc_witness.pcapng](uploads/__moin_import__/attachments/SampleCaptures/dcerpc_witness.pcapng)\
 Description: Sample Witness traffic
 
+#### MS-TSCH Interface
+Create two scheduled tasks with the `SchRpcRegisterTask` method, then listing all the tasks using the `SchRpcEnumTasks` methods. Trafic is in cleartext. See equivalent files with encrypted trafic [#ntlmssp](below)
+
+[create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_CONNECT_NTLMv2.pcapng](uploads/40d16f2106f8f5bd3e2b7bb19547f43e/create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_CONNECT_NTLMv2.pcapng)
+
 ### IPsec
 
 #### Example 1: [ESP](/ESP) Payload Decryption and Authentication Checking Examples
