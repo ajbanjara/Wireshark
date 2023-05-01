@@ -1812,7 +1812,7 @@ See [NTLMSSP](NTLMSSP)
 
 [NTLM.pcap](uploads/__moin_import__/attachments/SampleCaptures/NTLM-wenchao.pcap) (libpcap) Illustrate [NTLM](/NTLMSSP) authentication process, based on WSS 3.0
 
-Scheduled tasks creation using the `SchRpcRegisterTask` RPC method from the [[MS-TSCH]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-tsch/d1058a28-7e02-4948-8b8d-4a347fa64931) protocol. Auth uses NTLMSSP and RPC trafic can be decrypted (as described in [NTLMSSP](NTLMSSP)) using password "clem":
+Usage of the [[MS-TSCH]](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-tsch/d1058a28-7e02-4948-8b8d-4a347fa64931) MS-RPC protocol, to create two scheduled tasks with the `SchRpcRegisterTask` method, then listing all the tasks using the `SchRpcEnumTasks` methods. Auth uses NTLMSSP and RPC trafic can be decrypted (as described in [NTLMSSP](NTLMSSP)) using password "clem":
 
 * With NTLMv1 ESS (Extended Session Security): [create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv1_ESS__password_clem.pcapng](uploads/53f6885e55de6c7ac0c8b516793f3aea/create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv1_ESS__password_clem.pcapng)
 * With NTLMv2: [create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv2__password_clem.pcapng](uploads/43f6d21d7fd73ff9b5e3e58b9bdb0604/create_two_tasks_then_enum_RPC_C_AUTHN_LEVEL_PKT_PRIVACY_NTLMv2__password_clem.pcapng)
