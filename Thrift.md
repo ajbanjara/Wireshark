@@ -1021,7 +1021,7 @@ This is the first time we use the `armeria_common_<structure_name>_element` we d
 
 The last types we need to define in this sub-dissector are the exceptions.
 
-As explained in the generic part, the exceptions are exactly like structures when we consider them from serialization point of vue, the only difference being the authorized use inside an application using Thrift RPC.
+As explained in the generic part, the exceptions are exactly like structures when we consider them from serialization point of view, the only difference being the authorized use inside an application using Thrift RPC.
 
 With that in mind, the dissection of the exceptions for the Armeria protocol comes easy as the structures only contain basic types.
 
