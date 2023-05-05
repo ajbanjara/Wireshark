@@ -85,6 +85,14 @@ Notice that the last "`read_format:Fileshark Pcap`" argument is encased in sing
    8 end
 ```
 
+Can also be done with an integer range:  
+([What is the syntax for an "Integer range" for the dissectortable:add(pattern, dissector) function?](https://ask.wireshark.org/question/31445/what-is-the-syntax-for-an-integer-range-for-the-dissectortableaddpattern-dissector-function/))
+```
+local tcp_port_table = DissectorTable.get("tcp.port")
+local http_dissector = tcp_port_table:get_dissector(80)
+tcp_port_table:add("4888-4891",http_dissector)
+```
+
 </div>
 </div>
 
