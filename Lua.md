@@ -61,15 +61,15 @@ To test Lua on your system, do the following:
      1   0.000000 111.123.234.55 -> 111.123.234.255 NBNS Name query NB XXX.COM<00>
     ```
 
-If you can read "hello world\!" in the first line after you run tshark Lua is ready to go\!
+If you can read "hello world\!" in the first line after you run `tshark`, Lua is ready to go\!
 
 :warning: Please note: On Windows, you may not see any output when running Lua scripts in Wireshark. If the console window is enabled it will be opened **after** the Lua engine is loaded. This does not affect TShark, since it is a console program.
 
 ## How Lua fits into Wireshark
 
-Every time wireshark starts it will search for a script called `init.lua` located in the global configuration directory of Wireshark. If Wireshark finds this file it will run the script.
+Every time Wireshark starts it will search for a script called `init.lua` located in the global configuration directory of Wireshark. If Wireshark finds this file it will run the script.
 
-Once *\<global configuration directory\>*`/init.lua` has run that there are two variables that tell wireshark whether to continue looking for scripts.
+Once *\<global configuration directory\>*`/init.lua` has run that there are two variables that tell Wireshark whether to continue looking for scripts.
 
 If the first init script sets the variable `disable_lua` to `true` Wireshark will stop reading scripts and shut down the Lua engine right after the script was run.
 
@@ -93,7 +93,10 @@ For a view of the Lua API internals and the steps used to create the `wsluarm`, 
 
 Examples of generic Lua code can be found in [The Sample Code](http://lua-users.org/wiki/SampleCode) page of Lua-Users wiki.
 
-Examples of wireshark and tshark specific scripts can be found in [the Lua examples wiki page](/Lua/Examples), as well as on the [Contrib repository wiki page](/Contrib) and the Wireshark Developer’s Guide [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html).  
+Examples of Wireshark and TShark specific scripts:  
+- [Lua examples wiki page](/Lua/Examples)  
+- [Contrib repository wiki page](/Contrib)  
+- the Wireshark Developer’s Guide (WSDG) [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
   
 [EASYPOST.lua](uploads/6f35ec7531e1557df3f2964c81d80510/EASYPOST.lua) - a template to copy a field, modify the data and add as a new Protocol field.  
 
