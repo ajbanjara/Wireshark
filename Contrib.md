@@ -364,6 +364,15 @@ For more details visit homepage at <a href="https://github.com/gr8drag1/gd_tcfla
 <td><p>unknown</p></td>
 <td><p>You can use the <a href="http://netzob.readthedocs.org/en/latest/index.html" class="http">Netzob application</a>'s exporter to automatically generate Wireshark Lua-based dissectors for proprietary or undocumented protocols, as Lua plugin scripts. (i.e., it generates the Lua scripts to use in Wireshark)</p></td>
 </tr>
+
+<tr class="odd">
+<td><p><a href="https://github.com/netspooky/dissectors" class="http">netspooky/dissectors</a></p></td>
+<td><p>N/A</p></td>
+<td><p>unknown</p></td>
+<td><p>Apple Bluetooth Protocol dubbed "Continuity"<br>
+BGB Emulator Link Cable Protocol<br>
+Postgres Stats Collector Protocol</p></td>
+</tr>
 </tbody>
 </table>
 
