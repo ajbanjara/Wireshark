@@ -95,6 +95,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 3.6.7 | Mar 2019 | Debian Buster, SLES15 SP2 / OpenSUSE Leap 15.2 |
 | 3.6.8 | May 2019 | RHEL8 |
 | 3.6.13 | Mar 2020 | Ubuntu 20.04LTS |
+| 3.7.9 | Feb 2023 | Windows releases from v4.1.0rc0-2510-g46dd9c31bb |
 
 ## Libgcrypt
 
