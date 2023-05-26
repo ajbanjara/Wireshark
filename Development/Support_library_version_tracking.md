@@ -119,6 +119,7 @@ Note: GnuTLS has a stable branch, and sometimes a development branch and/or a pr
 | 1.8.2 | Dec 2017 | SLES 15 |
 | 1.8.3 | Jun 2018 | Windows releases from v2.9.0rc0-1361-g4d015678, Debian Buster, RHEL8 |
 | 1.8.5 | Aug 2019 | Ubuntu 20.04LTS |
+| 1.10.2 | Apr 2023 | Windows releases from v4.1.0rc0-2503-g035f9531f3 |
 
 ## CMake
 
