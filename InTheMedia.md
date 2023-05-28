@@ -5,6 +5,7 @@ This site is to collect Movies and TV-Shows where Wireshark has been featured
 ## Movies
 
 * [Firewall](https://en.wikipedia.org/wiki/Firewall_(film))
+  ![Firewall_Movie_Screenshot_Wireshark](uploads/c7ed96fbf0d8537b7fc73417b209cae1/Firewall_Movie_Screenshot_Wireshark.png)
 
 ## TV-Shows
 
