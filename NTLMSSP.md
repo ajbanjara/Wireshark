@@ -18,7 +18,7 @@ Then, before providing the password/hash, the `DsGetDomainControllerInfo` reques
 
 ![encrypted_stub](uploads/60c5cc65489f340d1bf71efaf3cf29b5/encrypted_stub.png)
 
-But after providing the password/hash, it becomes "decrypted stub data" (even though it seems invalid so there's potentially a bug!):
+But after providing the password/hash, it becomes "decrypted stub data" (decrypted data is invalid in this screenshot due to bug [#19000](https://gitlab.com/wireshark/wireshark/-/issues/19000) which was fixed in v4.0.6, backported to v3.6.14)
 
 ![decrypted_stub](uploads/32b3687674dd3adc4e957061f0dfe79a/decrypted_stub.png)
 
