@@ -29,7 +29,7 @@ To make use of the ASCII Table from `tshark`, first set the `PRINT_ASCII` enviro
 ***Tshark Example*** - Print the octal values of the ASCII table
 
 ```
-set PRINT_ASCII=BIN
+set PRINT_ASCII=OCT
 "C:\Program Files\Wireshark\tshark.exe" -2G help 2> NUL
 
   Oct       Oct       Oct       Oct       Oct       Oct       Oct       Oct
