@@ -333,7 +333,7 @@ class="attachment">tls_conversations.lua</a></p></td>
 
 <tr class="even">
 <td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/ascii" class="https">ascii.lua</a></p></td>
-<td><p>1.2</p></td>
+<td><p>1.4</p></td>
 <td><p>unknown</p></td>
 <td><p>Displays the ASCII table.</p></td>
 </tr>
