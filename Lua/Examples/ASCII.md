@@ -11,10 +11,10 @@ It can also be invoked by [`tshark`](https://www.wireshark.org/docs/man-pages/ts
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
 
-[ascii.lua](uploads/0748db71f39020ea014af08824f36ff6/ascii.lua)
+[ascii.lua](uploads/a02e6d5bf6644a3bfa573272df375bf1/ascii.lua)
 
 **Example** - Display Hexadecimal and Decimal values
-![ascii](uploads/367c143f1981834dec76e5b3b1d3b9b8/ascii.jpg)
+![ascii](uploads/1195b40a95401f126760d66fdf87bd0a/ascii.jpg)
 
 ## Tshark Support
 
