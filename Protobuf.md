@@ -2,7 +2,7 @@
 
 # Protocol Buffers (Protobuf)
 
-Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data. For a description of Protobuf refer to [Protocol Buffers home page](https://developers.google.com/protocol-buffers).
+Google Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data. For a description of Protobuf refer to [Protocol Buffers home page](https://protobuf.dev/).
 
 Change log about Wireshark supporting Protobuf:
 
@@ -74,7 +74,7 @@ message AddressBook {
 }
 ```
 
-According to the line `'import "google/protobuf/timestamp.proto"'`, the file `addressbook.proto` depends on the official \*.proto library of Protobuf.
+According to the line `'import "google/protobuf/timestamp.proto"'`, the file `addressbook.proto` depends on the official \*.proto library of Protobuf. (Library download at [The downloads page for protocol buffers](https://protobuf.dev/downloads/).)
 
 ### Protobuf Search Paths Settings
 
