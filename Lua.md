@@ -2,19 +2,19 @@
 
 ![Lua logo](uploads/__moin_import__/attachments/Lua/lua_logo.gif)
 
-Lua is a powerful light-weight programming language designed for extending applications. Lua is designed and implemented by a [team](http://www.lua.org/authors.html) at [PUC-Rio](http://www.puc-rio.br/), the Pontifical Catholic University of Rio de Janeiro in Brazil. Lua was born and raised at [Tecgraf](http://www.tecgraf.puc-rio.br/), the Computer Graphics Technology Group of PUC-Rio, and is now housed at [Lua.org](http://www.lua.org). Both Tecgraf and Lua.org are laboratories of the [Department of Computer Science](http://www.inf.puc-rio.br/).
+Lua is a powerful light-weight programming language designed for extending applications. Lua is designed and implemented by a [team](https://www.lua.org/authors.html) at [PUC-Rio](https://www.puc-rio.br/), the Pontifical Catholic University of Rio de Janeiro in Brazil. Lua was born and raised at [Tecgraf](https://www.tecgraf.puc-rio.br/), the Computer Graphics Technology Group of PUC-Rio, and is now housed at [Lua.org](https://www.lua.org/). Both Tecgraf and Lua.org are laboratories of the [Department of Computer Science](https://www.inf.puc-rio.br/).
 
 Lua's been added to Wireshark as a language for prototyping and scripting.
 
-For more information about Lua refer to [Lua's main site](http://www.lua.org), there you can find its [Reference Manual](http://www.lua.org/manual/5.0/manual.html) and a [book](http://www.lua.org/pil) that describes the language. There is also [The lua-users wiki](http://lua-users.org/wiki/). For the nickel tour see   - [Introducing Lua](https://web.archive.org/web/20120329183839/http://onlamp.com/pub/a/onlamp/2006/02/16/introducing-lua.html).
+For more information about Lua refer to [Lua's main site](https://www.lua.org), there you can find its [Reference Manual](https://www.lua.org/manual/5.0/manual.html) and a [book](https://www.lua.org/pil) that describes the language. There is also [The lua-users wiki](http://lua-users.org/wiki/). For the nickel tour see   - [Introducing Lua](https://web.archive.org/web/20120329183839/http://onlamp.com/pub/a/onlamp/2006/02/16/introducing-lua.html).
 
 [[_TOC_]]
 
 ## Beware the GPL
 
-Wireshark is released under [GPL](http://www.gnu.org/licenses/gpl.html) so every derivative work based on Wireshark must be released under the terms of the GPL.
+Wireshark is released under [GPL](https://www.gnu.org/licenses/gpl.html) so every derivative work based on Wireshark must be released under the terms of the GPL.
 
-:warning: Even if the code you write in Lua does not need to be GPL'ed. The code written in Lua that uses bindings to Wireshark must be distributed under the GPL terms. see the [GPL FAQ](http://www.gnu.org/licenses/gpl-faq.html#TOCIfInterpreterIsGPL) for more info :warning:
+:warning: Even if the code you write in Lua does not need to be GPL'ed. The code written in Lua that uses bindings to Wireshark must be distributed under the GPL terms. see the [GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html#TOCIfInterpreterIsGPL) for more info :warning:
 
 There is at least one Wireshark author that will not allow to distribute derivative work under different terms. To distribute Lua code that uses Wireshark's bindings under different terms would be a clear violation of the GPL.
 
