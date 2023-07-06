@@ -43,7 +43,7 @@ ktutil: quit
 
 AES256 is used by default in modern Windows environments. Use `rc4-hmac` for older environments (see the `etype` field to know the exact algorithm used).
 
-Second example: this time creating a keytab file if you know the key, and using algorithm `rc4-hmac` because the key is actually the NT hash (see [NTLMSSP])
+Second example: this time creating a keytab file if you know the key, and using algorithm `rc4-hmac` because the key is actually the NT hash (see [NTLMSSP](/NTLMSSP))
 ```
 $ ktutil
 ktutil:  addent -p adm-drp@inscorp.com -k 1 -key -e rc4-hmac
