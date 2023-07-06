@@ -32,7 +32,7 @@ Various utilities can be used to create a keytab file on various OSes.
 
 Both MIT and Heimdal Kerberos provide a tool called ktutil. It can be used to create a keytab file if you already know the principal's password or Kerberos key.
 
-Example. The following commands create a keytab file for a user in a Windows domain if you know the password. Here the MIT version of ktutil is used.
+First example: the following commands create a keytab file for a user in a Windows domain if you know the password. Here the MIT version of ktutil is used.
 
 ```
 >ktutil
@@ -42,6 +42,15 @@ ktutil: quit
 ```
 
 AES256 is used by default in modern Windows environments. Use `rc4-hmac` for older environments (see the `etype` field to know the exact algorithm used).
+
+Second example: this time creating a keytab file if you know the key, and using algorithm `rc4-hmac` because the key is actually the NT hash (see [NTLMSSP])
+```
+$ ktutil
+ktutil:  addent -p adm-drp@inscorp.com -k 1 -key -e rc4-hmac
+Key for adm-drp@inscorp.com (hex): 5c4dbe6a8a44446f8d2899ff08ea14f2
+ktutil:  wkt ins.keytab
+ktutil:  q
+```
 
 ##### ktpass.exe
 
