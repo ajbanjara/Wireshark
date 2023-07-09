@@ -988,7 +988,7 @@ Next come the `element` and `acceptable` structures which are both relatively ea
 
 The main point of attention in this case is the requiredness of each field, with optional resulting if the third member being `TRUE` and a required field showing a `FALSE` value.
 
-As previously explained, we could make our life easier considering all fields optional but Wireshark would not detect the missing madatory fields.
+As previously explained, we could make our life easier considering all fields optional but Wireshark would not detect the missing mandatory fields.
 
 #### Add line structure
 
