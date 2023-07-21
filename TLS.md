@@ -160,7 +160,7 @@ Examples of other applications:
 
 For a survey of supported TLS applications and libraries, see also [page 19 of Peter Wu's SSL/TLS Decryption SharkFest'18 EU presentation](https://lekensteyn.nl/files/wireshark-ssl-tls-decryption-secrets-sharkfest18eu.pdf#page=19).
 
-### Extracting decryption secrets to a text file:
+### Extracting decryption secrets to a text file
 Decryption secrets can be exported from within Wireshark with the "Export TLS Session Keys" Dialog, documented [here](https://www.wireshark.org/docs/wsug_html_chunked/ChIOExportSection.html#ChIOExportTLSSessionKeys)
 
 As of Wireshark 4.2, the secrets file exported with the "Export TLS Session Keys" dialog will only contain secrets actually referenced within the current packets.
