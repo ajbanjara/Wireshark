@@ -1818,6 +1818,12 @@ The two following examples show LDAP and DRSUAPI MS-RPC trafic that can be decry
 * [ntlm_ldap.pcapng](uploads/5fd073d53e914a16d5d40297b76893b1/ntlm_ldap.pcapng)
 * [ntlm_rpc.pcapng](uploads/13031c07486de60355d015782ab74e3b/ntlm_rpc.pcapng)
 
+### Zabbix Protocol
+
+- [zabbix70-proxy-and-agent.pcapng](uploads/70bcad147eed51f7781fd923275e3270/zabbix70-proxy-and-agent.pcapng): Zabbix 7.0.0alpha2, active proxy is talking to the server, active agent 2 is talking to the proxy
+- [zabbix30-proxy-and-agent.pcapng](uploads/a4226d1d2a97707d0ae8da09a1e97aab/zabbix30-proxy-and-agent.pcapng): Zabbix 3.0.32 (very old version!), active proxy is talking to the server, active agent is talking to the proxy
+
+
 ## Captures in specific file formats
 
 [i4b.trace](uploads/\__moin_import_\_/attachments/SampleCaptures/i4b.trace) An I4B (ISDN for BSD) capture file.
