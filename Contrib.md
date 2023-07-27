@@ -367,13 +367,20 @@ class="attachment">tls_conversations.lua</a></p></td>
 </tr>
 
 <tr class="odd">
+<td><p><a href="https://wiki.wireshark.org/Lua/Examples/MaskMaker" class="https">maskmaker.lua</a></p></td>
+<td><p>1.1</p></td>
+<td><p>unknown</p></td>
+<td><p>An IPv4 Mask Maker Tool.</p></td>
+</tr>
+
+<tr class="even">
 <td><p><a href="http://netzob.readthedocs.org/en/latest/tutorials/wireshark.html" class="http">Netzob</a></p></td>
 <td><p>N/A</p></td>
 <td><p>unknown</p></td>
 <td><p>You can use the <a href="http://netzob.readthedocs.org/en/latest/index.html" class="http">Netzob application</a>'s exporter to automatically generate Wireshark Lua-based dissectors for proprietary or undocumented protocols, as Lua plugin scripts. (i.e., it generates the Lua scripts to use in Wireshark)</p></td>
 </tr>
 
-<tr class="even">
+<tr class="odd">
 <td><p><a href="https://github.com/netspooky/dissectors" class="http">netspooky/dissectors</a></p></td>
 <td><p>N/A</p></td>
 <td><p>unknown</p></td>
@@ -382,11 +389,18 @@ BGB Emulator Link Cable Protocol<br>
 Postgres Stats Collector Protocol</p></td>
 </tr>
 
-<tr class="odd">
+<tr class="even">
 <td><p><a href="https://wiki.wireshark.org/Lua/Examples/OUILookup" class="https">ouilookup.lua</a></p></td>
 <td><p>1.3</p></td>
 <td><p>unknown</p></td>
 <td><p>An OUI Lookup Tool.</p></td>
+</tr>
+
+<tr class="odd">
+<td><p><a href="https://wiki.wireshark.org/Lua/Examples/SubnetCalculator" class="https">subnetcalc.lua</a></p></td>
+<td><p>1.1</p></td>
+<td><p>unknown</p></td>
+<td><p>An IPv4 Subnet Calculator.</p></td>
 </tr>
 </tbody>
 </table>
