@@ -391,7 +391,7 @@ Postgres Stats Collector Protocol</p></td>
 
 <tr class="even">
 <td><p><a href="https://wiki.wireshark.org/Lua/Examples/OUILookup" class="https">ouilookup.lua</a></p></td>
-<td><p>1.3</p></td>
+<td><p>1.4</p></td>
 <td><p>unknown</p></td>
 <td><p>An OUI Lookup Tool.</p></td>
 </tr>
