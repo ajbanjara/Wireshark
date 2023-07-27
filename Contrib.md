@@ -82,11 +82,11 @@ None yet.
 <td><p><a href="uploads/__moin_import__/attachments/Contrib/gits15.tar.gz" class="attachment">gits15.tar.gz</a></p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Guacamole" class="https">guacamole.lua</a></p></td>
+<td><p><a href="https://wiki.wireshark.org/Lua/Examples/Guacamole" class="https">guacamole.lua</a></p></td>
 <td><p>1.5</p></td>
 <td><p>unknown</p></td>
 <td><p>This plugin dissects the <a href="https://guacamole.apache.org/doc/gug/guacamole-protocol.html" class="https">Guacamole Protocol</a></p></td>
-<td><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/Guacamole" class="https">/Lua/Examples/Guacamole</a></td>
+<td><a href="https://wiki.wireshark.org/Lua/Examples/Guacamole" class="https">/Lua/Examples/Guacamole</a></td>
 </tr>
 <tr class="even">
 <td><p><a href="https://github.com/diarmuidcwc/LuaDissectors" class="https">inetx_generic.lua, et al</a></p></td>
