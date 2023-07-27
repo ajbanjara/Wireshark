@@ -383,7 +383,7 @@ Postgres Stats Collector Protocol</p></td>
 </tr>
 
 <tr class="odd">
-<td><p><a href="https://gitlab.com/wireshark/wireshark/-/wikis/Lua/Examples/OUILookup" class="https">ouilookup.lua</a></p></td>
+<td><p><a href="https://wiki.wireshark.org/Lua/Examples/OUILookup" class="https">ouilookup.lua</a></p></td>
 <td><p>1.3</p></td>
 <td><p>unknown</p></td>
 <td><p>An OUI Lookup Tool.</p></td>
