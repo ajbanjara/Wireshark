@@ -6,7 +6,7 @@ OUIs and MAC address searches should be colon-separated, but searches can includ
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
 
-[ouilookup.lua](uploads/06f2fb671e5d0b1d27d42e2a45479f5b/ouilookup.lua)
+[ouilookup.lua](uploads/3ce01240f9de117501fb1c4f8a4824b8/ouilookup.lua)
 
 **Examples:**
 - ^00:D0:EF
