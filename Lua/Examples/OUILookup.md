@@ -1,6 +1,6 @@
 # An OUI lookup tool.
 
-This Lua script adds a new GUI Menu to Wireshark that allows the user to lookup [OUI](https://en.wikipedia.org/wiki/Organizationally_unique_identifier)s and other MAC address prefixes.  It uses the locally installed `manuf` file for these lookups.  If you're looking for the online OUI Lookup Tool, visit: https://www.wireshark.org/tools/oui-lookup.html.
+This Lua script adds a new GUI Menu to Wireshark that allows the user to lookup [OUI](https://en.wikipedia.org/wiki/Organizationally_unique_identifier)s and other MAC address prefixes.  It uses the locally installed `manuf` file for these lookups.  If you're looking for the online OUI Lookup Tool, visit: [https://www.wireshark.org/tools/oui-lookup.html](https://www.wireshark.org/tools/oui-lookup.html).
 
 OUIs and MAC address searches should be colon-separated, but searches can include arbitrary text as well as Lua patterns.
 
@@ -16,6 +16,6 @@ OUIs and MAC address searches should be colon-separated, but searches can includ
 - ^00.*GmbH$
 - Inc.?$
 
-For help with Lua patterns, refer to https://www.lua.org/manual/5.2/manual.html#6.4.1
+For help with Lua patterns, refer to [https://www.lua.org/manual/5.2/manual.html#6.4.1](https://www.lua.org/manual/5.2/manual.html#6.4.1)
 
 ![ouilookup](uploads/573a77be178d52ea05f44828612b1a52/ouilookup.jpg)
