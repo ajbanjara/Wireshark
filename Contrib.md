@@ -340,7 +340,7 @@ class="attachment">tls_conversations.lua</a></p></td>
 
 <tr class="odd">
 <td><p><a href="https://wiki.wireshark.org/Lua/Examples/BaseConverter" class="https">baseconverter.lua</a></p></td>
-<td><p>1.1</p></td>
+<td><p>1.2</p></td>
 <td><p>unknown</p></td>
 <td><p>A 64-bit Base Converter Tool.</p></td>
 </tr>
