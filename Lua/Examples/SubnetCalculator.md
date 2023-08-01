@@ -4,7 +4,7 @@ This Lua script adds a new GUI Menu to Wireshark that allows the user to compute
 
 **Installation** - place in plugins directory - see [Lua Support in Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html)  
 
-[subnetcalc.lua](uploads/64d774b9d490c8b5fd39b696efabbf9a/subnetcalc.lua)
+[subnetcalc.lua](uploads/be04f1b8c71d490885e5fb623f4f4e65/subnetcalc.lua)
 
 **Help**
 
