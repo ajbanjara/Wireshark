@@ -99,8 +99,11 @@ The initial `packet-tcustom.c` file looks like that:
 void proto_register_tcustom(void);
 void proto_reg_handoff_tcustom(void);
 
+/* Return codes or assimilated. */
+#define NOT_AN_EXPECTED_PDU  (0)
+
 // Common helper definitions but not always needed (see containers and structures)
-#define TMUTF8 NULL, { .encoding = ENC_UTF_8|ENC_NA }
+#define TMUTF8 NULL, { .encoding = ENC_UTF_8 }
 #define TMRAW NULL, { .encoding = ENC_NA }
 
 static int proto_tcustom = -1;
@@ -148,7 +151,7 @@ As an "Hello World!"-level example, consider the following Thrift definition:
 ```c
 service HelloWorld {
   oneway void initialize(1: binary payload);
-  oneway void register(1: bool unregister, 2: string server_name, 3: i16 port);
+  oneway void registration(1: bool unregister, 2: string server_name, 3: i16 port);
   oneway void greetings(1: binary user_name_utf32le);
   oneway void good_bye();
 }
@@ -157,7 +160,7 @@ service HelloWorld {
 To handle this protocol, we need to create and register 3 functions, each responsible for one of the commands. Each function is created following this template:
 
 ```c
-// Here, the <command_name> will be one of register, initialize, and greetings
+// Here, the <command_name> will be one of registration, initialize, and greetings
 static int
 dissect_tcustom_<command_name>(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
 {
@@ -194,8 +197,8 @@ Registration happens in `proto_reg_handoff_tcustom()`
 void
 proto_reg_handoff_tcustom(void)
 {
-    dissector_add_string("thrift.method_names", "register", create_dissector_handle(dissect_tcustom_register, proto_tcustom));
     dissector_add_string("thrift.method_names", "initialize", create_dissector_handle(dissect_tcustom_initialize, proto_tcustom));
+    dissector_add_string("thrift.method_names", "registration", create_dissector_handle(dissect_tcustom_register, proto_tcustom));
     dissector_add_string("thrift.method_names", "greetings", create_dissector_handle(dissect_tcustom_greetings, proto_tcustom));
     dissector_add_string("thrift.method_names", "good_bye", create_dissector_handle(dissect_tcustom_good_bye, proto_tcustom));
 }
@@ -226,35 +229,35 @@ After that, we can use the hf info using the matching `dissect_thrift_t_<type>` 
 * `field_id` is the number associated to the parameter in the IDL definition.
 * `hf_id` is the hf info matching the field we want to dissect.
 
-For `register(bool unregister, string server_name, i16 port)`, we define the 3 parameters:
+For `registration(bool unregister, string server_name, i16 port)`, we define the 3 parameters:
 
 ```c
-        { &hf_tcustom_register_unregister,
-            { "Unregister", "tcustom.register.unregister",
+        { &hf_tcustom_registration_unregister,
+            { "Unregister", "tcustom.registration.unregister",
                 FT_BOOLEAN, BASE_NONE, NULL,
                 0x0, NULL, HFILL }
         },
-        { &hf_tcustom_register_server_name,
-            { "Server Host Name", "tcustom.register.server_name",
+        { &hf_tcustom_registration_server_name,
+            { "Server Host Name", "tcustom.registration.server_name",
                 FT_STRING, BASE_NONE, NULL,
                 0x0, NULL, HFILL }
         },
         // Please note that all Thrift integers are signed.
         // This particular application seems to only support ports up to 32767.
-        { &hf_tcustom_register_port,
-            { "Port Number", "tcustom.register.port",
+        { &hf_tcustom_registration_port,
+            { "Port Number", "tcustom.registration.port",
                 FT_INT16, BASE_DEC, NULL,
                 0x0, NULL, HFILL }
         },
 ```
 
-and we put the 3 successive calls in `dissect_tcustom_register`:
+and we put the 3 successive calls in `dissect_tcustom_registration`:
 
 ```c
-    offset = dissect_thrift_t_bool(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_register_unregister);
+    offset = dissect_thrift_t_bool(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_registration_unregister);
     // When using string type in the .thrift definition, data is serialized as an UTF-8 string.
-    offset = dissect_thrift_t_string(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_register_server_name);
-    offset = dissect_thrift_t_i16(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 3, hf_tcustom_register_port);
+    offset = dissect_thrift_t_string(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_registration_server_name);
+    offset = dissect_thrift_t_i16(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 3, hf_tcustom_registration_port);
 ```
 
 For `greetings(binary user_name_utf32le)`, the content is just a binary from Thrift point of view but we happen to know that this is indeed an UTF-32 string encoded in little-endian (for some kind of historical reasons, this tends to happen in real-life projects) so we define it as a string:
@@ -281,9 +284,9 @@ The example will use the following definition:
 
 ```c
 enum nearly_boolean {
-  true,
-  false,
-  maybe,
+  True,
+  False,
+  Maybe,
 }
 
 service Enumeration {
@@ -372,8 +375,8 @@ In order, the fields of this structure are:
 * The field id. (only used in structures, set it to 0)
 * Is the field optional? (also for structures, set to `FALSE`)
 * The expected type of the field/element/key/value, required to ensure we will decode the data properly. Remember that Thrift exposes more types in the IDL than on the network:
-  * `string` and `binary` are transfered as `DE_THRIFT_T_BINARY` (only the encoding changes)
-  * `struct`, `union`, and `exception` are transfered as `DE_THRIFT_T_STRUCT`.
+  * `string` and `binary` are transferred as `DE_THRIFT_T_BINARY` (only the encoding changes)
+  * `struct`, `union`, and `exception` are transferred as `DE_THRIFT_T_STRUCT`.
 * The "ett tree" of the inner element (for a list of structures, it would be the ett tree of the structure), keep it `NULL` for all types but containers and structures.
 * The additional parameters in case this element needs some:
   * `binary` and `string` need an encoding.
@@ -425,12 +428,12 @@ union big_integer {
   1: i64    small;
   2: binary efficient;
   3: list<bool> inefficient;
-};
+}
 
 struct placement {
   0: required i32 position;
   32767: optional i8 occurrences;
-};
+}
 
 service Structures {
   oneway void insert(1: big_integer bigint, 2: placement where);
@@ -477,7 +480,7 @@ Now, we need the description for the structure dissection which looks like the s
 ```c
 static const thrift_member_t tcustom_big_integer[] = {
     { &hf_tcustom_big_integer_small, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
-    { &hf_tcustom_big_integer_efficient, 2, TRUE, DE_THRIFT_T_BINARY, TMFILL },
+    { &hf_tcustom_big_integer_efficient, 2, TRUE, DE_THRIFT_T_BINARY, TMRAW },
     { &hf_tcustom_big_integer_inefficient, 3, TRUE, DE_THRIFT_T_LIST, &ett_tcustom_big_integer_inefficient, { .element = &tcustom_big_integer_inefficient } },
     { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
 };
@@ -497,6 +500,8 @@ The last parameter (after the ett tree for the targetted element) also get more 
 
 * Most of the time, it’s not used and `TMFILL` provides a default initialization.
 * For binary fields, we provide the expected encoding with `{ .encoding = ENC_SOMETHING }`.
+  * When a binary is just a binary object, we can use the `TMRAW` helper defined earlier.
+  * When it is a standard UTF-8 string (as per Thrift specifications), we can use the `TMUTF8` helper.
 * For lists and set, we provide the pointer to the element description with `{ .element = &tcustom_<type_name>_<field_name> }`
 * For maps, we provide both the key and value descriptions with `{ .m.key = &tcustom_<type_name>_<field_name>_key, .m.value = &tcustom_<type_name>_<field_name>_value }`
 * For sub-structures, we provide the list of members with `{ .members = tcustom_<subtype_name> }`
@@ -633,7 +638,7 @@ For the first question, we need to take a look at the `data` provided by the Thr
         break;
     default: // ME_THRIFT_T_ONEWAY or ME_THRIFT_T_EXCEPTION
         // Something is wrong, let the generic dissector handle that.
-        return 0;
+        return NOT_AN_EXPECTED_PDU;
     }
     // We still need to dissect the ending `T_STOP` in all cases.
     offset = dissect_thrift_t_stop(tvb, pinfo, tcustom_tree, offset);
@@ -671,7 +676,7 @@ To be able to dissect the right element, we need to know the field id that is co
         // et caetera. */
         default:
             // Unsupported exception, let the generic dissector handle that.
-            return 0;
+            return NOT_AN_EXPECTED_PDU;
         }
         break;
 ```
@@ -680,7 +685,7 @@ We do not need to differentiate the exceptions by the name they were given in th
 
 _Note_: whether or not application exceptions are defined for a particular command, the return type will always be field number 0 in the `T_REPLY`.
 
-The complete dissector (compiled but untested) for all these examples is attached in [packet-tcustom.c](uploads/927f4bd33b61dd3cb4f81eed35342562/packet-tcustom.c) for reference.
+The complete dissector (compiled but untested) for all these examples is attached in [packet-tcustom.c](uploads/8a9563f819ea15126f64d0a84a7734b9/packet-tcustom.c) for reference.
 
 #### :tools: Hijacking structure dissection feature :paperclips:
 
@@ -695,17 +700,17 @@ Since this missing field header also exist in the 3 container types, the ability
 
 That’s precisely the use of the `is_field` parameter of the `dissect_thrift_t_<type>` functions. Set it to `FALSE` and the function will not start with the header dissection.
 
-Getting back to the definition of `register(bool unregister, string server_name, i16 port)`, another way of dissecting it would be to replace the 4 `dissect_thrift_t_<type>` calls (:warning: `T_STOP` is always part of the `struct`) with a structure definition and a single call to `dissect_thrift_t_struct`:
+Getting back to the definition of `registration(bool unregister, string server_name, i16 port)`, another way of dissecting it would be to replace the 4 `dissect_thrift_t_<type>` calls (:warning: `T_STOP` is always part of the `struct`) with a structure definition and a single call to `dissect_thrift_t_struct`:
 
 ```c
-    static const thrift_member_t tcustom_register_params[] = {
-        { &hf_tcustom_register_unregister, 1, FALSE, DE_THRIFT_T_BOOL, TMFILL },
-        { &hf_tcustom_register_server_name, 2, FALSE, DE_THRIFT_T_BINARY, TMUTF8 },
-        { &hf_tcustom_register_port, 3, FALSE, DE_THRIFT_T_I8, TMFILL },
+    static const thrift_member_t tcustom_registration_params[] = {
+        { &hf_tcustom_registration_unregister, 1, FALSE, DE_THRIFT_T_BOOL, TMFILL },
+        { &hf_tcustom_registration_server_name, 2, FALSE, DE_THRIFT_T_BINARY, TMUTF8 },
+        { &hf_tcustom_registration_port, 3, FALSE, DE_THRIFT_T_I8, TMFILL },
         { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
     };
     // In this case, the TCustom tree holds the structure fields so we disable the creation of an additional sub-tree.
-    offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, FALSE, 0, DISABLE_SUBTREE, DISABLE_SUBTREE, tcustom_register_params);
+    offset = dissect_thrift_t_struct(tvb, pinfo, tcustom_tree, offset, thrift_opt, FALSE, 0, DISABLE_SUBTREE, DISABLE_SUBTREE, tcustom_registration_params);
 
     // No call to dissect_thrift_t_stop()
     if (offset > 0) proto_item_set_end(tcustom_pi, tvb, offset);
@@ -746,11 +751,11 @@ For the first commit, we create a simple dissector with only the registration of
 
 In order to have a compilable dissector at every step (even if we do not have any command dissected before the last commits), we will essentially follow the order used in the file for the definition of the various types and define the matching dissector “objects” in the same order.
 
-The idea of this approach is roughly the one an automated dissector generator would follow reading the `.thrift`IDL definitions.
+The idea of this approach is roughly the one an automated dissector generator would follow reading the `.thrift` IDL definitions.
 
 #### Add jaeger enums
 
-Since enumerations are really easy to define for Wireshark use and can only be leaf types (unlike structures or containers that can contain other structures that must be defined first), we start with them no matter the order of their definition in the `.thrift`files.
+Since enumerations are really easy to define for Wireshark use and can only be leaf types (unlike structures or containers that can contain other structures that must be defined first), we start with them no matter the order of their definition in the `.thrift` files.
 
 Since thrift consider the files as sub-namespaces, it is possible to have duplicate names in different files so we need to ensure the unicity of several elements using a few basic components:
 
@@ -761,7 +766,7 @@ Since thrift consider the files as sub-namespaces, it is possible to have duplic
 
 The name of the `value_string` arrays will then be `<protoabbrev>_<filename>_<enum_name>_vals` to follow the convention used in Wireshark dissectors which translates to `jaeger_jaeger_TagType_vals` in the first case.
 
-* TagType does not follow the `lower_case_with_underscore`convention but follows the exact name used in the IDL, which is what an automated generator would do.
+* TagType does not follow the `lower_case_with_underscore` convention but follows the exact name used in the IDL, which is what an automated generator would do.
 * For the same reason, we have the `jaeger_jaeger_` repetition at the beginning of the variable names which seems redundant but might not always be (we will also see `jaeger_agent_` for instance).
 
 #### Add jaeger.Tag structure as tracing.Tag
@@ -800,7 +805,7 @@ The main thing here is that one of the fields is a list so we need a few more th
 1. An ett tree for the list itself.
 2. A definition for the `.element` member of the `thrift_member_t` that describes the list.
 
-The ett tree is easily defined and initialized and it appears that the type of the elements in the list is the `Tag`type for which we conveniently defined a `thrift_member_t` for this exact purpose.
+The ett tree is easily defined and initialized and it appears that the type of the elements in the list is the `Tag` type for which we conveniently defined a `thrift_member_t` for this exact purpose.
 
 #### Add tracing.SpanRef structure
 
