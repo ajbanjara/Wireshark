@@ -1823,6 +1823,12 @@ The two following examples show LDAP and DRSUAPI MS-RPC trafic that can be decry
 - [zabbix70-proxy-and-agent.pcapng](uploads/70bcad147eed51f7781fd923275e3270/zabbix70-proxy-and-agent.pcapng): Zabbix 7.0.0alpha2, active proxy is talking to the server, active agent 2 is talking to the proxy
 - [zabbix30-proxy-and-agent.pcapng](uploads/a4226d1d2a97707d0ae8da09a1e97aab/zabbix30-proxy-and-agent.pcapng): Zabbix 3.0.32 (very old version!), active proxy is talking to the server, active agent is talking to the proxy
 
+### DHCPFO Protocol
+
+Dynamic Host Configuration Protocol - Failover
+
+- [dhcpfo.pcapng](uploads/31512202644437433637e62f32a116ad/dhcpfo.pcapng): Two Windows Server 2022 DHCP servers talking to each other with DHCPFO, while a DHCP client retrieves and releases its lease
+
 
 ## Captures in specific file formats
 
