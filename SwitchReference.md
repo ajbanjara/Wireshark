@@ -10,7 +10,7 @@ Most midrange and high-end switches have port analysis or port monitoring featur
 
   - [Alcatel-Lucent](/SwitchReference/AlcatelLucent)
 
-  - [Allied Telesyn](/SwitchReference/ATsyn)
+  - [Allied Telesis](/SwitchReference/AlliedTelesis)
 
   - [Adtran](/SwitchReference/Adtran)
 
