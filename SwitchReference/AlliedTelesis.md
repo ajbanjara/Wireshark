@@ -63,7 +63,7 @@ awplus(config)# access-group myTestAcl
 
 ### Remote Mirroring
 
-Remote mirroring can be complex. Please refer to vendor's `Mirroring Feature Overview and Configuration Guide`.
+Remote mirroring can be complex. Please refer to vendor's _Mirroring Feature Overview and Configuration Guide_.
 
 ## Legacy AT-S Software
 
