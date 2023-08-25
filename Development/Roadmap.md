@@ -6,8 +6,7 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 | **Release** | **Expected Date** | **Notes** |
 |-------------|-------------------|-----------|
-| 4.1.0 | August 24, 2023 | Development release |
-| 4.1.1 | August ??, 2023 | Development release |
+| 4.1.1 | September ??, 2023 | Development release |
 | 4.1.2 | September ??, 2023 | Development release |
 | 4.0.9 | October 4, 2023 | Next maintenance release of the 4.0 branch |
 | 3.6.17 | October 4, 2023 | Next maintenance release of the 3.6 branch |
