@@ -15,6 +15,10 @@ Change log about Wireshark supporting Thrift:
 * Wireshark 2.0.0 - Initial support for Thrift Binary Protocol.
 * Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one.
 * Wireshark 3.7.1 - Support for uuid data type (Thrift 0.17.0 - https://issues.apache.org/jira/browse/THRIFT-5587)
+* Wireshark master - Support for expert info on exceptions in sub-dissectors.
+
+All the changes required to update a sub-dissector for newer versions of Wireshark can be found [at the end of this page](#sub-dissector-fast-upgrade).
+
 
 ## Protocol dependencies
 
@@ -504,7 +508,8 @@ The last parameter (after the ett tree for the targetted element) also get more 
   * When it is a standard UTF-8 string (as per Thrift specifications), we can use the `TMUTF8` helper.
 * For lists and set, we provide the pointer to the element description with `{ .element = &tcustom_<type_name>_<field_name> }`
 * For maps, we provide both the key and value descriptions with `{ .m.key = &tcustom_<type_name>_<field_name>_key, .m.value = &tcustom_<type_name>_<field_name>_value }`
-* For sub-structures, we provide the list of members with `{ .members = tcustom_<subtype_name> }`
+* For sub-structures, we provide the list of members with `{ .s.members = tcustom_<subtype_name>, .s.expert_info = NULL }`
+  * For Wireshark 4.0 and before, it was just `{ .members = tcustom_<subtype_name> }`
 * Finally, all structures and unions end with a `T_STOP` field when serialized, this is materialized in the description with the fixed content `{ NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }` which also marks the end of the array.
 
 At this point, we can now call the helper as usual:
@@ -533,6 +538,12 @@ And we can now replace the first call with:
 ```
 
 In a similar way, when used as a field for a structure or an element inside a container, the matching `thrift_member_t` definition would be:
+
+```c
+    { DISABLE_SUBTREE, 1, TRUE, DE_THRIFT_T_STRUCT, DISABLE_SUBTREE, { .s.members = tcustom_big_integer, .s.expert_info = NULL } },
+```
+
+Until Wireshark 4.0, use the following definition:
 
 ```c
     { DISABLE_SUBTREE, 1, TRUE, DE_THRIFT_T_STRUCT, DISABLE_SUBTREE, { .members = tcustom_big_integer } },
@@ -566,7 +577,7 @@ The complete way of defining this would use the following structure definition:
 static const thrift_member_t tcustom_data[] = {
     { &hf_tcustom_data_id, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
     { &hf_tcustom_data_name, 2, TRUE, DE_THRIFT_T_BINARY, TMUTF8 },
-    { &hf_tcustom_data_content, 3, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_resource, { .members = tcustom_resource } },
+    { &hf_tcustom_data_content, 3, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_resource, { .s.members = tcustom_resource, .s.expert_info = NULL } }, // Adapt depending on Wireshark version.
     { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
 };
 ```
@@ -726,8 +737,8 @@ The structure definition would look like this for `binary ping(1: binary payload
 ```c
     static const thrift_member_t tcustom_ping_result[] = {
         { &hf_tcustom_ping_return, 0, TRUE, DE_THRIFT_T_BINARY, TMRAW }, // Omitted if return type is void
-        { &hf_tcustom_out_of_memory_exception, 1, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_out_of_memory_exception, { .members = tcustom_out_of_memory_exception } },
-        //{ &hf_tcustom_some_other_exception, 2, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_some_other_exception, { .members = tcustom_some_other_exception } },
+        { &hf_tcustom_out_of_memory_exception, 1, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_out_of_memory_exception, { .members = tcustom_out_of_memory_exception, .s.expert_info = &ei_tcustom_out_of_memory_exception } },
+        //{ &hf_tcustom_some_other_exception, 2, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_some_other_exception, { .members = tcustom_some_other_exception, .s.expert_info = &ei_tcustom_some_other_exception } },
         { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
     };
 
@@ -737,11 +748,24 @@ The structure definition would look like this for `binary ping(1: binary payload
         // WARNING: Make sure that dissect_thrift_t_stop is not called after that.
 ```
 
+Provided `ei_tcustom_out_of_memory_exception` and `ei_tcustom_some_other_exception` have been defined as:
+
+```c
+static expert_field ei_tcustom_out_of_memory_exception = EI_INIT;
+static expert_field ei_tcustom_some_other_exception = EI_INIT;
+```
+
+and registered with `expert_register_field_array()` in `proto_register_tcustom()` to be able to easily inform the user of the exception thrown.
+
+Otherwise, simply use `.s.expert_info = NULL`.
+
 ### Example 1: [Jaeger](https://github.com/jaegertracing)
 
 For this first real example, we will dissect the `emitBatch` command described in [agent.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/agent.thrift) and depending on structures defined in [jaeger.thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/jaeger.thrift).
 
 The complete dissector is shared on GitLab [on jaeger branch of EnigmaTriton/wireshark](https://gitlab.com/EnigmaTriton/wireshark/-/tree/jaeger), with the history of commits following the process described below.
+
+:warning: The branch might still be written against Wireshark 3.6, keep in mind the [changes required for newer versions](#sub-dissector-fast-upgrade).
 
 A [capture file](/uploads/c5eb22240c76f97801c6120017196bcd/jaeger-compact.pcap) is available on [SampleCaptures](/SampleCaptures#thrift) to test.
 
@@ -841,7 +865,7 @@ Very basic structure containing only 3 mandatory 64-bit integers.
 
 This structure contains some elements we are now accustomed to (a list of structures and an integer) but also structures as direct members of the structure we are currently preparing. In this case, the setup is even easier than the lists since we don’t have to define an ett tree for it.
 
-In the content definition of the `Batch` structure, we use directly the ett tree defined for the structure itself and the `.members` value is the `thrift_member_t` array describing the content of the inner structure.
+In the content definition of the `Batch` structure, we use directly the ett tree defined for the structure itself and the `.s.members` value is the `thrift_member_t` array describing the content of the inner structure.
 
 #### Add tracing.BatchSubmitResponse structure
 
@@ -922,6 +946,8 @@ This protocol is also developed as a plugin instead of an integrated dissector.
 
 The complete dissector is shared on GitLab [on armeria branch of EnigmaTriton/wireshark](https://gitlab.com/EnigmaTriton/wireshark/-/tree/armeria), with the history of commits following the process described below.
 
+:warning: The branch might still be written against Wireshark 3.6, keep in mind the [changes required for newer versions](#sub-dissector-fast-upgrade).
+
 A [capture file](/uploads/99d63eaf8a2780a1da96cb111267deea/anony-tcp-std.pcap) is available on [SampleCaptures](/SampleCaptures#thrift).
 
 #### Create Armeria plugin
@@ -985,7 +1011,7 @@ Both structures are quite straightforward with all fields being optional and all
 
 #### Add db_range structure
 
-The next structure is `db_range`, containing a single optional field (probably to be prepared for future extension) which is it self a structure of type `range` so we make use of the `armeria_common_range` array defined in the previous commit to specify the `.members` definition.
+The next structure is `db_range`, containing a single optional field (probably to be prepared for future extension) which is it self a structure of type `range` so we make use of the `armeria_common_range` array defined in the previous commit to specify the `.s.members` definition.
 
 #### Add element & acceptable structures
 
@@ -1311,3 +1337,28 @@ Another element that should be taken into account when generating a sub-dissecto
 Last point concerns the clean-up commits we have at the end of both examples, the code generator should keep track of what is used and what is not in order to avoid having to clean-up unused variables after the generation.
 
 Done right, this could avoid generation of entire `thrift_member_t` arrays if the protocol happen to still contain the definition for structures that are no longer used and therefore limit the memory usage.
+
+## Sub-dissector fast upgrade
+
+In order to facilitate upgrade of the Thrift-based sub-dissectors, this section describes the code changes required in the sub-dissectors in order to compile it against newer branch of Wireshark.
+
+### Upgrade from 3.4 to 3.6
+
+This page was initially written for Wireshark 3.6 and there was an important rework of the Thrift dissector.
+
+Given the amount of changes, the existing sub-dissectors should probably be rewritten using this documentation:
+* Signature changes: different set of parameters, rename `byte` to `i8`, fix some typo.
+* Removal of some functions: unsigned 64-bit integers are not part of the Thrift specification.
+* Add new capabilities.
+
+### Upgrade from 3.6 to 3.8
+
+* No change required in existing sub-dissectors.
+* New basic type available for use with the same principles.
+
+### Upgrade from 4.0 to master (2023-09-03)
+
+* Replace all occurrences of `{ .members = array_of_thrift_member_t_definition }` with `{ .s.members = array_of_thrift_member_t_definition, .s.expert_info = NULL }`
+  * The `members` field is replaced with the sub-structure `s` containing the fields `members` and `expert_info`.
+* When the defined structure is an exception, setting the `expert_info` field to a pointer to an `expert_field` will instruct the generic Thrift dissector to associate it with the dissected structure (or rather the exception).
+  * This allows you to replace the `switch` described in [Functions with a reply](#functions-with-a-reply) with the simpler structure/union definition for the return type with all the possible exceptions as described in [Hijacking structure dissection feature](#tools-hijacking-structure-dissection-feature-paperclips)
