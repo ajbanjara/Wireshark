@@ -57,8 +57,8 @@ The sample below demonstrates the workflow for a patch. Replace `USERNAME` with 
     Deleted branch BRANCH_NAME (was c159b39).
     
     $ # Oops! Need to make more changes to the BRANCH_NAME branch:
-    $ git fetch upstream
-    $ git checkout upstream BRANCH_NAME
+    $ git fetch downstream
+    $ git checkout downstream BRANCH_NAME
 
     $ # Oops! Need to squash commits:
     $ git checkout BRANCH_NAME
