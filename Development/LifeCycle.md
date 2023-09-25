@@ -39,41 +39,27 @@ Release Notes for each release are available on the [main site](https://www.wire
 
 The git change log provides good information about changes in each release:
 
-  - [release-4.0](https://gitlab.com/wireshark/wireshark/commits/release-4.0)
-
-  - [release-3.6](https://gitlab.com/wireshark/wireshark/commits/release-3.6)
-
-  - [release-3.4](https://gitlab.com/wireshark/wireshark/commits/release-3.4)
-
-  - [master-3.2](https://gitlab.com/wireshark/wireshark/commits/master-3.2)
-
-  - [master-3.0](https://gitlab.com/wireshark/wireshark/commits/master-3.0)
-
-  - [master-2.6](https://gitlab.com/wireshark/wireshark/commits/master-2.6)
-
-  - [master-2.4](https://gitlab.com/wireshark/wireshark/commits/master-2.4)
-
-  - [master-2.2](https://gitlab.com/wireshark/wireshark/commits/master-2.2)
-
-  - [master-2.0](https://gitlab.com/wireshark/wireshark/commits/master-2.0)
-
-  - [master-1.12](https://gitlab.com/wireshark/wireshark/commits/master-1.12)
+- [release-4.2](https://gitlab.com/wireshark/wireshark/commits/release-4.2)
+- [release-4.0](https://gitlab.com/wireshark/wireshark/commits/release-4.0)
+- [release-3.6](https://gitlab.com/wireshark/wireshark/commits/release-3.6)
+- [release-3.4](https://gitlab.com/wireshark/wireshark/commits/release-3.4)
+- [master-3.2](https://gitlab.com/wireshark/wireshark/commits/master-3.2)
+- [master-3.0](https://gitlab.com/wireshark/wireshark/commits/master-3.0)
+- [master-2.6](https://gitlab.com/wireshark/wireshark/commits/master-2.6)
+- [master-2.4](https://gitlab.com/wireshark/wireshark/commits/master-2.4)
+- [master-2.2](https://gitlab.com/wireshark/wireshark/commits/master-2.2)
+- [master-2.0](https://gitlab.com/wireshark/wireshark/commits/master-2.0)
+- [master-1.12](https://gitlab.com/wireshark/wireshark/commits/master-1.12)
 
 Changes for older releases are listed in wiki pages:
 
-  - [Development/Trunk-1.10](/Development/Trunk-1.10)
-
-  - [Development/Trunk-1.8](/Development/Trunk-1.8)
-
-  - [Development/Trunk-1.6](/Development/Trunk-1.6)
-
-  - [Development/Trunk-1.4](/Development/Trunk-1.4)
-
-  - [Development/Trunk-1.2](/Development/Trunk-1.2)
-
-  - [Development/Trunk-1.0](/Development/Trunk-1.0)
-
-  - [Development/BetaReleases](/Development/BetaReleases)
+- [Development/Trunk-1.10](/Development/Trunk-1.10)
+- [Development/Trunk-1.8](/Development/Trunk-1.8)
+- [Development/Trunk-1.6](/Development/Trunk-1.6)
+- [Development/Trunk-1.4](/Development/Trunk-1.4)
+- [Development/Trunk-1.2](/Development/Trunk-1.2)
+- [Development/Trunk-1.0](/Development/Trunk-1.0)
+- [Development/BetaReleases](/Development/BetaReleases)
 
 ## End of Life planning
 
