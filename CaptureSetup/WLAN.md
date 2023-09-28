@@ -365,6 +365,12 @@ from the command line.
 
 <span id="windows" class="anchor"></span> Capturing traffic on Windows depends on [Npcap](/Npcap) or [WinPcap](/WinPcap) and on the underlying network adapters and drivers. Npcap, which supports Windows 7 and later, supports monitor mode; WinPcap doesn't support monitor mode. On Windows, you can see 802.11 headers when capturing, and capture non-data frames, and capture traffic other than traffic to or from your own machine, only in monitor mode.
 
+There is a command line diagnostic tool that displays information about the supported hardware that might help:
+
+`netsh wlan show wirelesscapabilities`
+
+In particular, check the "Network monitor mode" item.
+
 #### Starting from Windows 7: Npcap
 
 [Npcap](https://npcap.com/) is an update of [WinPcap](/WinPcap) by the Nmap Project. [Npcap](/Npcap) has added many new features including [loopback capture](/CaptureSetup/Loopback) and raw 802.11 packet capture support (in "monitor mode").
