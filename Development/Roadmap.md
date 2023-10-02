@@ -29,6 +29,8 @@ Significant bug fixes should be [backported to all applicable stable branches](/
 
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/master) in the [master (development) branch](https://gitlab.com/wireshark/wireshark/-/tree/master)
 
+[Recent changes](https://gitlab.com/wireshark/wireshark/commits/release-4.2) in the [4.2 branch](https://gitlab.com/wireshark/wireshark/-/tree/release-4.2)
+
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/release-4.0) in the [4.0 branch](https://gitlab.com/wireshark/wireshark/-/tree/release-4.0)
 
 [Recent changes](https://gitlab.com/wireshark/wireshark/commits/release-3.6) in the [3.6 branch](https://gitlab.com/wireshark/wireshark/-/tree/release-3.6)
