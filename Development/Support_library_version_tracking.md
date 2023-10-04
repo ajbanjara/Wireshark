@@ -241,7 +241,8 @@ Ten years of General Support for a major version, with a six month window to upg
 | SLES 15 SP1 | 2019/06 | 2021/01 | 2.54.3 | 5.9.4 |
 | SLES 15 SP2 | 2020/07 | 2022/01 | 2.62.5 | 5.12.7 |
 | SLES 15 SP3 | 2021/06 | 2023/01 | 2.62.5 | 5.12.7 |
-| SLES 15 SP4 | 2022/06 | 2028/07 | 2.70.4 | 5.15.2 |
+| SLES 15 SP4 | 2022/06 | 2024/01 | 2.70.4 | 5.15.2 |
+| SLES 15 SP5 | 2023/06 | 2028/07 | 2.70.5 | 5.15.8 |
 
 ## openSUSE
 
@@ -256,6 +257,7 @@ Search for packages in openSUSE here: https://software.opensuse.org/search
 | openSUSE Leap 15.2 | 2.62.5 | 5.12.7 | (experimental) |
 | openSUSE Leap 15.3 | 2.62.6 | 5.12.7 | (experimental) |
 | openSUSE Leap 15.4 | 2.70.4 | 5.15.2 | (experimental) |
+| openSUSE Leap 15.5 | 2.70.5 | 5.15.8 | (experimental) |
 
 ## Debian
 
