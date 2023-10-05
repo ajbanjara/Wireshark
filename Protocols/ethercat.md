@@ -113,6 +113,8 @@ SOEM (Simple Open EtherCAT Master) can be found at <http://openethercatsociety.g
 
 IgH EtherCAT Master for Linux can be found at <http://www.etherlab.org/en/ethercat/index.php>
 
+An Introduction to EtherCAT®, EtherCAT P and the Microchip LAN925x family of Slave Controllers <https://mu.microchip.com/an-introduction-to-ethercat-ethercat-p-and-the-microchip-lan925x-family-of-slave-controllers>
+
 ## Discussion
 
 </strong>
