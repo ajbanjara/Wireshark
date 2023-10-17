@@ -8,7 +8,7 @@ The Private Enterprise Number (PEN) for these blocks and options is 10949, the P
 
 ## Source Code
 
-As of this writing, dedicated BBLog blocks are dissected by [`packet-bblog.c`](epan/dissectors/packet-bblog.c), and BBLog options on standard packet blocks are handled by [`packet-frame.c`](epan/dissectors/packet-frame.c).
+As of this writing, dedicated BBLog blocks are dissected by [`packet-bblog.c`](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-bblog.c), and BBLog options on standard packet blocks are handled by [`packet-frame.c`](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-frame.c).
 
 ## Relevant Links
 
