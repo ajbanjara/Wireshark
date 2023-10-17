@@ -82,6 +82,8 @@ Other formats are added to Wireshark by reverse engineering, so the support of t
 
   - 3GPP TS 32.423 ("nettrace") XML files (as per [TS 32.423 spec](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=2010))
 
+  - Vector Informatik [BLF](/BLF) (Binary Log Format) files
+
 ---
 
 Imported from https://wiki.wireshark.org/FileFormatReference on 2020-08-11 23:14:05 UTC
