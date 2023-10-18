@@ -58,13 +58,14 @@ Note: GTK+ support was completely dropped in Wireshark 3.0 (v2.9.0rc0-33-g36dc57
 | 2.38 |  | 3.10 | Oct 2014 | GLib 2.38 is min. req. since Mar 2021 (v3.5.0rc0-1150-g2d7b68aa09) |
 | 2.50 |  | 3.22 | Sep 2016 | GLib 2.50 is min. req. since Apr 2022 (v3.7.0rc0-1892-g2dd07bc5b9) |
 | 2.54 |  | x | Jan 2018 | GLib 2.54 is min. req. since Nov 2022 (v4.1.0rc0-746-ge449b560c0) |
-| 2.58 |  | x | Sep 2018 |  |
+| 2.56 |  | x | Mar 2018 | RHEL8, Ubuntu Bionic (18.04) |
+| 2.58 |  | x | Sep 2018 | Debian Buster |
 | 2.60 |  | x | Mar 2019 |  |
 | 2.62 |  | x | Sep 2019 |  |
-| 2.64 |  | x | Feb 2020 |  |
-| 2.66 |  | x | Sep 2020 |  |
-| 2.68 |  | x | Mar 2021 |  |
-| 2.70 |  | x | Sep 2021 |  |
+| 2.64 |  | x | Feb 2020 | Ubuntu Focal (20.04) |
+| 2.66 |  | x | Sep 2020 | Debian Bullseye |
+| 2.68 |  | x | Mar 2021 | RHEL9 |
+| 2.70 |  | x | Sep 2021 | OpenSUSE 15.4 |
 | 2.72 |  | x | Mar 2022 |  |
 
 ## GnuTLS
