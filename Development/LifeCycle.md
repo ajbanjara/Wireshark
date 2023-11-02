@@ -72,7 +72,7 @@ In order to limit the development burden, support for a (old-)stable release is 
 | 3.6     | November 22, 2021   | May 22, 2024 | Long term support (LTS). Last release to support 32-bit Windows. Last release to support macOS 10.13 on Intel. Last release to support Red Hat EL 7. Last release to support SUSE Linux ES 12. |
 | 3.4     | October 29, 2020    | April 29, 2022 or later | Support ends when 4.0.0 is released.                                                                           |
 | 3.2     | December 18, 2019   | November 22, 2021   | Last release to support Windows 7 and Windows Server 2008 R2. |
-| 3.0     | February 28, 2019   | October 29, 2020    | |
+| 3.0     | February 28, 2019   | October 29, 2020    | Last release to support macOS 10.12. |
 | 2.6     | April 18, 2018      | October 18, 2020            | Long term support (LTS). Last release to support GTK+ and Qt4. Last release to support Red Hat EL 6. Last release to support Mac OS X 10.6 and 10.7 and OS X 10.8, 10.9, 10.10, and 10.11. |
 | 2.4     | July 19, 2017       | July 19, 2019               | GTK+ UI disabled by default.                                                                                                                         |
 | 2.2     | September 7, 2016   | September 7, 2018           | Last release to support Windows Vista and (the non-R2) Windows Server 2008.                                                                          |
