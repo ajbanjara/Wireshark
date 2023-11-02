@@ -18,7 +18,7 @@ The RLC-LTE dissector is fully functional. There is support for reading RLC-LTE 
 
   - [DCT2000](/DCT2000) log files, or
 
-  - using the UDP format defined in [packet-rlc-lte.h](http://anonsvn.wireshark.org/wireshark/trunk/epan/dissectors/packet-rlc-lte.h). This (BSD-licensed) [program](http://www.wireshark.org/~martinm/rlc_lte_logger.c) gives an example of how you might send RLC-LTE frames in this format.
+  - using the UDP format defined in [packet-rlc-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-rlc-lte.h). This (BSD-licensed) [program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/rlc_lte_logger.c) gives an example of how you might send RLC-LTE frames in this format.
 
 There is an LTE RLC stats window, available from the Telephony menu. This can be useful for finding channels where problems are happening, and setting appropriate display filters.
 
