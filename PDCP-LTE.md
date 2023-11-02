@@ -20,7 +20,7 @@ The PDCP-LTE dissector is mostly functional. It can decode the PDCP-LTE headers 
 
   - [DCT2000](/DCT2000) log files, OR
 
-  - using the UDP format defined in [packet-pdcp-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-pdcp-lte.h). This (BSD-licensed) [program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/pdcp_lte_logger.c) gives an example of how you might send PDCP-LTE frames in this format.
+  - using the UDP format defined in [packet-pdcp-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-pdcp-lte.h). This (BSD-licensed) [program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/pdcp_lte_logger.c) gives an example of how you might send PDCP-LTE frames in this format.  Note that you will need to enable pdcp-lte-udp in order to decode these frames.
 
 ## Preference Settings
 
