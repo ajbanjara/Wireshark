@@ -6,7 +6,7 @@ This protocol is layer 2 of the LTE air interface (connecting an LTE UE with an 
 
   - MAC-LTE runs over the PHY layer
 
-  - A UDP framing format for MAC-LTE has been defined (described in [packet-mac-lte.h](http://anonsvn.wireshark.org/wireshark/trunk/epan/dissectors/packet-mac-lte.h), purely for use with Wireshark)
+  - A UDP framing format for MAC-LTE has been defined (described in [packet-mac-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-mac-lte.h), purely for use with Wireshark)
 
   - Can call RLC dissector for its SDUs (see Preference Settings below)
 
@@ -88,9 +88,9 @@ You cannot directly filter MAC-LTE protocol frames while capturing. But, if you 
 
   - [3GPP TS 36.213](http://www.3gpp.org/ftp/Specs/html-info/36213.htm) Evolved Universal Terrestrial Radio Access (E-UTRA); Physical layer procedures
 
-  - [Example program](http://www.wireshark.org/~martinm/mac_lte_logger.c) that generates and sends frames using the supported UDP framing format
+  - [Example program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/mac_lte_logger.c) that generates and sends frames using the supported UDP framing format
 
-  - [Example program](http://www.wireshark.org/~martinm/mac_pcap_sample_code.c) that writes to a PCAP file in a format that may be read by the mac-lte-framed dissector.
+  - [Example program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/mac_lte_pcap_writer.c) that writes to a PCAP file in a format that may be read by the mac-lte-framed dissector.
 
 ## Discussion
 
