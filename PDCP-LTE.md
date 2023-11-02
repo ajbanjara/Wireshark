@@ -6,7 +6,7 @@ This protocol sits between the RLC and RRC layers in the LTE air interface (conn
 
 The dissection of RRC and IP payloads are controlled by preference settings. This dissector may be called by the [RLC-LTE](/RLC-LTE) dissector for signalling plane messages (if preference settings are enabled).
 
-A UDP framing format for PDCP-LTE has been defined (described in [packet-pdcp-lte.h](http://anonsvn.wireshark.org/wireshark/trunk/epan/dissectors/packet-pdcp-lte.h), purely for use with Wireshark)
+A UDP framing format for PDCP-LTE has been defined (described in [packet-pdcp-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-pdcp-lte.h), purely for use with Wireshark)
 
 ## Example traffic
 
@@ -20,7 +20,7 @@ The PDCP-LTE dissector is mostly functional. It can decode the PDCP-LTE headers 
 
   - [DCT2000](/DCT2000) log files, OR
 
-  - using the UDP format defined in [packet-pdcp-lte.h](http://anonsvn.wireshark.org/wireshark/trunk/epan/dissectors/packet-pdcp-lte.h). This (BSD-licensed) [program](http://www.wireshark.org/~martinm/pdcp_lte_logger.c) gives an example of how you might send PDCP-LTE frames in this format.
+  - using the UDP format defined in [packet-pdcp-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-pdcp-lte.h). This (BSD-licensed) [program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/pdcp_lte_logger.c) gives an example of how you might send PDCP-LTE frames in this format.
 
 ## Preference Settings
 
@@ -59,7 +59,7 @@ You cannot directly filter PDCP-LTE protocols while capturing.
 
   - [RFC 3095](http://www.ietf.org/rfc/rfc3095.txt) *RObust Header Compression (ROHC): Framework and four profiles: RTP, UDP, ESP, and uncompressed*
 
-  - [Example program](http://www.wireshark.org/~martinm/pdcp_lte_logger.c) that generates and sends frames using the supported UDP framing format
+  - [Example program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/pdcp_lte_logger.c) that generates and sends frames using the supported UDP framing format
 
 ## Discussion
 
