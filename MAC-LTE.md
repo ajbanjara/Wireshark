@@ -24,9 +24,9 @@ The MAC-LTE dissector is fully functional. There is support for reading MAC-LTE 
 
   - [DCT2000](/DCT2000) log files OR
 
-  - using the UDP format defined in [packet-mac-lte.h](http://anonsvn.wireshark.org/wireshark/trunk/epan/dissectors/packet-mac-lte.h). This (BSD-licensed) [program](http://www.wireshark.org/~martinm/mac_lte_logger.c) gives an example of how you might send MAC-LTE frames in this format OR
+  - using the UDP format defined in [packet-mac-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-mac-lte.h). This (BSD-licensed) [program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/mac_lte_logger.c) gives an example of how you might send MAC-LTE frames in this format OR
 
-  - the compact format decoded by the mac-lte-framed dissector. This shares the same framing format as the UDP format described above. This (BSD-licensed) [program](http://www.wireshark.org/~martinm/mac_pcap_sample_code.c) gives an example of how you might write MAC-LTE frames directly in a file of this format. Currently, this does not have its own registered DLT, so if (as the same program does) you use DLT 147 you will need to edit the preferences of the DLT\_USER dissector (add an entry with DLT=147, Payload Protocol=mac-lte-framed) OR
+  - the compact format decoded by the mac-lte-framed dissector. This shares the same framing format as the UDP format described above. This (BSD-licensed) [program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/mac_lte_pcap_writer.c) gives an example of how you might write MAC-LTE frames directly in a file of this format. Currently, this does not have its own registered DLT, so if (as the same program does) you use DLT 147 you will need to edit the preferences of the DLT\_USER dissector (add an entry with DLT=147, Payload Protocol=mac-lte-framed) OR
 
   - your own framing protocol. The functions get\_mac\_lte\_proto\_data() and set\_mac\_lte\_proto\_data() are available for querying and setting the necessary context information associated with a frame.
 
