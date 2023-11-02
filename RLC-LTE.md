@@ -6,7 +6,7 @@ This protocol sits between the MAC and PDCP layers in the LTE air interface (con
 
 The [MAC-LTE](/MAC-LTE) dissector can call the RLC-LTE dissector for srb1 and srb2 (since it is known that these should be AM). For signalling PDUs, the RLC-LTE dissector can call [PDCP-LTE](/PDCP-LTE) for SRB channels, or [LTE\_RRC](/LTE_RRC) for CCCH channels. This is controlled by preferences (see below).
 
-A UDP framing format for RLC-LTE has been defined (described in [packet-rlc-lte.h](http://anonsvn.wireshark.org/wireshark/trunk/epan/dissectors/packet-rlc-lte.h), purely for use with Wireshark)
+A UDP framing format for RLC-LTE has been defined (described in [packet-rlc-lte.h](https://gitlab.com/wireshark/wireshark/-/blob/master/epan/dissectors/packet-rlc-lte.h), purely for use with Wireshark)
 
 ## Example traffic
 
@@ -64,7 +64,7 @@ You cannot directly filter RLC-LTE protocols while capturing.
 
   - [3GPP TS 36.322](http://www.3gpp.org/ftp/Specs/html-info/36322.htm) Evolved Universal Terrestrial Radio Access (E-UTRA) Radio Link Control (RLC) protocol specification
 
-  - [Example program](http://www.wireshark.org/~martinm/rlc_lte_logger.c) that generates and sends frames using the supported UDP framing format
+  - [Example program](https://gitlab.com/martin.r.mathieson/uu-logging-for-wireshark/-/blob/master/rlc_lte_logger.c) that generates and sends frames using the supported UDP framing format
 
 ## Discussion
 
