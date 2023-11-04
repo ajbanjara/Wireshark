@@ -30,14 +30,14 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 | 5.8.0 | Jan 2017 | [OS X Mavericks through Sierra](https://web.archive.org/web/20170309222635/http://doc.qt.io/qt-5/supported-platforms.html) |
 | 5.9.0 | May 2017 | Minimum required version since April 2022 (v3.7.0rc0-1874-g13075b4ff0) Long Term Support (LTS) release, [OS X 10.10 Yosemite through 10.12 Sierra](https://web.archive.org/web/20170603192036/http://doc.qt.io/qt-5/supported-platforms.html), **Wireshark 3.0.0rc1** (macOS only) |
 | 5.10.0 | Dec 2017 | Minimum required version since July 2022 (v3.7.2rc0-116-g06cd84a6e9) [OS X El Capitan through High Sierra](https://web.archive.org/web/20171222025417/http://doc.qt.io/qt-5/supported-platforms.html) |
-| 5.11.0 | May 2018 | [OS X 10.11 El Capitan through 10.13 High Sierra](https://web.archive.org/web/20180906124900/http://doc.qt.io/qt-5/supported-platforms.html) |
-| 5.12.0 | Dec 2018 | Long Term Support (LTS) release, [macOS 10.12 Sierra through 10.14 Mojave](https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html), **Wireshark 3.0.x, 3.2.x** |
+| 5.11.0 | May 2018 | Minimum required version since November 2023 (v4.3.0rc0-524-g520f0d8e26) [OS X 10.11 El Capitan through 10.13 High Sierra](https://web.archive.org/web/20180906124900/http://doc.qt.io/qt-5/supported-platforms.html) |
+| 5.12.0 | Dec 2018 | Long Term Support (LTS) release, [macOS 10.12 Sierra through 10.14 Mojave](https://web.archive.org/web/20181208121833/http://doc.qt.io:80/qt-5/supported-platforms.html), **Wireshark 3.0.x, 3.2.x, 3.4.x** (3.4.x macOS only) |
 | 5.13.0 | Jun 2019 | [macOS Sierra through Mojave](https://web.archive.org/web/20190705173826/https://doc.qt.io/qt-5/supported-platforms.html) |
 | 5.14.0 | Dec 2019 | [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/archives/qt-5.14/supported-platforms.html) |
-| 5.15.0 | May 2020 | Long Term Support (LTS) release, [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html), **Wireshark Windows 3.4.x and 3.6.x** |
+| 5.15.0 | May 2020 | Long Term Support (LTS) release, [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html), **Wireshark 3.4.x, 3.6.x, 4.0.x** (3.4.x and 4.0.x Windows only) |
 | 6.0.0 | Aug 2020 | No official support for 32-bit Windows, Requires C++17, [macOS 10.14 through 11](https://doc.qt.io/archives/qt-6.0/supported-platforms.html) |
 | 6.1.0 | May 2021 | [macOS 10.14 through 12](https://doc.qt.io/archives/qt-6.1/supported-platforms.html) |
-| 6.2.0 | Sep 2021 | Long Term Support (LTS) release, [macOS 10.14 through 12](https://doc.qt.io/qt-6.2/supported-platforms.html) |
+| 6.2.0 | Sep 2021 | Long Term Support (LTS) release, [macOS 10.14 through 12](https://doc.qt.io/qt-6.2/supported-platforms.html), **Wireshark 4.0.x, 4.2.x** (4.0.x macOS only) |
 | 6.3.0 | Mar 2022 | [macOS 10.14 through 12](https://doc.qt.io/archives/qt-6.3/supported-platforms.html) |
 | 6.4.0 | Sep 2022 | [macOS 10.14 through 13](https://doc.qt.io/archives/qt-6.4/supported-platforms.html) |
 | 6.5.0 | Mar 2023 | Long Term Support (LTS) release, [macOS 11 through 13](https://doc.qt.io/qt-6.5/supported-platforms.html) |
