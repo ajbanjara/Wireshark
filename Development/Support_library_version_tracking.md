@@ -12,7 +12,7 @@ Release dates can be found in Qt-X.Y-release articles at https://wiki.qt.io/Cate
 
 The Qt Company officially supports the following [platforms and configurations](http://doc.qt.io/qt-5/supported-platforms-and-configurations.html).
 
-The highlighted Wireshark versions below mark the Qt version that is shipped with the macOS and Windows installers. For supported macOS hardware and maximum macOS versions, see also https://en.wikipedia.org/wiki/MacOS#Hardware_compatibility
+The highlighted Wireshark versions below mark the Qt version that is shipped with the macOS and Windows installers. It is sometimes possible to build Wireshark formac For supported macOS hardware and maximum macOS versions, see also https://en.wikipedia.org/wiki/MacOS#Hardware_compatibility
 
 | Qt version | Date | Notes |
 |------------|------|-------|
@@ -37,10 +37,10 @@ The highlighted Wireshark versions below mark the Qt version that is shipped wit
 | 5.15.0 | May 2020 | Long Term Support (LTS) release, [macOS 10.13 High Sierra through 10.15 Catalina](https://doc.qt.io/qt-5/supported-platforms.html), **Wireshark 3.4.x, 3.6.x, 4.0.x** (3.4.x and 4.0.x Windows only) |
 | 6.0.0 | Aug 2020 | No official support for 32-bit Windows, Requires C++17, [macOS 10.14 through 11](https://doc.qt.io/archives/qt-6.0/supported-platforms.html) |
 | 6.1.0 | May 2021 | [macOS 10.14 through 12](https://doc.qt.io/archives/qt-6.1/supported-platforms.html) |
-| 6.2.0 | Sep 2021 | Long Term Support (LTS) release, [macOS 10.14 through 12](https://doc.qt.io/qt-6.2/supported-platforms.html), **Wireshark 4.0.x, 4.2.x** (4.0.x macOS only) |
+| 6.2.0 | Sep 2021 | Long Term Support (LTS) release, [macOS 10.14 through 12](https://doc.qt.io/qt-6.2/supported-platforms.html), **Wireshark 4.0.x, 4.2.x** (macOS only) |
 | 6.3.0 | Mar 2022 | [macOS 10.14 through 12](https://doc.qt.io/archives/qt-6.3/supported-platforms.html) |
 | 6.4.0 | Sep 2022 | [macOS 10.14 through 13](https://doc.qt.io/archives/qt-6.4/supported-platforms.html) |
-| 6.5.0 | Mar 2023 | Long Term Support (LTS) release, [macOS 11 through 13](https://doc.qt.io/qt-6.5/supported-platforms.html) |
+| 6.5.0 | Mar 2023 | Long Term Support (LTS) release, [macOS 11 through 13](https://doc.qt.io/qt-6.5/supported-platforms.html), **Wireshark 4.2.x** (Windows only) |
 | 6.6.0 | Oct 2023 | [macOS 11 through 13](https://doc.qt.io/qt-6/supported-platforms.html) |
 
 ## GLib and GTK+
