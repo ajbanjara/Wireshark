@@ -72,7 +72,8 @@ Along with decryption keys there are other preference settings that affect decry
 
   - You may have to toggle *Assume Packets Have FCS* and *Ignore the Protection bit* depending on how your 802.11 driver delivers frames.
 
-The WPA passphrase and SSID preferences let you encode non-printable or otherwise troublesome characters using URI-style percent escapes, e.g. %20 for a space. As a result you have to escape the percent characters themselves using %25.
+The WPA passphrase and SSID preferences let you encode non-printable or otherwise troublesome characters using URI-style percent escapes, e.g. %20 for a space. As a result you have to escape the percent characters themselves using %25. You also must escape colons in the passphrase or SSID, using %3a, in order to
+distinguish them from a colon as a separator between the passphrase and SSID.
 
 WPA and WPA2 use keys derived from an EAPOL handshake, which occurs when a machine joins a Wi-Fi network, to encrypt traffic. Unless **all four** handshake packets are present for the session you're trying to decrypt, Wireshark won't be able to decrypt the traffic. You can use the display filter **eapol** to locate EAPOL packets in your capture.
 
