@@ -33,6 +33,9 @@ The COTP dissector is fully functional.
 
 XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here. Keep it short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
 
+S7comm uses COTP.  [S7comm captures](https://wiki.wireshark.org/SampleCaptures#s7comm-s7-communication)
+
+
 ## Display Filter
 
 A complete list of COTP display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/c/cotp.html)
