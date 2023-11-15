@@ -12,6 +12,8 @@ Wireshark captures packets before they are sent to the network adapter. It won't
 
 New installations of Wireshark 1.2 and above disable IP, TCP, and UDP checksum validation by default. You can disable checksum validation in each of those dissectors by hand if needed.
 
+TCP and UDP checksums are calculated over both the payload and from selected elements from the IPv4 or IPv6 header, known as the pseudo header. Linux and Windows, when offloading checksums, will calculate the contribution from the pseudo header and place it in the checksum field. Wireshark 4.2 and above can detect this partial checksums and will mark them as such instead of marking them as invalid.
+
 If you are experiencing network problems and while trying to figure it out with Wireshark you found these checksum errors, you may have a network card with TCP checksum offload enabled and for some reason the packet is not being fixed by the adapter (NAT, bridge or route redirection is sending the packet to another interface). In this case, you may want to check and disable checksum offload for the adapter, if possible.
 
 ## Linux
@@ -56,6 +58,3 @@ Chimney offloading lets the NIC handle processing for established TCP connection
 
   - [KB 951037](http://support.microsoft.com/kb/951037), Information about the TCP Chimney Offload, Receive Side Scaling, and Network Direct Memory Access features in Windows Server 2008
 
----
-
-Imported from https://wiki.wireshark.org/CaptureSetup/Offloading on 2020-08-11 23:11:59 UTC
