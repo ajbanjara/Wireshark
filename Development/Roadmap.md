@@ -14,8 +14,6 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 Major enhancements and other changes which will appear in future releases can be tracked at the following locations:
 
-[Wireshark 4.2](https://gitlab.com/wireshark/wireshark/-/milestones/3)
-
 [Wireshark 5.x](https://gitlab.com/wireshark/wireshark/-/milestones/4)
 
 ## Backporting Changes
