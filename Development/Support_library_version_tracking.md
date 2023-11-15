@@ -156,7 +156,7 @@ See also https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-Li
 
 ## Python
 
-Python 3.6 or newer has become required since v3.7.1rc0-315-gdac75fba7f. The test suite currently does not depend on pytest, but can be used with it.
+Python 3.6 or newer has become required since v3.7.1rc0-315-gdac75fba7f. The test suite requires pytest and pytest-xdist.
 
 | Distro | package version |
 |--------|-----------------|
