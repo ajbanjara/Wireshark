@@ -12,19 +12,19 @@ Here follow some examples of outputs got with the main graphviz renderes:
 
 ### fdp
 
-[![attachment:fdp.png](uploads/__moin_import__/attachments/dario/graphviz/fdp.png "attachment:fdp.png")](uploads/__moin_import__/attachments/dario/graphviz/fdp.png "{{attachment:fdp.png||width=800}}")
+![fdp.png](/uploads/__moin_import__/attachments/dario/graphviz/fdp.png "fdp.png")
 
 ### dot
 
-[![attachment:dot.png](uploads/__moin_import__/attachments/dario/graphviz/dot.png "attachment:dot.png")](uploads/__moin_import__/attachments/dario/graphviz/dot.png "{{attachment:dot.png||width=800}}")
+![dot.png](/uploads/__moin_import__/attachments/dario/graphviz/dot.png "dot.png")
 
 ### circo
 
-[![attachment:circo.png](uploads/__moin_import__/attachments/dario/graphviz/circo.png "attachment:circo.png")](uploads/__moin_import__/attachments/dario/graphviz/circo.png "{{attachment:circo.png||width=800}}")
+![circo.png](/uploads/__moin_import__/attachments/dario/graphviz/circo.png "circo.png")
 
 ### neato
 
-[![attachment:neato.png](uploads/__moin_import__/attachments/dario/graphviz/neato.png "attachment:neato.png")](uploads/__moin_import__/attachments/dario/graphviz/neato.png "{{attachment:neato.png||width=800}}")
+![neato.png](/uploads/__moin_import__/attachments/dario/graphviz/neato.png "neato.png")
 
 ---
 
