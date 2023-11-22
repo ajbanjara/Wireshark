@@ -1829,6 +1829,11 @@ Dynamic Host Configuration Protocol - Failover
 
 - [dhcpfo.pcapng](uploads/31512202644437433637e62f32a116ad/dhcpfo.pcapng): Two Windows Server 2022 DHCP servers talking to each other with DHCPFO, while a DHCP client retrieves and releases its lease
 
+### COTP (ISO 8073)
+
+Connection Oriented Transfer Protocal
+
+[COTP_Example.pcapng](uploads/3ba97861901a699f604701a7d29ba76e/COTP_Example.pcapng):  Two computers exchanging messages using ISO 8073 packets on top of RFC 1006.
 
 ## Captures in specific file formats
 
