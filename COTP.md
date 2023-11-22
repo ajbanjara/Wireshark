@@ -17,8 +17,7 @@ This protocol has been replaced by [TCP](/TCP) in most applications. Application
   - [CLNP](/CLNP): COTP uses [CLNP](/CLNP) as its underlying network protocol.
 
 ## Example traffic
-
-XXX - Add example traffic here (as plain text or Wireshark screenshot).
+![COTP_Example](uploads/7b61724d04bde1665458087b94d330ff/COTP_Example.png)
 
 ## Wireshark
 
@@ -31,7 +30,7 @@ The COTP dissector is fully functional.
 
 ## Example capture file
 
-XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here. Keep it short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
+[COTP_Example.pcapng.gz](uploads/fce52472307ec7a4538651186f0b05ca/COTP_Example.pcapng.gz)
 
 S7comm uses COTP.  [S7comm captures](https://wiki.wireshark.org/SampleCaptures#s7comm-s7-communication)
 
