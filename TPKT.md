@@ -26,6 +26,8 @@ The TPKT dissector is fully functional.
 
 XXX - Add a simple example capture file to the [SampleCaptures](/SampleCaptures) page and link from here. Keep it short, it's also a good idea to gzip it to make it even smaller, as Wireshark can open gzipped files automatically.
 
+[COTP_Example.pcapng.gz](uploads/fce52472307ec7a4538651186f0b05ca/COTP_Example.pcapng.gz)
+
 ## Display Filter
 
 A complete list of TPKT display filter fields can be found in the [display filter reference](http://www.wireshark.org/docs/dfref/t/tpkt.html)
