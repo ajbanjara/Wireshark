@@ -1833,7 +1833,7 @@ Dynamic Host Configuration Protocol - Failover
 
 Connection Oriented Transfer Protocal
 
-[COTP_Example.pcapng](uploads/3ba97861901a699f604701a7d29ba76e/COTP_Example.pcapng):  Two computers exchanging messages using ISO 8073 packets on top of RFC 1006.
+[COTP_Example.pcapng.gz](uploads/fce52472307ec7a4538651186f0b05ca/COTP_Example.pcapng.gz):  Two computers exchanging messages using ISO 8073 packets on top of RFC 1006.
 
 ## Captures in specific file formats
 
