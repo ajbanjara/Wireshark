@@ -29,7 +29,7 @@ The RTP dissector is functional. There are detailed [RTP_statistics](/RTP_statis
 
 ## Example capture file
 
-A VoIP sample capture of a [H323](/H323) call (including [H225](/H225), [H245](/H245), [RTP](/RTP) and [RTCP](/RTCP)): [SampleCaptures/rtp_example.raw.gz](uploads/\__moin_import_\_/attachments/SampleCaptures/rtp_example.raw.gz)
+A VoIP sample capture of a [H323](/H323) call (including [H225](/H225), [H245](/H245), [RTP](/RTP) and [RTCP](/RTCP)): [SampleCaptures/rtp_example.raw.gz](uploads/__moin_import__/attachments/SampleCaptures/rtp_example.raw.gz)
 
 ## Display Filter
 
