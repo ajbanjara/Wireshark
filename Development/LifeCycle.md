@@ -68,7 +68,7 @@ In order to limit the development burden, support for a (old-)stable release is 
 | Version | Stable Release Date | End of Support               | Notes |
 |----|----|----|----|
 | 4.2     | November 15, 2023   | Release + 18 or more months | Support ends when 4.6.0 is released. Last release to support macOS 10.14.                                                                          |
-| 4.0     | October 4, 2022     | Release + 18 or more months | Support ends when 4.4.0 is released.                                                                           |
+| 4.0     | October 4, 2022     | Release + 18 or more months | Last release to support Windows 8.1. Support ends when 4.4.0 is released.                                                                           |
 | 3.6     | November 22, 2021   | May 22, 2024 | Long term support (LTS). Last release to support 32-bit Windows. Last release to support macOS 10.13. Last release to support Red Hat EL 7. Last release to support SUSE Linux ES 12. |
 | 3.4     | October 29, 2020    | September 7, 2022           | Last release to support macOS 10.12.                                                                          |
 | 3.2     | December 18, 2019   | November 22, 2021   | Last release to support Windows 7 and Windows Server 2008 R2. |
@@ -86,6 +86,8 @@ In order to limit the development burden, support for a (old-)stable release is 
 | 1.0     | March 31, 2008      | September 30, 2010          | Last release to support GTK+ 1.0.                                                                                                                    |
 
 ## Discussion
+
+[Support for Windows 8.1 ended on January 10, 2023](https://learn.microsoft.com/en-us/lifecycle/products/windows-81). Wireshark 4.0 is the last release that supports it.
 
 [Support for Windows 7 ended on January 14, 2020](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet). Wireshark 3.2 is the last release that supports it.
 
