@@ -1,5 +1,3 @@
-# Windows Packet Capture
-
 [Npcap](https://npcap.com) and [WinPcap](http://www.winpcap.org) are Windows versions of the [libpcap](http://www.tcpdump.org/) library. One of them must be installed in order to capture live network traffic on Windows. Npcap supports Windows 7 through Windows 11. WinPcap is for Windows 95 through Windows 8.
 
 The Wireshark installer from 3.0 onwards includes Npcap, where versions before included WinPcap.  
