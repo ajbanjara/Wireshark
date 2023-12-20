@@ -1,10 +1,12 @@
 # Platform-Specific information about capture privileges
 
+[[_TOC_]]
+
 You need to run Wireshark or TShark on an account with sufficient privileges to capture, or need to give the account on which you're running Wireshark or TShark sufficient privileges to capture. The way this is done differs from operating system to operating system.
 
 To be secure (at least in a way), it is recommended that even an administrator should always run in an account with (limited) user privileges, and only start processes that **really** need the administrator privileges. The [Security](/Security) page provides explanations why this is a good idea.
 
-[[_TOC_]] <span id="vm" class="anchor"></span>
+<span id="vm" class="anchor"></span>
 
 ## Virtual machine
 
