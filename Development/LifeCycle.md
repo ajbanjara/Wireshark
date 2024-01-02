@@ -16,7 +16,7 @@ The Stable and Old Stable release lifetimes conform to the following guidelines:
 
 Depending on the pacing of major releases and their lifetimes we might have an "Old Old Stable" branch in addition to the Stable and Old Stable ones.
 
-See [End of Life planning](/Development/LifeCycle#end-of-life-planning) for life cycle information specific to each release.
+See [End of Support planning](/Development/LifeCycle#end-of-support-planning) for support life cycle information specific to each release.
 
 A more detailed description can be found in the [Release Policy](/Development/ReleasePolicy).
 
@@ -61,9 +61,10 @@ Changes for older releases are listed in wiki pages:
 - [Development/Trunk-1.0](/Development/Trunk-1.0)
 - [Development/BetaReleases](/Development/BetaReleases)
 
-## End of Life planning
+## End of Support planning
 
-In order to limit the development burden, support for a (old-)stable release is eventually ended. This is the planning for abandoning old releases. A note is added why such release may still be relevant for you.
+Each major release is supported for a minimum of 18 months.
+Specific notes for each release can be found below.
 
 | Version | Stable Release Date | End of Support               | Notes |
 |----|----|----|----|
