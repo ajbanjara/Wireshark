@@ -4,7 +4,7 @@ WakeOnLAN is the protocol name given to the so-called Magic Packet technology, d
 
 ## History
 
-For a history of WakeOnLAN and Magic Packet technology, refer to either [this wikipedia article](http://en.wikipedia.org/wiki/Wake-on-LAN), or [read this AMD white paper](http://support.amd.com/TechDocs/20213.pdf).
+For a history of WakeOnLAN and Magic Packet technology, refer to either [this wikipedia article](http://en.wikipedia.org/wiki/Wake-on-LAN), or [read this AMD white paper](https://www.amd.com/content/dam/amd/en/documents/archived-tech-docs/white-papers/20213.pdf).
 
 ## Protocol dependencies
 
@@ -68,7 +68,7 @@ As WOL is currently implemented, you can use the following capture filter to be 
 
   - More information about WakeOnLAN can be found on [wikipedia](http://en.wikipedia.org/wiki/Wake-on-LAN).
 
-  - The [AMD white paper](http://support.amd.com/TechDocs/20213.pdf) is also an excellent source of information.
+  - The [AMD white paper](https://www.amd.com/content/dam/amd/en/documents/archived-tech-docs/white-papers/20213.pdf) is also an excellent source of information.
 
 ## Discussion
 
