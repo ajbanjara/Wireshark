@@ -267,14 +267,12 @@ Search for packages in openSUSE here: https://software.opensuse.org/search
 
 [Release EOL information](https://wiki.debian.org/LTS)
 
-| Distribution | GLIB version | Gtk2 version | Gtk3 version | Qt4 version | Qt5 version | Qt6 version |
-|--------------|--------------|--------------|--------------|-------------|-------------|-------------|
-| stretch | 2.50.3 | 2.24.31 | 3.22.11 | 4.8.7 | 5.7.1 | x |
-| buster | 2.58.3 | x | x | x | 5.11.3 | x |
-| bullseye | 2.66.8 | x | x | x | 5.15.2 | x |
-| bookworm (testing) | 2.70.2 | x | x | x | 5.15.2 | 6.2.4 |
-
-Since GTK+ and Qt4 are no longer supported, it is not being tracked anymore (x).
+| Distribution | GLIB version | Qt5 version | Qt6 version |
+|--------------|--------------|-------------|-------------|
+| buster | 2.58.3 | 5.11.3 | x |
+| bullseye | 2.66.8 | 5.15.2 | 6.4.2 (backports) |
+| bookworm | 2.74.6 | 5.15.8 | 6.4.2 |
+| trixie (testing) | 2.78.3 | 5.15.10 | 6.4.2 |
 
 ## Ubuntu
 
