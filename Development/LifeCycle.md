@@ -70,7 +70,7 @@ Specific notes for each release can be found below.
 |----|----|----|----|
 | 4.2     | November 15, 2023   | Release + 18 or more months | Support ends when 4.6.0 is released. Last release to support Windows 10. Last release to support macOS 10.14. |
 | 4.0     | October 4, 2022     | Release + 18 or more months | Last release to support Windows 8.1. Support ends when 4.4.0 is released.                                                                           |
-| 3.6     | November 22, 2021   | May 22, 2024 | Long term support (LTS). Last release to support 32-bit Windows. Last release to support macOS 10.13. Last release to support Red Hat EL 7. Last release to support SUSE Linux ES 12. |
+| 3.6     | November 22, 2021   | May 22, 2024 | Long term support (LTS). Last release to support 32-bit Windows. Last release to support macOS 10.13. Last release to support Red Hat EL 7. Last release to support SUSE Linux ES 12. Last release to support Ubuntu Bionic (18.04LTS) |
 | 3.4     | October 29, 2020    | September 7, 2022           | Last release to support macOS 10.12.                                                                          |
 | 3.2     | December 18, 2019   | November 22, 2021   | Last release to support Windows 7 and Windows Server 2008 R2. |
 | 3.0     | February 28, 2019   | October 29, 2020    | |
