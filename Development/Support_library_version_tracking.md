@@ -197,6 +197,27 @@ nghttp2 is required for complete HTTP/2 support. It also powers HTTP/2 support i
 
 The minimum version is 1.11.0 as of April 2022 (v3.7.0rc0-1902-g91987dc0ab), to eliminate the need for a deprecated function.
 
+## Libssh
+
+libssh (not to be confused with libssh2) is used by several of the extcaps.
+
+| Version | Date | Notes |
+|---------|------|-------|
+| 0.6.0 | Jan 2014 | Min. req. since Nov 2015 (v2.1.0rc0-635-gd6da95231e) |
+| 0.8.5 | Oct 2018 | Min. req. since Jan 2024 (v4.3.0rc0-1276-g49ada98a88) |
+| 0.8.7 | Feb 2019 | Debian Buster, OpenSUSE 15.2 |
+| 0.9.0 | Jun 2019 | AES-GCM, ECDSA/Ed25519 certs, DH Group Exchange KEX, etc. macOS releases since 3.2.0 |
+| 0.9.2 | Dec 2019 | Better package provided CMake config file |
+| 0.9.3 | Dec 2019 | Ubuntu Focal |
+| 0.9.5 | Sep 2020 | Windows releases since 3.6.0 |
+| 0.9.6 | Aug 2021 | Ubuntu Jammy, RHEL8, OpenSUSE 15.4, macOS releases since 4.0.0 |
+| 0.9.8 | Dec 2023 | Debian Bullseye |
+| 0.10.0 | Aug 2022 | SHA-1 and DSA disabled by default |
+| 0.10.4 | Sep 2022 | RHEL9
+| 0.10.5 | May 2023 | Windows and macOS releases since 4.2.0 |
+| 0.10.6 | Dec 2023 | Debian Bookworm |
+| 0.11.0 | June 2024 (est.) | Easier to add back algorithms, better logging |
+
 # Linux Distributions
 
 Note: [This site](http://rpms.famillecollet.com/rpmphp/) allows you to enter a package name and see which Red Hat-based distributions use what version of the package.
