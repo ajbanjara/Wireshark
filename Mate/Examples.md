@@ -43,7 +43,7 @@ This configuration allows to tie a complete passive ftp session (including the d
             Extract server_addr From ftp.passive.ip;
             Extract server_port From ftp.passive.port;
     
-            LastPdu;
+            LastPdu true;
     };
     
     Pdu ftp_data_pdu Proto ftp-data Transport tcp/ip{
@@ -52,11 +52,11 @@ This configuration allows to tie a complete passive ftp session (including the d
     
     };
     
-    Gop ftp_data On ftp_data_pdu (server_addr, server_port) {
+    Gop ftp_data On ftp_data_pdu Match (server_addr, server_port) {
             Start (server_addr);
     };
     
-    Gop ftp_ctl On ftp_pdu (ftp_addr, ftp_addr, ftp_port, ftp_port) {
+    Gop ftp_ctl On ftp_pdu Match (ftp_addr, ftp_addr, ftp_port, ftp_port) {
             Start (ftp_resp=220);
             Stop (ftp_resp=221);
             Extra (server_addr, server_port);
