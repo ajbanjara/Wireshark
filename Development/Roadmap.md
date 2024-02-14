@@ -6,12 +6,12 @@ This is a tentative roadmap for the next stable releases of Wireshark. For more 
 
 | **Release** | **Expected Date** | **Notes** |
 |-------------|-------------------|-----------|
-| 4.2.3 | February 14, 2024 | Next maintenance release of the 4.2 branch |
-| 4.0.13 | February 14, 2024 | Next maintenance release of the 4.0 branch |
-| 3.6.21 | February 14, 2024 | Next maintenance release of the 3.6 branch |
 | 4.2.4 | March 27, 2024 | Next maintenance release of the 4.2 branch |
 | 4.0.14 | March 27, 2024 | Next maintenance release of the 4.0 branch |
 | 3.6.22 | March 27, 2024 | Next maintenance release of the 3.6 branch |
+| 4.2.5 | May 8, 2024 | Next maintenance release of the 4.2 branch |
+| 4.0.15 | May 8, 2024 | Next maintenance release of the 4.0 branch |
+| 3.6.23 | May 8, 2024 | Next maintenance release of the 3.6 branch |
 
 ## Future Release Branches
 
