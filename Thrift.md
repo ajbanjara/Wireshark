@@ -15,10 +15,10 @@ Change log about Wireshark supporting Thrift:
 * Wireshark 2.0.0 - Initial support for Thrift Binary Protocol.
 * Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one.
 * Wireshark 3.7.1 - Support for uuid data type (Thrift 0.17.0 - https://issues.apache.org/jira/browse/THRIFT-5587)
-* Wireshark master - Support for expert info on exceptions in sub-dissectors.
+* Wireshark 4.2.0 - Support for expert info on exceptions in sub-dissectors.
+* Wireshark (Work-in-Progress) - Support for custom sub-dissectors for basic types.
 
-All the changes required to update a sub-dissector for newer versions of Wireshark can be found [at the end of this page](#sub-dissector-fast-upgrade).
-
+All the changes required to update an existing sub-dissector for newer versions of Wireshark can be found [at the end of this page](#sub-dissector-fast-upgrade).
 
 ## Protocol dependencies
 
@@ -107,15 +107,16 @@ void proto_reg_handoff_tcustom(void);
 #define NOT_AN_EXPECTED_PDU  (0)
 
 // Common helper definitions but not always needed (see containers and structures)
-#define TMUTF8 NULL, { .encoding = ENC_UTF_8 }
-#define TMRAW NULL, { .encoding = ENC_NA }
+// Warning: Remove the ", NULL" at the end if using Wireshark 4.2 or earlier!
+#define TMUTF8 NULL, { .encoding = ENC_UTF_8 }, NULL
+#define TMRAW NULL, { .encoding = ENC_NA }, NULL
 
-static int proto_tcustom = -1;
+static int proto_tcustom;
 
 // Here will go all hf id declarations
 //static int hf_tcustom_<where>_<what>
 
-static int ett_tcustom = -1;
+static int ett_tcustom;
 // Any "ett tree" addition (for containers and structures) will happen here first
 
 void
@@ -154,7 +155,7 @@ As an "Hello World!"-level example, consider the following Thrift definition:
 
 ```c
 service HelloWorld {
-  oneway void initialize(1: binary payload);
+  oneway void initialize(1: binary init_vector);
   oneway void registration(1: bool unregister, 2: string server_name, 3: i16 port);
   oneway void greetings(1: binary user_name_utf32le);
   oneway void good_bye();
@@ -233,6 +234,31 @@ After that, we can use the hf info using the matching `dissect_thrift_t_<type>` 
 * `field_id` is the number associated to the parameter in the IDL definition.
 * `hf_id` is the hf info matching the field we want to dissect.
 
+In order to improve the dissection even further, we can dissect the content of the `init_vector` we could define a delegated sub-dissector as a standard dissection function:
+
+```c
+static int
+dissect_tcustom_init_vector(tvbuff_t *tvb _U_, packet_info *pinfo _U_, proto_tree *tree _U_, void *data)
+{
+    thrift_option_data_t *thrift_opt = (thrift_option_data_t *)data;
+    // TODO: Write the dissector.
+    if (TRUE) {
+        // If for any reason we are unable to dissect it, let’s fallback to the basic dissection.
+        thrift_opt->use_std_dissector = TRUE;
+    }
+    return tvb_reported_length(tvb); // Consume the entire binary.
+}
+```
+
+Then, it can be setup using `dissect_thrift_t_raw_data` instead of `dissect_thrift_t_binary`:
+
+```c
+    // Give the basic type to ensure consistency and keep a fallback path with use_std_dissector = TRUE,
+    // then provide the dissection function.
+    offset = dissect_thrift_t_raw_data(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_initialize_init_vector, DE_THRIFT_T_BINARY, dissect_tcustom_init_vector);
+```
+
+
 For `registration(bool unregister, string server_name, i16 port)`, we define the 3 parameters:
 
 ```c
@@ -262,6 +288,34 @@ and we put the 3 successive calls in `dissect_tcustom_registration`:
     // When using string type in the .thrift definition, data is serialized as an UTF-8 string.
     offset = dissect_thrift_t_string(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 2, hf_tcustom_registration_server_name);
     offset = dissect_thrift_t_i16(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 3, hf_tcustom_registration_port);
+```
+
+Since Wireshark {Work-in-Progress}, we can clarify the `unregister` boolean value to avoid confusion.
+
+First, we define a `true_false_string` that we use to dissect the boolean value in a more explicit way using a custom dissection function, then we use the newly created function as a raw data dissector:
+
+```c
+#include <epan/tfs.h>
+// …
+static const true_false_string ptfs_unregister_register = { "Unregister", "Register" }; // TRUE = "Unregister"
+// …
+static int
+dissect_tcustom_register_unregister(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
+{   // Read the byte and use the true_false_string to display the proper signification.
+    guint8 value = tvb_get_guint8(tvb, 0);
+    proto_tree_add_boolean(tree, hf_tcustom_registration_unregister_tfs, tvb, 0, 1, value);
+    return 1;
+}
+// …
+    //offset = dissect_thrift_t_bool(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_registration_unregister);
+    offset = dissect_thrift_t_raw_data(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 1, hf_tcustom_registration_unregister, DE_THRIFT_T_BOOL, dissect_tcustom_register_unregister);
+// …
+        { &hf_tcustom_registration_unregister_tfs,
+            { "Unregister", "tcustom.registration.unregister", // and change hf_tcustom_registration_unregister for "tcustom.registration.unregister.basic" to avoid conflict.
+                FT_BOOLEAN, 8, TFS(&ptfs_unregister_register),
+                0x01, NULL, HFILL }
+        },
+// …
 ```
 
 For `greetings(binary user_name_utf32le)`, the content is just a binary from Thrift point of view but we happen to know that this is indeed an UTF-32 string encoded in little-endian (for some kind of historical reasons, this tends to happen in real-life projects) so we define it as a string:
@@ -395,7 +449,7 @@ If your dissector often uses strings and/or binaries, you can use the `TMUTF8` a
 The definition of the `thrift_member_t` for the inner element or key and value types closes the description of the content, then we need to describe the container itself.
 
 * Add the matching "ett tree":
-  * Add `static int ett_tcustom_set_keys_registry = -1;` next to the declaration of `ett_custom` (the _trunk_ of our tree).
+  * Add `static int ett_tcustom_set_keys_registry;` next to the declaration of `ett_custom` (the _trunk_ of our tree).
   * Add `ett_tcustom_set_keys_registry` in the initialization list in `proto_register_tcustom`.
 * Add the hf id definition which is straightforward:
 
@@ -448,15 +502,15 @@ As usual, we start with the definition of the leafs (exact definition left as an
 
 ```c
 // hf id for all leaf elements
-static int hf_tcustom_big_integer_small = -1;
-static int hf_tcustom_big_integer_efficient = -1;
-static int hf_tcustom_big_integer_inefficient_bit = -1; // For the elements of the list
-static int hf_tcustom_big_integer_inefficient = -1; // The list itself
-static int hf_tcustom_placement_position = -1;
-static int hf_tcustom_placement_occurrences = -1;
+static int hf_tcustom_big_integer_small;
+static int hf_tcustom_big_integer_efficient;
+static int hf_tcustom_big_integer_inefficient_bit; // For the elements of the list
+static int hf_tcustom_big_integer_inefficient; // The list itself
+static int hf_tcustom_placement_position;
+static int hf_tcustom_placement_occurrences;
 
 // ett tree for the list
-static int ett_tcustom_big_integer_inefficient = -1;
+static int ett_tcustom_big_integer_inefficient;
 
 // description of the list for deep dissection
 static const thrift_member_t tcustom_big_integer_inefficient = { &hf_tcustom_big_integer_inefficient_bit, 0, FALSE, DE_THRIFT_T_BOOL, TMFILL };
@@ -503,13 +557,15 @@ This time, we see the second and third fields of the `thrift_member_t` structure
 The last parameter (after the ett tree for the targetted element) also get more visible here (it can be used in container as well, depending on the type of elements):
 
 * Most of the time, it’s not used and `TMFILL` provides a default initialization.
-* For binary fields, we provide the expected encoding with `{ .encoding = ENC_SOMETHING }`.
+* The ending `, NULL` has been introduced in Wireshark {Work-in-Progress}, do not use it until Wireshark 4.2 included.
+* For binary fields, we provide the expected encoding with `{ .encoding = ENC_SOMETHING }, NULL`.
   * When a binary is just a binary object, we can use the `TMRAW` helper defined earlier.
   * When it is a standard UTF-8 string (as per Thrift specifications), we can use the `TMUTF8` helper.
-* For lists and set, we provide the pointer to the element description with `{ .element = &tcustom_<type_name>_<field_name> }`
-* For maps, we provide both the key and value descriptions with `{ .m.key = &tcustom_<type_name>_<field_name>_key, .m.value = &tcustom_<type_name>_<field_name>_value }`
-* For sub-structures, we provide the list of members with `{ .s.members = tcustom_<subtype_name>, .s.expert_info = NULL }`
+* For lists and set, we provide the pointer to the element description with `{ .element = &tcustom_<type_name>_<field_name> }, NULL`
+* For maps, we provide both the key and value descriptions with `{ .m.key = &tcustom_<type_name>_<field_name>_key, .m.value = &tcustom_<type_name>_<field_name>_value }, NULL`
+* For sub-structures, we provide the list of members with `{ .s.members = tcustom_<subtype_name>, .s.expert_info = NULL }, NULL`
   * For Wireshark 4.0 and before, it was just `{ .members = tcustom_<subtype_name> }`
+  * For Wireshark 4.2, it was `{ .s.members = tcustom_<subtype_name>, .s.expert_info = NULL }`
 * Finally, all structures and unions end with a `T_STOP` field when serialized, this is materialized in the description with the fixed content `{ NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }` which also marks the end of the array.
 
 At this point, we can now call the helper as usual:
@@ -540,7 +596,7 @@ And we can now replace the first call with:
 In a similar way, when used as a field for a structure or an element inside a container, the matching `thrift_member_t` definition would be:
 
 ```c
-    { DISABLE_SUBTREE, 1, TRUE, DE_THRIFT_T_STRUCT, DISABLE_SUBTREE, { .s.members = tcustom_big_integer, .s.expert_info = NULL } },
+    { DISABLE_SUBTREE, 1, TRUE, DE_THRIFT_T_STRUCT, DISABLE_SUBTREE, { .s.members = tcustom_big_integer, .s.expert_info = NULL }, NULL },
 ```
 
 Until Wireshark 4.0, use the following definition:
@@ -577,7 +633,7 @@ The complete way of defining this would use the following structure definition:
 static const thrift_member_t tcustom_data[] = {
     { &hf_tcustom_data_id, 1, TRUE, DE_THRIFT_T_I64, TMFILL },
     { &hf_tcustom_data_name, 2, TRUE, DE_THRIFT_T_BINARY, TMUTF8 },
-    { &hf_tcustom_data_content, 3, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_resource, { .s.members = tcustom_resource, .s.expert_info = NULL } }, // Adapt depending on Wireshark version.
+    { &hf_tcustom_data_content, 3, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_resource, { .s.members = tcustom_resource, .s.expert_info = NULL }, NULL }, // Adapt depending on Wireshark version.
     { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
 };
 ```
@@ -737,8 +793,8 @@ The structure definition would look like this for `binary ping(1: binary payload
 ```c
     static const thrift_member_t tcustom_ping_result[] = {
         { &hf_tcustom_ping_return, 0, TRUE, DE_THRIFT_T_BINARY, TMRAW }, // Omitted if return type is void
-        { &hf_tcustom_out_of_memory_exception, 1, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_out_of_memory_exception, { .members = tcustom_out_of_memory_exception, .s.expert_info = &ei_tcustom_out_of_memory_exception } },
-        //{ &hf_tcustom_some_other_exception, 2, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_some_other_exception, { .members = tcustom_some_other_exception, .s.expert_info = &ei_tcustom_some_other_exception } },
+        { &hf_tcustom_out_of_memory_exception, 1, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_out_of_memory_exception, { .members = tcustom_out_of_memory_exception, .s.expert_info = &ei_tcustom_out_of_memory_exception }, NULL },
+        //{ &hf_tcustom_some_other_exception, 2, TRUE, DE_THRIFT_T_STRUCT, &ett_tcustom_some_other_exception, { .members = tcustom_some_other_exception, .s.expert_info = &ei_tcustom_some_other_exception }, NULL },
         { NULL, 0, FALSE, DE_THRIFT_T_STOP, TMFILL }
     };
 
@@ -751,8 +807,8 @@ The structure definition would look like this for `binary ping(1: binary payload
 Provided `ei_tcustom_out_of_memory_exception` and `ei_tcustom_some_other_exception` have been defined as:
 
 ```c
-static expert_field ei_tcustom_out_of_memory_exception = EI_INIT;
-static expert_field ei_tcustom_some_other_exception = EI_INIT;
+static expert_field ei_tcustom_out_of_memory_exception;
+static expert_field ei_tcustom_some_other_exception;
 ```
 
 and registered with `expert_register_field_array()` in `proto_register_tcustom()` to be able to easily inform the user of the exception thrown.
@@ -935,6 +991,23 @@ This translates in the sub-dissector code with the following code:
     }
     return offset;
 ```
+
+#### Update for Wireshark 4.4
+
+:warning: This is a Work-in-Progress!
+
+* Remove the initialization of proto, header field, expert info and subtree variables.
+* Add the `, NULL` ending in `thrift_member_t` definition (Wireshark version still unconfirmed at time of writing).
+
+#### Handle the Span.flags enum flag using custom dissector
+
+:warning: This is a Work-in-Progress!
+
+While the Thrift protocol does not support enum flags, Wireshark is perfectly able to handle this kind of bitset.
+
+For this, we create a `dissect_jaeger_tracing_Span_flags` standard dissection function that will handle the value.
+
+Despite the use of Thrift Compact Protocol for Jaeger, the `tvbuff_t` received is the fully expanded 4-bytes big-endian value to simplify the writing of the function and to be able to write a single dissector that works with both Thrift Compact Protocol and Thrift Binary Protocol.
 
 ### Example 2: [Armeria Maritima](https://en.wikipedia.org/wiki/Armeria_maritima)
 
@@ -1347,18 +1420,29 @@ In order to facilitate upgrade of the Thrift-based sub-dissectors, this section 
 This page was initially written for Wireshark 3.6 and there was an important rework of the Thrift dissector.
 
 Given the amount of changes, the existing sub-dissectors should probably be rewritten using this documentation:
-* Signature changes: different set of parameters, rename `byte` to `i8`, fix some typo.
+* Signature changes: different set of parameters, rename `byte` to `i8`, fix some typos.
 * Removal of some functions: unsigned 64-bit integers are not part of the Thrift specification.
 * Add new capabilities.
 
 ### Upgrade from 3.6 to 3.8
 
 * No change required in existing sub-dissectors.
-* New basic type available for use with the same principles.
+* New basic type `uuid` available for use with the same principles.
 
-### Upgrade from 4.0 to master (2023-09-03)
+### Upgrade from 4.0 to 4.2
 
 * Replace all occurrences of `{ .members = array_of_thrift_member_t_definition }` with `{ .s.members = array_of_thrift_member_t_definition, .s.expert_info = NULL }`
   * The `members` field is replaced with the sub-structure `s` containing the fields `members` and `expert_info`.
 * When the defined structure is an exception, setting the `expert_info` field to a pointer to an `expert_field` will instruct the generic Thrift dissector to associate it with the dissected structure (or rather the exception).
   * This allows you to replace the `switch` described in [Functions with a reply](#functions-with-a-reply) with the simpler structure/union definition for the return type with all the possible exceptions as described in [Hijacking structure dissection feature](#tools-hijacking-structure-dissection-feature-paperclips)
+
+### Upgrade from 4.2 to {Work-in-Progress}
+
+* Remove initialization of proto variables following commit 2a9bc63325c99653c5da873c273430add3b5e9dd (not specific to Thrift).
+  * Remove init of proto, header field, expert info and subtree variables.
+  * Conversion can be done using the `tools/convert-proto-init.py` script.
+* Add `, NULL` at the end of every `thrift_member_t` definition (already included in `TMFILL`, update `TMRAW` and/or `TMUTF8` if defined).
+* The additional parameter is a `dissector_t` function pointer that can be used to write a custom dissector for a particular field as described in several places.
+  * [Basic types](#basic-types) for the `init_vector` binary parameter of the `initialize` function in TCustom protocol.
+  * [Basic types](#basic-types) as well for the `unregister` boolean parameter of the `registration` function in TCustom protocol.
+  * [Handle the Span.flags enum flag using custom dissector](#handle-the-span-flags-enum-flag-using-custom-dissector) in the Jaeger protocol example.
