@@ -16,7 +16,7 @@ Change log about Wireshark supporting Thrift:
 * Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one.
 * Wireshark 3.7.1 - Support for uuid data type (Thrift 0.17.0 - https://issues.apache.org/jira/browse/THRIFT-5587)
 * Wireshark 4.2.0 - Support for expert info on exceptions in sub-dissectors.
-* Wireshark (Work-in-Progress) - Support for custom sub-dissectors for basic types.
+* Wireshark {Work-in-Progress} - Support for custom sub-dissectors for basic types.
 
 All the changes required to update an existing sub-dissector for newer versions of Wireshark can be found [at the end of this page](#sub-dissector-fast-upgrade).
 
@@ -32,7 +32,6 @@ In this case, one can set the known port number in the Thrift dissector preferen
 
 The Thrift dissector allows for some customization of the user experience whether a subdissector is used or not.
 ![preferences](uploads/9e10fa27ecd0daf52da179151b2e0891/preferences.png)
-
 
 _Display binary as bytes or strings_: As the generic Thrift dissector as bundled in vanilla Wireshark does not know if the `T_BINARY` fields are binary blobs or strings (and in this case, which encoding), this settings allows the user to choose the encoding that Wireshark must use for _all_ `T_BINARY` fields.
 
@@ -87,6 +86,16 @@ Please note that in this case, the Thrift dissector is trying very hard to find 
 With Thrift protocols being self-described, it’s relatively easy to analyze Thrift PDU with Wireshark on one screen and the documentation of your protocol on the other but it can get bothersome when your protocol contains a lot of different types and deep sub-structures.
 
 Writing a Thrift-based sub-dissector removes the need for the documentation of your Thrift-based protocol and makes the search for a specific PDU easier in a huge capture.
+
+### Automatically generated dissector code
+
+Thanks to [Kalied](https://gitlab.com/EnigmaTriton/kalied), it is now possible to generate the code for your Thrift-based protocol automatically from your `.thrift` files.
+
+Kalied supports generating code matching any Wireshark version between 3.6 and {Work-in-Progress} to facilitate development.
+
+It has been successfully tested with all the examples below and some internal protocol with more than a hundred commands without any issue.
+
+Since it is often suitable to customize the dissection even further, I would recommend to use the generated code as a basis upon which a patch is applied with the customization. Kalied way of generating ensures enough consistency in the code generation to facilitate the maintenance of the patch when new commands or structures are added (it is used in this way internally).
 
 ### Generic usage
 
