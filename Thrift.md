@@ -1457,4 +1457,4 @@ The following elements depend on the merge of !14460:
 * The additional parameter is a `dissector_t` function pointer that can be used to write a custom dissector for a particular field as described in several places.
   * [Basic types](#basic-types) for the `init_vector` binary parameter of the `initialize` function in TCustom protocol.
   * [Basic types](#basic-types) as well for the `unregister` boolean parameter of the `registration` function in TCustom protocol.
-  * [Handle the Span.flags enum flag using custom dissector](#handle-the-span-flags-enum-flag-using-custom-dissector) in the Jaeger protocol example.
+  * [Handle the Span.flags enum flag using custom dissector](#handle-the-spanflags-enum-flag-using-custom-dissector) in the Jaeger protocol example.
