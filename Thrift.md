@@ -1451,7 +1451,7 @@ Given the amount of changes, the existing sub-dissectors should probably be rewr
   * Remove init of proto, header field, expert info and subtree variables.
   * Conversion can be done using the `tools/convert-proto-init.py` script.
 
-The following elements depend of the merge of !14460:
+The following elements depend on the merge of !14460:
 
 * Add `, NULL` at the end of every `thrift_member_t` definition (already included in `TMFILL`, update `TMRAW` and/or `TMUTF8` if defined).
 * The additional parameter is a `dissector_t` function pointer that can be used to write a custom dissector for a particular field as described in several places.
