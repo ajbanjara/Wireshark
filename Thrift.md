@@ -16,7 +16,7 @@ Change log about Wireshark supporting Thrift:
 * Wireshark 3.5.0 - Full support for Thrift Binary and Compact protocols as well as C sub-dissectors based on the generic one.
 * Wireshark 3.7.1 - Support for uuid data type (Thrift 0.17.0 - https://issues.apache.org/jira/browse/THRIFT-5587)
 * Wireshark 4.2.0 - Support for expert info on exceptions in sub-dissectors.
-* Wireshark {Work-in-Progress} - Support for custom sub-dissectors for basic types.
+* Wireshark 4.3.0 - Support for custom sub-dissectors for basic types.
 
 All the changes required to update an existing sub-dissector for newer versions of Wireshark can be found [at the end of this page](#sub-dissector-fast-upgrade).
 
@@ -91,7 +91,7 @@ Writing a Thrift-based sub-dissector removes the need for the documentation of y
 
 Thanks to [Kalied](https://gitlab.com/EnigmaTriton/kalied), it is now possible to generate the code for your Thrift-based protocol automatically from your `.thrift` files.
 
-Kalied supports generating code matching any Wireshark version between 3.6 and {Work-in-Progress} to facilitate development.
+Kalied supports generating code matching any Wireshark version between 3.6 and 4.4 to facilitate development.
 
 It has been successfully tested with all the examples below and some internal protocol with more than a hundred commands without any issue.
 
@@ -299,7 +299,7 @@ and we put the 3 successive calls in `dissect_tcustom_registration`:
     offset = dissect_thrift_t_i16(tvb, pinfo, tcustom_tree, offset, thrift_opt, TRUE, 3, hf_tcustom_registration_port);
 ```
 
-Since Wireshark {Work-in-Progress}, we can clarify the `unregister` boolean value to avoid confusion.
+Since Wireshark 4.4, we can clarify the `unregister` boolean value to avoid confusion.
 
 First, we define a `true_false_string` that we use to dissect the boolean value in a more explicit way using a custom dissection function, then we use the newly created function as a raw data dissector:
 
@@ -566,7 +566,7 @@ This time, we see the second and third fields of the `thrift_member_t` structure
 The last parameter (after the ett tree for the targetted element) also get more visible here (it can be used in container as well, depending on the type of elements):
 
 * Most of the time, it’s not used and `TMFILL` provides a default initialization.
-* The ending `, NULL` has been introduced in Wireshark {Work-in-Progress}, do not use it until Wireshark 4.2 included.
+* The ending `, NULL` has been introduced in Wireshark 4.4, do not use it until Wireshark 4.2 included.
 * For binary fields, we provide the expected encoding with `{ .encoding = ENC_SOMETHING }, NULL`.
   * When a binary is just a binary object, we can use the `TMRAW` helper defined earlier.
   * When it is a standard UTF-8 string (as per Thrift specifications), we can use the `TMUTF8` helper.
@@ -1003,14 +1003,10 @@ This translates in the sub-dissector code with the following code:
 
 #### Update for Wireshark 4.4
 
-:warning: This is a Work-in-Progress!
-
 * Remove the initialization of proto, header field, expert info and subtree variables.
 * Add the `, NULL` ending in `thrift_member_t` definition (Wireshark version still unconfirmed at time of writing).
 
 #### Handle the Span.flags enum flag using custom dissector
-
-:warning: This is a Work-in-Progress!
 
 While the Thrift protocol does not support enum flags, Wireshark is perfectly able to handle this kind of bitset.
 
@@ -1445,14 +1441,11 @@ Given the amount of changes, the existing sub-dissectors should probably be rewr
 * When the defined structure is an exception, setting the `expert_info` field to a pointer to an `expert_field` will instruct the generic Thrift dissector to associate it with the dissected structure (or rather the exception).
   * This allows you to replace the `switch` described in [Functions with a reply](#functions-with-a-reply) with the simpler structure/union definition for the return type with all the possible exceptions as described in [Hijacking structure dissection feature](#tools-hijacking-structure-dissection-feature-paperclips)
 
-### Upgrade from 4.2 to {Work-in-Progress}
+### Upgrade from 4.2 to 4.4
 
 * Remove initialization of proto variables following commit 2a9bc63325c99653c5da873c273430add3b5e9dd (not specific to Thrift).
   * Remove init of proto, header field, expert info and subtree variables.
   * Conversion can be done using the `tools/convert-proto-init.py` script.
-
-The following elements depend on the merge of !14460:
-
 * Add `, NULL` at the end of every `thrift_member_t` definition (already included in `TMFILL`, update `TMRAW` and/or `TMUTF8` if defined).
 * The additional parameter is a `dissector_t` function pointer that can be used to write a custom dissector for a particular field as described in several places.
   * [Basic types](#basic-types) for the `init_vector` binary parameter of the `initialize` function in TCustom protocol.
