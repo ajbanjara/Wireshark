@@ -1451,3 +1451,7 @@ Given the amount of changes, the existing sub-dissectors should probably be rewr
   * [Basic types](#basic-types) for the `init_vector` binary parameter of the `initialize` function in TCustom protocol.
   * [Basic types](#basic-types) as well for the `unregister` boolean parameter of the `registration` function in TCustom protocol.
   * [Handle the Span.flags enum flag using custom dissector](#handle-the-spanflags-enum-flag-using-custom-dissector) in the Jaeger protocol example.
+  * :warning: Handling of all types is aligned with the TBinaryProtocol format, which implies tranformations of TCompactProtocol types:
+    * Booleans must be handled considering only the least significant bit of the given byte.
+    * Varints are expanded to their expected length in big endian encoding.
+    * Doubles are re-encoded to big endian.
