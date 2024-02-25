@@ -1003,8 +1003,20 @@ This translates in the sub-dissector code with the following code:
 
 #### Update for Wireshark 4.4
 
+Between Wireshark 3.6 and 4.4, several requirements have changed as described in [Sub-dissector fast upgrade](#sub-dissector-fast-upgrade) and we need to apply these changes before we can use the new features:
 * Remove the initialization of proto, header field, expert info and subtree variables.
-* Add the `, NULL` ending in `thrift_member_t` definition (Wireshark version still unconfirmed at time of writing).
+* Add the `, NULL` ending in `thrift_member_t` definition.
+
+However, the introduction of [Kalied](https://gitlab.com/EnigmaTriton/kalied) can reduce the burden of maintenance by generating most of the dissector so we use it to generate a new `packet-jaeger.c`:
+
+```sh
+./kalied -b --prefix-method --namespace --filter return --name Jaeger '-aTriton Circonflexe' --email=triton[at]kumal.info -o ../packet-jaeger.c ../captures/idl/jaeger/agent.thrift
+```
+
+Comparing with the previous revision, we backport a few useful elements:
+
+* Some comments and textual display names for readability (with a few improvements in the process).
+* The enum transformation of `jaeger.tracing.Span.flags`
 
 #### Handle the Span.flags enum flag using custom dissector
 
@@ -1013,6 +1025,8 @@ While the Thrift protocol does not support enum flags, Wireshark is perfectly ab
 For this, we create a `dissect_jaeger_tracing_Span_flags` standard dissection function that will handle the value.
 
 Despite the use of Thrift Compact Protocol for Jaeger, the `tvbuff_t` received is the fully expanded 4-bytes big-endian value to simplify the writing of the function and to be able to write a single dissector that works with both Thrift Compact Protocol and Thrift Binary Protocol.
+
+Until new flags are added, the enum transformation is kept as a fast way of seeing the result while getting the option to filter easily on the value of a particular flag.
 
 ### Example 2: [Armeria Maritima](https://en.wikipedia.org/wiki/Armeria_maritima)
 
