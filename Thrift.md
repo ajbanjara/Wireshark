@@ -1430,6 +1430,12 @@ Last point concerns the clean-up commits we have at the end of both examples, th
 
 Done right, this could avoid generation of entire `thrift_member_t` arrays if the protocol happen to still contain the definition for structures that are no longer used and therefore limit the memory usage.
 
+### Known sub-dissector generators
+
+* [Kalied](https://gitlab.com/EnigmaTriton/kalied)
+
+If one day the list contains more than 1 element, it would be interesting to create a table to compare available features.
+
 ## Sub-dissector fast upgrade
 
 In order to facilitate upgrade of the Thrift-based sub-dissectors, this section describes the code changes required in the sub-dissectors in order to compile it against newer branch of Wireshark.
