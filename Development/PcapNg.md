@@ -22,9 +22,9 @@ Some more recent example files:
 
   - [dhcp.pcapng](uploads/__moin_import__/attachments/Development/PcapNg/dhcp.pcapng) (SHB, IDB, 4 \* EPB)
 
-  - [dhcp\_little\_endian.pcapng](uploads/__moin_import__/attachments/Development/PcapNg/dhcp_little_endian.pcapng) (SHB, IDB, NRB, 4 \* EPB; encoded in little-endian format)
+  - [dhcp_little_endian.pcapng](uploads/02e9c71c4512bf63f4577a3487f92a62/dhcp_little_endian.pcapng) (SHB, IDB, NRB, 4 \* EPB; encoded in little-endian format)
 
-  - [dhcp\_big\_endian.pcapng](uploads/__moin_import__/attachments/Development/PcapNg/dhcp_big_endian.pcapng) (SHB, IDB, NRB, 4 \* EPB; encoded in big-endian format)
+  - [dhcp_big_endian.pcapng](uploads/5ac2c7d3ac1755064bcee3a93198bcf4/dhcp_big_endian.pcapng) (SHB, IDB, NRB, 4 \* EPB; encoded in big-endian format)
 
   - [many\_interfaces.pcapng](uploads/__moin_import__/attachments/Development/PcapNg/many_interfaces.pcapng) (SHB, 11 \* IDB, NRB, 11 \* ISB, 64 \* EPB)
 
