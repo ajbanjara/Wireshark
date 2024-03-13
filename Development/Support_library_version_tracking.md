@@ -168,7 +168,7 @@ On older systems, you can install it via: `pip3 install pytest pytest-xdist`
 
 ## Lua
 
-Lua 5.1 and 5.2 are the only supported versions since Wireshark 3.0. Lua 5.3 is not supported due to the bitop library ([Bug 10881](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=10881)). LuaJIT was being considered for 3.1 ([Bug 15745](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15745)) and is API/ABI compatible with Lua 5.1 and supports many new 5.2 library functions since LuaJIT 2.0.0-beta11 (2012-10-16). However since LuaJIT upstream appeared inactive in 2019, it was decided not to merge the [LuaJIT patch](https://code.wireshark.org/review/33047).
+Lua 5.1 and 5.2 have been the only supported versions due to the bitop library ([Bug 10881](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=10881)). LuaJIT was being considered for 3.1 ([Bug 15745](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15745)) and is API/ABI compatible with Lua 5.1 and supports many new 5.2 library functions since LuaJIT 2.0.0-beta11 (2012-10-16). However since LuaJIT upstream appeared inactive in 2019, it was decided not to merge the [LuaJIT patch](https://code.wireshark.org/review/33047). Support for Lua 5.3 and Lua 5.4 was in the Wireshark 4.4 development cycle, and should be stable enough to be fully supported for 4.4.0
 
 | Platform | LuaJIT | Lua 5.1 | Lua 5.2 | Lua 5.3 |
 |----------|--------|---------|---------|---------|
