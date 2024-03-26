@@ -937,6 +937,8 @@ Usb packets exchanged while unpluggin and replugging a mouse: [mouse_replug2.pca
 
 [D-Link Ethernet Switch Smart Console Utility LLDP](uploads/__moin_import__/attachments/SampleCaptures/D-Link-Ethernet-Switch-Smart-Console-Utility-LLDP) (libpcap) D-Link LLDP [SmartConsole](/SmartConsole) Utility.
 
+[lldp-shutdown-pdu.pcapng.gz](uploads/09c7a71f677512671fb39343f9eba69e/lldp-shutdown-pdu.pcapng.gz) (libpcap) LLDP capture in GNS3 between two SONiC devices while configuring `no lldp enable` on an interface.
+
 ### SAN Protocol Captures (iSCSI, ATAoverEthernet, FibreChannel, SCSI-OSD and other SAN related protocols)
 
 [iscsi-scsi-data-cdrom.zip](uploads/__moin_import__/attachments/SampleCaptures/iscsi-scsi-data-cdrom.zip) contains a complete log of iSCSI traffic between MS iSCSI Initiator and Linux iSCSI Enterprise Target with a real SCSI CD-ROM exported. The CD-ROM has a Fedora Core 3 installation CD in it.
