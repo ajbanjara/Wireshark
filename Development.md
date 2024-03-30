@@ -34,6 +34,8 @@ Now it's time to tweak the code:
 
   - [Translations](/Development/Translations): Why it's not a good idea to translate Wireshark into spanish/german/... language
 
+  - [Contributions](/Contrib): User-created scripts, macros, colouring rules and other useful plugins
+
 ## Development
 
 ### General
