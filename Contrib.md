@@ -172,7 +172,7 @@ None yet.
 <td><p><a href="https://github.com/th-duvanel/spdm-wid" class="https" rel="nofollow">SPDMwid.lua</a></p></td>
 <td><p>2024-03-30</p></td>
 <td><p>4.2.2</p></td>
-<td><p>This plugin dissects packets for Security Protocol Data Model (<a href="https://github.com/DMTF/libspdm" class="https" rel="nofollow">SPDM</a>), from DMTF. It has support por 1.0.0 and 1.1.0 version documentation. You can find a example packet exporter in the repository.</p></td>
+<td><p>This plugin dissects packets for Security Protocol Data Model (<a href="https://github.com/DMTF/libspdm" class="https" rel="nofollow">SPDM</a>), from DMTF. It has support for 1.0.0 and 1.1.0 version documentation. You can find a example packet exporter in the repository.</p></td>
 <td><p>none</p></td>
 </tr>
 
